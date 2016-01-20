@@ -22,7 +22,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
-    // Dispose of any resources that can be recreated. changed
+    // Dispose of any resources that can be recreated. changed jm
 }
 
 @end
