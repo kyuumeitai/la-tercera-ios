@@ -20,12 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NSDictionary *diccionario = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerCategorias" post:@"curl -X POST -d """];
-    NSLog(@"EL diccionario es:%@",diccionario );
-
-    for(NSString *key in [diccionario allKeys]) {
-        NSLog(@"%@",[diccionario objectForKey:key]);
-    }
 
 }
 
@@ -181,37 +175,6 @@
  *  @return NSDictionary *      a dictionary containing the response, error, and data
  */
 
-- (NSDictionary *)httpPostRequestWithUrl:(NSString *)url post:(NSString *)post
-{
-    NSData *postData     = [post dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *postLength = [NSString stringWithFormat:@"%d", (int)[postData length]];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:url]];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:postData];
-    [request setTimeoutInterval:30]; // set timeout for 30 seconds
-    
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-    NSHTTPURLResponse   *response = nil;
-    NSError         *error = nil;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    
-    NSMutableDictionary *rc = [[NSMutableDictionary alloc] init];
-    if ( response )
-        [rc setObject:response forKey:@"response"];
-    if ( error )
-        [rc setObject:error forKey:@"error"];
-    if ( data )
-        [rc setObject:data forKey:@"data"];
-    
-    return (NSDictionary *)rc;
-}
 
 - (void)accountDidLogout {
     self.user = nil;
