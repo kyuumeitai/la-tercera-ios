@@ -26,7 +26,10 @@
     [Gigya setAccountsDelegate:self];
     NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerCategorias" post:@""];
     NSError *e = nil;
-  
+    if (jsonData == nil){
+        NSLog(@"sin acceso a la red del Club La Tercera");
+    }else{
+
     NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
     
        //NSLog(@"EL dictionary es:%@", responseDict);
@@ -59,9 +62,73 @@
         }
     }
  
+   // [self obtenerBeneficios];
+   // [self obtenerComercios];
+   // [self obtenerSucursales];
+   // [self obtenerListaDeEventos];
+   // [self obtenerConcursos];
+        
+    }
+    
    
     return YES;
 }
+
+- (void)obtenerBeneficios{
+    
+    NSString *post = @"idComercio=53";
+    NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerBeneficios" post:post];
+    NSError *e = nil;
+    
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+    
+    NSLog(@"EL dictionary es:%@", responseDict);
+}
+
+- (void)obtenerComercios{
+    
+    //NSString *post = @"idComercio=53";
+    NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerComercios" post:@"nil"];
+    NSError *e = nil;
+    
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+    
+    NSLog(@"Los comercios son:%@", responseDict);
+}
+
+- (void)obtenerSucursales   {
+    
+    //NSString *post = @"idComercio=53";
+    NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerSucursales" post:@"nil"];
+    NSError *e = nil;
+    
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+    
+    NSLog(@"Las sucursales son:%@", responseDict);
+}
+
+- (void)obtenerListaDeEventos   {
+    
+    //NSString *post = @"idComercio=53";
+    NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerEventos" post:@"nil"];
+    NSError *e = nil;
+    
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+    
+    NSLog(@"Los eventos son:%@", responseDict);
+}
+
+- (void)obtenerConcursos  {
+    
+    //NSString *post = @"idComercio=53";
+    NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerConcursos" post:@"nil"];
+    NSError *e = nil;
+    
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+    
+    NSLog(@"Los eventos son:%@", responseDict);
+}
+
 
 - (void)accountDidLogin:(GSAccount *)account {
     
@@ -118,7 +185,7 @@
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    //[request setHTTPBody:postData];
+    [request setHTTPBody:postData];
     [request setTimeoutInterval:30]; // set timeout for 30 seconds
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
