@@ -24,13 +24,42 @@
     [Gigya initWithAPIKey:@"3_AG8H3fpJ5N0PHDj7yq7jEA3XNR6fXV0iPnyuxz-sZpYKHmKk9jmjsv_0hlNUFl4q" application:application launchOptions:launchOptions];
     
     [Gigya setAccountsDelegate:self];
-    NSDictionary *diccionario = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerCategorias" post:@""];
-    NSLog(@"EL diccionario es:%@",diccionario );
+    NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerCategorias" post:@""];
+    NSError *e = nil;
+  
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
     
-    for(NSString *key in [diccionario allKeys]) {
-        NSLog(@"%@",[diccionario objectForKey:key]);
-    }
+       //NSLog(@"EL dictionary es:%@", responseDict);
+    
+    //NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &e];
+    
+    if (!responseDict) {
+        NSLog(@"Error parsing JSON: %@", e);
+    } else {
+        
+        if ([[responseDict objectForKey:@"respuesta"]  isEqual: @"1"]) {
+            NSLog(@"La respuesta es uno");
+            //NSLog(@"Mensaje: %@", [responseDict objectForKey:@"mensaje"]);
+           // NSLog(@"Categorias: %@", [jsonDictionary objectForKey:@"categorias"]);
+            
+        }
+        // NSLog(@"Dict Categorias : %@", [responseDict objectForKey:@"categorias"]);
+        NSArray *arrayCategorias = (NSArray*)[responseDict objectForKey:@"categorias"];
+        //NSLog(@"Categorias 0: %@", [arrayCategorias objectAtIndex:0]);
 
+        NSLog(@"    ------------ CATEGORIAS ------------");
+        for (NSDictionary* objeto in arrayCategorias) {
+            NSLog(@"        Categoría: %@. IdCategoria:%@", [objeto objectForKey:@"titulo"], [objeto objectForKey:@"id"]);
+            NSLog(@"    --------------------------------------");
+            NSArray *arraySubCategorias = (NSArray*)[objeto objectForKey:@"subcategorias"];
+            for (NSDictionary* subObjeto in arraySubCategorias) {
+                NSLog(@"            Subcategoría: %@. IdCategoria:%@", [subObjeto objectForKey:@"titulo"], [subObjeto objectForKey:@"id"]);
+            }
+            NSLog(@"    --------------------------------------");
+        }
+    }
+ 
+   
     return YES;
 }
 
@@ -79,7 +108,7 @@
     return [Gigya handleOpenURL:url application:application sourceApplication:sourceApplication annotation:annotation];
 }
 
-- (NSDictionary *)httpPostRequestWithUrl:(NSString *)url post:(NSString *)post
+- (NSData*)httpPostRequestWithUrl:(NSString *)url post:(NSString *)post
 {
     NSData *postData     = [post dataUsingEncoding:NSUTF8StringEncoding];
     NSString *postLength = [NSString stringWithFormat:@"%d", (int)[postData length]];
@@ -108,7 +137,8 @@
     if ( data )
         [rc setObject:data forKey:@"data"];
     
-    return (NSDictionary *)rc;
+    //return (NSDictionary *)rc;
+    return data;
 }
 
 
