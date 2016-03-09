@@ -64,9 +64,13 @@
  
    // [self obtenerBeneficios];
    // [self obtenerComercios];
-   // [self obtenerSucursales];
+   // [self obtenerSucursales]; //Necesitamos el idComercio
    // [self obtenerListaDeEventos];
    // [self obtenerConcursos];
+        
+   // [self registrarConsumoDelBeneficio:27 idSucursal:1 mailUsuario:@"mail@mail.cl" monto:2500];// el mail de usuario de ejemplo no funciona
+   // [self obtenerTarjetaVirtualDelUsuario:@"mail@mail.cl"];//no acepta el input post
+    
         
     }
     
@@ -126,8 +130,39 @@
     
     NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
     
-    NSLog(@"Los eventos son:%@", responseDict);
+    NSLog(@"Los concursos son:%@", responseDict);
 }
+
+- (void)registrarConsumoDelBeneficio:(int)idBeneficio idSucursal:(int)idSucursal mailUsuario:(NSString*)mailUsuario monto:(int)monto  {
+    
+    NSString *post = [NSString stringWithFormat:@"idBeneficio=%i&idSucursal=%i&mailUsuario=%@&monto=%i",idBeneficio,idSucursal,mailUsuario,monto];
+    NSLog(@"El post es: %@",post);
+    NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/registrarConsumoBeneficio" post:post];
+    NSError *e = nil;
+    
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+    
+    NSLog(@"Registro del consumo:%@", responseDict);
+}
+
+- (void)obtenerTarjetaVirtualDelUsuario:(NSString*)mailUsuario   {
+    
+    NSString *post = [NSString stringWithFormat:@"mailUsuario=%@",mailUsuario];
+    NSLog(@"El post es: %@",post);
+    NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerTarjetaVirtual" post:post];
+    NSError *e = nil;
+    
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+    
+    NSLog(@"Tarjeta Virtual:%@", responseDict);
+}
+
+
+
+
+
+
+//-------------------------------------------------------------------
 
 
 - (void)accountDidLogin:(GSAccount *)account {
