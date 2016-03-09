@@ -68,9 +68,12 @@
    // [self obtenerListaDeEventos];
    // [self obtenerConcursos];
         
-   // [self registrarConsumoDelBeneficio:27 idSucursal:1 mailUsuario:@"mail@mail.cl" monto:2500];// el mail de usuario de ejemplo no funciona
-   // [self obtenerTarjetaVirtualDelUsuario:@"mail@mail.cl"];//no acepta el input post
-    
+   // [self registrarConsumoDelBeneficio:27 idSucursal:1 mailUsuario:@"mail@mail.cl" monto:2500];//no acepta el input post del emailUsuario
+   // [self obtenerTarjetaVirtualDelUsuario:@"mail@mail.cl"];//no acepta el input post del emailUsuario
+   // [self obtenerHistorialDelUsuario:@"mail@asicom.cl"];//no acepta el input post del emailUsuario
+
+    [self registrarParticipacionDelConcurso:1 nombres:@"Nombres" apellidos:@"Apellidos" rutUsuario:111111111 fechaNacimiento:@"2014-01-01" emailContacto:@"email@email.cl" fonoContacto:55555555 actividad:@"Actividad" comuna:@"Comuna" emailUsuario:@"email@asicom.cl"];//no acepta el input post del emailUsuario
+
         
     }
     
@@ -136,7 +139,7 @@
 - (void)registrarConsumoDelBeneficio:(int)idBeneficio idSucursal:(int)idSucursal mailUsuario:(NSString*)mailUsuario monto:(int)monto  {
     
     NSString *post = [NSString stringWithFormat:@"idBeneficio=%i&idSucursal=%i&mailUsuario=%@&monto=%i",idBeneficio,idSucursal,mailUsuario,monto];
-    NSLog(@"El post es: %@",post);
+    NSLog(@"El input post es: %@",post);
     NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/registrarConsumoBeneficio" post:post];
     NSError *e = nil;
     
@@ -157,8 +160,33 @@
     NSLog(@"Tarjeta Virtual:%@", responseDict);
 }
 
+- (void)obtenerHistorialDelUsuario:(NSString*)mailUsuario   {
+    
+    NSString *post = [NSString stringWithFormat:@"mailUsuario=%@",mailUsuario];
+    NSLog(@"El input post es: %@",post);
+    NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerHistorial" post:post];
+    NSError *e = nil;
+    
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+    
+    NSLog(@"Historial:%@", responseDict);
+}
 
-
+- (void)registrarParticipacionDelConcurso:(int)idConcurso nombres:(NSString*)nombres apellidos:(NSString*)apellidos
+        rutUsuario:(int)rutUsuario fechaNacimiento:(NSString*)fechaNacimiento emailContacto:(NSString*)emailContacto
+        fonoContacto:(int)fonoContacto actividad:(NSString*)actividad comuna:(NSString*)comuna
+        emailUsuario:(NSString*)emailUsuario{
+    
+    NSString *post = [NSString stringWithFormat:@"idConcurso=%i&nombres=%@&apellidos=%@&rutUsuario=%i&fechaNacimiento=%@&emailContacto=%@&fonoContacto=%i&actividad=%@&comuna=%@&emailUsuario=%@",idConcurso,nombres,apellidos,rutUsuario,fechaNacimiento,emailContacto,fonoContacto,actividad,comuna,emailUsuario];
+    
+    NSLog(@"El input post es: %@",post);
+    NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerHistorial" post:post];
+    NSError *e = nil;
+    
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+    
+    NSLog(@"Registrar paticipaciónen concurso:%@", responseDict);
+}
 
 
 
