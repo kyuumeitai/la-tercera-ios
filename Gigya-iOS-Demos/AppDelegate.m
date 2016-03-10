@@ -61,7 +61,19 @@
             NSLog(@"    --------------------------------------");
         }
     }
- 
+ //Font stuff
+        /*
+        for (NSString* family in [UIFont familyNames])
+        {
+            NSLog(@"%@", family);
+            
+            for (NSString* name in [UIFont fontNamesForFamilyName: family])
+            {
+                NSLog(@"  %@", name);
+            }
+        }
+   */
+        
    // [self obtenerBeneficios];
    // [self obtenerComercios];
    // [self obtenerSucursales]; //Necesitamos el idComercio
@@ -70,15 +82,13 @@
         
    // [self registrarConsumoDelBeneficio:27 idSucursal:1 mailUsuario:@"mail@mail.cl" monto:2500];//no acepta el input post del emailUsuario
    // [self obtenerTarjetaVirtualDelUsuario:@"mail@mail.cl"];//no acepta el input post del emailUsuario
-   // [self obtenerHistorialDelUsuario:@"mail@asicom.cl"];//no acepta el input post del emailUsuario
+    [self obtenerHistorialDelUsuario:@"acornejo@copesa.cl"];//no acepta el input post del emailUsuario
 
-    [self registrarParticipacionDelConcurso:1 nombres:@"Nombres" apellidos:@"Apellidos" rutUsuario:111111111 fechaNacimiento:@"2014-01-01" emailContacto:@"email@email.cl" fonoContacto:55555555 actividad:@"Actividad" comuna:@"Comuna" emailUsuario:@"email@asicom.cl"];//no acepta el input post del emailUsuario
-
+   // [self registrarParticipacionDelConcurso:1 nombres:@"Nombres" apellidos:@"Apellidos" rutUsuario:111111111 fechaNacimiento:@"2014-01-01" emailContacto:@"email@email.cl" fonoContacto:55555555 actividad:@"Actividad" comuna:@"Comuna" emailUsuario:@"email@asicom.cl"];//no acepta el input post del emailUsuario
         
     }
     
-   
-    return YES;
+       return YES;
 }
 
 - (void)obtenerBeneficios{
