@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CategoriaViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (nonatomic, copy) NSString* categoryName;
 @end

@@ -55,7 +55,7 @@
             <objects>
                 <viewController id="MSG-4h-55a" customClass="NoticiasViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e6p-Ki-yv5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" id="1ud-Ts-89k">
@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="-48" y="504"/>
         </scene>
-        <!--View Controller-->
+        <!--Categorias View Controller-->
         <scene sceneID="6vc-de-gef">
             <objects>
-                <viewController id="LKO-m6-Nmk" sceneMemberID="viewController">
+                <viewController id="LKO-m6-Nmk" customClass="CategoriasViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IfX-nN-EaX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,43 +157,64 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonSabores.png"/>
                                                 <connections>
-                                                    <segue destination="urm-7m-wgp" kind="push" id="i01-LE-nlV"/>
+                                                    <segue destination="urm-7m-wgp" kind="push" identifier="segueSabores" id="i01-LE-nlV"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4Fp-Xz-86M">
                                                 <rect key="frame" x="192" y="295" width="161" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonInfantil.png"/>
+                                                <connections>
+                                                    <segue destination="urm-7m-wgp" kind="push" identifier="segueInfantil" id="Zyn-LG-isu"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QrQ-K4-dF3">
                                                 <rect key="frame" x="22" y="344" width="161" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonTiempoLibre.png"/>
+                                                <connections>
+                                                    <segue destination="urm-7m-wgp" kind="push" identifier="segueTiempoLibre" id="jIL-wO-44n"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TJ6-WS-vBL">
                                                 <rect key="frame" x="193" y="344" width="161" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonVidaSana.png"/>
+                                                <connections>
+                                                    <segue destination="urm-7m-wgp" kind="push" identifier="segueVidaSana" id="vJR-tF-hvg"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ssX-Nb-jw1">
                                                 <rect key="frame" x="22" y="393" width="161" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonMasterCard.png"/>
+                                                <connections>
+                                                    <segue destination="urm-7m-wgp" kind="push" identifier="segueMastercard" id="59T-rw-umQ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6uK-vg-2Zk">
                                                 <rect key="frame" x="193" y="393" width="161" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonServicios.png"/>
+                                                <connections>
+                                                    <segue destination="urm-7m-wgp" kind="push" identifier="segueServicios" id="EpW-ws-o2o"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="v7m-Ff-wgN">
                                                 <rect key="frame" x="21" y="442" width="161" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonTiendaClub.png"/>
+                                                <connections>
+                                                    <segue destination="urm-7m-wgp" kind="push" identifier="segueTiendaClub" id="Clg-xZ-lV7"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Crv-dZ-YOh">
                                                 <rect key="frame" x="192" y="442" width="161" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonViajesClub.png"/>
+                                                <connections>
+                                                    <segue destination="urm-7m-wgp" kind="push" identifier="segueViajesClub" id="hlI-QH-F4w"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Z1j-1i-iao">
                                                 <rect key="frame" x="23" y="558" width="330" height="41"/>
@@ -278,12 +299,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSR-ne-YT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="176.5" y="1415"/>
+            <point key="canvasLocation" x="213.5" y="1382"/>
         </scene>
         <!--Categoria View Controller-->
         <scene sceneID="9uc-LP-vEw">
             <objects>
-                <viewController id="urm-7m-wgp" customClass="CategoriaViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="categoriaViewController" id="urm-7m-wgp" customClass="CategoriaViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WqI-Ql-eiw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -301,13 +322,16 @@
                                 <rect key="frame" x="64" y="34" width="25" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="icon-lt.png"/>
+                                <connections>
+                                    <segue destination="MSG-4h-55a" kind="modal" modalTransitionStyle="flipHorizontal" id="DEu-0a-cpP"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" id="J6T-h7-jtf">
                                 <rect key="frame" x="215" y="20" width="155" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dmc-28-3aK">
-                                        <rect key="frame" x="112" y="13" width="21" height="21"/>
+                                        <rect key="frame" x="116" y="13" width="21" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="iconFilter.png"/>
                                     </button>
@@ -415,9 +439,6 @@
                             <containerView opaque="NO" contentMode="scaleToFill" id="EfM-lu-J51">
                                 <rect key="frame" x="0.0" y="129" width="375" height="538"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="ppi-tp-ky5" kind="embed" id="HcI-67-U5v"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -431,12 +452,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMU-bI-mid" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="796.5" y="1322.5"/>
+            <point key="canvasLocation" x="725.5" y="1289.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Infantil Table View-->
         <scene sceneID="r9W-hT-15V">
             <objects>
-                <tableViewController storyboardIdentifier="infantilTableView" id="u1e-Us-Qm7" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="infantilTableView" title="Infantil Table View" id="u1e-Us-Qm7" customClass="InfantilTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mqI-45-TgB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -481,7 +502,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X7O-2d-xbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="1273"/>
+            <point key="canvasLocation" x="1309" y="1356"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="iL4-zK-Tag">
@@ -747,39 +768,39 @@
             </objects>
             <point key="canvasLocation" x="-398.5" y="1332.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--SaboresTableView-->
         <scene sceneID="EUD-H6-ZmM">
             <objects>
-                <tableViewController id="ppi-tp-ky5" sceneMemberID="viewController">
+                <tableViewController title="SaboresTableView" id="ppi-tp-ky5" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VZe-qM-ytI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="538"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="6vd-gs-SNc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="adJ-Ql-sTP">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="adJ-Ql-sTP" id="9p7-40-gUk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wh2-Ca-hSF">
-                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wh2-Ca-hSF" id="f5Z-3t-2tj">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="t6K-ve-Zrg">
-                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t6K-ve-Zrg" id="2CA-gA-zDZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -794,7 +815,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6X-KY-t3W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1248.5" y="1910"/>
+            <point key="canvasLocation" x="709" y="2059"/>
         </scene>
     </scenes>
     <resources>
@@ -825,6 +846,7 @@
         <image name="summer-sunny-lifestyle-fashion-1.png" width="329" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jRW-15-0i8"/>
+        <segue reference="Zyn-LG-isu"/>
+        <segue reference="DEu-0a-cpP"/>
     </inferredMetricsTieBreakers>
 </document>
