@@ -7,6 +7,9 @@
 //
 
 #import "InfantilTableViewController.h"
+#import  "CategoriasTableViewCell.h"
+#import  "DestacadoTableViewCell.h"
+
 
 @interface InfantilTableViewController ()
 
@@ -33,23 +36,98 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return 20;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    static NSString *simpleTableIdentifier = @"BanioTableCell";
     
-    return cell;
+    
+  
+        /*MyManager *singleton = [MyManager sharedManager];
+        NSString *storyBoardName = singleton.storyBoardName;
+        
+        
+        if ([storyBoardName isEqualToString:@"MainStoryboard-iPhone4"] )
+            nib = [[NSBundle mainBundle] loadNibNamed:@"BaniosTableViewCell-iPhone4" owner:self options:nil];
+        if ([storyBoardName isEqualToString:@"MainStoryboard-iPhone5"] )
+            nib = [[NSBundle mainBundle] loadNibNamed:@"BaniosTableViewCell-iPhone5" owner:self options:nil];
+        if ([storyBoardName isEqualToString:@"MainStoryboard-iPhone6"] )
+            nib = [[NSBundle mainBundle] loadNibNamed:@"BaniosTableViewCell-iPhone6" owner:self options:nil];
+        if ([storyBoardName isEqualToString:@"MainStoryboard-iPhone6Plus"] )
+         */
+        NSArray *nib;
+        
+        if (indexPath.row==0) {
+            DestacadoTableViewCell *cell = (DestacadoTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            
+            if (cell == nil)
+            {
+            nib = [[NSBundle mainBundle] loadNibNamed:@"DestacadoTableViewCell" owner:self options:nil];
+               cell = [nib objectAtIndex:0];
+            }
+            return cell;
+        }else{
+            CategoriasTableViewCell *cell = (CategoriasTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            if (cell == nil)
+            {
+            
+            nib = [[NSBundle mainBundle] loadNibNamed:@"CategoriasTableViewCell" owner:self options:nil];
+               cell = [nib objectAtIndex:0];
+           }
+            
+     
+            return cell;
+       }
+    
+    
+        //cell.contentView.layer.borderColor = [[UIColor grayColor] CGColor];
+        //cell.contentView.layer.borderWidth = 0.5;
+         /*
+        cell.layer.masksToBounds = NO;
+        cell.layer.borderColor = [UIColor grayColor].CGColor;
+        cell.layer.borderWidth = 2.0f;
+        cell.layer.contentsScale = [UIScreen mainScreen].scale;
+       
+        cell.layer.shadowOpacity = 0.75f;
+        cell.layer.shadowRadius = 2.0f;
+        cell.layer.shadowOffset = CGSizeZero;
+        cell.layer.shadowPath = [UIBezierPath bezierPathWithRect:cell.bounds].CGPath;
+        cell.layer.shouldRasterize = YES;
+         */
+
+    
+    /*
+    BanioItem *banito = baniosItemsArray[indexPath.row];
+    NSLog(@"Desc baño: %@",banito.descripcion);
+    
+    cell.labelDescripcion.text = banito.descripcion;
+    cell.imagenBanio.image = banito.imagenBanio;
+    cell.labelDistancia.text = banito.distanciaEnMetros;
+    cell.labelLikes.text = [NSString stringWithFormat:@"%d",banito.likes];
+    
+    cell.imagenConConfort.image = [UIImage imageNamed:@"iconoFav"];
+    NSLog(@"Entonces mi bañoID es: %@",banito.banioId);
+    */
+
+
 }
-*/
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return 250.0;
+    }
+    else {
+        return 80.0;
+    }   
+}
 
 /*
 // Override to support conditional editing of the table view.
