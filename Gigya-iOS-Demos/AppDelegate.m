@@ -24,6 +24,7 @@
     [Gigya initWithAPIKey:@"3_AG8H3fpJ5N0PHDj7yq7jEA3XNR6fXV0iPnyuxz-sZpYKHmKk9jmjsv_0hlNUFl4q" application:application launchOptions:launchOptions];
     
     [Gigya setAccountsDelegate:self];
+    /*
     NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerCategorias" post:@""];
     NSError *e = nil;
     if (jsonData == nil){
@@ -61,18 +62,7 @@
             NSLog(@"    --------------------------------------");
         }
     }
- //Font stuff
-        /*
-        for (NSString* family in [UIFont familyNames])
-        {
-            NSLog(@"%@", family);
-            
-            for (NSString* name in [UIFont fontNamesForFamilyName: family])
-            {
-                NSLog(@"  %@", name);
-            }
-        }
-   */
+
         
    // [self obtenerBeneficios];
    // [self obtenerComercios];
@@ -87,8 +77,9 @@
    // [self registrarParticipacionDelConcurso:1 nombres:@"Nombres" apellidos:@"Apellidos" rutUsuario:111111111 fechaNacimiento:@"2014-01-01" emailContacto:@"email@email.cl" fonoContacto:55555555 actividad:@"Actividad" comuna:@"Comuna" emailUsuario:@"email@asicom.cl"];//no acepta el input post del emailUsuario
         
     }
-    
-       return YES;
+     */
+
+return YES;
 }
 
 - (void)obtenerBeneficios{

@@ -55,7 +55,7 @@
             <objects>
                 <viewController id="MSG-4h-55a" customClass="NoticiasViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e6p-Ki-yv5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" id="1ud-Ts-89k">
@@ -314,12 +314,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UBE-sN-Dxw">
-                                <rect key="frame" x="15" y="29" width="32" height="32"/>
+                                <rect key="frame" x="15" y="33" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="boton-menu.png"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="v0q-9g-iRd">
-                                <rect key="frame" x="64" y="34" width="25" height="22"/>
+                                <rect key="frame" x="64" y="38" width="25" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="icon-lt.png"/>
                                 <connections>
@@ -331,129 +331,161 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dmc-28-3aK">
-                                        <rect key="frame" x="116" y="13" width="21" height="21"/>
+                                        <rect key="frame" x="116" y="19" width="21" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="iconFilter.png"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tM1-bf-tox">
-                                        <rect key="frame" x="72" y="13" width="21" height="21"/>
+                                        <rect key="frame" x="72" y="19" width="21" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="iconSearch.png"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="ake-wB-Fg1">
-                                <rect key="frame" x="0.0" y="76" width="375" height="49"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" id="EfM-lu-J51">
+                                <rect key="frame" x="0.0" y="131" width="375" height="536"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </containerView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="lbR-Lo-zr3">
+                                <rect key="frame" x="0.0" y="78" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="Khw-vj-z2R">
-                                        <rect key="frame" x="0.0" y="2" width="519" height="48"/>
+                                    <view contentMode="scaleToFill" id="pLt-Sy-whF">
+                                        <rect key="frame" x="0.0" y="0.0" width="620" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="s4G-6X-GX9">
-                                                <rect key="frame" x="10" y="10" width="50" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DlC-yk-a8R">
+                                                <rect key="frame" x="8" y="5" width="55" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="tintColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Todos">
+                                                <state key="normal" backgroundImage="botonTodosOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <state key="selected">
-                                                    <color key="titleColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="1" green="0.28630868780000002" blue="0.36713605020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
+                                                <state key="selected" backgroundImage="botonTodosOn.png"/>
+                                                <state key="focused" backgroundImage="botonTodosOn.png"/>
                                                 <connections>
-                                                    <action selector="todosClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="w8d-xM-blv"/>
+                                                    <action selector="todosClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="92X-b8-12D"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BKP-ol-Mu5">
-                                                <rect key="frame" x="68" y="6" width="71" height="42"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UnV-SZ-hj0">
+                                                <rect key="frame" x="65" y="5" width="66" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="tintColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Sabores">
+                                                <state key="normal" backgroundImage="botonSaboresOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <state key="selected">
-                                                    <color key="titleColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
+                                                <state key="selected" backgroundImage="botonSaboresOn.png"/>
+                                                <state key="focused" backgroundImage="botonSaboresOn.png"/>
                                                 <connections>
-                                                    <action selector="saboresClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="ss6-xW-2zU"/>
+                                                    <action selector="saboresClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="hZL-lo-wfv"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JfG-wa-PMa">
-                                                <rect key="frame" x="147" y="9" width="52" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SyA-bA-K0f">
+                                                <rect key="frame" x="133" y="5" width="64" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Infantil">
+                                                <state key="normal" backgroundImage="botonInfantilOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" backgroundImage="botonInfantilOn.png"/>
+                                                <state key="focused" backgroundImage="botonInfantilOn.png"/>
                                                 <connections>
-                                                    <action selector="infantilClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="kNN-mm-K3p"/>
+                                                    <action selector="infantilClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="UQb-b0-XEL"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="erb-C5-WbF">
-                                                <rect key="frame" x="208" y="9" width="101" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lvd-b6-DzY">
+                                                <rect key="frame" x="196" y="5" width="104" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Tiempo Libre">
+                                                <state key="normal" backgroundImage="botonTiempoLibreOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" backgroundImage="botonTiempoLibreOn.png"/>
+                                                <state key="focused" backgroundImage="botonTiempoLibreOn.png"/>
                                                 <connections>
-                                                    <action selector="tiempoLibreClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="akA-qx-SxR"/>
+                                                    <action selector="tiempoLibreClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="bns-7t-CAf"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KEo-MD-Qjm">
-                                                <rect key="frame" x="324" y="9" width="70" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="z99-at-e3Q">
+                                                <rect key="frame" x="301" y="5" width="80" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Servicios">
+                                                <state key="normal" backgroundImage="botonVidaSanaOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" backgroundImage="botonVidaSanaOn.png"/>
+                                                <state key="highlighted" backgroundImage="botonVidaSanaOn.png"/>
                                                 <connections>
-                                                    <action selector="serviciosClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="rMN-Kk-wHa"/>
+                                                    <action selector="vidaSanaClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="Fe7-hJ-67f"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ePZ-LP-Kha">
-                                                <rect key="frame" x="405" y="9" width="77" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UwJ-r6-JR2">
+                                                <rect key="frame" x="383" y="5" width="92" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Vida Sana">
+                                                <state key="normal" backgroundImage="botonMastercardOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" backgroundImage="botonMastercardOn.png"/>
+                                                <state key="highlighted" backgroundImage=" "/>
+                                                <state key="focused" backgroundImage="botonMastercardOn.png"/>
+                                                <connections>
+                                                    <action selector="mastercardClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="QuV-2h-VwP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="96g-L2-xAf">
+                                                <rect key="frame" x="555" y="5" width="52" height="42"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="botonViajesOff.png">
+                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="botonViajesOn.png"/>
+                                                <state key="focused" backgroundImage="botonViajesOn.png"/>
+                                                <connections>
+                                                    <action selector="viajesClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="3av-IE-I7U"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nDH-nw-siB">
+                                                <rect key="frame" x="472" y="5" width="80" height="42"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="botonServiciosOff.png">
+                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="botonServiciosOn.png"/>
+                                                <state key="focused" backgroundImage="botonServiciosOn.png"/>
+                                                <connections>
+                                                    <action selector="serviciosClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="jiC-7B-lVy"/>
+                                                </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.96440304487179485" green="0.96440304487179485" blue="0.96440304487179485" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.7340745192" green="0.7340745192" blue="0.7340745192" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
-                                        <size key="value" width="500" height="45"/>
+                                        <size key="value" width="620" height="50"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
-                            <containerView opaque="NO" contentMode="scaleToFill" id="EfM-lu-J51">
-                                <rect key="frame" x="0.0" y="126" width="375" height="541"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            </containerView>
                         </subviews>
-                        <color key="backgroundColor" red="0.73407451923076916" green="0.73407451923076916" blue="0.73407451923076916" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="cZJ-Yw-lpY"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="botonInfantil" destination="SyA-bA-K0f" id="yB4-rn-vfw"/>
+                        <outlet property="botonMasterCard" destination="UwJ-r6-JR2" id="pKW-Lk-YBC"/>
+                        <outlet property="botonSabores" destination="UnV-SZ-hj0" id="mbb-2i-Uwt"/>
+                        <outlet property="botonServicios" destination="nDH-nw-siB" id="v96-1n-adQ"/>
+                        <outlet property="botonTiempoLibre" destination="lvd-b6-DzY" id="k6S-An-jXa"/>
+                        <outlet property="botonTodos" destination="DlC-yk-a8R" id="8xD-O7-5av"/>
+                        <outlet property="botonViajes" destination="96g-L2-xAf" id="qGJ-n4-And"/>
+                        <outlet property="botonVidaSana" destination="z99-at-e3Q" id="HSb-cI-pMM"/>
                         <outlet property="containerView" destination="EfM-lu-J51" id="vJZ-ap-RVe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMU-bI-mid" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="725.5" y="1289.5"/>
+            <point key="canvasLocation" x="819.5" y="1289.5"/>
         </scene>
         <!--Infantil Table View-->
         <scene sceneID="r9W-hT-15V">
@@ -629,14 +661,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jxt-r0-ezm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="821.5" y="558.5"/>
+            <point key="canvasLocation" x="919.5" y="484.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="NSV-Ra-k43">
             <objects>
                 <viewController id="Uc6-It-8ad" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YpZ-qM-Zfn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="367" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" id="yL5-Z8-hMZ">
@@ -644,72 +676,94 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="8E8-QG-Vkf">
-                                <rect key="frame" x="0.0" y="76" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="76" width="620" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="UbQ-eb-lUD">
-                                        <rect key="frame" x="0.0" y="4" width="519" height="45"/>
+                                        <rect key="frame" x="8" y="4" width="606" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jFD-ow-LwZ">
-                                                <rect key="frame" x="10" y="10" width="50" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jFD-ow-LwZ">
+                                                <rect key="frame" x="0.0" y="8" width="55" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="tintColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Todos">
+                                                <state key="normal" backgroundImage="botonTodosOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <state key="selected">
-                                                    <color key="titleColor" red="1" green="0.28630868780000002" blue="0.36713605020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
+                                                <state key="selected" backgroundImage="botonTodosOn.png"/>
                                                 <state key="highlighted">
                                                     <color key="titleColor" red="1" green="0.28630868780000002" blue="0.36713605020000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="focused" backgroundImage="botonTodosOn.png"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MmP-DU-GUA">
-                                                <rect key="frame" x="71" y="9" width="63" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MmP-DU-GUA">
+                                                <rect key="frame" x="57" y="8" width="66" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Sabores">
+                                                <state key="normal" backgroundImage="botonSaboresOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" backgroundImage="botonSaboresOn.png"/>
+                                                <state key="highlighted" backgroundImage="botonSaboresOn.png"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QcH-N2-QeD">
-                                                <rect key="frame" x="147" y="9" width="52" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QcH-N2-QeD">
+                                                <rect key="frame" x="125" y="8" width="64" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Infantil">
+                                                <state key="normal" backgroundImage="botonInfantilOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" backgroundImage="botonInfantilOn.png"/>
+                                                <state key="highlighted" backgroundImage="botonInfantilOn.png"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xHb-gU-BJt">
-                                                <rect key="frame" x="208" y="9" width="101" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xHb-gU-BJt">
+                                                <rect key="frame" x="188" y="8" width="104" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Tiempo Libre">
+                                                <state key="normal" backgroundImage="botonTiempoLibreOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" backgroundImage="botonTiempoLibreOn.png"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xma-4C-5a9">
-                                                <rect key="frame" x="324" y="9" width="70" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xsy-pg-E1A">
+                                                <rect key="frame" x="293" y="8" width="80" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Servicios">
+                                                <state key="normal" backgroundImage="botonVidaSanaOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" backgroundImage="botonVidaSanaOn.png"/>
+                                                <state key="highlighted" backgroundImage="botonVidaSanaOn.png"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xsy-pg-E1A">
-                                                <rect key="frame" x="405" y="9" width="77" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NeS-tA-1Az">
+                                                <rect key="frame" x="375" y="8" width="92" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Vida Sana">
+                                                <state key="normal" backgroundImage="botonMastercardOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" backgroundImage="botonMastercardOn.png"/>
+                                                <state key="highlighted" backgroundImage="botonServiciosOn.png"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nU8-mF-GoS">
+                                                <rect key="frame" x="547" y="8" width="52" height="42"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="botonViajesOff.png">
+                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="botonViajesOn.png"/>
+                                                <state key="highlighted" backgroundImage="botonServiciosOn.png"/>
+                                                <state key="focused" backgroundImage="botonViajesClub.png"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xma-4C-5a9">
+                                                <rect key="frame" x="464" y="8" width="80" height="42"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="botonServiciosOff.png">
+                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="botonServiciosOn.png"/>
+                                                <state key="highlighted" backgroundImage="botonServiciosOn.png"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.11760817307692306" green="0.11760817307692306" blue="0.11760817307692306" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
                                         <size key="value" width="500" height="45"/>
@@ -736,11 +790,11 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
+                    <size key="freeformSize" width="367" height="667"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v0M-I2-UaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="389.5" y="503.5"/>
+            <point key="canvasLocation" x="435.5" y="498.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nox-kR-Te4">
@@ -814,6 +868,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name=" " width="360" height="640"/>
         <image name="0.2 Bienvenida sin registro.png" width="360" height="640"/>
         <image name="BarraLT.png" width="359" height="88"/>
         <image name="Continuar sin regist.png" width="128" height="14"/>
@@ -822,16 +877,32 @@
         <image name="boton-menu.png" width="34" height="34"/>
         <image name="botonConcursos.png" width="332" height="43"/>
         <image name="botonInfantil.png" width="163" height="43"/>
+        <image name="botonInfantilOff.png" width="64" height="42"/>
+        <image name="botonInfantilOn.png" width="64" height="42"/>
         <image name="botonMasterCard.png" width="163" height="43"/>
+        <image name="botonMastercardOff.png" width="92" height="42"/>
+        <image name="botonMastercardOn.png" width="92" height="42"/>
         <image name="botonRegistrar.png" width="195" height="51"/>
         <image name="botonSabores.png" width="163" height="43"/>
+        <image name="botonSaboresOff.png" width="66" height="42"/>
+        <image name="botonSaboresOn.png" width="66" height="42"/>
         <image name="botonServicios.png" width="163" height="43"/>
+        <image name="botonServiciosOff.png" width="80" height="42"/>
+        <image name="botonServiciosOn.png" width="80" height="42"/>
         <image name="botonTickets.png" width="332" height="43"/>
         <image name="botonTiempoLibre.png" width="163" height="43"/>
+        <image name="botonTiempoLibreOff.png" width="104" height="42"/>
+        <image name="botonTiempoLibreOn.png" width="104" height="42"/>
         <image name="botonTiendaClub.png" width="163" height="43"/>
+        <image name="botonTodosOff.png" width="55" height="42"/>
+        <image name="botonTodosOn.png" width="55" height="42"/>
         <image name="botonVentasEspeciales.png" width="332" height="43"/>
         <image name="botonViajesClub.png" width="163" height="43"/>
+        <image name="botonViajesOff.png" width="52" height="42"/>
+        <image name="botonViajesOn.png" width="52" height="42"/>
         <image name="botonVidaSana.png" width="163" height="43"/>
+        <image name="botonVidaSanaOff.png" width="80" height="42"/>
+        <image name="botonVidaSanaOn.png" width="80" height="42"/>
         <image name="clublatercera.png" width="50" height="60"/>
         <image name="clublaterceraRojo.png" width="29" height="36"/>
         <image name="icon-lt.png" width="22" height="19"/>

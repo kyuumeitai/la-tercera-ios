@@ -40,6 +40,14 @@
         categoriaViewController.categoryName = @"infantil";
         NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
     }
+    
+    if ([[segue identifier] isEqualToString:@"segueSabores"])
+    {
+        NSLog(@"Segue Infantil detected");
+        CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
+        categoriaViewController.categoryName = @"sabores";
+        NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
+    }
 }
 
 #pragma mark - Load Categories
