@@ -6,9 +6,10 @@
 //  Copyright © 2016 Gigya. All rights reserved.
 //
 
-#import "InfantilTableViewController.h"
+#import  "InfantilTableViewController.h"
 #import  "CategoriasTableViewCell.h"
 #import  "DestacadoTableViewCell.h"
+#import  "DetalleViewController.h"
 
 
 @interface InfantilTableViewController ()
@@ -87,37 +88,7 @@
             return cell;
        }
     
-    
-        //cell.contentView.layer.borderColor = [[UIColor grayColor] CGColor];
-        //cell.contentView.layer.borderWidth = 0.5;
-         /*
-        cell.layer.masksToBounds = NO;
-        cell.layer.borderColor = [UIColor grayColor].CGColor;
-        cell.layer.borderWidth = 2.0f;
-        cell.layer.contentsScale = [UIScreen mainScreen].scale;
-       
-        cell.layer.shadowOpacity = 0.75f;
-        cell.layer.shadowRadius = 2.0f;
-        cell.layer.shadowOffset = CGSizeZero;
-        cell.layer.shadowPath = [UIBezierPath bezierPathWithRect:cell.bounds].CGPath;
-        cell.layer.shouldRasterize = YES;
-         */
-
-    
-    /*
-    BanioItem *banito = baniosItemsArray[indexPath.row];
-    NSLog(@"Desc baño: %@",banito.descripcion);
-    
-    cell.labelDescripcion.text = banito.descripcion;
-    cell.imagenBanio.image = banito.imagenBanio;
-    cell.labelDistancia.text = banito.distanciaEnMetros;
-    cell.labelLikes.text = [NSString stringWithFormat:@"%d",banito.likes];
-    
-    cell.imagenConConfort.image = [UIImage imageNamed:@"iconoFav"];
-    NSLog(@"Entonces mi bañoID es: %@",banito.banioId);
-    */
-
-
+ 
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -129,48 +100,16 @@
     }   
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    NSLog(@"DETECTED");
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+   
+    DetalleViewController *detalleViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleViewController"];
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    [self.navigationController pushViewController: detalleViewController animated:YES];
+    
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

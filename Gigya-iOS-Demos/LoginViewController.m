@@ -85,9 +85,7 @@
             }
             else {
             // Handle error
-                
                 NSLog(@"Error mostrando el screenset");
-               
             }
         }
         delegate:self

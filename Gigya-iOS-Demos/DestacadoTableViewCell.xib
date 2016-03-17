@@ -23,9 +23,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="367" height="251"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fondoDestacado.png" translatesAutoresizingMaskIntoConstraints="NO" id="f4D-C7-sMw">
-                        <rect key="frame" x="10" y="8" width="354" height="233"/>
-                    </imageView>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-M8-lTH" customClass="CustomBorderView">
+                        <rect key="frame" x="10" y="6" width="354" height="233"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.38413636950000002" green="0.38687531400000003" blue="0.39509214739999998" alpha="0.28650323280000001" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowXOffset">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowYOffset">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Campeche" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FE-q3-veC">
                         <rect key="frame" x="26" y="14" width="228" height="35"/>
                         <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="26"/>
@@ -57,7 +84,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imagenDestacada.png" translatesAutoresizingMaskIntoConstraints="NO" id="XC4-tO-G5x">
-                        <rect key="frame" x="13" y="118" width="348" height="115"/>
+                        <rect key="frame" x="10" y="117" width="354" height="115"/>
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
@@ -65,7 +92,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="fondoDestacado.png" width="342" height="233"/>
         <image name="imagenDestacada.png" width="338" height="121"/>
     </resources>
 </document>
