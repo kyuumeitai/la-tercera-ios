@@ -93,6 +93,9 @@
 		D03859E11CA0338700E907FF /* botonVolver.png in Resources */ = {isa = PBXBuildFile; fileRef = D03859DE1CA0338700E907FF /* botonVolver.png */; };
 		D03859E21CA0338700E907FF /* botonVolver@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03859DF1CA0338700E907FF /* botonVolver@2x.png */; };
 		D03859E31CA0338700E907FF /* botonVolver@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03859E01CA0338700E907FF /* botonVolver@3x.png */; };
+		D03859E61CA0628200E907FF /* UsarBeneficioEstandar.m in Sources */ = {isa = PBXBuildFile; fileRef = D03859E51CA0628200E907FF /* UsarBeneficioEstandar.m */; };
+		D03859EA1CA062DA00E907FF /* UsarBeneficioDescuentoAdicional.m in Sources */ = {isa = PBXBuildFile; fileRef = D03859E91CA062DA00E907FF /* UsarBeneficioDescuentoAdicional.m */; };
+		D03859ED1CA0674A00E907FF /* UsarBeneficioNoLogueado.m in Sources */ = {isa = PBXBuildFile; fileRef = D03859EC1CA0674A00E907FF /* UsarBeneficioNoLogueado.m */; };
 		D03C2C3D1CA02DFD0084373F /* botonVerEnMapa.png in Resources */ = {isa = PBXBuildFile; fileRef = D03C2C3A1CA02DFD0084373F /* botonVerEnMapa.png */; };
 		D03C2C3E1CA02DFD0084373F /* botonVerEnMapa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03C2C3B1CA02DFD0084373F /* botonVerEnMapa@2x.png */; };
 		D03C2C3F1CA02DFD0084373F /* botonVerEnMapa@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03C2C3C1CA02DFD0084373F /* botonVerEnMapa@3x.png */; };
@@ -310,6 +313,12 @@
 		D03859DE1CA0338700E907FF /* botonVolver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = botonVolver.png; sourceTree = "<group>"; };
 		D03859DF1CA0338700E907FF /* botonVolver@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "botonVolver@2x.png"; sourceTree = "<group>"; };
 		D03859E01CA0338700E907FF /* botonVolver@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "botonVolver@3x.png"; sourceTree = "<group>"; };
+		D03859E41CA0628200E907FF /* UsarBeneficioEstandar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsarBeneficioEstandar.h; sourceTree = "<group>"; };
+		D03859E51CA0628200E907FF /* UsarBeneficioEstandar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsarBeneficioEstandar.m; sourceTree = "<group>"; };
+		D03859E81CA062DA00E907FF /* UsarBeneficioDescuentoAdicional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsarBeneficioDescuentoAdicional.h; sourceTree = "<group>"; };
+		D03859E91CA062DA00E907FF /* UsarBeneficioDescuentoAdicional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsarBeneficioDescuentoAdicional.m; sourceTree = "<group>"; };
+		D03859EB1CA0674A00E907FF /* UsarBeneficioNoLogueado.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsarBeneficioNoLogueado.h; sourceTree = "<group>"; };
+		D03859EC1CA0674A00E907FF /* UsarBeneficioNoLogueado.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsarBeneficioNoLogueado.m; sourceTree = "<group>"; };
 		D03C2C3A1CA02DFD0084373F /* botonVerEnMapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = botonVerEnMapa.png; sourceTree = "<group>"; };
 		D03C2C3B1CA02DFD0084373F /* botonVerEnMapa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "botonVerEnMapa@2x.png"; sourceTree = "<group>"; };
 		D03C2C3C1CA02DFD0084373F /* botonVerEnMapa@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "botonVerEnMapa@3x.png"; sourceTree = "<group>"; };
@@ -708,6 +717,19 @@
 			name = Connection;
 			sourceTree = "<group>";
 		};
+		D03859E71CA0628F00E907FF /* Beneficios */ = {
+			isa = PBXGroup;
+			children = (
+				D03859E41CA0628200E907FF /* UsarBeneficioEstandar.h */,
+				D03859E51CA0628200E907FF /* UsarBeneficioEstandar.m */,
+				D03859E81CA062DA00E907FF /* UsarBeneficioDescuentoAdicional.h */,
+				D03859E91CA062DA00E907FF /* UsarBeneficioDescuentoAdicional.m */,
+				D03859EB1CA0674A00E907FF /* UsarBeneficioNoLogueado.h */,
+				D03859EC1CA0674A00E907FF /* UsarBeneficioNoLogueado.m */,
+			);
+			name = Beneficios;
+			sourceTree = "<group>";
+		};
 		D06DC3941C84A2430063B836 /* SWRevealMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -735,6 +757,7 @@
 				D0E495091C9727110030F56C /* CategoriaViewController.m */,
 				D0FF33BA1C9843F6008832F3 /* CategoriasViewController.h */,
 				D0FF33BB1C9843F6008832F3 /* CategoriasViewController.m */,
+				D03859E71CA0628F00E907FF /* Beneficios */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1129,6 +1152,8 @@
 				D0FF33B61C983CD7008832F3 /* InfantilTableViewController.m in Sources */,
 				D06DC3931C84A23F0063B836 /* SWRevealViewController.m in Sources */,
 				D0FF33B91C983FDE008832F3 /* SaboresTableViewController.m in Sources */,
+				D03859EA1CA062DA00E907FF /* UsarBeneficioDescuentoAdicional.m in Sources */,
+				D03859E61CA0628200E907FF /* UsarBeneficioEstandar.m in Sources */,
 				52BCE2421A49028500924AD8 /* PublishActionController.m in Sources */,
 				D01021FC1C999A9900F5D88D /* DetalleViewController.m in Sources */,
 				D0FF33BC1C9843F6008832F3 /* CategoriasViewController.m in Sources */,
@@ -1138,6 +1163,7 @@
 				D0F6B8401C90958A0060D256 /* ClubViewController.m in Sources */,
 				D0FF33C21C985A3B008832F3 /* CategoriasTableViewCell.m in Sources */,
 				D0FF33C81C985D9B008832F3 /* DestacadoTableViewCell.m in Sources */,
+				D03859ED1CA0674A00E907FF /* UsarBeneficioNoLogueado.m in Sources */,
 				52BCE1E21A48A65800924AD8 /* main.m in Sources */,
 				D0E84DCE1C9B01FD00FDE6D2 /* CustomBorderView.m in Sources */,
 			);

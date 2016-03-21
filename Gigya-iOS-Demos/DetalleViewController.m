@@ -7,6 +7,7 @@
 //
 
 #import "DetalleViewController.h"
+#import "UsarBeneficioEstandar.h"
 
 @interface DetalleViewController ()
 
@@ -21,6 +22,21 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)backPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)usarBeneficioPressed:(id)sender {
+    
+    NSLog(@"Usar beneficio click DETECTED");
+    
+    UsarBeneficioEstandar *usarBeneficioEstandarViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"usarBeneficioEstandarSB"];
+   // usarBeneficioEstandarViewController.modalTransitionStyle = UIModalPresentationPopover;
+    usarBeneficioEstandarViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    //[self.navigationController presentModalViewController:usarBeneficioEstandarViewController animated:YES];
+    [self presentViewController:usarBeneficioEstandarViewController animated:YES completion:nil];
+   // self pres
+    //[self.navigationController pushViewController: usarBeneficioEstandarViewController animated:YES];
 }
 
 /*

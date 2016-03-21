@@ -24,7 +24,7 @@
     [Gigya initWithAPIKey:@"3_AG8H3fpJ5N0PHDj7yq7jEA3XNR6fXV0iPnyuxz-sZpYKHmKk9jmjsv_0hlNUFl4q" application:application launchOptions:launchOptions];
     
     [Gigya setAccountsDelegate:self];
-    /*
+   
     NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerCategorias" post:@""];
     NSError *e = nil;
     if (jsonData == nil){
@@ -64,28 +64,28 @@
     }
 
         
-   // [self obtenerBeneficios];
-   // [self obtenerComercios];
-   // [self obtenerSucursales]; //Necesitamos el idComercio
-   // [self obtenerListaDeEventos];
-   // [self obtenerConcursos];
+    [self obtenerBeneficios];
+    //[self obtenerComercios];
+    //[self obtenerSucursales]; //Necesitamos el idComercio
+    //[self obtenerListaDeEventos];
+    //[self obtenerConcursos];
         
-   // [self registrarConsumoDelBeneficio:27 idSucursal:1 mailUsuario:@"mail@mail.cl" monto:2500];//no acepta el input post del emailUsuario
-   // [self obtenerTarjetaVirtualDelUsuario:@"mail@mail.cl"];//no acepta el input post del emailUsuario
+    //[self registrarConsumoDelBeneficio:27 idSucursal:1 mailUsuario:@"mail@mail.cl" monto:2500];//no acepta el input post del emailUsuario
+  // [self obtenerTarjetaVirtualDelUsuario:@"mail@mail.cl"];//no acepta el input post del emailUsuario
     //[self obtenerHistorialDelUsuario:@"acornejo@copesa.cl"];//no acepta el input post del emailUsuario
 
    // [self registrarParticipacionDelConcurso:1 nombres:@"Nombres" apellidos:@"Apellidos" rutUsuario:111111111 fechaNacimiento:@"2014-01-01" emailContacto:@"email@email.cl" fonoContacto:55555555 actividad:@"Actividad" comuna:@"Comuna" emailUsuario:@"email@asicom.cl"];//no acepta el input post del emailUsuario
         
     }
-     */
+     
 
 return YES;
 }
 
 - (void)obtenerBeneficios{
     
-    NSString *post = @"idComercio=53";
-    NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerBeneficios" post:post];
+    NSString *post = @"idComercio=1";
+    NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerBeneficios" post:@""];
     NSError *e = nil;
     
     NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
