@@ -7,6 +7,7 @@
 //
 
 #import "NoticiasViewController.h"
+#import "SWRevealViewController.h"
 
 @interface NoticiasViewController ()
 
@@ -23,6 +24,24 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)menuPressed:(id)sender {
+    
+            NSLog(@"presionado washoh vamosss");
+    SWRevealViewController *revealViewController = nil;
+    
+    revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        NSLog(@"presionado washoh");
+        [revealViewController revealViewController];
+        [revealViewController revealToggleAnimated:YES];
+        [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    }
+
+}
+
+
 
 /*
 #pragma mark - Navigation

@@ -24,6 +24,7 @@
 		177723AA1C7306DD0075DFBE /* News.png in Resources */ = {isa = PBXBuildFile; fileRef = 177723A61C7306DD0075DFBE /* News.png */; };
 		177723AB1C7306DD0075DFBE /* News@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177723A71C7306DD0075DFBE /* News@2x.png */; };
 		177723AD1C7386620075DFBE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 177723AC1C7386620075DFBE /* Info.plist */; };
+		17CE96F71CA10A0100898C56 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CE96F61CA10A0100898C56 /* MenuViewController.m */; };
 		52BCE1E21A48A65800924AD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BCE1E11A48A65800924AD8 /* main.m */; };
 		52BCE1E51A48A65800924AD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BCE1E41A48A65800924AD8 /* AppDelegate.m */; };
 		52BCE1E81A48A65800924AD8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BCE1E71A48A65800924AD8 /* ViewController.m */; };
@@ -242,6 +243,8 @@
 		177723A61C7306DD0075DFBE /* News.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = News.png; sourceTree = "<group>"; };
 		177723A71C7306DD0075DFBE /* News@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "News@2x.png"; sourceTree = "<group>"; };
 		177723AC1C7386620075DFBE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17CE96F51CA10A0100898C56 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		17CE96F61CA10A0100898C56 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		52BCE1DC1A48A65800924AD8 /* La Tercera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "La Tercera.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52BCE1E01A48A65800924AD8 /* Info3.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info3.plist; sourceTree = "<group>"; };
 		52BCE1E11A48A65800924AD8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -733,6 +736,8 @@
 		D06DC3941C84A2430063B836 /* SWRevealMenu */ = {
 			isa = PBXGroup;
 			children = (
+				17CE96F51CA10A0100898C56 /* MenuViewController.h */,
+				17CE96F61CA10A0100898C56 /* MenuViewController.m */,
 			);
 			name = SWRevealMenu;
 			sourceTree = "<group>";
@@ -1154,6 +1159,7 @@
 				D0FF33B91C983FDE008832F3 /* SaboresTableViewController.m in Sources */,
 				D03859EA1CA062DA00E907FF /* UsarBeneficioDescuentoAdicional.m in Sources */,
 				D03859E61CA0628200E907FF /* UsarBeneficioEstandar.m in Sources */,
+				17CE96F71CA10A0100898C56 /* MenuViewController.m in Sources */,
 				52BCE2421A49028500924AD8 /* PublishActionController.m in Sources */,
 				D01021FC1C999A9900F5D88D /* DetalleViewController.m in Sources */,
 				D0FF33BC1C9843F6008832F3 /* CategoriasViewController.m in Sources */,
