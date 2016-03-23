@@ -25,6 +25,11 @@
 		177723AB1C7306DD0075DFBE /* News@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177723A71C7306DD0075DFBE /* News@2x.png */; };
 		177723AD1C7386620075DFBE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 177723AC1C7386620075DFBE /* Info.plist */; };
 		17CE96F71CA10A0100898C56 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CE96F61CA10A0100898C56 /* MenuViewController.m */; };
+		17F8BCC91CA24CAD00B9977B /* YSLContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F8BCC61CA24CAD00B9977B /* YSLContainerViewController.m */; };
+		17F8BCCA1CA24CAD00B9977B /* YSLScrollMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F8BCC81CA24CAD00B9977B /* YSLScrollMenuView.m */; };
+		17F8BCCE1CA24F4B00B9977B /* NoticiasHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F8BCCD1CA24F4B00B9977B /* NoticiasHomeViewController.m */; };
+		17F8BCD41CA2506900B9977B /* NewsCategoryInicioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F8BCD31CA2506900B9977B /* NewsCategoryInicioViewController.m */; };
+		17F8BCD71CA250B200B9977B /* NewsCategoryPoliticaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F8BCD61CA250B200B9977B /* NewsCategoryPoliticaViewController.m */; };
 		52BCE1E21A48A65800924AD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BCE1E11A48A65800924AD8 /* main.m */; };
 		52BCE1E51A48A65800924AD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BCE1E41A48A65800924AD8 /* AppDelegate.m */; };
 		52BCE1E81A48A65800924AD8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BCE1E71A48A65800924AD8 /* ViewController.m */; };
@@ -140,7 +145,6 @@
 		D0E84DCB1C9AFD9D00FDE6D2 /* imagenPlaceholderSabores@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0E84DC81C9AFD9D00FDE6D2 /* imagenPlaceholderSabores@2x.png */; };
 		D0E84DCC1C9AFD9D00FDE6D2 /* imagenPlaceholderSabores@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0E84DC91C9AFD9D00FDE6D2 /* imagenPlaceholderSabores@3x.png */; };
 		D0E84DCE1C9B01FD00FDE6D2 /* CustomBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E84DCD1C9B01FD00FDE6D2 /* CustomBorderView.m */; };
-		D0F6B83D1C9095470060D256 /* NoticiasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F6B83C1C9095470060D256 /* NoticiasViewController.m */; };
 		D0F6B8401C90958A0060D256 /* ClubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F6B83F1C90958A0060D256 /* ClubViewController.m */; };
 		D0FF33B61C983CD7008832F3 /* InfantilTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FF33B51C983CD7008832F3 /* InfantilTableViewController.m */; };
 		D0FF33B91C983FDE008832F3 /* SaboresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FF33B81C983FDE008832F3 /* SaboresTableViewController.m */; };
@@ -245,6 +249,16 @@
 		177723AC1C7386620075DFBE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17CE96F51CA10A0100898C56 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		17CE96F61CA10A0100898C56 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		17F8BCC51CA24CAD00B9977B /* YSLContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLContainerViewController.h; sourceTree = "<group>"; };
+		17F8BCC61CA24CAD00B9977B /* YSLContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLContainerViewController.m; sourceTree = "<group>"; };
+		17F8BCC71CA24CAD00B9977B /* YSLScrollMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLScrollMenuView.h; sourceTree = "<group>"; };
+		17F8BCC81CA24CAD00B9977B /* YSLScrollMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLScrollMenuView.m; sourceTree = "<group>"; };
+		17F8BCCC1CA24F4B00B9977B /* NoticiasHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticiasHomeViewController.h; sourceTree = "<group>"; };
+		17F8BCCD1CA24F4B00B9977B /* NoticiasHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticiasHomeViewController.m; sourceTree = "<group>"; };
+		17F8BCD21CA2506900B9977B /* NewsCategoryInicioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCategoryInicioViewController.h; sourceTree = "<group>"; };
+		17F8BCD31CA2506900B9977B /* NewsCategoryInicioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCategoryInicioViewController.m; sourceTree = "<group>"; };
+		17F8BCD51CA250B200B9977B /* NewsCategoryPoliticaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCategoryPoliticaViewController.h; sourceTree = "<group>"; };
+		17F8BCD61CA250B200B9977B /* NewsCategoryPoliticaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCategoryPoliticaViewController.m; sourceTree = "<group>"; };
 		52BCE1DC1A48A65800924AD8 /* La Tercera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "La Tercera.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52BCE1E01A48A65800924AD8 /* Info3.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info3.plist; sourceTree = "<group>"; };
 		52BCE1E11A48A65800924AD8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -371,8 +385,6 @@
 		D0E84DC81C9AFD9D00FDE6D2 /* imagenPlaceholderSabores@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imagenPlaceholderSabores@2x.png"; sourceTree = "<group>"; };
 		D0E84DC91C9AFD9D00FDE6D2 /* imagenPlaceholderSabores@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imagenPlaceholderSabores@3x.png"; sourceTree = "<group>"; };
 		D0E84DCD1C9B01FD00FDE6D2 /* CustomBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBorderView.m; sourceTree = "<group>"; };
-		D0F6B83B1C9095470060D256 /* NoticiasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticiasViewController.h; sourceTree = "<group>"; };
-		D0F6B83C1C9095470060D256 /* NoticiasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticiasViewController.m; sourceTree = "<group>"; };
 		D0F6B83E1C90958A0060D256 /* ClubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubViewController.h; sourceTree = "<group>"; };
 		D0F6B83F1C90958A0060D256 /* ClubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubViewController.m; sourceTree = "<group>"; };
 		D0FF33B41C983CD7008832F3 /* InfantilTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfantilTableViewController.h; sourceTree = "<group>"; };
@@ -611,6 +623,53 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		17F8BCCB1CA24CBA00B9977B /* YSLMenuHorizontal */ = {
+			isa = PBXGroup;
+			children = (
+				17F8BCC51CA24CAD00B9977B /* YSLContainerViewController.h */,
+				17F8BCC61CA24CAD00B9977B /* YSLContainerViewController.m */,
+				17F8BCC71CA24CAD00B9977B /* YSLScrollMenuView.h */,
+				17F8BCC81CA24CAD00B9977B /* YSLScrollMenuView.m */,
+			);
+			name = YSLMenuHorizontal;
+			sourceTree = "<group>";
+		};
+		17F8BCCF1CA24FCE00B9977B /* Club */ = {
+			isa = PBXGroup;
+			children = (
+				D0F6B83E1C90958A0060D256 /* ClubViewController.h */,
+				D0F6B83F1C90958A0060D256 /* ClubViewController.m */,
+				D0FF33C41C985C3B008832F3 /* Categorias */,
+				D0E495081C9727110030F56C /* CategoriaViewController.h */,
+				D0E495091C9727110030F56C /* CategoriaViewController.m */,
+				D0FF33BA1C9843F6008832F3 /* CategoriasViewController.h */,
+				D0FF33BB1C9843F6008832F3 /* CategoriasViewController.m */,
+				D03859E71CA0628F00E907FF /* Beneficios */,
+			);
+			name = Club;
+			sourceTree = "<group>";
+		};
+		17F8BCD01CA24FD900B9977B /* News */ = {
+			isa = PBXGroup;
+			children = (
+				17F8BCCC1CA24F4B00B9977B /* NoticiasHomeViewController.h */,
+				17F8BCCD1CA24F4B00B9977B /* NoticiasHomeViewController.m */,
+				17F8BCD11CA2501C00B9977B /* Categorias */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		17F8BCD11CA2501C00B9977B /* Categorias */ = {
+			isa = PBXGroup;
+			children = (
+				17F8BCD21CA2506900B9977B /* NewsCategoryInicioViewController.h */,
+				17F8BCD31CA2506900B9977B /* NewsCategoryInicioViewController.m */,
+				17F8BCD51CA250B200B9977B /* NewsCategoryPoliticaViewController.h */,
+				17F8BCD61CA250B200B9977B /* NewsCategoryPoliticaViewController.m */,
+			);
+			name = Categorias;
+			sourceTree = "<group>";
+		};
 		52BCE1D31A48A65800924AD8 = {
 			isa = PBXGroup;
 			children = (
@@ -652,10 +711,6 @@
 				52BCE1EC1A48A65900924AD8 /* Images.xcassets */,
 				52BCE1DF1A48A65800924AD8 /* Supporting Files */,
 				52BCE2071A48CE9500924AD8 /* Frameworks */,
-				D0F6B83B1C9095470060D256 /* NoticiasViewController.h */,
-				D0F6B83C1C9095470060D256 /* NoticiasViewController.m */,
-				D0F6B83E1C90958A0060D256 /* ClubViewController.h */,
-				D0F6B83F1C90958A0060D256 /* ClubViewController.m */,
 			);
 			name = LaTercera;
 			path = "Gigya-iOS-Demos";
@@ -756,13 +811,9 @@
 		D0E495061C9726C90030F56C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				17F8BCD01CA24FD900B9977B /* News */,
 				D01282281C8DC04400A05FF0 /* Connection */,
-				D0FF33C41C985C3B008832F3 /* Categorias */,
-				D0E495081C9727110030F56C /* CategoriaViewController.h */,
-				D0E495091C9727110030F56C /* CategoriaViewController.m */,
-				D0FF33BA1C9843F6008832F3 /* CategoriasViewController.h */,
-				D0FF33BB1C9843F6008832F3 /* CategoriasViewController.m */,
-				D03859E71CA0628F00E907FF /* Beneficios */,
+				17F8BCCF1CA24FCE00B9977B /* Club */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -777,6 +828,7 @@
 		D0E84DCF1C9B089300FDE6D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				17F8BCCB1CA24CBA00B9977B /* YSLMenuHorizontal */,
 				D0E84DCD1C9B01FD00FDE6D2 /* CustomBorderView.m */,
 			);
 			name = Helpers;
@@ -1150,18 +1202,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F8BCD71CA250B200B9977B /* NewsCategoryPoliticaViewController.m in Sources */,
 				52BCE1E81A48A65800924AD8 /* ViewController.m in Sources */,
 				52BCE2401A49028500924AD8 /* GSWebBridgeController.m in Sources */,
 				52BCE1E51A48A65800924AD8 /* AppDelegate.m in Sources */,
-				D0F6B83D1C9095470060D256 /* NoticiasViewController.m in Sources */,
 				D0FF33B61C983CD7008832F3 /* InfantilTableViewController.m in Sources */,
 				D06DC3931C84A23F0063B836 /* SWRevealViewController.m in Sources */,
 				D0FF33B91C983FDE008832F3 /* SaboresTableViewController.m in Sources */,
+				17F8BCD41CA2506900B9977B /* NewsCategoryInicioViewController.m in Sources */,
 				D03859EA1CA062DA00E907FF /* UsarBeneficioDescuentoAdicional.m in Sources */,
 				D03859E61CA0628200E907FF /* UsarBeneficioEstandar.m in Sources */,
 				17CE96F71CA10A0100898C56 /* MenuViewController.m in Sources */,
 				52BCE2421A49028500924AD8 /* PublishActionController.m in Sources */,
 				D01021FC1C999A9900F5D88D /* DetalleViewController.m in Sources */,
+				17F8BCC91CA24CAD00B9977B /* YSLContainerViewController.m in Sources */,
 				D0FF33BC1C9843F6008832F3 /* CategoriasViewController.m in Sources */,
 				1777237D1C72C4570075DFBE /* LoginViewController.m in Sources */,
 				D0E4950A1C9727110030F56C /* CategoriaViewController.m in Sources */,
@@ -1169,7 +1223,9 @@
 				D0F6B8401C90958A0060D256 /* ClubViewController.m in Sources */,
 				D0FF33C21C985A3B008832F3 /* CategoriasTableViewCell.m in Sources */,
 				D0FF33C81C985D9B008832F3 /* DestacadoTableViewCell.m in Sources */,
+				17F8BCCE1CA24F4B00B9977B /* NoticiasHomeViewController.m in Sources */,
 				D03859ED1CA0674A00E907FF /* UsarBeneficioNoLogueado.m in Sources */,
+				17F8BCCA1CA24CAD00B9977B /* YSLScrollMenuView.m in Sources */,
 				52BCE1E21A48A65800924AD8 /* main.m in Sources */,
 				D0E84DCE1C9B01FD00FDE6D2 /* CustomBorderView.m in Sources */,
 			);
