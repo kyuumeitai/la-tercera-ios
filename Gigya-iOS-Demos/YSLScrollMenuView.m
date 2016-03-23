@@ -30,8 +30,8 @@ static const CGFloat kYSLIndicatorHeight = 2;
         _viewbackgroudColor = [UIColor whiteColor];
         _itemfont = [UIFont systemFontOfSize:16];
         _itemTitleColor = [UIColor colorWithRed:0.337f green:0.333f blue:0.333f alpha:1.0f];
-        _itemSelectedTitleColor = [UIColor colorWithRed:0.502f green:0.000f blue:1.000f alpha:1.0f];
-        _itemIndicatorColor = [UIColor colorWithRed:0.502f green:0.000f blue:1.000f alpha:1.0f];
+        _itemSelectedTitleColor = [UIColor colorWithRed:0.702f green:0.157f blue:0.176f alpha:1.0f];
+        _itemIndicatorColor = [UIColor colorWithRed:0.702f green:0.157f blue:0.176f alpha:1.0f];
         
         self.backgroundColor = _viewbackgroudColor;
         _scrollView = [[UIScrollView alloc]initWithFrame:self.bounds];

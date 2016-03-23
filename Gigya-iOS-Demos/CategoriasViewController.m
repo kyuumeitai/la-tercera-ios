@@ -9,8 +9,11 @@
 #import "CategoriasViewController.h"
 #import "CategoriaViewController.h"
 #import "InfantilTableViewController.h"
+#import "SWRevealViewController.h"
+#import "SingletonManager.h"
 
-@interface CategoriasViewController ()
+@interface CategoriasViewController () <SWRevealViewControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *menuButton;
 
 @end
 
@@ -18,7 +21,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+    //Creamos el singleton
+    SingletonManager *singleton = [SingletonManager singletonManager];
+   
+        
+        SWRevealViewController *revealViewController = self.revealViewController;
+        singleton.leftSlideMenu = revealViewController;
+        [_menuButton
+         addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+  
+    NSLog(@"Entoncs el singleton es: %@",singleton.leftSlideMenu);
     // Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning {

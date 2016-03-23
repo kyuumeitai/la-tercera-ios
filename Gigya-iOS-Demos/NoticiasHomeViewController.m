@@ -11,8 +11,10 @@
 #import "NewsCategoryInicioViewController.h"
 #import "NewsCategoryPoliticaViewController.h"
 #import "SWRevealViewController.h"
+#import "SingletonManager.h"
 
-@interface NoticiasHomeViewController() <YSLContainerViewControllerDelegate,SWRevealViewControllerDelegate>
+@interface NoticiasHomeViewController() <YSLContainerViewControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *menuButton;
 
 @end
 
@@ -21,6 +23,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNewsCategories];
+    
+    //Creamos el singleton
+    SingletonManager *singleton = [SingletonManager singletonManager];
+    
+    /*
+    if(singleton.leftSlideMenu == nil){
+        NSLog(@"ENtre en singleton nulo");
+
+        SWRevealViewController *revealViewController = self.revealViewController;
+        singleton.leftSlideMenu = revealViewController;
+        [_menuButton
+         addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    }else{
+        NSLog(@"ENtre en singleton exitente");
+        [_menuButton removeTarget:nil
+                           action:NULL
+                 forControlEvents:UIControlEventAllEvents];
+    [_menuButton
+     addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    NSLog(@"Entoncs el singleton es: %@",singleton.leftSlideMenu);
+ */
     // Do any additional setup after loading the view.
 }
 
@@ -55,18 +79,24 @@
 - (IBAction)menuPressed:(id)sender {
     
     NSLog(@"presionado washoh vamosss");
-    SWRevealViewController *revealViewController = nil;
+    //Creamos el singleton
+    SingletonManager *singleton = [SingletonManager singletonManager];
+
     
-    revealViewController = self.revealViewController;
-    if ( revealViewController )
-    {
-        NSLog(@"presionado washoh");
-        [revealViewController revealViewController];
-        [revealViewController revealToggleAnimated:YES];
-        [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    
+        NSLog(@"presionado washoh, YA EXISTES");
+   // [sender addTarget:self.revealViewController action:@selector(revealToogle:) forControlEvents:UIControlEventTouchUpInside];
+
+    
+       // singleton.leftSlideMenu = self.revealViewController;
+        //[singleton.leftSlideMenu revealViewController];
+        //[singleton.leftSlideMenu revealToggleAnimated:YES];
+        //[self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+
+    
+   
+   
     }
-    
-}
 
 
 #pragma mark -- YSLContainerViewControllerDelegate
@@ -76,10 +106,9 @@
        NSLog(@"current controller : %@",controller);
     [controller viewWillAppear:YES];
 }
+
 - (IBAction)presedOtro:(id)sender {
     NSLog(@"pressed tro");
-
-
 }
 
 /*

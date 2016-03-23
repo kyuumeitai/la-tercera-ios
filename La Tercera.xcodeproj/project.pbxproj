@@ -93,6 +93,7 @@
 		D00E65391C87525900519B65 /* botonVerBeneficios.png in Resources */ = {isa = PBXBuildFile; fileRef = D00E65381C87525900519B65 /* botonVerBeneficios.png */; };
 		D01021FC1C999A9900F5D88D /* DetalleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01021FB1C999A9900F5D88D /* DetalleViewController.m */; };
 		D029B2FC1C8768300088DCD3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D029B2FB1C8768300088DCD3 /* MapKit.framework */; };
+		D03631DB1CA2EA300095C2AE /* SingletonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D03631DA1CA2EA300095C2AE /* SingletonManager.m */; };
 		D03859DB1CA0337600E907FF /* usar-beneficio.png in Resources */ = {isa = PBXBuildFile; fileRef = D03859D81CA0337600E907FF /* usar-beneficio.png */; };
 		D03859DC1CA0337600E907FF /* usar-beneficio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03859D91CA0337600E907FF /* usar-beneficio@2x.png */; };
 		D03859DD1CA0337600E907FF /* usar-beneficio@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03859DA1CA0337600E907FF /* usar-beneficio@3x.png */; };
@@ -324,6 +325,8 @@
 		D01021FA1C999A9900F5D88D /* DetalleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleViewController.h; sourceTree = "<group>"; };
 		D01021FB1C999A9900F5D88D /* DetalleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalleViewController.m; sourceTree = "<group>"; };
 		D029B2FB1C8768300088DCD3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D03631D91CA2EA300095C2AE /* SingletonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonManager.h; sourceTree = "<group>"; };
+		D03631DA1CA2EA300095C2AE /* SingletonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonManager.m; sourceTree = "<group>"; };
 		D03859D81CA0337600E907FF /* usar-beneficio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "usar-beneficio.png"; sourceTree = "<group>"; };
 		D03859D91CA0337600E907FF /* usar-beneficio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "usar-beneficio@2x.png"; sourceTree = "<group>"; };
 		D03859DA1CA0337600E907FF /* usar-beneficio@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "usar-beneficio@3x.png"; sourceTree = "<group>"; };
@@ -775,6 +778,15 @@
 			name = Connection;
 			sourceTree = "<group>";
 		};
+		D03631D81CA2EA090095C2AE /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				D03631D91CA2EA300095C2AE /* SingletonManager.h */,
+				D03631DA1CA2EA300095C2AE /* SingletonManager.m */,
+			);
+			name = Singleton;
+			sourceTree = "<group>";
+		};
 		D03859E71CA0628F00E907FF /* Beneficios */ = {
 			isa = PBXGroup;
 			children = (
@@ -828,6 +840,7 @@
 		D0E84DCF1C9B089300FDE6D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D03631D81CA2EA090095C2AE /* Singleton */,
 				17F8BCCB1CA24CBA00B9977B /* YSLMenuHorizontal */,
 				D0E84DCD1C9B01FD00FDE6D2 /* CustomBorderView.m */,
 			);
@@ -1225,6 +1238,7 @@
 				D0FF33C81C985D9B008832F3 /* DestacadoTableViewCell.m in Sources */,
 				17F8BCCE1CA24F4B00B9977B /* NoticiasHomeViewController.m in Sources */,
 				D03859ED1CA0674A00E907FF /* UsarBeneficioNoLogueado.m in Sources */,
+				D03631DB1CA2EA300095C2AE /* SingletonManager.m in Sources */,
 				17F8BCCA1CA24CAD00B9977B /* YSLScrollMenuView.m in Sources */,
 				52BCE1E21A48A65800924AD8 /* main.m in Sources */,
 				D0E84DCE1C9B01FD00FDE6D2 /* CustomBorderView.m in Sources */,

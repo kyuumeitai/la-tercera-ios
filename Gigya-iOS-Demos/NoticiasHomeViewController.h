@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface NoticiasHomeViewController : UIViewController
-
+#import "SWRevealViewController.h"
+@interface NoticiasHomeViewController : UIViewController{
+}
 @end
