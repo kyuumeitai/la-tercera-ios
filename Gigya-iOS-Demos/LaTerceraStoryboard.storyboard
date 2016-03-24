@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="-819" y="-501"/>
         </scene>
-        <!--Categorias View Controller-->
+        <!--Club View Controller-->
         <scene sceneID="6vc-de-gef">
             <objects>
-                <viewController id="LKO-m6-Nmk" customClass="CategoriasViewController" sceneMemberID="viewController">
+                <viewController id="LKO-m6-Nmk" customClass="ClubViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IfX-nN-EaX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSR-ne-YT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-966" y="1222"/>
+            <point key="canvasLocation" x="-740" y="1204"/>
         </scene>
         <!--Categoria View Controller-->
         <scene sceneID="9uc-LP-vEw">
@@ -523,7 +523,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zni-uQ-fzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="70.5" y="450.5"/>
+            <point key="canvasLocation" x="24.5" y="982.5"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="Gsd-9V-kVK">
@@ -1095,125 +1095,148 @@
         <!--Mas Cercanos-->
         <scene sceneID="NSV-Ra-k43">
             <objects>
-                <viewController title="Mas Cercanos" id="Uc6-It-8ad" sceneMemberID="viewController">
+                <viewController title="Mas Cercanos" id="Uc6-It-8ad" customClass="MasCercanosViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YpZ-qM-Zfn">
-                        <rect key="frame" x="0.0" y="0.0" width="367" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" id="yL5-Z8-hMZ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="8E8-QG-Vkf">
-                                <rect key="frame" x="0.0" y="76" width="620" height="54"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rrg-q7-dCJ">
+                                <rect key="frame" x="68" y="25" width="35" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="clublatercera.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Spn-zu-oet">
+                                <rect key="frame" x="10" y="19" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="boton-menu.png"/>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="jCz-mG-vNw">
+                                <rect key="frame" x="0.0" y="77" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="UbQ-eb-lUD">
-                                        <rect key="frame" x="8" y="4" width="606" height="45"/>
+                                    <view contentMode="scaleToFill" id="0rR-Sh-fHN">
+                                        <rect key="frame" x="0.0" y="0.0" width="620" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jFD-ow-LwZ">
-                                                <rect key="frame" x="0.0" y="8" width="55" height="42"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="arh-8q-SxO">
+                                                <rect key="frame" x="8" y="5" width="55" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="0.0" colorSpace="calibratedRGB"/>
                                                 <state key="normal" backgroundImage="botonTodosOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonTodosOn.png"/>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="1" green="0.28630868780000002" blue="0.36713605020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
                                                 <state key="focused" backgroundImage="botonTodosOn.png"/>
+                                                <connections>
+                                                    <action selector="todosClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="iLQ-zp-DIL"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MmP-DU-GUA">
-                                                <rect key="frame" x="57" y="8" width="66" height="42"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kyT-nS-1w1">
+                                                <rect key="frame" x="65" y="5" width="66" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonSaboresOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonSaboresOn.png"/>
-                                                <state key="highlighted" backgroundImage="botonSaboresOn.png"/>
+                                                <state key="focused" backgroundImage="botonSaboresOn.png"/>
+                                                <connections>
+                                                    <action selector="saboresClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="KY0-8O-XuN"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QcH-N2-QeD">
-                                                <rect key="frame" x="125" y="8" width="64" height="42"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ISW-uT-r2c">
+                                                <rect key="frame" x="133" y="5" width="64" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonInfantilOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonInfantilOn.png"/>
-                                                <state key="highlighted" backgroundImage="botonInfantilOn.png"/>
+                                                <state key="focused" backgroundImage="botonInfantilOn.png"/>
+                                                <connections>
+                                                    <action selector="infantilClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="mi4-Hm-enn"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xHb-gU-BJt">
-                                                <rect key="frame" x="188" y="8" width="104" height="42"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rG8-2y-dmJ">
+                                                <rect key="frame" x="196" y="5" width="104" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonTiempoLibreOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonTiempoLibreOn.png"/>
+                                                <state key="focused" backgroundImage="botonTiempoLibreOn.png"/>
+                                                <connections>
+                                                    <action selector="tiempoLibreClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="VRb-Wz-1an"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xsy-pg-E1A">
-                                                <rect key="frame" x="293" y="8" width="80" height="42"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eyt-ox-K1d">
+                                                <rect key="frame" x="301" y="5" width="80" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonVidaSanaOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonVidaSanaOn.png"/>
                                                 <state key="highlighted" backgroundImage="botonVidaSanaOn.png"/>
+                                                <connections>
+                                                    <action selector="vidaSanaClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="YUq-Gd-gH5"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NeS-tA-1Az">
-                                                <rect key="frame" x="375" y="8" width="92" height="42"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iOy-OP-85b">
+                                                <rect key="frame" x="383" y="5" width="92" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonMastercardOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonMastercardOn.png"/>
-                                                <state key="highlighted" backgroundImage="botonServiciosOn.png"/>
+                                                <state key="highlighted" backgroundImage=" "/>
+                                                <state key="focused" backgroundImage="botonMastercardOn.png"/>
+                                                <connections>
+                                                    <action selector="mastercardClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="W0M-BW-15g"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nU8-mF-GoS">
-                                                <rect key="frame" x="547" y="8" width="52" height="42"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lNq-OX-5Kf">
+                                                <rect key="frame" x="555" y="5" width="52" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonViajesOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonViajesOn.png"/>
-                                                <state key="highlighted" backgroundImage="botonServiciosOn.png"/>
-                                                <state key="focused" backgroundImage="botonViajesClub.png"/>
+                                                <state key="focused" backgroundImage="botonViajesOn.png"/>
+                                                <connections>
+                                                    <action selector="viajesClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="zVh-GS-Qqa"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xma-4C-5a9">
-                                                <rect key="frame" x="464" y="8" width="80" height="42"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xbe-IV-xS5">
+                                                <rect key="frame" x="472" y="5" width="80" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonServiciosOff.png">
                                                     <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonServiciosOn.png"/>
-                                                <state key="highlighted" backgroundImage="botonServiciosOn.png"/>
+                                                <state key="focused" backgroundImage="botonServiciosOn.png"/>
+                                                <connections>
+                                                    <action selector="serviciosClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="3kp-sV-NQC"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.11760817307692306" green="0.11760817307692306" blue="0.11760817307692306" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.7340745192" green="0.7340745192" blue="0.7340745192" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
-                                        <size key="value" width="500" height="45"/>
+                                        <size key="value" width="620" height="50"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="Wsm-WF-ByM">
-                                <rect key="frame" x="0.0" y="129" width="367" height="538"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="Wsm-WF-ByM">
+                                <rect key="frame" x="0.0" y="129" width="375" height="538"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="YpZ-qM-Zfn" id="qs1-y0-Gw2"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1bq-oK-Jqx">
-                                <rect key="frame" x="20" y="30" width="54" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Volver"/>
-                                <connections>
-                                    <segue destination="LKO-m6-Nmk" kind="push" id="a9e-bV-K5p"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1221,12 +1244,130 @@
                     <navigationItem key="navigationItem" id="3o1-n4-fai"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="367" height="667"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="mapView" destination="Wsm-WF-ByM" id="Nb6-XL-f0T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v0M-I2-UaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="VfE-t3-j9D">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" id="ii2-PD-af7">
+                            <rect key="frame" x="0.0" y="0.0" width="620" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QS4-WP-51D">
+                                    <rect key="frame" x="8" y="5" width="55" height="42"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" backgroundImage="botonTodosOff.png">
+                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="selected" backgroundImage="botonTodosOn.png"/>
+                                    <state key="focused" backgroundImage="botonTodosOn.png"/>
+                                    <connections>
+                                        <action selector="todosClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="s1s-kR-HVV"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Oh4-42-9Vz">
+                                    <rect key="frame" x="65" y="5" width="66" height="42"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" backgroundImage="botonSaboresOff.png">
+                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="selected" backgroundImage="botonSaboresOn.png"/>
+                                    <state key="focused" backgroundImage="botonSaboresOn.png"/>
+                                    <connections>
+                                        <action selector="saboresClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="RIZ-8E-S8s"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qGM-zC-RuM">
+                                    <rect key="frame" x="133" y="5" width="64" height="42"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" backgroundImage="botonInfantilOff.png">
+                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="selected" backgroundImage="botonInfantilOn.png"/>
+                                    <state key="focused" backgroundImage="botonInfantilOn.png"/>
+                                    <connections>
+                                        <action selector="infantilClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="kgd-rz-qJy"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="b1O-iN-d1q">
+                                    <rect key="frame" x="196" y="5" width="104" height="42"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" backgroundImage="botonTiempoLibreOff.png">
+                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="selected" backgroundImage="botonTiempoLibreOn.png"/>
+                                    <state key="focused" backgroundImage="botonTiempoLibreOn.png"/>
+                                    <connections>
+                                        <action selector="tiempoLibreClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="jFB-RA-ecI"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7o9-j9-5yb">
+                                    <rect key="frame" x="301" y="5" width="80" height="42"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" backgroundImage="botonVidaSanaOff.png">
+                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="selected" backgroundImage="botonVidaSanaOn.png"/>
+                                    <state key="highlighted" backgroundImage="botonVidaSanaOn.png"/>
+                                    <connections>
+                                        <action selector="vidaSanaClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="5bG-zY-5ui"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e2b-5s-aRq">
+                                    <rect key="frame" x="383" y="5" width="92" height="42"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" backgroundImage="botonMastercardOff.png">
+                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="selected" backgroundImage="botonMastercardOn.png"/>
+                                    <state key="highlighted" backgroundImage=" "/>
+                                    <state key="focused" backgroundImage="botonMastercardOn.png"/>
+                                    <connections>
+                                        <action selector="mastercardClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="shW-Zy-JQy"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ear-A0-uG2">
+                                    <rect key="frame" x="555" y="5" width="52" height="42"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" backgroundImage="botonViajesOff.png">
+                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="selected" backgroundImage="botonViajesOn.png"/>
+                                    <state key="focused" backgroundImage="botonViajesOn.png"/>
+                                    <connections>
+                                        <action selector="viajesClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="YR0-0L-81z"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0ZI-ev-Uq8">
+                                    <rect key="frame" x="472" y="5" width="80" height="42"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" backgroundImage="botonServiciosOff.png">
+                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="selected" backgroundImage="botonServiciosOn.png"/>
+                                    <state key="focused" backgroundImage="botonServiciosOn.png"/>
+                                    <connections>
+                                        <action selector="serviciosClicked:" destination="urm-7m-wgp" eventType="touchUpInside" id="JoX-BG-7bd"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.7340745192" green="0.7340745192" blue="0.7340745192" alpha="1" colorSpace="calibratedRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                            <size key="value" width="620" height="50"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </scrollView>
             </objects>
-            <point key="canvasLocation" x="661.5" y="284.5"/>
+            <point key="canvasLocation" x="406.5" y="340.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nox-kR-Te4">

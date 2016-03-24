@@ -10,7 +10,6 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <GigyaSDK/Gigya.h>
 
-
 @interface AppDelegate () <GSAccountsDelegate>
 
 @end
@@ -24,13 +23,8 @@
     [Gigya initWithAPIKey:@"3_AG8H3fpJ5N0PHDj7yq7jEA3XNR6fXV0iPnyuxz-sZpYKHmKk9jmjsv_0hlNUFl4q" application:application launchOptions:launchOptions];
     
     [Gigya setAccountsDelegate:self];
-   
-    NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerCategorias" post:@""];
-    NSError *e = nil;
-    if (jsonData == nil){
-        NSLog(@"sin acceso a la red del Club La Tercera");
-    }else{
-
+   [self obtenercCategorias];
+           /*
     NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
     
        //NSLog(@"EL dictionary es:%@", responseDict);
@@ -61,10 +55,12 @@
             }
             NSLog(@"    --------------------------------------");
         }
-    }
+         
+         */
+
 
         
-    [self obtenerBeneficios];
+    
     //[self obtenerComercios];
     //[self obtenerSucursales]; //Necesitamos el idComercio
     //[self obtenerListaDeEventos];
@@ -76,15 +72,51 @@
 
    // [self registrarParticipacionDelConcurso:1 nombres:@"Nombres" apellidos:@"Apellidos" rutUsuario:111111111 fechaNacimiento:@"2014-01-01" emailContacto:@"email@email.cl" fonoContacto:55555555 actividad:@"Actividad" comuna:@"Comuna" emailUsuario:@"email@asicom.cl"];//no acepta el input post del emailUsuario
         
-    }
-     
 
 return YES;
 }
 
+- (void)obtenercCategorias{
+    // Send a synchronous request
+    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://ltrest.multinetlabs.com/club/categories/"]];
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                          returningResponse:&response
+                                                      error:&error];
+    
+    if (error == nil)
+    {
+        // Parse data here
+        
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        
+        //NSLog(@"EL dictionario de Categorias interno es:%@", responseDict);
+        
+        // NSLog(@"Dict Categorias : %@", [responseDict objectForKey:@"categorias"]);
+//NSArray *arrayCategorias = (NSDictionary*)[responseDict objectForKey:@"categorias"];
+        //NSLog(@"Categorias 0: %@", [arrayCategorias objectAtIndex:0]);
+        
+        NSLog(@"    ------------ CATEGORIAS ------------");
+              NSLog(@"    --------------------------------------");
+        for (id objeto in responseDict) {
+            if([objeto objectForKey:@"category_parent"] == (id)[NSNull null]){
+            NSLog(@"        Categoría: %@. Link Categoria :%@ ", [objeto objectForKey:@"title"], [objeto objectForKey:@"url"]);
+            NSLog(@"    --------------------------------------");
+            }
+        }
+
+        
+    }else{
+        NSLog(@"Existe un error");
+    }
+
+}
+
+
 - (void)obtenerBeneficios{
     
-    NSString *post = @"idComercio=1";
+    //NSString *post = @"idComercio=1";
     NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerBeneficios" post:@""];
     NSError *e = nil;
     
@@ -108,6 +140,17 @@ return YES;
     
     //NSString *post = @"idComercio=53";
     NSData *jsonData = [self httpPostRequestWithUrl:@"http://mobile.asicom.cl:8282/cdbltws/servicio/obtenerSucursales" post:@"nil"];
+    NSError *e = nil;
+    
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+    
+    NSLog(@"Las sucursales son:%@", responseDict);
+}
+
+- (void)obtenerSucursales2   {
+    
+    NSString *post = @"idComercio=53";
+    NSData *jsonData = [self httpPostRequestWithUrl:@"http://api-isibu.appspot.com/near/places" post:@"nil"];
     NSError *e = nil;
     
     NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
