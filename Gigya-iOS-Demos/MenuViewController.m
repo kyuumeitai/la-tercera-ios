@@ -35,8 +35,6 @@
         [revealViewController revealToggle:nil];
         [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     }
-
-    
 }
 
 - (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender

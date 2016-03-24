@@ -23,7 +23,6 @@
 		177723A91C7306DD0075DFBE /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177723A51C7306DD0075DFBE /* menu@2x.png */; };
 		177723AA1C7306DD0075DFBE /* News.png in Resources */ = {isa = PBXBuildFile; fileRef = 177723A61C7306DD0075DFBE /* News.png */; };
 		177723AB1C7306DD0075DFBE /* News@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177723A71C7306DD0075DFBE /* News@2x.png */; };
-		177723AD1C7386620075DFBE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 177723AC1C7386620075DFBE /* Info.plist */; };
 		17CE96F71CA10A0100898C56 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CE96F61CA10A0100898C56 /* MenuViewController.m */; };
 		17F8BCC91CA24CAD00B9977B /* YSLContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F8BCC61CA24CAD00B9977B /* YSLContainerViewController.m */; };
 		17F8BCCA1CA24CAD00B9977B /* YSLScrollMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F8BCC81CA24CAD00B9977B /* YSLScrollMenuView.m */; };
@@ -94,8 +93,6 @@
 		D01021FC1C999A9900F5D88D /* DetalleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01021FB1C999A9900F5D88D /* DetalleViewController.m */; };
 		D029B2FC1C8768300088DCD3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D029B2FB1C8768300088DCD3 /* MapKit.framework */; };
 		D03631DB1CA2EA300095C2AE /* SingletonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D03631DA1CA2EA300095C2AE /* SingletonManager.m */; };
-		D03859DB1CA0337600E907FF /* usar-beneficio.png in Resources */ = {isa = PBXBuildFile; fileRef = D03859D81CA0337600E907FF /* usar-beneficio.png */; };
-		D03859DC1CA0337600E907FF /* usar-beneficio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03859D91CA0337600E907FF /* usar-beneficio@2x.png */; };
 		D03859DD1CA0337600E907FF /* usar-beneficio@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03859DA1CA0337600E907FF /* usar-beneficio@3x.png */; };
 		D03859E11CA0338700E907FF /* botonVolver.png in Resources */ = {isa = PBXBuildFile; fileRef = D03859DE1CA0338700E907FF /* botonVolver.png */; };
 		D03859E21CA0338700E907FF /* botonVolver@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03859DF1CA0338700E907FF /* botonVolver@2x.png */; };
@@ -141,7 +138,6 @@
 		D0E84DC31C9AFD3400FDE6D2 /* OpacityForImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0E84DB01C9AFD3400FDE6D2 /* OpacityForImage@3x.png */; };
 		D0E84DC41C9AFD3400FDE6D2 /* usar-beneficio.png in Resources */ = {isa = PBXBuildFile; fileRef = D0E84DB11C9AFD3400FDE6D2 /* usar-beneficio.png */; };
 		D0E84DC51C9AFD3400FDE6D2 /* usar-beneficio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0E84DB21C9AFD3400FDE6D2 /* usar-beneficio@2x.png */; };
-		D0E84DC61C9AFD3400FDE6D2 /* usar-beneficio@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0E84DB31C9AFD3400FDE6D2 /* usar-beneficio@3x.png */; };
 		D0E84DCA1C9AFD9D00FDE6D2 /* imagenPlaceholderSabores.png in Resources */ = {isa = PBXBuildFile; fileRef = D0E84DC71C9AFD9D00FDE6D2 /* imagenPlaceholderSabores.png */; };
 		D0E84DCB1C9AFD9D00FDE6D2 /* imagenPlaceholderSabores@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0E84DC81C9AFD9D00FDE6D2 /* imagenPlaceholderSabores@2x.png */; };
 		D0E84DCC1C9AFD9D00FDE6D2 /* imagenPlaceholderSabores@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0E84DC91C9AFD9D00FDE6D2 /* imagenPlaceholderSabores@3x.png */; };
@@ -503,13 +499,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1777237E1C72EF600075DFBE /* Libraries */ = {
+		1761FB441CA39DBD00E44212 /* SWRevealController1 */ = {
 			isa = PBXGroup;
 			children = (
-				D06DC3951C84BAAD0063B836 /* MKHorizMenu */,
 				D06DC3911C84A23F0063B836 /* SWRevealViewController.h */,
 				D06DC3921C84A23F0063B836 /* SWRevealViewController.m */,
 				D06DC3941C84A2430063B836 /* SWRevealMenu */,
+			);
+			name = SWRevealController1;
+			sourceTree = "<group>";
+		};
+		1761FB451CA3B57400E44212 /* SWRevealController2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SWRevealController2;
+			sourceTree = "<group>";
+		};
+		1777237E1C72EF600075DFBE /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1761FB451CA3B57400E44212 /* SWRevealController2 */,
+				D06DC3951C84BAAD0063B836 /* MKHorizMenu */,
+				1761FB441CA39DBD00E44212 /* SWRevealController1 */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -997,7 +1009,7 @@
 		52BCE1D41A48A65800924AD8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Gigya;
 				TargetAttributes = {
 					52BCE1DB1A48A65800924AD8 = {
@@ -1108,7 +1120,6 @@
 				D0FF341D1C98947E008832F3 /* botonMastercardOn@2x.png in Resources */,
 				D0E84DBF1C9AFD3400FDE6D2 /* botonVerOtrosCategoria@3x.png in Resources */,
 				D0FF341C1C98947E008832F3 /* botonMastercardOn.png in Resources */,
-				D0E84DC61C9AFD3400FDE6D2 /* usar-beneficio@3x.png in Resources */,
 				D0FF343C1C98947E008832F3 /* botonVidaSanaOn@3x.png in Resources */,
 				D0FF34261C98947E008832F3 /* botonTiempoLibreOff@2x.png in Resources */,
 				D03C2C441CA02E090084373F /* BotonShare@2x.png in Resources */,
@@ -1137,7 +1148,6 @@
 				D0FF342E1C98947E008832F3 /* botonTodosOn.png in Resources */,
 				D0E495011C971F3F0030F56C /* iconFilter@2x.png in Resources */,
 				D0FF34181C98947E008832F3 /* botonInfantilOn@3x.png in Resources */,
-				177723AD1C7386620075DFBE /* Info.plist in Resources */,
 				D0FF343A1C98947E008832F3 /* botonVidaSanaOn.png in Resources */,
 				177723941C73008F0075DFBE /* 0.2 Bienvenida sin registro@1x.png in Resources */,
 				D03C2C3D1CA02DFD0084373F /* botonVerEnMapa.png in Resources */,
@@ -1159,7 +1169,6 @@
 				D0FF341B1C98947E008832F3 /* botonMastercardOff@3x.png in Resources */,
 				177723A81C7306DD0075DFBE /* menu.png in Resources */,
 				D0E84DBA1C9AFD3400FDE6D2 /* botonVerBeneficiosRelacionados.png in Resources */,
-				D03859DC1CA0337600E907FF /* usar-beneficio@2x.png in Resources */,
 				D0FF341E1C98947E008832F3 /* botonMastercardOn@3x.png in Resources */,
 				D00DD30F1C91C90700C5DCBD /* botonVentasEspeciales@2x.png in Resources */,
 				D0E495031C971F3F0030F56C /* iconSearch.png in Resources */,
@@ -1181,7 +1190,6 @@
 				D03859E31CA0338700E907FF /* botonVolver@3x.png in Resources */,
 				D0E495041C971F3F0030F56C /* iconSearch@2x.png in Resources */,
 				D00DD30A1C91C90700C5DCBD /* botonConcursos.png in Resources */,
-				D03859DB1CA0337600E907FF /* usar-beneficio.png in Resources */,
 				D0FF34381C98947E008832F3 /* botonVidaSanaOff@2x.png in Resources */,
 				177723AA1C7306DD0075DFBE /* News.png in Resources */,
 				D03C2C451CA02E090084373F /* BotonShare@3x.png in Resources */,
@@ -1312,6 +1320,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = "@loader_path/Frameworks @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1369,7 +1378,7 @@
 				);
 				INFOPLIST_FILE = "Gigya-iOS-Demos/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks  $(CONFIGURATION_BUILD_DIR)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.celcom.tercera;
 				PRODUCT_NAME = "La Tercera";
@@ -1391,7 +1400,7 @@
 				);
 				INFOPLIST_FILE = "Gigya-iOS-Demos/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks  $(CONFIGURATION_BUILD_DIR)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.celcom.tercera;
 				PRODUCT_NAME = "La Tercera";
