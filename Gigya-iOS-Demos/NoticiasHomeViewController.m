@@ -66,7 +66,7 @@
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,newsPoliticaVC,newsInicioVC,newsPoliticaVC,newsInicioVC,newsPoliticaVC,newsInicioVC,newsPoliticaVC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,newsPoliticaVC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];

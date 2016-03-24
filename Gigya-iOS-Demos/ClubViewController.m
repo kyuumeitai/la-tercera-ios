@@ -21,14 +21,20 @@
 @implementation ClubViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
-    BOOL estaConectado = [connectionManager verifyConnection];
-    NSLog(@"Verificando conección: %d",estaConectado);
+    //BOOL estaConectado = [connectionManager verifyConnection];
+    //NSLog(@"Verificando conección: %d",estaConectado);
+    
+    NSDictionary* responseDict = [connectionManager getMainCategories];
+    [super viewDidLoad];
+    
+
     // Do any additional setup after loading the view.
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
+    
+    
     
     
     SWRevealViewController *revealViewController = self.revealViewController;
@@ -38,6 +44,18 @@
     
     NSLog(@"Entoncs el singleton es: %@",singleton.leftSlideMenu);
     // Do any additional setup after loading the view.
+  
+    /*
+    NSLog(@"    ------------ CATEGORIAS ------------");
+    NSLog(@"    --------------------------------------");
+    for (id objeto in responseDict) {
+        if([objeto objectForKey:@"category_parent"] == (id)[NSNull null]){
+            NSLog(@" Id Cat:%@       Categoría: %@. Link Categoria :%@ ", [objeto objectForKey:@"id"],[objeto objectForKey:@"title"], [objeto objectForKey:@"url"]);
+            NSLog(@"    --------------------------------------");
+        }
+    }
+    
+*/
     
 }
 
