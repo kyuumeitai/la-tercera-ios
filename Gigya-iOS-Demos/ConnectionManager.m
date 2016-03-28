@@ -36,7 +36,7 @@ static NSString * const BaseURLString = @"http://ltrest.multinetlabs.com/";
         return false;
     }
     else if (remoteHostStatus == ReachableViaWWAN) {
-        NSLog(@"reachable via wwan");
+        NSLog(@"reachable via wwan ok");
         return true;
     }
     else if (remoteHostStatus == ReachableViaWiFi) {
