@@ -23,51 +23,57 @@
     [Gigya initWithAPIKey:@"3_AG8H3fpJ5N0PHDj7yq7jEA3XNR6fXV0iPnyuxz-sZpYKHmKk9jmjsv_0hlNUFl4q" application:application launchOptions:launchOptions];
     
     [Gigya setAccountsDelegate:self];
+           /*
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+    
+       //NSLog(@"EL dictionary es:%@", responseDict);
+    
+    //NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &e];
+    
+    if (!responseDict) {
+        NSLog(@"Error parsing JSON: %@", e);
+    } else {
+        
+        if ([[responseDict objectForKey:@"respuesta"]  isEqual: @"1"]) {
+            NSLog(@"La respuesta es uno");
+            //NSLog(@"Mensaje: %@", [responseDict objectForKey:@"mensaje"]);
+           // NSLog(@"Categorias: %@", [jsonDictionary objectForKey:@"categorias"]);
+            
+        }
+        // NSLog(@"Dict Categorias : %@", [responseDict objectForKey:@"categorias"]);
+        NSArray *arrayCategorias = (NSArray*)[responseDict objectForKey:@"categorias"];
+        //NSLog(@"Categorias 0: %@", [arrayCategorias objectAtIndex:0]);
+
+        NSLog(@"    ------------ CATEGORIAS ------------");
+        for (NSDictionary* objeto in arrayCategorias) {
+            NSLog(@"        Categoría: %@. IdCategoria:%@", [objeto objectForKey:@"titulo"], [objeto objectForKey:@"id"]);
+            NSLog(@"    --------------------------------------");
+            NSArray *arraySubCategorias = (NSArray*)[objeto objectForKey:@"subcategorias"];
+            for (NSDictionary* subObjeto in arraySubCategorias) {
+                NSLog(@"            Subcategoría: %@. IdCategoria:%@", [subObjeto objectForKey:@"titulo"], [subObjeto objectForKey:@"id"]);
+            }
+            NSLog(@"    --------------------------------------");
+        }
+         
+         */
+
 
         
     
+    //[self obtenerComercios];
+    //[self obtenerSucursales]; //Necesitamos el idComercio
+    //[self obtenerListaDeEventos];
+    //[self obtenerConcursos];
+        
+    //[self registrarConsumoDelBeneficio:27 idSucursal:1 mailUsuario:@"mail@mail.cl" monto:2500];//no acepta el input post del emailUsuario
+  // [self obtenerTarjetaVirtualDelUsuario:@"mail@mail.cl"];//no acepta el input post del emailUsuario
+    //[self obtenerHistorialDelUsuario:@"acornejo@copesa.cl"];//no acepta el input post del emailUsuario
 
+   // [self registrarParticipacionDelConcurso:1 nombres:@"Nombres" apellidos:@"Apellidos" rutUsuario:111111111 fechaNacimiento:@"2014-01-01" emailContacto:@"email@email.cl" fonoContacto:55555555 actividad:@"Actividad" comuna:@"Comuna" emailUsuario:@"email@asicom.cl"];//no acepta el input post del emailUsuario
+        
 
 return YES;
 }
-
-- (void)obtenercCategorias{
-    // Send a synchronous request
-    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://ltrest.multinetlabs.com/club/categories/"]];
-    NSURLResponse * response = nil;
-    NSError * error = nil;
-    NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
-                                          returningResponse:&response
-                                                      error:&error];
-    
-    if (error == nil)
-    {
-        // Parse data here
-        
-        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-        
-        //NSLog(@"EL dictionario de Categorias interno es:%@", responseDict);
-        
-        // NSLog(@"Dict Categorias : %@", [responseDict objectForKey:@"categorias"]);
-//NSArray *arrayCategorias = (NSDictionary*)[responseDict objectForKey:@"categorias"];
-        //NSLog(@"Categorias 0: %@", [arrayCategorias objectAtIndex:0]);
-        
-        NSLog(@"    ------------ CATEGORIAS ------------");
-              NSLog(@"    --------------------------------------");
-        for (id objeto in responseDict) {
-            if([objeto objectForKey:@"category_parent"] == (id)[NSNull null]){
-            NSLog(@"        Categoría: %@. Link Categoria :%@ ", [objeto objectForKey:@"title"], [objeto objectForKey:@"url"]);
-            NSLog(@"    --------------------------------------");
-            }
-        }
-
-        
-    }else{
-        NSLog(@"Existe un error");
-    }
-
-}
-
 
 - (void)obtenerBeneficios{
     

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Reachability.h"
+typedef void (^getDataBlock)(BOOL success, NSDictionary* dictionary, NSError *error);
 
 @interface ConnectionManager : NSObject{
     BOOL isConnected;
@@ -15,7 +16,7 @@
 
 -(BOOL)verifyConnection;
 -(NSDictionary*)getAllCategories;
--(NSDictionary*)getMainCategories;
+-(void)getMainCategories:(getDataBlock)completionBlock;
 -(NSDictionary*)getSubCategoriesForCatId:(int)catId;
 -(NSDictionary*)getCategoryForCatId:(int)catId;
 -(NSDictionary*)getBenefits;

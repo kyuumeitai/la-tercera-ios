@@ -66,7 +66,7 @@
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,newsPoliticaVC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,newsPoliticaVC,newsInicioVC,newsPoliticaVC,newsInicioVC,newsPoliticaVC,newsInicioVC,newsPoliticaVC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
@@ -81,21 +81,12 @@
     NSLog(@"presionado washoh vamosss");
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
-
-    
-    
         NSLog(@"presionado washoh, YA EXISTES");
    // [sender addTarget:self.revealViewController action:@selector(revealToogle:) forControlEvents:UIControlEventTouchUpInside];
-
-    
        // singleton.leftSlideMenu = self.revealViewController;
         //[singleton.leftSlideMenu revealViewController];
         //[singleton.leftSlideMenu revealToggleAnimated:YES];
         //[self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
-
-    
-   
-   
     }
 
 
@@ -111,7 +102,7 @@
     NSLog(@"pressed tro");
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -119,6 +110,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

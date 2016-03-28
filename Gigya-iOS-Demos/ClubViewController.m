@@ -21,12 +21,6 @@
 @implementation ClubViewController
 
 - (void)viewDidLoad {
-    
-    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
-    //BOOL estaConectado = [connectionManager verifyConnection];
-    //NSLog(@"Verificando conección: %d",estaConectado);
-    
-    NSDictionary* responseDict = [connectionManager getMainCategories];
     [super viewDidLoad];
     
 
@@ -35,27 +29,51 @@
     SingletonManager *singleton = [SingletonManager singletonManager];
     
     
-    
-    
     SWRevealViewController *revealViewController = self.revealViewController;
     singleton.leftSlideMenu = revealViewController;
     [_menuButton
      addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
-    NSLog(@"Entoncs el singleton es: %@",singleton.leftSlideMenu);
+    NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
     // Do any additional setup after loading the view.
-  
-    /*
-    NSLog(@"    ------------ CATEGORIAS ------------");
-    NSLog(@"    --------------------------------------");
-    for (id objeto in responseDict) {
-        if([objeto objectForKey:@"category_parent"] == (id)[NSNull null]){
-            NSLog(@" Id Cat:%@       Categoría: %@. Link Categoria :%@ ", [objeto objectForKey:@"id"],[objeto objectForKey:@"title"], [objeto objectForKey:@"url"]);
-            NSLog(@"    --------------------------------------");
-        }
-    }
     
-*/
+    [self loadCategories];
+    
+}
+
+-(void)loadCategories{
+    
+    NSLog(@"Load categories");
+    
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    BOOL estaConectado = [connectionManager verifyConnection];
+    NSLog(@"Verificando conexión: %d",estaConectado);
+    [connectionManager getMainCategories:^(BOOL success, NSDictionary *dictionary, NSError *error) {
+        // IMPORTANT - Only update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!success) {
+                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+            } else {
+                [self reloadMainCategoriesDataFromService:dictionary];
+            }
+        });
+    }];
+    
+    
+
+
+    
+}
+
+-(void) reloadMainCategoriesDataFromService:(NSDictionary*)dictionary{
+    
+    
+    NSLog(@"--------------------- ******* ESTAMOS II OOO ****** ----------------------");
+    
+   // NSLog(@"El diccionario es: %@",dictionary);
+    
+    NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
+
     
 }
 
