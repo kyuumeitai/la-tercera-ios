@@ -1,9 +1,9 @@
 //
 //  Tools
 //
-//  Places Near Source Code
-//  Created by Mobigo Bilişim Teknolojileri
-//  Copyright (c) 2015 Mobigo Bilişim Teknolojileri. All rights reserved.
+//  Mario Alejandro
+//  Created by 2016 Mario Alejandro Ramos
+//  Copyright (c) 2016 Mario Alejandro Ramos. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -40,6 +40,7 @@
 +(void)startCallWithPhoneNumber:(NSString *)phoneNumber;
 +(void)openSafariWithURL:(NSString *)url;
 +(void)openMapsAppWithSourceLocation:(CLLocationCoordinate2D)sourceLocation andDestinationLocation:(CLLocationCoordinate2D)destinationLocation;
++(void)openGoogleMapsAppWithSourceLocation:(CLLocationCoordinate2D)sourceLocation andDestinationLocation:(CLLocationCoordinate2D)destinationLocation;
 
 /****************************************** ERROR ALERTS ****************************************/
 +(void)showNetworkError;

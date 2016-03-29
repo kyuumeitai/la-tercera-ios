@@ -92,6 +92,57 @@
     ];
 }
 
+- (IBAction)nativeLoginButtonAction:(id)sender {
+    
+    if (![Gigya session]){
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        [params setObject:[NSNumber numberWithInt:FBSDKLoginBehaviorNative] forKey:@"facebookLoginBehavior"];
+        [Gigya showLoginProvidersDialogOver:self
+                                  providers:@[@"facebook", @"twitter", @"googleplus", @"linkedin"]
+                                 parameters:params
+                          completionHandler:^(GSUser *user, NSError *error) {
+                              if (error && error.code != 200001) {
+                                  UIAlertView *alert;
+                                  // Handle error
+                                  alert = [[UIAlertView alloc] initWithTitle:@"Gigya Native Mobile Login"
+                                                                     message:[@"There was a problem logging in with Gigya. Gigya returned error code " stringByAppendingFormat:@"%ld", (long)error.code]
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"OK"
+                                                           otherButtonTitles:nil
+                                           ];
+                                  [alert show];
+                              }
+                              else {
+                                  // Anything?
+                              }
+                          }
+         ];
+    } else {
+        UIAlertView *alert;
+        if (!self.user) {
+            // Make Request to get User if it's empty.
+            // Step 1 - Create the request and set the parameters
+            GSRequest *request = [GSRequest requestForMethod:@"accounts.getAccountInfo"];
+            [request sendWithResponseHandler:^(GSResponse *response, NSError *error) {
+                if (!error) {
+                    self.user = (GSAccount *)response;
+                }
+                else {
+                    NSLog(@"Got error on getAccountInfo: %@", error);
+                }
+            }];
+        }
+        
+        alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                           message:@"You are already logged in!"
+                                          delegate:nil
+                                 cancelButtonTitle:@"OK"
+                                 otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+
 - (void)pluginView:(GSPluginView *)pluginView finishedLoadingPluginWithEvent:(NSDictionary *)event {
     NSLog(@"Carga de plugin finalizada con evento de Plugin: %@", event);
     

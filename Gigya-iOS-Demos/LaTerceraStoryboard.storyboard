@@ -496,6 +496,18 @@
                                     <segue destination="0B8-6F-OFF" kind="push" id="YGa-N1-erb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8HV-TI-EtI">
+                                <rect key="frame" x="90" y="467" width="195" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92629404699999995" green="0.92598386799999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="SOCIAL LOGIN">
+                                    <color key="titleColor" red="0.11186774118589306" green="0.28807708523255277" blue="0.54799679487179487" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nativeLoginButtonAction:" destination="Xmx-eN-OsC" eventType="touchUpInside" id="J9l-DS-bMW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -511,7 +523,7 @@
             <objects>
                 <viewController id="FRq-Fc-Jtx" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zie-LA-gyd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1776,7 +1788,7 @@ QUÉ PROBAR
             <objects>
                 <viewController id="0B8-6F-OFF" customClass="NoticiasHomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rub-bV-f6m">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" id="oDy-jK-17Y">
@@ -2126,6 +2138,6 @@ QUÉ PROBAR
     <inferredMetricsTieBreakers>
         <segue reference="EJO-cu-oTk"/>
         <segue reference="i01-LE-nlV"/>
-        <segue reference="R84-pz-b03"/>
+        <segue reference="YGa-N1-erb"/>
     </inferredMetricsTieBreakers>
 </document>

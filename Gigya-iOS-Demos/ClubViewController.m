@@ -40,7 +40,7 @@
     //[self loadCategories];
     //[self loadBenefits];
     //[self loadCommerces];
-    [self loadStores];
+    //[self loadStores];
 }
 
 -(void)loadCategories{

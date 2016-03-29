@@ -1,9 +1,9 @@
 //
 //  Tools
 //
-//  Places Near Source Code
-//  Created by Mobigo Bilişim Teknolojileri
-//  Copyright (c) 2015 Mobigo Bilişim Teknolojileri. All rights reserved.
+//  Mario Alejandro
+//  Created by 2016 Mario Alejandro Ramos
+//  Copyright (c) 2016 Mario Alejandro Ramos. All rights reserved.
 //
 
 #import "Tools.h"
@@ -50,7 +50,7 @@
 
 +(NSString *)getFormattedDateString:(NSString *)dateString andFormatString:(NSString *)formatString {
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"es_ES"];
     [df setLocale:locale];
     [df setDateFormat:@"EEE MMM dd HH:mm:ss yyyy"];
     NSTimeInterval timeIntveral = [[df dateFromString:dateString] timeIntervalSince1970];
@@ -95,7 +95,7 @@
         [[UIApplication sharedApplication] openURL:url];
     }
     else {
-        [self showInvalidURLError:NSLocalizedString(@"InvalidFoursquareVenueURLMessage", @"")];
+        [self showInvalidURLError:@"Error del id de FoursquareVenue"];
     }
 }
 
@@ -111,18 +111,18 @@
         [[UIApplication sharedApplication] openURL:url];
     }
     else {
-        [self showInvalidURLError:NSLocalizedString(@"InvalidFoursquareTipURLMessage", @"")];
+        [self showInvalidURLError:@"Error de tip de foursquare inválido"];
     }
 }
 
 +(void)startCallWithPhoneNumber:(NSString *)phoneNumber {
     if (phoneNumber) {
-        NSString *number = [NSString stringWithFormat:@"tel:%@",[[phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"+0123456789"] invertedSet]] componentsJoinedByString:@""]];
+        NSString *number = [NSString stringWithFormat:@"tel:%@",[[phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"+01234567890"] invertedSet]] componentsJoinedByString:@""]];
         NSURL *url = [NSURL URLWithString:number];
         [[UIApplication sharedApplication] openURL:url];
     }
     else{
-        [self showInvalidURLError:NSLocalizedString(@"InvalidPhoneNumberMessage", @"")];
+        [self showInvalidURLError:@"Número de teléfono inválido"];
     }
 }
 
@@ -135,6 +135,33 @@
     }
 }
 
+
++(void)openGoogleMapsAppWithSourceLocation:(CLLocationCoordinate2D)sourceLocation andDestinationLocation:(CLLocationCoordinate2D)destinationLocation {
+    
+
+CGFloat latitud = sourceLocation.latitude;
+CGFloat longuitud = sourceLocation.longitude;
+    /*
+     Directionsmode (driving / transit / walking), mapmode (standard / streetview) and views (satellite / traffic / transit) sets how Google Maps presents its data to you.
+     */
+NSString *stringMapDirections = [NSString stringWithFormat:@"comgooglemaps://?saddr=&daddr=%1.6f,%1.6f&directionsmode=walking&views=traffic&mapmode=standard",latitud,longuitud];
+
+if ([[UIApplication sharedApplication] canOpenURL:
+     
+     [NSURL URLWithString:@"comgooglemaps://"]]) {
+    
+    [[UIApplication sharedApplication] openURL:
+     
+     [NSURL URLWithString:stringMapDirections]];
+    
+} else {
+    
+    NSLog(@"Without Google Maps");
+    
+    [self openMapsAppWithSourceLocation:sourceLocation andDestinationLocation:destinationLocation];
+    }
+}
+
 +(void)openMapsAppWithSourceLocation:(CLLocationCoordinate2D)sourceLocation andDestinationLocation:(CLLocationCoordinate2D)destinationLocation {
     NSString *urlString  =[NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@&saddr=%@",[NSString stringWithFormat:@"%f,%f",destinationLocation.latitude,destinationLocation.longitude],[NSString stringWithFormat:@"%f,%f",sourceLocation.latitude, sourceLocation.longitude]];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
@@ -143,11 +170,13 @@
 
 /****************************************** ERROR ALERTS ****************************************/
 +(void)showNetworkError {
+    
+    NSString *mensaje = @"Esta aplicación requiere acceso a Internet";
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@""
-                          message:NSLocalizedString(@"NetworkConnectionErrorMessage", @"")
+                          message:mensaje
                           delegate:self
-                          cancelButtonTitle:NSLocalizedString(@"AlertOKButtonLabel", @"")
+                          cancelButtonTitle: @"OK"
                           otherButtonTitles:nil];
     [alert show];
 }
@@ -155,23 +184,23 @@
 +(void)showLocationServicesErrorByType:(NSString *)messageType {
     NSString *errorMessage;
     if ([messageType isEqualToString:@"locationServicesDisabledError"]) {
-        errorMessage = NSLocalizedString(@"LocationServicesErrorMessageForDisabled", @"");
+        errorMessage = @"Esta aplicación requiere acceso a servicios de localización, que se encuentran desactivados. Habilítelos en ajustes.";
     }
     else if ([messageType isEqualToString:@"locationServicesAuthorizationStatusDenied"]) {
-        errorMessage = [NSString stringWithFormat:NSLocalizedString(@"LocationServicesErrorMessageForAuthorizationStatusDenied", @""),NSLocalizedString(@"AppName", @"")];
+        errorMessage = @"No se ha autorizado a esta app para acceder a localización";
     }
     else if([messageType isEqualToString:@"getDirectionsError"]) {
-        errorMessage = NSLocalizedString(@"LocationServicesErrorMessageForGetDirections", @"");
+        errorMessage = @"Error obteniendo la dirección";
     }
     else if([messageType isEqualToString:@"invalidLocationError"]) {
-        errorMessage = NSLocalizedString(@"LocationServicesErrorMessageForInvalidLocation", @"");
+        errorMessage = @"Se ha recibido un localización inválida";
     }
     
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@""
                           message:errorMessage
                           delegate:self
-                          cancelButtonTitle:NSLocalizedString(@"AlertOKButtonLabel", @"")
+                          cancelButtonTitle:@"OK"
                           otherButtonTitles:nil];
     [alert show];
 }
@@ -181,7 +210,7 @@
                           initWithTitle:@""
                           message:messageString
                           delegate:nil
-                          cancelButtonTitle:NSLocalizedString(@"AlertOKButtonLabel", @"")
+                          cancelButtonTitle:@"OK"
                           otherButtonTitles:nil];
     [alert show];
 }
@@ -198,7 +227,7 @@
                           initWithTitle:@""
                           message:messageString
                           delegate:self
-                          cancelButtonTitle:NSLocalizedString(@"AlertOKButtonLabel", @"")
+                          cancelButtonTitle:@"OK"
                           otherButtonTitles:nil];
     [alert show];
 }
@@ -208,7 +237,7 @@
                           initWithTitle:@""
                           message:messageString
                           delegate:self
-                          cancelButtonTitle:NSLocalizedString(@"AlertOKButtonLabel", @"")
+                          cancelButtonTitle:@"OK"
                           otherButtonTitles:nil];
     [alert show];
 }

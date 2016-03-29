@@ -13,10 +13,17 @@
 
 
 @interface MasCercanosViewController : UIViewController <CLLocationManagerDelegate,MKMapViewDelegate >{
-    CLLocationManager *locationManager;
+   
+    MapAnnotation * annotation;
+    CLLocationManager * locationManager;
+    NSMutableArray * storeItemsArray;
+    CLLocation        * userLocation;
 
 }
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLLocation        *userLocation;
+@property (nonatomic, retain) NSMutableArray *storeItemsArray;
 
 @end
