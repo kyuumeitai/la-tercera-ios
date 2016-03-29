@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Reachability.h"
-typedef void (^getDataBlock)(BOOL success, NSDictionary* dictionary, NSError *error);
+typedef void (^getDataBlock)(BOOL success, NSArray* arrayJson, NSError *error);
 
 @interface ConnectionManager : NSObject{
     BOOL isConnected;

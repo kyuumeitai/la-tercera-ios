@@ -48,33 +48,33 @@
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
     NSLog(@"Verificando conexión: %d",estaConectado);
-    [connectionManager getMainCategories:^(BOOL success, NSDictionary *dictionary, NSError *error) {
+    [connectionManager getMainCategories:^(BOOL success, NSArray *arrayJson, NSError *error) {
         // IMPORTANT - Only update the UI on the main thread
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
             } else {
-                [self reloadMainCategoriesDataFromService:dictionary];
+                [self reloadMainCategoriesDataFromService:arrayJson];
             }
         });
     }];
-    
-    
 
-
-    
 }
 
--(void) reloadMainCategoriesDataFromService:(NSDictionary*)dictionary{
+-(void) reloadMainCategoriesDataFromService:(NSArray*)arrayJson{
     
+    NSLog(@"--------------------- ******* LISTADO DE CATEGORÍAS PRINCIPALES ****** ----------------------");
     
-    NSLog(@"--------------------- ******* ESTAMOS II OOO ****** ----------------------");
-    
-   // NSLog(@"El diccionario es: %@",dictionary);
-    
+    for (id object in arrayJson){
+        if ([object objectForKey:@"category_parent"] == [NSNull null]) {
+      
+            id title = [object objectForKey:@"title"];
+            id idCat = [object objectForKey:@"id"];
+            NSLog(@"Categoría: %@ , id: %@",title,idCat);
+  
+        }
+    }
     NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
-
-    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -55,17 +55,21 @@ static NSString * const BaseURLString = @"http://ltrest.multinetlabs.com/";
 }
 -(void)getMainCategories:(getDataBlock)completionBlock{
     
-    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/categories",BaseURLString]];
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/categories/?type=json",BaseURLString]];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
-        NSLog(@"task  %@", responseObject);
-
-        NSError *error;
- NSDictionary* dictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
-
-        completionBlock(YES,dictionary,nil);
+        NSArray *jsonArray = (NSArray *) responseObject;
+        /*
+        for (id object in jsonArray){
+            for(id key in object) {
+                id value = [object objectForKey:key];
+                NSLog(@"Key %@ , Object: %@",key,value);
+            }
+        }
+         */
+        completionBlock(YES,jsonArray ,nil);
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
