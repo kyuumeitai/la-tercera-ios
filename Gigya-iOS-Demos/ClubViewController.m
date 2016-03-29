@@ -38,8 +38,9 @@
     // Do any additional setup after loading the view.
     
     //[self loadCategories];
-     //[self loadBenefits];
-    [self loadCommerces];
+    //[self loadBenefits];
+    //[self loadCommerces];
+    [self loadStores];
 }
 
 -(void)loadCategories{
@@ -98,6 +99,26 @@
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
             } else {
                 [self reloadCommercesDataFromService:arrayJson];
+            }
+        });
+    }];
+    
+}
+
+-(void)loadStores{
+    
+    NSLog(@"Load Stores");
+    
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    BOOL estaConectado = [connectionManager verifyConnection];
+    NSLog(@"Verificando conexión: %d",estaConectado);
+    [connectionManager getStores:^(BOOL success, NSArray *arrayJson, NSError *error) {
+        // IMPORTANT - Only update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!success) {
+                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+            } else {
+                [self reloadStoresDataFromService:arrayJson];
             }
         });
     }];
@@ -190,6 +211,29 @@
             NSLog(@"           Store id: %@ , titulo: %@, region: %@, city: %@, address: %@, geolocacion: %@",idStore,title,region,city,address,geoLocation);
         }
 
+    }
+    
+    NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
+}
+
+-(void) reloadStoresDataFromService:(NSArray*)arrayJson{
+    
+    NSLog(@"     ");
+    NSLog(@" ******* LISTADO DE SUCURSALES ****** ----------------------");
+    
+    for (id store in arrayJson){
+        
+       
+            id idStore = [store objectForKey:@"id"];
+            id title = [store objectForKey:@"title"];
+            id region = [store objectForKey:@"region"];
+            id city = [store objectForKey:@"city"];
+            id address = [store objectForKey:@"address"];
+            id geoLocation = [store objectForKey:@"geolocation"];
+            
+            NSLog(@"           Store id: %@ , titulo: %@, region: %@, city: %@, address: %@, geolocacion: %@",idStore,title,region,city,address,geoLocation);
+        
+        
     }
     
     NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");

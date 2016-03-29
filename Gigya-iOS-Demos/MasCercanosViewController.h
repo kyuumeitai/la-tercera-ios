@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import "MapAnnotation.h"
 
 
-@interface MasCercanosViewController : UIViewController <CLLocationManagerDelegate>
+@interface MasCercanosViewController : UIViewController <CLLocationManagerDelegate,MKMapViewDelegate >{
+    CLLocationManager *locationManager;
+
+}
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
 
 @end

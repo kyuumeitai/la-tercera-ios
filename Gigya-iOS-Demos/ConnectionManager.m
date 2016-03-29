@@ -123,4 +123,23 @@ static NSString * const BaseURLString = @"http://ltrest.multinetlabs.com/";
     }];
 }
 
+-(void)getStores:(getDataBlock)completionBlock{
+    
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/store/?format=json",BaseURLString]];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        NSArray *jsonArray = (NSArray *) responseObject;
+        
+        completionBlock(YES,jsonArray ,nil);
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+        completionBlock(NO,nil,error);
+        
+    }];
+}
+
 @end
