@@ -19,7 +19,8 @@ typedef void (^getDataBlock)(BOOL success, NSArray* arrayJson, NSError *error);
 -(void)getMainCategories:(getDataBlock)completionBlock;
 -(NSDictionary*)getSubCategoriesForCatId:(int)catId;
 -(NSDictionary*)getCategoryForCatId:(int)catId;
--(NSDictionary*)getBenefits;
+-(void)getBenefits:(getDataBlock)completionBlock;
+-(void)getCommerces:(getDataBlock)completionBlock;
 
 @property  BOOL isConnected;
 

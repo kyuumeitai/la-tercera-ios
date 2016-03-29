@@ -61,14 +61,7 @@ static NSString * const BaseURLString = @"http://ltrest.multinetlabs.com/";
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
         NSArray *jsonArray = (NSArray *) responseObject;
-        /*
-        for (id object in jsonArray){
-            for(id key in object) {
-                id value = [object objectForKey:key];
-                NSLog(@"Key %@ , Object: %@",key,value);
-            }
-        }
-         */
+
         completionBlock(YES,jsonArray ,nil);
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -79,6 +72,7 @@ static NSString * const BaseURLString = @"http://ltrest.multinetlabs.com/";
     }];
     
 }
+
 -(NSDictionary*)getSubCategoriesForCatId:(int)catId{
     NSDictionary * dictionary = nil;
     
@@ -90,10 +84,43 @@ static NSString * const BaseURLString = @"http://ltrest.multinetlabs.com/";
     
     return dictionary;
 }
--(NSDictionary*)getBenefits{
-    NSDictionary * dictionary = nil;
+
+-(void)getBenefits:(getDataBlock)completionBlock{
+
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/benefits/?format=json",BaseURLString]];
     
-    return dictionary;
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        NSArray *jsonArray = (NSArray *) responseObject;
+
+        completionBlock(YES,jsonArray ,nil);
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+        completionBlock(NO,nil,error);
+        
+    }];
+}
+
+-(void)getCommerces:(getDataBlock)completionBlock{
+    
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/commerce/?format=json",BaseURLString]];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        NSArray *jsonArray = (NSArray *) responseObject;
+        
+        completionBlock(YES,jsonArray ,nil);
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+        completionBlock(NO,nil,error);
+        
+    }];
 }
 
 @end
