@@ -23,6 +23,7 @@
 @synthesize userLocation         = _userLocation;
 @synthesize storeItemsArray      = _storeItemsArray;
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -61,8 +62,8 @@
     
     if (authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
         NSLog(@"Autorizado");
-        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;   // 2 kilometers - hope for accuracy within 2 km.
-        //_locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;// 2 kilometers - hope for accuracy within 2 km.
+        locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
         [self.locationManager startUpdatingLocation];
         
         _mapView.showsUserLocation = YES;
@@ -109,11 +110,161 @@
     
     NSLog(@"Llegue a updateMyMap");
     
-
-   // [locationManager stopUpdatingLocation];
+[locationManager stopUpdatingLocation];
     
     //_mapView.delegate = self;
    
+}
+
+
+#pragma mark - Menu Categories
+- (IBAction)infantilClicked:(id)sender {
+    NSLog(@"Infantil clicked");
+    self.categoryName = @"infantil";
+    
+    self.botonInfantil.selected = YES;
+    self.botonSabores.selected = NO;
+    self.botonInfantil.selected = NO;
+    self.botonTiempoLibre.selected = NO;
+    self.botonVidaSana.selected = NO;
+    self.botonMasterCard.selected = NO;
+    self.botonServicios.selected = NO;
+    self.botonViajes.selected = NO;
+    self.botonTodos.selected = NO;
+    
+    [self loadCategory];
+}
+
+- (IBAction)todosClicked:(id)sender {
+    NSLog(@"Todos clicked");
+    
+    self.categoryName = @"todos";
+    
+    self.botonTodos.selected = YES;
+    self.botonSabores.selected = NO;
+    self.botonInfantil.selected = NO;
+    self.botonTiempoLibre.selected = NO;
+    self.botonVidaSana.selected = NO;
+    self.botonMasterCard.selected = NO;
+    self.botonServicios.selected = NO;
+    self.botonViajes.selected = NO;
+    self.botonInfantil.selected = NO;
+    
+    [self loadCategory];
+    
+}
+- (IBAction)saboresClicked:(id)sender {
+    NSLog(@"Sabores clicked");
+    
+    self.categoryName = @"sabores";
+    
+    self.botonSabores.selected = YES;
+    self.botonTodos.selected = NO;
+    self.botonInfantil.selected = NO;
+    self.botonTiempoLibre.selected = NO;
+    self.botonVidaSana.selected = NO;
+    self.botonMasterCard.selected = NO;
+    self.botonServicios.selected = NO;
+    self.botonViajes.selected = NO;
+    self.botonInfantil.selected = NO;
+    
+    [self loadCategory];
+}
+
+- (IBAction)vidaSanaClicked:(id)sender {
+    NSLog(@"Vida Sana clicked");
+    
+    self.categoryName = @"vidaSana";
+    
+    self.botonSabores.selected = NO;
+    self.botonTodos.selected = NO;
+    self.botonInfantil.selected = NO;
+    self.botonTiempoLibre.selected = NO;
+    self.botonVidaSana.selected = YES;
+    self.botonMasterCard.selected = NO;
+    self.botonServicios.selected = NO;
+    self.botonViajes.selected = NO;
+    self.botonInfantil.selected = NO;
+    
+    [self loadCategory];
+}
+
+- (IBAction)tiempoLibreClicked:(id)sender {
+    NSLog(@"Tiempo Libre clicked");
+    
+    self.categoryName = @"tiempoLibre";
+    
+    self.botonSabores.selected = NO;
+    self.botonTodos.selected = NO;
+    self.botonInfantil.selected = NO;
+    self.botonTiempoLibre.selected = YES;
+    self.botonVidaSana.selected = NO;
+    self.botonMasterCard.selected = NO;
+    self.botonServicios.selected = NO;
+    self.botonViajes.selected = NO;
+    self.botonInfantil.selected = NO;
+    
+    [self loadCategory];
+    
+}
+- (IBAction)serviciosClicked:(id)sender {
+    NSLog(@"Servicios clicked");
+    
+    self.categoryName = @"servicios";
+    
+    self.botonSabores.selected = NO;
+    self.botonTodos.selected = NO;
+    self.botonInfantil.selected = NO;
+    self.botonTiempoLibre.selected = NO;
+    self.botonVidaSana.selected = NO;
+    self.botonMasterCard.selected = NO;
+    self.botonServicios.selected = YES;
+    self.botonViajes.selected = NO;
+    self.botonInfantil.selected = NO;
+    
+    [self loadCategory];
+}
+
+- (IBAction)viajesClicked:(id)sender {
+    NSLog(@"Viajes clicked");
+    
+    self.categoryName = @"viajes";
+    
+    self.botonSabores.selected = NO;
+    self.botonTodos.selected = NO;
+    self.botonInfantil.selected = NO;
+    self.botonTiempoLibre.selected = NO;
+    self.botonVidaSana.selected = NO;
+    self.botonMasterCard.selected = NO;
+    self.botonServicios.selected = NO;
+    self.botonViajes.selected = YES;
+    self.botonInfantil.selected = NO;
+    
+    [self loadCategory];
+}
+
+- (IBAction)mastercardClicked:(id)sender {
+    NSLog(@"Viajes clicked");
+    
+    self.categoryName = @"masterCard";
+    
+    self.botonSabores.selected = NO;
+    self.botonTodos.selected = NO;
+    self.botonInfantil.selected = NO;
+    self.botonTiempoLibre.selected = NO;
+    self.botonVidaSana.selected = NO;
+    self.botonMasterCard.selected = YES;
+    self.botonServicios.selected = NO;
+    self.botonViajes.selected = NO;
+    self.botonInfantil.selected = NO;
+    
+    [self loadCategory];
+}
+
+#pragma mark - Load Categories
+- (void)loadCategory {
+    
+    NSLog(@"hello category: %@",self.categoryName);
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -135,7 +286,7 @@
     userLocation.coordinate;
 
     
-   NSLog(@"USER LOCATION : %@", userLocation);
+ //  NSLog(@"USER LOCATION : %@", userLocation);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {

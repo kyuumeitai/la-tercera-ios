@@ -18,9 +18,19 @@
     CLLocationManager * locationManager;
     NSMutableArray * storeItemsArray;
     CLLocation        * userLocation;
+    
 
 }
+@property (nonatomic, copy) NSString* categoryName;
 
+@property (weak, nonatomic) IBOutlet UIButton *botonTodos;
+@property (weak, nonatomic) IBOutlet UIButton *botonSabores;
+@property (weak, nonatomic) IBOutlet UIButton *botonInfantil;
+@property (weak, nonatomic) IBOutlet UIButton *botonTiempoLibre;
+@property (weak, nonatomic) IBOutlet UIButton *botonVidaSana;
+@property (weak, nonatomic) IBOutlet UIButton *botonMasterCard;
+@property (weak, nonatomic) IBOutlet UIButton *botonServicios;
+@property (weak, nonatomic) IBOutlet UIButton *botonViajes;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation        *userLocation;
