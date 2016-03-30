@@ -37,8 +37,8 @@
     NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
     // Do any additional setup after loading the view.
     
-    //[self loadCategories];
-    //[self loadBenefits];
+   [self loadCategories];
+   [self loadBenefits];
     //[self loadCommerces];
     //[self loadStores];
 }
@@ -132,21 +132,24 @@
     NSLog(@" ******* LISTADO DE CATEGORÍAS PRINCIPALES ****** ");
     
     for (id object in arrayJson){
-        if ([object objectForKey:@"category_parent"] != [NSNull null]) {
+        //if ([object objectForKey:@"category_parent"] != [NSNull null]) {
+            if ([object objectForKey:@"category_parent"] == [NSNull null]) {
       
             id title = [object objectForKey:@"title"];
             id idCat = [object objectForKey:@"id"];
-            id childs = [object objectForKey:@"childs"];
-            NSLog(@"Categoría: %@ , id: %@",title,idCat);
+            //id childs = [object objectForKey:@"childs"];
+            id url = [object objectForKey:@"url"];
+                
+            NSLog(@"Categoría: %@ , id: %@, url: %@ ",title,idCat,url);
+                /*
             for (id child in childs){
-               // NSLog(@"Child: %@ ",child);
 
                 id titleSub = [child objectForKey:@"title"];
                 id idCatSub = [child objectForKey:@"description"] ;
                 id linkCatSub = [child objectForKey:@"url"] ;
                 NSLog(@"           Subategoría: %@ , idSubCat: %@, idSubCat: %@",titleSub,idCatSub,linkCatSub);
             }
-  
+                */
         }
     }
     NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");

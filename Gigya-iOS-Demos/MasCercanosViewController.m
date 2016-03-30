@@ -104,6 +104,11 @@
     [self updateMyMap];
 }
 
+- (IBAction)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 #pragma mark - MapView Methods
 
 - (void)updateMyMap{
