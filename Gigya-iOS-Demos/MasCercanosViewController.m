@@ -40,7 +40,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
    
-    
+    [self todosClicked:nil];
 }
 
 -(void)requestLocation {
@@ -101,7 +101,7 @@
     // Place a single pin
 
     _mapView.region = MKCoordinateRegionMakeWithDistance(_userLocation.coordinate,MapDistanceInMeters,MapDistanceInMeters);
-    //[self updateMyMap];
+    [self updateMyMap];
 }
 
 #pragma mark - MapView Methods
@@ -124,7 +124,6 @@
     
     self.botonInfantil.selected = YES;
     self.botonSabores.selected = NO;
-    self.botonInfantil.selected = NO;
     self.botonTiempoLibre.selected = NO;
     self.botonVidaSana.selected = NO;
     self.botonMasterCard.selected = NO;
@@ -148,7 +147,6 @@
     self.botonMasterCard.selected = NO;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
-    self.botonInfantil.selected = NO;
     
     [self loadCategory];
     
@@ -166,7 +164,6 @@
     self.botonMasterCard.selected = NO;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
-    self.botonInfantil.selected = NO;
     
     [self loadCategory];
 }
@@ -184,7 +181,6 @@
     self.botonMasterCard.selected = NO;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
-    self.botonInfantil.selected = NO;
     
     [self loadCategory];
 }
@@ -202,7 +198,6 @@
     self.botonMasterCard.selected = NO;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
-    self.botonInfantil.selected = NO;
     
     [self loadCategory];
     
@@ -220,7 +215,6 @@
     self.botonMasterCard.selected = NO;
     self.botonServicios.selected = YES;
     self.botonViajes.selected = NO;
-    self.botonInfantil.selected = NO;
     
     [self loadCategory];
 }
@@ -238,7 +232,6 @@
     self.botonMasterCard.selected = NO;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = YES;
-    self.botonInfantil.selected = NO;
     
     [self loadCategory];
 }
@@ -256,7 +249,6 @@
     self.botonMasterCard.selected = YES;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
-    self.botonInfantil.selected = NO;
     
     [self loadCategory];
 }
