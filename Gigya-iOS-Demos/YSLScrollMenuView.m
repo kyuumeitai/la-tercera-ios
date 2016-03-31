@@ -8,7 +8,7 @@
 
 #import "YSLScrollMenuView.h"
 
-static const CGFloat kYSLScrollMenuViewWidth  = 80;
+static const CGFloat kYSLScrollMenuViewWidth  = 100;
 static const CGFloat kYSLScrollMenuViewMargin = 10;
 static const CGFloat kYSLIndicatorHeight = 2;
 

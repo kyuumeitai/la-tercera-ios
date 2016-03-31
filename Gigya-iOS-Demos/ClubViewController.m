@@ -39,8 +39,8 @@
     
    [self loadCategories];
    [self loadBenefits];
-    //[self loadCommerces];
-    //[self loadStores];
+   [self loadCommerces];
+   [self loadStores];
     
    
 }
@@ -203,7 +203,7 @@
         id idCom = [object objectForKey:@"id"];
         id title = [object objectForKey:@"title"];
         id marker = [object objectForKey:@"marker"];
-        NSLog(@"id: %@, titulo: %@ , marker: %@",idCom,title,marker);
+        NSLog(@"id: %@, titulo: %@  ",idCom,title );
         id stores = [object objectForKey:@"stores"];
 
         for (id store in stores){

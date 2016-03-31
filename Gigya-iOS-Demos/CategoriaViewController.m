@@ -12,6 +12,7 @@
 #import "YSLContainerViewController.h"
 
 #import "InfantilContainerVC.h"
+#import "SaboresContainerVC.h"
 
 #import "NewsCategoryInicioViewController.h"
 #import "NewsCategoryPoliticaViewController.h"
@@ -19,14 +20,6 @@
 
 @interface CategoriaViewController ()<YSLContainerViewControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *botonTodos;
-@property (weak, nonatomic) IBOutlet UIButton *botonSabores;
-@property (weak, nonatomic) IBOutlet UIButton *botonInfantil;
-@property (weak, nonatomic) IBOutlet UIButton *botonTiempoLibre;
-@property (weak, nonatomic) IBOutlet UIButton *botonVidaSana;
-@property (weak, nonatomic) IBOutlet UIButton *botonMasterCard;
-@property (weak, nonatomic) IBOutlet UIButton *botonServicios;
-@property (weak, nonatomic) IBOutlet UIButton *botonViajes;
 
 @end
 
@@ -36,7 +29,7 @@
 
     [super viewDidLoad];
     
-    [self loadCategory];
+    //[self loadCategory];
     [self setupClubCategories];
     // Do any additional setup after loading the view.
 }
@@ -50,22 +43,43 @@
 
 -(void) setupClubCategories{
     NSLog(@"setup Club categories");
+    
     // SetUp ViewControllers
-    NewsCategoryInicioViewController *newsInicio2VC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
-    newsInicio2VC.title = @"Todos";
+    SaboresContainerVC *clubSabores = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategorySabores"];
+    clubSabores.title = @"Sabores";
     
     InfantilContainerVC *clubInfantil = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryInfantil"];
     clubInfantil.title = @"Infantil";
     
     
-    NewsCategoryPoliticaViewController *newsPolitica2VC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
-    newsPolitica2VC.title = @"Politica";
+    //DUmmie data
+    // SetUp ViewControllers
+    SaboresContainerVC *clubSabores2 = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategorySabores"];
+    clubSabores2.title = @"Tiempo Libre";
+    
+    InfantilContainerVC *clubInfantil2 = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryInfantil"];
+    clubInfantil2.title = @"Vida Sana";
+    
+    SaboresContainerVC *clubSabores3 = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategorySabores"];
+    clubSabores3.title = @"Mastercard";
+    
+    InfantilContainerVC *clubInfantil3 = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryInfantil"];
+    clubInfantil3.title = @"Servicios";
+    
+    SaboresContainerVC *clubSabores4 = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategorySabores"];
+    clubSabores4.title = @"Tienda";
+    
+    InfantilContainerVC *clubInfantil4 = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryInfantil"];
+    clubInfantil4.title = @"Viajes";
+    
+    
+
     
     // ContainerView
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[clubInfantil, newsInicio2VC,newsPolitica2VC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[clubSabores,clubInfantil,clubSabores2,clubInfantil2,clubSabores3,clubInfantil3,clubSabores4,clubInfantil4]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
@@ -87,148 +101,7 @@
 }
 
 #pragma mark - Menu Categories
-- (IBAction)infantilClicked:(id)sender {
-    NSLog(@"Infantil clicked");
-    self.categoryName = @"infantil";
-    
-    self.botonInfantil.selected = YES;
-    self.botonSabores.selected = NO;
-    self.botonInfantil.selected = NO;
-    self.botonTiempoLibre.selected = NO;
-    self.botonVidaSana.selected = NO;
-    self.botonMasterCard.selected = NO;
-    self.botonServicios.selected = NO;
-    self.botonViajes.selected = NO;
-    self.botonTodos.selected = NO;
-    
-    [self loadCategory];
-}
 
-- (IBAction)todosClicked:(id)sender {
-    NSLog(@"Todos clicked");
-    
-    self.categoryName = @"todos";
-    
-    self.botonTodos.selected = YES;
-    self.botonSabores.selected = NO;
-    self.botonInfantil.selected = NO;
-    self.botonTiempoLibre.selected = NO;
-    self.botonVidaSana.selected = NO;
-    self.botonMasterCard.selected = NO;
-    self.botonServicios.selected = NO;
-    self.botonViajes.selected = NO;
-    self.botonInfantil.selected = NO;
-    
-    [self loadCategory];
-    
-}
-- (IBAction)saboresClicked:(id)sender {
-    NSLog(@"Sabores clicked");
-    
-    self.categoryName = @"sabores";
-    
-    self.botonSabores.selected = YES;
-    self.botonTodos.selected = NO;
-    self.botonInfantil.selected = NO;
-    self.botonTiempoLibre.selected = NO;
-    self.botonVidaSana.selected = NO;
-    self.botonMasterCard.selected = NO;
-    self.botonServicios.selected = NO;
-    self.botonViajes.selected = NO;
-    self.botonInfantil.selected = NO;
-    
-    [self loadCategory];
-}
-
-- (IBAction)vidaSanaClicked:(id)sender {
-    NSLog(@"Vida Sana clicked");
-    
-    self.categoryName = @"vidaSana";
-    
-    self.botonSabores.selected = NO;
-    self.botonTodos.selected = NO;
-    self.botonInfantil.selected = NO;
-    self.botonTiempoLibre.selected = NO;
-    self.botonVidaSana.selected = YES;
-    self.botonMasterCard.selected = NO;
-    self.botonServicios.selected = NO;
-    self.botonViajes.selected = NO;
-    self.botonInfantil.selected = NO;
-    
-    [self loadCategory];
-}
-
-- (IBAction)tiempoLibreClicked:(id)sender {
-     NSLog(@"Tiempo Libre clicked");
-    
-    self.categoryName = @"tiempoLibre";
-    
-    self.botonSabores.selected = NO;
-    self.botonTodos.selected = NO;
-    self.botonInfantil.selected = NO;
-    self.botonTiempoLibre.selected = YES;
-    self.botonVidaSana.selected = NO;
-    self.botonMasterCard.selected = NO;
-    self.botonServicios.selected = NO;
-    self.botonViajes.selected = NO;
-    self.botonInfantil.selected = NO;
-    
-    [self loadCategory];
-    
-}
-- (IBAction)serviciosClicked:(id)sender {
-     NSLog(@"Servicios clicked");
-    
-    self.categoryName = @"servicios";
-    
-    self.botonSabores.selected = NO;
-    self.botonTodos.selected = NO;
-    self.botonInfantil.selected = NO;
-    self.botonTiempoLibre.selected = NO;
-    self.botonVidaSana.selected = NO;
-    self.botonMasterCard.selected = NO;
-    self.botonServicios.selected = YES;
-    self.botonViajes.selected = NO;
-    self.botonInfantil.selected = NO;
-    
-    [self loadCategory];
-}
-
-- (IBAction)viajesClicked:(id)sender {
-     NSLog(@"Viajes clicked");
-    
-    self.categoryName = @"viajes";
-    
-    self.botonSabores.selected = NO;
-    self.botonTodos.selected = NO;
-    self.botonInfantil.selected = NO;
-    self.botonTiempoLibre.selected = NO;
-    self.botonVidaSana.selected = NO;
-    self.botonMasterCard.selected = NO;
-    self.botonServicios.selected = NO;
-    self.botonViajes.selected = YES;
-    self.botonInfantil.selected = NO;
-    
-    [self loadCategory];
-}
-
-- (IBAction)mastercardClicked:(id)sender {
-    NSLog(@"Viajes clicked");
-    
-    self.categoryName = @"masterCard";
-    
-    self.botonSabores.selected = NO;
-    self.botonTodos.selected = NO;
-    self.botonInfantil.selected = NO;
-    self.botonTiempoLibre.selected = NO;
-    self.botonVidaSana.selected = NO;
-    self.botonMasterCard.selected = YES;
-    self.botonServicios.selected = NO;
-    self.botonViajes.selected = NO;
-    self.botonInfantil.selected = NO;
-    
-    [self loadCategory];
-}
 
 #pragma mark - Load Categories
 - (void)loadCategory {
@@ -236,7 +109,7 @@
     if ([self.categoryName  isEqual: @"infantil"]) {
         
         NSLog(@"Cargando Categoría: %@",_categoryName);
-        self.botonInfantil.selected = true;
+        //self.botonInfantil.selected = true;
         InfantilTableViewController *viewController1 = //
         [self.storyboard instantiateViewControllerWithIdentifier:@"infantilTableView"];
         viewController1.view.frame = self.containerView.bounds;
@@ -251,7 +124,7 @@
     if ([self.categoryName  isEqual: @"sabores"]) {
         
         NSLog(@"Cargando Categoría: %@",_categoryName);
-        self.botonSabores.selected = true;
+        //self.botonSabores.selected = true;
         /*
         InfantilTableViewController *viewController1 = //
         [self.storyboard instantiateViewControllerWithIdentifier:@"infantilTableView"];
