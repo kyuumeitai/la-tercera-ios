@@ -9,7 +9,13 @@
 #import "CategoriaViewController.h"
 #import "InfantilTableViewController.h"
 
-@interface CategoriaViewController ()
+#import "YSLContainerViewController.h"
+
+#import "NewsCategoryInicioViewController.h"
+#import "NewsCategoryPoliticaViewController.h"
+
+
+@interface CategoriaViewController ()<YSLContainerViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *botonTodos;
 @property (weak, nonatomic) IBOutlet UIButton *botonSabores;
@@ -29,6 +35,7 @@
     [super viewDidLoad];
     
     [self loadCategory];
+    [self setupClubCategories];
     // Do any additional setup after loading the view.
 }
 
@@ -39,6 +46,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) setupClubCategories{
+    NSLog(@"setup Club categories");
+    // SetUp ViewControllers
+    NewsCategoryInicioViewController *newsInicio2VC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
+    newsInicio2VC.title = @"Inicio";
+    
+    NewsCategoryPoliticaViewController *newsPolitica2VC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
+    newsPolitica2VC.title = @"Politica";
+    
+    // ContainerView
+    //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
+    //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
+    float headerSpace = 5.0;
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicio2VC,newsPolitica2VC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
+    
+    containerVC.delegate = self;
+    containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
+    UIView *getView = (UIView*)[self.view viewWithTag:200];
+    [getView addSubview:containerVC.view];
+    
+    
+}
 
 
 #pragma mark - Navigation
@@ -230,4 +259,16 @@
     }
 }
 
+#pragma mark - Load Categories
+#pragma mark -- YSLContainerViewControllerDelegate
+- (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
+{
+    NSLog(@"current Index : %ld",(long)index);
+    NSLog(@"current controller : %@",controller);
+    [controller viewWillAppear:YES];
+}
+
+- (IBAction)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

@@ -13,7 +13,8 @@
 #import "SingletonManager.h"
 #import "SWRevealViewController.h"
 
-@interface ClubViewController ()
+
+@interface ClubViewController () 
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
 
 @end
@@ -31,17 +32,20 @@
     
     SWRevealViewController *revealViewController = self.revealViewController;
     singleton.leftSlideMenu = revealViewController;
-    [_menuButton
-     addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+  [_menuButton addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
-    NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
+   // NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
     // Do any additional setup after loading the view.
     
    [self loadCategories];
    [self loadBenefits];
     //[self loadCommerces];
     //[self loadStores];
+    
+   
 }
+
+
 
 -(void)loadCategories{
     
@@ -271,7 +275,22 @@
     }
 }
 
+- (IBAction)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - Load Categories
+#pragma mark -- YSLContainerViewControllerDelegate
+- (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
+{
+    NSLog(@"current Index : %ld",(long)index);
+    NSLog(@"current controller : %@",controller);
+    [controller viewWillAppear:YES];
+}
+
+- (IBAction)presedOtro:(id)sender {
+    NSLog(@"pressed tro");
+}
 
 
 @end
