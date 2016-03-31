@@ -131,6 +131,7 @@
 		D0C841371CA41ED9001BC478 /* MasCercanosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C841361CA41ED9001BC478 /* MasCercanosViewController.m */; };
 		D0C8413A1CA44268001BC478 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C841391CA44268001BC478 /* ConnectionManager.m */; };
 		D0C8413D1CA44606001BC478 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C8413C1CA44606001BC478 /* Reachability.m */; };
+		D0D19C4E1CAD635900D2DE7F /* InfantilContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D19C4D1CAD635900D2DE7F /* InfantilContainerVC.m */; };
 		D0D4B9D81C5134EE0081CBAC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D4B9D51C5134EE0081CBAC /* FBSDKCoreKit.framework */; };
 		D0D4B9D91C5134EE0081CBAC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D4B9D61C5134EE0081CBAC /* FBSDKLoginKit.framework */; };
 		D0D4B9DA1C5134EE0081CBAC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D4B9D71C5134EE0081CBAC /* FBSDKShareKit.framework */; };
@@ -418,6 +419,8 @@
 		D0C841391CA44268001BC478 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
 		D0C8413B1CA44606001BC478 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		D0C8413C1CA44606001BC478 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		D0D19C4C1CAD635900D2DE7F /* InfantilContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfantilContainerVC.h; sourceTree = "<group>"; };
+		D0D19C4D1CAD635900D2DE7F /* InfantilContainerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfantilContainerVC.m; sourceTree = "<group>"; };
 		D0D4B9D51C5134EE0081CBAC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		D0D4B9D61C5134EE0081CBAC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		D0D4B9D71C5134EE0081CBAC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -975,6 +978,15 @@
 			name = Reachability;
 			sourceTree = "<group>";
 		};
+		D0D19C4F1CAD636200D2DE7F /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				D0D19C4C1CAD635900D2DE7F /* InfantilContainerVC.h */,
+				D0D19C4D1CAD635900D2DE7F /* InfantilContainerVC.m */,
+			);
+			name = Containers;
+			sourceTree = "<group>";
+		};
 		D0E495061C9726C90030F56C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1074,6 +1086,7 @@
 		D0FF33C41C985C3B008832F3 /* Categorias */ = {
 			isa = PBXGroup;
 			children = (
+				D0D19C4F1CAD636200D2DE7F /* Containers */,
 				D0FF33B41C983CD7008832F3 /* InfantilTableViewController.h */,
 				D0FF33B51C983CD7008832F3 /* InfantilTableViewController.m */,
 				D0FF33B71C983FDE008832F3 /* SaboresTableViewController.h */,
@@ -1434,6 +1447,7 @@
 				D03859E61CA0628200E907FF /* UsarBeneficioEstandar.m in Sources */,
 				17CE96F71CA10A0100898C56 /* MenuViewController.m in Sources */,
 				52BCE2421A49028500924AD8 /* PublishActionController.m in Sources */,
+				D0D19C4E1CAD635900D2DE7F /* InfantilContainerVC.m in Sources */,
 				D0C841371CA41ED9001BC478 /* MasCercanosViewController.m in Sources */,
 				17899FAB1CA8E73500ADD960 /* UIRefreshControl+AFNetworking.m in Sources */,
 				D01021FC1C999A9900F5D88D /* DetalleViewController.m in Sources */,

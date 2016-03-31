@@ -11,6 +11,8 @@
 
 #import "YSLContainerViewController.h"
 
+#import "InfantilContainerVC.h"
+
 #import "NewsCategoryInicioViewController.h"
 #import "NewsCategoryPoliticaViewController.h"
 
@@ -50,7 +52,11 @@
     NSLog(@"setup Club categories");
     // SetUp ViewControllers
     NewsCategoryInicioViewController *newsInicio2VC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
-    newsInicio2VC.title = @"Inicio";
+    newsInicio2VC.title = @"Todos";
+    
+    InfantilContainerVC *clubInfantil = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryInfantil"];
+    clubInfantil.title = @"Infantil";
+    
     
     NewsCategoryPoliticaViewController *newsPolitica2VC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
     newsPolitica2VC.title = @"Politica";
@@ -59,7 +65,7 @@
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicio2VC,newsPolitica2VC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[clubInfantil, newsInicio2VC,newsPolitica2VC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
