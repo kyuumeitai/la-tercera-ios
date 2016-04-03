@@ -7,15 +7,26 @@
 //
 
 #import "CategoriaViewController.h"
-#import "InfantilTableViewController.h"
+
 
 #import "YSLContainerViewController.h"
 
 #import "InfantilContainerVC.h"
+#import "InfantilTableViewController.h"
 #import "SaboresContainerVC.h"
-
-#import "NewsCategoryInicioViewController.h"
-#import "NewsCategoryPoliticaViewController.h"
+#import "SaboresTableViewController.h"
+#import "TiempoLibreContainerVC.h"
+#import "TiempoLibreTableViewController.h"
+#import "VidaSanaContainerVC.h"
+#import "VidaSanaTableViewController.h"
+#import "MastercardContainerVC.h"
+#import "MastercardTableViewController.h"
+#import "ServiciosContainerVC.h"
+#import "ServiciosTableViewController.h"
+#import "TiendaClubContainerVC.h"
+#import "TiendaClubTableViewController.h"
+#import "ViajesClubContainerVC.h"
+#import "ViajesClubTableViewController.h"
 
 
 @interface CategoriaViewController ()<YSLContainerViewControllerDelegate>
@@ -34,8 +45,6 @@
     // Do any additional setup after loading the view.
 }
 
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -51,35 +60,29 @@
     InfantilContainerVC *clubInfantil = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryInfantil"];
     clubInfantil.title = @"Infantil";
     
+    TiempoLibreContainerVC *clubTiempoLibre = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryTiempoLibre"];
+    clubTiempoLibre.title = @"Tiempo Libre";
     
-    //DUmmie data
-    // SetUp ViewControllers
-    SaboresContainerVC *clubSabores2 = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategorySabores"];
-    clubSabores2.title = @"Tiempo Libre";
+    VidaSanaContainerVC *clubVidaSana = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryVidaSana"];
+    clubVidaSana.title = @"Vida Sana";
     
-    InfantilContainerVC *clubInfantil2 = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryInfantil"];
-    clubInfantil2.title = @"Vida Sana";
+    MastercardContainerVC *clubMastercard = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryMastercard"];
+    clubMastercard.title = @"Mastercard";
     
-    SaboresContainerVC *clubSabores3 = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategorySabores"];
-    clubSabores3.title = @"Mastercard";
+    ServiciosContainerVC *clubServicios = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryServicios"];
+    clubServicios.title = @"Servicios";
     
-    InfantilContainerVC *clubInfantil3 = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryInfantil"];
-    clubInfantil3.title = @"Servicios";
+    TiendaClubContainerVC *clubTienda = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryTiendaClub"];
+    clubTienda.title = @"Tienda";
     
-    SaboresContainerVC *clubSabores4 = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategorySabores"];
-    clubSabores4.title = @"Tienda";
-    
-    InfantilContainerVC *clubInfantil4 = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryInfantil"];
-    clubInfantil4.title = @"Viajes";
-    
-    
-
+    ViajesClubContainerVC *clubViajes = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryViajesClub"];
+    clubViajes.title = @"Viajes";
     
     // ContainerView
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[clubSabores,clubInfantil,clubSabores2,clubInfantil2,clubSabores3,clubInfantil3,clubSabores4,clubInfantil4]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[clubSabores,clubInfantil,clubTiempoLibre,clubVidaSana,clubMastercard,clubServicios,clubTienda,clubViajes]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
@@ -105,7 +108,7 @@
 
 #pragma mark - Load Categories
 - (void)loadCategory {
-    
+    NSLog(@"----- LOAD CATEGORY -------");
     if ([self.categoryName  isEqual: @"infantil"]) {
         
         NSLog(@"Cargando Categoría: %@",_categoryName);

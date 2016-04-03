@@ -268,11 +268,60 @@
     
     if ([[segue identifier] isEqualToString:@"segueSabores"])
     {
-        NSLog(@"Segue Infantil detected");
+        NSLog(@"Segue Sabores detected");
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"sabores";
         NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
     }
+    
+    if ([[segue identifier] isEqualToString:@"segueTiempoLibre"])
+    {
+        NSLog(@"Segue Tiempo Libre detected");
+        CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
+        categoriaViewController.categoryName = @"tiempoLibre";
+        NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
+    }
+    
+    if ([[segue identifier] isEqualToString:@"segueVidaSana"])
+    {
+        NSLog(@"Segue Vida Sana detected");
+        CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
+        categoriaViewController.categoryName = @"vidaSana";
+        NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
+    }
+    
+    if ([[segue identifier] isEqualToString:@"segueMastercard"])
+    {
+        NSLog(@"Segue Mastercard detected");
+        CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
+        categoriaViewController.categoryName = @"mastercard";
+        NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
+    }
+    
+    if ([[segue identifier] isEqualToString:@"segueServicios"])
+    {
+        NSLog(@"Segue Servicios detected");
+        CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
+        categoriaViewController.categoryName = @"servicios";
+        NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
+    }
+    
+    if ([[segue identifier] isEqualToString:@"segueTiendaClub"])
+    {
+        NSLog(@"Segue Tienda detected");
+        CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
+        categoriaViewController.categoryName = @"tienda";
+        NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
+    }
+    
+    if ([[segue identifier] isEqualToString:@"segueViajesClub"])
+    {
+        NSLog(@"Segue Viajes detected");
+        CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
+        categoriaViewController.categoryName = @"viajes";
+        NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
+    }
+    
 }
 
 - (IBAction)backButtonPressed:(id)sender {
@@ -283,8 +332,8 @@
 #pragma mark -- YSLContainerViewControllerDelegate
 - (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
 {
-    NSLog(@"current Index : %ld",(long)index);
-    NSLog(@"current controller : %@",controller);
+   // NSLog(@"current Index : %ld",(long)index);
+    //NSLog(@"current controller : %@",controller);
     [controller viewWillAppear:YES];
 }
 
