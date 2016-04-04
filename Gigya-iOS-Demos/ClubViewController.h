@@ -10,7 +10,6 @@
 
 @interface ClubViewController : UIViewController {
 NSMutableArray * categoryItemsArray;
-
 }
 @property (nonatomic, retain) NSMutableArray * categoryItemsArray;
 @end

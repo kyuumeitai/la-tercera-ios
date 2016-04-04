@@ -9,6 +9,7 @@
 #import "ClubViewController.h"
 #import "ConnectionManager.h"
 #import "Category.h"
+#import "Benefit.h"
 #import "CategoriasTableViewCell.h"
 #import "CategoriaViewController.h"
 #import "SingletonManager.h"
@@ -140,8 +141,9 @@
       
             id title = [object objectForKey:@"title"];
             id idCat = [object objectForKey:@"id"];
-            //id childs = [object objectForKey:@"childs"];
+            id benefits = [object objectForKey:@"benefits"];
             id url = [object objectForKey:@"url"];
+                
                 UIImage *imagenDestacada = nil;
                 if([object objectForKey:@"starred_image"] != [NSNull null]){
                 NSString *imagenDestacadaEncoded = [object objectForKey:@"starred_image"] ;
@@ -151,6 +153,7 @@
                     //Now data is decoded. You can convert them to UIImage
                     imagenDestacada = [UIImage imageWithData:data];
                 }
+                
                 categoryItemsArray = [[NSMutableArray alloc] init];
                 Category *categoria = [[Category alloc] init ];
 
@@ -163,20 +166,50 @@
                 categoria.imagenDestacada = imagenDestacada;
                  //NSLog(@"Categoría: %@ , id: %@, url: %@, imagenDesatacada: %@ ",title,idCat,url, imagenDestacada);
                 
-                [categoryItemsArray addObject:categoria];
-                /*
-            for (id child in childs){
+                
+                NSMutableArray* categoryBenefitsArray = [[NSMutableArray alloc] init];
+                
+            for (id benefit in benefits){
 
-                id titleSub = [child objectForKey:@"title"];
-                id idCatSub = [child objectForKey:@"description"] ;
-                id linkCatSub = [child objectForKey:@"url"] ;
-                NSLog(@"           Subategoría: %@ , idSubCat: %@, idSubCat: %@",titleSub,idCatSub,linkCatSub);
+                id titleBen = [benefit objectForKey:@"title"];
+                id idBen = [benefit objectForKey:@"id"] ;
+                id linkBen = [benefit objectForKey:@"url"] ;
+                id summaryBen = [benefit objectForKey:@"summary"] ;
+                id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
+                
+                UIImage *imagenBeneficio = nil;
+                if([benefit objectForKey:@"image"] != [NSNull null]){
+                    NSString *imagenBen = [object objectForKey:@"imagen"] ;
+                    //Creating the data from your base64String
+                    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imagenBen]];
+                    
+                    //Now data is decoded. You can convert them to UIImage
+                    imagenBeneficio = [UIImage imageWithData:data];
+                }
+                
+                Benefit *beneficio = [[Benefit alloc] init];
+                beneficio.idBen = idBen;
+                beneficio.title = titleBen;
+                beneficio.url = linkBen;
+                beneficio.summary= summaryBen;
+                beneficio.desclabel = benefitLabelBen;
+                beneficio.imagen = imagenBeneficio;
+                
+                [categoryBenefitsArray addObject:beneficio];
             }
+                
+                /*
+                for (Benefit *ben in categoryBenefitsArray)
+                   [ben logDescription];
                 */
-     
-                for (Category *cat in categoryItemsArray)
-                   [cat logDescription];
+           
+                
+                categoria.arrayBenefits = categoryBenefitsArray;
+                [categoryItemsArray addObject:categoria];
+
             }
+        for (Category *cat in categoryItemsArray)
+            [cat logDescription];
         
     }
     
@@ -296,6 +329,7 @@
         NSLog(@"Segue Sabores detected");
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"sabores";
+        categoriaViewController.categoryId = 3;
         NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
     }
     

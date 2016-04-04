@@ -7,8 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Category.h"
 
-@interface CategoriaViewController : UIViewController
+@interface CategoriaViewController : UIViewController{
+    
+NSMutableArray * categoryItemsArray;
+int categoryId;
+NSString* categoryName;
+NSString* categoryUrl;
+NSMutableArray * benefitsItemsArray;
+}
+
 @property (weak, nonatomic) IBOutlet UIView *containerView;
+@property  int categoryId;
 @property (nonatomic, copy) NSString* categoryName;
+@property (nonatomic, copy) NSString* categoryUrl;
+@property (nonatomic, retain) NSMutableArray * categoryItemsArray;
+
 @end

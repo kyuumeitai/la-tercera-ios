@@ -1,5 +1,5 @@
 //
-//  Category.h
+//  Benefit.h
 //  La Tercera
 //
 //  Created by Mario Alejandro Ramos on 03-04-16.
@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "UIKit/UIKit.h"
+@interface Benefit : NSObject
 
-@interface Category : NSObject
+
 @property (nonatomic,strong) NSString * title;
-@property (nonatomic,strong) NSString * idCat;
+@property (nonatomic,strong) NSString * idBen;
 @property (nonatomic,strong) NSString * url;
-@property (nonatomic,strong) UIImage *imagenDestacada;
-@property (nonatomic,strong) NSMutableArray *arrayBenefits;
+@property (nonatomic,strong) NSString * summary;
+@property (nonatomic,strong) NSString * desclabel;
+@property (nonatomic,strong) UIImage *imagen;
+
 -(void)logDescription;
 @end
+

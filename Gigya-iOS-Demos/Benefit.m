@@ -1,14 +1,14 @@
 //
-//  Category.m
+//  Benefit.m
 //  La Tercera
 //
 //  Created by Mario Alejandro Ramos on 03-04-16.
 //  Copyright © 2016 Gigya. All rights reserved.
 //
 
-#import "Category.h"
+#import "Benefit.h"
 
-@implementation Category
+@implementation Benefit
 
 -(id)init {
     
@@ -18,11 +18,9 @@
     }
     return self;
 }
-
 -(void)logDescription{
     
-    NSLog(@" >>>> Categoria de id: %@, titulo: %@, url:%@, imagen: %@, arrayBen:%@",_idCat,_title,_url,_imagenDestacada, _arrayBenefits );
+    NSLog(@" >>>> Beneficio de id: %@, titulo: %@, url:%@, imagen: %@, summary: %@",_idBen,_title,_url,_imagen,_summary );
     
 }
-
 @end
