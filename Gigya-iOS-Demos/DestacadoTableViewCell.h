@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface DestacadoTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *labelTitulo;
+@property (weak, nonatomic) IBOutlet UILabel *labelDescuento;
+@property (weak, nonatomic) IBOutlet UILabel *labelSubtitulo;
+@property (weak, nonatomic) IBOutlet UILabel *labelDistancia;
+@property (weak, nonatomic) IBOutlet UIImageView *imageDestacada;
 
 @end

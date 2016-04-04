@@ -73,6 +73,13 @@
             {
             nib = [[NSBundle mainBundle] loadNibNamed:@"DestacadoTableViewCell" owner:self options:nil];
                cell = [nib objectAtIndex:0];
+               cell.labelTitulo.text = @"Macarrones";
+               cell.labelSubtitulo.text = @"Queso con macarrones";
+               cell.labelDescuento.text = @"67%";
+               cell.labelDistancia.text = @"A 200 metros de su ubicación";
+               cell.imageDestacada.image = nil;
+        
+                
             }
             return cell;
         }else{
@@ -82,6 +89,7 @@
             
             nib = [[NSBundle mainBundle] loadNibNamed:@"CategoriasTableViewCell" owner:self options:nil];
                cell = [nib objectAtIndex:0];
+                
            }
             
      

@@ -8,6 +8,7 @@
 
 #import "ClubViewController.h"
 #import "ConnectionManager.h"
+#import "Category.h"
 #import "CategoriasTableViewCell.h"
 #import "CategoriaViewController.h"
 #import "SingletonManager.h"
@@ -16,10 +17,10 @@
 
 @interface ClubViewController () 
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
-
 @end
 
 @implementation ClubViewController
+@synthesize categoryItemsArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,9 +39,9 @@
     // Do any additional setup after loading the view.
     
    [self loadCategories];
-   [self loadBenefits];
-   [self loadCommerces];
-   [self loadStores];
+   //[self loadBenefits];
+   //[self loadCommerces];
+   //[self loadStores];
     
    
 }
@@ -61,7 +62,6 @@
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
             } else {
                 [self reloadMainCategoriesDataFromService:arrayJson];
-               // [self reloadSubCategoriesDataFromService:arrayJson];
             }
         });
     }];
@@ -134,7 +134,6 @@
 -(void) reloadMainCategoriesDataFromService:(NSArray*)arrayJson{
     NSLog(@"     ");
     NSLog(@" ******* LISTADO DE CATEGORÍAS PRINCIPALES ****** ");
-    
     for (id object in arrayJson){
         //if ([object objectForKey:@"category_parent"] != [NSNull null]) {
             if ([object objectForKey:@"category_parent"] == [NSNull null]) {
@@ -143,8 +142,28 @@
             id idCat = [object objectForKey:@"id"];
             //id childs = [object objectForKey:@"childs"];
             id url = [object objectForKey:@"url"];
+                UIImage *imagenDestacada = nil;
+                if([object objectForKey:@"starred_image"] != [NSNull null]){
+                NSString *imagenDestacadaEncoded = [object objectForKey:@"starred_image"] ;
+                    //Creating the data from your base64String
+                    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imagenDestacadaEncoded]];
+                    
+                    //Now data is decoded. You can convert them to UIImage
+                    imagenDestacada = [UIImage imageWithData:data];
+                }
+                categoryItemsArray = [[NSMutableArray alloc] init];
+                Category *categoria = [[Category alloc] init ];
+
+               
+                categoria.title = title;
+                categoria.idCat = idCat;
+                categoria.url = url;
+           
                 
-            NSLog(@"Categoría: %@ , id: %@, url: %@ ",title,idCat,url);
+                categoria.imagenDestacada = imagenDestacada;
+                 //NSLog(@"Categoría: %@ , id: %@, url: %@, imagenDesatacada: %@ ",title,idCat,url, imagenDestacada);
+                
+                [categoryItemsArray addObject:categoria];
                 /*
             for (id child in childs){
 
@@ -154,8 +173,14 @@
                 NSLog(@"           Subategoría: %@ , idSubCat: %@, idSubCat: %@",titleSub,idCatSub,linkCatSub);
             }
                 */
-        }
+     
+                for (Category *cat in categoryItemsArray)
+                   [cat logDescription];
+            }
+        
     }
+    
+ 
     NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
 }
 
@@ -202,7 +227,7 @@
         
         id idCom = [object objectForKey:@"id"];
         id title = [object objectForKey:@"title"];
-        id marker = [object objectForKey:@"marker"];
+        //id marker = [object objectForKey:@"marker"];
         NSLog(@"id: %@, titulo: %@  ",idCom,title );
         id stores = [object objectForKey:@"stores"];
 
