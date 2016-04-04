@@ -34,7 +34,7 @@ int cuenta;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadCategory];
+    //[self loadCategory];
     cuenta = 0;
     firstTime = true;
     // Do any additional setup after loading the view, typically from a nib.
@@ -84,12 +84,7 @@ int cuenta;
 }
 #pragma mark ********  MAP VIEW METHODS ***********
 
-- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
-   
-    NSLog(@"Finished map load");    // Place a single pin
-
-    _mapView.centerCoordinate =     userLocation.coordinate;
-
+-(void) loadStoresPin{
     for (Store *tienda in storeItemsArray) {
         
         // Add an annotation
@@ -100,11 +95,29 @@ int cuenta;
         
         [self.mapView addAnnotation:point];
         
-        firstTime=false;
+        
     }
-    
-//[locationManager stopUpdatingLocation];
+     [SVProgressHUD dismiss];
 }
+
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+   
+    NSLog(@"Finished map load");    // Place a single pin
+
+    [NSTimer scheduledTimerWithTimeInterval:1.0
+                                     target:self
+                                   selector:@selector(loadStoresPin)
+                                   userInfo:nil
+     
+                                    repeats:NO];
+
+
+       _mapView.centerCoordinate =     userLocation.coordinate;
+[locationManager stopUpdatingLocation];
+}
+
+
+
 
 - (MKAnnotationView *)mapView:(MKMapView *)mv viewForAnnotation:(id <MKAnnotation>)theAnnotation
 {
@@ -188,7 +201,7 @@ int cuenta;
     }
     zoomRect = MKMapRectUnion(zoomRect, pointRect);
     
-    [_mapView setVisibleMapRect:zoomRect edgePadding:UIEdgeInsetsMake(650, 650, 290, 290) animated:YES];
+    [_mapView setVisibleMapRect:zoomRect edgePadding:UIEdgeInsetsMake(10, 10, 10, 10) animated:YES];
 }
 
 
@@ -205,8 +218,8 @@ int cuenta;
     NSLog(@"Load Stores");
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
-    BOOL estaConectado = [connectionManager verifyConnection];
-    NSLog(@"Verificando conexión: %d",estaConectado);
+    //BOOL estaConectado = [connectionManager verifyConnection];
+   // NSLog(@"Verificando conexión: %d",estaConectado);
     [connectionManager getStores:^(BOOL success, NSArray *arrayJson, NSError *error) {
         // IMPORTANT - Only update the UI on the main thread
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -214,6 +227,7 @@ int cuenta;
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
             } else {
                 [self reloadStoresDataFromService:arrayJson];
+               
             }
         });
     }];
@@ -230,8 +244,6 @@ int cuenta;
         
         id idStore = [store objectForKey:@"id"];
         id title = [store objectForKey:@"title"];
-        id region = [store objectForKey:@"region"];
-        id city = [store objectForKey:@"city"];
         id address = [store objectForKey:@"address"];
         id geoLocation = [store objectForKey:@"geocoords"];
         
@@ -243,7 +255,7 @@ int cuenta;
         storeLocation.longitude = [coords[1] doubleValue];
         
         
-        //NSLog(@"           Store id: %@ , titulo: %@, region: %@, city: %@, address: %@, geolocacion: (%f,%f)",idStore,title,region,city,address,storeLocation.latitude, storeLocation.longitude);
+        NSLog(@"           Store id: %@ , titulo: %@, address: %@, geolocacion: (%f,%f)",idStore,title,address,storeLocation.latitude, storeLocation.longitude);
         Store *store = [[Store alloc]init];
         store.idStore = idStore;
         store.storeDescription= title;
@@ -254,8 +266,8 @@ int cuenta;
         [storeItemsArray addObject:store];
         
     }
-    [SVProgressHUD dismiss];
-    
+ 
+    [_mapView reloadInputViews];
     NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
 }
 
@@ -275,8 +287,8 @@ int cuenta;
    singleton.userLocation = userLocation;
     userLocation = [locations lastObject];
   
-    //_mapView.delegate = self;
-
+    _mapView.delegate = self;
+ [_mapView reloadInputViews];
  //  NSLog(@"USER LOCATION : %@", userLocation);
 }
 
