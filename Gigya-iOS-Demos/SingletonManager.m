@@ -14,6 +14,7 @@
 @synthesize userLocation;
 @synthesize leftSlideMenu;
 @synthesize width;
+@synthesize categoryList;
 
 #pragma mark Singleton Methods
 
@@ -31,6 +32,7 @@
         storyBoardName =  @"MainStoryBoard";
         userLocation = nil;
         leftSlideMenu = nil;
+        categoryList = [[NSMutableArray alloc]init];
         width = 0;
         NSLog(@"Estamos OK con el Singleton");
     }

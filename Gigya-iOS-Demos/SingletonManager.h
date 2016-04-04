@@ -14,12 +14,14 @@
     NSString *storyBoardName;
     CLLocation *userLocation;
     SWRevealViewController *leftSlideMenu;
+    NSMutableArray *categoryList;
     int width;
     
 
 }
 
 @property (nonatomic, retain) NSString *storyBoardName;
+@property (nonatomic, strong) NSMutableArray *categoryList;
 @property (nonatomic, retain) CLLocation *userLocation;
 @property (nonatomic,retain) SWRevealViewController *leftSlideMenu;
 @property  int width;

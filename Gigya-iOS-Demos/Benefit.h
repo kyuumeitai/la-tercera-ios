@@ -16,7 +16,7 @@
 @property (nonatomic,strong) NSString * url;
 @property (nonatomic,strong) NSString * summary;
 @property (nonatomic,strong) NSString * desclabel;
-@property (nonatomic,strong) UIImage *imagen;
+@property (nonatomic,strong) UIImage *imagenNormal;
 
 -(void)logDescription;
 @end

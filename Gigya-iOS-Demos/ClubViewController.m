@@ -134,10 +134,13 @@
 
 -(void) reloadMainCategoriesDataFromService:(NSArray*)arrayJson{
     NSLog(@"     ");
+    categoryItemsArray = [[NSMutableArray alloc] init];
+
     NSLog(@" ******* LISTADO DE CATEGORÍAS PRINCIPALES ****** ");
     for (id object in arrayJson){
-        //if ([object objectForKey:@"category_parent"] != [NSNull null]) {
-            if ([object objectForKey:@"category_parent"] == [NSNull null]) {
+
+        
+        if ([object objectForKey:@"category_parent"] == [NSNull null]) {
       
             id title = [object objectForKey:@"title"];
             id idCat = [object objectForKey:@"id"];
@@ -148,13 +151,12 @@
                 if([object objectForKey:@"starred_image"] != [NSNull null]){
                 NSString *imagenDestacadaEncoded = [object objectForKey:@"starred_image"] ;
                     //Creating the data from your base64String
-                    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imagenDestacadaEncoded]];
+                   // NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imagenDestacadaEncoded]];
                     
                     //Now data is decoded. You can convert them to UIImage
-                    imagenDestacada = [UIImage imageWithData:data];
+                    imagenDestacada = [self decodeBase64ToImage:imagenDestacadaEncoded];
                 }
                 
-                categoryItemsArray = [[NSMutableArray alloc] init];
                 Category *categoria = [[Category alloc] init ];
 
                
@@ -164,7 +166,7 @@
            
                 
                 categoria.imagenDestacada = imagenDestacada;
-                 //NSLog(@"Categoría: %@ , id: %@, url: %@, imagenDesatacada: %@ ",title,idCat,url, imagenDestacada);
+                // NSLog(@"Categoría: %@ , id: %@, url: %@, imagenDesatacada: %@ ",title,idCat,url, imagenDestacada);
                 
                 
                 NSMutableArray* categoryBenefitsArray = [[NSMutableArray alloc] init];
@@ -177,15 +179,6 @@
                 id summaryBen = [benefit objectForKey:@"summary"] ;
                 id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
                 
-                UIImage *imagenBeneficio = nil;
-                if([benefit objectForKey:@"image"] != [NSNull null]){
-                    NSString *imagenBen = [object objectForKey:@"imagen"] ;
-                    //Creating the data from your base64String
-                    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imagenBen]];
-                    
-                    //Now data is decoded. You can convert them to UIImage
-                    imagenBeneficio = [UIImage imageWithData:data];
-                }
                 
                 Benefit *beneficio = [[Benefit alloc] init];
                 beneficio.idBen = idBen;
@@ -193,23 +186,32 @@
                 beneficio.url = linkBen;
                 beneficio.summary= summaryBen;
                 beneficio.desclabel = benefitLabelBen;
-                beneficio.imagen = imagenBeneficio;
+                
+                UIImage *imagenBeneficio = nil;
+                if([benefit objectForKey:@"image"] != [NSNull null]){
+                    NSLog(@"Hay imagen");
+                    NSString *imagenBen = [benefit objectForKey:@"image"] ;
+                    //Creating the data from your base64String
+                   // NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imagenBen]];
+                    
+                    //Now data is decoded. You can convert them to UIImage
+                    imagenBeneficio = [self decodeBase64ToImage:imagenBen];
+                    beneficio.imagenNormal = imagenBeneficio;
+                }
+                
+               
+                
                 
                 [categoryBenefitsArray addObject:beneficio];
             }
                 
-                /*
-                for (Benefit *ben in categoryBenefitsArray)
-                   [ben logDescription];
-                */
-           
+
                 
                 categoria.arrayBenefits = categoryBenefitsArray;
                 [categoryItemsArray addObject:categoria];
 
             }
-        for (Category *cat in categoryItemsArray)
-            [cat logDescription];
+      
         
     }
     
@@ -327,9 +329,24 @@
     if ([[segue identifier] isEqualToString:@"segueSabores"])
     {
         NSLog(@"Segue Sabores detected");
+        
+        SingletonManager *singleton = [SingletonManager singletonManager];
+        singleton.categoryList = categoryItemsArray;
+        
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
+        
+        
+        categoriaViewController.categoryItemsArray = categoryItemsArray;
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 3];
+        NSArray *filteredArray = [categoryItemsArray filteredArrayUsingPredicate:predicate];
+        
+        Category* firstFoundObject = nil;
+        firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
+        categoriaViewController.category = firstFoundObject;
+        NSLog(@"  obejtooo cat : %@",firstFoundObject);
         categoriaViewController.categoryName = @"sabores";
         categoriaViewController.categoryId = 3;
+        categoriaViewController.category = firstFoundObject;
         NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
     }
     
@@ -400,5 +417,10 @@
     NSLog(@"pressed tro");
 }
 
+
+- (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData {
+    NSData *data = [[NSData alloc]initWithBase64EncodedString:strEncodeData options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    return [UIImage imageWithData:data];
+}
 
 @end
