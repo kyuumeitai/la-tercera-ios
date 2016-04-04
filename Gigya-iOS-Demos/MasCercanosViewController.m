@@ -7,6 +7,7 @@
 //
 
 #import "MasCercanosViewController.h"
+#import "ConnectionManager.h"
 #import <CoreLocation/CoreLocation.h>
 #import "SVProgressHUD.h"
 #import "Tools.h"
@@ -15,9 +16,11 @@
 #define MapDistanceInMeters 600
 
 @implementation MasCercanosViewController
+
     CLLocationManager *locationManager;
     CLLocation  *userLocation;
     SingletonManager *singleton;
+
 @synthesize mapView = _mapView;
 @synthesize locationManager      = _locationManager;
 @synthesize userLocation         = _userLocation;
@@ -96,11 +99,13 @@
 
 -(void)loadPlaces{
     NSLog(@"LOAD PLACES");
-    //[SVProgressHUD show];
+    [SVProgressHUD show];
     [SVProgressHUD setStatus:@"Obteniendo sucursales"];
     // Place a single pin
 
     _mapView.region = MKCoordinateRegionMakeWithDistance(_userLocation.coordinate,MapDistanceInMeters,MapDistanceInMeters);
+    
+    
     [self updateMyMap];
 }
 
@@ -121,6 +126,101 @@
    
 }
 
+
+
+#pragma mark - Load Categories
+- (void)loadCategory {
+    
+    NSLog(@"hello category: %@",self.categoryName);
+    [self loadStores];
+}
+
+
+-(void)loadStores{
+    
+    NSLog(@"Load Stores");
+    
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    BOOL estaConectado = [connectionManager verifyConnection];
+    NSLog(@"Verificando conexión: %d",estaConectado);
+    [connectionManager getStores:^(BOOL success, NSArray *arrayJson, NSError *error) {
+        // IMPORTANT - Only update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!success) {
+                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+            } else {
+                [self reloadStoresDataFromService:arrayJson];
+            }
+        });
+    }];
+    
+}
+
+-(void) reloadStoresDataFromService:(NSArray*)arrayJson{
+    
+    NSLog(@"     ");
+    NSLog(@" ******* LISTADO DE SUCURSALES ****** ----------------------");
+    
+    for (id store in arrayJson){
+        
+        
+        id idStore = [store objectForKey:@"id"];
+        id title = [store objectForKey:@"title"];
+        id region = [store objectForKey:@"region"];
+        id city = [store objectForKey:@"city"];
+        id address = [store objectForKey:@"address"];
+        id geoLocation = [store objectForKey:@"geocoords"];
+        
+        NSArray *coords = [NSArray arrayWithArray:geoLocation];
+        
+        CLLocationCoordinate2D storeLocation ;
+        
+        storeLocation.latitude = [coords[0] doubleValue];
+        storeLocation.longitude = [coords[1] doubleValue];
+        
+        
+        NSLog(@"           Store id: %@ , titulo: %@, region: %@, city: %@, address: %@, geolocacion: (%f,%f)",idStore,title,region,city,address,storeLocation.latitude, storeLocation.longitude);
+        
+        
+    }
+    
+    NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    
+   //
+   singleton.userLocation = userLocation;
+    userLocation = [locations lastObject];
+    _mapView.centerCoordinate =
+    userLocation.coordinate;
+
+    
+ //  NSLog(@"USER LOCATION : %@", userLocation);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        //[self loadData ];
+        
+        locationManager .desiredAccuracy = kCLLocationAccuracyBestForNavigation;   // 2 kilometers - hope for accuracy within 2 km.
+        locationManager .distanceFilter  = 5.0f;   // one kilometer - move this far to get another update
+        [locationManager startUpdatingLocation];
+        _mapView.showsUserLocation = YES;
+        
+        [self.mapView reloadInputViews];
+    }
+}
 
 #pragma mark - Menu Categories
 - (IBAction)infantilClicked:(id)sender {
@@ -257,48 +357,6 @@
     
     [self loadCategory];
 }
-
-#pragma mark - Load Categories
-- (void)loadCategory {
-    
-    NSLog(@"hello category: %@",self.categoryName);
-}
-
-#pragma mark - CLLocationManagerDelegate
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"didFailWithError: %@", error);
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [errorAlert show];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    
-   //
-   singleton.userLocation = userLocation;
-    userLocation = [locations lastObject];
-    _mapView.centerCoordinate =
-    userLocation.coordinate;
-
-    
- //  NSLog(@"USER LOCATION : %@", userLocation);
-}
-
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
-        //[self loadData ];
-        
-        locationManager .desiredAccuracy = kCLLocationAccuracyBestForNavigation;   // 2 kilometers - hope for accuracy within 2 km.
-        locationManager .distanceFilter  = 5.0f;   // one kilometer - move this far to get another update
-        [locationManager startUpdatingLocation];
-        _mapView.showsUserLocation = YES;
-        
-        [self.mapView reloadInputViews];
-    }
-}
-
 
 
 @end

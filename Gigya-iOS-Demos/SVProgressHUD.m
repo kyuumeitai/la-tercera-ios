@@ -681,7 +681,7 @@ CGFloat SVProgressHUDRingThickness = 6;
 
 - (UIColor *)hudBackgroundColor {
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 50000
-    UIColor *miColor =    _uiHudBgColor =  [UIColor colorWithRed:0.333f green:0.816f blue:0.878f alpha:0.8f];
+    UIColor *miColor =    _uiHudBgColor =  [UIColor colorWithRed:0.702f green:0.157f blue:0.176f alpha:0.9f];
     if(_uiHudBgColor == nil) {
         //_uiHudBgColor = [[[self class] appearance] hudBackgroundColor];
         _uiHudBgColor =  miColor;

@@ -15,6 +15,7 @@
 @interface MasCercanosViewController : UIViewController <CLLocationManagerDelegate,MKMapViewDelegate >{
    
     MapAnnotation * annotation;
+    
     CLLocationManager * locationManager;
     NSMutableArray * storeItemsArray;
     CLLocation        * userLocation;
