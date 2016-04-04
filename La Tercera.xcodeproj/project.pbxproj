@@ -263,6 +263,7 @@
 		D009C6D91C91BC02001BD7A3 /* PT_Sans-Web-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0B9BF471C861A7600680EE4 /* PT_Sans-Web-BoldItalic.ttf */; };
 		D009C6DA1C91BC02001BD7A3 /* PT_Sans-Web-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0B9BF481C861A7600680EE4 /* PT_Sans-Web-Italic.ttf */; };
 		D009C6DB1C91BC02001BD7A3 /* PT_Sans-Web-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0B9BF491C861A7600680EE4 /* PT_Sans-Web-Regular.ttf */; };
+		D0F7F76E1CB2D3FD008BB49D /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FC069C1CB2A0D0000DF39B /* Store.m */; };
 		D0FC069D1CB2A0D0000DF39B /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FC069C1CB2A0D0000DF39B /* Store.m */; };
 /* End PBXBuildFile section */
 
@@ -854,15 +855,9 @@
 			children = (
 				D0F6B83E1C90958A0060D256 /* ClubViewController.h */,
 				D0F6B83F1C90958A0060D256 /* ClubViewController.m */,
-				D0FB934E1CAAE04E00928159 /* MapAnnotation */,
+				D0F7F76D1CB2B631008BB49D /* Mapas */,
 				D0FF33C41C985C3B008832F3 /* Categorias */,
-				D0E495081C9727110030F56C /* CategoriaViewController.h */,
-				D0E495091C9727110030F56C /* CategoriaViewController.m */,
-				D0FF33BA1C9843F6008832F3 /* CategoriasViewController.h */,
-				D0FF33BB1C9843F6008832F3 /* CategoriasViewController.m */,
 				D03859E71CA0628F00E907FF /* Beneficios */,
-				D0C841351CA41ED9001BC478 /* MasCercanosViewController.h */,
-				D0C841361CA41ED9001BC478 /* MasCercanosViewController.m */,
 			);
 			name = Club;
 			sourceTree = "<group>";
@@ -910,24 +905,13 @@
 		52BCE1DE1A48A65800924AD8 /* LaTercera */ = {
 			isa = PBXGroup;
 			children = (
+				D0F7F76C1CB2B547008BB49D /* AppDelegate */,
 				D0E84DCF1C9B089300FDE6D2 /* Helpers */,
 				D0E495071C9726D20030F56C /* Model */,
 				D0FF33BD1C9859FF008832F3 /* Views */,
 				D0E495061C9726C90030F56C /* Controllers */,
 				177723841C7300410075DFBE /* Resources */,
 				1777237E1C72EF600075DFBE /* Libraries */,
-				52BCE2351A49028500924AD8 /* CommentsViewController.h */,
-				52BCE2361A49028500924AD8 /* CommentsViewController.m */,
-				52BCE2371A49028500924AD8 /* GSWebBridgeController.h */,
-				52BCE2381A49028500924AD8 /* GSWebBridgeController.m */,
-				52BCE23B1A49028500924AD8 /* PublishActionController.h */,
-				52BCE23C1A49028500924AD8 /* PublishActionController.m */,
-				52BCE1E31A48A65800924AD8 /* AppDelegate.h */,
-				52BCE1E41A48A65800924AD8 /* AppDelegate.m */,
-				52BCE1E61A48A65800924AD8 /* ViewController.h */,
-				1777237B1C72C4570075DFBE /* LoginViewController.h */,
-				1777237C1C72C4570075DFBE /* LoginViewController.m */,
-				52BCE1E71A48A65800924AD8 /* ViewController.m */,
 				52BCE1EC1A48A65900924AD8 /* Images.xcassets */,
 				52BCE1DF1A48A65800924AD8 /* Supporting Files */,
 				52BCE2071A48CE9500924AD8 /* Frameworks */,
@@ -1084,6 +1068,7 @@
 		D0E495061C9726C90030F56C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D0F7F76B1CB2B537008BB49D /* Login */,
 				17F8BCD01CA24FD900B9977B /* News */,
 				17F8BCCF1CA24FCE00B9977B /* Club */,
 			);
@@ -1118,6 +1103,42 @@
 				D0E84DCD1C9B01FD00FDE6D2 /* CustomBorderView.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		D0F7F76B1CB2B537008BB49D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				52BCE2351A49028500924AD8 /* CommentsViewController.h */,
+				52BCE2361A49028500924AD8 /* CommentsViewController.m */,
+				52BCE2371A49028500924AD8 /* GSWebBridgeController.h */,
+				52BCE2381A49028500924AD8 /* GSWebBridgeController.m */,
+				52BCE23B1A49028500924AD8 /* PublishActionController.h */,
+				52BCE23C1A49028500924AD8 /* PublishActionController.m */,
+				52BCE1E61A48A65800924AD8 /* ViewController.h */,
+				1777237B1C72C4570075DFBE /* LoginViewController.h */,
+				1777237C1C72C4570075DFBE /* LoginViewController.m */,
+				52BCE1E71A48A65800924AD8 /* ViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		D0F7F76C1CB2B547008BB49D /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				52BCE1E31A48A65800924AD8 /* AppDelegate.h */,
+				52BCE1E41A48A65800924AD8 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D0F7F76D1CB2B631008BB49D /* Mapas */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB934E1CAAE04E00928159 /* MapAnnotation */,
+				D0C841351CA41ED9001BC478 /* MasCercanosViewController.h */,
+				D0C841361CA41ED9001BC478 /* MasCercanosViewController.m */,
+			);
+			name = Mapas;
 			sourceTree = "<group>";
 		};
 		D0FB933F1CAACB1F00928159 /* SVProgress */ = {
@@ -1186,6 +1207,10 @@
 		D0FF33C41C985C3B008832F3 /* Categorias */ = {
 			isa = PBXGroup;
 			children = (
+				D0E495081C9727110030F56C /* CategoriaViewController.h */,
+				D0E495091C9727110030F56C /* CategoriaViewController.m */,
+				D0FF33BA1C9843F6008832F3 /* CategoriasViewController.h */,
+				D0FF33BB1C9843F6008832F3 /* CategoriasViewController.m */,
 				D0D19C4F1CAD636200D2DE7F /* Containers */,
 				1702BDFF1CB18B2400F26F42 /* TableViewControllerCategories */,
 				D0D19C651CAD74AF00D2DE7F /* DetalleCategoria */,
@@ -1527,6 +1552,7 @@
 				1702BD111CB093E400F26F42 /* SVProgressHUD.m in Sources */,
 				1702BD121CB093E400F26F42 /* JPSThumbnailAnnotationView.m in Sources */,
 				1702BD131CB093E400F26F42 /* Tools.m in Sources */,
+				D0F7F76E1CB2D3FD008BB49D /* Store.m in Sources */,
 				1702BD141CB093E400F26F42 /* GSWebBridgeController.m in Sources */,
 				1702BD151CB093E400F26F42 /* AppDelegate.m in Sources */,
 				1702BD161CB093E400F26F42 /* Reachability.m in Sources */,

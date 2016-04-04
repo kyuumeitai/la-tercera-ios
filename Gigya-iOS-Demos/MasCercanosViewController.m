@@ -10,8 +10,10 @@
 #import "ConnectionManager.h"
 #import <CoreLocation/CoreLocation.h>
 #import "SVProgressHUD.h"
+#import "Store.h"
 #import "Tools.h"
 #import "SingletonManager.h"
+#import "MapAnnotation.h"
 #define METERS_PER_MILE 1609.344
 #define MapDistanceInMeters 600
 
@@ -20,6 +22,8 @@
     CLLocationManager *locationManager;
     CLLocation  *userLocation;
     SingletonManager *singleton;
+    bool firstTime;
+int cuenta;
 
 @synthesize mapView = _mapView;
 @synthesize locationManager      = _locationManager;
@@ -30,14 +34,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadCategory];
+    cuenta = 0;
+    firstTime = true;
     // Do any additional setup after loading the view, typically from a nib.
         [self requestLocation];
-
+    storeItemsArray = [[NSMutableArray alloc] init];
     singleton = [SingletonManager singletonManager];
     
     _mapView.delegate = self;
-
-   _mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    _mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 
 }
 
@@ -65,8 +71,8 @@
     
     if (authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
         NSLog(@"Autorizado");
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;// 2 kilometers - hope for accuracy within 2 km.
-        locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
+        _locationManager .desiredAccuracy = kCLLocationAccuracyBestForNavigation;   // 2 kilometers - hope for accuracy within 2 km.
+        //_locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
         [self.locationManager startUpdatingLocation];
         
         _mapView.showsUserLocation = YES;
@@ -76,6 +82,57 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
 }
+#pragma mark ********  MAP VIEW METHODS ***********
+
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+   
+    NSLog(@"Finished map load");    // Place a single pin
+
+    _mapView.centerCoordinate =     userLocation.coordinate;
+
+    for (Store *tienda in storeItemsArray) {
+        
+        // Add an annotation
+        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+        point.coordinate = tienda.storeLocation;
+        point.title = tienda.storeDescription;
+        point.subtitle = tienda.storeAddress;
+        
+        [self.mapView addAnnotation:point];
+        
+        firstTime=false;
+    }
+    
+//[locationManager stopUpdatingLocation];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mv viewForAnnotation:(id <MKAnnotation>)theAnnotation
+{
+
+        static NSString *SFAnnotationIdentifier = @"SFAnnotationIdentifier";
+        MKPinAnnotationView *pinView =
+        (MKPinAnnotationView *)[_mapView dequeueReusableAnnotationViewWithIdentifier:SFAnnotationIdentifier];
+        if (!pinView)
+        {
+            MKAnnotationView *annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation
+                                                                             reuseIdentifier:SFAnnotationIdentifier] init];
+            UIImage *flagImage = [UIImage imageNamed:@"clublaterceraRojo.png"];
+            // You may need to resize the image here.
+            annotationView.image = flagImage;
+            
+            pinView.animatesDrop = YES;
+            pinView.canShowCallout = YES;
+            
+            UIImageView *houseIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"clublaterceraRojo.png"]];
+            pinView.leftCalloutAccessoryView = houseIconView;return annotationView;
+        }
+        else
+        {
+            pinView.annotation = annotation;
+        }
+        return pinView;
+    }
+    
 
 #pragma mark - Data management
 -(void)loadData {
@@ -101,12 +158,8 @@
     NSLog(@"LOAD PLACES");
     [SVProgressHUD show];
     [SVProgressHUD setStatus:@"Obteniendo sucursales"];
-    // Place a single pin
-
-    _mapView.region = MKCoordinateRegionMakeWithDistance(_userLocation.coordinate,MapDistanceInMeters,MapDistanceInMeters);
     
-    
-    [self updateMyMap];
+   [self updateMyMap];
 }
 
 - (IBAction)backButtonPressed:(id)sender {
@@ -120,12 +173,23 @@
     
     NSLog(@"Llegue a updateMyMap");
     
-[locationManager stopUpdatingLocation];
+//[locationManager stopUpdatingLocation];
     
-    //_mapView.delegate = self;
-   
+    _mapView.delegate = self;
+    
+    MKMapRect zoomRect = MKMapRectNull;
+    
+    MKMapPoint annotationPoint = MKMapPointForCoordinate(_userLocation.coordinate);
+    MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+    if (MKMapRectIsNull(zoomRect)) {
+        zoomRect = pointRect;
+    }else{
+        zoomRect = MKMapRectUnion(zoomRect, pointRect);
+    }
+    zoomRect = MKMapRectUnion(zoomRect, pointRect);
+    
+    [_mapView setVisibleMapRect:zoomRect edgePadding:UIEdgeInsetsMake(650, 650, 290, 290) animated:YES];
 }
-
 
 
 #pragma mark - Load Categories
@@ -179,10 +243,18 @@
         storeLocation.longitude = [coords[1] doubleValue];
         
         
-        NSLog(@"           Store id: %@ , titulo: %@, region: %@, city: %@, address: %@, geolocacion: (%f,%f)",idStore,title,region,city,address,storeLocation.latitude, storeLocation.longitude);
+        //NSLog(@"           Store id: %@ , titulo: %@, region: %@, city: %@, address: %@, geolocacion: (%f,%f)",idStore,title,region,city,address,storeLocation.latitude, storeLocation.longitude);
+        Store *store = [[Store alloc]init];
+        store.idStore = idStore;
+        store.storeDescription= title;
+        store.storeAddress = address;
+        store.storeLocation = storeLocation;
         
+        
+        [storeItemsArray addObject:store];
         
     }
+    [SVProgressHUD dismiss];
     
     NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
 }
@@ -202,10 +274,9 @@
    //
    singleton.userLocation = userLocation;
     userLocation = [locations lastObject];
-    _mapView.centerCoordinate =
-    userLocation.coordinate;
+  
+    //_mapView.delegate = self;
 
-    
  //  NSLog(@"USER LOCATION : %@", userLocation);
 }
 
@@ -213,8 +284,8 @@
     if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         //[self loadData ];
         
-        locationManager .desiredAccuracy = kCLLocationAccuracyBestForNavigation;   // 2 kilometers - hope for accuracy within 2 km.
-        locationManager .distanceFilter  = 5.0f;   // one kilometer - move this far to get another update
+        locationManager .desiredAccuracy = kCLLocationAccuracyNearestTenMeters;   // 2 kilometers - hope for accuracy within 2 km.
+        locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
         [locationManager startUpdatingLocation];
         _mapView.showsUserLocation = YES;
         

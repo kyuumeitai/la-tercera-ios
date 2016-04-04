@@ -14,6 +14,7 @@
 #import "CategoriaViewController.h"
 #import "SingletonManager.h"
 #import "SWRevealViewController.h"
+#import "SVProgressHUD.h"
 
 
 @interface ClubViewController () 
@@ -26,7 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
+    [SVProgressHUD show];
+    
+    [SVProgressHUD setStatus:@"Obteniendo categorías disponibles"];
     // Do any additional setup after loading the view.
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
@@ -43,10 +46,8 @@
    //[self loadBenefits];
    //[self loadCommerces];
    //[self loadStores];
-    
    
 }
-
 
 
 -(void)loadCategories{
@@ -209,7 +210,7 @@
                 
                 categoria.arrayBenefits = categoryBenefitsArray;
                 [categoryItemsArray addObject:categoria];
-
+                [SVProgressHUD dismiss];
             }
       
         
