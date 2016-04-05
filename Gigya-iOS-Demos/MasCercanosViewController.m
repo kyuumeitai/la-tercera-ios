@@ -117,14 +117,14 @@ int cuenta;
 }
 
 
-
+/*
 
 - (MKAnnotationView *)mapView:(MKMapView *)mv viewForAnnotation:(id <MKAnnotation>)theAnnotation
 {
 
         static NSString *SFAnnotationIdentifier = @"SFAnnotationIdentifier";
-        MKPinAnnotationView *pinView =
-        (MKPinAnnotationView *)[_mapView dequeueReusableAnnotationViewWithIdentifier:SFAnnotationIdentifier];
+        MKAnnotationView *pinView =
+        (MKAnnotationView *)[_mapView dequeueReusableAnnotationViewWithIdentifier:SFAnnotationIdentifier];
         if (!pinView)
         {
             MKAnnotationView *annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation
@@ -133,11 +133,12 @@ int cuenta;
             // You may need to resize the image here.
             annotationView.image = flagImage;
             
-            pinView.animatesDrop = YES;
+            //pinView.animatesDrop = YES;
             pinView.canShowCallout = YES;
-            
+            pinView.image = [UIImage imageNamed:@"clublaterceraRojo.png"];
             UIImageView *houseIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"clublaterceraRojo.png"]];
-            pinView.leftCalloutAccessoryView = houseIconView;return annotationView;
+            pinView.leftCalloutAccessoryView = houseIconView;
+            return annotationView;
         }
         else
         {
@@ -145,7 +146,47 @@ int cuenta;
         }
         return pinView;
     }
+*/
+
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation2
+{
     
+    //check annotation is not user location
+    if([annotation2 isEqual:[_mapView userLocation]])
+    {
+        //bail
+        return nil;
+    }
+    // create a proper annotation view, be lazy and don't use the reuse identifier
+    MKAnnotationView *view = [[MKAnnotationView alloc] initWithAnnotation:annotation2
+                                                          reuseIdentifier:@"identifier"];
+    
+    // create a disclosure button for map kit
+    UIButton *disclosure = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    
+    [disclosure addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                             action:@selector(openStoreDetail)]];
+    view.rightCalloutAccessoryView = disclosure;
+
+    view.canShowCallout = YES;
+    
+    UIImageView *houseIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"clublaterceraRojo.png"]];
+    view.leftCalloutAccessoryView = houseIconView;
+
+    view.enabled = YES;
+    view.image = [UIImage imageNamed:@"IconoPin.png"];
+
+    
+    
+    return view;
+}
+
+
+-(void)openStoreDetail{
+    
+    NSLog(@"Detail Opened");
+}
 
 #pragma mark - Data management
 -(void)loadData {

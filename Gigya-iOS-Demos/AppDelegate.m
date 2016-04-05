@@ -23,6 +23,9 @@
     [Gigya initWithAPIKey:@"3_AG8H3fpJ5N0PHDj7yq7jEA3XNR6fXV0iPnyuxz-sZpYKHmKk9jmjsv_0hlNUFl4q" application:application launchOptions:launchOptions];
     
     [Gigya setAccountsDelegate:self];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
            /*
     NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
     
