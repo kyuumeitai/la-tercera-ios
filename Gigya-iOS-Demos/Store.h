@@ -17,7 +17,7 @@
 @property (nonatomic, assign) CLLocationCoordinate2D storeLocation;
 @property (nonatomic, strong) NSString               *distanciaEnMetros;
 @property (nonatomic, assign) CGFloat                dMeter;
-@property (nonatomic, copy) NSString *idStore;
+@property (nonatomic, assign) int idStore;
 @property (nonatomic, strong) UIImage *imagenStore;
 @property (nonatomic, copy) NSString *descripcion;
 @property (nonatomic, copy) NSString *direccion;

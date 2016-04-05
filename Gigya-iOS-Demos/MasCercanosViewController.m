@@ -39,7 +39,7 @@ int cuenta;
     firstTime = true;
     // Do any additional setup after loading the view, typically from a nib.
         [self requestLocation];
-    storeItemsArray = [[NSMutableArray alloc] init];
+    
     singleton = [SingletonManager singletonManager];
     
     _mapView.delegate = self;
@@ -94,8 +94,6 @@ int cuenta;
         point.subtitle = tienda.storeAddress;
         
         [self.mapView addAnnotation:point];
-        
-        
     }
      [SVProgressHUD dismiss];
 }
@@ -104,49 +102,12 @@ int cuenta;
    
     NSLog(@"Finished map load");    // Place a single pin
 
-    [NSTimer scheduledTimerWithTimeInterval:1.0
-                                     target:self
-                                   selector:@selector(loadStoresPin)
-                                   userInfo:nil
-     
-                                    repeats:NO];
+   // [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(loadStoresPin) userInfo:nil repeats:NO];
 
-
-       _mapView.centerCoordinate =     userLocation.coordinate;
+_mapView.centerCoordinate =     userLocation.coordinate;
 [locationManager stopUpdatingLocation];
 }
 
-
-/*
-
-- (MKAnnotationView *)mapView:(MKMapView *)mv viewForAnnotation:(id <MKAnnotation>)theAnnotation
-{
-
-        static NSString *SFAnnotationIdentifier = @"SFAnnotationIdentifier";
-        MKAnnotationView *pinView =
-        (MKAnnotationView *)[_mapView dequeueReusableAnnotationViewWithIdentifier:SFAnnotationIdentifier];
-        if (!pinView)
-        {
-            MKAnnotationView *annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation
-                                                                             reuseIdentifier:SFAnnotationIdentifier] init];
-            UIImage *flagImage = [UIImage imageNamed:@"clublaterceraRojo.png"];
-            // You may need to resize the image here.
-            annotationView.image = flagImage;
-            
-            //pinView.animatesDrop = YES;
-            pinView.canShowCallout = YES;
-            pinView.image = [UIImage imageNamed:@"clublaterceraRojo.png"];
-            UIImageView *houseIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"clublaterceraRojo.png"]];
-            pinView.leftCalloutAccessoryView = houseIconView;
-            return annotationView;
-        }
-        else
-        {
-            pinView.annotation = annotation;
-        }
-        return pinView;
-    }
-*/
 
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation2
@@ -227,7 +188,7 @@ int cuenta;
     
     NSLog(@"Llegue a updateMyMap");
     
-//[locationManager stopUpdatingLocation];
+[locationManager stopUpdatingLocation];
     
     _mapView.delegate = self;
     
@@ -247,14 +208,14 @@ int cuenta;
 
 
 #pragma mark - Load Categories
-- (void)loadCategory {
-    
+- (void)loadCategory:(int) idCategory {
+   
     NSLog(@"hello category: %@",self.categoryName);
-    [self loadStores];
+    [self loadStores:idCategory];
 }
 
 
--(void)loadStores{
+-(void)loadStores: (int) idCategory{
     
     NSLog(@"Load Stores");
     
@@ -267,23 +228,30 @@ int cuenta;
             if (!success) {
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
             } else {
-                [self reloadStoresDataFromService:arrayJson];
+                [self reloadStoresDataFromService:arrayJson :idCategory];
                
             }
         });
     }];
-    
 }
 
--(void) reloadStoresDataFromService:(NSArray*)arrayJson{
+-(void) reloadStoresDataFromService:(NSArray*)arrayJson :(int) idCategory{
+   
+    storeItemsArray = [[NSMutableArray alloc] init];
     
     NSLog(@"     ");
     NSLog(@" ******* LISTADO DE SUCURSALES ****** ----------------------");
+    bool showEven = false;
+    
+    if (idCategory%2 == 0){
+        NSLog(@" Par ");
+        showEven = YES;
+    }
     
     for (id store in arrayJson){
         
         
-        id idStore = [store objectForKey:@"id"];
+        int idStore =[ [store objectForKey:@"id"] intValue];
         id title = [store objectForKey:@"title"];
         id address = [store objectForKey:@"address"];
         id geoLocation = [store objectForKey:@"geocoords"];
@@ -292,23 +260,38 @@ int cuenta;
         
         CLLocationCoordinate2D storeLocation ;
         
-        storeLocation.latitude = [coords[0] doubleValue];
+        storeLocation.latitude =  [coords[0] doubleValue];
         storeLocation.longitude = [coords[1] doubleValue];
         
-        
-        NSLog(@"           Store id: %@ , titulo: %@, address: %@, geolocacion: (%f,%f)",idStore,title,address,storeLocation.latitude, storeLocation.longitude);
+        NSLog(@"           Store id: %d , titulo: %@, address: %@, geolocacion: (%f,%f)",idStore,title,address,storeLocation.latitude, storeLocation.longitude);
         Store *store = [[Store alloc]init];
         store.idStore = idStore;
         store.storeDescription= title;
         store.storeAddress = address;
         store.storeLocation = storeLocation;
         
-        
-        [storeItemsArray addObject:store];
+        if(showEven){
+            NSLog(@"--Show Even--");
+            if(idStore%2 == 0){
+                NSLog(@"-- idStore --- : %i",idStore);
+                [storeItemsArray addObject:store];
+            }
+        }else{
+            if(idStore%2 != 0){
+                 NSLog(@"-- idStore --- : %i",idStore);
+                [storeItemsArray addObject:store];
+            }
+            
+        }
         
     }
- 
+    
+    NSLog(@"-- StoreItems cantidad = %lu",(unsigned long)storeItemsArray.count );
     [_mapView reloadInputViews];
+    [_mapView removeAnnotations:_mapView.annotations];
+
+    
+    [self loadStoresPin];
     NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
 }
 
@@ -360,7 +343,7 @@ int cuenta;
     self.botonViajes.selected = NO;
     self.botonTodos.selected = NO;
     
-    [self loadCategory];
+    [self loadCategory:1];
 }
 
 - (IBAction)todosClicked:(id)sender {
@@ -377,7 +360,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory];
+    [self loadCategory:2];
     
 }
 - (IBAction)saboresClicked:(id)sender {
@@ -394,7 +377,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory];
+    [self loadCategory:3];
 }
 
 - (IBAction)vidaSanaClicked:(id)sender {
@@ -411,7 +394,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory];
+    [self loadCategory:4];
 }
 
 - (IBAction)tiempoLibreClicked:(id)sender {
@@ -428,7 +411,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory];
+    [self loadCategory:5];
     
 }
 - (IBAction)serviciosClicked:(id)sender {
@@ -445,7 +428,7 @@ int cuenta;
     self.botonServicios.selected = YES;
     self.botonViajes.selected = NO;
     
-    [self loadCategory];
+    [self loadCategory:6];
 }
 
 - (IBAction)viajesClicked:(id)sender {
@@ -462,7 +445,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = YES;
     
-    [self loadCategory];
+    [self loadCategory:7];
 }
 
 - (IBAction)mastercardClicked:(id)sender {
@@ -479,7 +462,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory];
+    [self loadCategory:8];
 }
 
 
