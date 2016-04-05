@@ -85,6 +85,7 @@
     YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[clubSabores,clubInfantil,clubTiempoLibre,clubVidaSana,clubMastercard,clubServicios,clubTienda,clubViajes]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
     
     containerVC.delegate = self;
+    
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
     UIView *getView = (UIView*)[self.view viewWithTag:200];
     [getView addSubview:containerVC.view];

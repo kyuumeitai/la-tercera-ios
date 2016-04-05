@@ -325,7 +325,7 @@ _mapView.centerCoordinate =     userLocation.coordinate;
         [locationManager startUpdatingLocation];
         _mapView.showsUserLocation = YES;
         
-        [self.mapView reloadInputViews];
+        //[self.mapView reloadInputViews];
     }
 }
 
