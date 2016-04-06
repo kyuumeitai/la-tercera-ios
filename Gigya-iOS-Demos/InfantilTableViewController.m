@@ -29,11 +29,11 @@ NSMutableArray *listaBeneficios2;
     SingletonManager *singleton = [SingletonManager singletonManager];
     listaCategorias2 = [[NSMutableArray alloc] init];
     listaCategorias2 = singleton.categoryList;
-    //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
+    NSLog(@"La lista de categorias es: %@",listaCategorias2.description);
     
     
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 4];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 8];
     NSArray *filteredArray = [listaCategorias2 filteredArrayUsingPredicate:predicate];
     
     Category* firstFoundObject = nil;
@@ -42,7 +42,7 @@ NSMutableArray *listaBeneficios2;
     
     listaBeneficios2 = [[NSMutableArray alloc] init];
     listaBeneficios2 = categoria.arrayBenefits;
-    NSLog(@"La lista de beneficios 2 es: %@",listaBeneficios2.description);
+    NSLog(@"La lista de beneficios Infantil es: %@",listaBeneficios2.description);
      
     
    
@@ -137,7 +137,7 @@ NSMutableArray *listaBeneficios2;
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return 250.0;
+          return 282.0;
     }
     else {
         return 80.0;

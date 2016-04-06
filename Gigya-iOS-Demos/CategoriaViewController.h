@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Category.h"
+#import "YSLContainerViewController.h"
 
-@interface CategoriaViewController : UIViewController{
+@interface CategoriaViewController : UIViewController<YSLContainerViewControllerDelegate>{
     
 NSMutableArray * categoryItemsArray;
 int categoryId;
@@ -17,13 +18,14 @@ NSString* categoryName;
 NSString* categoryUrl;
 NSMutableArray * benefitsItemsArray;
     Category *category;
+    __weak IBOutlet UIView *viewCat;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property  int categoryId;
-@property (nonatomic, retain) Category* category;
-@property (nonatomic, retain) NSString* categoryName;
-@property (nonatomic, retain) NSString* categoryUrl;
-@property (nonatomic, retain) NSMutableArray * categoryItemsArray;
+@property (nonatomic, assign) Category* category;
+@property (nonatomic, assign) NSString* categoryName;
+@property (nonatomic, assign) NSString* categoryUrl;
+@property (nonatomic, assign) NSMutableArray * categoryItemsArray;
 
 @end

@@ -19,30 +19,29 @@
 @end
 
 @implementation TiendaClubTableViewController
-NSMutableArray *listaCategorias;
-NSMutableArray *listaBeneficios;
+NSMutableArray *listaCategorias7;
+NSMutableArray *listaBeneficios7;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     SingletonManager *singleton = [SingletonManager singletonManager];
-    listaCategorias = [[NSMutableArray alloc] init];
-    listaCategorias = singleton.categoryList;
-    //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
-    /*
+    listaCategorias7 = [[NSMutableArray alloc] init];
+    listaCategorias7 = singleton.categoryList;
+    NSLog(@"La lista de categorias es: %@",listaCategorias7.description);
+
+    
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 30];
-    NSArray *filteredArray = [listaCategorias filteredArrayUsingPredicate:predicate];
+    NSArray *filteredArray = [listaCategorias7 filteredArrayUsingPredicate:predicate];
     
     Category* firstFoundObject = nil;
     firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
     Category *categoria = firstFoundObject;
     
-    listaBeneficios = [[NSMutableArray alloc] init];
-    listaBeneficios = categoria.arrayBenefits;
-    NSLog(@"La lista de beneficios es: %@",listaBeneficios.description);
-    
-    
-    */
+    listaBeneficios7 = [[NSMutableArray alloc] init];
+    listaBeneficios7 = categoria.arrayBenefits;
+    NSLog(@"La lista de beneficios es: %@",listaBeneficios7.description);
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -63,7 +62,7 @@ NSMutableArray *listaBeneficios;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return listaBeneficios.count;
+    return listaBeneficios7.count;
 }
 
 
@@ -94,7 +93,7 @@ NSMutableArray *listaBeneficios;
         {
             nib = [[NSBundle mainBundle] loadNibNamed:@"DestacadoTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
-            Benefit *beneficio = [listaBeneficios objectAtIndex:0];
+            Benefit *beneficio = [listaBeneficios7 objectAtIndex:0];
             
             cell.labelTitulo.text = beneficio.title;
             cell.labelSubtitulo.text = beneficio.summary;
@@ -113,14 +112,14 @@ NSMutableArray *listaBeneficios;
             cell = [nib objectAtIndex:0];
         }
         
-        Benefit *beneficio2 = [listaBeneficios objectAtIndex:indexPath.row];
+        Benefit *beneficio2 = [listaBeneficios7 objectAtIndex:indexPath.row];
         [beneficio2 logDescription];
         
         cell.labelTitulo.text = beneficio2.title;
         cell.labelDescuento.text = beneficio2.desclabel;
         cell.labelDistancia.text = @"A 200 metros de su ubicación";
         NSLog(@" Imagen beneficionormal: %@",beneficio2.imagenNormal);
-        cell.imageCategoria.image = [[listaBeneficios objectAtIndex:0] imagenNormal];  //beneficio2.imagenNormal;
+        cell.imageCategoria.image = [[listaBeneficios7 objectAtIndex:0] imagenNormal];  //beneficio2.imagenNormal;
         
         
         
@@ -133,7 +132,7 @@ NSMutableArray *listaBeneficios;
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return 250.0;
+           return 282.0;
     }
     else {
         return 80.0;

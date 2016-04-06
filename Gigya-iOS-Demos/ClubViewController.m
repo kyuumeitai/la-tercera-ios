@@ -42,11 +42,17 @@
    // NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
     // Do any additional setup after loading the view.
     
-   [self loadCategories];
+   //[self loadCategories];
    //[self loadBenefits];
    //[self loadCommerces];
    //[self loadStores];
    
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    
+    [self loadCategories];
+
 }
 
 
@@ -190,7 +196,7 @@
                 
                 UIImage *imagenBeneficio = nil;
                 if([benefit objectForKey:@"image"] != [NSNull null]){
-                    NSLog(@"Hay imagen");
+                    //NSLog(@"Hay imagen");
                     NSString *imagenBen = [benefit objectForKey:@"image"] ;
                     //Creating the data from your base64String
                    // NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imagenBen]];
@@ -252,6 +258,7 @@
         }
 
     NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
+    
 }
 
 -(void) reloadCommercesDataFromService:(NSArray*)arrayJson{
@@ -321,21 +328,39 @@
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"segueInfantil"])
     {
-        NSLog(@"Segue Infantil detected");
+        NSLog(@"MI Segue Infantil detected");
+        SingletonManager *singleton = [SingletonManager singletonManager];
+        singleton.categoryList = categoryItemsArray;
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"infantil";
-        NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
+        NSLog(@"MI CategoryName es: %@",categoriaViewController.categoryName);
+        //NSLog(@"LOS ITEMS ARRAY SON: %@",categoryItemsArray.description);
+        categoriaViewController.categoryItemsArray = categoryItemsArray;
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 8];
+        NSArray *filteredArray = [categoryItemsArray filteredArrayUsingPredicate:predicate];
+        
+        Category* firstFoundObject = nil;
+        firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
+        categoriaViewController.category = firstFoundObject;
+        NSLog(@"  obejtooo  Infantil cat : %@",firstFoundObject.description);
+        categoriaViewController.categoryId = 8;
+        categoriaViewController.category = firstFoundObject;
+        categoriaViewController.categoryItemsArray = firstFoundObject.arrayBenefits;
+        
+        NSLog(@" El array de beneficios  Infantil es : %@", categoriaViewController.categoryItemsArray);
+
     }
     
     if ([[segue identifier] isEqualToString:@"segueSabores"])
     {
-        NSLog(@"Segue Sabores detected");
+        NSLog(@"MI Segue Sabores detected");
         
         SingletonManager *singleton = [SingletonManager singletonManager];
         singleton.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
-        
+        categoriaViewController.categoryName = @"sabores";
+            NSLog(@"Mi CategoryName es: %@",categoriaViewController.categoryName);
         
         categoriaViewController.categoryItemsArray = categoryItemsArray;
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 3];
@@ -345,23 +370,40 @@
         firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
         categoriaViewController.category = firstFoundObject;
         NSLog(@"  obejtooo cat : %@",firstFoundObject);
-        categoriaViewController.categoryName = @"sabores";
         categoriaViewController.categoryId = 3;
         categoriaViewController.category = firstFoundObject;
-        NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
+        
     }
     
     if ([[segue identifier] isEqualToString:@"segueTiempoLibre"])
     {
         NSLog(@"Segue Tiempo Libre detected");
+        SingletonManager *singleton = [SingletonManager singletonManager];
+        singleton.categoryList = categoryItemsArray;
+        
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"tiempoLibre";
         NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
+        
+        categoriaViewController.categoryItemsArray = categoryItemsArray;
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 3];
+        NSArray *filteredArray = [categoryItemsArray filteredArrayUsingPredicate:predicate];
+        
+        Category* firstFoundObject = nil;
+        firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
+        categoriaViewController.category = firstFoundObject;
+        NSLog(@"  obejtooo cat : %@",firstFoundObject);
+        categoriaViewController.categoryId = 3;
+        categoriaViewController.category = firstFoundObject;
     }
     
     if ([[segue identifier] isEqualToString:@"segueVidaSana"])
     {
         NSLog(@"Segue Vida Sana detected");
+        
+        SingletonManager *singleton = [SingletonManager singletonManager];
+        singleton.categoryList = categoryItemsArray;
+        
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"vidaSana";
         NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
@@ -370,6 +412,9 @@
     if ([[segue identifier] isEqualToString:@"segueMastercard"])
     {
         NSLog(@"Segue Mastercard detected");
+        SingletonManager *singleton = [SingletonManager singletonManager];
+        singleton.categoryList = categoryItemsArray;
+        
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"mastercard";
         NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
@@ -378,6 +423,9 @@
     if ([[segue identifier] isEqualToString:@"segueServicios"])
     {
         NSLog(@"Segue Servicios detected");
+        SingletonManager *singleton = [SingletonManager singletonManager];
+        singleton.categoryList = categoryItemsArray;
+        
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"servicios";
         NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
@@ -386,6 +434,9 @@
     if ([[segue identifier] isEqualToString:@"segueTiendaClub"])
     {
         NSLog(@"Segue Tienda detected");
+        SingletonManager *singleton = [SingletonManager singletonManager];
+        singleton.categoryList = categoryItemsArray;
+        
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"tienda";
         NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
@@ -394,6 +445,9 @@
     if ([[segue identifier] isEqualToString:@"segueViajesClub"])
     {
         NSLog(@"Segue Viajes detected");
+        SingletonManager *singleton = [SingletonManager singletonManager];
+        singleton.categoryList = categoryItemsArray;
+        
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"viajes";
         NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
@@ -409,8 +463,8 @@
 #pragma mark -- YSLContainerViewControllerDelegate
 - (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
 {
-   // NSLog(@"current Index : %ld",(long)index);
-    //NSLog(@"current controller : %@",controller);
+    NSLog(@"Original current Index : %ld",(long)index);
+   NSLog(@"Original current controller : %@",controller);
     [controller viewWillAppear:YES];
 }
 

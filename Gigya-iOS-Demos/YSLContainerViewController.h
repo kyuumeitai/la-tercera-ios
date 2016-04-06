@@ -30,8 +30,11 @@
 
 - (id)initWithControllers:(NSArray *)controllers
              topBarHeight:(CGFloat)topBarHeight
-     parentViewController:(UIViewController *)parentViewController;
+     parentViewController:(UIViewController *)parentViewController
+            selectedIndex:(NSInteger)index;
 
-- (void)scrollMenuViewSelectedIndex:(NSInteger)index;
+- (id)initWithControllers:(NSArray *)controllers
+             topBarHeight:(CGFloat)topBarHeight
+     parentViewController:(UIViewController *)parentViewController;
 
 @end

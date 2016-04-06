@@ -40,8 +40,7 @@
 
     [super viewDidLoad];
     
-    //[self loadCategory];
-    [self setupClubCategories];
+    [self loadCategory];
     // Do any additional setup after loading the view.
 }
 
@@ -50,7 +49,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) setupClubCategories{
+-(void) setupClubCategory:(int)indexCat{
     NSLog(@"setup Club categories");
     
     // SetUp ViewControllers
@@ -82,9 +81,10 @@
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[clubSabores,clubInfantil,clubTiempoLibre,clubVidaSana,clubMastercard,clubServicios,clubTienda,clubViajes]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[clubSabores,clubInfantil,clubTiempoLibre,clubVidaSana,clubMastercard,clubServicios,clubTienda,clubViajes]    topBarHeight:headerSpace                                                                                parentViewController:self selectedIndex:indexCat];
     
     containerVC.delegate = self;
+   
     
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
     UIView *getView = (UIView*)[self.view viewWithTag:200];
@@ -109,36 +109,60 @@
 
 #pragma mark - Load Categories
 - (void)loadCategory {
-    NSLog(@"----- LOAD CATEGORY -------");
-    if ([self.categoryName  isEqual: @"infantil"]) {
-        
-        NSLog(@"Cargando Categoría: %@",_categoryName);
-        //self.botonInfantil.selected = true;
-        InfantilTableViewController *viewController1 = //
-        [self.storyboard instantiateViewControllerWithIdentifier:@"infantilTableView"];
-        viewController1.view.frame = self.containerView.bounds;
-        
-        [viewController1 willMoveToParentViewController:self];
-        [self.containerView addSubview:viewController1.view];
-        [self addChildViewController:viewController1];
-        [viewController1 didMoveToParentViewController:self];
-        
-    }
-    
+    NSLog(@"------- LOAD CATEGORY -------");
     if ([self.categoryName  isEqual: @"sabores"]) {
         
         NSLog(@"Cargando Categoría: %@",_categoryName);
-        //self.botonSabores.selected = true;
-        /*
-        InfantilTableViewController *viewController1 = //
-        [self.storyboard instantiateViewControllerWithIdentifier:@"infantilTableView"];
-        viewController1.view.frame = self.containerView.bounds;
+        [self setupClubCategory:0];
+    }
+    
+    if ([self.categoryName  isEqual: @"infantil"]) {
         
-        [viewController1 willMoveToParentViewController:self];
-        [self.containerView addSubview:viewController1.view];
-        [self addChildViewController:viewController1];
-        [viewController1 didMoveToParentViewController:self];
-        */
+        NSLog(@"Cargando Categoría: %@",_categoryName);
+        [self setupClubCategory:1];
+
+    }
+    
+    if ([self.categoryName  isEqual: @"tiempoLibre"]) {
+        
+        NSLog(@"Cargando Categoría: %@",_categoryName);
+        [self setupClubCategory:2];
+        
+    }
+    
+    if ([self.categoryName  isEqual: @"vidaSana"]) {
+        
+        NSLog(@"Cargando Categoría: %@",_categoryName);
+        [self setupClubCategory:3];
+        
+    }
+    
+    if ([self.categoryName  isEqual: @"mastercard"]) {
+        
+        NSLog(@"Cargando Categoría: %@",_categoryName);
+        [self setupClubCategory:4];
+        
+    }
+    
+    if ([self.categoryName  isEqual: @"servicios"]) {
+        
+        NSLog(@"Cargando Categoría: %@",_categoryName);
+        [self setupClubCategory:5];
+        
+    }
+    
+    if ([self.categoryName  isEqual: @"tienda"]) {
+        
+        NSLog(@"Cargando Categoría: %@",_categoryName);
+        [self setupClubCategory:6];
+        
+    }
+    
+    if ([self.categoryName  isEqual: @"viajes"]) {
+        
+        NSLog(@"Cargando Categoría: %@",_categoryName);
+        [self setupClubCategory:7];
+        
     }
 }
 
@@ -150,6 +174,11 @@
     NSLog(@"current controller : %@",controller);
     [controller viewWillAppear:YES];
 }
+
+- (void) selectTabByIndex:(NSInteger)index{
+    
+}
+
 
 - (IBAction)backButtonPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
