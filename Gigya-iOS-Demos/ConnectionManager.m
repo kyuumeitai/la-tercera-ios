@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "Reachability.h"
 static NSString * const BaseURLString = @"http://ltrest.multinetlabs.com/";
+static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
 @implementation ConnectionManager
 
 @synthesize isConnected;
@@ -21,6 +22,8 @@ static NSString * const BaseURLString = @"http://ltrest.multinetlabs.com/";
     if (self) {
         isConnected = [self verifyConnection];
     }
+    
+    
     return self;
 }
 
@@ -69,6 +72,30 @@ static NSString * const BaseURLString = @"http://ltrest.multinetlabs.com/";
         
         completionBlock(NO,nil,error);
 
+    }];
+    
+}
+
+
+-(void)getDigitalPaper:(getDataBlock)completionBlock{
+    
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@lt",PapelBaseURLString]];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+         NSData *data = [responseObject dataUsingEncoding:NSUTF8StringEncoding];
+        NSLog(@"EL objeto es: %@",data);
+        //completionBlock(YES,jsonArray ,nil);
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSString* ErrorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
+        NSLog(@"ACA VAAAA %@",ErrorResponse);
+        NSLog(@"Error: %@", error);
+        
+        completionBlock(NO,nil,error);
+        
     }];
     
 }

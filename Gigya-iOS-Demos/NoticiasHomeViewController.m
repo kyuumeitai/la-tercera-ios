@@ -12,6 +12,7 @@
 #import "NewsCategoryPoliticaViewController.h"
 #import "SWRevealViewController.h"
 #import "SingletonManager.h"
+#import "ConnectionManager.h"
 
 @interface NoticiasHomeViewController() <YSLContainerViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
@@ -26,6 +27,7 @@
     
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
+    //ConnectionManager * connection = [[ConnectionManager alloc] init];
     
     /*
     if(singleton.leftSlideMenu == nil){

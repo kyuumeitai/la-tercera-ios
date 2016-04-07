@@ -22,7 +22,7 @@ typedef void (^getDataBlock)(BOOL success, NSArray* arrayJson, NSError *error);
 -(void)getBenefits:(getDataBlock)completionBlock;
 -(void)getCommerces:(getDataBlock)completionBlock;
 -(void)getStores:(getDataBlock)completionBlock;
-
+-(void)getDigitalPaper:(getDataBlock)completionBlock;
 @property  BOOL isConnected;
 
 @end

@@ -28,7 +28,7 @@
     [super viewDidLoad];
     
     [SVProgressHUD show];
-    
+    //[self loadPaper];
     [SVProgressHUD setStatus:@"Obteniendo categorías disponibles"];
     // Do any additional setup after loading the view.
     //Creamos el singleton
@@ -105,6 +105,26 @@
     BOOL estaConectado = [connectionManager verifyConnection];
     NSLog(@"Verificando conexión: %d",estaConectado);
     [connectionManager getCommerces:^(BOOL success, NSArray *arrayJson, NSError *error) {
+        // IMPORTANT - Only update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!success) {
+                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+            } else {
+                [self reloadCommercesDataFromService:arrayJson];
+            }
+        });
+    }];
+    
+}
+
+-(void)loadPaper{
+    
+    NSLog(@"Load Paper");
+    
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    BOOL estaConectado = [connectionManager verifyConnection];
+    NSLog(@"Verificando conexión: %d",estaConectado);
+    [connectionManager getDigitalPaper:^(BOOL success, NSArray *arrayJson, NSError *error) {
         // IMPORTANT - Only update the UI on the main thread
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
