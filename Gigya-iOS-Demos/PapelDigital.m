@@ -11,7 +11,7 @@
 #import "SWRevealViewController.h"
 #import "SVProgressHUD.h"
 
-
+#import "CVLaTercera.h"
 #import "InfantilContainerVC.h"
 #import "InfantilTableViewController.h"
 #import "SaboresContainerVC.h"
@@ -53,16 +53,14 @@
     //[self loadWeb];
     // NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
     // Do any additional setup after loading the view.
-
-    
 }
 
 -(void) setupNewsCategory{
     NSLog(@"setup News categories");
     
     // SetUp ViewControllers
-    SaboresContainerVC *clubSabores = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategorySabores"];
-    clubSabores.title = @"La Tercera";
+    CVLaTercera *newsLaTercera = [self.storyboard instantiateViewControllerWithIdentifier:@"newsSectionLaTercera"];
+    newsLaTercera.title = @"La Tercera";
     
     InfantilContainerVC *clubInfantil = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryInfantil"];
     clubInfantil.title = @"Ed. Especiales";
@@ -89,7 +87,7 @@
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[clubSabores,clubInfantil,clubTiempoLibre,clubVidaSana,clubMastercard,clubServicios,clubTienda,clubViajes]    topBarHeight:headerSpace                                                                                parentViewController:self selectedIndex:0];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsLaTercera,clubInfantil,clubTiempoLibre,clubVidaSana,clubMastercard,clubServicios,clubTienda,clubViajes]    topBarHeight:headerSpace                                                                                parentViewController:self selectedIndex:0];
     
     containerVC.delegate = self;
     

@@ -264,6 +264,12 @@
 		D009C6DB1C91BC02001BD7A3 /* PT_Sans-Web-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0B9BF491C861A7600680EE4 /* PT_Sans-Web-Regular.ttf */; };
 		D01CF10F1CB6B9920050C008 /* LaTerceraTV.m in Sources */ = {isa = PBXBuildFile; fileRef = D01CF10E1CB6B9920050C008 /* LaTerceraTV.m */; };
 		D01CF1101CB6BAA10050C008 /* LaTerceraTV.m in Sources */ = {isa = PBXBuildFile; fileRef = D01CF10E1CB6B9920050C008 /* LaTerceraTV.m */; };
+		D03026581CBBE53D00B4149A /* CVLaTercera.m in Sources */ = {isa = PBXBuildFile; fileRef = D03026571CBBE53D00B4149A /* CVLaTercera.m */; };
+		D03026591CBBE54600B4149A /* CVLaTercera.m in Sources */ = {isa = PBXBuildFile; fileRef = D03026571CBBE53D00B4149A /* CVLaTercera.m */; };
+		D03026611CBC0FDF00B4149A /* CollectionViewCellPortada.m in Sources */ = {isa = PBXBuildFile; fileRef = D03026601CBC0FDF00B4149A /* CollectionViewCellPortada.m */; };
+		D03026621CBC0FEF00B4149A /* CollectionViewCellPortada.m in Sources */ = {isa = PBXBuildFile; fileRef = D03026601CBC0FDF00B4149A /* CollectionViewCellPortada.m */; };
+		D03026651CBC190E00B4149A /* CollectionViewCellStandar.m in Sources */ = {isa = PBXBuildFile; fileRef = D03026641CBC190E00B4149A /* CollectionViewCellStandar.m */; };
+		D03026661CBC190E00B4149A /* CollectionViewCellStandar.m in Sources */ = {isa = PBXBuildFile; fileRef = D03026641CBC190E00B4149A /* CollectionViewCellStandar.m */; };
 		D0308E8B1CB6DD7000D8619D /* PapelDigital.m in Sources */ = {isa = PBXBuildFile; fileRef = D0308E8A1CB6DD7000D8619D /* PapelDigital.m */; };
 		D0308E8C1CB6DE8D00D8619D /* PapelDigital.m in Sources */ = {isa = PBXBuildFile; fileRef = D0308E8A1CB6DD7000D8619D /* PapelDigital.m */; };
 		D0DB18F01CB3F5FD00A0BBC5 /* new2.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DB18ED1CB3F5FD00A0BBC5 /* new2.png */; };
@@ -438,6 +444,12 @@
 		D01CF10D1CB6B9920050C008 /* LaTerceraTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaTerceraTV.h; sourceTree = "<group>"; };
 		D01CF10E1CB6B9920050C008 /* LaTerceraTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaTerceraTV.m; sourceTree = "<group>"; };
 		D029B2FB1C8768300088DCD3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D03026561CBBE53D00B4149A /* CVLaTercera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVLaTercera.h; sourceTree = "<group>"; };
+		D03026571CBBE53D00B4149A /* CVLaTercera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVLaTercera.m; sourceTree = "<group>"; };
+		D030265F1CBC0FDF00B4149A /* CollectionViewCellPortada.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCellPortada.h; sourceTree = "<group>"; };
+		D03026601CBC0FDF00B4149A /* CollectionViewCellPortada.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCellPortada.m; sourceTree = "<group>"; };
+		D03026631CBC190E00B4149A /* CollectionViewCellStandar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCellStandar.h; sourceTree = "<group>"; };
+		D03026641CBC190E00B4149A /* CollectionViewCellStandar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCellStandar.m; sourceTree = "<group>"; };
 		D0308E891CB6DD7000D8619D /* PapelDigital.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PapelDigital.h; sourceTree = "<group>"; };
 		D0308E8A1CB6DD7000D8619D /* PapelDigital.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PapelDigital.m; sourceTree = "<group>"; };
 		D03631D91CA2EA300095C2AE /* SingletonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonManager.h; sourceTree = "<group>"; };
@@ -953,6 +965,7 @@
 			isa = PBXGroup;
 			children = (
 				D0F7F76C1CB2B547008BB49D /* AppDelegate */,
+				D01282281C8DC04400A05FF0 /* Connection */,
 				D0E84DCF1C9B089300FDE6D2 /* Helpers */,
 				D0E495071C9726D20030F56C /* Model */,
 				D0FF33BD1C9859FF008832F3 /* Views */,
@@ -1020,9 +1033,31 @@
 			name = "LaTercera TV";
 			sourceTree = "<group>";
 		};
+		D03026551CBBD7BD00B4149A /* Secciones */ = {
+			isa = PBXGroup;
+			children = (
+				D030265A1CBBF0A200B4149A /* ViewControllers */,
+				D03026561CBBE53D00B4149A /* CVLaTercera.h */,
+				D03026571CBBE53D00B4149A /* CVLaTercera.m */,
+			);
+			name = Secciones;
+			sourceTree = "<group>";
+		};
+		D030265A1CBBF0A200B4149A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D03026631CBC190E00B4149A /* CollectionViewCellStandar.h */,
+				D03026641CBC190E00B4149A /* CollectionViewCellStandar.m */,
+				D030265F1CBC0FDF00B4149A /* CollectionViewCellPortada.h */,
+				D03026601CBC0FDF00B4149A /* CollectionViewCellPortada.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		D0308E881CB6DD5100D8619D /* PapelDigital */ = {
 			isa = PBXGroup;
 			children = (
+				D03026551CBBD7BD00B4149A /* Secciones */,
 				D0308E891CB6DD7000D8619D /* PapelDigital.h */,
 				D0308E8A1CB6DD7000D8619D /* PapelDigital.m */,
 			);
@@ -1127,7 +1162,6 @@
 		D0E495071C9726D20030F56C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D01282281C8DC04400A05FF0 /* Connection */,
 				1702BE181CB1D2FC00F26F42 /* Category.h */,
 				1702BE191CB1D2FC00F26F42 /* Category.m */,
 				1702BE1C1CB20BF500F26F42 /* Benefit.h */,
@@ -1626,6 +1660,7 @@
 				D0F7F76E1CB2D3FD008BB49D /* Store.m in Sources */,
 				D01CF1101CB6BAA10050C008 /* LaTerceraTV.m in Sources */,
 				1702BD141CB093E400F26F42 /* GSWebBridgeController.m in Sources */,
+				D03026621CBC0FEF00B4149A /* CollectionViewCellPortada.m in Sources */,
 				1702BD151CB093E400F26F42 /* AppDelegate.m in Sources */,
 				D0308E8C1CB6DE8D00D8619D /* PapelDigital.m in Sources */,
 				1702BD161CB093E400F26F42 /* Reachability.m in Sources */,
@@ -1645,6 +1680,7 @@
 				1702BD221CB093E400F26F42 /* UsarBeneficioEstandar.m in Sources */,
 				1702BE1F1CB2118E00F26F42 /* Benefit.m in Sources */,
 				1702BD231CB093E400F26F42 /* MenuViewController.m in Sources */,
+				D03026661CBC190E00B4149A /* CollectionViewCellStandar.m in Sources */,
 				1702BE1B1CB1D5B000F26F42 /* Category.m in Sources */,
 				1702BD241CB093E400F26F42 /* PublishActionController.m in Sources */,
 				1702BD251CB093E400F26F42 /* InfantilContainerVC.m in Sources */,
@@ -1655,6 +1691,7 @@
 				1702BD2A1CB093E400F26F42 /* UIImageView+AFNetworking.m in Sources */,
 				1702BD2B1CB093E400F26F42 /* YSLContainerViewController.m in Sources */,
 				1702BD2C1CB093E400F26F42 /* CategoriasViewController.m in Sources */,
+				D03026591CBBE54600B4149A /* CVLaTercera.m in Sources */,
 				1702BD2D1CB093E400F26F42 /* AFURLResponseSerialization.m in Sources */,
 				1702BD2E1CB093E400F26F42 /* TiempoLibreContainerVC.m in Sources */,
 				1702BE141CB1A3A400F26F42 /* TiendaClubTableViewController.m in Sources */,
@@ -1693,7 +1730,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D03026581CBBE53D00B4149A /* CVLaTercera.m in Sources */,
 				1702BE111CB18C9100F26F42 /* TiendaClubTableViewController.m in Sources */,
+				D03026651CBC190E00B4149A /* CollectionViewCellStandar.m in Sources */,
 				1702BE101CB18C9100F26F42 /* ViajesClubTableViewController.m in Sources */,
 				1702BE0B1CB18BB500F26F42 /* MastercardTableViewController.m in Sources */,
 				D0FC069D1CB2A0D0000DF39B /* Store.m in Sources */,
@@ -1702,6 +1741,7 @@
 				1702BE0A1CB18BB500F26F42 /* ServiciosTableViewController.m in Sources */,
 				1702BE051CB18B9200F26F42 /* VidaSanaTableViewController.m in Sources */,
 				D0308E8B1CB6DD7000D8619D /* PapelDigital.m in Sources */,
+				D03026611CBC0FDF00B4149A /* CollectionViewCellPortada.m in Sources */,
 				1702BE1E1CB20BF500F26F42 /* Benefit.m in Sources */,
 				1702BE021CB18B7100F26F42 /* TiempoLibreTableViewController.m in Sources */,
 			);
