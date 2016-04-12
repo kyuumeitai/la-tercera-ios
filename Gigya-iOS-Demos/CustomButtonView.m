@@ -5,12 +5,10 @@
 //  Created by BrUjO on 17-03-16.
 //  Copyright © 2016 Gigya. All rights reserved.
 //
-
-#import <UIKit/UIKit.h>
  #import <QuartzCore/QuartzCore.h> 
+#import <UIKit/UIKit.h>
 IB_DESIGNABLE
-@interface CustomBorderView : UIView
-
+@interface CustomButtonView : UIButton
 @property (nonatomic) IBInspectable NSInteger borderWidth;
 @property (nonatomic) IBInspectable NSInteger borderRadius;
 @property (nonatomic) IBInspectable UIColor *borderColor;
@@ -25,7 +23,7 @@ IB_DESIGNABLE
 
 @end
 
-@implementation CustomBorderView
+@implementation CustomButtonView
 
 -(void)drawRect:(CGRect)aRect{
     self.layer.cornerRadius =   _borderRadius;
@@ -36,7 +34,7 @@ IB_DESIGNABLE
     self.layer.shadowOffset =   CGSizeMake(_shadowXOffset, _shadowYOffset);
     self.layer.shadowOpacity =  _shadowOpacity;
     self.layer.shadowRadius =   _shadowRadius;
-    self.layer.masksToBounds = false;
+    self.layer.masksToBounds = true;
 
 }
 
