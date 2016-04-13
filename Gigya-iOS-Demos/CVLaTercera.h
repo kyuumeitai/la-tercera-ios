@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CVLaTercera : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
-@property (nonatomic, strong) NSArray *pagesArray;
+@property (nonatomic, strong) NSArray *titlesArray;
+@property (nonatomic, strong) NSMutableArray *pagesArray;
 
 @end

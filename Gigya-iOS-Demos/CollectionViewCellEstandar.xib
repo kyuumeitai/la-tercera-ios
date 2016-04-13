@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -34,6 +33,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <size key="customSize" width="111" height="142"/>
             <connections>
+                <outlet property="imageThumbnail" destination="eAT-X1-iS6" id="4S2-Vx-FCu"/>
                 <outlet property="textLabel" destination="BMm-Wk-zFT" id="N8z-i5-PTR"/>
             </connections>
             <point key="canvasLocation" x="268.5" y="270"/>
