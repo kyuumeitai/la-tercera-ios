@@ -11,6 +11,7 @@
 #import "CollectionViewCellStandar.h"
 #import "NewspaperPage.h"
 #import "Tools.h"
+#import "UIImageView+AFNetworking.h"
 //#import "SDWebImage/UIImageView+WebCache.h"
 
 #define categoryName @"lt"
@@ -105,6 +106,9 @@ BOOL nibMyCell2loaded;
     [self.collectionView reloadData];
 }
 
+
+
+
 #pragma mark <UICollectionViewDataSource>
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -131,9 +135,22 @@ BOOL nibMyCell2loaded;
         // Configure the cell
         cell.textLabel.text = miPagina.title;
         NSString *urlImagen = miPagina.url;
-        // Here we use the new provided sd_setImageWithURL: method to load the web image
-      UIImage *imagen = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:urlImagen]]];
-        cell.imageThumbnail.image = imagen;
+        NSURL *url = [NSURL URLWithString:urlImagen];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+        
+        //__weak UITableViewCell *weakCell = cell;
+        __weak CollectionViewCellPortada *weakCell = cell;
+        
+        [cell.imageThumbnail setImageWithURLRequest:request
+                                   placeholderImage:placeholderImage
+                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                
+                                                weakCell.imageThumbnail.image = image;
+                                                [weakCell setNeedsLayout];
+                                                
+                                            } failure:nil];
+        
         return cell;
     }else{
         
@@ -143,9 +160,22 @@ BOOL nibMyCell2loaded;
     
         cell.textLabel.text = miPagina.title;
         NSString *urlImagen = miPagina.url;
-        // Here we use the new provided sd_setImageWithURL: method to load the web image
-        UIImage *imagen = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:urlImagen]]];
-        cell.imageThumbnail.image = imagen;
+        
+        NSURL *url = [NSURL URLWithString:urlImagen];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+        
+        //__weak UITableViewCell *weakCell = cell;
+        __weak CollectionViewCellStandar *weakCell = cell;
+        
+        [cell.imageThumbnail setImageWithURLRequest:request
+                              placeholderImage:placeholderImage
+                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                           
+                                           weakCell.imageThumbnail.image = image;
+                                           [weakCell setNeedsLayout];
+                                           
+                                       } failure:nil];
         return cell;
     }
 }
@@ -161,37 +191,12 @@ BOOL nibMyCell2loaded;
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if([indexPath row]==0){
-        return CGSizeMake(248, 288);
+        return CGSizeMake(248, 336);
 
     }else{
         return CGSizeMake(111, 142);
     }
 }
 
-- (void)writeStringToFile:(NSString*)aString {
-    
-    // Build the path, and create if needed.
-    NSString* filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString* fileName = @"JsLT.js";
-    NSString* fileAtPath = [filePath stringByAppendingPathComponent:fileName];
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:fileAtPath]) {
-        [[NSFileManager defaultManager] createFileAtPath:fileAtPath contents:nil attributes:nil];
-    }
-    
-    // The main act...
-    [[aString dataUsingEncoding:NSUTF8StringEncoding] writeToFile:fileAtPath atomically:NO];
-}
-
-- (NSString*)readStringFromFile {
-    
-    // Build the path...
-    NSString* filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString* fileName = @"JsLT.js";
-    NSString* fileAtPath = [filePath stringByAppendingPathComponent:fileName];
-    
-    // The main act...
-    return [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:fileAtPath] encoding:NSUTF8StringEncoding] ;
-}
 
 @end
