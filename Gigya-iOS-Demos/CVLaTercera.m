@@ -10,6 +10,7 @@
 #import "CollectionViewCellPortada.h"
 #import "CollectionViewCellStandar.h"
 #import "NewspaperPage.h"
+#import "NewsPageViewController.h"
 #import "Tools.h"
 #import "UIImageView+AFNetworking.h"
 //#import "SDWebImage/UIImageView+WebCache.h"
@@ -35,20 +36,28 @@ BOOL nibMyCell2loaded;
 
 
     [super viewDidLoad];
+    [self.collectionView setAlpha:0.0];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // code here
+        [self loadPages];
+    });
     
-    [self loadPages];
+
+
     
-    UINib *cellNib = [UINib nibWithNibName:@"CollectionViewCellEstandar" bundle: nil];
-    [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifier];
-    
-    UINib *cellNib2 = [UINib nibWithNibName:@"CollectionViewCellPortada" bundle: nil];
-    [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:reuseIdentifierPortada];
+
 }
 
 
 -(void)loadPages{
     // Create the request.
     // Send a synchronous request
+
+    UINib *cellNib = [UINib nibWithNibName:@"CollectionViewCellEstandar" bundle: nil];
+    [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifier];
+    
+    UINib *cellNib2 = [UINib nibWithNibName:@"CollectionViewCellPortada" bundle: nil];
+    [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:reuseIdentifierPortada];
 
     NSString *pagesString = @"http://www.papeldigital.info/lt/2016/04/07/01/settings.js";
     NSURL *googleURL = [NSURL URLWithString:pagesString];
@@ -104,9 +113,8 @@ BOOL nibMyCell2loaded;
     }
     
     [self.collectionView reloadData];
+        [UIView transitionWithView:self.collectionView duration:1.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{ [self.collectionView setAlpha:1.0]; } completion:nil];
 }
-
-
 
 
 #pragma mark <UICollectionViewDataSource>
@@ -145,15 +153,11 @@ BOOL nibMyCell2loaded;
         [cell.imageThumbnail setImageWithURLRequest:request
                                    placeholderImage:placeholderImage
                                             success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                                
                                                 weakCell.imageThumbnail.image = image;
                                                 [weakCell setNeedsLayout];
-                                                
                                             } failure:nil];
-        
         return cell;
     }else{
-        
               
         CollectionViewCellStandar *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
         // Configure the cell
@@ -167,7 +171,7 @@ BOOL nibMyCell2loaded;
         
         //__weak UITableViewCell *weakCell = cell;
         __weak CollectionViewCellStandar *weakCell = cell;
-        
+       
         [cell.imageThumbnail setImageWithURLRequest:request
                               placeholderImage:placeholderImage
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -175,7 +179,10 @@ BOOL nibMyCell2loaded;
                                            weakCell.imageThumbnail.image = image;
                                            [weakCell setNeedsLayout];
                                            
+                                           
                                        } failure:nil];
+        
+    
         return cell;
     }
 }
@@ -183,7 +190,9 @@ BOOL nibMyCell2loaded;
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NewsPageViewController *newsPage =  (NewsPageViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"newsPageSB"];
+    newsPage.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:newsPage animated:YES completion:nil];
     
 }
 

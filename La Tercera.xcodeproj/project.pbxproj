@@ -296,6 +296,7 @@
 		D0DB190B1CB443B800A0BBC5 /* updateMap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DB19061CB443B800A0BBC5 /* updateMap@2x.png */; };
 		D0DB190C1CB443B800A0BBC5 /* updateMap@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DB19071CB443B800A0BBC5 /* updateMap@3x.png */; };
 		D0DB190D1CB443B800A0BBC5 /* updateMap@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DB19071CB443B800A0BBC5 /* updateMap@3x.png */; };
+		D0DD6E3D1CBFD69D00994DDF /* NewsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DD6E3C1CBFD69D00994DDF /* NewsPageViewController.m */; };
 		D0F7F76E1CB2D3FD008BB49D /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FC069C1CB2A0D0000DF39B /* Store.m */; };
 		D0FBFA2C1CBD2B3100D5465E /* CustomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBFA2B1CBD2B3100D5465E /* CustomButtonView.m */; };
 		D0FBFA2D1CBD2B3100D5465E /* CustomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBFA2B1CBD2B3100D5465E /* CustomButtonView.m */; };
@@ -540,6 +541,8 @@
 		D0DB19051CB443B800A0BBC5 /* updateMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = updateMap.png; sourceTree = "<group>"; };
 		D0DB19061CB443B800A0BBC5 /* updateMap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "updateMap@2x.png"; sourceTree = "<group>"; };
 		D0DB19071CB443B800A0BBC5 /* updateMap@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "updateMap@3x.png"; sourceTree = "<group>"; };
+		D0DD6E3B1CBFD69D00994DDF /* NewsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPageViewController.h; sourceTree = "<group>"; };
+		D0DD6E3C1CBFD69D00994DDF /* NewsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPageViewController.m; sourceTree = "<group>"; };
 		D0E494FA1C971F3F0030F56C /* iconFilter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconFilter.png; sourceTree = "<group>"; };
 		D0E494FB1C971F3F0030F56C /* iconFilter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconFilter@2x.png"; sourceTree = "<group>"; };
 		D0E494FC1C971F3F0030F56C /* iconFilter@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconFilter@3x.png"; sourceTree = "<group>"; };
@@ -1083,10 +1086,9 @@
 		D030265A1CBBF0A200B4149A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D03026631CBC190E00B4149A /* CollectionViewCellStandar.h */,
-				D03026641CBC190E00B4149A /* CollectionViewCellStandar.m */,
-				D030265F1CBC0FDF00B4149A /* CollectionViewCellPortada.h */,
-				D03026601CBC0FDF00B4149A /* CollectionViewCellPortada.m */,
+				D0DD6E3A1CBFD67800994DDF /* Cells */,
+				D0DD6E3B1CBFD69D00994DDF /* NewsPageViewController.h */,
+				D0DD6E3C1CBFD69D00994DDF /* NewsPageViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1182,6 +1184,17 @@
 				D01021FB1C999A9900F5D88D /* DetalleViewController.m */,
 			);
 			name = DetalleCategoria;
+			sourceTree = "<group>";
+		};
+		D0DD6E3A1CBFD67800994DDF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D03026631CBC190E00B4149A /* CollectionViewCellStandar.h */,
+				D03026641CBC190E00B4149A /* CollectionViewCellStandar.m */,
+				D030265F1CBC0FDF00B4149A /* CollectionViewCellPortada.h */,
+				D03026601CBC0FDF00B4149A /* CollectionViewCellPortada.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		D0E495061C9726C90030F56C /* Controllers */ = {
@@ -1821,6 +1834,7 @@
 				D0308E8B1CB6DD7000D8619D /* PapelDigital.m in Sources */,
 				D03026611CBC0FDF00B4149A /* CollectionViewCellPortada.m in Sources */,
 				D0FBFA2F1CBD32CD00D5465E /* CustomButtonTercera.m in Sources */,
+				D0DD6E3D1CBFD69D00994DDF /* NewsPageViewController.m in Sources */,
 				1702BE1E1CB20BF500F26F42 /* Benefit.m in Sources */,
 				17F321BC1CBEBEDD00005964 /* NewspaperPage.m in Sources */,
 				1702BE021CB18B7100F26F42 /* TiempoLibreTableViewController.m in Sources */,

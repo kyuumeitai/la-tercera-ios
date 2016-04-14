@@ -31,12 +31,9 @@
     NSLog(@"Usar beneficio click DETECTED");
     
     UsarBeneficioEstandar *usarBeneficioEstandarViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"usarBeneficioEstandarSB"];
-   // usarBeneficioEstandarViewController.modalTransitionStyle = UIModalPresentationPopover;
     usarBeneficioEstandarViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    //[self.navigationController presentModalViewController:usarBeneficioEstandarViewController animated:YES];
     [self presentViewController:usarBeneficioEstandarViewController animated:YES completion:nil];
-   // self pres
-    //[self.navigationController pushViewController: usarBeneficioEstandarViewController animated:YES];
+
 }
 
 /*
