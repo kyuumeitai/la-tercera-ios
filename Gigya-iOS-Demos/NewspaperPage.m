@@ -22,7 +22,7 @@
 
 -(void)logDescription{
     
-    NSLog(@" >>>> NewsPaper:titulo: %@, url:%@, imagenThumbnail: %@, imagenBig:%@",_title,_url,_imagenThumbnail,_imagenBig );
+    NSLog(@" >>>> NewsPaper:titulo: %@, url:%@, imagenThumbnail: %@, imagenBig:%@",_title,_urlThumbnail,_imagenThumbnail,_imagenBig );
     
 }
 @end

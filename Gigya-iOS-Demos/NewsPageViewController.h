@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewsPageViewController : UIViewController
+@interface NewsPageViewController : UIViewController <UIScrollViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *newsPageImageView;
+@property int numeroPagina;
+@property (nonatomic,assign) NSString *categoria;
+@property (nonatomic,assign) NSString *urlDetailPage;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

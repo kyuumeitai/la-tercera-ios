@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CVLaTercera : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface CVNegocios : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSMutableArray *pagesArray;
 
