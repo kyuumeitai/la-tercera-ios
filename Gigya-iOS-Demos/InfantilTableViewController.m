@@ -29,7 +29,7 @@ NSMutableArray *listaBeneficios2;
     SingletonManager *singleton = [SingletonManager singletonManager];
     listaCategorias2 = [[NSMutableArray alloc] init];
     listaCategorias2 = singleton.categoryList;
-    NSLog(@"La lista de categorias es: %@",listaCategorias2.description);
+    //NSLog(@"La lista de categorias es: %@",listaCategorias2.description);
     
     
     

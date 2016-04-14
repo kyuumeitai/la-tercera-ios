@@ -29,7 +29,7 @@ NSMutableArray *listaBeneficios;
     SingletonManager *singleton = [SingletonManager singletonManager];
     listaCategorias = [[NSMutableArray alloc] init];
     listaCategorias = singleton.categoryList;
-   NSLog(@"La lista de categorias es: %@",listaCategorias.description);
+    //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 3];
     NSArray *filteredArray = [listaCategorias filteredArrayUsingPredicate:predicate];
@@ -40,7 +40,7 @@ NSMutableArray *listaBeneficios;
     
     listaBeneficios = [[NSMutableArray alloc] init];
     listaBeneficios = categoria.arrayBenefits;
-    NSLog(@"La lista de beneficios es: %@",listaBeneficios.description);
+   // NSLog(@"La lista de beneficios es: %@",listaBeneficios.description);
 
 
 

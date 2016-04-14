@@ -40,10 +40,6 @@ BOOL nibMyCell2loaded;
         // code here
         [self loadPages];
     });
-    
-
-
-    
 
 }
 
@@ -56,7 +52,6 @@ BOOL nibMyCell2loaded;
     
     UINib *cellNib2 = [UINib nibWithNibName:@"CollectionViewCellPortada" bundle: nil];
     [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:reuseIdentifierPortada];
-    
     
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
     
@@ -71,6 +66,32 @@ BOOL nibMyCell2loaded;
     
     if ([day length] == 1)
         day = [NSString stringWithFormat:@"0%@",day];
+
+    
+    NSString *lastEditionString = @"http://papeldigital.info/settings_last.js";
+    NSURL *googleURLEd = [NSURL URLWithString:lastEditionString];
+    NSError *errorEd;
+    NSString *googlePageEd = [NSString stringWithContentsOfURL:googleURLEd
+                                                    encoding:NSASCIIStringEncoding
+                                                       error:&errorEd];
+
+NSArray *myWords = [googlePageEd componentsSeparatedByString:@"['"];
+
+    for (int i=0;i<myWords.count;i++) {
+        //NSLog(@"<<<< Array[%i] = %@",i,myWords[i]);
+        NSString * myMatch = [NSString stringWithFormat:@"%@', '%@'",categoryIdName,categoryName];
+        //NSLog(@" ESTOOO ES MY MATCH: %@",myMatch);
+        if ([myWords[i] rangeOfString:myMatch].location != NSNotFound) {
+            NSLog(@"string APPEARS");
+            NSArray *myComps = [myWords[i] componentsSeparatedByString:@"/"];
+            
+    
+               year = [myComps[0] substringFromIndex: [myComps[0] length] - 4];
+               month = myComps[1];
+               day = [myComps[2] substringToIndex:2];
+            
+        }
+    }
     
     NSString *pagesString = [NSString stringWithFormat:@"http://www.papeldigital.info/%@/%@/%@/%@/01/settings.js",categoryId,year,month,day];
     NSURL *googleURL = [NSURL URLWithString:pagesString];
@@ -81,7 +102,7 @@ BOOL nibMyCell2loaded;
     
     numeroPaginas= (int)[Tools numberOfOccurrencesOfString:@"site_thumbs[" inString:googlePage] ;
 
-    NSLog(@" ****^^^^EL NUMERO DE PAGINAS ES: %li",(long)numeroPaginas);
+    //NSLog(@" ****^^^^EL NUMERO DE PAGINAS ES: %li",(long)numeroPaginas);
     
     NSString *temporalPage;
     NSString *temporalDetailPage;
@@ -113,6 +134,7 @@ BOOL nibMyCell2loaded;
     [self.collectionView reloadData];
     [UIView transitionWithView:self.collectionView duration:1.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{ [self.collectionView setAlpha:1.0]; } completion:nil];
 }
+
 
 #pragma mark <UICollectionViewDataSource>
 

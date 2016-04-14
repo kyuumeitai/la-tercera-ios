@@ -28,7 +28,7 @@ NSMutableArray *listaBeneficios5;
     SingletonManager *singleton = [SingletonManager singletonManager];
     listaCategorias5 = [[NSMutableArray alloc] init];
     listaCategorias5 = singleton.categoryList;
-    NSLog(@"La lista de categorias es: %@",listaCategorias5.description);
+    //NSLog(@"La lista de categorias es: %@",listaCategorias5.description);
     
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 2];
@@ -40,7 +40,7 @@ NSMutableArray *listaBeneficios5;
     
     listaBeneficios5 = [[NSMutableArray alloc] init];
     listaBeneficios5 = categoria.arrayBenefits;
-    NSLog(@"La lista de beneficios es: %@",listaBeneficios5.description);
+    //NSLog(@"La lista de beneficios es: %@",listaBeneficios5.description);
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
