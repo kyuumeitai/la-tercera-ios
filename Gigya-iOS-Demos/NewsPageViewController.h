@@ -12,8 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *newsPageImageView;
 @property int numeroPagina;
-@property (nonatomic,assign) NSString *categoria;
-@property (nonatomic,assign) NSString *urlDetailPage;
+@property int totalPaginas;
+@property (nonatomic,strong) NSString *categoria;
+@property (nonatomic,strong) NSString *urlDetailPage;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

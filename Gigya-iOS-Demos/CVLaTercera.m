@@ -197,7 +197,7 @@ NSArray *myWords = [googlePageEd componentsSeparatedByString:@"['"];
                                            weakCell.imageThumbnail.image = image;
                                            [weakCell setNeedsLayout];
                                   
-                                       } failure:nil];
+                                       } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){NSLog(@"Fallo por el error %@",error);}];
 
         return cell;
     }
@@ -211,6 +211,7 @@ NSArray *myWords = [googlePageEd componentsSeparatedByString:@"['"];
     newsPage.numeroPagina = paginita.pageNumber;
     newsPage.urlDetailPage = paginita.urlDetail;
     newsPage.categoria = paginita.categoria;
+    newsPage.totalPaginas = (int)[self.pagesArray count] ;
     newsPage.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:newsPage animated:YES completion:nil];
     

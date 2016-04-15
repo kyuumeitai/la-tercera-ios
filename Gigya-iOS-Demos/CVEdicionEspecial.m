@@ -215,6 +215,7 @@ BOOL nibMyCell2loaded;
     newsPage.numeroPagina = paginita.pageNumber;
     newsPage.urlDetailPage = paginita.urlDetail;
     newsPage.categoria = paginita.categoria;
+    newsPage.totalPaginas = (int)[self.pagesArray count] ;
     newsPage.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:newsPage animated:YES completion:nil];
     
