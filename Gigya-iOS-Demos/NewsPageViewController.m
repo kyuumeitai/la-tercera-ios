@@ -42,7 +42,7 @@
     
 }
 
-- (void) loadImage:(UIViewAnimationOptions)animationOption{
+- (void) loadImage:(CATransition*)transition{
 
     //self.newsPageImageView.alpha = 0;
     
@@ -51,16 +51,14 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     UIImage *placeholderImage = [UIImage imageNamed:@"placeholderNone"];
     
-   
-    
     [_newsPageImageView setImageWithURLRequest:request
                               placeholderImage:placeholderImage
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                            _newsPageImageView.image = image;
                                            
-                                            [UIView transitionWithView:_newsPageImageView duration:1.0 options:animationOption animations:^{ [_newsPageImageView setAlpha:1.0]; } completion:nil];
-                                           
-                                         
+                                            [UIView transitionWithView:_newsPageImageView duration:0.0 options:UIViewAnimationOptionTransitionNone animations:^{ [_newsPageImageView setAlpha:1.0]; } completion:nil];
+
+                                          [self.scrollView.layer addAnimation:transition forKey:kCATransition];
                                            self.scrollView.minimumZoomScale = 1;
                                            self.scrollView.maximumZoomScale = 4.0;
                                            self.scrollView.contentSize =_newsPageImageView.frame.size;
@@ -69,7 +67,7 @@
                                            [SVProgressHUD dismiss];
                                            
                                        } failure:nil];
-    
+
 }
 
 - (void)rightSwipeHandle:(UISwipeGestureRecognizer*)gestureRecognizer
@@ -107,7 +105,14 @@
     NSLog(@"nuevoNumeroPagina: %@",nuevoNumeroPagina);
    self.urlDetailPage = [self.urlDetailPage stringByReplacingCharactersInRange:range withString:nuevoNumeroPagina];
     NSLog(@"self.urlDetailPage: %@",self.urlDetailPage);
-    [self loadImage:UIViewAnimationOptionTransitionCurlUp];
+    
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromRight;
+    
+    [self loadImage:transition];
     
 }
 
@@ -119,13 +124,22 @@
     NSLog(@"nuevoNumeroPagina: %@",nuevoNumeroPagina);
     self.urlDetailPage = [self.urlDetailPage stringByReplacingCharactersInRange:range withString:nuevoNumeroPagina];
     NSLog(@"self.urlDetailPage: %@",self.urlDetailPage);
-     [self loadImage:UIViewAnimationOptionTransitionCurlDown];
+    
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromLeft;
+    
+    [self loadImage:transition];
     
 }
+
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
 {
 }
+
 - (IBAction)closeButton:(id)sender {
     
     [self dismissViewControllerAnimated:self completion:nil];
