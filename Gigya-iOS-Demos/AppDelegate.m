@@ -24,8 +24,15 @@
     
     [Gigya setAccountsDelegate:self];
     
+
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+    //UIColor *backColor = [UIColor colorWithRed: 1.0 green: 0.1 blue:0.1 alpha: 0.3];
+    pageControl.backgroundColor = [UIColor whiteColor];
+ 
            /*
     NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
     
