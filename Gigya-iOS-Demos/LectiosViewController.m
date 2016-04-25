@@ -10,6 +10,10 @@
 #import "SingletonManager.h"
 #import "SWRevealViewController.h"
 #import "SVProgressHUD.h"
+#import "AFNetworking.h"
+
+static NSString * const LectiosBaseURLString = @"http://api.lectios.com/?a=url&idCode=QB6SFF89&url=";
+
 
 @implementation LectiosViewController
 - (void)viewDidLoad {
@@ -21,13 +25,13 @@
     // Do any additional setup after loading the view.
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
-    
+      self.audioPlayer = [[YMCAudioPlayer alloc] init];
     
     SWRevealViewController *revealViewController = self.revealViewController;
     singleton.leftSlideMenu = revealViewController;
     [_menuButton addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
-    
+    /*
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
         // Perform async operation
@@ -38,22 +42,64 @@
             [SVProgressHUD show];
         });
     });
-   
-    // NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
-    // Do any additional setup after loading the view.
+     
+     */
+        NSString *articleURL = @"http://www.latercera.com/noticia/entretencion/2016/04/661-677834-9-quien-es-quien-en-game-of-thrones.shtml";
+    [self getLectiosResponseForArticleURL:articleURL];
     
-    //[self loadCategories];
-    //[self loadBenefits];
-    //[self loadCommerces];
-    //[self loadStores];
+}
+
+-(void) getLectiosResponseForArticleURL:(NSString*)articleURL{
+
+    NSString *url= [NSString stringWithFormat:@"%@%@",LectiosBaseURLString,articleURL];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        NSDictionary *array = (NSDictionary*) responseObject[0];
+        NSArray *dictio =[array objectForKey:@"articleData"];
+        NSDictionary *dictioInner = (NSDictionary*) dictio[0];
+        NSString *isReady = [dictioInner objectForKey:@"status"];
+         NSString *audioURL = [dictioInner objectForKey:@"audioUrl"];
+        
+        if ([isReady isEqualToString:@"ready"]){
+            
+            NSLog(@"Esta iooo");
+           [SVProgressHUD dismiss];
+          
+            [self setupAudioPlayerWithArticle:audioURL];
+        }else{
+            NSLog(@"Le falta");
+              [SVProgressHUD show];
+            [SVProgressHUD setStatus:@"Convirtiendo a mp3"];
+    
+               [self performSelector:@selector(goingBackWithURL:) withObject:articleURL afterDelay:2.0];
+
+            
+        }
+        
+        //NSArray *json = [NSJSONSerialization JSONObjectWithData:dictio options:0 error:&parseError];
+        NSLog(@"Parsed JSON: %@", dictio);
+        // do something with `json`
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
+    
+}
+
+-(void)goingBackWithURL:(NSString*)url{
+    
+    [self getLectiosResponseForArticleURL:url];
     
 }
 
 -(void)loadPlayer{
     
    
-    self.audioPlayer = [[YMCAudioPlayer alloc] init];
-    [self setupAudioPlayer];
+    
+    
 }
 
 /*
@@ -61,13 +107,13 @@
  * Filename and FileExtension like mp3
  * Loading audioFile and sets the time Labels
  */
-- (void)setupAudioPlayer
+- (void)setupAudioPlayerWithArticle:(NSString*)stringArticle
 {
     //insert URL
 
-     NSString *urlString = @"https://lectios2.s3.amazonaws.com/1120166.mp3";
     
-    NSURL *mp3URL = [NSURL URLWithString:urlString];
+    
+    NSURL *mp3URL = [NSURL URLWithString:stringArticle];
     //init the Player to get file properties to set the time labels
     [self.audioPlayer initPlayer:mp3URL];
     //init the current timedisplay and the labels. if a current time was stored
@@ -123,7 +169,7 @@
  * while audio is playing
  */
 - (void)updateTime:(NSTimer *)timer {
-    [SVProgressHUD dismiss];
+  
     //to don't update every second. When scrubber is mouseDown the the slider will not set
     if (!self.scrubbing) {
         self.currentTimeSlider.value = [self.audioPlayer getCurrentAudioTime];

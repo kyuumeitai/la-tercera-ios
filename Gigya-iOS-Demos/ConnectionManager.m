@@ -12,6 +12,7 @@
 #import "Reachability.h"
 static NSString * const BaseURLString = @"http://ltrest.multinetlabs.com/";
 static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
+
 @implementation ConnectionManager
 
 @synthesize isConnected;
@@ -99,6 +100,7 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     }];
     
 }
+
 
 -(NSDictionary*)getSubCategoriesForCatId:(int)catId{
     NSDictionary * dictionary = nil;

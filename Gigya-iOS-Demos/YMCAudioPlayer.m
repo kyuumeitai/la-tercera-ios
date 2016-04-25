@@ -7,6 +7,7 @@
 //
 
 #import "YMCAudioPlayer.h"
+#import "SVProgressHUD.h"
 
 @implementation YMCAudioPlayer
 
@@ -43,6 +44,7 @@
  * get playingState
  */
 - (BOOL)isPlaying {
+      [SVProgressHUD dismiss];
     return [self.audioPlayer isPlaying];
 }
 
