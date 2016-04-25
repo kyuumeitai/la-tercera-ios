@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -10,8 +10,12 @@
             <string>PTSans-Bold</string>
             <string>PTSans-Bold</string>
             <string>PTSans-Bold</string>
+            <string>PTSans-Bold</string>
+            <string>PTSans-Bold</string>
+            <string>PTSans-Bold</string>
         </mutableArray>
         <mutableArray key="PT_Sans-Web-Regular.ttf">
+            <string>PTSans-Regular</string>
             <string>PTSans-Regular</string>
             <string>PTSans-Regular</string>
             <string>PTSans-Regular</string>
@@ -325,28 +329,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0.2 Bienvenida sin registro.png" id="1l7-Hz-YDM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0.1 Bienvenida.png" id="8sA-1C-k6z">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Fr-vu-BQ0">
-                                <rect key="frame" x="90" y="538" width="195" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="botonRegistrar.png"/>
-                                <connections>
-                                    <action selector="showScreenSet:" destination="Xmx-eN-OsC" eventType="touchUpInside" id="j3a-QR-1pM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZeX-GL-pp9">
-                                <rect key="frame" x="123" y="613" width="128" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Continuar sin regist.png"/>
-                                <connections>
-                                    <segue destination="FRq-Fc-Jtx" kind="push" id="Syi-PQ-KwY"/>
-                                </connections>
-                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8HV-TI-EtI">
-                                <rect key="frame" x="90" y="467" width="195" height="39"/>
+                                <rect key="frame" x="90" y="296" width="195" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.92629404699999995" green="0.92598386799999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -357,6 +345,50 @@
                                     <action selector="nativeLoginButtonAction:" destination="Xmx-eN-OsC" eventType="touchUpInside" id="J9l-DS-bMW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i9q-iu-D88">
+                                <rect key="frame" x="31" y="426" width="313" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Hola! Bienvenidos a la aplicación de La Tercera. Todas las noticias de La Tercera y un mundo del Club de Beneficios al alcance de tu mano.</string>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9C4-tE-Jat">
+                                <rect key="frame" x="90" y="227" width="195" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="botonRegistrar.png"/>
+                                <connections>
+                                    <action selector="showScreenSet:" destination="Xmx-eN-OsC" eventType="touchUpInside" id="uQB-LO-PoI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="k6v-sj-9zd">
+                                <rect key="frame" x="0.0" y="597" width="180" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="22"/>
+                                <state key="normal" title="NO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hO8-5T-CXr">
+                                <rect key="frame" x="180" y="597" width="195" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.70196078431372544" green="0.15686274509803921" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="22"/>
+                                <state key="normal" title="SI">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="FRq-Fc-Jtx" kind="push" id="dTv-RO-9ct"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿TIENES CUENTA?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TXe-tN-2zj">
+                                <rect key="frame" x="31" y="528" width="313" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2648,7 +2680,7 @@ de tu descuento.</string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="7Z3-bS-yEz">
-                                        <rect key="frame" x="8" y="8" width="56" height="46"/>
+                                        <rect key="frame" x="305" y="38" width="56" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
                                         <state key="normal" title="X">
@@ -3343,12 +3375,11 @@ de tu descuento.</string>
     </scenes>
     <resources>
         <image name=" " width="360" height="640"/>
-        <image name="0.2 Bienvenida sin registro.png" width="360" height="640"/>
+        <image name="0.1 Bienvenida.png" width="360" height="640"/>
         <image name="BarraLT.png" width="359" height="88"/>
         <image name="BlueCreditCard.png" width="324" height="232"/>
         <image name="BotonShare.png" width="34" height="34"/>
         <image name="CellNormal.png" width="340" height="70"/>
-        <image name="Continuar sin regist.png" width="128" height="14"/>
         <image name="OpacityForImage.png" width="359" height="186"/>
         <image name="VerBeneficiosCerca.png" width="332" height="43"/>
         <image name="audioplayer_play.png" width="66" height="65"/>

@@ -113,7 +113,7 @@ return YES;
 
 - (void)obtenerSucursales2   {
     
-    NSString *post = @"idComercio=53";
+   // NSString *post = @"idComercio=53";
     NSData *jsonData = [self httpPostRequestWithUrl:@"http://api-isibu.appspot.com/near/places" post:@"nil"];
     NSError *e = nil;
     
