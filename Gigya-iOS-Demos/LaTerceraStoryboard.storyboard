@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -279,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSR-ne-YT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1217.5" y="235.5"/>
+            <point key="canvasLocation" x="-1123.5" y="993.5"/>
         </scene>
         <!--Infantil Table View-->
         <scene sceneID="r9W-hT-15V">
@@ -342,7 +342,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Continuar sin regist.png"/>
                                 <connections>
-                                    <segue destination="0B8-6F-OFF" kind="push" id="YGa-N1-erb"/>
+                                    <segue destination="FRq-Fc-Jtx" kind="push" id="Syi-PQ-KwY"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8HV-TI-EtI">
@@ -372,11 +372,12 @@
             <objects>
                 <viewController id="FRq-Fc-Jtx" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zie-LA-gyd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="kPp-73-bfw"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <segue destination="uon-o4-wxz" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="8iW-XR-19z"/>
                         <segue destination="DtB-eu-V5K" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="ZfS-ju-4jS"/>
@@ -384,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zni-uQ-fzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-285.5" y="-588.5"/>
+            <point key="canvasLocation" x="-824.5" y="-605.5"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="Gsd-9V-kVK">
@@ -502,6 +503,9 @@
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.25677083333333328" green="0.25677083333333328" blue="0.25677083333333328" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <segue destination="LGr-mb-9zJ" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="z7Q-hN-lov"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria6" rowHeight="37" id="Zim-0p-Xmu">
                                 <rect key="frame" x="0.0" y="250" width="248" height="37"/>
@@ -625,6 +629,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="uon-o4-wxz" id="1uQ-uW-BZ0"/>
                             <outlet property="delegate" destination="uon-o4-wxz" id="4Hx-8H-vJt"/>
@@ -635,7 +640,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a32-VP-ogJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="258" y="-571"/>
+            <point key="canvasLocation" x="182" y="-207"/>
         </scene>
         <!--News Category Inicio View Controller-->
         <scene sceneID="whl-V5-alw">
@@ -1007,12 +1012,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="LKO-m6-Nmk" kind="relationship" relationship="rootViewController" id="zbY-g6-vBQ"/>
+                        <segue destination="0B8-6F-OFF" kind="relationship" relationship="rootViewController" id="Nh5-Vu-StR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SYo-LU-Bad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1794" y="265"/>
+            <point key="canvasLocation" x="-323" y="-661"/>
         </scene>
         <!--Mas Cercanos-->
         <scene sceneID="NSV-Ra-k43">
@@ -1371,7 +1376,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDz-Gx-CWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2286" y="265"/>
+            <point key="canvasLocation" x="-1649.5" y="394.5"/>
         </scene>
         <!--Detalle View Controller-->
         <scene sceneID="9QE-3O-vo3">
@@ -1671,14 +1676,6 @@ de tu descuento.</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T1p-NW-LUZ">
-                                <rect key="frame" x="65" y="28" width="35" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="clublatercera.png"/>
-                                <connections>
-                                    <segue destination="FRq-Fc-Jtx" kind="modal" modalTransitionStyle="flipHorizontal" id="8QP-ka-n8p"/>
-                                </connections>
-                            </button>
                             <view tag="100" contentMode="scaleToFill" id="TVX-73-ga5">
                                 <rect key="frame" x="0.0" y="77" width="375" height="590"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1689,19 +1686,25 @@ de tu descuento.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="boton-menu.png"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T1p-NW-LUZ">
+                                <rect key="frame" x="65" y="27" width="35" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="clublatercera.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="WQS-ce-gYU"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="menuButton" destination="3SH-Vi-tow" id="ekK-OV-sW2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5m-Dt-1F3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-863.5" y="-588.5"/>
+            <point key="canvasLocation" x="-640.5" y="414.5"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="NDh-rI-uO2">
@@ -2023,7 +2026,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4f-Yh-fUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-360.5" y="271.5"/>
+            <point key="canvasLocation" x="-214.5" y="879.5"/>
         </scene>
         <!--Infantil ContainerVC-->
         <scene sceneID="hmO-9N-q3D">
@@ -3217,7 +3220,7 @@ de tu descuento.</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0s-oX-1ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1313.5" y="-1155.5"/>
+            <point key="canvasLocation" x="1355.5" y="-1165.5"/>
         </scene>
     </scenes>
     <resources>
@@ -3276,8 +3279,7 @@ de tu descuento.</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="BiO-gE-Aj8"/>
         <segue reference="vnn-UP-oet"/>
-        <segue reference="zbY-g6-vBQ"/>
-        <segue reference="iEg-c8-tPF"/>
     </inferredMetricsTieBreakers>
 </document>

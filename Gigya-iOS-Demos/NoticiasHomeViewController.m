@@ -29,24 +29,17 @@
     SingletonManager *singleton = [SingletonManager singletonManager];
     //ConnectionManager * connection = [[ConnectionManager alloc] init];
     
-    /*
     if(singleton.leftSlideMenu == nil){
-        NSLog(@"ENtre en singleton nulo");
+        NSLog(@"ENtre a crear leftSlide ");
 
         SWRevealViewController *revealViewController = self.revealViewController;
         singleton.leftSlideMenu = revealViewController;
+        NSLog(@"Creado! ");
         [_menuButton
          addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-    }else{
-        NSLog(@"ENtre en singleton exitente");
-        [_menuButton removeTarget:nil
-                           action:NULL
-                 forControlEvents:UIControlEventAllEvents];
-    [_menuButton
-     addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     }
     NSLog(@"Entoncs el singleton es: %@",singleton.leftSlideMenu);
- */
+ 
     // Do any additional setup after loading the view.
 }
 

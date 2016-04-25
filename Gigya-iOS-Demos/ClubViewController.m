@@ -35,11 +35,11 @@
     SingletonManager *singleton = [SingletonManager singletonManager];
     
     
-    SWRevealViewController *revealViewController = self.revealViewController;
-    singleton.leftSlideMenu = revealViewController;
+    //SWRevealViewController *revealViewController = self.revealViewController;
+    //singleton.leftSlideMenu = revealViewController;
   [_menuButton addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
-   // NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
+    NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
     // Do any additional setup after loading the view.
     
    //[self loadCategories];

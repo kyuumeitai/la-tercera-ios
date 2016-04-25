@@ -1837,6 +1837,7 @@ const int FrontViewPositionNone = 0xff;
 
 NSString * const SWSegueRearIdentifier = @"sw_rear";
 NSString * const SWSegueFrontIdentifier = @"sw_front";
+NSString * const SWSegueFront2Identifier = @"sw_front2";
 NSString * const SWSegueRightIdentifier = @"sw_right";
 
 
@@ -1854,6 +1855,10 @@ NSString * const SWSegueRightIdentifier = @"sw_right";
     
     if ( [identifier isEqualToString:SWSegueFrontIdentifier] )
         operation = SWRevealControllerOperationReplaceFrontController;
+    
+    else if ( [identifier isEqualToString:SWSegueFront2Identifier] )
+        operation = SWRevealControllerOperationReplaceFront2Controller;
+    
     
     else if ( [identifier isEqualToString:SWSegueRearIdentifier] )
         operation = SWRevealControllerOperationReplaceRearController;

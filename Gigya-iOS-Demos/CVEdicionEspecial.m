@@ -116,12 +116,12 @@ BOOL nibMyCell2loaded;
     for (int i = 1; i <= numeroPaginas2; i++) {
         
         if(i==1){
-            temporalPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/03/%03d.jpg",categoryId,year,month,day,i];
-            temporalDetailPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/04/%03d.jpg",categoryId,year,month,day,i];
+            temporalPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/03/-pag%03d.jpg",categoryId,year,month,day,i];
+            temporalDetailPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/04/-pag%03d.jpg",categoryId,year,month,day,i];
             
         }else{
-            temporalPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/02/%03d.jpg",categoryId,year,month,day,i];
-            temporalDetailPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/04/%03d.jpg",categoryId,year,month,day,i];
+            temporalPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/02/-pag%03d.jpg",categoryId,year,month,day,i];
+            temporalDetailPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/04/-pag%03d.jpg",categoryId,year,month,day,i];
         }
         //NSLog(@"Add new page");
         NSString *pageNumber = [NSString stringWithFormat:@"Página %i",numeroPagina];
