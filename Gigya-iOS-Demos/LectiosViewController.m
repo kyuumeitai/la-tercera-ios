@@ -169,7 +169,7 @@
 
 -(void) viewWillDisappear:(BOOL)animated{
     
-    [self.audioPlayer stop]
+   // [self.audioPlayer stop]
 }
 
 
