@@ -57,7 +57,8 @@
     pageContentViewController.imageFile = self.pageImages[index];
     pageContentViewController.pageIndex = index;
     if (index == [self.pageImages count]-1){
-        //NSLog(@"Estoy aca lonyi");
+        //
+        NSLog(@"Estoy aca lonyi");
         pageContentViewController.isFinalPage = true;
     }
     
