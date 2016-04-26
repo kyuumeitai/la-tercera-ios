@@ -13,6 +13,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 //@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *finishButton;
+
+@property BOOL isFinalPage;
 @property NSUInteger pageIndex;
 
 @property NSString *imageFile;

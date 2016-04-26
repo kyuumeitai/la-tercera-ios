@@ -18,7 +18,9 @@
     [super viewDidLoad];
     self.backgroundImageView.image = [UIImage imageNamed:self.imageFile];
     
-   
+    if (_isFinalPage){
+        self.finishButton.hidden = false;
+    }
     // Do any additional setup after loading the view.
 }
 

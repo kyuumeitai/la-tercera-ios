@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
-      _pageImages = @[@"comoFunciona1", @"comoFunciona2", @"comoFunciona3", @"comoFunciona4,comoFunciona5", @"comoFunciona6", @"comoFunciona7", @"comoFunciona8", @"comoFunciona9", @"comoFunciona10", @"comoFunciona11"];
+      _pageImages = @[@"comoFunciona1", @"comoFunciona2", @"comoFunciona3", @"comoFunciona4",@"comoFunciona5", @"comoFunciona6", @"comoFunciona7", @"comoFunciona8", @"comoFunciona9", @"comoFunciona10", @"comoFunciona11"];
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"pageViewController"];
     self.pageViewController.dataSource = self;
@@ -29,7 +29,7 @@
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
     // Change the size of page view controller
-    self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
+    //self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
     
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
@@ -37,11 +37,6 @@
    // [self startWalkthrough];
 }
 
-- (void)startWalkthrough {
-    PageContentViewController *startingViewController = [self viewControllerAtIndex:0];
-    NSArray *viewControllers = @[startingViewController];
-    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionReverse animated:NO completion:nil];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -51,14 +46,20 @@
 
 - (PageContentViewController *)viewControllerAtIndex:(NSUInteger)index
 {
+
     if (([self.pageImages count] == 0) || (index >= [self.pageImages count])) {
-        return nil;
+
+           return nil;
     }
     
     // Create a new view controller and pass suitable data.
     PageContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"pageContentViewController"];
     pageContentViewController.imageFile = self.pageImages[index];
     pageContentViewController.pageIndex = index;
+    if (index == [self.pageImages count]-1){
+        //NSLog(@"Estoy aca lonyi");
+        pageContentViewController.isFinalPage = true;
+    }
     
     return pageContentViewController;
 }
@@ -85,9 +86,15 @@
         return nil;
     }
     
+    
     index++;
     if (index == [self.pageImages count]) {
+        
         return nil;
+    }
+    
+    if(index ==1){
+        ((PageContentViewController*) viewController).finishButton.hidden= false;
     }
     return [self viewControllerAtIndex:index];
 }
@@ -100,7 +107,9 @@
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
 {
     return 0;
+   
 }
+
 
 /*
 #pragma mark - Navigation
