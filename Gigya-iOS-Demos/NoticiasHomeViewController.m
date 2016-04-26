@@ -30,15 +30,15 @@
     //ConnectionManager * connection = [[ConnectionManager alloc] init];
     
     if(singleton.leftSlideMenu == nil){
-        NSLog(@"ENtre a crear leftSlide ");
+       // NSLog(@"ENtre a crear leftSlide ");
 
         SWRevealViewController *revealViewController = self.revealViewController;
         singleton.leftSlideMenu = revealViewController;
-        NSLog(@"Creado! ");
+        //NSLog(@"Creado! ");
         [_menuButton
          addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     }
-    NSLog(@"Entoncs el singleton es: %@",singleton.leftSlideMenu);
+    //NSLog(@"Entoncs el singleton es: %@",singleton.leftSlideMenu);
  
     // Do any additional setup after loading the view.
 }
@@ -55,13 +55,14 @@
     newsInicioVC.title = @"Inicio";
     
     NewsCategoryPoliticaViewController *newsPoliticaVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
-    newsPoliticaVC.title = @"Politica";
+    newsPoliticaVC.title = @"Selección";
+    
     
     // ContainerView
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,newsPoliticaVC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,newsPoliticaVC,newsPoliticaVC,newsPoliticaVC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
