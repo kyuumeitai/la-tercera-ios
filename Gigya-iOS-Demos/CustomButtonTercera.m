@@ -31,6 +31,7 @@ IB_DESIGNABLE
 
 @implementation CustomButtonTercera
 
+
 -(void)drawRect:(CGRect)aRect{
     self.layer.cornerRadius =  4;
 

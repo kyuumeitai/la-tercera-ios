@@ -30,7 +30,7 @@
     
     NSLog(@"Usar beneficio click DETECTED");
     
-    UsarBeneficioEstandar *usarBeneficioEstandarViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"usarBeneficioEstandarSB"];
+    UsarBeneficioEstandar *usarBeneficioEstandarViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"usarBeneficioScreen"];
     usarBeneficioEstandarViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:usarBeneficioEstandarViewController animated:YES completion:nil];
 

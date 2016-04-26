@@ -11,7 +11,7 @@
 IB_DESIGNABLE
 @interface CustomBorderView : UIView
 
-@property (nonatomic) IBInspectable NSInteger borderWidth;
+@property (nonatomic) IBInspectable NSInteger borderWidth ;
 @property (nonatomic) IBInspectable NSInteger borderRadius;
 @property (nonatomic) IBInspectable UIColor *borderColor;
 
@@ -26,6 +26,8 @@ IB_DESIGNABLE
 @end
 
 @implementation CustomBorderView
+// No compiler errors -- the errors occur on the UIViewController
+
 
 -(void)drawRect:(CGRect)aRect{
     self.layer.cornerRadius =   _borderRadius;

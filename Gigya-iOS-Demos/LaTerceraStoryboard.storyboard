@@ -98,6 +98,8 @@
             <string>PTSans-Regular</string>
             <string>PTSans-Regular</string>
             <string>PTSans-Regular</string>
+            <string>PTSans-Regular</string>
+            <string>PTSans-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -2863,8 +2865,8 @@ de tu descuento.</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="       Para usar este beneficio debes ser Suscriptor del Club La Tercera" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Rq-7t-EDO">
-                                <rect key="frame" x="52" y="100" width="272" height="93"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="       Beneficio exclusivo para Suscriptores del Club La Tercera" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Rq-7t-EDO">
+                                <rect key="frame" x="62" y="100" width="251" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2878,7 +2880,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ubf-RK-e9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032.5" y="1338.5"/>
+            <point key="canvasLocation" x="1020.5" y="1338.5"/>
         </scene>
         <!--Usar Beneficio No Logueado-->
         <scene sceneID="BIm-0R-QGl">
@@ -3041,10 +3043,10 @@ de tu descuento.</string>
             </objects>
             <point key="canvasLocation" x="2069.5" y="527.5"/>
         </scene>
-        <!--Usar Beneficio Descuento Adicional-->
+        <!--Usar Beneficio Estandar-->
         <scene sceneID="eyr-yw-mhA">
             <objects>
-                <viewController storyboardIdentifier="confirmarBeneficioScreen" id="cEd-p2-QeZ" customClass="UsarBeneficioDescuentoAdicional" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="confirmarBeneficioScreen" id="cEd-p2-QeZ" customClass="UsarBeneficioEstandar" sceneMemberID="viewController">
                     <view key="view" alpha="0.85000002384185791" contentMode="scaleToFill" id="cn6-fR-v8M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3105,7 +3107,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gD-Dz-mUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056.5" y="2117.5"/>
+            <point key="canvasLocation" x="1546.5" y="2111.5"/>
         </scene>
         <!--Algo anda mal-->
         <scene sceneID="zl1-Eo-Nlh">
@@ -4184,6 +4186,53 @@ de La Tercera</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CzT-fh-rxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2485.5" y="-256.5"/>
+        </scene>
+        <!--Mostrar Beneficio Descuento Adicional-->
+        <scene sceneID="FU3-KR-rcz">
+            <objects>
+                <viewController storyboardIdentifier="permissionNeededScreenAdicional" id="bKy-yP-Ule" customClass="MostrarBeneficioDescuentoAdicional" sceneMemberID="viewController">
+                    <view key="view" alpha="0.85000002384185791" contentMode="scaleToFill" id="h0V-Mc-lpo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ypX-X7-vbX" customClass="CustomButtonTercera">
+                                <rect key="frame" x="34" y="309" width="148" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Suscribirse"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DuP-AI-fV2">
+                                <rect key="frame" x="63" y="397" width="249" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
+                                <state key="normal" title="Volver y no ocupar el beneficio">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bhy-1V-fsX" customClass="CustomButtonTercera">
+                                <rect key="frame" x="195" y="309" width="146" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.3156650641" green="0.3156650641" blue="0.3156650641" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Usar Beneficio"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="       Te estás perdiendo el doble de este descuento, suscríbete a  La Tercera" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uJQ-E2-5px">
+                                <rect key="frame" x="74" y="166" width="227" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TK0-kI-VVp"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Al8-aW-dxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1020.5" y="2111.5"/>
         </scene>
     </scenes>
     <resources>
