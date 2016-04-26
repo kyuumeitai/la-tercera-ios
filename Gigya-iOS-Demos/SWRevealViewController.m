@@ -1886,6 +1886,27 @@ NSString * const SWSegueRightIdentifier = @"sw_right";
 
 @end
 
+#pragma mark - SWRevealViewControllerSegueFlipModalController class
+
+@implementation SWRevealViewControllerSegueFlipModalController
+
+- (void)perform
+{
+    SWRevealViewController *rvc = [self.sourceViewController revealViewController];
+    UIViewController *dvc = self.destinationViewController;
+    
+    CATransition* transition = [CATransition animation];
+    transition.duration = 1;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionFromRight; //kCATransitionMoveIn; //, kCATransitionPush, kCATransitionReveal, kCATransitionFade
+    //transition.subtype = kCATransitionFromTop; //kCATransitionFromLeft, kCATransitionFromRight, kCATransitionFromTop, kCATransitionFromBottom
+    [rvc.navigationController.view.layer addAnimation:transition forKey:nil];
+    [rvc pushFrontViewController:dvc animated:YES];
+}
+
+@end
+
+
 
 //#pragma mark - SWRevealViewControllerSegue Class
 //

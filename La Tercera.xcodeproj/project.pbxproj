@@ -448,6 +448,12 @@
 		D0FF55761CCFC94F00EA71F4 /* ViajesClub.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FF55741CCFC94F00EA71F4 /* ViajesClub.m */; };
 		D0FF557A1CCFC9A900EA71F4 /* TCMastercard.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FF55791CCFC9A900EA71F4 /* TCMastercard.m */; };
 		D0FF557B1CCFC9A900EA71F4 /* TCMastercard.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FF55791CCFC9A900EA71F4 /* TCMastercard.m */; };
+		D0FF558C1CCFFE3D00EA71F4 /* clubIconMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FF55891CCFFE3D00EA71F4 /* clubIconMenu.png */; };
+		D0FF558D1CCFFE3D00EA71F4 /* clubIconMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FF55891CCFFE3D00EA71F4 /* clubIconMenu.png */; };
+		D0FF558E1CCFFE3D00EA71F4 /* clubIconMenu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FF558A1CCFFE3D00EA71F4 /* clubIconMenu@2x.png */; };
+		D0FF558F1CCFFE3D00EA71F4 /* clubIconMenu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FF558A1CCFFE3D00EA71F4 /* clubIconMenu@2x.png */; };
+		D0FF55901CCFFE3D00EA71F4 /* clubIconMenu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FF558B1CCFFE3D00EA71F4 /* clubIconMenu@3x.png */; };
+		D0FF55911CCFFE3D00EA71F4 /* clubIconMenu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FF558B1CCFFE3D00EA71F4 /* clubIconMenu@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -878,6 +884,9 @@
 		D0FF55741CCFC94F00EA71F4 /* ViajesClub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViajesClub.m; sourceTree = "<group>"; };
 		D0FF55781CCFC9A900EA71F4 /* TCMastercard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCMastercard.h; sourceTree = "<group>"; };
 		D0FF55791CCFC9A900EA71F4 /* TCMastercard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCMastercard.m; sourceTree = "<group>"; };
+		D0FF55891CCFFE3D00EA71F4 /* clubIconMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clubIconMenu.png; sourceTree = "<group>"; };
+		D0FF558A1CCFFE3D00EA71F4 /* clubIconMenu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clubIconMenu@2x.png"; sourceTree = "<group>"; };
+		D0FF558B1CCFFE3D00EA71F4 /* clubIconMenu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clubIconMenu@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -943,29 +952,21 @@
 			name = Eventos;
 			sourceTree = "<group>";
 		};
-		1761FB441CA39DBD00E44212 /* SWRevealController1 */ = {
+		1761FB441CA39DBD00E44212 /* SWRevealController */ = {
 			isa = PBXGroup;
 			children = (
 				D06DC3911C84A23F0063B836 /* SWRevealViewController.h */,
 				D06DC3921C84A23F0063B836 /* SWRevealViewController.m */,
 				D06DC3941C84A2430063B836 /* SWRevealMenu */,
 			);
-			name = SWRevealController1;
-			sourceTree = "<group>";
-		};
-		1761FB451CA3B57400E44212 /* SWRevealController2 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SWRevealController2;
+			name = SWRevealController;
 			sourceTree = "<group>";
 		};
 		1777237E1C72EF600075DFBE /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				1761FB451CA3B57400E44212 /* SWRevealController2 */,
 				D06DC3951C84BAAD0063B836 /* MKHorizMenu */,
-				1761FB441CA39DBD00E44212 /* SWRevealController1 */,
+				1761FB441CA39DBD00E44212 /* SWRevealController */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -982,6 +983,9 @@
 		177723851C73004E0075DFBE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D0FF55891CCFFE3D00EA71F4 /* clubIconMenu.png */,
+				D0FF558A1CCFFE3D00EA71F4 /* clubIconMenu@2x.png */,
+				D0FF558B1CCFFE3D00EA71F4 /* clubIconMenu@3x.png */,
 				171AFA401CCF89F400705817 /* imagenEvento.png */,
 				171AFA411CCF89F400705817 /* imagenEvento@2x.png */,
 				171AFA421CCF89F400705817 /* imagenEvento@3x.png */,
@@ -1943,6 +1947,7 @@
 				1702BD901CB093E400F26F42 /* Images.xcassets in Resources */,
 				D03F4EFD1CCE762700B5835D /* comoFunciona11@3x.png in Resources */,
 				1702BD911CB093E400F26F42 /* botonViajesOff@3x.png in Resources */,
+				D0FF55911CCFFE3D00EA71F4 /* clubIconMenu@3x.png in Resources */,
 				D03F4F051CCE762700B5835D /* comoFunciona10@3x.png in Resources */,
 				1702BD921CB093E400F26F42 /* botonMasterCard.png in Resources */,
 				1702BD931CB093E400F26F42 /* botonSaboresOn@2x.png in Resources */,
@@ -2044,6 +2049,7 @@
 				D03F4F231CCE762700B5835D /* comoFunciona4@3x.png in Resources */,
 				1702BDD31CB093E400F26F42 /* botonServiciosOn.png in Resources */,
 				D03F4F271CCE762700B5835D /* comoFunciona3@1x.png in Resources */,
+				D0FF558F1CCFFE3D00EA71F4 /* clubIconMenu@2x.png in Resources */,
 				1702BDD41CB093E400F26F42 /* botonInfantilOff@3x.png in Resources */,
 				1702BDD51CB093E400F26F42 /* botonVerEnMapa@2x.png in Resources */,
 				1702BDD61CB093E400F26F42 /* botonMastercardOff@3x.png in Resources */,
@@ -2081,6 +2087,7 @@
 				D03F4F2F1CCE762700B5835D /* comoFunciona2@3x.png in Resources */,
 				1702BDEF1CB093E400F26F42 /* News.png in Resources */,
 				D03F4F1F1CCE762700B5835D /* comoFunciona4.png in Resources */,
+				D0FF558D1CCFFE3D00EA71F4 /* clubIconMenu.png in Resources */,
 				1702BDF01CB093E400F26F42 /* BotonShare@3x.png in Resources */,
 				1702BDF11CB093E400F26F42 /* menu@2x.png in Resources */,
 				171AFA501CCF89F400705817 /* imagenEvento2.png in Resources */,
@@ -2125,6 +2132,7 @@
 				D03F4EB81CCE5E2600B5835D /* check.png in Resources */,
 				D03F4F2A1CCE762700B5835D /* comoFunciona2.png in Resources */,
 				17DAB9A91CCDD1E8000CD406 /* audioplayer_play.png in Resources */,
+				D0FF55901CCFFE3D00EA71F4 /* clubIconMenu@3x.png in Resources */,
 				D03F4F161CCE762700B5835D /* comoFunciona6@2x.png in Resources */,
 				D0DB18F01CB3F5FD00A0BBC5 /* new2.png in Resources */,
 				D03F4F021CCE762700B5835D /* comoFunciona10@2x.png in Resources */,
@@ -2173,6 +2181,8 @@
 				D0FBFA341CBD59F800D5465E /* ic_check_black_24px.png in Resources */,
 				D03F4EC51CCE609500B5835D /* fondoPorque@3x.png in Resources */,
 				D03F4ECF1CCE69A100B5835D /* imagenBienvenido@2x.png in Resources */,
+				D0FF558C1CCFFE3D00EA71F4 /* clubIconMenu.png in Resources */,
+				D0FF558E1CCFFE3D00EA71F4 /* clubIconMenu@2x.png in Resources */,
 				D009C6D91C91BC02001BD7A3 /* PT_Sans-Web-BoldItalic.ttf in Resources */,
 				D03F4F201CCE762700B5835D /* comoFunciona4@2x.png in Resources */,
 				D03F4F041CCE762700B5835D /* comoFunciona10@3x.png in Resources */,

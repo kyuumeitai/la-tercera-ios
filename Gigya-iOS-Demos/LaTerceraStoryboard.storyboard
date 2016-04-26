@@ -507,16 +507,16 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6qO-rI-OhO">
-                                <rect key="frame" x="5" y="22" width="50" height="50"/>
+                                <rect key="frame" x="5" y="24" width="54" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="boton-menu.png"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AL8-S2-B9Z">
-                                <rect key="frame" x="63" y="36" width="25" height="22"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AL8-S2-B9Z">
+                                <rect key="frame" x="60" y="24" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="icon-lt.png"/>
+                                <state key="normal" image="icon-lt.png"/>
                                 <connections>
-                                    <segue destination="0B8-6F-OFF" kind="modal" customClass="SWRevealViewControllerSeguePushController" modalTransitionStyle="flipHorizontal" id="Pkn-KB-4oC"/>
+                                    <segue destination="0B8-6F-OFF" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="wuf-Nj-3R8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1695,7 +1695,7 @@ REGISTRARSE?</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDz-Gx-CWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-196" y="-63"/>
+            <point key="canvasLocation" x="-232" y="31"/>
         </scene>
         <!--Detalle View Controller-->
         <scene sceneID="9QE-3O-vo3">
@@ -2001,16 +2001,16 @@ de tu descuento.</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3SH-Vi-tow">
-                                <rect key="frame" x="7" y="22" width="50" height="50"/>
+                                <rect key="frame" x="5" y="24" width="54" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="boton-menu.png"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T1p-NW-LUZ">
-                                <rect key="frame" x="65" y="27" width="35" height="40"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="T1p-NW-LUZ">
+                                <rect key="frame" x="60" y="25" width="50" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="clublatercera.png"/>
+                                <state key="normal" image="clubIconMenu.png"/>
                                 <connections>
-                                    <segue destination="LKO-m6-Nmk" kind="modal" customClass="SWRevealViewControllerSeguePushController" modalTransitionStyle="flipHorizontal" id="lZF-K7-bcR"/>
+                                    <segue destination="LKO-m6-Nmk" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="Yn4-yz-IfR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2026,7 +2026,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5m-Dt-1F3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-684.5" y="305.5"/>
+            <point key="canvasLocation" x="-1788.5" y="205.5"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="NDh-rI-uO2">
@@ -4215,6 +4215,7 @@ de La Tercera</string>
         <image name="botonVidaSanaOn.png" width="80" height="42"/>
         <image name="botonVolver.png" width="14" height="21"/>
         <image name="check.png" width="27" height="27"/>
+        <image name="clubIconMenu.png" width="31" height="37"/>
         <image name="clublatercera.png" width="50" height="60"/>
         <image name="clublaterceraRojo.png" width="29" height="36"/>
         <image name="fondoPorque.png" width="360" height="627"/>
@@ -4235,8 +4236,8 @@ de La Tercera</string>
     <inferredMetricsTieBreakers>
         <segue reference="r0F-9a-X22"/>
         <segue reference="tqi-Nf-HuD"/>
-        <segue reference="lZF-K7-bcR"/>
-        <segue reference="Pkn-KB-4oC"/>
+        <segue reference="Yn4-yz-IfR"/>
+        <segue reference="wuf-Nj-3R8"/>
         <segue reference="3BC-u9-lZ8"/>
         <segue reference="vnn-UP-oet"/>
     </inferredMetricsTieBreakers>

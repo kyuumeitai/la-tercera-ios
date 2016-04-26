@@ -416,6 +416,10 @@ extern NSString* const SWSegueRightIdentifier; // this is @"sw_right"
 @interface SWRevealViewControllerSeguePushController : UIStoryboardSegue
 @end
 
+// Use this to push a view controller
+@interface SWRevealViewControllerSegueFlipModalController : UIStoryboardSegue
+@end
+
 
 //#pragma mark - SWRevealViewControllerSegue (DEPRECATED)
 //
