@@ -24,14 +24,8 @@
 #import "TiempoLibreTableViewController.h"
 #import "VidaSanaContainerVC.h"
 #import "VidaSanaTableViewController.h"
-#import "MastercardContainerVC.h"
-#import "MastercardTableViewController.h"
 #import "ServiciosContainerVC.h"
 #import "ServiciosTableViewController.h"
-#import "TiendaClubContainerVC.h"
-#import "TiendaClubTableViewController.h"
-#import "ViajesClubContainerVC.h"
-#import "ViajesClubTableViewController.h"
 
 
 @implementation PapelDigital
@@ -75,23 +69,14 @@
     CVNegocios *newsNegocios = [self.storyboard instantiateViewControllerWithIdentifier:@"newsSectionNegocios"];
     newsNegocios.title = @"Negocios";
     
-    MastercardContainerVC *clubMastercard = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryMastercard"];
-    clubMastercard.title = @"Tendencias";
-    
     ServiciosContainerVC *clubServicios = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryServicios"];
     clubServicios.title = @"Más Decoración";
-    
-    TiendaClubContainerVC *clubTienda = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryTiendaClub"];
-    clubTienda.title = @"Mujer";
-    
-    ViajesClubContainerVC *clubViajes = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryViajesClub"];
-    clubViajes.title = @"Fin de Semana";
     
     // ContainerView
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsLaTercera,newsEdicionEspecial,clubTiempoLibre,newsNegocios,clubMastercard,clubServicios,clubTienda,clubViajes]    topBarHeight:headerSpace                                                                                parentViewController:self selectedIndex:0];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsLaTercera,newsEdicionEspecial,clubTiempoLibre,newsNegocios,clubServicios]    topBarHeight:headerSpace                                                                                parentViewController:self selectedIndex:0];
     
     containerVC.delegate = self;
     

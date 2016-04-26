@@ -29,6 +29,14 @@
     SingletonManager *singleton = [SingletonManager singletonManager];
     //ConnectionManager * connection = [[ConnectionManager alloc] init];
     
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if (revealViewController) {
+        [_menuButton
+         addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+        // [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    }
+    /*
+    
     if(singleton.leftSlideMenu == nil){
        // NSLog(@"ENtre a crear leftSlide ");
 
@@ -38,6 +46,7 @@
         [_menuButton
          addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     }
+     */
     //NSLog(@"Entoncs el singleton es: %@",singleton.leftSlideMenu);
  
     // Do any additional setup after loading the view.

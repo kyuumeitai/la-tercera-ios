@@ -24,7 +24,7 @@
 {
     [super viewDidLoad];
 
-    menuItems = @[@"categoria1", @"categoria2", @"categoria3", @"categoria4", @"categoria5",@"categoria6", @"categoria7", @"categoria8",@"categoria9", @"categoria10", @"categoria11"];
+    menuItems = @[@"categoria1", @"categoria2", @"categoria3", @"categoria4", @"categoria5",@"categoria6", @"categoria7", @"categoria8",@"categoria9", @"categoria10", @"categoria11", @"categoria12", @"categoria13"];
 }
 - (IBAction)logoConfortPressed:(id)sender {
     SWRevealViewController *revealViewController = self.revealViewController;

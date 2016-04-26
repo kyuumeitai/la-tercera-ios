@@ -18,7 +18,7 @@
 
 
 @interface ClubViewController () 
-@property (weak, nonatomic) IBOutlet UIButton *menuButton;
+@property (weak, nonatomic) IBOutlet UIButton *menuButtonClub;
 @end
 
 @implementation ClubViewController
@@ -34,10 +34,23 @@
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
     
+    SWRevealViewController *revealViewController2 = self.revealViewController;
+    if (revealViewController2) {
+        NSLog(@"SI existe el reveeal");
+        [_menuButtonClub
+         addTarget:revealViewController2 action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+        // [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    }else{
+        SWRevealViewController *revealViewController3 = [[SWRevealViewController alloc] init];
+        [_menuButtonClub
+         addTarget:revealViewController3 action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+        NSLog(@"No existe el reveeal");
+        
+    }
     
     //SWRevealViewController *revealViewController = self.revealViewController;
     //singleton.leftSlideMenu = revealViewController;
-  [_menuButton addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+  //[_menuButton addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
     NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
     // Do any additional setup after loading the view.

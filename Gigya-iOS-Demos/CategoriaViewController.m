@@ -19,14 +19,8 @@
 #import "TiempoLibreTableViewController.h"
 #import "VidaSanaContainerVC.h"
 #import "VidaSanaTableViewController.h"
-#import "MastercardContainerVC.h"
-#import "MastercardTableViewController.h"
 #import "ServiciosContainerVC.h"
 #import "ServiciosTableViewController.h"
-#import "TiendaClubContainerVC.h"
-#import "TiendaClubTableViewController.h"
-#import "ViajesClubContainerVC.h"
-#import "ViajesClubTableViewController.h"
 
 
 @interface CategoriaViewController ()<YSLContainerViewControllerDelegate>
@@ -65,23 +59,15 @@
     VidaSanaContainerVC *clubVidaSana = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryVidaSana"];
     clubVidaSana.title = @"Vida Sana";
     
-    MastercardContainerVC *clubMastercard = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryMastercard"];
-    clubMastercard.title = @"Mastercard";
-    
     ServiciosContainerVC *clubServicios = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryServicios"];
     clubServicios.title = @"Servicios";
     
-    TiendaClubContainerVC *clubTienda = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryTiendaClub"];
-    clubTienda.title = @"Tienda";
-    
-    ViajesClubContainerVC *clubViajes = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryViajesClub"];
-    clubViajes.title = @"Viajes";
-    
+
     // ContainerView
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[clubSabores,clubInfantil,clubTiempoLibre,clubVidaSana,clubMastercard,clubServicios,clubTienda,clubViajes]    topBarHeight:headerSpace                                                                                parentViewController:self selectedIndex:indexCat];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[clubSabores,clubInfantil,clubTiempoLibre,clubVidaSana,clubServicios]    topBarHeight:headerSpace                                                                                parentViewController:self selectedIndex:indexCat];
     
     containerVC.delegate = self;
    
@@ -137,13 +123,6 @@
         
     }
     
-    if ([self.categoryName  isEqual: @"mastercard"]) {
-        
-        NSLog(@"Cargando Categoría: %@",_categoryName);
-        [self setupClubCategory:4];
-        
-    }
-    
     if ([self.categoryName  isEqual: @"servicios"]) {
         
         NSLog(@"Cargando Categoría: %@",_categoryName);
@@ -151,19 +130,6 @@
         
     }
     
-    if ([self.categoryName  isEqual: @"tienda"]) {
-        
-        NSLog(@"Cargando Categoría: %@",_categoryName);
-        [self setupClubCategory:6];
-        
-    }
-    
-    if ([self.categoryName  isEqual: @"viajes"]) {
-        
-        NSLog(@"Cargando Categoría: %@",_categoryName);
-        [self setupClubCategory:7];
-        
-    }
 }
 
 #pragma mark - Load Categories
