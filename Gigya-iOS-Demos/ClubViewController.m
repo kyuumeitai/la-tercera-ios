@@ -29,7 +29,7 @@
     
     [SVProgressHUD show];
     //[self loadPaper];
-    [SVProgressHUD setStatus:@"Obteniendo categorías disponibles"];
+    [SVProgressHUD setStatus:@"Obteniendo beneficios disponibles"];
     // Do any additional setup after loading the view.
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
@@ -52,9 +52,8 @@
 - (void) viewWillAppear:(BOOL)animated{
     
     [self loadCategories];
-
+    
 }
-
 
 -(void)loadCategories{
     

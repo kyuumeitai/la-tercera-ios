@@ -6,18 +6,18 @@
 //  Copyright © 2016 Gigya. All rights reserved.
 //
 
-#import "LaTerceraTV.h"
+#import "TiendaClub.h"
 #import "SingletonManager.h"
 #import "SWRevealViewController.h"
 #import "SVProgressHUD.h"
 
-@implementation LaTerceraTV
+@implementation TiendaClub
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [SVProgressHUD show];
     //[self loadPaper];
-    [SVProgressHUD setStatus:@"Cargando datos"];
+    [SVProgressHUD setStatus:@"Cargando Tienda Club La Tercera"];
     // Do any additional setup after loading the view.
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
@@ -43,7 +43,7 @@
    // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://especiales.latercera.com/pruebas/newsite/index4.html"]];
 
     
-    NSString *urlString = @"http://especiales.latercera.com/pruebas/newsite/index4.html";
+    NSString *urlString = @"http://tienda.clublatercera.com/";
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     _webViewLTtv.delegate = self;
