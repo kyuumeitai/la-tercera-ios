@@ -27,9 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [SVProgressHUD show];
-    //[self loadPaper];
-    [SVProgressHUD setStatus:@"Obteniendo beneficios disponibles"];
+
     // Do any additional setup after loading the view.
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
@@ -71,12 +69,14 @@
 -(void)loadCategories{
     
     NSLog(@"Load categories");
+    // IMPORTANT - Only update the UI on the main thread
+    [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeGradient];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
     NSLog(@"Verificando conexión: %d",estaConectado);
     [connectionManager getMainCategories:^(BOOL success, NSArray *arrayJson, NSError *error) {
-        // IMPORTANT - Only update the UI on the main thread
+     
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
@@ -190,7 +190,6 @@
                 if([object objectForKey:@"starred_image"] != [NSNull null]){
                 NSString *imagenDestacadaEncoded = [object objectForKey:@"starred_image"] ;
                     //Creating the data from your base64String
-                   // NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imagenDestacadaEncoded]];
                     
                     //Now data is decoded. You can convert them to UIImage
                     imagenDestacada = [self decodeBase64ToImage:imagenDestacadaEncoded];
@@ -226,26 +225,27 @@
                 beneficio.summary= summaryBen;
                 beneficio.desclabel = benefitLabelBen;
                 
-                UIImage *imagenBeneficio = nil;
+               
                 if([benefit objectForKey:@"image"] != [NSNull null]){
-                    //NSLog(@"Hay imagen");
+                    UIImage *imagenBeneficio = nil;
                     NSString *imagenBen = [benefit objectForKey:@"image"] ;
+                    //NSArray *listItems = [imagenBen componentsSeparatedByString:@","];
+                   // if ([listItems count]>0){
+                    //NSString *imagenEncoded = [NSString stringWithFormat:@"%@",[listItems objectAtIndex:1] ];
+                    //NSLog(@"Hay imagen: %@",imagenEncoded);
+
                     //Creating the data from your base64String
                    // NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imagenBen]];
                     
                     //Now data is decoded. You can convert them to UIImage
                     imagenBeneficio = [self decodeBase64ToImage:imagenBen];
                     beneficio.imagenNormal = imagenBeneficio;
+                    //}
                 }
-                
-               
-                
                 
                 [categoryBenefitsArray addObject:beneficio];
             }
-                
 
-                
                 categoria.arrayBenefits = categoryBenefitsArray;
                 [categoryItemsArray addObject:categoria];
                 [SVProgressHUD dismiss];
@@ -506,7 +506,7 @@
 
 
 - (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData {
-    NSData *data = [[NSData alloc]initWithBase64EncodedString:strEncodeData options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    NSData *data = [[NSData alloc]initWithBase64EncodedString:strEncodeData options:nil];
     return [UIImage imageWithData:data];
 }
 

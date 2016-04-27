@@ -1894,14 +1894,27 @@ NSString * const SWSegueRightIdentifier = @"sw_right";
 {
     SWRevealViewController *rvc = [self.sourceViewController revealViewController];
     UIViewController *dvc = self.destinationViewController;
-    
+
+    /*
     CATransition* transition = [CATransition animation];
-    transition.duration = 1;
+    transition.duration = 0.8;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     transition.type = kCATransitionFromRight; //kCATransitionMoveIn; //, kCATransitionPush, kCATransitionReveal, kCATransitionFade
     //transition.subtype = kCATransitionFromTop; //kCATransitionFromLeft, kCATransitionFromRight, kCATransitionFromTop, kCATransitionFromBottom
     [rvc.navigationController.view.layer addAnimation:transition forKey:nil];
     [rvc pushFrontViewController:dvc animated:YES];
+   */
+    
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:0.80];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight
+                           forView:rvc.view cache:NO];
+    
+    [rvc pushFrontViewController:dvc animated:YES];
+    [UIView commitAnimations];
+    
 }
 
 @end

@@ -1939,10 +1939,10 @@ QUÉ PROBAR
             </objects>
             <point key="canvasLocation" x="585.5" y="1338.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Confirmation View Controller-->
         <scene sceneID="S5G-7q-afh">
             <objects>
-                <viewController storyboardIdentifier="codigoValidoScreen" id="EWf-wl-4YP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="confirmationScreen" id="EWf-wl-4YP" customClass="ConfirmationViewController" sceneMemberID="viewController">
                     <view key="view" alpha="0.94999999999999996" contentMode="scaleToFill" id="tvu-Hn-61s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1955,6 +1955,9 @@ QUÉ PROBAR
                                 <state key="normal" title="Volver">
                                     <color key="titleColor" red="0.2470588235" green="0.69411764710000001" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="EWf-wl-4YP" eventType="touchUpInside" id="kpg-Hq-2RT"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_check_black_24px.png" id="4vl-ht-Ykd">
                                 <rect key="frame" x="161" y="193" width="53" height="46"/>
@@ -2838,6 +2841,9 @@ de tu descuento.</string>
                                 <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Confirmar"/>
+                                <connections>
+                                    <action selector="confirmUseBenefitClicked:" destination="EBh-QS-O0y" eventType="touchUpInside" id="uo0-cF-XgF"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="AQf-EX-a0t">
                                 <rect key="frame" x="59" y="242" width="257" height="30"/>

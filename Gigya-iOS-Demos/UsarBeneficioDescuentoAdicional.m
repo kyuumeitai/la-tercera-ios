@@ -7,6 +7,7 @@
 //
 
 #import "UsarBeneficioDescuentoAdicional.h"
+#import "ConfirmationViewController.h"
 
 @interface UsarBeneficioDescuentoAdicional ()
 
@@ -17,6 +18,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
+}
+
+- (IBAction)confirmUseBenefitClicked:(id)sender {
+    
+    NSLog(@"Confirmar beneficio click DETECTED");
+    
+    ConfirmationViewController *confirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"confirmationScreen"];
+    //confirmationViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    confirmationViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:confirmationViewController animated:YES completion:nil];
+    
+    
 }
 
 @end
