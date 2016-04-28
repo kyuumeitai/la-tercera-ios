@@ -24,9 +24,16 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)backButtonClicked:(id)sender {
-    NSLog(@"OK closing time");
-    [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"OK closing time BABY");
+    
+    [[[self presentingViewController] presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+/*
+    [self dismissViewControllerAnimated:YES completion:^{
 
+    [[self parentViewController] dismissViewControllerAnimated:YES completion:nil];
+
+    }];
+*/
 }
 
 /*

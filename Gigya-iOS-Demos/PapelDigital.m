@@ -13,7 +13,7 @@
 
 #import "CVLaTercera.h"
 #import "CVEdicionEspecial.h"
-
+#import "CVElDeportivo.h"
 #import "CVNegocios.h"
 
 #import "InfantilContainerVC.h"
@@ -63,20 +63,19 @@
     CVEdicionEspecial *newsEdicionEspecial = [self.storyboard instantiateViewControllerWithIdentifier:@"newsSectionEdicionEspecial"];
     newsEdicionEspecial.title = @"Ed.Especial";
     
-    TiempoLibreContainerVC *clubTiempoLibre = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryTiempoLibre"];
-    clubTiempoLibre.title = @"El Deportivo";
+    CVElDeportivo *newsElDeportivo = [self.storyboard instantiateViewControllerWithIdentifier:@"newsSectionElDeportivo"];
+    newsElDeportivo.title = @"El Deportivo";
+    
     
     CVNegocios *newsNegocios = [self.storyboard instantiateViewControllerWithIdentifier:@"newsSectionNegocios"];
     newsNegocios.title = @"Negocios";
     
-    ServiciosContainerVC *clubServicios = [self.storyboard instantiateViewControllerWithIdentifier:@"clubCategoryServicios"];
-    clubServicios.title = @"Más Decoración";
     
     // ContainerView
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsLaTercera,newsEdicionEspecial,clubTiempoLibre,newsNegocios,clubServicios]    topBarHeight:headerSpace                                                                                parentViewController:self selectedIndex:0];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsLaTercera,newsElDeportivo,newsEdicionEspecial,newsNegocios]    topBarHeight:headerSpace                                                                                parentViewController:self selectedIndex:0];
     
     containerVC.delegate = self;
     
