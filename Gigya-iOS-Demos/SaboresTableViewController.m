@@ -9,7 +9,7 @@
 #import "SaboresTableViewController.h"
 #import  "CategoriasTableViewCell.h"
 #import  "DestacadoTableViewCell.h"
-#import  "DetalleViewController.h"
+#import  "DetalleBeneficioViewController.h"
 #import "Category.h"
 #import "Benefit.h"
 #import "SingletonManager.h"
@@ -116,7 +116,7 @@ NSMutableArray *listaBeneficios;
         }
         
         Benefit *beneficio2 = [listaBeneficios objectAtIndex:indexPath.row];
-        [beneficio2 logDescription];
+        //[beneficio2 logDescription];
         
         cell.labelTitulo.text = beneficio2.title;
         cell.labelDescuento.text = beneficio2.desclabel;
@@ -142,9 +142,16 @@ NSMutableArray *listaBeneficios;
     NSLog(@"DETECTED");
     
     
-    DetalleViewController *detalleViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleViewController"];
+    DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
+    Benefit *beneficio = [listaBeneficios objectAtIndex:indexPath.row];
+    detalleBeneficio.benefitImage = beneficio.imagenNormal;
+    detalleBeneficio.benefitTitle= beneficio.title;
+    detalleBeneficio.benefitAddress = @"A 200 metros de su ubicación";
+    detalleBeneficio.benefitDiscount= beneficio.desclabel;
+    detalleBeneficio.benefitDescription = beneficio.summary;
     
-    [self.navigationController pushViewController: detalleViewController animated:YES];
+    
+    [self.navigationController pushViewController: detalleBeneficio animated:YES];
     
 }
 

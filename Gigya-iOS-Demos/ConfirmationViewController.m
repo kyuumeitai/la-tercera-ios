@@ -25,7 +25,7 @@
 }
 - (IBAction)backButtonClicked:(id)sender {
     NSLog(@"OK closing time");
-    [self dismissViewControllerAnimated:self completion:nil];
+    [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
 
 }
 

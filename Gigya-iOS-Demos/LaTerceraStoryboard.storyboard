@@ -1706,9 +1706,9 @@ REGISTRARSE?</string>
         <!--Detalle View Controller-->
         <scene sceneID="9QE-3O-vo3">
             <objects>
-                <viewController storyboardIdentifier="DetalleViewController" title="Detalle View Controller" id="bgR-ek-KMy" customClass="DetalleViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detalleBeneficioViewController" title="Detalle View Controller" id="bgR-ek-KMy" customClass="DetalleBeneficioViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1rF-AF-Iz2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="670"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" id="ZJy-Fr-Q1N">
@@ -1745,10 +1745,10 @@ REGISTRARSE?</string>
                                 <state key="normal" image="BotonShare.png"/>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mC6-EY-nrc">
-                                <rect key="frame" x="0.0" y="76" width="375" height="775"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="857"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenPlaceholderSabores.png" id="SSc-h1-ra5">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento3.png" id="SSc-h1-ra5">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -1756,22 +1756,15 @@ REGISTRARSE?</string>
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campeche" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RYp-hB-F95">
-                                        <rect key="frame" x="22" y="12" width="155" height="38"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campeche Campeche Campeche " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RYp-hB-F95">
+                                        <rect key="frame" x="22" y="8" width="334" height="73"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="26"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sibaritas Providencia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oqD-em-7sD">
-                                        <rect key="frame" x="22" y="40" width="155" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="16"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="suscriptores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ARD-OO-VvN">
-                                        <rect key="frame" x="93" y="134" width="155" height="38"/>
+                                        <rect key="frame" x="103" y="134" width="155" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1859,11 +1852,11 @@ REGISTRARSE?</string>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" id="YxZ-O9-WdS" customClass="CustomBorderView">
-                                        <rect key="frame" x="19" y="428" width="338" height="640"/>
+                                        <rect key="frame" x="19" y="428" width="338" height="434"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" id="4bl-aW-pN3">
-                                                <rect key="frame" x="12" y="37" width="307" height="595"/>
+                                                <rect key="frame" x="12" y="37" width="307" height="377"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <attributedString key="attributedText">
@@ -1919,9 +1912,16 @@ QUÉ PROBAR
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XeN-8Q-eHk">
-                                        <rect key="frame" x="19" y="129" width="71" height="38"/>
+                                        <rect key="frame" x="19" y="125" width="86" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="32"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Providencia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oqD-em-7sD">
+                                        <rect key="frame" x="22" y="80" width="252" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1936,11 +1936,21 @@ QUÉ PROBAR
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Kvv-j0-KLv"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="670"/>
+                    <connections>
+                        <outlet property="benefitAdressLabel" destination="IPI-Mo-Yaz" id="h2y-IF-3JL"/>
+                        <outlet property="benefitConditionsLabel" destination="peQ-cN-ftW" id="jkf-tQ-mLM"/>
+                        <outlet property="benefitDescriptionTextView" destination="4bl-aW-pN3" id="ZS3-Zp-g7G"/>
+                        <outlet property="benefitDiscountLabel" destination="XeN-8Q-eHk" id="lDD-LI-f8x"/>
+                        <outlet property="benefitImageView" destination="SSc-h1-ra5" id="uFA-bo-38g"/>
+                        <outlet property="benefitSubtitleLabel" destination="oqD-em-7sD" id="wGS-Wd-Uha"/>
+                        <outlet property="benefitTitleLabel" destination="RYp-hB-F95" id="Seo-yi-5Ll"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f2V-9h-lX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="585.5" y="1338.5"/>
+            <point key="canvasLocation" x="585.5" y="1338"/>
         </scene>
         <!--Confirmation View Controller-->
         <scene sceneID="S5G-7q-afh">
@@ -2590,10 +2600,10 @@ de tu descuento.</string>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Kcx-uX-lg0">
-                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kcx-uX-lg0" id="mjN-zF-tSW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
@@ -4307,7 +4317,7 @@ de La Tercera</string>
         <image name="imagenBienvenido.png" width="360" height="414"/>
         <image name="imagenEvento.png" width="76" height="74"/>
         <image name="imagenEvento2.png" width="76" height="74"/>
-        <image name="imagenPlaceholderSabores.png" width="359" height="186"/>
+        <image name="imagenEvento3.png" width="76" height="74"/>
         <image name="new2.png" width="161" height="103"/>
         <image name="news1.png" width="334" height="147"/>
         <image name="summer-sunny-lifestyle-fashion-1.png" width="329" height="130"/>

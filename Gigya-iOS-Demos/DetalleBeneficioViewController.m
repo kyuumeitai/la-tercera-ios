@@ -6,16 +6,23 @@
 //  Copyright © 2016 Gigya. All rights reserved.
 //
 
-#import "DetalleViewController.h"
+#import "DetalleBeneficioViewController.h"
 #import "UsarBeneficioEstandar.h"
 
-@interface DetalleViewController ()
+@interface DetalleBeneficioViewController ()
 
 @end
-@implementation DetalleViewController
+@implementation DetalleBeneficioViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.benefitImageView.image = _benefitImage;
+    self.benefitDiscountLabel.text = _benefitDiscount;
+    self.benefitTitleLabel.text = _benefitTitle;
+    self.benefitAdressLabel.text = _benefitAddress;
+    self.benefitDescriptionTextView.text = _benefitDescription;
+    
     // Do any additional setup after loading the view.
 }
 

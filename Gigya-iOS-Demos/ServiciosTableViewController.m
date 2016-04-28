@@ -9,7 +9,7 @@
 #import "ServiciosTableViewController.h"
 #import  "CategoriasTableViewCell.h"
 #import  "DestacadoTableViewCell.h"
-#import  "DetalleViewController.h"
+#import  "DetalleBeneficioViewController.h"
 #import "Category.h"
 #import "Benefit.h"
 #import "SingletonManager.h"
@@ -136,12 +136,24 @@ NSMutableArray *listaBeneficios6;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    //NSLog(@"DETECTED");
+    NSLog(@"DETECTED");
     
     
-    DetalleViewController *detalleViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleViewController"];
     
-    [self.navigationController pushViewController: detalleViewController animated:YES];
+    DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
+    Benefit *beneficio = [listaBeneficios6 objectAtIndex:indexPath.row];
+
+    detalleBeneficio.benefitImage = beneficio.imagenNormal;
+    detalleBeneficio.benefitTitle= beneficio.title;
+    detalleBeneficio.benefitAddress = @"A 200 metros de su ubicación";
+    detalleBeneficio.benefitDiscount= beneficio.desclabel;
+    detalleBeneficio.benefitDescription = beneficio.summary;
+    
+    
+    [self.navigationController pushViewController: detalleBeneficio animated:YES];
+    
+    
+  
     
 }
 @end
