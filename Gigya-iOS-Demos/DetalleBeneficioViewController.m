@@ -8,6 +8,7 @@
 
 #import "DetalleBeneficioViewController.h"
 #import "UsarBeneficioEstandar.h"
+#import "Tools.h"
 
 @interface DetalleBeneficioViewController ()
 
@@ -41,6 +42,16 @@
     usarBeneficioEstandarViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:usarBeneficioEstandarViewController animated:YES completion:nil];
 
+}
+
+
+- (IBAction)seeInTheMapClicked:(id)sender {
+    
+
+    CLLocationCoordinate2D coord2DSource = CLLocationCoordinate2DMake(-33.467992, -70.626039);
+      CLLocationCoordinate2D coord2DDestination = CLLocationCoordinate2DMake(-33.422463, -70.609491);
+
+    [Tools openMapsAppWithSourceLocation:coord2DSource andDestinationLocation:coord2DDestination];
 }
 
 /*
