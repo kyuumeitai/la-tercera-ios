@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
+   [self loadCategories];
     // Do any additional setup after loading the view.
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
@@ -62,7 +62,7 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     
-    [self loadCategories];
+ 
     
 }
 
@@ -166,7 +166,6 @@
             }
         });
     }];
-    
 }
 
 
@@ -177,7 +176,6 @@
 
     NSLog(@" ******* LISTADO DE CATEGORÍAS PRINCIPALES ****** ");
     for (id object in arrayJson){
-
         
         if ([object objectForKey:@"category_parent"] == [NSNull null]) {
       
@@ -229,7 +227,9 @@
                 if([benefit objectForKey:@"image"] != [NSNull null]){
                     UIImage *imagenBeneficio = nil;
                     NSString *imagenBen = [benefit objectForKey:@"image"] ;
-                    //NSArray *listItems = [imagenBen componentsSeparatedByString:@","];
+                    NSArray * arr = [imagenBen componentsSeparatedByString:@","];
+                    //NSLog(@"Array values are : %@",[arr lastObject]);
+                                       //NSArray *listItems = [imagenBen componentsSeparatedByString:@","];
                    // if ([listItems count]>0){
                     //NSString *imagenEncoded = [NSString stringWithFormat:@"%@",[listItems objectAtIndex:1] ];
                     //NSLog(@"Hay imagen: %@",imagenEncoded);
@@ -238,7 +238,7 @@
                    // NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imagenBen]];
                     
                     //Now data is decoded. You can convert them to UIImage
-                    imagenBeneficio = [self decodeBase64ToImage:imagenBen];
+                    imagenBeneficio = [self decodeBase64ToImage:[arr lastObject]];
                     beneficio.imagenNormal = imagenBeneficio;
                     //}
                 }
@@ -506,7 +506,7 @@
 
 
 - (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData {
-    NSData *data = [[NSData alloc]initWithBase64EncodedString:strEncodeData options:nil];
+    NSData *data = [[NSData alloc]initWithBase64EncodedString:strEncodeData options:NSDataBase64DecodingIgnoreUnknownCharacters];
     return [UIImage imageWithData:data];
 }
 

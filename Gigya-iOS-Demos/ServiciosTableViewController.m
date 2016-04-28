@@ -40,7 +40,8 @@ NSMutableArray *listaBeneficios6;
     listaBeneficios6 = [[NSMutableArray alloc] init];
     listaBeneficios6 = categoria.arrayBenefits;
     //NSLog(@"La lista de beneficios es: %@",listaBeneficios6.description);
- 
+    CGSize size = CGSizeMake(0,listaBeneficios6.count * 100);
+    [self.tableView setContentSize:size];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -117,10 +118,7 @@ NSMutableArray *listaBeneficios6;
         cell.labelDescuento.text = beneficio2.desclabel;
         cell.labelDistancia.text = @"A 200 metros de su ubicación";
         NSLog(@" Imagen beneficionormal: %@",beneficio2.imagenNormal);
-        cell.imageCategoria.image = [[listaBeneficios6 objectAtIndex:0] imagenNormal];  //beneficio2.imagenNormal;
-        
-        
-        
+        cell.imageCategoria.image = beneficio2.imagenNormal;
         
         return cell;
     }
@@ -130,15 +128,15 @@ NSMutableArray *listaBeneficios6;
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return 282.0;
+        return 278.0;
     }
     else {
-        return 80.0;
+        return 100.0;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    NSLog(@"DETECTED");
+    //NSLog(@"DETECTED");
     
     
     DetalleViewController *detalleViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleViewController"];

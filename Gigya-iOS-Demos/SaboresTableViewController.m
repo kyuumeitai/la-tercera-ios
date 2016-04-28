@@ -43,7 +43,8 @@ NSMutableArray *listaBeneficios;
    // NSLog(@"La lista de beneficios es: %@",listaBeneficios.description);
 
 
-
+    CGSize size = CGSizeMake(0,listaBeneficios.count * 100);
+    [self.tableView setContentSize:size];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -120,12 +121,8 @@ NSMutableArray *listaBeneficios;
         cell.labelTitulo.text = beneficio2.title;
         cell.labelDescuento.text = beneficio2.desclabel;
         cell.labelDistancia.text = @"A 200 metros de su ubicación";
-        NSLog(@" Imagen beneficionormal: %@",beneficio2.imagenNormal);
-        cell.imageCategoria.image = [[listaBeneficios objectAtIndex:0] imagenNormal];  //beneficio2.imagenNormal;
-        
- 
-        
-        
+        //NSLog(@" Imagen beneficionormal: %@",beneficio2.imagenNormal);
+        cell.imageCategoria.image = beneficio2.imagenNormal;
         return cell;
     }
     
@@ -134,10 +131,10 @@ NSMutableArray *listaBeneficios;
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-          return 282.0;
+        return 278.0;
     }
     else {
-        return 80.0;
+        return 100.0;
     }
 }
 

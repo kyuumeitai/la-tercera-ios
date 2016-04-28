@@ -42,9 +42,10 @@ NSMutableArray *listaBeneficios2;
     
     listaBeneficios2 = [[NSMutableArray alloc] init];
     listaBeneficios2 = categoria.arrayBenefits;
-    NSLog(@"La lista de beneficios Infantil es: %@",listaBeneficios2.description);
+   // NSLog(@"La lista de beneficios Infantil es: %@",listaBeneficios2.description);
      
-    
+    CGSize size = CGSizeMake(0,listaBeneficios2.count * 100);
+    [self.tableView setContentSize:size];
    
     
     
@@ -124,7 +125,7 @@ NSMutableArray *listaBeneficios2;
         cell.labelDescuento.text = beneficio2.desclabel;
         cell.labelDistancia.text = @"A 200 metros de su ubicación";
         NSLog(@" Imagen beneficionormal: %@",beneficio2.imagenNormal);
-        cell.imageCategoria.image = [[listaBeneficios2 objectAtIndex:0] imagenNormal];  //beneficio2.imagenNormal;
+        cell.imageCategoria.image = beneficio2.imagenNormal;
         
         
         
@@ -137,10 +138,10 @@ NSMutableArray *listaBeneficios2;
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-          return 282.0;
+        return 278.0;
     }
     else {
-        return 80.0;
+        return 100.0;
     }
 }
 
