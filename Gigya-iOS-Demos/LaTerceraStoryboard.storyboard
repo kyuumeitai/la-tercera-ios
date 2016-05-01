@@ -537,7 +537,7 @@ REGISTRARSE?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSR-ne-YT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="396.5" y="361.5"/>
+            <point key="canvasLocation" x="585.5" y="133.5"/>
         </scene>
         <!--Infantil Table View-->
         <scene sceneID="r9W-hT-15V">
@@ -690,14 +690,14 @@ REGISTRARSE?</string>
                         <inset key="contentInset" minX="0.0" minY="13" maxX="0.0" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria1" rowHeight="37" id="e9E-H0-xK2">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria1" rowHeight="37" id="e9E-H0-xK2">
                                 <rect key="frame" x="0.0" y="65" width="259" height="37"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e9E-H0-xK2" id="kQj-1P-Jq5">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="e9E-H0-xK2" id="kQj-1P-Jq5">
                                     <rect key="frame" x="0.0" y="0.0" width="259" height="37"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bcb-TY-tq5">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="La Tercera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bcb-TY-tq5">
                                             <rect key="frame" x="20" y="11" width="135" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="16"/>
@@ -709,9 +709,6 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.25677083333333328" green="0.25677083333333328" blue="0.25677083333333328" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <segue destination="0B8-6F-OFF" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="4ko-0B-YqA"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria2" rowHeight="37" id="dPu-rG-jf3">
                                 <rect key="frame" x="0.0" y="102" width="259" height="37"/>
@@ -720,7 +717,7 @@ REGISTRARSE?</string>
                                     <rect key="frame" x="0.0" y="0.0" width="259" height="37"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="La Tercera TV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oe2-9i-DCP">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oe2-9i-DCP">
                                             <rect key="frame" x="58" y="9" width="135" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
@@ -733,7 +730,7 @@ REGISTRARSE?</string>
                                 <color key="tintColor" red="0.25677083333333328" green="0.25677083333333328" blue="0.25677083333333328" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <segue destination="Y38-2H-lv4" kind="custom" identifier="laTerceraTV" customClass="SWRevealViewControllerSeguePushController" id="mkp-of-hyS"/>
+                                    <segue destination="0B8-6F-OFF" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="wa8-wA-Ypp"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria3" rowHeight="37" id="Nnu-vg-uvT">
@@ -782,7 +779,7 @@ REGISTRARSE?</string>
                                     <segue destination="M1U-F0-Kv9" kind="custom" identifier="lectios" customClass="SWRevealViewControllerSeguePushController" id="XWI-Uw-33z"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria5" rowHeight="37" id="sMg-PZ-cms">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria5" rowHeight="37" id="sMg-PZ-cms">
                                 <rect key="frame" x="0.0" y="213" width="259" height="37"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMg-PZ-cms" id="9wN-V6-fJM">
@@ -801,9 +798,6 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.25677083333333328" green="0.25677083333333328" blue="0.25677083333333328" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <segue destination="LGr-mb-9zJ" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="42Y-9t-NCa"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria6" rowHeight="37" id="Zim-0p-Xmu">
                                 <rect key="frame" x="0.0" y="250" width="259" height="37"/>
@@ -824,7 +818,7 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
-                                    <segue destination="Uc6-It-8ad" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="JPC-Fo-oRd"/>
+                                    <segue destination="LKO-m6-Nmk" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="3eI-5G-D6D"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria7" rowHeight="37" id="dgc-Iq-tEl">
@@ -965,7 +959,7 @@ REGISTRARSE?</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a32-VP-ogJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="215" y="-457"/>
+            <point key="canvasLocation" x="198.5" y="-495"/>
         </scene>
         <!--News Category Inicio View Controller-->
         <scene sceneID="whl-V5-alw">
@@ -1701,7 +1695,7 @@ REGISTRARSE?</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDz-Gx-CWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-232" y="31"/>
+            <point key="canvasLocation" x="-230" y="278"/>
         </scene>
         <!--Detalle View Controller-->
         <scene sceneID="9QE-3O-vo3">
@@ -2048,7 +2042,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5m-Dt-1F3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1788.5" y="205.5"/>
+            <point key="canvasLocation" x="-945.5" y="228.5"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="NDh-rI-uO2">
@@ -4376,10 +4370,9 @@ de La Tercera</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="r0F-9a-X22"/>
+        <segue reference="3eI-5G-D6D"/>
         <segue reference="tqi-Nf-HuD"/>
-        <segue reference="Yn4-yz-IfR"/>
-        <segue reference="wuf-Nj-3R8"/>
-        <segue reference="3BC-u9-lZ8"/>
+        <segue reference="wa8-wA-Ypp"/>
         <segue reference="vnn-UP-oet"/>
     </inferredMetricsTieBreakers>
 </document>
