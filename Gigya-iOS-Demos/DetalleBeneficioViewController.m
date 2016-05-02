@@ -23,7 +23,7 @@
     self.benefitDiscountLabel.text = _benefitDiscount;
     self.benefitTitleLabel.text = _benefitTitle;
     self.benefitAdressLabel.text = _benefitAddress;
-    self.benefitDescriptionTextView.text = _benefitDescription;
+   // self.benefitDescriptionTextView.text = _benefitDescription;
     [self loadBenefitForBenefitId:self.benefitId];
     // Do any additional setup after loading the view.
 }
@@ -72,68 +72,35 @@
             if (!success) {
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
             } else {
-                //[self reloadBenefitsDataFromService:arrayJson];
-                 NSLog(@"Lista json del beneficio: %@",arrayJson);
+                [self reloadBenefitsDataFromService:arrayJson];
+                 //NSLog(@"Lista json del beneficio: %@",arrayJson);
             }
         });
     }:idBenefit];
 }
 
-/*
+
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
     NSLog(@"  reload beenfits  ");
-    self.benefitsItemsArray1 = [[NSMutableArray alloc] init];
     
     NSDictionary *tempDict = (NSDictionary*)arrayJson;
-    id benefits = [tempDict objectForKey:@"benefits"];
+    NSString* description = [tempDict objectForKey:@"description"];
     
-    
-    for (id benefit in benefits){
-        
-        id titleBen = [benefit objectForKey:@"title"];
-        id idBen = [benefit objectForKey:@"id"] ;
-        id linkBen = [benefit objectForKey:@"url"] ;
-        id summaryBen = [benefit objectForKey:@"summary"] ;
-        id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
-        
-        
-        Benefit *beneficio = [[Benefit alloc] init];
-        beneficio.idBen = idBen;
-        beneficio.title = titleBen;
-        beneficio.url = linkBen;
-        beneficio.summary= summaryBen;
-        beneficio.desclabel = benefitLabelBen;
-        
-        
-        if([benefit objectForKey:@"image"] != [NSNull null]){
-            UIImage *imagenBeneficio = nil;
-            NSString *imagenBen = [benefit objectForKey:@"image"] ;
-            NSArray * arr = [imagenBen componentsSeparatedByString:@","];
-            
-            //Now data is decoded. You can convert them to UIImage
-            imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
-            beneficio.imagenNormal = imagenBeneficio;
-        }
-        
-        [self.benefitsItemsArray1 addObject:beneficio];
-        
-        
-        
-    }
-    self.view.alpha = 0.0;
-    [self.tableView reloadData];
-    [UIView animateWithDuration:0.5
-                     animations:^{ self.view.alpha = 1.0;
-                     }
-                     completion:^(BOOL finished)
-     {
-         [SVProgressHUD dismiss];
-     }];
+
+  NSLog(@"Description essss::: >>>> %@",description);
+
+    NSAttributedString *attributedString = [[NSAttributedString alloc]
+                                            initWithData: [description dataUsingEncoding:NSUnicodeStringEncoding]
+                                            options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                                            documentAttributes: nil
+                                            error: nil
+                                            ];
+    self.benefitDescriptionTextView.attributedText = attributedString;
     
     
     NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
 }
-*/
+
 
 
 @end

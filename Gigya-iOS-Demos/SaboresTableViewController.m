@@ -132,7 +132,7 @@ NSMutableArray *listaBeneficios;
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
-    NSLog(@"ID beneficio es: %d",detalleBeneficio.benefitId);
+   // NSLog(@"ID beneficio es: %d",detalleBeneficio.benefitId);
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
     
@@ -192,7 +192,12 @@ NSMutableArray *listaBeneficios;
             
             //Now data is decoded. You can convert them to UIImage
             imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
-            beneficio.imagenNormal = imagenBeneficio;
+            if(imagenBeneficio){
+                beneficio.imagenNormal = imagenBeneficio;
+            }else{
+                imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+            }
+             beneficio.imagenNormal = imagenBeneficio;
         }
         
         [self.benefitsItemsArray5 addObject:beneficio];

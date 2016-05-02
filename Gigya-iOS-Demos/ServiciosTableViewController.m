@@ -118,7 +118,8 @@ NSMutableArray *listaBeneficios6;
     detalleBeneficio.benefitAddress = @"A 200 metros de su ubicación";
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
-    
+    detalleBeneficio.benefitId = beneficio.idBen;
+
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
    
@@ -159,7 +160,7 @@ NSMutableArray *listaBeneficios6;
             for (id benefit in benefits){
                 
                 id titleBen = [benefit objectForKey:@"title"];
-                id idBen = [benefit objectForKey:@"id"] ;
+                int idBen =[ [benefit objectForKey:@"id"] intValue];;
                 id linkBen = [benefit objectForKey:@"url"] ;
                 id summaryBen = [benefit objectForKey:@"summary"] ;
                 id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
@@ -180,6 +181,11 @@ NSMutableArray *listaBeneficios6;
                     
                     //Now data is decoded. You can convert them to UIImage
                     imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
+                    if(imagenBeneficio){
+                        beneficio.imagenNormal = imagenBeneficio;
+                    }else{
+                        imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+                    }
                     beneficio.imagenNormal = imagenBeneficio;
                 }
                 
