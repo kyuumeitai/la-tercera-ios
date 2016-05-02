@@ -85,20 +85,22 @@
     
     NSDictionary *tempDict = (NSDictionary*)arrayJson;
     NSString* description = [tempDict objectForKey:@"description"];
+    UIFont *font = [UIFont fontWithName:@"Palatino-Roman" size:30.0];
+    NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:font
+                                                                forKey:NSFontAttributeName];
+    NSDictionary *attrs = @{ NSFontAttributeName : font};
     
-
   NSLog(@"Description essss::: >>>> %@",description);
-
+    
     NSAttributedString *attributedString = [[NSAttributedString alloc]
                                             initWithData: [description dataUsingEncoding:NSUnicodeStringEncoding]
                                             options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
                                             documentAttributes: nil
                                             error: nil
                                             ];
-    self.benefitDescriptionTextView.attributedText = attributedString;
+
+     self.benefitDescriptionTextView.attributedText = attributedString;
     
-    
-    NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
 }
 
 
