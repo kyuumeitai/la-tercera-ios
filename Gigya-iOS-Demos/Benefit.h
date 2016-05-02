@@ -12,7 +12,7 @@
 
 
 @property (nonatomic,strong) NSString * title;
-@property (nonatomic,strong) NSString * idBen;
+@property (nonatomic,assign) int idBen;
 @property (nonatomic,strong) NSString * url;
 @property (nonatomic,strong) NSString * summary;
 @property (nonatomic,strong) NSString * desclabel;

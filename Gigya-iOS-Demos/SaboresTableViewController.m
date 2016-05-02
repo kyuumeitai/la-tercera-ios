@@ -110,8 +110,6 @@ NSMutableArray *listaBeneficios;
         cell.imageCategoria.image = beneficio2.imagenNormal;
         return cell;
     }
-    
-    
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -126,7 +124,6 @@ NSMutableArray *listaBeneficios;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     NSLog(@"DETECTED");
     
-    
     DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
     Benefit *beneficio = [self.benefitsItemsArray5 objectAtIndex:indexPath.row];
     detalleBeneficio.benefitImage = beneficio.imagenNormal;
@@ -134,7 +131,8 @@ NSMutableArray *listaBeneficios;
     detalleBeneficio.benefitAddress = @"A 200 metros de su ubicación";
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
-    
+    detalleBeneficio.benefitId = beneficio.idBen;
+    NSLog(@"ID beneficio es: %d",detalleBeneficio.benefitId);
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
     
@@ -160,7 +158,6 @@ NSMutableArray *listaBeneficios;
             }
         });
     }:idCategory];
-    
 }
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
@@ -174,7 +171,8 @@ NSMutableArray *listaBeneficios;
     for (id benefit in benefits){
         
         id titleBen = [benefit objectForKey:@"title"];
-        id idBen = [benefit objectForKey:@"id"] ;
+        int idBen =[ [benefit objectForKey:@"id"] intValue];;
+        //NSLog(@"idBen :%d",idBen);
         id linkBen = [benefit objectForKey:@"url"] ;
         id summaryBen = [benefit objectForKey:@"summary"] ;
         id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
@@ -187,7 +185,6 @@ NSMutableArray *listaBeneficios;
         beneficio.summary= summaryBen;
         beneficio.desclabel = benefitLabelBen;
         
-        
         if([benefit objectForKey:@"image"] != [NSNull null]){
             UIImage *imagenBeneficio = nil;
             NSString *imagenBen = [benefit objectForKey:@"image"] ;
@@ -199,9 +196,7 @@ NSMutableArray *listaBeneficios;
         }
         
         [self.benefitsItemsArray5 addObject:beneficio];
-        
-        
-       
+
     }
     self.view.alpha = 0.0;
     [self.tableView reloadData];

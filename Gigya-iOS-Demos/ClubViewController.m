@@ -383,7 +383,7 @@
         Category* firstFoundObject = nil;
         firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
         categoriaViewController.category = firstFoundObject;
-        NSLog(@"  obejtooo cat : %@",firstFoundObject);
+        NSLog(@"  objetooo cat : %@",firstFoundObject);
         categoriaViewController.categoryId = 3;
         categoriaViewController.category = firstFoundObject;
         
@@ -466,7 +466,6 @@
         categoriaViewController.categoryName = @"viajes";
         NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
     }
-    
 }
 
 - (IBAction)backButtonPressed:(id)sender {
@@ -483,7 +482,7 @@
 }
 
 - (IBAction)presedOtro:(id)sender {
-    NSLog(@"pressed tro");
+    NSLog(@"pressed otro");
 }
 
 
