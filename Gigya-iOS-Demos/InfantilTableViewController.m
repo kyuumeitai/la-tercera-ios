@@ -13,6 +13,9 @@
 #import "Category.h"
 #import "Benefit.h"
 #import "SingletonManager.h"
+#import "ConnectionManager.h"
+#import "SVProgressHUD.h"
+#import "Tools.h"
 
 
 @interface InfantilTableViewController ()
@@ -22,7 +25,7 @@
 @implementation InfantilTableViewController
 NSMutableArray *listaCategorias2;
 NSMutableArray *listaBeneficios2;
-
+@synthesize benefitsItemsArray4;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -32,28 +35,8 @@ NSMutableArray *listaBeneficios2;
     //NSLog(@"La lista de categorias es: %@",listaCategorias2.description);
     
     
+    [self loadBenefitsForCategoryId:8];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 8];
-    NSArray *filteredArray = [listaCategorias2 filteredArrayUsingPredicate:predicate];
-    
-    Category* firstFoundObject = nil;
-    firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
-    Category *categoria = firstFoundObject;
-    
-    listaBeneficios2 = [[NSMutableArray alloc] init];
-    listaBeneficios2 = categoria.arrayBenefits;
-   // NSLog(@"La lista de beneficios Infantil es: %@",listaBeneficios2.description);
-     
-    CGSize size = CGSizeMake(0,listaBeneficios2.count * 100);
-    [self.tableView setContentSize:size];
-   
-    
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,7 +51,7 @@ NSMutableArray *listaBeneficios2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return listaBeneficios2.count;
+    return self.benefitsItemsArray4.count;
 }
 
 
@@ -99,7 +82,7 @@ NSMutableArray *listaBeneficios2;
         {
             nib = [[NSBundle mainBundle] loadNibNamed:@"DestacadoTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
-            Benefit *beneficio = [listaBeneficios2 objectAtIndex:0];
+            Benefit *beneficio = [self.benefitsItemsArray4 objectAtIndex:0];
             
             cell.labelTitulo.text = beneficio.title;
             cell.labelSubtitulo.text = beneficio.summary;
@@ -118,8 +101,8 @@ NSMutableArray *listaBeneficios2;
             cell = [nib objectAtIndex:0];
         }
         
-        Benefit *beneficio2 = [listaBeneficios2 objectAtIndex:indexPath.row];
-        [beneficio2 logDescription];
+        Benefit *beneficio2 = [self.benefitsItemsArray4 objectAtIndex:indexPath.row];
+       // [beneficio2 logDescription];
         
         cell.labelTitulo.text = beneficio2.title;
         cell.labelDescuento.text = beneficio2.desclabel;
@@ -150,7 +133,7 @@ NSMutableArray *listaBeneficios2;
     
     
     DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
-    Benefit *beneficio = [listaBeneficios2 objectAtIndex:indexPath.row];
+    Benefit *beneficio = [self.benefitsItemsArray4 objectAtIndex:indexPath.row];
     detalleBeneficio.benefitImage = beneficio.imagenNormal;
     detalleBeneficio.benefitTitle= beneficio.title;
     detalleBeneficio.benefitAddress = @"A 200 metros de su ubicación";
@@ -160,6 +143,82 @@ NSMutableArray *listaBeneficios2;
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
     
+}
+
+-(void)loadBenefitsForCategoryId:(int)idCategory{
+    
+    NSLog(@"Load category benefits");
+    // IMPORTANT - Only update the UI on the main thread
+    [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
+    
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    BOOL estaConectado = [connectionManager verifyConnection];
+    NSLog(@"Verificando conexión: %d",estaConectado);
+    [connectionManager getBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!success) {
+                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+            } else {
+                [self reloadBenefitsDataFromService:arrayJson];
+                // NSLog(@"Lista jhson: %@",arrayJson);
+            }
+        });
+    }:idCategory];
+    
+}
+
+-(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
+    NSLog(@"  reload beenfits  ");
+    self.benefitsItemsArray4 = [[NSMutableArray alloc] init];
+    
+    NSDictionary *tempDict = (NSDictionary*)arrayJson;
+    id benefits = [tempDict objectForKey:@"benefits"];
+    
+    
+    for (id benefit in benefits){
+        
+        id titleBen = [benefit objectForKey:@"title"];
+        id idBen = [benefit objectForKey:@"id"] ;
+        id linkBen = [benefit objectForKey:@"url"] ;
+        id summaryBen = [benefit objectForKey:@"summary"] ;
+        id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
+        
+        
+        Benefit *beneficio = [[Benefit alloc] init];
+        beneficio.idBen = idBen;
+        beneficio.title = titleBen;
+        beneficio.url = linkBen;
+        beneficio.summary= summaryBen;
+        beneficio.desclabel = benefitLabelBen;
+        
+        
+        if([benefit objectForKey:@"image"] != [NSNull null]){
+            UIImage *imagenBeneficio = nil;
+            NSString *imagenBen = [benefit objectForKey:@"image"] ;
+            NSArray * arr = [imagenBen componentsSeparatedByString:@","];
+            
+            //Now data is decoded. You can convert them to UIImage
+            imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
+            beneficio.imagenNormal = imagenBeneficio;
+        }
+        
+        [self.benefitsItemsArray4 addObject:beneficio];
+        
+        
+        
+    }
+    self.view.alpha = 0.0;
+    [self.tableView reloadData];
+    [UIView animateWithDuration:0.5
+                     animations:^{ self.view.alpha = 1.0; /* Some fake chages */
+                         
+                     }
+                     completion:^(BOOL finished)
+     {
+         [SVProgressHUD dismiss];
+     }];
+    NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
 }
 
 @end

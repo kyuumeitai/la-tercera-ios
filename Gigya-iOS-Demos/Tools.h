@@ -52,5 +52,5 @@
 +(void)showAlertMessage:(NSString *)messageString andAlertTintColor:(UIColor *)alertTintColor;
 
 + (NSUInteger) numberOfOccurrencesOfString:(NSString *)needle inString:(NSString *)haystack; 
-
++ (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData;
 @end

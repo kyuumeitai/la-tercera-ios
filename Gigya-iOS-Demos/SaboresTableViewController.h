@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SaboresTableViewController : UITableViewController
+@interface SaboresTableViewController : UITableViewController{
+    NSMutableArray * benefitsItemsArray5;
+}
+@property (nonatomic, retain) NSMutableArray * benefitsItemsArray5;
 
 @end

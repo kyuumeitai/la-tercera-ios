@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InfantilTableViewController : UITableViewController
+@interface InfantilTableViewController : UITableViewController{
+    NSMutableArray * benefitsItemsArray4;
+}
+@property (nonatomic, retain) NSMutableArray * benefitsItemsArray4;
 
 @end

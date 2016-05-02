@@ -7,12 +7,15 @@
 //
 
 #import "ServiciosTableViewController.h"
-#import  "CategoriasTableViewCell.h"
-#import  "DestacadoTableViewCell.h"
-#import  "DetalleBeneficioViewController.h"
+#import "CategoriasTableViewCell.h"
+#import "DestacadoTableViewCell.h"
+#import "DetalleBeneficioViewController.h"
 #import "Category.h"
 #import "Benefit.h"
 #import "SingletonManager.h"
+#import "ConnectionManager.h"
+#import "SVProgressHUD.h"
+#import "Tools.h"
 
 @interface ServiciosTableViewController ()
 
@@ -21,32 +24,14 @@
 @implementation ServiciosTableViewController
 NSMutableArray *listaCategorias6;
 NSMutableArray *listaBeneficios6;
+@synthesize benefitsItemsArray1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     SingletonManager *singleton = [SingletonManager singletonManager];
-    listaCategorias6 = [[NSMutableArray alloc] init];
-    listaCategorias6 = singleton.categoryList;
-    //NSLog(@"La lista de categorias es: %@",listaCategorias6.description);
-
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 4];
-    NSArray *filteredArray = [listaCategorias6 filteredArrayUsingPredicate:predicate];
-    
-    Category* firstFoundObject = nil;
-    firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
-    Category *categoria = firstFoundObject;
-    
-    listaBeneficios6 = [[NSMutableArray alloc] init];
-    listaBeneficios6 = categoria.arrayBenefits;
-    //NSLog(@"La lista de beneficios es: %@",listaBeneficios6.description);
-    CGSize size = CGSizeMake(0,listaBeneficios6.count * 100);
-    [self.tableView setContentSize:size];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+        [self loadBenefitsForCategoryId:4];
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,28 +46,13 @@ NSMutableArray *listaBeneficios6;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return listaBeneficios6.count;
+    return self.benefitsItemsArray1.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *simpleTableIdentifier = @"BanioTableCell";
-    
-    
-    
-    /*MyManager *singleton = [MyManager sharedManager];
-     NSString *storyBoardName = singleton.storyBoardName;
-     
-     
-     if ([storyBoardName isEqualToString:@"MainStoryboard-iPhone4"] )
-     nib = [[NSBundle mainBundle] loadNibNamed:@"BaniosTableViewCell-iPhone4" owner:self options:nil];
-     if ([storyBoardName isEqualToString:@"MainStoryboard-iPhone5"] )
-     nib = [[NSBundle mainBundle] loadNibNamed:@"BaniosTableViewCell-iPhone5" owner:self options:nil];
-     if ([storyBoardName isEqualToString:@"MainStoryboard-iPhone6"] )
-     nib = [[NSBundle mainBundle] loadNibNamed:@"BaniosTableViewCell-iPhone6" owner:self options:nil];
-     if ([storyBoardName isEqualToString:@"MainStoryboard-iPhone6Plus"] )
-     */
     NSArray *nib;
     
     if (indexPath.row==0) {
@@ -92,7 +62,7 @@ NSMutableArray *listaBeneficios6;
         {
             nib = [[NSBundle mainBundle] loadNibNamed:@"DestacadoTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
-            Benefit *beneficio = [listaBeneficios6 objectAtIndex:0];
+            Benefit *beneficio = [self.benefitsItemsArray1 objectAtIndex:0];
             
             cell.labelTitulo.text = beneficio.title;
             cell.labelSubtitulo.text = beneficio.summary;
@@ -111,8 +81,8 @@ NSMutableArray *listaBeneficios6;
             cell = [nib objectAtIndex:0];
         }
         
-        Benefit *beneficio2 = [listaBeneficios6 objectAtIndex:indexPath.row];
-        [beneficio2 logDescription];
+        Benefit *beneficio2 = [self.benefitsItemsArray1 objectAtIndex:indexPath.row];
+        //[beneficio2 logDescription];
         
         cell.labelTitulo.text = beneficio2.title;
         cell.labelDescuento.text = beneficio2.desclabel;
@@ -141,7 +111,7 @@ NSMutableArray *listaBeneficios6;
     
     
     DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
-    Benefit *beneficio = [listaBeneficios6 objectAtIndex:indexPath.row];
+    Benefit *beneficio = [self.benefitsItemsArray1 objectAtIndex:indexPath.row];
 
     detalleBeneficio.benefitImage = beneficio.imagenNormal;
     detalleBeneficio.benefitTitle= beneficio.title;
@@ -151,9 +121,87 @@ NSMutableArray *listaBeneficios6;
     
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
+   
+}
+
+
+-(void)loadBenefitsForCategoryId:(int)idCategory{
     
+    NSLog(@"Load category benefits");
+    // IMPORTANT - Only update the UI on the main thread
+    [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     
-  
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    BOOL estaConectado = [connectionManager verifyConnection];
+    NSLog(@"Verificando conexión: %d",estaConectado);
+    [connectionManager getBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!success) {
+                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+            } else {
+                [self reloadBenefitsDataFromService:arrayJson];
+               // NSLog(@"Lista jhson: %@",arrayJson);
+            }
+        });
+    }:idCategory];
     
 }
+
+-(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
+    NSLog(@"  reload beenfits  ");
+    self.benefitsItemsArray1 = [[NSMutableArray alloc] init];
+
+    NSDictionary *tempDict = (NSDictionary*)arrayJson;
+         id benefits = [tempDict objectForKey:@"benefits"];
+            
+            
+            for (id benefit in benefits){
+                
+                id titleBen = [benefit objectForKey:@"title"];
+                id idBen = [benefit objectForKey:@"id"] ;
+                id linkBen = [benefit objectForKey:@"url"] ;
+                id summaryBen = [benefit objectForKey:@"summary"] ;
+                id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
+                
+                
+                Benefit *beneficio = [[Benefit alloc] init];
+                beneficio.idBen = idBen;
+                beneficio.title = titleBen;
+                beneficio.url = linkBen;
+                beneficio.summary= summaryBen;
+                beneficio.desclabel = benefitLabelBen;
+                
+                
+                if([benefit objectForKey:@"image"] != [NSNull null]){
+                    UIImage *imagenBeneficio = nil;
+                    NSString *imagenBen = [benefit objectForKey:@"image"] ;
+                    NSArray * arr = [imagenBen componentsSeparatedByString:@","];
+                    
+                    //Now data is decoded. You can convert them to UIImage
+                    imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
+                    beneficio.imagenNormal = imagenBeneficio;
+                }
+                
+                [self.benefitsItemsArray1 addObject:beneficio];
+         
+            
+            
+        }
+    self.view.alpha = 0.0;
+    [self.tableView reloadData];
+    [UIView animateWithDuration:0.5
+                     animations:^{ self.view.alpha = 1.0; /* Some fake chages */
+                         
+                     }
+                     completion:^(BOOL finished)
+     {
+         [SVProgressHUD dismiss];
+     }];
+
+    
+    NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
+}
+
+
 @end

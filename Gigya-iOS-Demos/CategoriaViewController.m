@@ -126,7 +126,7 @@
     if ([self.categoryName  isEqual: @"servicios"]) {
         
         NSLog(@"Cargando Categoría: %@",_categoryName);
-        [self setupClubCategory:5];
+        [self setupClubCategory:4];
         
     }
     

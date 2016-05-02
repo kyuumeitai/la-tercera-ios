@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TiempoLibreTableViewController : UITableViewController
+@interface TiempoLibreTableViewController : UITableViewController{
+    NSMutableArray * benefitsItemsArray3;
+}
+@property (nonatomic, retain) NSMutableArray * benefitsItemsArray3;
 
 @end

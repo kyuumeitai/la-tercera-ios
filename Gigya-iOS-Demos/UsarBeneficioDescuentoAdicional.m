@@ -26,7 +26,7 @@
     
     ConfirmationViewController *confirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"confirmationScreen"];
     //confirmationViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    confirmationViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    confirmationViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:confirmationViewController animated:YES completion:nil];
     
     

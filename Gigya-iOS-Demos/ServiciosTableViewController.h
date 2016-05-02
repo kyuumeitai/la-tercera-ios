@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ServiciosTableViewController : UITableViewController
-
+@interface ServiciosTableViewController : UITableViewController{
+NSMutableArray * benefitsItemsArray1;
+}
+@property (nonatomic, retain) NSMutableArray * benefitsItemsArray1;
 @end

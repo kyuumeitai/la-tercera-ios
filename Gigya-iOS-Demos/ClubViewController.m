@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   [self loadCategories];
+   //[self loadCategories];
     // Do any additional setup after loading the view.
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
@@ -46,17 +46,9 @@
         
     }
     
-    //SWRevealViewController *revealViewController = self.revealViewController;
-    //singleton.leftSlideMenu = revealViewController;
-  //[_menuButton addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
     NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
     // Do any additional setup after loading the view.
-    
-   //[self loadCategories];
-   //[self loadBenefits];
-   //[self loadCommerces];
-   //[self loadStores];
    
 }
 
@@ -70,7 +62,7 @@
     
     NSLog(@"Load categories");
     // IMPORTANT - Only update the UI on the main thread
-    [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeGradient];
+    [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
@@ -171,11 +163,10 @@
 
 
 -(void) reloadMainCategoriesDataFromService:(NSArray*)arrayJson{
-    NSLog(@"     ");
+    NSLog(@"  reload Main categories   ");
     categoryItemsArray = [[NSMutableArray alloc] init];
 
-    NSLog(@" ******* LISTADO DE CATEGORÍAS PRINCIPALES ****** ");
-    for (id object in arrayJson){
+       for (id object in arrayJson){
         
         if ([object objectForKey:@"category_parent"] == [NSNull null]) {
       
@@ -228,19 +219,11 @@
                     UIImage *imagenBeneficio = nil;
                     NSString *imagenBen = [benefit objectForKey:@"image"] ;
                     NSArray * arr = [imagenBen componentsSeparatedByString:@","];
-                    //NSLog(@"Array values are : %@",[arr lastObject]);
-                                       //NSArray *listItems = [imagenBen componentsSeparatedByString:@","];
-                   // if ([listItems count]>0){
-                    //NSString *imagenEncoded = [NSString stringWithFormat:@"%@",[listItems objectAtIndex:1] ];
-                    //NSLog(@"Hay imagen: %@",imagenEncoded);
-
-                    //Creating the data from your base64String
-                   // NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imagenBen]];
                     
                     //Now data is decoded. You can convert them to UIImage
                     imagenBeneficio = [self decodeBase64ToImage:[arr lastObject]];
                     beneficio.imagenNormal = imagenBeneficio;
-                    //}
+               
                 }
                 
                 [categoryBenefitsArray addObject:beneficio];
@@ -250,8 +233,7 @@
                 [categoryItemsArray addObject:categoria];
                 [SVProgressHUD dismiss];
             }
-      
-        
+
     }
     
  

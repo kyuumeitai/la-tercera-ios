@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VidaSanaTableViewController : UITableViewController
-
+@interface VidaSanaTableViewController : UITableViewController{
+NSMutableArray * benefitsItemsArray2;
+}
+@property (nonatomic, retain) NSMutableArray * benefitsItemsArray2;
 @end
