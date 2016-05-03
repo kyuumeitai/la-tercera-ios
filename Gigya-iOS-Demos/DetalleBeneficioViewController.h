@@ -34,5 +34,5 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *benefitImageView;
 
-
+-(void)loadBenefitForBenefitId:(int)idBenefit;
 @end

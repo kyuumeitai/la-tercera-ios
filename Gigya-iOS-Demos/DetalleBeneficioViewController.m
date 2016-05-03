@@ -18,13 +18,9 @@
 @synthesize benefitId;
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     self.benefitImageView.image = _benefitImage;
-    self.benefitDiscountLabel.text = _benefitDiscount;
-    self.benefitTitleLabel.text = _benefitTitle;
-    self.benefitAdressLabel.text = _benefitAddress;
-   // self.benefitDescriptionTextView.text = _benefitDescription;
-    [self loadBenefitForBenefitId:self.benefitId];
+      // self.benefitDescriptionTextView.text = _benefitDescription;
+   // [self loadBenefitForBenefitId:self.benefitId];
     // Do any additional setup after loading the view.
 }
 
@@ -82,8 +78,19 @@
     NSLog(@"  reload beenfits  ");
     
     NSDictionary *tempDict = (NSDictionary*)arrayJson;
-    NSString* description = [tempDict objectForKey:@"description"];
     
+    //Loading summary
+    NSString* summary = [tempDict objectForKey:@"summary"];
+    self.benefitSubtitleLabel.text = summary;
+    //[self.benefitSubtitleLabel setNumberOfLines:0];
+    //[self.benefitSubtitleLabel sizeToFit];
+    self.benefitSubtitleLabel.alpha = 0;
+    
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{ self.benefitSubtitleLabel.alpha = 1;}
+                     completion:nil];
+    
+    //Loading Duration
     NSString* startDate = [tempDict objectForKey:@"start_date"];
     NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc] init];
     [dateFormatter1 setDateFormat:@"YYYY'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
@@ -105,45 +112,43 @@
     NSString *caducidad = [NSString stringWithFormat:@"Beneficio válido desde el %@ al %@",displayStart,displayEnd];
     
     self.expiredDateLabel.text=caducidad;
+    self.expiredDateLabel.alpha = 0;
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{ self.expiredDateLabel.alpha = 1;}
+                     completion:nil];
     
-     NSString* summary = [tempDict objectForKey:@"summary"];
-    self.benefitSubtitleLabel.text = summary;
+    NSArray *profilesArray= (NSArray*)[tempDict objectForKey:@"profiles"];
+    NSDictionary * profileDictionary = (NSDictionary*)profilesArray[0];
+    NSLog(@"Profile text : %@",profileDictionary );
     
+    NSString* nameProfile = [profileDictionary objectForKey:@"nombre"];
+    NSString* idProfile = [profileDictionary objectForKey:@"id"];
+    NSLog(@"El perfil es: %@ y el id: %@",nameProfile,idProfile );
+    self.profileBenefitLabel.text = nameProfile;
+    self.profileBenefitLabel.alpha = 0;
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{ self.profileBenefitLabel.alpha = 1;}
+                     completion:nil];
     
-    NSArray *profilesArray = (NSArray*)[tempDict objectForKey:@"profiles"];
-    /*
-    NSString *profile = profilesArray[0];
-   
-    NSString *stringWithoutTrash = [profile
-                                     stringByReplacingOccurrencesOfString:@"u'" withString:@"'"];
-    stringWithoutTrash = [stringWithoutTrash
-                          stringByReplacingOccurrencesOfString:@"{" withString:@""];
+
+    self.benefitDiscountLabel.text = _benefitDiscount;
+    self.benefitTitleLabel.text = _benefitTitle;
+    self.benefitAdressLabel.text = _benefitAddress;
     
-    stringWithoutTrash= [stringWithoutTrash
-                      
-     stringByReplacingOccurrencesOfString:@"'nombre':" withString:@""];
+    self.benefitDiscountLabel.alpha = 0;
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{ self.benefitDiscountLabel.alpha = 1;}
+                     completion:nil];
     
-    stringWithoutTrash= [stringWithoutTrash
-                         stringByReplacingOccurrencesOfString:@"'" withString:@""];
-    
-    NSString *profile2 = profilesArray[0];
-    
-    NSString *stringWithoutTrash2 = [profile2
-                                    stringByReplacingOccurrencesOfString:@"u'" withString:@"'"];
-    
-    stringWithoutTrash2= [stringWithoutTrash2
-                                stringByReplacingOccurrencesOfString:@"'id':" withString:@""];
-    stringWithoutTrash2= [stringWithoutTrash2
-                         stringByReplacingOccurrencesOfString:@" " withString:@""];
-      stringWithoutTrash2 =  [stringWithoutTrash2                 stringByReplacingOccurrencesOfString:@"}" withString:@""];
-NSArray *profilesValues = [stringWithoutTrash componentsSeparatedByString:@","];
-    
-   NSLog(@"Profile text : %@",stringWithoutTrash);
-    NSString* profileName = profilesValues[0];
-    NSString* profileId = profilesValues[1];
-    NSLog(@"Profile Name : %@ and Profile Id: %@",profileName,profileId);
-*/
-    
+    self.benefitTitleLabel.alpha = 0;
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{ self.benefitTitleLabel.alpha = 1;}
+                     completion:nil];
+
+
+    //Loading Description
+    NSString* description = [tempDict objectForKey:@"description"];
+
     NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: 16\">%@</span>",description];
 
 

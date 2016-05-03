@@ -130,6 +130,7 @@ NSMutableArray *listaBeneficios4;
     
     DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
     Benefit *beneficio = [self.benefitsItemsArray2 objectAtIndex:indexPath.row];
+    [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen];
     detalleBeneficio.benefitImage = beneficio.imagenNormal;
     detalleBeneficio.benefitTitle= beneficio.title;
     detalleBeneficio.benefitAddress = @"A 200 metros de su ubicación";
@@ -212,7 +213,7 @@ NSMutableArray *listaBeneficios4;
     }
     self.view.alpha = 0.0;
     [self.tableView reloadData];
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.3
                      animations:^{ self.view.alpha = 1.0;                          
                      }
                      completion:^(BOOL finished)

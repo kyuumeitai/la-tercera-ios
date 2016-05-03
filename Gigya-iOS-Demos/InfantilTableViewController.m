@@ -17,7 +17,6 @@
 #import "SVProgressHUD.h"
 #import "Tools.h"
 
-
 @interface InfantilTableViewController ()
 
 @end
@@ -33,7 +32,6 @@ NSMutableArray *listaBeneficios2;
     listaCategorias2 = [[NSMutableArray alloc] init];
     listaCategorias2 = singleton.categoryList;
     //NSLog(@"La lista de categorias es: %@",listaCategorias2.description);
-    
     
     [self loadBenefitsForCategoryId:8];
     
@@ -59,11 +57,8 @@ NSMutableArray *listaBeneficios2;
     
     static NSString *simpleTableIdentifier = @"BanioTableCell";
     
-    
-    
     /*MyManager *singleton = [MyManager sharedManager];
      NSString *storyBoardName = singleton.storyBoardName;
-     
      
      if ([storyBoardName isEqualToString:@"MainStoryboard-iPhone4"] )
      nib = [[NSBundle mainBundle] loadNibNamed:@"BaniosTableViewCell-iPhone4" owner:self options:nil];
@@ -110,12 +105,8 @@ NSMutableArray *listaBeneficios2;
         NSLog(@" Imagen beneficionormal: %@",beneficio2.imagenNormal);
         cell.imageCategoria.image = beneficio2.imagenNormal;
         
-        
-        
-        
         return cell;
     }
-    
     
 }
 
@@ -134,6 +125,7 @@ NSMutableArray *listaBeneficios2;
     
     DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
     Benefit *beneficio = [self.benefitsItemsArray4 objectAtIndex:indexPath.row];
+    [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen];
     detalleBeneficio.benefitImage = beneficio.imagenNormal;
     detalleBeneficio.benefitTitle= beneficio.title;
     detalleBeneficio.benefitAddress = @"A 200 metros de su ubicación";
@@ -141,7 +133,6 @@ NSMutableArray *listaBeneficios2;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
 
-    
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
     
 }
@@ -216,7 +207,7 @@ NSMutableArray *listaBeneficios2;
     }
     self.view.alpha = 0.0;
     [self.tableView reloadData];
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.3
                      animations:^{ self.view.alpha = 1.0; /* Some fake chages */
                          
                      }
