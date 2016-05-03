@@ -120,7 +120,8 @@
                           stringByReplacingOccurrencesOfString:@"{" withString:@""];
     
     stringWithoutTrash= [stringWithoutTrash
-                                stringByReplacingOccurrencesOfString:@"'nombre':" withString:@""];
+                      
+     stringByReplacingOccurrencesOfString:@"'nombre':" withString:@""];
     
     stringWithoutTrash= [stringWithoutTrash
                          stringByReplacingOccurrencesOfString:@"'" withString:@""];
