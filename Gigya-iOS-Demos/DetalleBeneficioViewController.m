@@ -73,12 +73,10 @@
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
             } else {
                 [self reloadBenefitsDataFromService:arrayJson];
-                 //NSLog(@"Lista json del beneficio: %@",arrayJson);
             }
         });
     }:idBenefit];
 }
-
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
     NSLog(@"  reload beenfits  ");
@@ -94,7 +92,6 @@
     [displayingFormatter1 setDateStyle:NSDateFormatterLongStyle];
     [displayingFormatter1 setDateFormat:@"dd' de 'MMMM' del 'YYYY"];
     NSString *displayStart = [displayingFormatter1 stringFromDate:dateFromString1];
-    
     
     NSString* endDate = [tempDict objectForKey:@"end_date"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
