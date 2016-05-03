@@ -74,6 +74,27 @@
     }:idBenefit];
 }
 
+-(void)loadStoreWhiteId:(int)idBenefit{
+    
+    NSLog(@"Load category benefits");
+    // IMPORTANT - Only update the UI on the main thread
+    // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
+    
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    BOOL estaConectado = [connectionManager verifyConnection];
+    NSLog(@"Verificando conexión: %d",estaConectado);
+    [connectionManager getBenefitWithBenefitId:^(BOOL success, NSArray *arrayJson, NSError *error){
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!success) {
+                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+            } else {
+                [self reloadBenefitsDataFromService:arrayJson];
+            }
+        });
+    }:idBenefit];
+}
+
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
     NSLog(@"  reload beenfits  ");
     
@@ -119,7 +140,7 @@
     
     NSArray *profilesArray= (NSArray*)[tempDict objectForKey:@"profiles"];
     NSDictionary * profileDictionary = (NSDictionary*)profilesArray[0];
-    NSLog(@"Profile text : %@",profileDictionary );
+    //NSLog(@"Profile text : %@",profileDictionary );
     
     NSString* nameProfile = [profileDictionary objectForKey:@"nombre"];
     NSString* idProfile = [profileDictionary objectForKey:@"id"];
