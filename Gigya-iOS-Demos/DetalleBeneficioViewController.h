@@ -18,6 +18,11 @@
 @property (strong,nonatomic) NSString* benefitDescription;
 @property (strong,nonatomic) UIImage* benefitImage;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *profileBenefitLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *expiredDateLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *benefitTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *benefitSubtitleLabel;
 

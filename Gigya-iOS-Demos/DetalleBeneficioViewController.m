@@ -85,21 +85,78 @@
     
     NSDictionary *tempDict = (NSDictionary*)arrayJson;
     NSString* description = [tempDict objectForKey:@"description"];
-    UIFont *font = [UIFont fontWithName:@"Palatino-Roman" size:30.0];
-    NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:font
-                                                                forKey:NSFontAttributeName];
-    NSDictionary *attrs = @{ NSFontAttributeName : font};
     
-  NSLog(@"Description essss::: >>>> %@",description);
+    NSString* startDate = [tempDict objectForKey:@"start_date"];
+    NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc] init];
+    [dateFormatter1 setDateFormat:@"YYYY'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+    NSDate *dateFromString1 = [dateFormatter1 dateFromString:startDate];
+    NSDateFormatter *displayingFormatter1 = [NSDateFormatter new];
+    [displayingFormatter1 setDateStyle:NSDateFormatterLongStyle];
+    [displayingFormatter1 setDateFormat:@"dd' de 'MMMM' del 'YYYY"];
+    NSString *displayStart = [displayingFormatter1 stringFromDate:dateFromString1];
     
-    NSAttributedString *attributedString = [[NSAttributedString alloc]
-                                            initWithData: [description dataUsingEncoding:NSUnicodeStringEncoding]
+    
+    NSString* endDate = [tempDict objectForKey:@"end_date"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+    NSDate *dateFromString = [dateFormatter dateFromString:endDate];
+    NSDateFormatter *displayingFormatter = [NSDateFormatter new];
+    [displayingFormatter setDateStyle:NSDateFormatterLongStyle];
+    [displayingFormatter setDateFormat:@"dd' de 'MMMM' del 'YYYY"];
+    NSString *displayEnd = [displayingFormatter stringFromDate:dateFromString];
+
+    NSString *caducidad = [NSString stringWithFormat:@"Beneficio válido desde el %@ al %@",displayStart,displayEnd];
+    
+    self.expiredDateLabel.text=caducidad;
+    
+     NSString* summary = [tempDict objectForKey:@"summary"];
+    self.benefitSubtitleLabel.text = summary;
+    
+    
+    NSArray *profilesArray = (NSArray*)[tempDict objectForKey:@"profiles"];
+    /*
+    NSString *profile = profilesArray[0];
+   
+    NSString *stringWithoutTrash = [profile
+                                     stringByReplacingOccurrencesOfString:@"u'" withString:@"'"];
+    stringWithoutTrash = [stringWithoutTrash
+                          stringByReplacingOccurrencesOfString:@"{" withString:@""];
+    
+    stringWithoutTrash= [stringWithoutTrash
+                                stringByReplacingOccurrencesOfString:@"'nombre':" withString:@""];
+    
+    stringWithoutTrash= [stringWithoutTrash
+                         stringByReplacingOccurrencesOfString:@"'" withString:@""];
+    
+    NSString *profile2 = profilesArray[0];
+    
+    NSString *stringWithoutTrash2 = [profile2
+                                    stringByReplacingOccurrencesOfString:@"u'" withString:@"'"];
+    
+    stringWithoutTrash2= [stringWithoutTrash2
+                                stringByReplacingOccurrencesOfString:@"'id':" withString:@""];
+    stringWithoutTrash2= [stringWithoutTrash2
+                         stringByReplacingOccurrencesOfString:@" " withString:@""];
+      stringWithoutTrash2 =  [stringWithoutTrash2                 stringByReplacingOccurrencesOfString:@"}" withString:@""];
+NSArray *profilesValues = [stringWithoutTrash componentsSeparatedByString:@","];
+    
+   NSLog(@"Profile text : %@",stringWithoutTrash);
+    NSString* profileName = profilesValues[0];
+    NSString* profileId = profilesValues[1];
+    NSLog(@"Profile Name : %@ and Profile Id: %@",profileName,profileId);
+*/
+    
+    NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: 16\">%@</span>",description];
+
+
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]
+                                            initWithData: [finalDescription dataUsingEncoding:NSUnicodeStringEncoding]
                                             options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
-                                            documentAttributes: nil
-                                            error: nil
+                                            documentAttributes:nil                                            error: nil
                                             ];
 
-     self.benefitDescriptionTextView.attributedText = attributedString;
+    self.benefitDescriptionTextView.attributedText = attributedString;
+
     
 }
 

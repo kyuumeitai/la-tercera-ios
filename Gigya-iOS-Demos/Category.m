@@ -22,7 +22,6 @@
 -(void)logDescription{
     
     NSLog(@" >>>> Categoria de id: %@, titulo: %@, url:%@, imagen: %@, arrayBen:%@",_idCat,_title,_url,_imagenDestacada, _arrayBenefits );
-    
 }
 
 @end
