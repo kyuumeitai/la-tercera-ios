@@ -70,7 +70,8 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
             cell.labelTitulo.text = beneficio.title;
             cell.labelSubtitulo.text = beneficio.summary;
             cell.labelDescuento.text = beneficio.desclabel;
-            cell.labelDistancia.text = @"A 200 metros de su ubicación";
+            if((unsigned long)beneficio.desclabel.length >3)
+                cell.labelDescuento.alpha = 0;
             
             //Get Image
 
@@ -102,7 +103,8 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
         
         cell.labelTitulo.text = beneficio2.title;
         cell.labelDescuento.text = beneficio2.desclabel;
-        cell.labelDistancia.text = @"A 200 metros de su ubicación";
+        if((unsigned long)beneficio2.desclabel.length >3)
+            cell.labelDescuento.alpha = 0;
         //Get Image
         NSArray * arr2 = [beneficio2.imagenNormalString componentsSeparatedByString:@","];
         UIImage *imagenBeneficio2 = nil;
@@ -144,7 +146,6 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
         imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
     
     detalleBeneficio.benefitImage = imagenBeneficio;    detalleBeneficio.benefitTitle= beneficio.title;
-    detalleBeneficio.benefitAddress = @"A 200 metros de su ubicación";
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;

@@ -67,8 +67,10 @@ NSMutableArray *listaBeneficios6;
             cell.labelTitulo.text = beneficio.title;
             cell.labelSubtitulo.text = beneficio.summary;
             cell.labelDescuento.text = beneficio.desclabel;
-            cell.labelDistancia.text = @"A 200 metros de su ubicación";
-            
+     
+            cell.labelDescuento.text = beneficio.desclabel;
+            if((unsigned long)beneficio.desclabel.length >3)
+                cell.labelDescuento.alpha = 0;
             //Get Image
   
             NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
@@ -98,7 +100,8 @@ NSMutableArray *listaBeneficios6;
         
         cell.labelTitulo.text = beneficio2.title;
         cell.labelDescuento.text = beneficio2.desclabel;
-        cell.labelDistancia.text = @"A 200 metros de su ubicación";
+        if((unsigned long)beneficio2.desclabel.length >3)
+            cell.labelDescuento.alpha = 0;
         //Get Image
         NSArray * arr2 = [beneficio2.imagenNormalString componentsSeparatedByString:@","];
         UIImage *imagenBeneficio2 = nil;
@@ -142,7 +145,7 @@ NSMutableArray *listaBeneficios6;
     
     detalleBeneficio.benefitImage = imagenBeneficio;
     detalleBeneficio.benefitTitle= beneficio.title;
-    detalleBeneficio.benefitAddress = @"A 200 metros de su ubicación";
+    detalleBeneficio.benefitAddress = @"";//empty for now
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
@@ -185,18 +188,18 @@ NSMutableArray *listaBeneficios6;
                 
                 id titleBen = [benefit objectForKey:@"title"];
                 int idBen =[ [benefit objectForKey:@"id"] intValue];;
-                id linkBen = [benefit objectForKey:@"url"] ;
+                //id linkBen = [benefit objectForKey:@"url"] ;
                 id summaryBen = [benefit objectForKey:@"summary"] ;
-                id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
+                NSString *benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
                 
                 
                 Benefit *beneficio = [[Benefit alloc] init];
                 beneficio.idBen = idBen;
                 beneficio.title = titleBen;
-                beneficio.url = linkBen;
+                //beneficio.url = linkBen;
                 beneficio.summary= summaryBen;
                 beneficio.desclabel = benefitLabelBen;
-                
+               
                 if([benefit objectForKey:@"image"] != [NSNull null]){
                    
                     NSString *imagenBen = [benefit objectForKey:@"image"] ;
