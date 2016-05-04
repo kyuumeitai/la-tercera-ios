@@ -432,6 +432,7 @@
 		D0F7F76E1CB2D3FD008BB49D /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FC069C1CB2A0D0000DF39B /* Store.m */; };
 		D0FA1C2B1CD0FDA900D18188 /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FA1C2A1CD0FDA900D18188 /* ConfirmationViewController.m */; };
 		D0FA1C2C1CD0FDA900D18188 /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FA1C2A1CD0FDA900D18188 /* ConfirmationViewController.m */; };
+		D0FAD5971CDA641000BF00D4 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FAD5961CDA641000BF00D4 /* MKMapView+ZoomLevel.m */; };
 		D0FBFA2C1CBD2B3100D5465E /* CustomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBFA2B1CBD2B3100D5465E /* CustomButtonView.m */; };
 		D0FBFA2D1CBD2B3100D5465E /* CustomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBFA2B1CBD2B3100D5465E /* CustomButtonView.m */; };
 		D0FBFA2F1CBD32CD00D5465E /* CustomButtonTercera.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBFA2E1CBD32CD00D5465E /* CustomButtonTercera.m */; };
@@ -790,6 +791,8 @@
 		D0F6B83F1C90958A0060D256 /* ClubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubViewController.m; sourceTree = "<group>"; };
 		D0FA1C291CD0FDA900D18188 /* ConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmationViewController.h; sourceTree = "<group>"; };
 		D0FA1C2A1CD0FDA900D18188 /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmationViewController.m; sourceTree = "<group>"; };
+		D0FAD5951CDA641000BF00D4 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
+		D0FAD5961CDA641000BF00D4 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
 		D0FB93371CAACAE400928159 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
 		D0FB93381CAACAE400928159 /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
 		D0FB933A1CAACB1900928159 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -1560,6 +1563,7 @@
 		D0E84DCF1C9B089300FDE6D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D0FAD5941CDA63E500BF00D4 /* Categories */,
 				17DAB9B11CCDD41C000CD406 /* AudioPlayer */,
 				D0FBFA2A1CBD2AC900D5465E /* Custom Controls */,
 				D0FB93401CAACB4700928159 /* Tools */,
@@ -1608,6 +1612,15 @@
 				D0C841361CA41ED9001BC478 /* MasCercanosViewController.m */,
 			);
 			name = Mapas;
+			sourceTree = "<group>";
+		};
+		D0FAD5941CDA63E500BF00D4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D0FAD5951CDA641000BF00D4 /* MKMapView+ZoomLevel.h */,
+				D0FAD5961CDA641000BF00D4 /* MKMapView+ZoomLevel.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		D0FB933F1CAACB1F00928159 /* SVProgress */ = {
@@ -2323,6 +2336,7 @@
 				D03026581CBBE53D00B4149A /* CVLaTercera.m in Sources */,
 				17DAB9A51CCDC57F000CD406 /* LectiosViewController.m in Sources */,
 				171AFA5E1CCF8BE000705817 /* EventosViewController.m in Sources */,
+				D0FAD5971CDA641000BF00D4 /* MKMapView+ZoomLevel.m in Sources */,
 				D0FF55751CCFC94F00EA71F4 /* ViajesClub.m in Sources */,
 				D03F4F3E1CCE782A00B5835D /* ViewControllerRootPage.m in Sources */,
 				D0FA1C2B1CD0FDA900D18188 /* ConfirmationViewController.m in Sources */,

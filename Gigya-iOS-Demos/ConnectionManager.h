@@ -22,6 +22,7 @@ typedef void (^getDataBlock)(BOOL success, NSArray* arrayJson, NSError *error);
 -(NSDictionary*)getSubCategoriesForCatId:(int)catId;
 -(NSDictionary*)getCategoryForCatId:(int)catId;
 -(void)getStoreWithId:(getDataBlock)completionBlock :(int)idStore;
+-(void)getStoresAndBenefitsForCategoryId:(getDataBlock)completionBlock :(int)idCat;
 -(void)getBenefits:(getDataBlock)completionBlock;
 -(void)getCommerces:(getDataBlock)completionBlock;
 -(void)getStores:(getDataBlock)completionBlock;

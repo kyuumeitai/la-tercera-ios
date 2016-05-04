@@ -98,7 +98,7 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
         completionBlock(NO,nil,error);
         
     }];
-    
+
 }
 
 
@@ -152,6 +152,24 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     }];
 }
 
+-(void)getStoresAndBenefitsForCategoryId:(getDataBlock)completionBlock :(int)idCat {
+    
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/storeBenefits/%d/?format=json",BaseURLString,idCat]];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        NSArray *jsonArray = (NSArray *) responseObject;
+        
+        completionBlock(YES,jsonArray ,nil);
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+        completionBlock(NO,nil,error);
+        
+    }];
+}
 
 -(void)getStoreWithId:(getDataBlock)completionBlock :(int)idStore{
     
@@ -166,9 +184,7 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
-        
         completionBlock(NO,nil,error);
-        
     }];
 }
 

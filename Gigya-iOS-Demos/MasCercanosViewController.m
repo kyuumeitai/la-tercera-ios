@@ -14,6 +14,7 @@
 #import "Tools.h"
 #import "SingletonManager.h"
 #import "MapAnnotation.h"
+#import "MKMapView+ZoomLevel.h"
 #define METERS_PER_MILE 1609.344
 #define MapDistanceInMeters 600
 
@@ -34,7 +35,6 @@ int cuenta;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[self loadCategory];
     cuenta = 0;
     firstTime = true;
     // Do any additional setup after loading the view, typically from a nib.
@@ -71,12 +71,7 @@ int cuenta;
     
     if (authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
         NSLog(@"Autorizado");
-        _locationManager .desiredAccuracy = kCLLocationAccuracyBestForNavigation;   // 2 kilometers - hope for accuracy within 2 km.
-        //_locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
-        [self.locationManager startUpdatingLocation];
-        
-        _mapView.showsUserLocation = YES;
-        
+
         [self loadData ];
     }else{
         [self.locationManager requestWhenInUseAuthorization];
@@ -103,9 +98,10 @@ int cuenta;
     NSLog(@"Finished map load");    // Place a single pin
 
    // [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(loadStoresPin) userInfo:nil repeats:NO];
+    SingletonManager *singleton = [SingletonManager singletonManager];
+    userLocation = singleton.userLocation;
+    _mapView.centerCoordinate =     userLocation.coordinate;
 
-_mapView.centerCoordinate =     userLocation.coordinate;
-[locationManager stopUpdatingLocation];
 }
 
 
@@ -188,11 +184,13 @@ _mapView.centerCoordinate =     userLocation.coordinate;
 [locationManager stopUpdatingLocation];
     
     _mapView.delegate = self;
-    
+    SingletonManager *singleton = [SingletonManager singletonManager];
+     _userLocation = singleton.userLocation;
     MKMapRect zoomRect = MKMapRectNull;
-    
+    _mapView.showsUserLocation = YES;
+
     MKMapPoint annotationPoint = MKMapPointForCoordinate(_userLocation.coordinate);
-    MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+    MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
     if (MKMapRectIsNull(zoomRect)) {
         zoomRect = pointRect;
     }else{
@@ -200,7 +198,13 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     }
     zoomRect = MKMapRectUnion(zoomRect, pointRect);
     
-    [_mapView setVisibleMapRect:zoomRect edgePadding:UIEdgeInsetsMake(10, 10, 10, 10) animated:YES];
+    CLLocationCoordinate2D coordenadaUser = CLLocationCoordinate2DMake(_userLocation.coordinate.latitude, _userLocation.coordinate.longitude);
+    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(coordenadaUser, 480, 480)];
+    adjustedRegion.span.longitudeDelta  = 0.02;
+    adjustedRegion.span.latitudeDelta  = 0.02;
+    [self.mapView setRegion:adjustedRegion animated:YES];
+
+    //NSLog(@"%f",adjustedRegion.span.latitudeDelta);
 }
 
 
@@ -219,20 +223,20 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     //BOOL estaConectado = [connectionManager verifyConnection];
    // NSLog(@"Verificando conexión: %d",estaConectado);
-    [connectionManager getStores:^(BOOL success, NSArray *arrayJson, NSError *error) {
-        // IMPORTANT - Only update the UI on the main thread
+    [connectionManager getStoresAndBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
             } else {
-                [self reloadStoresDataFromService:arrayJson :idCategory];
-               
+                [self reloadStoresDataFromService:arrayJson];
+                // NSLog(@"Lista jhson: %@",arrayJson);
             }
         });
-    }];
+    }:idCategory];
 }
 
--(void) reloadStoresDataFromService:(NSArray*)arrayJson :(int) idCategory{
+-(void) reloadStoresDataFromService:(NSArray*)arrayJson{
    
     storeItemsArray = [[NSMutableArray alloc] init];
     
@@ -240,15 +244,11 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     NSLog(@" ******* LISTADO DE SUCURSALES ****** ----------------------");
     bool showEven = false;
     
-    if (idCategory%2 == 0){
-        NSLog(@" Par ");
-        showEven = YES;
-    }
-    
+
     for (id store in arrayJson){
         
         
-        int idStore =[ [store objectForKey:@"id"] intValue];
+        int idStore =[ [store objectForKey:@"remote_id"] intValue];
         id title = [store objectForKey:@"title"];
         id address = [store objectForKey:@"address"];
         id geoLocation = [store objectForKey:@"geocoords"];
@@ -267,19 +267,12 @@ _mapView.centerCoordinate =     userLocation.coordinate;
         store.storeAddress = address;
         store.storeLocation = storeLocation;
         
-        if(showEven){
-            NSLog(@"--Show Even--");
-            if(idStore%2 == 0){
-                NSLog(@"-- idStore --- : %i",idStore);
-                [storeItemsArray addObject:store];
-            }
-        }else{
-            if(idStore%2 != 0){
+
                  NSLog(@"-- idStore --- : %i",idStore);
                 [storeItemsArray addObject:store];
-            }
+   
             
-        }
+   
         
     }
     
@@ -302,16 +295,7 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     [errorAlert show];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    
-   //
-   singleton.userLocation = userLocation;
-    userLocation = [locations lastObject];
-  
-    _mapView.delegate = self;
- [_mapView reloadInputViews];
- //  NSLog(@"USER LOCATION : %@", userLocation);
-}
+
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
@@ -357,7 +341,7 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:2];
+    [self loadCategory:3];
     
 }
 - (IBAction)saboresClicked:(id)sender {

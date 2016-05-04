@@ -84,8 +84,6 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
                 imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
             
             cell.imageDestacada.image = imagenBeneficio;
-
-
         }
         return cell;
     }else{
