@@ -56,22 +56,7 @@ NSMutableArray *listaBeneficios3;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *simpleTableIdentifier = @"BanioTableCell";
-    
-    
-    
-    /*MyManager *singleton = [MyManager sharedManager];
-     NSString *storyBoardName = singleton.storyBoardName;
-     
-     
-     if ([storyBoardName isEqualToString:@"MainStoryboard-iPhone4"] )
-     nib = [[NSBundle mainBundle] loadNibNamed:@"BaniosTableViewCell-iPhone4" owner:self options:nil];
-     if ([storyBoardName isEqualToString:@"MainStoryboard-iPhone5"] )
-     nib = [[NSBundle mainBundle] loadNibNamed:@"BaniosTableViewCell-iPhone5" owner:self options:nil];
-     if ([storyBoardName isEqualToString:@"MainStoryboard-iPhone6"] )
-     nib = [[NSBundle mainBundle] loadNibNamed:@"BaniosTableViewCell-iPhone6" owner:self options:nil];
-     if ([storyBoardName isEqualToString:@"MainStoryboard-iPhone6Plus"] )
-     */
+static NSString *simpleTableIdentifier = @"ClubCategoryTableCell3";
     NSArray *nib;
     
     if (indexPath.row==0) {
@@ -87,7 +72,19 @@ NSMutableArray *listaBeneficios3;
             cell.labelSubtitulo.text = beneficio.summary;
             cell.labelDescuento.text = beneficio.desclabel;
             cell.labelDistancia.text = @"A 200 metros de su ubicación";
-            cell.imageDestacada.image = beneficio.imagenNormal;
+            
+            //Get Image
+
+            NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
+            UIImage *imagenBeneficio = nil;
+            
+            //Now data is decoded. You can convert them to UIImage
+            imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
+            if(imagenBeneficio == nil)
+                imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+            
+            cell.imageDestacada.image = imagenBeneficio;
+
         }
         return cell;
     }else{
@@ -106,12 +103,18 @@ NSMutableArray *listaBeneficios3;
         cell.labelTitulo.text = beneficio2.title;
         cell.labelDescuento.text = beneficio2.desclabel;
         cell.labelDistancia.text = @"A 200 metros de su ubicación";
-        NSLog(@" Imagen beneficionormal: %@",beneficio2.imagenNormal);
-        cell.imageCategoria.image = beneficio2.imagenNormal;
-
+        //Get Image
+        NSArray * arr2 = [beneficio2.imagenNormalString componentsSeparatedByString:@","];
+        UIImage *imagenBeneficio2 = nil;
+        
+        //Now data is decoded. You can convert them to UIImage
+        imagenBeneficio2 = [Tools decodeBase64ToImage:[arr2 lastObject]];
+        if(!imagenBeneficio2)
+            imagenBeneficio2 = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+        cell.imageCategoria.image = imagenBeneficio2;
+        
         return cell;
     }
-    
     
 }
 
@@ -131,7 +134,16 @@ NSMutableArray *listaBeneficios3;
     DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
     Benefit *beneficio = [self.benefitsItemsArray3 objectAtIndex:indexPath.row];
     [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen];
-    detalleBeneficio.benefitImage = beneficio.imagenNormal;
+    //Get Image
+    NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
+    UIImage *imagenBeneficio = nil;
+    
+    //Now data is decoded. You can convert them to UIImage
+    imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
+    if(imagenBeneficio == nil)
+        imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+    
+    detalleBeneficio.benefitImage = imagenBeneficio;
     detalleBeneficio.benefitTitle= beneficio.title;
     detalleBeneficio.benefitAddress = @"A 200 metros de su ubicación";
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
@@ -167,7 +179,7 @@ NSMutableArray *listaBeneficios3;
 }
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
-    NSLog(@"  reload beenfits  ");
+    NSLog(@"  reload benefits Tiempo Libre");
     self.benefitsItemsArray3 = [[NSMutableArray alloc] init];
     
     NSDictionary *tempDict = (NSDictionary*)arrayJson;
@@ -189,40 +201,28 @@ NSMutableArray *listaBeneficios3;
         beneficio.url = linkBen;
         beneficio.summary= summaryBen;
         beneficio.desclabel = benefitLabelBen;
-        
-        
+  
         if([benefit objectForKey:@"image"] != [NSNull null]){
-            UIImage *imagenBeneficio = nil;
-            NSString *imagenBen = [benefit objectForKey:@"image"] ;
-            NSArray * arr = [imagenBen componentsSeparatedByString:@","];
             
-            //Now data is decoded. You can convert them to UIImage
-            imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
-            if(imagenBeneficio){
-                beneficio.imagenNormal = imagenBeneficio;
-            }else{
-                imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
-            }
-            beneficio.imagenNormal = imagenBeneficio;
+            NSString *imagenBen = [benefit objectForKey:@"image"] ;
+            beneficio.imagenNormalString = imagenBen;
         }
         
         [self.benefitsItemsArray3 addObject:beneficio];
-        
-        
-       
+
     }
     self.view.alpha = 0.0;
     [self.tableView reloadData];
-    [UIView animateWithDuration:0.3
+    [UIView animateWithDuration:0.5
                      animations:^{ self.view.alpha = 1.0; /* Some fake chages */
                          
                      }
                      completion:^(BOOL finished)
      {
-         [SVProgressHUD dismiss];
+         //[SVProgressHUD dismiss];
      }];
     
     
-    NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
+    NSLog(@" ******* RELOAD DATA TABLE Tiempo Libre ****** ----------------------");
 }
 @end

@@ -17,6 +17,7 @@
 @property (nonatomic,strong) NSString * summary;
 @property (nonatomic,strong) NSString * desclabel;
 @property (nonatomic,strong) UIImage *imagenNormal;
+@property (nonatomic,strong) NSString *imagenNormalString;
 
 -(void)logDescription;
 @end
