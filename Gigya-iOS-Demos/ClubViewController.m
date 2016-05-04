@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self findCurrentLocation];
    //[self loadCategories];
     // Do any additional setup after loading the view.
     //Creamos el singleton
@@ -47,17 +47,30 @@
     }
     
     
-    NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
     // Do any additional setup after loading the view.
    
 }
 
-- (void) viewWillAppear:(BOOL)animated{
+-(void)findCurrentLocation
+{
     
- 
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
+    
+    CLLocation *location = [locationManager location];
+    CLLocationCoordinate2D coordinate = [location coordinate];
+    
+    NSString *str=[[NSString alloc] initWithFormat:@" latitude:%f longitude:%f",coordinate.latitude,coordinate.longitude];
+    NSLog(@"%@",str);
+    SingletonManager *singleton = [SingletonManager singletonManager];
+    singleton.userLocation = location;
+    
+
+    
     
 }
-
 -(void)loadCategories{
     
     NSLog(@"Load categories");

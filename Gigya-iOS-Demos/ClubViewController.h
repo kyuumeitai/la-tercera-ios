@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ClubViewController : UIViewController {
+@interface ClubViewController : UIViewController <CLLocationManagerDelegate>{
 NSMutableArray * categoryItemsArray;
+    CLLocationManager *locationManager;
+    CLLocation *currentLocation;
 }
 @property (nonatomic, retain) NSMutableArray * categoryItemsArray;
 @end

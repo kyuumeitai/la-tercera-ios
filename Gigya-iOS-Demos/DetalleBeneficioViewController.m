@@ -9,6 +9,7 @@
 #import "DetalleBeneficioViewController.h"
 #import "UsarBeneficioEstandar.h"
 #import "ConnectionManager.h"
+#import "SingletonManager.h"
 #import "Tools.h"
 
 @interface DetalleBeneficioViewController ()
@@ -16,6 +17,9 @@
 @end
 @implementation DetalleBeneficioViewController
 @synthesize benefitId;
+CLLocationCoordinate2D storeLocation;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.benefitImageView.image = _benefitImage;
@@ -42,10 +46,12 @@
 }
 
 - (IBAction)seeInTheMapClicked:(id)sender {
-    
+    SingletonManager *singleton = [SingletonManager singletonManager];
+    CLLocation *userLocation = singleton.userLocation;
 
-    CLLocationCoordinate2D coord2DSource = CLLocationCoordinate2DMake(-33.467992, -70.626039);
-      CLLocationCoordinate2D coord2DDestination = CLLocationCoordinate2DMake(-33.422463, -70.609491);
+
+      CLLocationCoordinate2D coord2DSource = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude);
+    CLLocationCoordinate2D coord2DDestination = storeLocation;
 
     [Tools openMapsAppWithSourceLocation:coord2DSource andDestinationLocation:coord2DDestination];
 }
@@ -74,26 +80,55 @@
     }:idBenefit];
 }
 
--(void)loadStoreWhiteId:(int)idBenefit{
+-(void)loadStoreWithId:(int)idStore{
     
-    NSLog(@"Load category benefits");
+    NSLog(@"Load Store");
     // IMPORTANT - Only update the UI on the main thread
     // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
     NSLog(@"Verificando conexión: %d",estaConectado);
-    [connectionManager getBenefitWithBenefitId:^(BOOL success, NSArray *arrayJson, NSError *error){
+    [connectionManager getStoreWithId:^(BOOL success, NSArray *arrayJson, NSError *error){
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
             } else {
-                [self reloadBenefitsDataFromService:arrayJson];
+                [self loadStoreDataFromService:arrayJson];
             }
         });
-    }:idBenefit];
+    }:idStore];
 }
+
+
+
+-(void) loadStoreDataFromService:(NSArray*)arrayJson{
+    
+    NSDictionary *storeDict = (NSDictionary*)arrayJson;
+
+   
+    NSString* address = [storeDict objectForKey:@"address"];
+   // NSString* city = [storeDict objectForKey:@"city"];
+    NSString* region = [storeDict objectForKey:@"region"];
+    NSArray* arrayCoords = (NSArray*)[storeDict objectForKey:@"geocoords"];
+    double latitud = [arrayCoords[0] doubleValue];
+    double longuitud = [arrayCoords[1] doubleValue];
+    storeLocation = CLLocationCoordinate2DMake(latitud, longuitud);
+    CLLocation *coordenadas = [[CLLocation alloc] initWithLatitude:latitud longitude:longuitud ];
+    NSString * direccion = [NSString stringWithFormat:@"%@, Región %@",address,region];
+    self.benefitAdressLabel.text = direccion;
+    // NSLog(@"Geolocalizacion es: Latitud:%f, Longuitud:%f",coordenadas.latitude,coordenadas.longitude);
+    SingletonManager *singleton = [SingletonManager singletonManager];
+    CLLocation *userLocation = singleton.userLocation;
+    
+    CLLocationDistance distanceMeters = [coordenadas distanceFromLocation:userLocation];
+    int kms = (int) (distanceMeters/1000);
+
+    NSLog(@"A %f kms de distancia",distanceMeters);
+    
+}
+
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
     NSLog(@"  reload beenfits  ");
@@ -166,6 +201,12 @@
                      animations:^{ self.benefitTitleLabel.alpha = 1;}
                      completion:nil];
 
+
+    //Loading Store
+    NSArray* storeArray = (NSArray*)[tempDict objectForKey:@"related_store"];
+    int storeId = [[storeArray firstObject] intValue];
+    NSLog(@" EL store relacionado es:%d",storeId);
+    [self loadStoreWithId:storeId];
 
     //Loading Description
     NSString* description = [tempDict objectForKey:@"description"];
