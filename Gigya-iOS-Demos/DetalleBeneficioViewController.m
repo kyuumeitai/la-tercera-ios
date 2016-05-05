@@ -23,6 +23,7 @@ CLLocationCoordinate2D storeLocation;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.benefitImageView.image = _benefitImage;
+     self.benefitAdressLabel.alpha = 0;
       // self.benefitDescriptionTextView.text = _benefitDescription;
    // [self loadBenefitForBenefitId:self.benefitId];
     // Do any additional setup after loading the view.
@@ -118,12 +119,16 @@ CLLocationCoordinate2D storeLocation;
     CLLocation *coordenadas = [[CLLocation alloc] initWithLatitude:latitud longitude:longuitud ];
     NSString * direccion = [NSString stringWithFormat:@"%@, Región %@",address,region];
     self.benefitAdressLabel.text = direccion;
+    self.benefitAdressLabel.alpha = 0;
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{ self.benefitAdressLabel.alpha = 1;}
+                     completion:nil];
     // NSLog(@"Geolocalizacion es: Latitud:%f, Longuitud:%f",coordenadas.latitude,coordenadas.longitude);
     SingletonManager *singleton = [SingletonManager singletonManager];
     CLLocation *userLocation = singleton.userLocation;
     
     CLLocationDistance distanceMeters = [coordenadas distanceFromLocation:userLocation];
-    int kms = (int) (distanceMeters/1000);
+    //int kms = (int) (distanceMeters/1000);
 
     NSLog(@"A %f kms de distancia",distanceMeters);
     

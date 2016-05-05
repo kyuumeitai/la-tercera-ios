@@ -18,7 +18,11 @@
 @property (nonatomic, strong) NSString               *distanciaEnMetros;
 @property (nonatomic, assign) CGFloat                dMeter;
 @property (nonatomic, assign) int idStore;
+@property (nonatomic, assign) int idBenefit;
 @property (nonatomic, strong) UIImage *imagenStore;
+@property (nonatomic, strong) NSString* titleBenefit;
+@property (nonatomic, strong) NSString* descText;
+@property (nonatomic, strong) NSString* imagenNormalString;
 @property (nonatomic, copy) NSString *descripcion;
 @property (nonatomic, copy) NSString *direccion;
 @property  int likes;

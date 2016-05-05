@@ -14,6 +14,9 @@
 #import "Tools.h"
 #import "SingletonManager.h"
 #import "MapAnnotation.h"
+//#import "MKMapView+ZoomLevel.h"
+#import "DetalleBeneficioViewControllerFromMap.h"
+#import "MKPointAnnotation_custom.h"
 #define METERS_PER_MILE 1609.344
 #define MapDistanceInMeters 600
 
@@ -34,7 +37,6 @@ int cuenta;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[self loadCategory];
     cuenta = 0;
     firstTime = true;
     // Do any additional setup after loading the view, typically from a nib.
@@ -71,12 +73,7 @@ int cuenta;
     
     if (authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
         NSLog(@"Autorizado");
-        _locationManager .desiredAccuracy = kCLLocationAccuracyBestForNavigation;   // 2 kilometers - hope for accuracy within 2 km.
-        //_locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
-        [self.locationManager startUpdatingLocation];
-        
-        _mapView.showsUserLocation = YES;
-        
+
         [self loadData ];
     }else{
         [self.locationManager requestWhenInUseAuthorization];
@@ -88,11 +85,15 @@ int cuenta;
     for (Store *tienda in storeItemsArray) {
         
         // Add an annotation
-        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+        MKPointAnnotation_custom *point = [[MKPointAnnotation_custom alloc] init];
         point.coordinate = tienda.storeLocation;
         point.title = tienda.storeDescription;
         point.subtitle = tienda.storeAddress;
-        
+        point.benefitId = tienda.idBenefit ;
+        point.storeId = tienda.idStore ;
+        point.normalImageString = tienda.imagenNormalString;
+        point.benefitTitle = tienda.titleBenefit;
+        point.DescText = tienda.descText;
         [self.mapView addAnnotation:point];
     }
      [SVProgressHUD dismiss];
@@ -103,9 +104,10 @@ int cuenta;
     NSLog(@"Finished map load");    // Place a single pin
 
    // [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(loadStoresPin) userInfo:nil repeats:NO];
+    SingletonManager *singleton = [SingletonManager singletonManager];
+    userLocation = singleton.userLocation;
+    _mapView.centerCoordinate =     userLocation.coordinate;
 
-_mapView.centerCoordinate =     userLocation.coordinate;
-[locationManager stopUpdatingLocation];
 }
 
 
@@ -126,8 +128,10 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     // create a disclosure button for map kit
     UIButton *disclosure = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     
-    [disclosure addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                             action:@selector(openStoreDetail)]];
+   // [disclosure addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self                                                                           action:@selector(openStoreDetail:)] ];
+    
+    view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+
     view.rightCalloutAccessoryView = disclosure;
 
     view.canShowCallout = YES;
@@ -138,16 +142,84 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     view.enabled = YES;
     view.image = [UIImage imageNamed:@"IconoPin.png"];
 
-    
-    
     return view;
 }
 
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    //launch a new view upon touching the disclosure indicator
+    NSLog(@"Detail Opened");
+    int benefitId = ((MKPointAnnotation_custom*)view.annotation).benefitId;
+    int storeId = ((MKPointAnnotation_custom*)view.annotation).storeId;
+    NSString *normalImage = ((MKPointAnnotation_custom*)view.annotation).normalImageString;
+    NSString *titleBen = ((MKPointAnnotation_custom*)view.annotation).benefitTitle;
+    NSString *discBen = ((MKPointAnnotation_custom*)view.annotation).DescText;
+    
+    
+    NSLog(@"el Id del beneficio es:%d y el id del Store es:%d",benefitId,storeId);
+    
+    
+    //Party goes on
+    DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
+    [detalleBeneficio loadBenefitForBenefitId:benefitId];
+    
+    //Get Image
+    NSArray * arr = [normalImage componentsSeparatedByString:@","];
+    UIImage *imagenBeneficio = nil;
+    
+    //Now data is decoded. You can convert them to UIImage
+    imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
+    if(imagenBeneficio == nil)
+        imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+    
+    detalleBeneficio.benefitImage = imagenBeneficio;
+    
+    detalleBeneficio.benefitTitle= titleBen;
+   // detalleBeneficio.benefitAddress = @"Nueva Providencia #283, Providencia, Santiago       A 200 metros de su ubicación";
+    detalleBeneficio.benefitDiscount= discBen;
+   // detalleBeneficio.benefitDescription = beneficio.summary;
+    detalleBeneficio.benefitId = benefitId;
+    // NSLog(@"ID beneficio es: %d",detalleBeneficio.benefitId);
+    
+    [self.navigationController pushViewController: detalleBeneficio animated:YES];
 
--(void)openStoreDetail{
+}
+
+/*
+-(void)openStoreDetail:(id)sender{
     
     NSLog(@"Detail Opened");
+    UIButton *btn = (UIButton *) sender.
+    MKAnnotationView *av = (MKAnnotationView *)[btn superview];
+    id<MKAnnotation> ann = av.annotation;
+    NSLog(@"handlePinButtonTap: ann.title=%@", ann.title);
+
+    DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
+    Benefit *beneficio = [self.benefitsItemsArray5 objectAtIndex:indexPath.row];
+    [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen];
+    
+    //Get Image
+    NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
+    UIImage *imagenBeneficio = nil;
+    
+    //Now data is decoded. You can convert them to UIImage
+    imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
+    if(imagenBeneficio == nil)
+        imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+    
+    detalleBeneficio.benefitImage = imagenBeneficio;
+    
+    detalleBeneficio.benefitTitle= beneficio.title;
+    detalleBeneficio.benefitAddress = @"Nueva Providencia #283, Providencia, Santiago       A 200 metros de su ubicación";
+    detalleBeneficio.benefitDiscount= beneficio.desclabel;
+    detalleBeneficio.benefitDescription = beneficio.summary;
+    detalleBeneficio.benefitId = beneficio.idBen;
+    // NSLog(@"ID beneficio es: %d",detalleBeneficio.benefitId);
+    
+    [self.navigationController pushViewController: detalleBeneficio animated:YES];
+ 
 }
+*/
 
 #pragma mark - Data management
 -(void)loadData {
@@ -177,8 +249,6 @@ _mapView.centerCoordinate =     userLocation.coordinate;
    [self updateMyMap];
 }
 
-
-
 #pragma mark - MapView Methods
 
 - (void)updateMyMap{
@@ -188,11 +258,13 @@ _mapView.centerCoordinate =     userLocation.coordinate;
 [locationManager stopUpdatingLocation];
     
     _mapView.delegate = self;
-    
+    SingletonManager *singleton = [SingletonManager singletonManager];
+     _userLocation = singleton.userLocation;
     MKMapRect zoomRect = MKMapRectNull;
-    
+    _mapView.showsUserLocation = YES;
+
     MKMapPoint annotationPoint = MKMapPointForCoordinate(_userLocation.coordinate);
-    MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+    MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
     if (MKMapRectIsNull(zoomRect)) {
         zoomRect = pointRect;
     }else{
@@ -200,7 +272,13 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     }
     zoomRect = MKMapRectUnion(zoomRect, pointRect);
     
-    [_mapView setVisibleMapRect:zoomRect edgePadding:UIEdgeInsetsMake(10, 10, 10, 10) animated:YES];
+    CLLocationCoordinate2D coordenadaUser = CLLocationCoordinate2DMake(_userLocation.coordinate.latitude, _userLocation.coordinate.longitude);
+    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(coordenadaUser, 480, 480)];
+    adjustedRegion.span.longitudeDelta  = 0.02;
+    adjustedRegion.span.latitudeDelta  = 0.02;
+    [self.mapView setRegion:adjustedRegion animated:YES];
+
+    //NSLog(@"%f",adjustedRegion.span.latitudeDelta);
 }
 
 
@@ -219,77 +297,74 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     //BOOL estaConectado = [connectionManager verifyConnection];
    // NSLog(@"Verificando conexión: %d",estaConectado);
-    [connectionManager getStores:^(BOOL success, NSArray *arrayJson, NSError *error) {
-        // IMPORTANT - Only update the UI on the main thread
+    [connectionManager getStoresAndBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
             } else {
-                [self reloadStoresDataFromService:arrayJson :idCategory];
-               
+                [self reloadStoresDataFromService:arrayJson];
+                // NSLog(@"Lista jhson: %@",arrayJson);
             }
         });
-    }];
+    }:idCategory];
 }
 
--(void) reloadStoresDataFromService:(NSArray*)arrayJson :(int) idCategory{
+-(void) reloadStoresDataFromService:(NSArray*)arrayJson{
    
     storeItemsArray = [[NSMutableArray alloc] init];
     
     NSLog(@"     ");
     NSLog(@" ******* LISTADO DE SUCURSALES ****** ----------------------");
-    bool showEven = false;
-    
-    if (idCategory%2 == 0){
-        NSLog(@" Par ");
-        showEven = YES;
-    }
     
     for (id store in arrayJson){
         
-        
-        int idStore =[ [store objectForKey:@"id"] intValue];
-        id title = [store objectForKey:@"title"];
+        int idStore =[ [store objectForKey:@"remote_id"] intValue];
+       
         id address = [store objectForKey:@"address"];
         id geoLocation = [store objectForKey:@"geocoords"];
-        
         NSArray *coords = [NSArray arrayWithArray:geoLocation];
+        NSArray *benefitsArray = (NSArray*)[store objectForKey:@"benefits"];
         
+         id title = [benefitsArray[0] objectForKey:@"title"];
+        id discount = [benefitsArray[0] objectForKey:@"benefit_label"];
+        int idBenefit = [[benefitsArray[0] objectForKey:@"id"] intValue];
+        NSString *normalImageString = [benefitsArray[0] objectForKey:@"image"];
+          NSString *newString ;
+        NSRange range = [title rangeOfString:@":"];
+        if (range.location == NSNotFound){
+            newString = title;
+        }else{
+        newString = [title substringToIndex:range.location];
+        //NSLog(@"%@",newString);
+        }
         CLLocationCoordinate2D storeLocation ;
         
         storeLocation.latitude =  [coords[0] doubleValue];
         storeLocation.longitude = [coords[1] doubleValue];
         
-        NSLog(@"           Store id: %d , titulo: %@, address: %@, geolocacion: (%f,%f)",idStore,title,address,storeLocation.latitude, storeLocation.longitude);
+        //NSLog(@"           Store id: %d , titulo: %@, address: %@, geolocacion: (%f,%f)",idStore,title,address,storeLocation.latitude, storeLocation.longitude);
         Store *store = [[Store alloc]init];
         store.idStore = idStore;
-        store.storeDescription= title;
+        store.titleBenefit = title;
+        store.descText = discount;
+        store.imagenNormalString = normalImageString;
+        store.storeDescription= newString;
         store.storeAddress = address;
         store.storeLocation = storeLocation;
+        store.idStore = idStore;
+        store.idBenefit = idBenefit;
         
-        if(showEven){
-            NSLog(@"--Show Even--");
-            if(idStore%2 == 0){
-                NSLog(@"-- idStore --- : %i",idStore);
-                [storeItemsArray addObject:store];
-            }
-        }else{
-            if(idStore%2 != 0){
-                 NSLog(@"-- idStore --- : %i",idStore);
-                [storeItemsArray addObject:store];
-            }
-            
-        }
-        
+        //NSLog(@"-- idStore --- : %i",idStore);
+        [storeItemsArray addObject:store];
     }
     
-    NSLog(@"-- StoreItems cantidad = %lu",(unsigned long)storeItemsArray.count );
+    //NSLog(@"-- StoreItems cantidad = %lu",(unsigned long)storeItemsArray.count );
     [_mapView reloadInputViews];
     [_mapView removeAnnotations:_mapView.annotations];
 
-    
     [self loadStoresPin];
-    NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
+    //NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -300,17 +375,6 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     UIAlertView *errorAlert = [[UIAlertView alloc]
                                initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    
-   //
-   singleton.userLocation = userLocation;
-    userLocation = [locations lastObject];
-  
-    _mapView.delegate = self;
- [_mapView reloadInputViews];
- //  NSLog(@"USER LOCATION : %@", userLocation);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -340,7 +404,7 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     self.botonViajes.selected = NO;
     self.botonTodos.selected = NO;
     
-    [self loadCategory:1];
+    [self loadCategory:8];
 }
 
 - (IBAction)todosClicked:(id)sender {
@@ -357,7 +421,7 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:2];
+    [self loadCategory:3];
     
 }
 - (IBAction)saboresClicked:(id)sender {
@@ -391,7 +455,7 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:4];
+    [self loadCategory:29];
 }
 
 - (IBAction)tiempoLibreClicked:(id)sender {
@@ -425,7 +489,7 @@ _mapView.centerCoordinate =     userLocation.coordinate;
     self.botonServicios.selected = YES;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:6];
+    [self loadCategory:4];
 }
 
 - (IBAction)viajesClicked:(id)sender {
