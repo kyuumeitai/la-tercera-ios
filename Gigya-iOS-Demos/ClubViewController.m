@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self findCurrentLocation];
+    [self requestLocation];
    //[self loadCategories];
     // Do any additional setup after loading the view.
     //Creamos el singleton
@@ -51,26 +51,44 @@
    
 }
 
--(void)findCurrentLocation
-{
+
+
+-(void)requestLocation {
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager startUpdatingLocation];
     
-    CLLocation *location = [locationManager location];
-    CLLocationCoordinate2D coordinate = [location coordinate];
+    //self.locationManager.distanceFilter  = 1000.0f;
     
-    NSString *str=[[NSString alloc] initWithFormat:@" latitude:%f longitude:%f",coordinate.latitude,coordinate.longitude];
-    NSLog(@"%@",str);
-    SingletonManager *singleton = [SingletonManager singletonManager];
-    singleton.userLocation = location;
+    // Check for iOS 8 Vs earlier version like iOS7.Otherwise code will
+    // crash on ios 7
+    if ([locationManager respondsToSelector:@selector
+         (requestWhenInUseAuthorization)]) {
+        [locationManager requestWhenInUseAuthorization];
+    }
     
+    CLAuthorizationStatus authorizationStatus= [CLLocationManager authorizationStatus];
+    
+    if (authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        NSLog(@"Autorizado");
+        locationManager .desiredAccuracy = kCLLocationAccuracyBestForNavigation;   // 2 kilometers - hope for accuracy within 2 km.
+        //_locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
+        [locationManager startUpdatingLocation];
+        
+        CLLocation *location = [locationManager location];
+        CLLocationCoordinate2D coordinate = [location coordinate];
+        
+        NSString *str=[[NSString alloc] initWithFormat:@" latitude:%f longitude:%f",coordinate.latitude,coordinate.longitude];
+        NSLog(@"%@",str);
+        SingletonManager *singleton = [SingletonManager singletonManager];
+        singleton.userLocation = location;
 
-    
-    
+    }else{
+        [locationManager requestWhenInUseAuthorization];
+    }
 }
+
 -(void)loadCategories{
     
     NSLog(@"Load categories");
