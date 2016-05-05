@@ -14,7 +14,7 @@
 #import "Tools.h"
 #import "SingletonManager.h"
 #import "MapAnnotation.h"
-//#import "MKMapView+ZoomLevel.h"
+#import "MKMapView+ZoomLevel.h"
 #import "DetalleBeneficioViewControllerFromMap.h"
 #import "MKPointAnnotation_custom.h"
 #define METERS_PER_MILE 1609.344
