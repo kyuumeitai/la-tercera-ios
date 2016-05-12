@@ -17,6 +17,7 @@
 #import "MKMapView+ZoomLevel.h"
 #import "DetalleBeneficioViewControllerFromMap.h"
 #import "MKPointAnnotation_custom.h"
+#import "YActionSheet.h"
 #define METERS_PER_MILE 1609.344
 #define MapDistanceInMeters 800
 
@@ -52,6 +53,14 @@ int cuenta;
 -(void)viewWillAppear:(BOOL)animated{
    
     [self todosClicked:nil];
+}
+- (IBAction)openFilter:(UIButton *)sender {
+    YActionSheet *options = [[YActionSheet alloc] initWithTitle:@"Options"
+                                            dismissButtonTitle:@"Title"
+                                              otherButtonTitles:@[@"One", @"Two", @"Three", @"Four", @"Five"]                                           dismissOnSelect:NO];
+    [options showInViewController:self withYActionSheetBlock:^(NSInteger buttonIndex, BOOL isCancel) {
+        // Handle block completion
+    }];
 }
 
 -(void)requestLocation {
