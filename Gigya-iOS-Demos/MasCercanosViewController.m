@@ -18,7 +18,7 @@
 #import "DetalleBeneficioViewControllerFromMap.h"
 #import "MKPointAnnotation_custom.h"
 #define METERS_PER_MILE 1609.344
-#define MapDistanceInMeters 600
+#define MapDistanceInMeters 800
 
 @implementation MasCercanosViewController
 
