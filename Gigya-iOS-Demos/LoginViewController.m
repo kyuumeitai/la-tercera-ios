@@ -83,6 +83,7 @@
             if (!error) {
             // Login was successful
                  NSLog(@"Screenset exitoso!");
+                
             }
             else {
             // Handle error
@@ -144,56 +145,49 @@
 }
 
 
-- (void)pluginView:(GSPluginView *)pluginView finishedLoadingPluginWithEvent:(NSDictionary *)event {
-    NSLog(@"Carga de plugin finalizada con evento de Plugin: %@", event);
-    
-    NSDictionary *myDictionary = event;
-    
-    
-
-    
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:myDictionary
-                                                       options:0
-                                                         error:&error];
-    
-    if (!jsonData) {
-        
-        NSLog(@"JSON error: %@", error);
-        
-    } else {
-        
-        NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
-        NSLog(@"JSON OUTPUT: %@",JSONString);
-    }
+- (void)accountDidLogout {
+    self.user = nil;
 }
 
+- (void)pluginView:(GSPluginView *)pluginView finishedLoadingPluginWithEvent:(NSDictionary *)event {
+    NSLog(@"Carga de plugin finalizada con evento finishedLoadingPluginWithEvent: %@", event);
+}
 
 - (void)pluginView:(GSPluginView *)pluginView firedEvent:(NSDictionary *)event {
-    NSLog(@"Carga de plugin finalizada con evento firedEvent: %@", event);
     
-  
-    NSDictionary *response=[event objectForKey:@"response"];
-    NSError *error;
-    NSData *estatus = [NSJSONSerialization dataWithJSONObject:response
-                                                       options:0
-                                                         error:&error];
-    
-    if (!estatus) {
+    if([[event objectForKey:@"eventName"]isEqualToString:@"afterSubmit"]){
+        if([event objectForKey:@"errorCode"] == 0){
+            
+
+             NSLog(@"*** La respuesta es positiva: %@",[event objectForKey:@"response"]);
+            NSDictionary *diccion = [event objectForKey:@"response"];
+            NSDictionary *diccion2 = [diccion objectForKey:@"event"];
+            NSDictionary *userDict = [diccion2 objectForKey:@"user"];
+
+            NSString * userEmail = [userDict objectForKey:@"email"];
+            
+            UIAlertView *alert;
+            
+            alert = [[UIAlertView alloc] initWithTitle:@"Login exitoso"
+                                               message:userEmail
+                                              delegate:nil
+                                     cancelButtonTitle:@"OK"
+                                     otherButtonTitles:nil];
+            [alert show];
+            
+        }
+             NSLog(@"*** La respuesta es: negativa");
         
-        NSLog(@"estatus error: %@", error);
-        
-    } else {
-        
-        NSLog(@"El estatus es: %@",estatus);
     }
+   
 }
 
 - (void)pluginView:(GSPluginView *)pluginView didFailWithError:(NSError *)error {
-    NSLog(@"Carga de plugin finalizada con evento fallido: %@", error);
+    NSLog(@"Carga de plugin finalizada con evento:: %@", error);
 }
 
 - (void)accountDidLogin:(GSAccount *)account {
+    NSLog(@"Cuenta logueada con cuenta: %@", account.email);
     self.user = account;
     UIAlertView *alert;
     alert = [[UIAlertView alloc] initWithTitle:@"Test de sesión de Gigya"
@@ -204,9 +198,6 @@
     [alert show];
 }
 
-- (void)accountDidLogout {
-    self.user = nil;
-}
 
 
 @end

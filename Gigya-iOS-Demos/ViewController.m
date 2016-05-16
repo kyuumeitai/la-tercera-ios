@@ -157,6 +157,7 @@
 }
 
 - (void)accountDidLogin:(GSAccount *)account {
+    NSLog(@"Cuenta logueada con cuenta: %@", account.email);
     self.user = account;
     UIAlertView *alert;
     alert = [[UIAlertView alloc] initWithTitle:@"Test de sesión de Gigya"

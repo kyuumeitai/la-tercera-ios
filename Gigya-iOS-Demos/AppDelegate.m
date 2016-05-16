@@ -205,7 +205,7 @@ return YES;
 
 
 - (void)accountDidLogin:(GSAccount *)account {
-    
+
 }
 
 - (void)accountDidLogout {
@@ -281,6 +281,24 @@ return YES;
     //return (NSDictionary *)rc;
     return data;
 }
+
+- (void)pluginView:(GSPluginView *)pluginView firedEvent:(NSDictionary *)event
+{
+    NSLog(@"Plugin event from %@ - %@", pluginView.plugin, [event objectForKey:@"eventName"]);
+}
+
+
+- (void)pluginView:(GSPluginView *)pluginView finishedLoadingPluginWithEvent:(NSDictionary *)event
+{
+    NSLog(@"Finished loading plugin: %@", pluginView.plugin);
+}
+
+
+- (void)pluginView:(GSPluginView *)pluginView didFailWithError:(NSError *)error
+{
+    NSLog(@"Plugin error: %@", [error localizedDescription]);
+}
+
 
 
 @end
