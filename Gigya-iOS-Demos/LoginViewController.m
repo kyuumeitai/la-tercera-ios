@@ -7,8 +7,11 @@
 //
 
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <GigyaSDK/Gigya.h>
+#import "NoticiasHomeViewController.h"
+#import "SWRevealViewController.h"
 
 @interface LoginViewController ()
 @property GSAccount *user;
@@ -160,20 +163,19 @@
             
 
              NSLog(@"*** La respuesta es positiva: %@",[event objectForKey:@"response"]);
-            NSDictionary *diccion = [event objectForKey:@"response"];
-            NSDictionary *diccion2 = [diccion objectForKey:@"event"];
-            NSDictionary *userDict = [diccion2 objectForKey:@"user"];
-
-            NSString * userEmail = [userDict objectForKey:@"email"];
+            NSString *diccion = [event objectForKey:@"response"];
+          
             
             UIAlertView *alert;
             
             alert = [[UIAlertView alloc] initWithTitle:@"Login exitoso"
-                                               message:userEmail
+                                               message:diccion
                                               delegate:nil
                                      cancelButtonTitle:@"OK"
                                      otherButtonTitles:nil];
             [alert show];
+            
+     [self performSegueWithIdentifier:@"GoToSWReveal" sender:self];
             
         }
              NSLog(@"*** La respuesta es: negativa");

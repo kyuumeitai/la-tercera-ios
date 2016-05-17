@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -320,10 +321,13 @@ REGISTRARSE?</string>
                     </view>
                     <navigationItem key="navigationItem" id="IMT-Al-5dW"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="FRq-Fc-Jtx" kind="push" identifier="GoToSWReveal" id="QpD-Og-2iF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GO9-Ah-H3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2311.5" y="-573.5"/>
+            <point key="canvasLocation" x="-1214.5" y="-680.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X1h-hJ-v17">
@@ -667,7 +671,7 @@ REGISTRARSE?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmH-4O-f2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1363.5" y="-611.5"/>
+            <point key="canvasLocation" x="-1361.5" y="-505.5"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="qgq-i6-vkN">
@@ -687,7 +691,7 @@ REGISTRARSE?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zni-uQ-fzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-824.5" y="-634.5"/>
+            <point key="canvasLocation" x="-756.5" y="-622.5"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="Gsd-9V-kVK">
@@ -2002,7 +2006,7 @@ de tu descuento.</string>
         <!--Noticias Home View Controller-->
         <scene sceneID="lkj-LX-C17">
             <objects>
-                <viewController id="0B8-6F-OFF" customClass="NoticiasHomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoticiasHomeViewControllerSB" id="0B8-6F-OFF" customClass="NoticiasHomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rub-bV-f6m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2042,7 +2046,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5m-Dt-1F3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-945.5" y="228.5"/>
+            <point key="canvasLocation" x="-781.5" y="346.5"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="NDh-rI-uO2">
@@ -3701,7 +3705,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="CuC-Ze-8No" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" id="eDd-ZL-vsc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="381" height="498"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -4603,10 +4607,10 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LjX-Ol-dSP"/>
-        <segue reference="JhD-SO-oge"/>
+        <segue reference="QpD-Og-2iF"/>
         <segue reference="tqi-Nf-HuD"/>
         <segue reference="sEH-KV-sx8"/>
+        <segue reference="Yn4-yz-IfR"/>
         <segue reference="wuf-Nj-3R8"/>
     </inferredMetricsTieBreakers>
 </document>
