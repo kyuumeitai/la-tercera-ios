@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "SingletonManager.h"
+#import "InfantilContainerVC.h"
+#import "InitialViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <GigyaSDK/Gigya.h>
 
@@ -32,51 +35,12 @@
     pageControl.currentPageIndicatorTintColor = [UIColor redColor];
     UIColor *backColor = [UIColor colorWithRed: 1.0 green: 0.1 blue:0.1 alpha: 0.3];
     pageControl.backgroundColor = backColor;
- 
-           /*
-    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+    // grab correct storyboard depending on screen height
+    UIStoryboard *storyboard = [self grabStoryboard];
     
-       //NSLog(@"EL dictionary es:%@", responseDict);
-    
-    //NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &e];
-    
-    if (!responseDict) {
-        NSLog(@"Error parsing JSON: %@", e);
-    } else {
-        
-        if ([[responseDict objectForKey:@"respuesta"]  isEqual: @"1"]) {
-            NSLog(@"La respuesta es uno");
-            //NSLog(@"Mensaje: %@", [responseDict objectForKey:@"mensaje"]);
-           // NSLog(@"Categorias: %@", [jsonDictionary objectForKey:@"categorias"]);
-            
-        }
-        // NSLog(@"Dict Categorias : %@", [responseDict objectForKey:@"categorias"]);
-        NSArray *arrayCategorias = (NSArray*)[responseDict objectForKey:@"categorias"];
-        //NSLog(@"Categorias 0: %@", [arrayCategorias objectAtIndex:0]);
-
-        NSLog(@"    ------------ CATEGORIAS ------------");
-        for (NSDictionary* objeto in arrayCategorias) {
-            NSLog(@"        Categoría: %@. IdCategoria:%@", [objeto objectForKey:@"titulo"], [objeto objectForKey:@"id"]);
-            NSLog(@"    --------------------------------------");
-            NSArray *arraySubCategorias = (NSArray*)[objeto objectForKey:@"subcategorias"];
-            for (NSDictionary* subObjeto in arraySubCategorias) {
-                NSLog(@"            Subcategoría: %@. IdCategoria:%@", [subObjeto objectForKey:@"titulo"], [subObjeto objectForKey:@"id"]);
-            }
-            NSLog(@"    --------------------------------------");
-        }
-         */
-
-    //[self obtenerComercios];
-    //[self obtenerSucursales]; //Necesitamos el idComercio
-    //[self obtenerListaDeEventos];
-    //[self obtenerConcursos];
-        
-    //[self registrarConsumoDelBeneficio:27 idSucursal:1 mailUsuario:@"mail@mail.cl" monto:2500];//no acepta el input post del emailUsuario
-  // [self obtenerTarjetaVirtualDelUsuario:@"mail@mail.cl"];//no acepta el input post del emailUsuario
-    //[self obtenerHistorialDelUsuario:@"acornejo@copesa.cl"];//no acepta el input post del emailUsuario
-
-   // [self registrarParticipacionDelConcurso:1 nombres:@"Nombres" apellidos:@"Apellidos" rutUsuario:111111111 fechaNacimiento:@"2014-01-01" emailContacto:@"email@email.cl" fonoContacto:55555555 actividad:@"Actividad" comuna:@"Comuna" emailUsuario:@"email@asicom.cl"];//no acepta el input post del emailUsuario
-        
+    UIViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"initialViewController"];
+    self.window.rootViewController = rootViewController;
+    [self.window makeKeyAndVisible];
 
 return YES;
 }
@@ -297,6 +261,62 @@ return YES;
 - (void)pluginView:(GSPluginView *)pluginView didFailWithError:(NSError *)error
 {
     NSLog(@"Plugin error: %@", [error localizedDescription]);
+}
+
+- (UIStoryboard *)grabStoryboard {
+    //Singleton for grab storyboardName properly
+    SingletonManager *singleton = [SingletonManager singletonManager];
+    
+    // determine screen size
+    int screenHeight = [UIScreen mainScreen].bounds.size.height;
+    UIStoryboard *storyboard;
+    
+    switch (screenHeight) {
+            
+            // iPhone 4s
+        case 480:
+            NSLog(@"iPhone 4");
+            storyboard = [UIStoryboard storyboardWithName:@"LaTerceraStoryboard-iPhone4" bundle:nil];
+            singleton.storyBoardName = @"LaTerceraStoryboard-iPhone4";
+            singleton.width = 320;
+            break;
+            
+            // iPhone 5s
+        case 568:
+            NSLog(@"iPhone 5");
+            storyboard = [UIStoryboard storyboardWithName:@"LaTerceraStoryboard-iPhone5" bundle:nil];
+            singleton.storyBoardName = @"LaTerceraStoryboard-iPhone5";
+            singleton.width = 320;
+            break;
+            
+            // iPhone 6
+        case 667:
+            NSLog(@"iPhone 6");
+            storyboard = [UIStoryboard storyboardWithName:@"LaTerceraStoryboard-iPhone6" bundle:nil];
+            singleton.storyBoardName = @"LaTerceraStoryboard-iPhone6";
+            singleton.width = 375;
+            
+            break;
+            
+            // iPhone 6 Plus
+            
+        case 736:
+            NSLog(@"iPhone 6 PLus");
+            storyboard = [UIStoryboard storyboardWithName:@"LaTerceraStoryboard-iPhone6Plus" bundle:nil];
+            singleton.storyBoardName = @"LaTerceraStoryboard-iPhone6Plus";
+            break;
+            
+        default:
+            // it's an iPad
+            NSLog(@"NONE");
+            storyboard = [UIStoryboard storyboardWithName:@"LaTerceraStoryboard-iPhone6" bundle:nil];
+            singleton.storyBoardName = @"LaTerceraStoryboard-iPhone6";
+            singleton.width = 375;
+            
+            break;
+    }
+    
+    return storyboard;
 }
 
 
