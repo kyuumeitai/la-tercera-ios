@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClubSearchTableViewController : UITableViewController
-
+@interface ClubSearchTableViewController : UITableViewController <UITableViewDataSource,UITableViewDelegate>{
+ 
+}
 @end

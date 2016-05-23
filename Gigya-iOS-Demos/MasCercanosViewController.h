@@ -12,10 +12,11 @@
 #import "MapAnnotation.h"
 
 
-@interface MasCercanosViewController : UIViewController <CLLocationManagerDelegate,MKMapViewDelegate >{
+@interface MasCercanosViewController : UIViewController <CLLocationManagerDelegate,MKMapViewDelegate,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate, UISearchControllerDelegate >{
    
     MapAnnotation * annotation;
-    
+    NSArray *tableData;
+
     CLLocationManager * locationManager;
     NSMutableArray * storeItemsArray;
     CLLocation        * userLocation;
@@ -23,6 +24,8 @@
 
 }
 @property (nonatomic, copy) NSString* categoryName;
+@property BOOL searchControllerWasActive;
+@property BOOL searchControllerSearchFieldWasFirstResponder;
 
 @property (weak, nonatomic) IBOutlet UIButton *botonTodos;
 @property (weak, nonatomic) IBOutlet UIButton *botonSabores;

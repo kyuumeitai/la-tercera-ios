@@ -22,6 +22,7 @@
 #define MapDistanceInMeters 800
 
 @implementation MasCercanosViewController
+NSArray *tableData;
 
     CLLocationManager *locationManager;
     CLLocation  *userLocation;
@@ -47,6 +48,7 @@ int cuenta;
     
     _mapView.delegate = self;
     _mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+     tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
 
 }
 
@@ -534,6 +536,31 @@ int cuenta;
     
     [self loadCategory:8];
 }
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"el log de count: %lu",(unsigned long)[tableData count]);
+    return [tableData count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+    return cell;
+}
+
 
 
 @end
