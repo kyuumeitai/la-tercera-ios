@@ -40,6 +40,8 @@ int cuenta;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self todosClicked:nil];
+
     cuenta = 0;
     firstTime = true;
     // Do any additional setup after loading the view, typically from a nib.
@@ -53,12 +55,11 @@ int cuenta;
 
 -(void)viewWillAppear:(BOOL)animated{
    
-    [self todosClicked:nil];
 }
 - (IBAction)openFilter:(UIButton *)sender {
-    YActionSheet *options = [[YActionSheet alloc] initWithTitle:@"Options"
-                                            dismissButtonTitle:@"Title"
-                                              otherButtonTitles:@[@"One", @"Two", @"Three", @"Four", @"Five"]                                           dismissOnSelect:NO];
+    YActionSheet *options = [[YActionSheet alloc] initWithTitle:@"Filtrar por Ciudad:"
+                                            dismissButtonTitle:@"Cancelar"
+                                              otherButtonTitles:@[@"Regiones", @"Santiago", @"Provincias"]                                           dismissOnSelect:NO];
     [options showInViewController:self withYActionSheetBlock:^(NSInteger buttonIndex, BOOL isCancel) {
         // Handle block completion
     }];
@@ -165,9 +166,7 @@ int cuenta;
     NSString *titleBen = ((MKPointAnnotation_custom*)view.annotation).benefitTitle;
     NSString *discBen = ((MKPointAnnotation_custom*)view.annotation).DescText;
     
-    
     NSLog(@"el Id del beneficio es:%d y el id del Store es:%d",benefitId,storeId);
-    
     
     //Party goes on
     DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
@@ -522,8 +521,12 @@ int cuenta;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+     return [searchResults count];
+    }else{
     NSLog(@"el log de count: %lu",(unsigned long)[tableData count]);
     return [tableData count];
+    }
 }
 
 
@@ -538,7 +541,28 @@ int cuenta;
             nib = [[NSBundle mainBundle] loadNibNamed:@"CategoriasTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
         }
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        NSLog(@"estamos en table view search results");
+        NSLog(@"estamos con el array: %@",searchResults);
+
+        Store *tiendita = [searchResults objectAtIndex:indexPath.row];
         
+        cell.labelTitulo.text = tiendita.titleBenefit;
+        cell.labelDescuento.text = tiendita.descText;
+        if((unsigned long)tiendita.descText.length >3)
+            cell.labelDescuento.alpha = 0;
+        //Get Image
+        NSArray * arr2 = [tiendita.imagenNormalString componentsSeparatedByString:@","];
+        UIImage *imagenBeneficio = nil;
+        
+       // Now data is decoded. You can convert them to UIImage
+        imagenBeneficio = [Tools decodeBase64ToImage:[arr2 lastObject]];
+        if(!imagenBeneficio)
+            imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+        cell.imageCategoria.image = imagenBeneficio;
+
+    }else{
+    
         Store *tiendita = [tableData objectAtIndex:indexPath.row];
         //[beneficio2 logDescription];
         
@@ -555,7 +579,8 @@ int cuenta;
         if(!imagenBeneficio)
             imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
         cell.imageCategoria.image = imagenBeneficio;
-        
+    }
+    
         return cell;
     
 }
@@ -566,15 +591,85 @@ int cuenta;
     
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        //launch a new view upon touching the disclosure indicator
+        NSLog(@"Detail Search Opened");
+        /*
+        int benefitId = ((MKPointAnnotation_custom*)view.annotation).benefitId;
+        int storeId = ((MKPointAnnotation_custom*)view.annotation).storeId;
+        NSString *normalImage = ((MKPointAnnotation_custom*)view.annotation).normalImageString;
+        NSString *titleBen = ((MKPointAnnotation_custom*)view.annotation).benefitTitle;
+        NSString *discBen = ((MKPointAnnotation_custom*)view.annotation).DescText;
+        
+        NSLog(@"el Id del beneficio es:%d y el id del Store es:%d",benefitId,storeId);
+        
+        //Party goes on
+        DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
+        [detalleBeneficio loadBenefitForBenefitId:benefitId];
+        
+        //Get Image
+        NSArray * arr = [normalImage componentsSeparatedByString:@","];
+        UIImage *imagenBeneficio = nil;
+        
+        //Now data is decoded. You can convert them to UIImage
+        imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
+        if(imagenBeneficio == nil)
+            imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+        
+        detalleBeneficio.benefitImage = imagenBeneficio;
+        
+        detalleBeneficio.benefitTitle= titleBen;
+        // detalleBeneficio.benefitAddress = @"Nueva Providencia #283, Providencia, Santiago       A 200 metros de su ubicación";
+        detalleBeneficio.benefitDiscount= discBen;
+        // detalleBeneficio.benefitDescription = beneficio.summary;
+        detalleBeneficio.benefitId = benefitId;
+        // NSLog(@"ID beneficio es: %d",detalleBeneficio.benefitId);
+        
+        [self.navigationController pushViewController: detalleBeneficio animated:YES];
+    */
+    }else{
+        
+        NSLog(@"Detail Opened");
+ 
+    }
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *sectionName;
     switch (section)
     {
         case 0:
-            sectionName = @"Listado de Beneficios Cercanos Asociados";
+            sectionName = @" Beneficios Cercanos ";
     }
     return sectionName;
 }
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate
+                                    predicateWithFormat:@"SELF.titleBenefit contains[cd] %@",
+                                    searchText];
+    searchResults = [tableData filteredArrayUsingPredicate:resultPredicate];
+    
+    for (Store *tienda in searchResults) {
+        NSLog(@" Esta tienda se llama: %@",tienda.titleBenefit);
+    }
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller
+shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
+}
+
 
 @end

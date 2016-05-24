@@ -16,6 +16,7 @@
    
     MapAnnotation * annotation;
     NSMutableArray *tableData;
+    NSArray *searchResults;
 
     __weak IBOutlet UITableView *mapTableView;
     CLLocationManager * locationManager;
