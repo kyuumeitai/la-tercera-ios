@@ -16,8 +16,8 @@
     [super viewDidLoad];
     
     [SVProgressHUD show];
-    //[self loadPaper];
     [SVProgressHUD setStatus:@"Cargando Tienda Club La Tercera"];
+    
     // Do any additional setup after loading the view.
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];

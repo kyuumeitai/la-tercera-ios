@@ -114,8 +114,7 @@ NSMutableArray *listaBeneficios6;
         
         return cell;
     }
-    
-    
+
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

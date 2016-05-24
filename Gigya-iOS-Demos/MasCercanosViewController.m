@@ -331,9 +331,7 @@ int cuenta;
         store.storeLocation = storeLocation;
         store.idStore = idStore;
         store.idBenefit = idBenefit;
-          [tableData addObject:title];
-        NSLog(@"-- title--- : %@",title);
-        NSLog(@"-- tabledata obejct 0--- : %@",[tableData objectAtIndex:0]);
+          [tableData addObject:store];
         
         [storeItemsArray addObject:store];
       
@@ -530,18 +528,53 @@ int cuenta;
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    static NSString *simpleTableIdentifier = @"ClubCategoryTableCell1";
+    NSArray *nib;
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        CategoriasTableViewCell *cell = (CategoriasTableViewCell *)[mapTableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        if (cell == nil)
+        {
+            
+            nib = [[NSBundle mainBundle] loadNibNamed:@"CategoriasTableViewCell" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        
+        Store *tiendita = [tableData objectAtIndex:indexPath.row];
+        //[beneficio2 logDescription];
+        
+        cell.labelTitulo.text = tiendita.titleBenefit;
+        cell.labelDescuento.text = tiendita.descText;
+        if((unsigned long)tiendita.descText.length >3)
+            cell.labelDescuento.alpha = 0;
+        //Get Image
+        NSArray * arr2 = [tiendita.imagenNormalString componentsSeparatedByString:@","];
+        UIImage *imagenBeneficio = nil;
+        
+        //Now data is decoded. You can convert them to UIImage
+        imagenBeneficio = [Tools decodeBase64ToImage:[arr2 lastObject]];
+        if(!imagenBeneficio)
+            imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+        cell.imageCategoria.image = imagenBeneficio;
+        
+        return cell;
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
-    
-    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
-    return cell;
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
+        return 100.0;
+    
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    switch (section)
+    {
+        case 0:
+            sectionName = @"Listado de Beneficios Cercanos Asociados";
+    }
+    return sectionName;
+}
 
 @end
