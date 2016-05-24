@@ -15,8 +15,9 @@
 @interface MasCercanosViewController : UIViewController <CLLocationManagerDelegate,MKMapViewDelegate,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate, UISearchControllerDelegate >{
    
     MapAnnotation * annotation;
-    NSArray *tableData;
+    NSMutableArray *tableData;
 
+    __weak IBOutlet UITableView *mapTableView;
     CLLocationManager * locationManager;
     NSMutableArray * storeItemsArray;
     CLLocation        * userLocation;
@@ -26,7 +27,6 @@
 @property (nonatomic, copy) NSString* categoryName;
 @property BOOL searchControllerWasActive;
 @property BOOL searchControllerSearchFieldWasFirstResponder;
-
 @property (weak, nonatomic) IBOutlet UIButton *botonTodos;
 @property (weak, nonatomic) IBOutlet UIButton *botonSabores;
 @property (weak, nonatomic) IBOutlet UIButton *botonInfantil;
@@ -39,5 +39,5 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation        *userLocation;
 @property (nonatomic, retain) NSMutableArray *storeItemsArray;
-
+@property (nonatomic, retain) NSMutableArray *tableData;
 @end

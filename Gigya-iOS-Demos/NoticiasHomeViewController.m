@@ -83,10 +83,8 @@
 
 - (IBAction)menuPressed:(id)sender {
     
-    NSLog(@"presionado washoh vamosss");
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
-        NSLog(@"presionado washoh, YA EXISTES");
    // [sender addTarget:self.revealViewController action:@selector(revealToogle:) forControlEvents:UIControlEventTouchUpInside];
        // singleton.leftSlideMenu = self.revealViewController;
         //[singleton.leftSlideMenu revealViewController];
@@ -104,7 +102,7 @@
 }
 
 - (IBAction)presedOtro:(id)sender {
-    NSLog(@"pressed tro");
+    NSLog(@"pressed otro");
 }
 
 

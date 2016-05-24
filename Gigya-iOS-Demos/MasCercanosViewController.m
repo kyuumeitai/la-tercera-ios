@@ -18,11 +18,11 @@
 #import "DetalleBeneficioViewControllerFromMap.h"
 #import "MKPointAnnotation_custom.h"
 #import "YActionSheet.h"
+#import "CategoriasTableViewCell.h"
 #define METERS_PER_MILE 1609.344
 #define MapDistanceInMeters 800
 
 @implementation MasCercanosViewController
-NSArray *tableData;
 
     CLLocationManager *locationManager;
     CLLocation  *userLocation;
@@ -34,6 +34,7 @@ int cuenta;
 @synthesize locationManager      = _locationManager;
 @synthesize userLocation         = _userLocation;
 @synthesize storeItemsArray      = _storeItemsArray;
+@synthesize tableData      = _tableData;
 
 
 - (void)viewDidLoad
@@ -45,11 +46,9 @@ int cuenta;
         [self requestLocation];
     
     singleton = [SingletonManager singletonManager];
-    
     _mapView.delegate = self;
     _mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-     tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
-
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -84,7 +83,6 @@ int cuenta;
     
     if (authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
         NSLog(@"Autorizado");
-
         [self loadData ];
     }else{
         [self.locationManager requestWhenInUseAuthorization];
@@ -107,6 +105,7 @@ int cuenta;
         point.DescText = tienda.descText;
         [self.mapView addAnnotation:point];
     }
+    
      [SVProgressHUD dismiss];
 }
 
@@ -196,41 +195,6 @@ int cuenta;
 
 }
 
-/*
--(void)openStoreDetail:(id)sender{
-    
-    NSLog(@"Detail Opened");
-    UIButton *btn = (UIButton *) sender.
-    MKAnnotationView *av = (MKAnnotationView *)[btn superview];
-    id<MKAnnotation> ann = av.annotation;
-    NSLog(@"handlePinButtonTap: ann.title=%@", ann.title);
-
-    DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
-    Benefit *beneficio = [self.benefitsItemsArray5 objectAtIndex:indexPath.row];
-    [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen];
-    
-    //Get Image
-    NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
-    UIImage *imagenBeneficio = nil;
-    
-    //Now data is decoded. You can convert them to UIImage
-    imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
-    if(imagenBeneficio == nil)
-        imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
-    
-    detalleBeneficio.benefitImage = imagenBeneficio;
-    
-    detalleBeneficio.benefitTitle= beneficio.title;
-    detalleBeneficio.benefitAddress = @"Nueva Providencia #283, Providencia, Santiago       A 200 metros de su ubicación";
-    detalleBeneficio.benefitDiscount= beneficio.desclabel;
-    detalleBeneficio.benefitDescription = beneficio.summary;
-    detalleBeneficio.benefitId = beneficio.idBen;
-    // NSLog(@"ID beneficio es: %d",detalleBeneficio.benefitId);
-    
-    [self.navigationController pushViewController: detalleBeneficio animated:YES];
- 
-}
-*/
 
 #pragma mark - Data management
 -(void)loadData {
@@ -248,6 +212,7 @@ int cuenta;
         else {
             NSLog(@"LOAD DATA OKKKKK");
             [self loadPlaces];
+            
         }
     }
 }
@@ -289,7 +254,6 @@ int cuenta;
     adjustedRegion.span.latitudeDelta  = 0.02;
     [self.mapView setRegion:adjustedRegion animated:YES];
 
-    //NSLog(@"%f",adjustedRegion.span.latitudeDelta);
 }
 
 
@@ -324,6 +288,8 @@ int cuenta;
 -(void) reloadStoresDataFromService:(NSArray*)arrayJson{
    
     storeItemsArray = [[NSMutableArray alloc] init];
+    tableData = [[NSMutableArray alloc] init];
+
     
     NSLog(@"     ");
     NSLog(@" ******* LISTADO DE SUCURSALES ****** ----------------------");
@@ -354,7 +320,7 @@ int cuenta;
         storeLocation.latitude =  [coords[0] doubleValue];
         storeLocation.longitude = [coords[1] doubleValue];
         
-        //NSLog(@"           Store id: %d , titulo: %@, address: %@, geolocacion: (%f,%f)",idStore,title,address,storeLocation.latitude, storeLocation.longitude);
+
         Store *store = [[Store alloc]init];
         store.idStore = idStore;
         store.titleBenefit = title;
@@ -365,9 +331,13 @@ int cuenta;
         store.storeLocation = storeLocation;
         store.idStore = idStore;
         store.idBenefit = idBenefit;
+          [tableData addObject:title];
+        NSLog(@"-- title--- : %@",title);
+        NSLog(@"-- tabledata obejct 0--- : %@",[tableData objectAtIndex:0]);
         
-        //NSLog(@"-- idStore --- : %i",idStore);
         [storeItemsArray addObject:store];
+      
+
     }
     
     //NSLog(@"-- StoreItems cantidad = %lu",(unsigned long)storeItemsArray.count );
@@ -376,6 +346,8 @@ int cuenta;
 
     [self loadStoresPin];
     //NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
+    [mapTableView reloadData];
+
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -404,6 +376,8 @@ int cuenta;
 #pragma mark - Menu Categories
 - (IBAction)infantilClicked:(id)sender {
     NSLog(@"Infantil clicked");
+    [SVProgressHUD show];
+    [SVProgressHUD setStatus:@"Obteniendo sucursales"];
     self.categoryName = @"infantil";
     
     self.botonInfantil.selected = YES;
@@ -420,7 +394,8 @@ int cuenta;
 
 - (IBAction)todosClicked:(id)sender {
     NSLog(@"Todos clicked");
-    
+    [SVProgressHUD show];
+    [SVProgressHUD setStatus:@"Obteniendo sucursales"];
     self.categoryName = @"todos";
     
     self.botonTodos.selected = YES;
@@ -437,7 +412,8 @@ int cuenta;
 }
 - (IBAction)saboresClicked:(id)sender {
     NSLog(@"Sabores clicked");
-    
+    [SVProgressHUD show];
+    [SVProgressHUD setStatus:@"Obteniendo sucursales"];
     self.categoryName = @"sabores";
     
     self.botonSabores.selected = YES;
@@ -454,7 +430,8 @@ int cuenta;
 
 - (IBAction)vidaSanaClicked:(id)sender {
     NSLog(@"Vida Sana clicked");
-    
+    [SVProgressHUD show];
+    [SVProgressHUD setStatus:@"Obteniendo sucursales"];
     self.categoryName = @"vidaSana";
     
     self.botonSabores.selected = NO;
@@ -471,7 +448,8 @@ int cuenta;
 
 - (IBAction)tiempoLibreClicked:(id)sender {
     NSLog(@"Tiempo Libre clicked");
-    
+    [SVProgressHUD show];
+    [SVProgressHUD setStatus:@"Obteniendo sucursales"];
     self.categoryName = @"tiempoLibre";
     
     self.botonSabores.selected = NO;
@@ -488,7 +466,8 @@ int cuenta;
 }
 - (IBAction)serviciosClicked:(id)sender {
     NSLog(@"Servicios clicked");
-    
+    [SVProgressHUD show];
+    [SVProgressHUD setStatus:@"Obteniendo sucursales"];
     self.categoryName = @"servicios";
     
     self.botonSabores.selected = NO;
@@ -505,7 +484,8 @@ int cuenta;
 
 - (IBAction)viajesClicked:(id)sender {
     NSLog(@"Viajes clicked");
-    
+    [SVProgressHUD show];
+    [SVProgressHUD setStatus:@"Obteniendo sucursales"];
     self.categoryName = @"viajes";
     
     self.botonSabores.selected = NO;
@@ -522,7 +502,8 @@ int cuenta;
 
 - (IBAction)mastercardClicked:(id)sender {
     NSLog(@"Viajes clicked");
-    
+    [SVProgressHUD show];
+    [SVProgressHUD setStatus:@"Obteniendo sucursales"];
     self.categoryName = @"masterCard";
     
     self.botonSabores.selected = NO;
