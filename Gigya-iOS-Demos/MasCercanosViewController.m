@@ -259,6 +259,8 @@ int cuenta;
 #pragma mark - Load Categories
 - (void)loadCategory:(int) idCategory {
    
+    
+    
     NSLog(@"hello category: %@",self.categoryName);
     [self loadStores:idCategory];
 }
@@ -267,10 +269,29 @@ int cuenta;
 -(void)loadStores: (int) idCategory{
     
     NSLog(@"Load Stores");
+    SingletonManager *singleton = [SingletonManager singletonManager];
+    _userLocation = singleton.userLocation;
+  ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    double puntoX = _userLocation.coordinate.latitude;
+    double puntoY = _userLocation.coordinate.longitude;
     
-    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     //BOOL estaConectado = [connectionManager verifyConnection];
    // NSLog(@"Verificando conexión: %d",estaConectado);
+  
+    [connectionManager getNearStoresAndBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!success) {
+                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+            } else {
+                [self reloadStoresDataFromService:arrayJson];
+                // NSLog(@"Lista jhson: %@",arrayJson);
+            }
+        });
+    }:idCategory andLatitud:puntoX andLonguitud:puntoY];
+     
+    /*
+    
     [connectionManager getStoresAndBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -282,6 +303,7 @@ int cuenta;
             }
         });
     }:idCategory];
+     */
 }
 
 -(void) reloadStoresDataFromService:(NSArray*)arrayJson{
@@ -594,17 +616,21 @@ int cuenta;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        //launch a new view upon touching the disclosure indicator
-        NSLog(@"Detail Search Opened");
-        /*
-        int benefitId = ((MKPointAnnotation_custom*)view.annotation).benefitId;
-        int storeId = ((MKPointAnnotation_custom*)view.annotation).storeId;
-        NSString *normalImage = ((MKPointAnnotation_custom*)view.annotation).normalImageString;
-        NSString *titleBen = ((MKPointAnnotation_custom*)view.annotation).benefitTitle;
-        NSString *discBen = ((MKPointAnnotation_custom*)view.annotation).DescText;
+        NSLog(@"estamos en table view search results viejo");
+        NSLog(@"estamos con el array: %@",searchResults);
+
         
-        NSLog(@"el Id del beneficio es:%d y el id del Store es:%d",benefitId,storeId);
+        //Aca new
+           Store *tiendita = [searchResults objectAtIndex:indexPath.row];
+        
+        int benefitId = tiendita.idBenefit;
+        NSString *normalImage = tiendita.imagenNormalString;
+        NSString *titleBen = tiendita.titleBenefit;
+        NSString *discBen = tiendita.descText;
+        
+       // NSLog(@"el Id del beneficio es:%d y el id del Store es:%d",benefitId,storeId);
         
         //Party goes on
         DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
@@ -629,13 +655,45 @@ int cuenta;
         // NSLog(@"ID beneficio es: %d",detalleBeneficio.benefitId);
         
         [self.navigationController pushViewController: detalleBeneficio animated:YES];
-    */
+        
     }else{
         
-        NSLog(@"Detail Opened");
- 
+        Store *tiendita = [tableData objectAtIndex:indexPath.row];
+        
+        int benefitId = tiendita.idBenefit;
+        NSString *normalImage = tiendita.imagenNormalString;
+        NSString *titleBen = tiendita.titleBenefit;
+        NSString *discBen = tiendita.descText;
+        
+        // NSLog(@"el Id del beneficio es:%d y el id del Store es:%d",benefitId,storeId);
+        
+        //Party goes on
+        DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
+        [detalleBeneficio loadBenefitForBenefitId:benefitId];
+        
+        //Get Image
+        NSArray * arr = [normalImage componentsSeparatedByString:@","];
+        UIImage *imagenBeneficio = nil;
+        
+        //Now data is decoded. You can convert them to UIImage
+        imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
+        if(imagenBeneficio == nil)
+            imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+        
+        detalleBeneficio.benefitImage = imagenBeneficio;
+        
+        detalleBeneficio.benefitTitle= titleBen;
+        // detalleBeneficio.benefitAddress = @"Nueva Providencia #283, Providencia, Santiago       A 200 metros de su ubicación";
+        detalleBeneficio.benefitDiscount= discBen;
+        // detalleBeneficio.benefitDescription = beneficio.summary;
+        detalleBeneficio.benefitId = benefitId;
+        // NSLog(@"ID beneficio es: %d",detalleBeneficio.benefitId);
+        
+        [self.navigationController pushViewController: detalleBeneficio animated:YES];
+        
     }
-}
+    
+    }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {

@@ -27,8 +27,8 @@
     
     [Gigya setAccountsDelegate:self];
     
-
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent]; 
+  // [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];

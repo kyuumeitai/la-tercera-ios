@@ -23,6 +23,7 @@ typedef void (^getDataBlock)(BOOL success, NSArray* arrayJson, NSError *error);
 -(NSDictionary*)getCategoryForCatId:(int)catId;
 -(void)getStoreWithId:(getDataBlock)completionBlock :(int)idStore;
 -(void)getStoresAndBenefitsForCategoryId:(getDataBlock)completionBlock :(int)idCat;
+-(void)getNearStoresAndBenefitsForCategoryId:(getDataBlock)completionBlock :(int)idCat andLatitud:(double)xPoint andLonguitud:(double)yPoint ;
 -(void)getBenefits:(getDataBlock)completionBlock;
 -(void)getCommerces:(getDataBlock)completionBlock;
 -(void)getStores:(getDataBlock)completionBlock;
