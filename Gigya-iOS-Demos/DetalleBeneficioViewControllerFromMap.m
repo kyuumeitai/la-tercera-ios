@@ -106,31 +106,31 @@ CLLocationCoordinate2D storeLocation;
 
 -(void) loadStoreDataFromService:(NSArray*)arrayJson{
     
-    NSDictionary *storeDict = (NSDictionary*)arrayJson;
+    //NSDictionary *storeDict = (NSDictionary*)arrayJson;
     
     
-    NSString* address = [storeDict objectForKey:@"address"];
+    //NSString* address = [storeDict objectForKey:@"address"];
     // NSString* city = [storeDict objectForKey:@"city"];
-    NSString* region = [storeDict objectForKey:@"region"];
-    NSArray* arrayCoords = (NSArray*)[storeDict objectForKey:@"geocoords"];
-    double latitud = [arrayCoords[0] doubleValue];
-    double longuitud = [arrayCoords[1] doubleValue];
-    storeLocation = CLLocationCoordinate2DMake(latitud, longuitud);
-    CLLocation *coordenadas = [[CLLocation alloc] initWithLatitude:latitud longitude:longuitud ];
-    NSString * direccion = [NSString stringWithFormat:@"%@, Región %@",address,region];
-    self.benefitAdressLabel.text = direccion;
+    //NSString* region = [storeDict objectForKey:@"region"];
+    //NSArray* arrayCoords = (NSArray*)[storeDict objectForKey:@"geocoords"];
+   // double latitud = [arrayCoords[0] doubleValue];
+    //double longuitud = [arrayCoords[1] doubleValue];
+    //storeLocation = CLLocationCoordinate2DMake(latitud, longuitud);
+    //CLLocation *coordenadas = [[CLLocation alloc] initWithLatitude:latitud longitude:longuitud ];
+    //NSString * direccion = [NSString stringWithFormat:@"%@, Región %@",address,region];
+    //self.benefitAdressLabel.text = direccion;
     self.benefitAdressLabel.alpha = 0;
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{ self.benefitAdressLabel.alpha = 1;}
                      completion:nil];
     // NSLog(@"Geolocalizacion es: Latitud:%f, Longuitud:%f",coordenadas.latitude,coordenadas.longitude);
-    SingletonManager *singleton = [SingletonManager singletonManager];
-    CLLocation *userLocation = singleton.userLocation;
+    //SingletonManager *singleton = [SingletonManager singletonManager];
+    //CLLocation *userLocation = singleton.userLocation;
     
-    CLLocationDistance distanceMeters = [coordenadas distanceFromLocation:userLocation];
+    //CLLocationDistance distanceMeters = [coordenadas distanceFromLocation:userLocation];
     //int kms = (int) (distanceMeters/1000);
     
-    NSLog(@"A %f kms de distancia",distanceMeters);
+    //NSLog(@"A %f kms de distancia",distanceMeters);
     
 }
 
@@ -187,14 +187,14 @@ CLLocationCoordinate2D storeLocation;
     NSLog(@"El perfil es: %@ y el id: %@",nameProfile,idProfile );
     self.profileBenefitLabel.text = nameProfile;
     self.profileBenefitLabel.alpha = 0;
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{ self.profileBenefitLabel.alpha = 1;}
                      completion:nil];
     
     
     self.benefitDiscountLabel.text = _benefitDiscount;
     self.benefitTitleLabel.text = _benefitTitle;
-    self.benefitAdressLabel.text = _benefitAddress;
+    //self.benefitAdressLabel.text = _benefitAddress;
     
     self.benefitDiscountLabel.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn

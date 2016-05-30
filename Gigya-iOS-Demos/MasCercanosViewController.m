@@ -289,21 +289,7 @@ int cuenta;
             }
         });
     }:idCategory andLatitud:puntoX andLonguitud:puntoY];
-     
-    /*
     
-    [connectionManager getStoresAndBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (!success) {
-                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
-            } else {
-                [self reloadStoresDataFromService:arrayJson];
-                // NSLog(@"Lista jhson: %@",arrayJson);
-            }
-        });
-    }:idCategory];
-     */
 }
 
 -(void) reloadStoresDataFromService:(NSArray*)arrayJson{
@@ -334,16 +320,20 @@ int cuenta;
             newString = title;
         }else{
         newString = [title substringToIndex:range.location];
-        //NSLog(@"%@",newString);
+       
         }
         CLLocationCoordinate2D storeLocation ;
         
         storeLocation.latitude =  [coords[0] doubleValue];
         storeLocation.longitude = [coords[1] doubleValue];
+        CLLocation *locationStore = [[CLLocation alloc] initWithLatitude:[coords[0] doubleValue] longitude:[coords[1] doubleValue]];
+        float distanciaEnMetros = [_userLocation distanceFromLocation:locationStore];
         
+       // NSLog(@"A %f metros de distancia", distanciaEnMetros );
 
         Store *store = [[Store alloc]init];
         store.idStore = idStore;
+        store.dMeter = distanciaEnMetros;
         store.titleBenefit = title;
         store.descText = discount;
         store.imagenNormalString = normalImageString;
@@ -364,6 +354,10 @@ int cuenta;
     [_mapView removeAnnotations:_mapView.annotations];
 
     [self loadStoresPin];
+    
+    NSSortDescriptor *menorAMayor = [NSSortDescriptor sortDescriptorWithKey:@"self.dMeter" ascending:YES];
+    [tableData sortUsingDescriptors:[NSArray arrayWithObject:menorAMayor]];
+    
     //NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
     [mapTableView reloadData];
 
@@ -571,6 +565,8 @@ int cuenta;
         
         cell.labelTitulo.text = tiendita.titleBenefit;
         cell.labelDescuento.text = tiendita.descText;
+        cell.labelDireccion.text = tiendita.storeAddress;
+        cell.labelDistancia.text = [NSString stringWithFormat:@"A %.f metros de distancia ", tiendita.dMeter];
         if((unsigned long)tiendita.descText.length >3)
             cell.labelDescuento.alpha = 0;
         //Get Image
@@ -590,6 +586,9 @@ int cuenta;
         
         cell.labelTitulo.text = tiendita.titleBenefit;
         cell.labelDescuento.text = tiendita.descText;
+        cell.labelDireccion.text = tiendita.storeAddress;
+        cell.labelDistancia.text = [NSString stringWithFormat:@"A %.f metros de distancia ", tiendita.dMeter];
+
         if((unsigned long)tiendita.descText.length >3)
             cell.labelDescuento.alpha = 0;
         //Get Image
@@ -650,6 +649,8 @@ int cuenta;
         detalleBeneficio.benefitTitle= titleBen;
         // detalleBeneficio.benefitAddress = @"Nueva Providencia #283, Providencia, Santiago       A 200 metros de su ubicación";
         detalleBeneficio.benefitDiscount= discBen;
+        detalleBeneficio.benefitAdressLabel.text = tiendita.storeAddress;
+
         // detalleBeneficio.benefitDescription = beneficio.summary;
         detalleBeneficio.benefitId = benefitId;
         // NSLog(@"ID beneficio es: %d",detalleBeneficio.benefitId);
@@ -683,7 +684,7 @@ int cuenta;
         detalleBeneficio.benefitImage = imagenBeneficio;
         
         detalleBeneficio.benefitTitle= titleBen;
-        // detalleBeneficio.benefitAddress = @"Nueva Providencia #283, Providencia, Santiago       A 200 metros de su ubicación";
+        detalleBeneficio.benefitAdressLabel.text = tiendita.storeAddress;
         detalleBeneficio.benefitDiscount= discBen;
         // detalleBeneficio.benefitDescription = beneficio.summary;
         detalleBeneficio.benefitId = benefitId;
