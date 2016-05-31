@@ -139,8 +139,6 @@ int cuenta;
     // create a disclosure button for map kit
     UIButton *disclosure = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     
-   // [disclosure addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self                                                                           action:@selector(openStoreDetail:)] ];
-    
     view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 
     view.rightCalloutAccessoryView = disclosure;
@@ -692,7 +690,7 @@ int cuenta;
         
         [self.navigationController pushViewController: detalleBeneficio animated:YES];
         
-    }
+        }
     
     }
 
