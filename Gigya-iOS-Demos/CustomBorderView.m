@@ -28,6 +28,14 @@ IB_DESIGNABLE
 @implementation CustomBorderView
 // No compiler errors -- the errors occur on the UIViewController
 
+/*
+- (id)initWithFrame:(CGRect)frame{
+      self = [super initWithFrame:frame];
+    if (self) {
+    }
+    return self;
+}
+*/
 
 -(void)drawRect:(CGRect)aRect{
     self.layer.cornerRadius =   _borderRadius;

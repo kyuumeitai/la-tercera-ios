@@ -10,4 +10,7 @@
 
 @interface NewsCategoryInicioViewController : UIViewController
 
+
+
+
 @end
