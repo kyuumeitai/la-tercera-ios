@@ -283,6 +283,12 @@
 		17DAB9B01CCDD414000CD406 /* YMCAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DAB9AE1CCDD414000CD406 /* YMCAudioPlayer.m */; };
 		17F321BC1CBEBEDD00005964 /* NewspaperPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F321BB1CBEBEDD00005964 /* NewspaperPage.m */; };
 		17F321BD1CBEBEDD00005964 /* NewspaperPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F321BB1CBEBEDD00005964 /* NewspaperPage.m */; };
+		D008D6FB1D00850D00502A69 /* CollectionViewCellGrande.m in Sources */ = {isa = PBXBuildFile; fileRef = D008D6F91D00850D00502A69 /* CollectionViewCellGrande.m */; };
+		D008D6FC1D00850D00502A69 /* CollectionViewCellGrande.m in Sources */ = {isa = PBXBuildFile; fileRef = D008D6F91D00850D00502A69 /* CollectionViewCellGrande.m */; };
+		D008D6FD1D00850D00502A69 /* CollectionViewCellGrande.xib in Resources */ = {isa = PBXBuildFile; fileRef = D008D6FA1D00850D00502A69 /* CollectionViewCellGrande.xib */; };
+		D008D6FE1D00850D00502A69 /* CollectionViewCellGrande.xib in Resources */ = {isa = PBXBuildFile; fileRef = D008D6FA1D00850D00502A69 /* CollectionViewCellGrande.xib */; };
+		D008D7021D00897200502A69 /* CVNoticiasInicio.m in Sources */ = {isa = PBXBuildFile; fileRef = D008D7011D00897200502A69 /* CVNoticiasInicio.m */; };
+		D008D7031D00897200502A69 /* CVNoticiasInicio.m in Sources */ = {isa = PBXBuildFile; fileRef = D008D7011D00897200502A69 /* CVNoticiasInicio.m */; };
 		D009C6D81C91BC02001BD7A3 /* PT_Sans-Web-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0B9BF461C861A7600680EE4 /* PT_Sans-Web-Bold.ttf */; };
 		D009C6D91C91BC02001BD7A3 /* PT_Sans-Web-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0B9BF471C861A7600680EE4 /* PT_Sans-Web-BoldItalic.ttf */; };
 		D009C6DA1C91BC02001BD7A3 /* PT_Sans-Web-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0B9BF481C861A7600680EE4 /* PT_Sans-Web-Italic.ttf */; };
@@ -615,6 +621,11 @@
 		52BCE2381A49028500924AD8 /* GSWebBridgeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSWebBridgeController.m; sourceTree = "<group>"; };
 		52BCE23B1A49028500924AD8 /* PublishActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishActionController.h; sourceTree = "<group>"; };
 		52BCE23C1A49028500924AD8 /* PublishActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishActionController.m; sourceTree = "<group>"; };
+		D008D6F81D00850D00502A69 /* CollectionViewCellGrande.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCellGrande.h; sourceTree = "<group>"; };
+		D008D6F91D00850D00502A69 /* CollectionViewCellGrande.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCellGrande.m; sourceTree = "<group>"; };
+		D008D6FA1D00850D00502A69 /* CollectionViewCellGrande.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCellGrande.xib; sourceTree = "<group>"; };
+		D008D7001D00897200502A69 /* CVNoticiasInicio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVNoticiasInicio.h; sourceTree = "<group>"; };
+		D008D7011D00897200502A69 /* CVNoticiasInicio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVNoticiasInicio.m; sourceTree = "<group>"; };
 		D009C6C81C91B298001BD7A3 /* BeneficiosCerca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeneficiosCerca.png; sourceTree = "<group>"; };
 		D009C6C91C91B298001BD7A3 /* BeneficiosCerca@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BeneficiosCerca@2x.png"; sourceTree = "<group>"; };
 		D009C6CC1C91B318001BD7A3 /* VerBeneficiosCerca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VerBeneficiosCerca.png; sourceTree = "<group>"; };
@@ -1284,12 +1295,12 @@
 		17F8BCD01CA24FD900B9977B /* News */ = {
 			isa = PBXGroup;
 			children = (
+				17F8BCD11CA2501C00B9977B /* Categorias */,
 				17F8BCCC1CA24F4B00B9977B /* NoticiasHomeViewController.h */,
 				17F8BCCD1CA24F4B00B9977B /* NoticiasHomeViewController.m */,
 				17DAB9A21CCDC555000CD406 /* Lectios */,
 				D0308E881CB6DD5100D8619D /* PapelDigital */,
 				D01CF10C1CB6B9700050C008 /* LaTercera TV */,
-				17F8BCD11CA2501C00B9977B /* Categorias */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -1297,6 +1308,7 @@
 		17F8BCD11CA2501C00B9977B /* Categorias */ = {
 			isa = PBXGroup;
 			children = (
+				D008D6FF1D00894700502A69 /* Secciones */,
 				17F8BCD21CA2506900B9977B /* NewsCategoryInicioViewController.h */,
 				17F8BCD31CA2506900B9977B /* NewsCategoryInicioViewController.m */,
 				17F8BCD51CA250B200B9977B /* NewsCategoryPoliticaViewController.h */,
@@ -1377,6 +1389,40 @@
 				52BCE21A1A48D8BE00924AD8 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D008D6F61D0083B600502A69 /* PapelDigital */ = {
+			isa = PBXGroup;
+			children = (
+				D0FF33BF1C985A3B008832F3 /* CategoriasTableViewCell.h */,
+				D0FF33C01C985A3B008832F3 /* CategoriasTableViewCell.m */,
+				D0FF33C11C985A3B008832F3 /* CategoriasTableViewCell.xib */,
+				D0FF33C51C985D9B008832F3 /* DestacadoTableViewCell.h */,
+				D0FF33C61C985D9B008832F3 /* DestacadoTableViewCell.m */,
+				D0FF33C71C985D9B008832F3 /* DestacadoTableViewCell.xib */,
+				D0FBFA461CBD8DFB00D5465E /* CollectionViewCellPortada.xib */,
+				D0FBFA471CBD8F7700D5465E /* CollectionViewCellEstandar.xib */,
+			);
+			name = PapelDigital;
+			sourceTree = "<group>";
+		};
+		D008D6F71D0083F400502A69 /* CollectionVC */ = {
+			isa = PBXGroup;
+			children = (
+				D008D6F81D00850D00502A69 /* CollectionViewCellGrande.h */,
+				D008D6F91D00850D00502A69 /* CollectionViewCellGrande.m */,
+				D008D6FA1D00850D00502A69 /* CollectionViewCellGrande.xib */,
+			);
+			name = CollectionVC;
+			sourceTree = "<group>";
+		};
+		D008D6FF1D00894700502A69 /* Secciones */ = {
+			isa = PBXGroup;
+			children = (
+				D008D7001D00897200502A69 /* CVNoticiasInicio.h */,
+				D008D7011D00897200502A69 /* CVNoticiasInicio.m */,
+			);
+			name = Secciones;
 			sourceTree = "<group>";
 		};
 		D01282281C8DC04400A05FF0 /* Connection */ = {
@@ -1522,6 +1568,7 @@
 		D08E127F1CEE0E3A00665795 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				D008D6F71D0083F400502A69 /* CollectionVC */,
 				D08E12801CEE107000665795 /* TableViewCellBigNews.h */,
 				D08E12811CEE107000665795 /* TableViewCellBigNews.m */,
 				D08E12821CEE107000665795 /* TableViewCellBigNews.xib */,
@@ -1763,14 +1810,7 @@
 			isa = PBXGroup;
 			children = (
 				D08E127F1CEE0E3A00665795 /* News */,
-				D0FBFA461CBD8DFB00D5465E /* CollectionViewCellPortada.xib */,
-				D0FBFA471CBD8F7700D5465E /* CollectionViewCellEstandar.xib */,
-				D0FF33BF1C985A3B008832F3 /* CategoriasTableViewCell.h */,
-				D0FF33C01C985A3B008832F3 /* CategoriasTableViewCell.m */,
-				D0FF33C11C985A3B008832F3 /* CategoriasTableViewCell.xib */,
-				D0FF33C51C985D9B008832F3 /* DestacadoTableViewCell.h */,
-				D0FF33C61C985D9B008832F3 /* DestacadoTableViewCell.m */,
-				D0FF33C71C985D9B008832F3 /* DestacadoTableViewCell.xib */,
+				D008D6F61D0083B600502A69 /* PapelDigital */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -2068,6 +2108,7 @@
 				1702BD981CB093E400F26F42 /* BeneficiosCerca@2x.png in Resources */,
 				1702BD991CB093E400F26F42 /* botonViajesOn@2x.png in Resources */,
 				D0DB18F81CB41B6700A0BBC5 /* banner.png in Resources */,
+				D008D6FE1D00850D00502A69 /* CollectionViewCellGrande.xib in Resources */,
 				D03F4F2B1CCE762700B5835D /* comoFunciona2.png in Resources */,
 				D03F4EFF1CCE762700B5835D /* comoFunciona11.png in Resources */,
 				1702BD9A1CB093E400F26F42 /* usar-beneficio@3x.png in Resources */,
@@ -2304,6 +2345,7 @@
 				D03F4F101CCE762700B5835D /* comoFunciona7@2x.png in Resources */,
 				171AFA4D1CCF89F400705817 /* imagenEvento@3x.png in Resources */,
 				D0DB190A1CB443B800A0BBC5 /* updateMap@2x.png in Resources */,
+				D008D6FD1D00850D00502A69 /* CollectionViewCellGrande.xib in Resources */,
 				D03F4F1E1CCE762700B5835D /* comoFunciona4.png in Resources */,
 				D009C6DA1C91BC02001BD7A3 /* PT_Sans-Web-Italic.ttf in Resources */,
 			);
@@ -2383,6 +2425,7 @@
 				1702BE171CB1A3AE00F26F42 /* VidaSanaTableViewController.m in Sources */,
 				1702BD351CB093E400F26F42 /* AFNetworkReachabilityManager.m in Sources */,
 				1702BD361CB093E400F26F42 /* ClubViewController.m in Sources */,
+				D008D6FC1D00850D00502A69 /* CollectionViewCellGrande.m in Sources */,
 				1702BD371CB093E400F26F42 /* MapAnnotation.m in Sources */,
 				1702BD381CB093E400F26F42 /* CategoriasTableViewCell.m in Sources */,
 				1702BD391CB093E400F26F42 /* DestacadoTableViewCell.m in Sources */,
@@ -2391,6 +2434,7 @@
 				1702BD3C1CB093E400F26F42 /* UsarBeneficioNoLogueado.m in Sources */,
 				D03F4EC91CCE63BD00B5835D /* CustomButtonTerceraShadows.m in Sources */,
 				D0FA1C2C1CD0FDA900D18188 /* ConfirmationViewController.m in Sources */,
+				D008D7031D00897200502A69 /* CVNoticiasInicio.m in Sources */,
 				175F13661CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */,
 				1702BD3D1CB093E400F26F42 /* ServiciosContainerVC.m in Sources */,
 				1702BE151CB1A3A700F26F42 /* ServiciosTableViewController.m in Sources */,
@@ -2421,6 +2465,7 @@
 				D0FAD5971CDA641000BF00D4 /* MKMapView+ZoomLevel.m in Sources */,
 				D0FF55751CCFC94F00EA71F4 /* ViajesClub.m in Sources */,
 				D0F094351CECC05000ABBD70 /* ClubSearchTableViewController.m in Sources */,
+				D008D7021D00897200502A69 /* CVNoticiasInicio.m in Sources */,
 				D08E12831CEE107000665795 /* TableViewCellBigNews.m in Sources */,
 				D04546D11CEB9A6D004A011D /* InitialViewController.m in Sources */,
 				D03F4F3E1CCE782A00B5835D /* ViewControllerRootPage.m in Sources */,
@@ -2440,6 +2485,7 @@
 				D0DD6E531CC005A200994DDF /* CVNegocios.m in Sources */,
 				1702BE051CB18B9200F26F42 /* VidaSanaTableViewController.m in Sources */,
 				D0FF55701CCFC8F700EA71F4 /* TiendaClub.m in Sources */,
+				D008D6FB1D00850D00502A69 /* CollectionViewCellGrande.m in Sources */,
 				D036FA8B1CD01BB90096FE14 /* MostrarBeneficioDescuentoAdicional.m in Sources */,
 				D0308E8B1CB6DD7000D8619D /* PapelDigital.m in Sources */,
 				175F13651CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */,
