@@ -8,6 +8,7 @@
 
 #import "CVNoticiasInicio.h"
 #import "CollectionViewCellGrande.h"
+#import "CollectionViewCellMediana.h"
 #import "NewspaperPage.h"
 #import "NewsPageViewController.h"
 #import "Tools.h"
@@ -18,8 +19,9 @@
 #define categoryName @"La Tercera"
 
 @implementation CVNoticiasInicio
-  static NSString * const reuseIdentifier = @"collectionViewGrande";
-  static NSString * const reuseIdentifierPortada = @"collectionViewGrande";
+
+  static NSString * const reuseIdentifierGrande = @"collectionViewGrande";
+static NSString * const reuseIdentifierMediana = @"collectionViewMediana";
 int numeroPaginas;
 NSString *day;
 NSString *month;
@@ -47,20 +49,21 @@ BOOL nibMyCell2loaded;
     // Send a synchronous request
     
     UINib *cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande" bundle: nil];
-    [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifierGrande];
     
-    ///UINib *cellNib2 = [UINib nibWithNibName:@"CollectionViewCellPortada" bundle: nil];
+   UINib *cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana" bundle: nil];
   
-    //[self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:reuseIdentifierPortada];
+    [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:reuseIdentifierMediana];
 
         //NSLog(@"Add new page");
-        NSString *pageNumber = [NSString stringWithFormat:@"Página %i",1];
+    for (int i=0; i<3; i++){
+        NSString *pageNumber = [NSString stringWithFormat:@"Página %i",i];
         NewspaperPage *pagina = [[NewspaperPage alloc] init];
         pagina.title = pageNumber;
         pagina.categoria = categoryName;
-        pagina.pageNumber = 1;
+        pagina.pageNumber = i;
         [self.pagesArray addObject:pagina];
-
+    }
  
     [self.collectionView reloadData];
     [UIView transitionWithView:self.collectionView duration:1.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{ [self.collectionView setAlpha:1.0]; } completion:nil];
@@ -87,7 +90,7 @@ BOOL nibMyCell2loaded;
     
     if (indexPath.item == 0) {
         
-             CollectionViewCellGrande *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierPortada forIndexPath:indexPath];
+             CollectionViewCellGrande *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
         
     
         // Configure the cell
@@ -113,11 +116,11 @@ BOOL nibMyCell2loaded;
     }else{
               
         
-        CollectionViewCellGrande *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierPortada forIndexPath:indexPath];
+        CollectionViewCellGrande *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
         
         
         // Configure the cell
-        cell.labelTituloNews.text = @"Notición muy importante!";
+        cell.labelSummary.text = @"Notición muy importante, hay descuento!";
         NSString *urlImagen = miPagina.urlThumbnail;
         NSURL *url = [NSURL URLWithString:urlImagen];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -152,7 +155,7 @@ BOOL nibMyCell2loaded;
         return CGSizeMake(374, 428);
 
     }else{
-        return CGSizeMake(111, 142);
+        return CGSizeMake(183, 267);
     }
 }
 
