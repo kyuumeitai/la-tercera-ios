@@ -157,19 +157,25 @@
 }
 
 - (void)pluginView:(GSPluginView *)pluginView firedEvent:(NSDictionary *)event {
-    
+    NSString *email;
     if([[event objectForKey:@"eventName"]isEqualToString:@"afterSubmit"]){
         if([event objectForKey:@"errorCode"] == 0){
-            
 
-             NSLog(@"*** La respuesta es positiva: %@",[event objectForKey:@"response"]);
-            NSString *diccion = [event objectForKey:@"response"];
-          
+           // NSLog(@"*** La respuesta es positiva: %@",[event objectForKey:@"response"]);
+            NSString * responseString = [event objectForKey:@"response"];
+            NSString *word = @"email";
+            if ([responseString rangeOfString:word].location != NSNotFound) {
+                //NSLog(@"Yes it does contain that word at: %lu",(unsigned long)[responseString rangeOfString:word].location);
+                NSUInteger from= [responseString rangeOfString:word].location;
+                NSRange rango = NSMakeRange(from, 50);
+                NSString *emailPrev = [responseString substringWithRange:rango];
+                NSArray *separados= [emailPrev componentsSeparatedByString:@"\""];
+                email= separados[2];
+                 NSLog(@"Email del usuario: %@",email);
+            }
             
-            UIAlertView *alert;
-            
-            alert = [[UIAlertView alloc] initWithTitle:@"Login exitoso"
-                                               message:diccion
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login exitoso"
+                                               message:email
                                               delegate:nil
                                      cancelButtonTitle:@"OK"
                                      otherButtonTitles:nil];
