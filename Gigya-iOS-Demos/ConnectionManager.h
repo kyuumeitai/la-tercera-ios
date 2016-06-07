@@ -28,7 +28,9 @@ typedef void (^getDataBlock)(BOOL success, NSArray* arrayJson, NSError *error);
 -(void)getCommerces:(getDataBlock)completionBlock;
 -(void)getStores:(getDataBlock)completionBlock;
 -(void)getDigitalPaper:(getDataBlock)completionBlock;
--(NSString*)sendRegisterDataWithEmail:(NSString *)email firstName:(NSString*)firstName lastName:(NSString*)lastName gender:(NSString*)gender birthdate:(NSString*)birthdate uid:(NSString*)uid os:(NSString*)os;
+-(NSString*)sendRegisterDataWithEmail:(NSString *)email firstName:(NSString*)firstName lastName:(NSString*)lastName gender:(NSString*)gender birthdate:(NSString*)birthdate uid:(NSString*)uid os:(NSString*)os gigyaId:(NSString*)gigyaId;
+-(NSString*)sendLoginDataWithEmail:(NSString *)email;
+
 @property  BOOL isConnected;
 
 @end

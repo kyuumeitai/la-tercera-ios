@@ -52,26 +52,25 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
 }
 
 
--(NSString*)sendRegisterDataWithEmail:(NSString *)email firstName:(NSString*)firstName lastName:(NSString*)lastName gender:(NSString*)gender birthdate:(NSString*)birthdate uid:(NSString*)uid os:(NSString*)os{
+-(NSString*)sendRegisterDataWithEmail:(NSString *)email firstName:(NSString*)firstName lastName:(NSString*)lastName gender:(NSString*)gender birthdate:(NSString*)birthdate uid:(NSString*)uid os:(NSString*)os gigyaId:(NSString*)gigyaId{
     
     NSString * responseString;
     // Send a synchronous request
-    NSURL *aUrl = [NSURL URLWithString:@"http://www.apple.com/"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/profiles/register/",BaseURLString]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];
     
     [request setHTTPMethod:@"POST"];
-    NSString *postString = @"mail";
+    NSString *postString = [NSString stringWithFormat:@"email=%@&firstName=%@&lastName=%@&gender=%@&birthdate=%@&device_id=%@&os=%@&gigya_id=%@",email,firstName,lastName,gender,birthdate,uid,os,gigyaId];
+    NSLog(@"Postring register: %@ ",postString);
     [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
-    
-  //  NSURLConnection *connection= [[NSURLConnection alloc] initWithRequest:request                                                                  delegate:self];
+
     NSURLResponse * response = nil;
   NSError * error = nil;
   NSData * data = [NSURLConnection sendSynchronousRequest:request
                                         returningResponse:&response
                                                     error:&error];
-  
   if (error == nil)
 {
   responseString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
@@ -79,6 +78,31 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     return responseString;
 }
 
+-(NSString*)sendLoginDataWithEmail:(NSString *)email{
+    
+    NSString * responseString;
+    // Send a synchronous request
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/profiles/login/",BaseURLString]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"POST"];
+    NSString *postString = [NSString stringWithFormat:@"email=%@",email];
+    NSLog(@"Postring Login: %@ ",postString);
+    [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:request
+                                          returningResponse:&response
+                                                      error:&error];
+    if (error == nil)
+    {
+        responseString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    }
+    return responseString;
+}
 
 
 -(NSDictionary*)getAllCategories{

@@ -12,6 +12,8 @@
 #import <GigyaSDK/Gigya.h>
 #import "NoticiasHomeViewController.h"
 #import "SWRevealViewController.h"
+#import "ConnectionManager.h"
+
 
 @interface LoginViewController ()
 @property GSAccount *user;
@@ -168,7 +170,7 @@
      NSString *deviceId;
      NSString *os = @"iOS";
     //[NSString stringWithFormat:@"iOS %@",[[UIDevice currentDevice] systemVersion]];
-    
+     NSString *operation;
     NSUUID *identifierForVendor = [[UIDevice currentDevice] identifierForVendor];
     deviceId = [identifierForVendor UUIDString];
     
@@ -176,31 +178,60 @@
         if([event objectForKey:@"errorCode"] == 0){
 
             NSString * responseString = [event objectForKey:@"response"];
-            //NSLog(@"*** La respuesta es positiva: %@",responseString);
-         
-            email = [self getStringValueForResponseString:responseString andLlave:@"email"];
-            firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
-            lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
-            gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
-            gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
-            NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
-            NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
-            NSString *birthYear = [self getStringValueForResponseString:responseString andLlave:@"birthYear"];
-            
-            birthdate = [NSString stringWithFormat:@"%@/%@/%@",birthYear,birthMonth,birthDay];
-            
-            NSString *allDataMessage = [NSString stringWithFormat:@"Los datos son: os: %@, deviceID: %@, email: %@, Nombre: %@, Apellidos: %@, Gender: %@, dateBirth: %@",os,deviceId,email,firstName,lastName, gender, birthdate];
-            
-            NSLog(@"***::::-----    %@     -----::::***",allDataMessage);
+            NSLog(@"*** La respuesta es positiva: %@",responseString);
+            operation = [self getStringValueForResponseString:responseString andLlave:@"operation"];
+            NSLog(@"*******++++++ La operacion: %@ ++++++*******",operation);
 
-            /*
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login exitoso"
-                                               message:allDataMessage
-                                              delegate:nil
-                                     cancelButtonTitle:@"OK"
-                                     otherButtonTitles:nil];
-            [alert show];
-            */
+            if([operation isEqualToString:@"/accounts.s"]){
+              NSLog(@"---------*** Es un login ***---------");
+                email = [self getStringValueForResponseString:responseString andLlave:@"email"];
+                gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
+                /*
+                firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
+                lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
+                gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
+                NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
+                NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
+                NSString *birthYear = [self getStringValueForResponseString:responseString andLlave:@"birthYear"];
+                
+                birthdate = [NSString stringWithFormat:@"%@/%@/%@",birthYear,birthMonth,birthDay];
+                
+                NSString *allDataMessage = [NSString stringWithFormat:@"Los datos son: os: %@, deviceID: %@, email: %@, Nombre: %@, Apellidos: %@, Gender: %@, dateBirth: %@",os,deviceId,email,firstName,lastName, gender, birthdate];
+                NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
+                 */
+                ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+                
+                NSString *respuesta = [connectionManager sendLoginDataWithEmail:email];
+                
+                NSLog(@"***::::-----    %@     -----::::***",respuesta);
+                
+            }
+            
+            if([operation isEqualToString:@"/accounts.r"]){
+                
+                NSLog(@"---------*** Es un Registro ***---------");
+                email = [self getStringValueForResponseString:responseString andLlave:@"email"];
+                firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
+                lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
+                gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
+                gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
+                NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
+                NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
+                NSString *birthYear = [self getStringValueForResponseString:responseString andLlave:@"birthYear"];
+                
+                birthdate = [NSString stringWithFormat:@"%@/%@/%@",birthYear,birthMonth,birthDay];
+                
+                // NSString *allDataMessage = [NSString stringWithFormat:@"Los datos son: os: %@, deviceID: %@, email: %@, Nombre: %@, Apellidos: %@, Gender: %@, dateBirth: %@",os,deviceId,email,firstName,lastName, gender, birthdate];
+                //NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
+                ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+                
+                NSString *respuesta = [connectionManager sendRegisterDataWithEmail:email firstName:firstName lastName:lastName gender:gender birthdate:birthdate uid:deviceId os:os gigyaId:gigyaID];
+                
+                NSLog(@"***::::-----    %@     -----::::***",respuesta);
+                
+            }
+        
+
      [self performSegueWithIdentifier:@"GoToSWReveal" sender:self];
             
         }
@@ -213,14 +244,20 @@
 - (NSString*)getStringValueForResponseString:(NSString*)responseString andLlave:(NSString*)llave{
     
     NSString * resultado = @"";
+    NSRange rango ;
     if ([responseString rangeOfString:llave].location != NSNotFound) {
 
      NSUInteger from= [responseString rangeOfString:llave].location;
-        NSRange rango = NSMakeRange(from, 50);
+        if([llave isEqualToString:@"operation" ]){
+         rango  = NSMakeRange(from, 23);
+        }else{
+        rango = NSMakeRange(from, 50);
+       
+        }
         NSString *emailPrev = [responseString substringWithRange:rango];
         NSArray *separados= [emailPrev componentsSeparatedByString:@"\""];
         resultado= separados[2];
-        NSLog(@"Clave: %@ Valor: %@",llave,resultado);
+       NSLog(@"Clave: %@ Valor: %@",llave,resultado);
     }
     return resultado;
    
