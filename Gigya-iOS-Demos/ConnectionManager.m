@@ -10,6 +10,7 @@
 #import <foundation/Foundation.h>
 #import "AFNetworking.h"
 #import "Reachability.h"
+
 static NSString * const BaseURLString = @"http://ltrest.multinetlabs.com/";
 static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
 
@@ -49,6 +50,36 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     }
     return false;
 }
+
+
+-(NSString*)sendRegisterDataWithEmail:(NSString *)email firstName:(NSString*)firstName lastName:(NSString*)lastName gender:(NSString*)gender birthdate:(NSString*)birthdate uid:(NSString*)uid os:(NSString*)os{
+    
+    NSString * responseString;
+    // Send a synchronous request
+    NSURL *aUrl = [NSURL URLWithString:@"http://www.apple.com/"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:aUrl
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"POST"];
+    NSString *postString = @"mail";
+    [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+  //  NSURLConnection *connection= [[NSURLConnection alloc] initWithRequest:request                                                                  delegate:self];
+    NSURLResponse * response = nil;
+  NSError * error = nil;
+  NSData * data = [NSURLConnection sendSynchronousRequest:request
+                                        returningResponse:&response
+                                                    error:&error];
+  
+  if (error == nil)
+{
+  responseString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+}
+    return responseString;
+}
+
+
 
 -(NSDictionary*)getAllCategories{
     

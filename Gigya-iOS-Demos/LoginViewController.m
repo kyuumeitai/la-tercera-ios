@@ -157,36 +157,72 @@
 }
 
 - (void)pluginView:(GSPluginView *)pluginView firedEvent:(NSDictionary *)event {
-    NSString *email;
+    
+    //Variables that will be send on login WS
+     NSString *email;
+     NSString *firstName;
+     NSString *lastName;
+     NSString *gigyaID;
+     NSString *birthdate;
+     NSString *gender;
+     NSString *deviceId;
+     NSString *os = @"iOS";
+    //[NSString stringWithFormat:@"iOS %@",[[UIDevice currentDevice] systemVersion]];
+    
+    NSUUID *identifierForVendor = [[UIDevice currentDevice] identifierForVendor];
+    deviceId = [identifierForVendor UUIDString];
+    
     if([[event objectForKey:@"eventName"]isEqualToString:@"afterSubmit"]){
         if([event objectForKey:@"errorCode"] == 0){
 
-           // NSLog(@"*** La respuesta es positiva: %@",[event objectForKey:@"response"]);
             NSString * responseString = [event objectForKey:@"response"];
-            NSString *word = @"email";
-            if ([responseString rangeOfString:word].location != NSNotFound) {
-                //NSLog(@"Yes it does contain that word at: %lu",(unsigned long)[responseString rangeOfString:word].location);
-                NSUInteger from= [responseString rangeOfString:word].location;
-                NSRange rango = NSMakeRange(from, 50);
-                NSString *emailPrev = [responseString substringWithRange:rango];
-                NSArray *separados= [emailPrev componentsSeparatedByString:@"\""];
-                email= separados[2];
-                 NSLog(@"Email del usuario: %@",email);
-            }
+            //NSLog(@"*** La respuesta es positiva: %@",responseString);
+         
+            email = [self getStringValueForResponseString:responseString andLlave:@"email"];
+            firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
+            lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
+            gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
+            gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
+            NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
+            NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
+            NSString *birthYear = [self getStringValueForResponseString:responseString andLlave:@"birthYear"];
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login exitoso"
-                                               message:email
+            birthdate = [NSString stringWithFormat:@"%@/%@/%@",birthYear,birthMonth,birthDay];
+            
+            NSString *allDataMessage = [NSString stringWithFormat:@"Los datos son: os: %@, deviceID: %@, email: %@, Nombre: %@, Apellidos: %@, Gender: %@, dateBirth: %@",os,deviceId,email,firstName,lastName, gender, birthdate];
+            
+            NSLog(@"***::::-----    %@     -----::::***",allDataMessage);
+
+            /*
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login exitoso"
+                                               message:allDataMessage
                                               delegate:nil
                                      cancelButtonTitle:@"OK"
                                      otherButtonTitles:nil];
             [alert show];
-            
+            */
      [self performSegueWithIdentifier:@"GoToSWReveal" sender:self];
             
         }
              NSLog(@"*** La respuesta es: negativa");
         
     }
+   
+}
+
+- (NSString*)getStringValueForResponseString:(NSString*)responseString andLlave:(NSString*)llave{
+    
+    NSString * resultado = @"";
+    if ([responseString rangeOfString:llave].location != NSNotFound) {
+
+     NSUInteger from= [responseString rangeOfString:llave].location;
+        NSRange rango = NSMakeRange(from, 50);
+        NSString *emailPrev = [responseString substringWithRange:rango];
+        NSArray *separados= [emailPrev componentsSeparatedByString:@"\""];
+        resultado= separados[2];
+        NSLog(@"Clave: %@ Valor: %@",llave,resultado);
+    }
+    return resultado;
    
 }
 
