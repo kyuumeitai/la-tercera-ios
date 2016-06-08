@@ -7,6 +7,7 @@
 //
 
 #import "UsarBeneficioEstandar.h"
+#import "ConnectionManager.h"
 
 @interface UsarBeneficioEstandar ()
 
@@ -14,12 +15,13 @@
 
 @implementation UsarBeneficioEstandar
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
 }
 - (IBAction)confirmedPressed:(id)sender {
-    
+
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 

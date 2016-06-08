@@ -30,7 +30,7 @@ NSMutableArray *listaBeneficios6;
     [super viewDidLoad];
     
     SingletonManager *singleton = [SingletonManager singletonManager];
-        [self loadBenefitsForCategoryId:4];
+        [self loadBenefitsForCategoryId:40];
    
 }
 

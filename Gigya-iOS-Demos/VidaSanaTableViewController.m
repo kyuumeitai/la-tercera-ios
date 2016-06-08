@@ -32,7 +32,7 @@ NSMutableArray *listaBeneficios4;
     listaCategorias4 = [[NSMutableArray alloc] init];
     listaCategorias4 = singleton.categoryList;
     //NSLog(@"La lista de categorias es: %@",listaCategorias4.description);
-   [self loadBenefitsForCategoryId:29];
+   [self loadBenefitsForCategoryId:44];
    }
 
 - (void)didReceiveMemoryWarning {

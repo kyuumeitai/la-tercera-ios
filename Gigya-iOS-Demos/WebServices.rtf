@@ -2,7 +2,8 @@
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fswiss\fcharset0 ArialMT;
 }
 {\colortbl;\red255\green255\blue255;\red56\green56\blue59;\red245\green245\blue247;\red210\green0\blue53;
-\red129\green144\blue144;\red16\green60\blue192;\red26\green26\blue26;}
+\red129\green144\blue144;\red16\green60\blue192;\red26\green26\blue26;\red26\green26\blue26;\red255\green255\blue255;
+}
 \margl1440\margr1440\vieww9000\viewh8400\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -26,9 +27,9 @@ Servicios Web del Club\
 \pard\pardeftab720\li300\sl300\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "http://ltrest.multinetlabs.com/club/storeBenefits/13"}}{\fldrslt 
 \f2\fs26 \cf6 \cb1 \ul \ulc6 http://ltrest.multinetlabs.com/club/storeBenefits/13}}
-\f2\fs26 \cf7 \cb1  metodo: "GET" donde 13 es c\'f3digo de categor\'eda, devolver\'e1 una lista de todas las sucursales con sus beneficios seg\'fan la categor\'eda que le entreguen.\uc0\u8232 \
+\f2\fs26 \cf7 \cb1  m\'e9todo: "GET" donde 13 es c\'f3digo de categor\'eda, devolver\'e1 una lista de todas las sucursales con sus beneficios seg\'fan la categor\'eda que le entreguen.\uc0\u8232 \
 \pard\pardeftab720\li300\sl300\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "http://ltrest.multinetlabs.com/club/useBenefit/"}}{\fldrslt \cf6 \ul \ulc6 http://ltrest.multinetlabs.com/club/useBenefit/}} metodo "POST", recibe:\'a0id_beneficio,\'a0cod_comercio,\'a0sucursal,\'a0email,\'a0monto. este servicio consulta directamente a la URL de ellos por lo que la respuesta depende de la tercera.\
+{\field{\*\fldinst{HYPERLINK "http://ltrest.multinetlabs.com/club/useBenefit/"}}{\fldrslt \cf6 \ul \ulc6 http://ltrest.multinetlabs.com/club/useBenefit/}} m\'e9todo "POST", recibe:\'a0id_beneficio,\'a0cod_comercio,\'a0sucursal,\'a0email,\'a0monto. este servicio consulta directamente a la URL de ellos por lo que la respuesta depende de la tercera.\
 \
 \pard\pardeftab720\li300\sl300\partightenfactor0
 
@@ -37,13 +38,17 @@ Servicios Web del Club\
 \
 {\field{\*\fldinst{HYPERLINK "http://ltrest.multinetlabs.com/club/storeBenefits/13/?x=-33.4240581&y=-70.6187356"}}{\fldrslt http://ltrest.multinetlabs.com/club/storeBenefits/13/?x=-33.4240581&y=-70.6187356}}\
 \
+\
 
 \b \cf0 \kerning1\expnd0\expndtw0 Consumo de Beneficios
 \b0 \cf7 \expnd0\expndtw0\kerning0
 \
 \pard\pardeftab720\li300\sl300\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "http://ltrest.multinetlabs.com/club/useBenefit/"}}{\fldrslt \cf7 http://ltrest.multinetlabs.com/club/useBenefit/}}\
+\pard\pardeftab720\sl300\partightenfactor0
+\cf8 \cb9 \outl0\strokewidth0 \strokec8  metodo "POST", recibe:\'a0id_beneficio,\'a0cod_comercio,\'a0sucursal,\'a0email,\'a0monto. este servicio consulta directamente a la URL de ellos por lo que la respuesta depende de la tercera.\
 \
+\cf7 \cb1 \outl0\strokewidth0 \
 \pard\pardeftab720\li300\sl300\partightenfactor0
 
 \b \cf0 \kerning1\expnd0\expndtw0 Login
@@ -52,7 +57,7 @@ Servicios Web del Club\
 \pard\pardeftab720\li320\sl300\partightenfactor0
 \cf7 \
 \pard\pardeftab720\li320\sl300\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "http://ltrest.multinetlabs.com/profiles/register/"}}{\fldrslt \cf6 \ul \ulc6 http://ltrest.multinetlabs.com/profiles/register/}}\cf7 \
+{\field{\*\fldinst{HYPERLINK "http://ltrest.multinetlabs.com/profiles/register/"}}{\fldrslt \cf6 \ul \ulc6 http://ltrest.multinetlabs.com/profiles/register/}}\
 Recibe: POST\
 Datos:\
 \
@@ -63,7 +68,7 @@ Datos:\
 "lastname": Apellido\
 "birthdate": Fecha en formato YYYY-MM-DD\
 "gender": M o F\
-"device_id": \cf7 Id de instalaci\'f3n, \cf7 \
+"device_id": Id de instalaci\'f3n, \
 "os": sistema operativo\
 "preferences": Arreglo con preferencias\
 \

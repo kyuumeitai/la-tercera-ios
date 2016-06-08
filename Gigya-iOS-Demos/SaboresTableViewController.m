@@ -33,7 +33,7 @@ NSMutableArray *listaBeneficios;
     listaCategorias = [[NSMutableArray alloc] init];
     listaCategorias = singleton.categoryList;
     //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
-    [self loadBenefitsForCategoryId:3];
+    [self loadBenefitsForCategoryId:39];
        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }

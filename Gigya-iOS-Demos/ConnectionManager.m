@@ -71,11 +71,11 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
   NSData * data = [NSURLConnection sendSynchronousRequest:request
                                         returningResponse:&response
                                                     error:&error];
-  if (error == nil)
-{
-  responseString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-}
-    return responseString;
+        if (error == nil)
+        {
+            responseString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        }
+        return responseString;
 }
 
 -(NSString*)sendLoginDataWithEmail:(NSString *)email{
@@ -319,6 +319,34 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
         completionBlock(NO,nil,error);
         
     }];
+}
+
+-(NSString*)UseBenefitWithIdBenefit:(NSString *)idBeneficio codigoComercio:(NSString*)codComercio sucursal:(NSString*)sucursal email:(NSString*)email monto:(int)monto {
+    
+    NSString * responseString = @"";
+    // Send a synchronous request
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/useBenefit/",BaseURLString]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:5.0];
+     //id_beneficio, cod_comercio, sucursal, email, monto
+    [request setHTTPMethod:@"POST"];
+    NSString *postString = [NSString stringWithFormat:@"id_beneficio=%@&cod_comercio=%@&sucursal=%@&email=%@&monto=%d",idBeneficio,codComercio,sucursal,email,monto];
+    NSLog(@"Postring register: %@ ",postString);
+    [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:request
+                                          returningResponse:&response
+                                                      error:&error];
+    if (error == nil)
+    {
+        responseString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    }else{
+        responseString = error.description;
+    }
+    return responseString;
 }
 
 @end

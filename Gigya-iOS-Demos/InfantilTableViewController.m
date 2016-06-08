@@ -33,7 +33,7 @@ NSMutableArray *listaBeneficios2;
     listaCategorias2 = singleton.categoryList;
     //NSLog(@"La lista de categorias es: %@",listaCategorias2.description);
     
-    [self loadBenefitsForCategoryId:8];
+    [self loadBenefitsForCategoryId:43];
     
 }
 
