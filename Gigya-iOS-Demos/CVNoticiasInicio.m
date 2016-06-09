@@ -9,6 +9,8 @@
 #import "CVNoticiasInicio.h"
 #import "CollectionViewCellGrande.h"
 #import "CollectionViewCellMediana.h"
+#import "CollectionViewCellHorizontal.h"
+#import "CollectionViewCellBanner.h"
 #import "NewspaperPage.h"
 #import "NewsPageViewController.h"
 #import "Tools.h"
@@ -20,8 +22,11 @@
 
 @implementation CVNoticiasInicio
 
-  static NSString * const reuseIdentifierGrande = @"collectionViewGrande";
+static NSString * const reuseIdentifierGrande = @"collectionViewGrande";
 static NSString * const reuseIdentifierMediana = @"collectionViewMediana";
+static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
+static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
+
 int numeroPaginas;
 NSString *day;
 NSString *month;
@@ -54,9 +59,17 @@ BOOL nibMyCell2loaded;
    UINib *cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana" bundle: nil];
   
     [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:reuseIdentifierMediana];
+    
+    UINib *cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal" bundle: nil];
+    
+    [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:reuseIdentifierHorizontal];
+    
+    UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
+    
+    [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
 
         //NSLog(@"Add new page");
-    for (int i=0; i<3; i++){
+    for (int i=0; i<6; i++){
         NSString *pageNumber = [NSString stringWithFormat:@"Página %i",i];
         NewspaperPage *pagina = [[NewspaperPage alloc] init];
         pagina.title = pageNumber;
@@ -113,10 +126,13 @@ BOOL nibMyCell2loaded;
                                             } failure:nil];
         */
         return cell;
-    }else{
+    }
+    
+    if (indexPath.item == 1 || indexPath.item == 2 )
+    {
               
         
-        CollectionViewCellGrande *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
+        CollectionViewCellMediana *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
         
         
         // Configure the cell
@@ -131,7 +147,42 @@ BOOL nibMyCell2loaded;
       
     }
     
+    if (indexPath.item == 3 || indexPath.item == 4 )
+    {
+        
+        
+        CollectionViewCellHorizontal*cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierHorizontal forIndexPath:indexPath];
+        
+        
+        // Configure the cell
+        cell.labelSummary.text = @"Notición muy importante, hay descuento!";
+        NSString *urlImagen = miPagina.urlThumbnail;
+        NSURL *url = [NSURL URLWithString:urlImagen];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+        
+        
+        return cell;
+        
+    }
+    
+    if (indexPath.item == 5 )
+    {
+        
+        
+        CollectionViewCellBanner *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
+        
+        
+        // Configure the cell
+ 
+        
+        
+        return cell;
+        
+    }
+    CollectionViewCellBanner *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
 
+    return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
@@ -154,9 +205,24 @@ BOOL nibMyCell2loaded;
     if([indexPath row]==0){
         return CGSizeMake(374, 428);
 
-    }else{
-        return CGSizeMake(183, 267);
     }
+    
+    if([indexPath row]==1 || [indexPath row]==2){
+        return CGSizeMake(183, 267);
+        
+    }
+    
+      if([indexPath row]==3 || [indexPath row]==4){
+        return CGSizeMake(374, 87);
+        
+    }
+    
+    if([indexPath row]==5){
+        return CGSizeMake(316, 265);
+        
+    }
+    
+    return CGSizeMake(374, 428);
 }
 
 

@@ -400,7 +400,7 @@ int cuenta;
     self.botonViajes.selected = NO;
     self.botonTodos.selected = NO;
     
-    [self loadCategory:8];
+    [self loadCategory:43];
 }
 
 - (IBAction)todosClicked:(id)sender {
@@ -418,7 +418,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:3];
+    [self loadCategory:39];
     
 }
 - (IBAction)saboresClicked:(id)sender {
@@ -436,7 +436,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:3];
+    [self loadCategory:39];
 }
 
 - (IBAction)vidaSanaClicked:(id)sender {
@@ -454,7 +454,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:29];
+    [self loadCategory:44];
 }
 
 - (IBAction)tiempoLibreClicked:(id)sender {
@@ -472,7 +472,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:5];
+    [self loadCategory:41];
     
 }
 - (IBAction)serviciosClicked:(id)sender {
@@ -490,7 +490,7 @@ int cuenta;
     self.botonServicios.selected = YES;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:4];
+    [self loadCategory:40];
 }
 
 - (IBAction)viajesClicked:(id)sender {
