@@ -14,10 +14,16 @@
     [super awakeFromNib];
     
     NSLog(@"Google Mobile Ads SDK version: %@", [DFPRequest sdkVersion]);
-    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
-   self.bannerView.rootViewController = self.bannerView;
-    [self.bannerView loadRequest:[GADRequest request]];
+    //self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+
     // Initialization code
+}
+
+- (void)initBanner{
+    
+    self.bannerView.adUnitID = self.bannerUnitID;
+    self.bannerView.rootViewController = self.bannerView;
+    [self.bannerView loadRequest:[GADRequest request]];
 }
 
 @end

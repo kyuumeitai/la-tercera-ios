@@ -10,7 +10,9 @@
 @import GoogleMobileAds;
 
 @interface CollectionViewCellBanner : UICollectionViewCell
-//@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
+
+-(void)initBanner;
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
+@property (nonatomic, copy) NSString* bannerUnitID;
 
 @end

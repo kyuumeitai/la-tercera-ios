@@ -171,12 +171,9 @@ BOOL nibMyCell2loaded;
         
         
         CollectionViewCellBanner *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
-        
-        
         // Configure the cell
- 
-        
-        
+        cell.bannerUnitID =  @"ca-app-pub-3940256099942544/2934735716";
+        [cell initBanner];
         return cell;
         
     }
@@ -203,17 +200,17 @@ BOOL nibMyCell2loaded;
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if([indexPath row]==0){
-        return CGSizeMake(374, 428);
+        return CGSizeMake(370, 420);
 
     }
     
     if([indexPath row]==1 || [indexPath row]==2){
-        return CGSizeMake(183, 267);
+        return CGSizeMake(170, 262);
         
     }
     
       if([indexPath row]==3 || [indexPath row]==4){
-        return CGSizeMake(374, 87);
+        return CGSizeMake(374, 80);
         
     }
     
