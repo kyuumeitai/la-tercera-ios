@@ -307,6 +307,10 @@
 		D0308E8C1CB6DE8D00D8619D /* PapelDigital.m in Sources */ = {isa = PBXBuildFile; fileRef = D0308E8A1CB6DD7000D8619D /* PapelDigital.m */; };
 		D036FA8B1CD01BB90096FE14 /* MostrarBeneficioDescuentoAdicional.m in Sources */ = {isa = PBXBuildFile; fileRef = D036FA8A1CD01BB90096FE14 /* MostrarBeneficioDescuentoAdicional.m */; };
 		D036FA8C1CD01BB90096FE14 /* MostrarBeneficioDescuentoAdicional.m in Sources */ = {isa = PBXBuildFile; fileRef = D036FA8A1CD01BB90096FE14 /* MostrarBeneficioDescuentoAdicional.m */; };
+		D039B9A11D10495C002B1B09 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = D039B9A01D10495C002B1B09 /* Article.m */; };
+		D039B9A21D10495C002B1B09 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = D039B9A01D10495C002B1B09 /* Article.m */; };
+		D039B9A51D104FD5002B1B09 /* Headline.m in Sources */ = {isa = PBXBuildFile; fileRef = D039B9A41D104FD5002B1B09 /* Headline.m */; };
+		D039B9A61D104FD5002B1B09 /* Headline.m in Sources */ = {isa = PBXBuildFile; fileRef = D039B9A41D104FD5002B1B09 /* Headline.m */; };
 		D03F4EB81CCE5E2600B5835D /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = D03F4EB51CCE5E2600B5835D /* check.png */; };
 		D03F4EB91CCE5E2600B5835D /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = D03F4EB51CCE5E2600B5835D /* check.png */; };
 		D03F4EBA1CCE5E2600B5835D /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03F4EB61CCE5E2600B5835D /* check@2x.png */; };
@@ -710,6 +714,10 @@
 		D03859E91CA062DA00E907FF /* UsarBeneficioDescuentoAdicional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsarBeneficioDescuentoAdicional.m; sourceTree = "<group>"; };
 		D03859EB1CA0674A00E907FF /* UsarBeneficioNoLogueado.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsarBeneficioNoLogueado.h; sourceTree = "<group>"; };
 		D03859EC1CA0674A00E907FF /* UsarBeneficioNoLogueado.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsarBeneficioNoLogueado.m; sourceTree = "<group>"; };
+		D039B99F1D10495C002B1B09 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
+		D039B9A01D10495C002B1B09 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		D039B9A31D104FD5002B1B09 /* Headline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Headline.h; sourceTree = "<group>"; };
+		D039B9A41D104FD5002B1B09 /* Headline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Headline.m; sourceTree = "<group>"; };
 		D03C2C3A1CA02DFD0084373F /* botonVerEnMapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = botonVerEnMapa.png; sourceTree = "<group>"; };
 		D03C2C3B1CA02DFD0084373F /* botonVerEnMapa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "botonVerEnMapa@2x.png"; sourceTree = "<group>"; };
 		D03C2C3C1CA02DFD0084373F /* botonVerEnMapa@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "botonVerEnMapa@3x.png"; sourceTree = "<group>"; };
@@ -1304,6 +1312,7 @@
 		17DAB9A21CCDC555000CD406 /* Lectios */ = {
 			isa = PBXGroup;
 			children = (
+				17F8BCD51CA250B200B9977B /* NewsCategoryPoliticaViewController.h */,
 				17DAB9A31CCDC57F000CD406 /* LectiosViewController.h */,
 				17DAB9A41CCDC57F000CD406 /* LectiosViewController.m */,
 			);
@@ -1365,7 +1374,6 @@
 				D008D6FF1D00894700502A69 /* Secciones */,
 				17F8BCD21CA2506900B9977B /* NewsCategoryInicioViewController.h */,
 				17F8BCD31CA2506900B9977B /* NewsCategoryInicioViewController.m */,
-				17F8BCD51CA250B200B9977B /* NewsCategoryPoliticaViewController.h */,
 				17F8BCD61CA250B200B9977B /* NewsCategoryPoliticaViewController.m */,
 			);
 			name = Categorias;
@@ -1740,6 +1748,10 @@
 				1702BE1D1CB20BF500F26F42 /* Benefit.m */,
 				D0FC069B1CB2A0D0000DF39B /* Store.h */,
 				D0FC069C1CB2A0D0000DF39B /* Store.m */,
+				D039B99F1D10495C002B1B09 /* Article.h */,
+				D039B9A01D10495C002B1B09 /* Article.m */,
+				D039B9A31D104FD5002B1B09 /* Headline.h */,
+				D039B9A41D104FD5002B1B09 /* Headline.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2505,6 +2517,7 @@
 				1702BE171CB1A3AE00F26F42 /* VidaSanaTableViewController.m in Sources */,
 				1702BD351CB093E400F26F42 /* AFNetworkReachabilityManager.m in Sources */,
 				1702BD361CB093E400F26F42 /* ClubViewController.m in Sources */,
+				D039B9A61D104FD5002B1B09 /* Headline.m in Sources */,
 				D008D6FC1D00850D00502A69 /* CollectionViewCellGrande.m in Sources */,
 				1702BD371CB093E400F26F42 /* MapAnnotation.m in Sources */,
 				1702BD381CB093E400F26F42 /* CategoriasTableViewCell.m in Sources */,
@@ -2522,6 +2535,7 @@
 				D0D56D3B1CE4B5500064DE64 /* MKPointAnnotation_custom.m in Sources */,
 				D0522D601D09D32100D6E4C6 /* CollectionViewCellBanner.m in Sources */,
 				1702BD3F1CB093E400F26F42 /* AFImageDownloader.m in Sources */,
+				D039B9A21D10495C002B1B09 /* Article.m in Sources */,
 				1702BD401CB093E400F26F42 /* AFURLRequestSerialization.m in Sources */,
 				17DAB9A61CCDC57F000CD406 /* LectiosViewController.m in Sources */,
 				1702BD411CB093E400F26F42 /* YSLScrollMenuView.m in Sources */,
@@ -2546,12 +2560,14 @@
 				D0FAD5971CDA641000BF00D4 /* MKMapView+ZoomLevel.m in Sources */,
 				D0FF55751CCFC94F00EA71F4 /* ViajesClub.m in Sources */,
 				D0F094351CECC05000ABBD70 /* ClubSearchTableViewController.m in Sources */,
+				D039B9A51D104FD5002B1B09 /* Headline.m in Sources */,
 				D0522D5F1D09D32100D6E4C6 /* CollectionViewCellBanner.m in Sources */,
 				D008D7021D00897200502A69 /* CVNoticiasInicio.m in Sources */,
 				D08E12831CEE107000665795 /* TableViewCellBigNews.m in Sources */,
 				D04546D11CEB9A6D004A011D /* InitialViewController.m in Sources */,
 				D03F4F3E1CCE782A00B5835D /* ViewControllerRootPage.m in Sources */,
 				D0FA1C2B1CD0FDA900D18188 /* ConfirmationViewController.m in Sources */,
+				D039B9A11D10495C002B1B09 /* Article.m in Sources */,
 				D0D56D401CE4D5040064DE64 /* YActionSheet.m in Sources */,
 				D03F4EC81CCE63BD00B5835D /* CustomButtonTerceraShadows.m in Sources */,
 				D03026651CBC190E00B4149A /* CollectionViewCellStandar.m in Sources */,

@@ -105,6 +105,28 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
 }
 
 
+//News Stuffs
+
+-(void)getHeadlinesForCategoryId:(getDataBlock)completionBlock :(int)idCat {
+    
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@contenido/headlines/%d/?format=json",BaseURLString,idCat]];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        NSArray *jsonArray = (NSArray *) responseObject;
+        
+        completionBlock(YES,jsonArray ,nil);
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+        completionBlock(NO,nil,error);
+        
+    }];
+}
+
+
 -(NSDictionary*)getAllCategories{
     
     
