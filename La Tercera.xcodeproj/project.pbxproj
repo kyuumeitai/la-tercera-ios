@@ -311,6 +311,8 @@
 		D039B9A21D10495C002B1B09 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = D039B9A01D10495C002B1B09 /* Article.m */; };
 		D039B9A51D104FD5002B1B09 /* Headline.m in Sources */ = {isa = PBXBuildFile; fileRef = D039B9A41D104FD5002B1B09 /* Headline.m */; };
 		D039B9A61D104FD5002B1B09 /* Headline.m in Sources */ = {isa = PBXBuildFile; fileRef = D039B9A41D104FD5002B1B09 /* Headline.m */; };
+		D039B9A91D106300002B1B09 /* CVNoticiasPolitica.m in Sources */ = {isa = PBXBuildFile; fileRef = D039B9A81D106300002B1B09 /* CVNoticiasPolitica.m */; };
+		D039B9AA1D106300002B1B09 /* CVNoticiasPolitica.m in Sources */ = {isa = PBXBuildFile; fileRef = D039B9A81D106300002B1B09 /* CVNoticiasPolitica.m */; };
 		D03F4EB81CCE5E2600B5835D /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = D03F4EB51CCE5E2600B5835D /* check.png */; };
 		D03F4EB91CCE5E2600B5835D /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = D03F4EB51CCE5E2600B5835D /* check.png */; };
 		D03F4EBA1CCE5E2600B5835D /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03F4EB61CCE5E2600B5835D /* check@2x.png */; };
@@ -427,16 +429,10 @@
 		D0522D6C1D09DA5200D6E4C6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0522D6A1D09DA5200D6E4C6 /* GoogleMobileAds.framework */; };
 		D0522D6E1D09DB7800D6E4C6 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0522D6D1D09DB7800D6E4C6 /* SafariServices.framework */; };
 		D0522D701D09DBB300D6E4C6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0522D6F1D09DBB300D6E4C6 /* CoreBluetooth.framework */; };
-		D08E12831CEE107000665795 /* TableViewCellBigNews.m in Sources */ = {isa = PBXBuildFile; fileRef = D08E12811CEE107000665795 /* TableViewCellBigNews.m */; };
-		D08E12841CEE107000665795 /* TableViewCellBigNews.m in Sources */ = {isa = PBXBuildFile; fileRef = D08E12811CEE107000665795 /* TableViewCellBigNews.m */; };
-		D08E12851CEE107000665795 /* TableViewCellBigNews.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08E12821CEE107000665795 /* TableViewCellBigNews.xib */; };
-		D08E12861CEE107000665795 /* TableViewCellBigNews.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08E12821CEE107000665795 /* TableViewCellBigNews.xib */; };
+		D08697581D10AEFA00919A81 /* DetalleNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08697571D10AEFA00919A81 /* DetalleNewsViewController.m */; };
+		D08697591D10AEFA00919A81 /* DetalleNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08697571D10AEFA00919A81 /* DetalleNewsViewController.m */; };
 		D08E12881CEE1FF200665795 /* mineria.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D08E12871CEE1FF200665795 /* mineria.jpg */; };
 		D08E12891CEE1FF200665795 /* mineria.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D08E12871CEE1FF200665795 /* mineria.jpg */; };
-		D08E128D1CEE22BF00665795 /* TableViewCellSmallNews.m in Sources */ = {isa = PBXBuildFile; fileRef = D08E128B1CEE22BF00665795 /* TableViewCellSmallNews.m */; };
-		D08E128E1CEE22BF00665795 /* TableViewCellSmallNews.m in Sources */ = {isa = PBXBuildFile; fileRef = D08E128B1CEE22BF00665795 /* TableViewCellSmallNews.m */; };
-		D08E128F1CEE22BF00665795 /* TableViewCellSmallNews.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08E128C1CEE22BF00665795 /* TableViewCellSmallNews.xib */; };
-		D08E12901CEE22BF00665795 /* TableViewCellSmallNews.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08E128C1CEE22BF00665795 /* TableViewCellSmallNews.xib */; };
 		D0D56D361CE4B4F60064DE64 /* DetalleBeneficioViewControllerFromMap.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D56D351CE4B4F60064DE64 /* DetalleBeneficioViewControllerFromMap.m */; };
 		D0D56D371CE4B4F60064DE64 /* DetalleBeneficioViewControllerFromMap.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D56D351CE4B4F60064DE64 /* DetalleBeneficioViewControllerFromMap.m */; };
 		D0D56D3A1CE4B5500064DE64 /* MKPointAnnotation_custom.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D56D391CE4B5500064DE64 /* MKPointAnnotation_custom.m */; };
@@ -718,6 +714,8 @@
 		D039B9A01D10495C002B1B09 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
 		D039B9A31D104FD5002B1B09 /* Headline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Headline.h; sourceTree = "<group>"; };
 		D039B9A41D104FD5002B1B09 /* Headline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Headline.m; sourceTree = "<group>"; };
+		D039B9A71D106300002B1B09 /* CVNoticiasPolitica.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVNoticiasPolitica.h; sourceTree = "<group>"; };
+		D039B9A81D106300002B1B09 /* CVNoticiasPolitica.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVNoticiasPolitica.m; sourceTree = "<group>"; };
 		D03C2C3A1CA02DFD0084373F /* botonVerEnMapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = botonVerEnMapa.png; sourceTree = "<group>"; };
 		D03C2C3B1CA02DFD0084373F /* botonVerEnMapa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "botonVerEnMapa@2x.png"; sourceTree = "<group>"; };
 		D03C2C3C1CA02DFD0084373F /* botonVerEnMapa@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "botonVerEnMapa@3x.png"; sourceTree = "<group>"; };
@@ -799,13 +797,9 @@
 		D06DC3911C84A23F0063B836 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		D06DC3921C84A23F0063B836 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		D06DC3951C84BAAD0063B836 /* MKHorizMenu */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MKHorizMenu; sourceTree = "<group>"; };
-		D08E12801CEE107000665795 /* TableViewCellBigNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCellBigNews.h; sourceTree = "<group>"; };
-		D08E12811CEE107000665795 /* TableViewCellBigNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCellBigNews.m; sourceTree = "<group>"; };
-		D08E12821CEE107000665795 /* TableViewCellBigNews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCellBigNews.xib; sourceTree = "<group>"; };
+		D08697561D10AEFA00919A81 /* DetalleNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleNewsViewController.h; sourceTree = "<group>"; };
+		D08697571D10AEFA00919A81 /* DetalleNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalleNewsViewController.m; sourceTree = "<group>"; };
 		D08E12871CEE1FF200665795 /* mineria.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mineria.jpg; sourceTree = "<group>"; };
-		D08E128A1CEE22BF00665795 /* TableViewCellSmallNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCellSmallNews.h; sourceTree = "<group>"; };
-		D08E128B1CEE22BF00665795 /* TableViewCellSmallNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCellSmallNews.m; sourceTree = "<group>"; };
-		D08E128C1CEE22BF00665795 /* TableViewCellSmallNews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCellSmallNews.xib; sourceTree = "<group>"; };
 		D0B9BF461C861A7600680EE4 /* PT_Sans-Web-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PT_Sans-Web-Bold.ttf"; sourceTree = "<group>"; };
 		D0B9BF471C861A7600680EE4 /* PT_Sans-Web-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PT_Sans-Web-BoldItalic.ttf"; sourceTree = "<group>"; };
 		D0B9BF481C861A7600680EE4 /* PT_Sans-Web-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PT_Sans-Web-Italic.ttf"; sourceTree = "<group>"; };
@@ -1499,6 +1493,8 @@
 		D008D6FF1D00894700502A69 /* Secciones */ = {
 			isa = PBXGroup;
 			children = (
+				D039B9A71D106300002B1B09 /* CVNoticiasPolitica.h */,
+				D039B9A81D106300002B1B09 /* CVNoticiasPolitica.m */,
 				D008D7001D00897200502A69 /* CVNoticiasInicio.h */,
 				D008D7011D00897200502A69 /* CVNoticiasInicio.m */,
 			);
@@ -1649,12 +1645,8 @@
 			isa = PBXGroup;
 			children = (
 				D008D6F71D0083F400502A69 /* CollectionVC */,
-				D08E12801CEE107000665795 /* TableViewCellBigNews.h */,
-				D08E12811CEE107000665795 /* TableViewCellBigNews.m */,
-				D08E12821CEE107000665795 /* TableViewCellBigNews.xib */,
-				D08E128A1CEE22BF00665795 /* TableViewCellSmallNews.h */,
-				D08E128B1CEE22BF00665795 /* TableViewCellSmallNews.m */,
-				D08E128C1CEE22BF00665795 /* TableViewCellSmallNews.xib */,
+				D08697561D10AEFA00919A81 /* DetalleNewsViewController.h */,
+				D08697571D10AEFA00919A81 /* DetalleNewsViewController.m */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -2105,7 +2097,6 @@
 				D0DB19041CB4409300A0BBC5 /* IconoPin@3x.png in Resources */,
 				1702BD621CB093E400F26F42 /* CellNormal.png in Resources */,
 				1702BD631CB093E400F26F42 /* 0.2 Bienvenida sin registro INI@2x.png in Resources */,
-				D08E12901CEE22BF00665795 /* TableViewCellSmallNews.xib in Resources */,
 				D0DB19021CB4409300A0BBC5 /* IconoPin@2x.png in Resources */,
 				1702BD641CB093E400F26F42 /* botonEstiloOn@3x.png in Resources */,
 				D04546CE1CEB7183004A011D /* LaTerceraStoryboard.storyboard in Resources */,
@@ -2121,7 +2112,6 @@
 				1702BD6A1CB093E400F26F42 /* botonInfantilOn@2x.png in Resources */,
 				1702BD6B1CB093E400F26F42 /* fondoDestacado@2x.png in Resources */,
 				1702BD6C1CB093E400F26F42 /* PT_Sans-Web-BoldItalic.ttf in Resources */,
-				D08E12861CEE107000665795 /* TableViewCellBigNews.xib in Resources */,
 				1702BD6D1CB093E400F26F42 /* VerBeneficiosCerca.png in Resources */,
 				1702BD6E1CB093E400F26F42 /* iconFilter@3x.png in Resources */,
 				D03F4F171CCE762700B5835D /* comoFunciona6@2x.png in Resources */,
@@ -2358,7 +2348,6 @@
 				D08E12881CEE1FF200665795 /* mineria.jpg in Resources */,
 				D00CAC661CD7B42700F2AE41 /* PlaceholderHeaderClub.png in Resources */,
 				171AFA591CCF89F400705817 /* imagenEvento3@3x.png in Resources */,
-				D08E128F1CEE22BF00665795 /* TableViewCellSmallNews.xib in Resources */,
 				D03F4F281CCE762700B5835D /* comoFunciona3@3x.png in Resources */,
 				D03F4EBA1CCE5E2600B5835D /* check@2x.png in Resources */,
 				D009C6D81C91BC02001BD7A3 /* PT_Sans-Web-Bold.ttf in Resources */,
@@ -2397,7 +2386,6 @@
 				D0DD6E4F1CBFFD9C00994DDF /* placeholder@2x.png in Resources */,
 				D03F4EC11CCE609500B5835D /* fondoPorque.png in Resources */,
 				D03F4F2C1CCE762700B5835D /* comoFunciona2@2x.png in Resources */,
-				D08E12851CEE107000665795 /* TableViewCellBigNews.xib in Resources */,
 				D0FBFA381CBD59F800D5465E /* ic_check_black_24px@3x.png in Resources */,
 				D03F4EFA1CCE762700B5835D /* comoFunciona11@2x.png in Resources */,
 				D0522D611D09D32100D6E4C6 /* CollectionViewCellBanner.xib in Resources */,
@@ -2470,8 +2458,6 @@
 				1702BD161CB093E400F26F42 /* Reachability.m in Sources */,
 				D036FA8C1CD01BB90096FE14 /* MostrarBeneficioDescuentoAdicional.m in Sources */,
 				1702BD171CB093E400F26F42 /* InfantilTableViewController.m in Sources */,
-				D08E128E1CEE22BF00665795 /* TableViewCellSmallNews.m in Sources */,
-				D08E12841CEE107000665795 /* TableViewCellBigNews.m in Sources */,
 				1702BD181CB093E400F26F42 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				1702BE121CB1A38F00F26F42 /* TiempoLibreTableViewController.m in Sources */,
 				1702BD191CB093E400F26F42 /* VidaSanaContainerVC.m in Sources */,
@@ -2503,6 +2489,7 @@
 				1702BD2A1CB093E400F26F42 /* UIImageView+AFNetworking.m in Sources */,
 				1702BD2B1CB093E400F26F42 /* YSLContainerViewController.m in Sources */,
 				1702BD2C1CB093E400F26F42 /* CategoriasViewController.m in Sources */,
+				D08697591D10AEFA00919A81 /* DetalleNewsViewController.m in Sources */,
 				D03026591CBBE54600B4149A /* CVLaTercera.m in Sources */,
 				1702BD2D1CB093E400F26F42 /* AFURLResponseSerialization.m in Sources */,
 				D0FF557B1CCFC9A900EA71F4 /* TCMastercard.m in Sources */,
@@ -2539,6 +2526,7 @@
 				1702BD401CB093E400F26F42 /* AFURLRequestSerialization.m in Sources */,
 				17DAB9A61CCDC57F000CD406 /* LectiosViewController.m in Sources */,
 				1702BD411CB093E400F26F42 /* YSLScrollMenuView.m in Sources */,
+				D039B9AA1D106300002B1B09 /* CVNoticiasPolitica.m in Sources */,
 				1702BD421CB093E400F26F42 /* main.m in Sources */,
 				D0D56D411CE4D5040064DE64 /* YActionSheet.m in Sources */,
 				D0DD6E401CBFEB7500994DDF /* NewsPageViewController.m in Sources */,
@@ -2563,7 +2551,7 @@
 				D039B9A51D104FD5002B1B09 /* Headline.m in Sources */,
 				D0522D5F1D09D32100D6E4C6 /* CollectionViewCellBanner.m in Sources */,
 				D008D7021D00897200502A69 /* CVNoticiasInicio.m in Sources */,
-				D08E12831CEE107000665795 /* TableViewCellBigNews.m in Sources */,
+				D039B9A91D106300002B1B09 /* CVNoticiasPolitica.m in Sources */,
 				D04546D11CEB9A6D004A011D /* InitialViewController.m in Sources */,
 				D03F4F3E1CCE782A00B5835D /* ViewControllerRootPage.m in Sources */,
 				D0FA1C2B1CD0FDA900D18188 /* ConfirmationViewController.m in Sources */,
@@ -2571,6 +2559,7 @@
 				D0D56D401CE4D5040064DE64 /* YActionSheet.m in Sources */,
 				D03F4EC81CCE63BD00B5835D /* CustomButtonTerceraShadows.m in Sources */,
 				D03026651CBC190E00B4149A /* CollectionViewCellStandar.m in Sources */,
+				D08697581D10AEFA00919A81 /* DetalleNewsViewController.m in Sources */,
 				D03F4F3A1CCE76A400B5835D /* PageContentViewController.m in Sources */,
 				D0D56D3A1CE4B5500064DE64 /* MKPointAnnotation_custom.m in Sources */,
 				D0D56D361CE4B4F60064DE64 /* DetalleBeneficioViewControllerFromMap.m in Sources */,
@@ -2595,7 +2584,6 @@
 				1702BE1E1CB20BF500F26F42 /* Benefit.m in Sources */,
 				17F321BC1CBEBEDD00005964 /* NewspaperPage.m in Sources */,
 				171AFA6C1CD1E37F00705817 /* CVElDeportivo.m in Sources */,
-				D08E128D1CEE22BF00665795 /* TableViewCellSmallNews.m in Sources */,
 				1702BE021CB18B7100F26F42 /* TiempoLibreTableViewController.m in Sources */,
 				17DAB9AF1CCDD414000CD406 /* YMCAudioPlayer.m in Sources */,
 				D0FF557A1CCFC9A900EA71F4 /* TCMastercard.m in Sources */,

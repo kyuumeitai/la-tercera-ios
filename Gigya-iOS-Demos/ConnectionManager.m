@@ -126,6 +126,24 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     }];
 }
 
+-(void)getArticleWithId:(getDataBlock)completionBlock :(int)idArticle {
+    
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@contenido/articles/%d/?format=json",BaseURLString,idArticle]];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        NSArray *jsonArray = (NSArray *) responseObject;
+        
+        completionBlock(YES,jsonArray ,nil);
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+        completionBlock(NO,nil,error);
+        
+    }];
+}
 
 -(NSDictionary*)getAllCategories{
     
