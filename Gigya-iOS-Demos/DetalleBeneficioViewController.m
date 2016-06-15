@@ -102,13 +102,10 @@ CLLocationCoordinate2D storeLocation;
     }:idStore];
 }
 
-
-
 -(void) loadStoreDataFromService:(NSArray*)arrayJson{
     
     NSDictionary *storeDict = (NSDictionary*)arrayJson;
 
-   
     NSString* address = [storeDict objectForKey:@"address"];
    // NSString* city = [storeDict objectForKey:@"city"];
     NSString* region = [storeDict objectForKey:@"region"];
@@ -131,9 +128,7 @@ CLLocationCoordinate2D storeLocation;
     //int kms = (int) (distanceMeters/1000);
 
     NSLog(@"A %f kms de distancia",distanceMeters);
-    
 }
-
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
     NSLog(@"  reload beenfits  ");

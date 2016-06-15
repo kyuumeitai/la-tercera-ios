@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imagenNews;
 @property (weak, nonatomic) IBOutlet UILabel *content;
 
+-(void)loadBenefitForBenefitId:(int)idArticle;
 @end

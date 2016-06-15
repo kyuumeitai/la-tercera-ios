@@ -15,14 +15,16 @@
 @end
 
 @implementation UsarBeneficioDescuentoAdicional
-NSString * idBeneficio = @"179";
-NSString * codComercio = @"186";
-NSString * sucursal = @"77";
-NSString * email = @"cristian.villareal.urrutia@gmail.com";
+NSString * idBeneficio = @"18";
+NSString * codComercio = @"227";
+NSString * sucursal = @"377";
+NSString * email = @"roadell@gmail.com";
 int monto = 1000;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    codComercio = [NSString stringWithFormat:@"C%@S%@",codComercio,sucursal];
     // Do view setup here.
 }
 
@@ -39,7 +41,6 @@ int monto = 1000;
     //confirmationViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     confirmationViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     //[self presentViewController:confirmationViewController animated:YES completion:nil];
-    
     
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import "ConnectionManager.h"
-#import "CVNoticiasInicio.h"
+#import "CVNoticiasPolitica.h"
 #import "CollectionViewCellGrande.h"
 #import "CollectionViewCellMediana.h"
 #import "CollectionViewCellHorizontal.h"
@@ -18,14 +18,13 @@
 #import "Headline.h"
 #import "Article.h"
 #import "UIImageView+AFNetworking.h"
-#import "DetalleNewsViewController.h"
 //#import "SDWebImage/UIImageView+WebCache.h"
 
 #define categoryIdName @"lt"
-#define categoryId 20
-#define categoryName @"Home"
+#define categoryId 9
+#define categoryName @"Politica"
 
-@implementation CVNoticiasInicio
+@implementation CVNoticiasPolitica
 
 @synthesize headlinesArray;
 
@@ -94,14 +93,14 @@ BOOL nibMyCell2loaded;
     //NSLog(@"  reload headlines array, is: %@ ",diccionarioTitulares);
     
     NSArray* arrayTitulares = [diccionarioTitulares objectForKey:@"articles"];
-    //NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
+    NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
     
   
     headlinesArray = [[NSMutableArray alloc] init];
     
        for (id titularTemp in arrayTitulares){
             
-           //NSLog(@"El titular: %@ ", titularTemp);
+           NSLog(@"El titular: %@ ", titularTemp);
            NSDictionary *dictTitular = (NSDictionary*) titularTemp;
            id idArt =  [dictTitular objectForKey:@"id"];
            id title = [dictTitular objectForKey:@"title"];
@@ -137,20 +136,19 @@ BOOL nibMyCell2loaded;
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
     return [headlinesArray count];
-  
 }
 
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-
-Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
+    
+    Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     
     if (indexPath.item == 0 || indexPath.item % 6 == 0) {
         
-             CollectionViewCellGrande *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
+        CollectionViewCellGrande *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
         
-    
+        
         // Configure the cell
         cell.labelTituloNews.text = titular.title;
         cell.labelSummary.text = titular.summary;
@@ -163,32 +161,32 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
         
         __weak CollectionViewCellGrande *weakCell = cell;
         
-   
+        
         [cell.imageNews setImageWithURLRequest:request
-                                   placeholderImage:placeholderImage
-                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                                weakCell.imageNews.image = image;
-                                                [weakCell setNeedsLayout];
-                                            } failure:nil];
+                              placeholderImage:placeholderImage
+                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                           weakCell.imageNews.image = image;
+                                           [weakCell setNeedsLayout];
+                                       } failure:nil];
         
         return cell;
     }
     
     if (indexPath.item == 1 || indexPath.item == 2 || ((indexPath.item % 6)-1) == 0 || ((indexPath.item % 6)-2) == 0  )
     {
-              
+        
         
         CollectionViewCellMediana *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
         
         
         // Configure the cell
-       // cell.labelTituloNews.text = titular.title;
+        // cell.labelTituloNews.text = titular.title;
         cell.labelSummary.text = titular.title;
         NSString *urlImagen = titular.imagenThumbString;
         NSURL *url = [NSURL URLWithString:urlImagen];
         UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-
+        
         //__weak UITableViewCell *weakCell = cell;
         
         __weak CollectionViewCellMediana *weakCellMediana = cell;
@@ -200,9 +198,9 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
                                            weakCellMediana.imageNews.image = image;
                                            [weakCellMediana setNeedsLayout];
                                        } failure:nil];
-
+        
         return cell;
-      
+        
     }
     
     if (indexPath.item == 3 || indexPath.item == 4 || ((indexPath.item % 6)-3) == 0 || ((indexPath.item % 6)-4) == 0 )
@@ -213,13 +211,14 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
         
         // Configure the cell
         cell.labelSummary.text = titular.title;
-
+        
         return cell;
         
     }
     
-    if (indexPath.item == 5 || ((indexPath.item % 6)-5) )
+    if (indexPath.item == 5 || ((indexPath.item % 6)-5) == 0 || ((indexPath.item % 6)-5) == 0 )
     {
+        
         
         CollectionViewCellBanner *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
         // Configure the cell
@@ -229,26 +228,23 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
         
     }
     CollectionViewCellBanner *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
-
+    
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
-        return ;
-        
-    }else{
-    Headline *titular = (Headline*)[headlinesArray objectAtIndex:indexPath.row ];
-    [titular logDescription];
-    int idArticulo = titular.idArt;
-    NSLog(@"id Artículo = %d",idArticulo);
-    DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
-        [detalleNews loadBenefitForBenefitId:idArticulo];    //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self.navigationController pushViewController:detalleNews animated:YES];
-    }
+    /*
+    NewsPageViewController *newsPage =  (NewsPageViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"newsPageSB"];
+    NewspaperPage *paginita = (NewspaperPage*)[self.pagesArray objectAtIndex:indexPath.row ];
+    newsPage.numeroPagina = paginita.pageNumber;
+    newsPage.urlDetailPage = paginita.urlDetail;
+    newsPage.categoria = paginita.categoria;
+    newsPage.totalPaginas = (int)[self.pagesArray count] ;
+    newsPage.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:newsPage animated:YES completion:nil];
+  */  
 }
 
 
@@ -256,7 +252,7 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     
     if([indexPath row]==0 || [indexPath row] % 6 == 0){
         return CGSizeMake(370, 420);
-
+        
     }
     
     if([indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 ) {
@@ -264,7 +260,7 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
         
     }
     
-      if([indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
+    if([indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
         return CGSizeMake(374, 80);
         
     }
