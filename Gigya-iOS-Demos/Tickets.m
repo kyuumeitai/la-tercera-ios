@@ -48,6 +48,10 @@
     
 }
 
+- (IBAction)backPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [SVProgressHUD dismiss];
 }

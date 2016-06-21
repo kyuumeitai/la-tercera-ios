@@ -2,8 +2,7 @@
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fswiss\fcharset0 ArialMT;
 }
 {\colortbl;\red255\green255\blue255;\red56\green56\blue59;\red245\green245\blue247;\red210\green0\blue53;
-\red129\green144\blue144;\red16\green60\blue192;\red26\green26\blue26;\red26\green26\blue26;\red255\green255\blue255;
-}
+\red129\green144\blue144;\red16\green60\blue192;\red26\green26\blue26;}
 \margl1440\margr1440\vieww9000\viewh8400\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -46,21 +45,18 @@ Servicios Web del Club\
 \pard\pardeftab720\li300\sl300\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "http://ltrest.multinetlabs.com/club/useBenefit/"}}{\fldrslt \cf7 http://ltrest.multinetlabs.com/club/useBenefit/}}\
 \pard\pardeftab720\sl300\partightenfactor0
-\cf8 \cb9 \outl0\strokewidth0 \strokec8  metodo "POST", recibe:\'a0id_beneficio,\'a0cod_comercio,\'a0sucursal,\'a0email,\'a0monto. este servicio consulta directamente a la URL de ellos por lo que la respuesta depende de la tercera.\
+\cf7  metodo "POST", recibe:\'a0id_beneficio,\'a0cod_comercio,\'a0sucursal,\'a0email,\'a0monto. este servicio consulta directamente a la URL de ellos por lo que la respuesta depende de la tercera.\
 \
-\cf7 \cb1 \outl0\strokewidth0 \
+\
 \pard\pardeftab720\li300\sl300\partightenfactor0
 
-\b \cf0 \kerning1\expnd0\expndtw0 Login
+\b \cf0 \kerning1\expnd0\expndtw0 Registro Gigya
 \b0 \cf7 \expnd0\expndtw0\kerning0
 \
-\pard\pardeftab720\li320\sl300\partightenfactor0
-\cf7 \
 \pard\pardeftab720\li320\sl300\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "http://ltrest.multinetlabs.com/profiles/register/"}}{\fldrslt \cf6 \ul \ulc6 http://ltrest.multinetlabs.com/profiles/register/}}\
 Recibe: POST\
 Datos:\
-\
 "email": Email de registro\
 "gigya_id": ID de Gigya\
 "name": Nombre\
@@ -73,6 +69,12 @@ Datos:\
 "preferences": Arreglo con preferencias\
 \
 Estos datos se verifican contra servicio entregado por la tercera (servicios BDOC), por eso la especificacion de cada dato.\
+\
+\
+\pard\pardeftab720\li300\sl300\partightenfactor0
+
+\b \cf0 \kerning1\expnd0\expndtw0 Registro Login
+\b0 \cf7 \expnd0\expndtw0\kerning0
 \
 \pard\pardeftab720\li320\sl300\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "http://ltrest.multinetlabs.com/profiles/login/"}}{\fldrslt \cf6 \ul \ulc6 http://ltrest.multinetlabs.com/profiles/login/}}\

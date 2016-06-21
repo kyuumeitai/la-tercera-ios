@@ -113,6 +113,10 @@
             <string>PTSans-Regular</string>
             <string>PTSans-Regular</string>
             <string>PTSans-Regular</string>
+            <string>PTSans-Regular</string>
+            <string>PTSans-Regular</string>
+            <string>PTSans-Regular</string>
+            <string>PTSans-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -353,7 +357,7 @@ REGISTRARSE?</string>
             <objects>
                 <viewController id="LKO-m6-Nmk" customClass="ClubViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IfX-nN-EaX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="784"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="iya-0o-y6w">
@@ -483,6 +487,9 @@ REGISTRARSE?</string>
                                                 <rect key="frame" x="22" y="656" width="330" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonTickets.png"/>
+                                                <connections>
+                                                    <segue destination="n9c-AB-wOR" kind="push" id="VHn-pv-49C"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xaf-hL-wGC">
                                                 <rect key="frame" x="21" y="716" width="330" height="48"/>
@@ -547,7 +554,8 @@ REGISTRARSE?</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="784"/>
                     <connections>
                         <outlet property="menuButtonClub" destination="6qO-rI-OhO" id="ZVr-hu-wR0"/>
                     </connections>
@@ -593,7 +601,7 @@ REGISTRARSE?</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X7O-2d-xbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1871.5" y="1181"/>
+            <point key="canvasLocation" x="-1950.5" y="1100"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="iL4-zK-Tag">
@@ -1114,7 +1122,7 @@ REGISTRARSE?</string>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="27" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="Asb-hc-GU6">
                                         <rect key="frame" x="25" y="443" width="325" height="412"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <mutableString key="text">La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                                 La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                              La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.</mutableString>
+                                        <string key="text">La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                                 La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                              La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.</string>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1226,7 +1234,7 @@ REGISTRARSE?</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Spn-zu-oet">
-                                <rect key="frame" x="5" y="25" width="42" height="47"/>
+                                <rect key="frame" x="5" y="30" width="42" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="botonVolver.png"/>
                                 <connections>
@@ -1243,7 +1251,7 @@ REGISTRARSE?</string>
                                 </state>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="Wsm-WF-ByM">
-                                <rect key="frame" x="0.0" y="184" width="375" height="249"/>
+                                <rect key="frame" x="0.0" y="184" width="375" height="232"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="YpZ-qM-Zfn" id="qs1-y0-Gw2"/>
@@ -1273,20 +1281,15 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9lh-Ox-HQh">
-                                <rect key="frame" x="55" y="30" width="38" height="38"/>
+                                <rect key="frame" x="55" y="35" width="38" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="icon-lt.png"/>
                                 <connections>
                                     <segue destination="FRq-Fc-Jtx" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="JhD-SO-oge"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6nO-zR-QMo">
-                                <rect key="frame" x="310" y="372" width="55" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="updateMap.png"/>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6fa-yo-9V4">
-                                <rect key="frame" x="0.0" y="435" width="375" height="232"/>
+                                <rect key="frame" x="0.0" y="417" width="375" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -1410,6 +1413,11 @@ REGISTRARSE?</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6nO-zR-QMo">
+                                <rect key="frame" x="314" y="344" width="55" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="updateMap.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1843,7 +1851,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUs-eN-dpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546.5" y="1338.5"/>
+            <point key="canvasLocation" x="1576.5" y="1622.5"/>
         </scene>
         <!--Noticias Home View Controller-->
         <scene sceneID="lkj-LX-C17">
@@ -1941,7 +1949,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4f-Yh-fUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="198.5" y="1314.5"/>
+            <point key="canvasLocation" x="190.5" y="1314.5"/>
         </scene>
         <!--Infantil ContainerVC-->
         <scene sceneID="hmO-9N-q3D">
@@ -2006,7 +2014,7 @@ de tu descuento.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RG8-4U-QSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1765.5" y="1773.5"/>
+            <point key="canvasLocation" x="-1776.5" y="1798.5"/>
         </scene>
         <!--Sabores ContainerVC-->
         <scene sceneID="4IV-VL-2sl">
@@ -2274,7 +2282,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myc-Gk-fdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="960.5" y="-93.5"/>
+            <point key="canvasLocation" x="1032.5" y="-65.5"/>
         </scene>
         <!--Papel Digital-->
         <scene sceneID="meJ-3D-l3r">
@@ -2484,7 +2492,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ubf-RK-e9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996.5" y="1392.5"/>
+            <point key="canvasLocation" x="1032.5" y="1447.5"/>
         </scene>
         <!--Usar Beneficio No Logueado-->
         <scene sceneID="BIm-0R-QGl">
@@ -2531,7 +2539,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qz9-lx-yC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996.5" y="659.5"/>
+            <point key="canvasLocation" x="1032.5" y="712.5"/>
         </scene>
         <!--Mostrar Tarjeta-->
         <scene sceneID="H13-OG-pgI">
@@ -2570,7 +2578,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WD6-tP-ovG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1538.5" y="538.5"/>
+            <point key="canvasLocation" x="1627.5" y="880.5"/>
         </scene>
         <!--Tarjeta Virtual-->
         <scene sceneID="6vh-H8-hpd">
@@ -2645,7 +2653,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x55-Z0-lCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2069.5" y="527.5"/>
+            <point key="canvasLocation" x="2006.5" y="1063.5"/>
         </scene>
         <!--Usar Beneficio Estandar-->
         <scene sceneID="eyr-yw-mhA">
@@ -2750,7 +2758,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hl-Kz-8UX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2657.5" y="483.5"/>
+            <point key="canvasLocation" x="2579.5" y="740.5"/>
         </scene>
         <!--Edicion Especial-->
         <scene sceneID="DAU-tE-vSo">
@@ -2795,7 +2803,7 @@ de tu descuento.</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F09-sb-occ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1349.5" y="-1464.5"/>
+            <point key="canvasLocation" x="1283.5" y="-1381.5"/>
         </scene>
         <!--Negocios-->
         <scene sceneID="sUa-Lq-Mqe">
@@ -3286,7 +3294,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="CuC-Ze-8No" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" id="eDd-ZL-vsc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="381" height="498"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -3436,7 +3444,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="440" width="381" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tS3-kG-c4y" id="EIl-W2-hwc">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" id="tCf-3s-2ZP">
@@ -3464,7 +3472,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="528" width="381" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zje-8d-BYG" id="3SM-rg-d0V">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" id="YZn-Aa-aw5">
@@ -3492,7 +3500,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="616" width="381" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HOX-hS-GQm" id="Uma-9j-lAy">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" id="JDt-vD-foR">
@@ -3520,7 +3528,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="704" width="381" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BVJ-0l-ocZ" id="aBw-DA-n0G">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" id="ExN-2D-VmT">
@@ -3548,7 +3556,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="792" width="381" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fxB-Rq-K8e" id="lX6-4X-ZLt">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" id="D1Q-ek-p9c">
@@ -3576,7 +3584,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="880" width="381" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZA1-Dg-KGS" id="eIF-Ib-FTJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" id="e5K-Ju-5EG">
@@ -3604,7 +3612,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="968" width="381" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2ga-tj-Pmn" id="2sj-Bm-J6w">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" id="q5l-7F-F4j">
@@ -3653,11 +3661,6 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ob8-tx-uRk">
-                                <rect key="frame" x="65" y="28" width="35" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="clublatercera.png"/>
-                            </button>
                             <view tag="100" contentMode="scaleToFill" id="nLP-rC-ggw">
                                 <rect key="frame" x="0.0" y="77" width="375" height="590"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3671,11 +3674,30 @@ de La Tercera</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bvv-2c-hAZ">
-                                <rect key="frame" x="7" y="22" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lxa-4g-i7R">
+                                <rect key="frame" x="1" y="22" width="47" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="boton-menu.png"/>
+                                <state key="normal" image="botonVolver.png"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j7w-o6-iDg">
+                                <rect key="frame" x="57" y="26" width="50" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icon-lt.png"/>
+                            </button>
+                            <view contentMode="scaleToFill" id="oBe-Ns-70y">
+                                <rect key="frame" x="201" y="33" width="165" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1FW-da-LPX">
+                                        <rect key="frame" x="13" y="3" width="152" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -3684,13 +3706,12 @@ de La Tercera</string>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="menuButton" destination="bvv-2c-hAZ" id="oUY-gu-Ez3"/>
                         <outlet property="webViewLTtv" destination="N7J-VV-eaV" id="BDF-6W-TFj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfz-q6-78k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546.5" y="-256.5"/>
+            <point key="canvasLocation" x="1486.5" y="-371.5"/>
         </scene>
         <!--TiendaClub-->
         <scene sceneID="6Co-Cu-4WH">
@@ -3704,10 +3725,29 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GiE-66-Bfl">
-                                <rect key="frame" x="65" y="28" width="35" height="40"/>
+                            <view contentMode="scaleToFill" id="TVP-GW-CHs">
+                                <rect key="frame" x="205" y="33" width="165" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="clublatercera.png"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ido-aF-UN3">
+                                        <rect key="frame" x="13" y="3" width="152" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5L7-Fn-pyq">
+                                <rect key="frame" x="5" y="22" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="botonVolver.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rwC-3N-uIy">
+                                <rect key="frame" x="61" y="26" width="50" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icon-lt.png"/>
                             </button>
                             <view tag="100" contentMode="scaleToFill" id="lZc-lV-d9r">
                                 <rect key="frame" x="0.0" y="77" width="375" height="590"/>
@@ -3722,11 +3762,6 @@ de La Tercera</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tfq-Te-aKo">
-                                <rect key="frame" x="7" y="22" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="boton-menu.png"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -3735,7 +3770,6 @@ de La Tercera</string>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="menuButton" destination="tfq-Te-aKo" id="xWc-ci-hkc"/>
                         <outlet property="webViewLTtv" destination="nKb-bV-O2N" id="GlT-0E-Exo"/>
                     </connections>
                 </viewController>
@@ -3755,11 +3789,6 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DGu-rj-Rm0">
-                                <rect key="frame" x="65" y="28" width="35" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="clublatercera.png"/>
-                            </button>
                             <view tag="100" contentMode="scaleToFill" id="QBB-9u-i0c">
                                 <rect key="frame" x="0.0" y="77" width="375" height="590"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3773,10 +3802,29 @@ de La Tercera</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3ZQ-rr-IgK">
-                                <rect key="frame" x="7" y="22" width="50" height="50"/>
+                            <view contentMode="scaleToFill" id="1QJ-VE-ros">
+                                <rect key="frame" x="203" y="33" width="165" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="boton-menu.png"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mVl-YS-x1D">
+                                        <rect key="frame" x="13" y="3" width="152" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0nq-QU-qSC">
+                                <rect key="frame" x="3" y="22" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="botonVolver.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Oej-rD-apb">
+                                <rect key="frame" x="59" y="26" width="50" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icon-lt.png"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -3786,7 +3834,6 @@ de La Tercera</string>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="menuButton" destination="3ZQ-rr-IgK" id="Gzc-P0-nTQ"/>
                         <outlet property="webViewLTtv" destination="t4O-Ol-FaX" id="l7k-aV-3gv"/>
                     </connections>
                 </viewController>
@@ -3839,7 +3886,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Al8-aW-dxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006.5" y="2119.5"/>
+            <point key="canvasLocation" x="1032.5" y="2176.5"/>
         </scene>
         <!--El Deportivo-->
         <scene sceneID="kO4-N2-n99">
@@ -4173,6 +4220,68 @@ de La Tercera</string>
             </objects>
             <point key="canvasLocation" x="-1943.5" y="-2417.5"/>
         </scene>
+        <!--TicketsClub-->
+        <scene sceneID="71t-Uk-LMb">
+            <objects>
+                <viewController title="TicketsClub" id="n9c-AB-wOR" customClass="TicketsClub" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6r4-9t-gS5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" id="JF6-ca-zeo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="mzj-vP-3nh">
+                                <rect key="frame" x="203" y="33" width="165" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8BA-Xx-dhR">
+                                        <rect key="frame" x="13" y="3" width="152" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="I8x-yh-vVs">
+                                <rect key="frame" x="3" y="22" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="botonVolver.png"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="n9c-AB-wOR" eventType="touchUpInside" id="sRR-CJ-EGZ"/>
+                                </connections>
+                            </button>
+                            <view tag="100" contentMode="scaleToFill" id="YpK-sj-ghX">
+                                <rect key="frame" x="0.0" y="77" width="375" height="590"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <webView contentMode="scaleToFill" scalesPageToFit="YES" id="PBL-Cv-vRe">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                    </webView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ak1-Kj-jas"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="webViewTickets" destination="PBL-Cv-vRe" id="dgn-0b-7ak"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bvz-R7-RXo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1552.5" y="498.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name=" " width="360" height="640"/>
@@ -4234,11 +4343,11 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JhD-SO-oge"/>
+        <segue reference="vnn-UP-oet"/>
         <segue reference="LjX-Ol-dSP"/>
-        <segue reference="sEH-KV-sx8"/>
-        <segue reference="wa8-wA-Ypp"/>
+        <segue reference="JhD-SO-oge"/>
         <segue reference="tqi-Nf-HuD"/>
+        <segue reference="wuf-Nj-3R8"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
 </document>
