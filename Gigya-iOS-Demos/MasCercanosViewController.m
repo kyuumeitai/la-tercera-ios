@@ -253,16 +253,11 @@ int cuenta;
 
 }
 
-
 #pragma mark - Load Categories
 - (void)loadCategory:(int) idCategory {
-   
-    
-    
     NSLog(@"hello category: %@",self.categoryName);
     [self loadStores:idCategory];
 }
-
 
 -(void)loadStores: (int) idCategory{
     
@@ -375,6 +370,7 @@ int cuenta;
     if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         //[self loadData ];
         
+        NSLog(@"Estoy acaaa en change status");
         locationManager .desiredAccuracy = kCLLocationAccuracyNearestTenMeters;   // 2 kilometers - hope for accuracy within 2 km.
         locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
         [locationManager startUpdatingLocation];
@@ -418,7 +414,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:39];
+    [self loadCategory:-99];
     
 }
 - (IBAction)saboresClicked:(id)sender {

@@ -223,7 +223,8 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
         
         CollectionViewCellBanner *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
         // Configure the cell
-        cell.bannerUnitID =  @"ca-app-pub-3940256099942544/2934735716";
+        //cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-A";
+        cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio";
         [cell initBanner];
         return cell;
         
@@ -270,7 +271,7 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     }
     
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
-        return CGSizeMake(316, 265);
+        return CGSizeMake(370, 265);
         
     }
     

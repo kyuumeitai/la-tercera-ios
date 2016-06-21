@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @import GoogleMobileAds;
 
-@interface CollectionViewCellBanner : UICollectionViewCell
+@interface CollectionViewCellBanner : UICollectionViewCell <GADBannerViewDelegate>
 
 -(void)initBanner;
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;

@@ -270,6 +270,10 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
 -(void)getNearStoresAndBenefitsForCategoryId:(getDataBlock)completionBlock :(int)idCat andLatitud:(double)xPoint andLonguitud:(double)yPoint {
     
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/storeBenefits/%d/?format=json&x=%f&y=%f",BaseURLString,idCat, xPoint,yPoint]];
+   
+    if (idCat == -99)
+    URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/storeBenefits/?format=json&x=%f&y=%f",BaseURLString, xPoint,yPoint]];
+        
      NSLog(@"La URL ES: %@", URL);
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {

@@ -6,7 +6,7 @@
 //
 //
 
-#import <foundation/Foundation.h>
+#import <Foundation/Foundation.h>
 #import "SWRevealViewController.h"
 #import <CoreLocation/CoreLocation.h>
 

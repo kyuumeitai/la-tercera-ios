@@ -285,6 +285,8 @@
 		17F321BD1CBEBEDD00005964 /* NewspaperPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F321BB1CBEBEDD00005964 /* NewspaperPage.m */; };
 		D004E3711D1190A500E38722 /* LaTercera.png in Resources */ = {isa = PBXBuildFile; fileRef = D004E3701D1190A500E38722 /* LaTercera.png */; };
 		D004E3721D1190A500E38722 /* LaTercera.png in Resources */ = {isa = PBXBuildFile; fileRef = D004E3701D1190A500E38722 /* LaTercera.png */; };
+		D008B4951D198DD6002DBBA7 /* Tickets.m in Sources */ = {isa = PBXBuildFile; fileRef = D008B4941D198DD6002DBBA7 /* Tickets.m */; };
+		D008B4961D198DD6002DBBA7 /* Tickets.m in Sources */ = {isa = PBXBuildFile; fileRef = D008B4941D198DD6002DBBA7 /* Tickets.m */; };
 		D008D6FB1D00850D00502A69 /* CollectionViewCellGrande.m in Sources */ = {isa = PBXBuildFile; fileRef = D008D6F91D00850D00502A69 /* CollectionViewCellGrande.m */; };
 		D008D6FC1D00850D00502A69 /* CollectionViewCellGrande.m in Sources */ = {isa = PBXBuildFile; fileRef = D008D6F91D00850D00502A69 /* CollectionViewCellGrande.m */; };
 		D008D6FD1D00850D00502A69 /* CollectionViewCellGrande.xib in Resources */ = {isa = PBXBuildFile; fileRef = D008D6FA1D00850D00502A69 /* CollectionViewCellGrande.xib */; };
@@ -647,6 +649,8 @@
 		52BCE23B1A49028500924AD8 /* PublishActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishActionController.h; sourceTree = "<group>"; };
 		52BCE23C1A49028500924AD8 /* PublishActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishActionController.m; sourceTree = "<group>"; };
 		D004E3701D1190A500E38722 /* LaTercera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaTercera.png; sourceTree = "<group>"; };
+		D008B4931D198DD6002DBBA7 /* Tickets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tickets.h; sourceTree = "<group>"; };
+		D008B4941D198DD6002DBBA7 /* Tickets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tickets.m; sourceTree = "<group>"; };
 		D008D6F81D00850D00502A69 /* CollectionViewCellGrande.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCellGrande.h; sourceTree = "<group>"; };
 		D008D6F91D00850D00502A69 /* CollectionViewCellGrande.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCellGrande.m; sourceTree = "<group>"; };
 		D008D6FA1D00850D00502A69 /* CollectionViewCellGrande.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCellGrande.xib; sourceTree = "<group>"; };
@@ -1340,6 +1344,7 @@
 		17F8BCCF1CA24FCE00B9977B /* Club */ = {
 			isa = PBXGroup;
 			children = (
+				D008B4921D197D7D002DBBA7 /* Tickets */,
 				D0FF55771CCFC99300EA71F4 /* TCMastercard */,
 				D0FF55721CCFC92800EA71F4 /* ViajesClub */,
 				D0FF556D1CCFC8A400EA71F4 /* TiendaClub */,
@@ -1460,6 +1465,15 @@
 				52BCE21A1A48D8BE00924AD8 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D008B4921D197D7D002DBBA7 /* Tickets */ = {
+			isa = PBXGroup;
+			children = (
+				D008B4931D198DD6002DBBA7 /* Tickets.h */,
+				D008B4941D198DD6002DBBA7 /* Tickets.m */,
+			);
+			name = Tickets;
 			sourceTree = "<group>";
 		};
 		D008D6F61D0083B600502A69 /* PapelDigital */ = {
@@ -2471,6 +2485,7 @@
 				1702BD1B1CB093E400F26F42 /* SWRevealViewController.m in Sources */,
 				1702BD1C1CB093E400F26F42 /* SaboresTableViewController.m in Sources */,
 				1702BD1D1CB093E400F26F42 /* NewsCategoryInicioViewController.m in Sources */,
+				D008B4961D198DD6002DBBA7 /* Tickets.m in Sources */,
 				1702BD1E1CB093E400F26F42 /* AFURLSessionManager.m in Sources */,
 				1702BD1F1CB093E400F26F42 /* AFHTTPSessionManager.m in Sources */,
 				1702BD201CB093E400F26F42 /* UsarBeneficioDescuentoAdicional.m in Sources */,
@@ -2553,6 +2568,7 @@
 				171AFA5E1CCF8BE000705817 /* EventosViewController.m in Sources */,
 				D0FAD5971CDA641000BF00D4 /* MKMapView+ZoomLevel.m in Sources */,
 				D0FF55751CCFC94F00EA71F4 /* ViajesClub.m in Sources */,
+				D008B4951D198DD6002DBBA7 /* Tickets.m in Sources */,
 				D0F094351CECC05000ABBD70 /* ClubSearchTableViewController.m in Sources */,
 				D039B9A51D104FD5002B1B09 /* Headline.m in Sources */,
 				D0522D5F1D09D32100D6E4C6 /* CollectionViewCellBanner.m in Sources */,
@@ -2613,7 +2629,7 @@
 		1702BDFB1CB093E400F26F42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mario Alejandro Ramos Perez (GZMT9HYCRH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2636,7 +2652,7 @@
 		1702BDFC1CB093E400F26F42 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mario Alejandro Ramos Perez (GZMT9HYCRH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2698,6 +2714,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = "@loader_path/Frameworks @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2739,6 +2756,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

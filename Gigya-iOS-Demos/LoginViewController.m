@@ -162,6 +162,7 @@
     
     //Variables that will be send on login WS
      NSString *email;
+     NSString *verifyState;
      NSString *firstName;
      NSString *lastName;
      NSString *gigyaID;
@@ -200,9 +201,7 @@
                 NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
                  */
                 ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
-                
                 NSString *respuesta = [connectionManager sendLoginDataWithEmail:email];
-                
                 NSLog(@"***::::-----    %@     -----::::***",respuesta);
                 
             }
@@ -210,7 +209,8 @@
             if([operation isEqualToString:@"/accounts.r"]){
                 
                 NSLog(@"---------*** Es un Registro ***---------");
-                email = [self getStringValueForResponseString:responseString andLlave:@"email"];
+                email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
+                verifyState = [self getStringValueForResponseString:responseString andLlave:@"email"];
                 firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
                 lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
                 gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
@@ -219,26 +219,26 @@
                 NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
                 NSString *birthYear = [self getStringValueForResponseString:responseString andLlave:@"birthYear"];
                 
+                if ([birthDay isEqualToString:@""]){
+                  birthdate = @"";
+                }else{
                 birthdate = [NSString stringWithFormat:@"%@/%@/%@",birthYear,birthMonth,birthDay];
+                }
                 
-                // NSString *allDataMessage = [NSString stringWithFormat:@"Los datos son: os: %@, deviceID: %@, email: %@, Nombre: %@, Apellidos: %@, Gender: %@, dateBirth: %@",os,deviceId,email,firstName,lastName, gender, birthdate];
-                //NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
+                NSString *allDataMessage = [NSString stringWithFormat:@"Los datos son: os: %@, deviceID: %@, email: %@, Nombre: %@, Apellidos: %@, Gender: %@, dateBirth: %@",os,deviceId,email,firstName,lastName, gender, birthdate];
+                NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
+                
                 ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
                 
                 NSString *respuesta = [connectionManager sendRegisterDataWithEmail:email firstName:firstName lastName:lastName gender:gender birthdate:birthdate uid:deviceId os:os gigyaId:gigyaID];
                 
-                NSLog(@"***::::-----    %@     -----::::***",respuesta);
-                
+                NSLog(@"***::::-----  La respuesta es:   %@     -----::::***",respuesta);
+    
             }
-        
-
      [self performSegueWithIdentifier:@"GoToSWReveal" sender:self];
-            
         }
              NSLog(@"*** La respuesta es: negativa");
-        
     }
-   
 }
 
 - (NSString*)getStringValueForResponseString:(NSString*)responseString andLlave:(NSString*)llave{
