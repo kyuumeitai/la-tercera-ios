@@ -8,7 +8,9 @@
 
 #import "UsarBeneficioDescuentoAdicional.h"
 #import "ConfirmationViewController.h"
+#import "TarjetaVirtual.h"
 #import "ConnectionManager.h"
+#import "SingletonManager.h"
 
 @interface UsarBeneficioDescuentoAdicional ()
 
@@ -34,8 +36,13 @@ int monto = 1000;
     
     NSLog(@"Confirmar beneficio click DETECTED");
     
+    SingletonManager *singleton = [SingletonManager singletonManager];
+    
+    NSLog(@"Singleton description: %@",[singleton description]);
+    
     ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
-    NSString *resultMessage = [connectionManager getVirtualCardWithEmail:email];
+    email = _emailTesting.text;
+    NSString *resultMessage = [connectionManager getVirtualCardWithEmail:_emailTesting.text];
     //NSLog(@"El mensaje del WS de tarjeta es: %@",resultMessage);
     
     NSData *data = [resultMessage dataUsingEncoding:NSUTF8StringEncoding];
@@ -43,7 +50,9 @@ int monto = 1000;
     int exito = [[json objectForKey:@"exito"] intValue];
     
     NSLog(@"Entonces el resultado de solicitar la tarjeta es : %d",exito);
+    
     if(exito==1){
+        
         NSLog(@"Erxitoooo! :D");
 
      NSString *cardImage64 = [json objectForKey:@"imagen_tarjeta"];
@@ -52,13 +61,22 @@ int monto = 1000;
         
         //Now data is decoded. You can convert them to UIImage
      
-        UIImage *tarjetaVirtual =  [self decodeBase64ToImage:[stringFiltrado lastObject]];
-
+        UIImage *imagenTarjetaVirtual =  [self decodeBase64ToImage:[stringFiltrado lastObject]];
         
-       NSLog(@"La imagen es : %@",tarjetaVirtual);
+        TarjetaVirtual * tarjetaVirtual = [self.storyboard instantiateViewControllerWithIdentifier:@"tarjetaVirtualScreen"];
+        tarjetaVirtual.virtualCardImage = imagenTarjetaVirtual;
+        [self presentViewController:tarjetaVirtual animated:YES completion:nil];
+       // [self pushViewController:tarjetaVirtual animated:YES];
     }else{
         
          NSLog(@"Failed :(");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"Usuario no suscrito"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+
     }
 
     /*

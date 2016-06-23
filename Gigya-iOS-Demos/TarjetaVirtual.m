@@ -16,15 +16,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+ 
+
+    self.imageViewTarjetaVirtual.image = _virtualCardImage;
     // Do any additional setup after loading the view.
 }
 
 -(void)cargaTarjetaWithImage:(UIImage*)imagen{
-    
-    _imageViewTarjetaVirtual.image = imagen;
+    NSLog(@"Imagen acutalizada");
+   self.imageViewTarjetaVirtual.image = imagen;
 }
 
 - (IBAction)backButtonPressed:(id)sender {
+       [[[self presentingViewController] presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

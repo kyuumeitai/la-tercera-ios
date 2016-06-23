@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface UsarBeneficioDescuentoAdicional : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *montoTextField;
+@property (weak, nonatomic) IBOutlet UITextField *codigoComercioTextfield;
+
+@property (weak, nonatomic) IBOutlet UITextField *emailTesting;
 
 @end

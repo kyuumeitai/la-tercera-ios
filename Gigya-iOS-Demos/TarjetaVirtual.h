@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface TarjetaVirtual : UIViewController
+@property (strong,nonatomic) UIImage* virtualCardImage;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewTarjetaVirtual;
 -(void)cargaTarjetaWithImage:(UIImage*)imagen;
 @end

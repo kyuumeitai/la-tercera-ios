@@ -27,7 +27,6 @@ NSMutableArray *listaBeneficios3;
 @synthesize benefitsItemsArray3;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.pagingEnabled = YES;
     SingletonManager *singleton = [SingletonManager singletonManager];
     listaCategorias3 = [[NSMutableArray alloc] init];
     listaCategorias3 = singleton.categoryList;
