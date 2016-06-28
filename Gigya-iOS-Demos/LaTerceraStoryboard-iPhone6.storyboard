@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -23,6 +23,7 @@
             <string>PTSans-Bold</string>
         </mutableArray>
         <mutableArray key="PT_Sans-Web-Regular.ttf">
+            <string>PTSans-Regular</string>
             <string>PTSans-Regular</string>
             <string>PTSans-Regular</string>
             <string>PTSans-Regular</string>
@@ -476,6 +477,9 @@ REGISTRARSE?</string>
                                                 <rect key="frame" x="23" y="558" width="330" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="botonVentasEspeciales.png"/>
+                                                <connections>
+                                                    <segue destination="PAm-kG-Q5P" kind="push" id="4hP-J7-hpI"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qlr-5z-yWp">
                                                 <rect key="frame" x="21" y="607" width="330" height="41"/>
@@ -561,7 +565,7 @@ REGISTRARSE?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSR-ne-YT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="543.5" y="210.5"/>
+            <point key="canvasLocation" x="583.5" y="42"/>
         </scene>
         <!--Infantil Table View-->
         <scene sceneID="r9W-hT-15V">
@@ -1038,7 +1042,7 @@ REGISTRARSE?</string>
         <!--Noticias Inicio-->
         <scene sceneID="C4h-Xp-o5n">
             <objects>
-                <collectionViewController automaticallyAdjustsScrollViewInsets="NO" id="SYc-4s-vqG" customClass="CVNoticiasInicio" sceneMemberID="viewController">
+                <collectionViewController id="SYc-4s-vqG" customClass="CVNoticiasInicio" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" id="C3w-uL-EQG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1076,7 +1080,6 @@ REGISTRARSE?</string>
                             <outlet property="delegate" destination="SYc-4s-vqG" id="vbT-BG-S9V"/>
                         </connections>
                     </collectionView>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -1414,12 +1417,9 @@ REGISTRARSE?</string>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6nO-zR-QMo">
-                                <rect key="frame" x="309" y="344" width="55" height="55"/>
+                                <rect key="frame" x="314" y="344" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="updateMap.png"/>
-                                <connections>
-                                    <action selector="updateLocationPressed:" destination="Uc6-It-8ad" eventType="touchUpInside" id="5jo-wB-t6W"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2285,7 +2285,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myc-Gk-fdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032.5" y="-65.5"/>
+            <point key="canvasLocation" x="1032.5" y="-16.5"/>
         </scene>
         <!--Papel Digital-->
         <scene sceneID="meJ-3D-l3r">
@@ -2585,7 +2585,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WD6-tP-ovG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1586.5" y="1099.5"/>
+            <point key="canvasLocation" x="1867.5" y="968.5"/>
         </scene>
         <!--Tarjeta Virtual-->
         <scene sceneID="6vh-H8-hpd">
@@ -2651,7 +2651,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x55-Z0-lCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2067.5" y="724.5"/>
+            <point key="canvasLocation" x="2121.5" y="1099.5"/>
         </scene>
         <!--Usar Beneficio Estandar-->
         <scene sceneID="eyr-yw-mhA">
@@ -4278,7 +4278,87 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvz-R7-RXo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1586.5" y="358.5"/>
+            <point key="canvasLocation" x="1477.5" y="1019.5"/>
+        </scene>
+        <!--Ventas Especiales-->
+        <scene sceneID="Zsp-HX-ZHJ">
+            <objects>
+                <viewController title="Ventas Especiales" id="PAm-kG-Q5P" customClass="VentasEspecialesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c1l-f6-hpV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" id="xIW-0V-Abg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="sO5-kO-HMb">
+                                <rect key="frame" x="203" y="33" width="165" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yxk-Yf-Rcr">
+                                        <rect key="frame" x="13" y="3" width="152" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yMj-VB-heV">
+                                <rect key="frame" x="3" y="22" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="botonVolver.png"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="PAm-kG-Q5P" eventType="touchUpInside" id="GCA-hN-gka"/>
+                                </connections>
+                            </button>
+                            <view tag="100" contentMode="scaleToFill" id="5fr-ww-dCY">
+                                <rect key="frame" x="0.0" y="77" width="375" height="590"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" id="MFP-8v-WD0">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="89F-gJ-cCJ" kind="embed" id="WAk-Kl-cgJ"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YX6-Ub-b70"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLj-98-hOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1486.5" y="336.5"/>
+        </scene>
+        <!--Ventas Especiales Table View Controller-->
+        <scene sceneID="qaj-Ty-U2N">
+            <objects>
+                <tableViewController id="89F-gJ-cCJ" customClass="VentasEspecialesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oCa-f6-dfS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="89F-gJ-cCJ" id="gs9-Vb-tH4"/>
+                            <outlet property="delegate" destination="89F-gJ-cCJ" id="74L-g2-3JP"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="02k-az-Zi1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2012.5" y="470.5"/>
         </scene>
     </scenes>
     <resources>

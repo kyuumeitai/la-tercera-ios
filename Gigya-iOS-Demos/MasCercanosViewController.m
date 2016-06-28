@@ -45,14 +45,11 @@ int cuenta;
     cuenta = 0;
     firstTime = true;
     // Do any additional setup after loading the view, typically from a nib.
-      //  [self requestLocation];
+        [self requestLocation];
     
     singleton = [SingletonManager singletonManager];
-    //NSLog(@"La locación es: %f, %f",singleton.userLocation );
-    
     _mapView.delegate = self;
     _mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    [self loadPlaces];
     
 }
 
@@ -203,19 +200,14 @@ int cuenta;
     if (![Tools isLocationServiceEnabled]) {
         [Tools showLocationServicesErrorByType:@"locationServicesDisabledError"];
         [SVProgressHUD dismiss];
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
     }
     else {
         if (![Tools isNetworkAvailable]) {
             [Tools showNetworkError];
             [SVProgressHUD dismiss];
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
         }
         else {
             NSLog(@"LOAD DATA OKKKKK");
-
             [self loadPlaces];
             
         }
@@ -235,7 +227,9 @@ int cuenta;
 - (void)updateMyMap{
     
     NSLog(@"Llegue a updateMyMap");
-        
+    
+[locationManager stopUpdatingLocation];
+    
     _mapView.delegate = self;
     SingletonManager *singleton = [SingletonManager singletonManager];
      _userLocation = singleton.userLocation;
@@ -261,13 +255,12 @@ int cuenta;
 
 #pragma mark - Load Categories
 - (void)loadCategory:(int) idCategory {
-    [self reUpdateLocation];
-
     NSLog(@"hello category: %@",self.categoryName);
     [self loadStores:idCategory];
 }
 
 -(void)loadStores: (int) idCategory{
+    
     NSLog(@"Load Stores");
     SingletonManager *singleton = [SingletonManager singletonManager];
     _userLocation = singleton.userLocation;
@@ -286,8 +279,6 @@ int cuenta;
             } else {
                 [self reloadStoresDataFromService:arrayJson];
                 // NSLog(@"Lista jhson: %@",arrayJson);
-                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
             }
         });
     }:idCategory andLatitud:puntoX andLonguitud:puntoY];
@@ -375,6 +366,19 @@ int cuenta;
     [errorAlert show];
 }
 
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        //[self loadData ];
+        
+        NSLog(@"Estoy acaaa en change status");
+        locationManager .desiredAccuracy = kCLLocationAccuracyNearestTenMeters;   // 2 kilometers - hope for accuracy within 2 km.
+        locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
+        [locationManager startUpdatingLocation];
+        _mapView.showsUserLocation = YES;
+        
+        //[self.mapView reloadInputViews];
+    }
+}
 
 #pragma mark - Menu Categories
 - (IBAction)infantilClicked:(id)sender {
@@ -719,15 +723,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
     return YES;
 }
-- (IBAction)updateLocationPressed:(id)sender {
-    [self reUpdateLocation];
 
-}
-
--(void)reUpdateLocation {
-    NSLog(@"ReUpdate localization");
-    [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
-    
-}
 
 @end

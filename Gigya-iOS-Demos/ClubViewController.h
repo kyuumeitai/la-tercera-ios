@@ -13,7 +13,6 @@
 NSMutableArray * categoryItemsArray;
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
-    BOOL firstTime;
 }
 @property (nonatomic, retain) NSMutableArray * categoryItemsArray;
 @end
