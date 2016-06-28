@@ -528,6 +528,16 @@
 		D0FFBAC61D05E620001F501D /* CollectionViewCellMediana.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0FFBAC21D05E620001F501D /* CollectionViewCellMediana.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		17FFE0341D1F4A1B005E7B62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52BCE1D41A48A65800924AD8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1702BD0B1CB093E400F26F42;
+			remoteInfo = "La Tercera App";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1702BDFD1CB093E400F26F42 /* La Tercera App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "La Tercera App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1702BE001CB18B7100F26F42 /* TiempoLibreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiempoLibreTableViewController.h; sourceTree = "<group>"; };
@@ -2069,6 +2079,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				17FFE0351D1F4A1B005E7B62 /* PBXTargetDependency */,
 			);
 			name = "La TerceraTests";
 			productName = "Gigya-iOS-DemosTests";
@@ -2089,7 +2100,7 @@
 					};
 					52BCE1F41A48A65900924AD8 = {
 						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 52BCE1DB1A48A65800924AD8;
+						TestTargetID = 1702BD0B1CB093E400F26F42;
 					};
 				};
 			};
@@ -2634,6 +2645,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		17FFE0351D1F4A1B005E7B62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1702BD0B1CB093E400F26F42 /* La Tercera App */;
+			targetProxy = 17FFE0341D1F4A1B005E7B62 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		52BCE1EE1A48A65900924AD8 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
@@ -2800,7 +2819,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigya.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "La Tercera";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/La Tercera.app/La Tercera";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/La Tercera App.app/La Tercera App";
 			};
 			name = Debug;
 		};
@@ -2817,7 +2836,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gigya.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "La Tercera";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/La Tercera.app/La Tercera";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/La Tercera App.app/La Tercera App";
 			};
 			name = Release;
 		};

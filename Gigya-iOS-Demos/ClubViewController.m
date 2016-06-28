@@ -15,6 +15,7 @@
 #import "SingletonManager.h"
 #import "SWRevealViewController.h"
 #import "SVProgressHUD.h"
+#import "Tools.h"
 
 
 @interface ClubViewController () 
@@ -29,20 +30,21 @@
     [self requestLocation];
    //[self loadCategories];
     // Do any additional setup after loading the view.
+    
+    NSLog(@"Club View Controller loaded");
+
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
     
     SWRevealViewController *revealViewController2 = self.revealViewController;
     if (revealViewController2) {
-        NSLog(@"SI existe el reveeal");
-        [_menuButtonClub
+                [_menuButtonClub
          addTarget:revealViewController2 action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
         // [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     }else{
         SWRevealViewController *revealViewController3 = [[SWRevealViewController alloc] init];
         [_menuButtonClub
          addTarget:revealViewController3 action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-        NSLog(@"No existe el reveeal");
         
     }
     
@@ -57,7 +59,7 @@
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     
     //self.locationManager.distanceFilter  = 1000.0f;
     
@@ -72,9 +74,6 @@
     
     if (authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
         NSLog(@"Autorizado");
-        locationManager .desiredAccuracy = kCLLocationAccuracyBestForNavigation;   // 2 kilometers - hope for accuracy within 2 km.
-        //_locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
-        [locationManager startUpdatingLocation];
         
         CLLocation *location = [locationManager location];
         CLLocationCoordinate2D coordinate = [location coordinate];
@@ -84,8 +83,33 @@
         SingletonManager *singleton = [SingletonManager singletonManager];
         singleton.userLocation = location;
 
+        
     }else{
         [locationManager requestWhenInUseAuthorization];
+    }
+}
+
+-(void)loadData {
+     NSLog(@"LOAD DATA ");
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    if (![Tools isLocationServiceEnabled]) {
+        [Tools showLocationServicesErrorByType:@"locationServicesDisabledError"];
+        [SVProgressHUD dismiss];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+    }
+    else {
+        if (![Tools isNetworkAvailable]) {
+            [Tools showNetworkError];
+            [SVProgressHUD dismiss];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            
+        }
+        else {
+            NSLog(@"LOAD DATA OKKKKK");
+            [locationManager stopUpdatingLocation];
+            
+        }
     }
 }
 
@@ -520,6 +544,27 @@
 - (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData {
     NSData *data = [[NSData alloc]initWithBase64EncodedString:strEncodeData options:NSDataBase64DecodingIgnoreUnknownCharacters];
     return [UIImage imageWithData:data];
+}
+
+-(void)goLocationSet{
+    if (firstTime == false){
+         [self requestLocation];
+        firstTime  = true;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        //[self loadData ];
+        
+        NSLog(@"Estoy acaaa en change status");
+        locationManager .desiredAccuracy = kCLLocationAccuracyNearestTenMeters;   // 2 kilometers - hope for accuracy within 2 km.
+        locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
+        [locationManager startUpdatingLocation];
+       
+        [self goLocationSet];
+       
+    }
 }
 
 @end

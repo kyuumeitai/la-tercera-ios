@@ -224,7 +224,7 @@ return YES;
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:postData];
-    [request setTimeoutInterval:30]; // set timeout for 30 seconds
+    [request setTimeoutInterval:20]; // set timeout for 30 seconds
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
