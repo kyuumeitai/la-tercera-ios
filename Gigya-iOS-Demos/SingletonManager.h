@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface SingletonManager : NSObject {
+    
     NSString *storyBoardName;
     int profileCode;
     NSString *profileType;
@@ -20,9 +21,9 @@
     SWRevealViewController *leftSlideMenu;
     NSMutableArray *categoryList;
     NSMutableArray *preferencesList;
+    NSMutableDictionary * dictProfile;
     int width;
     
-
 }
 
 @property (nonatomic, retain) NSString *storyBoardName;
@@ -31,11 +32,13 @@
 @property (nonatomic, retain) NSString *profileEmail;
 @property (nonatomic, retain) NSString *profileGigyaId;
 @property (nonatomic, strong) NSMutableArray *categoryList;
+@property (nonatomic, strong) NSMutableDictionary * dictProfile;
 @property (nonatomic, retain) CLLocation *userLocation;
 @property (nonatomic,retain) SWRevealViewController *leftSlideMenu;
 
 @property  int profileCode;
 @property  int width;
+
 + (id)singletonManager;
 
 @end

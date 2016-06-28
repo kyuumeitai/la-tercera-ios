@@ -275,7 +275,7 @@ int cuenta;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
-                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+                [self errorDetectedWithNSError:error];
             } else {
                 [self reloadStoresDataFromService:arrayJson];
                 // NSLog(@"Lista jhson: %@",arrayJson);
@@ -353,6 +353,7 @@ int cuenta;
     
     //NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
     [mapTableView reloadData];
+      [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
 }
 
@@ -362,7 +363,7 @@ int cuenta;
 {
     NSLog(@"didFailWithError: %@", error);
     UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                               initWithTitle:@"Error en localización" message:@"Error al obtener la localización" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
 }
 
@@ -724,5 +725,22 @@ shouldReloadTableForSearchString:(NSString *)searchString
     return YES;
 }
 
+//Error handler
+-(void) errorDetectedWithNSError:(NSError*) error{
+    
+    NSLog(@"Error obteniendo datos! El error es:  %@", [error localizedDescription]);
+    
+    //Escondemos el loading
+    [SVProgressHUD dismiss];
+    
+    //Damos explicaciones del caso
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Error obteniendo Datos"
+                          message:@"Ha ocurrido un error al obtener los datos. Reintente más tarde."
+                          delegate:nil //or self
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
+}
 
 @end

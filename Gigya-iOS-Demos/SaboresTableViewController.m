@@ -167,7 +167,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
-                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+                [self errorDetectedWithNSError:error];
             } else {
                 [self reloadBenefitsDataFromService:arrayJson];
                 // NSLog(@"Lista jhson: %@",arrayJson);
@@ -224,6 +224,23 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     NSLog(@" ******* RELOAD DATA TABLE Sabores ****** ----------------------");
 }
 
+//Error handler
+-(void) errorDetectedWithNSError:(NSError*) error{
+    
+    NSLog(@"Error obteniendo datos! El error es:  %@", [error localizedDescription]);
+    
+    //Escondemos el loading
+    [SVProgressHUD dismiss];
+    
+    //Damos explicaciones del caso
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Error obteniendo Datos"
+                          message:@"Ha ocurrido un error al obtener los datos. Reintente más tarde."
+                          delegate:nil //or self
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
+}
 
 
 @end

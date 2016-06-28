@@ -439,6 +439,8 @@
 		D08697591D10AEFA00919A81 /* DetalleNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08697571D10AEFA00919A81 /* DetalleNewsViewController.m */; };
 		D08E12881CEE1FF200665795 /* mineria.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D08E12871CEE1FF200665795 /* mineria.jpg */; };
 		D08E12891CEE1FF200665795 /* mineria.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D08E12871CEE1FF200665795 /* mineria.jpg */; };
+		D0ACD52B1D2329E4006C27DA /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ACD52A1D2329E4006C27DA /* UserProfile.m */; };
+		D0ACD52C1D2329E4006C27DA /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ACD52A1D2329E4006C27DA /* UserProfile.m */; };
 		D0B65CE71D1B02F100B8968F /* freeformat.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B65CE61D1B02F100B8968F /* freeformat.png */; };
 		D0B65CE81D1B02F100B8968F /* freeformat.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B65CE61D1B02F100B8968F /* freeformat.png */; };
 		D0B65CEB1D1B049E00B8968F /* TarjetaVirtual.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B65CEA1D1B049E00B8968F /* TarjetaVirtual.m */; };
@@ -824,6 +826,8 @@
 		D08697561D10AEFA00919A81 /* DetalleNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleNewsViewController.h; sourceTree = "<group>"; };
 		D08697571D10AEFA00919A81 /* DetalleNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalleNewsViewController.m; sourceTree = "<group>"; };
 		D08E12871CEE1FF200665795 /* mineria.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mineria.jpg; sourceTree = "<group>"; };
+		D0ACD5291D2329E4006C27DA /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		D0ACD52A1D2329E4006C27DA /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
 		D0B65CE61D1B02F100B8968F /* freeformat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = freeformat.png; sourceTree = "<group>"; };
 		D0B65CE91D1B049E00B8968F /* TarjetaVirtual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TarjetaVirtual.h; sourceTree = "<group>"; };
 		D0B65CEA1D1B049E00B8968F /* TarjetaVirtual.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TarjetaVirtual.m; sourceTree = "<group>"; };
@@ -1773,6 +1777,8 @@
 		D0E495071C9726D20030F56C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D0ACD5291D2329E4006C27DA /* UserProfile.h */,
+				D0ACD52A1D2329E4006C27DA /* UserProfile.m */,
 				17F321BA1CBEBEDD00005964 /* NewspaperPage.h */,
 				17F321BB1CBEBEDD00005964 /* NewspaperPage.m */,
 				1702BE181CB1D2FC00F26F42 /* Category.h */,
@@ -1792,6 +1798,7 @@
 		D0E84DCF1C9B089300FDE6D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D03631D81CA2EA090095C2AE /* Singleton */,
 				D0D56D3C1CE4D4F40064DE64 /* YActionSheet */,
 				17DAB9B11CCDD41C000CD406 /* AudioPlayer */,
 				D0FBFA2A1CBD2AC900D5465E /* Custom Controls */,
@@ -1801,7 +1808,6 @@
 				D0FB934A1CAACD0500928159 /* JPSThumbnail */,
 				D0FB933F1CAACB1F00928159 /* SVProgress */,
 				D0C8413E1CA4460A001BC478 /* Reachability */,
-				D03631D81CA2EA090095C2AE /* Singleton */,
 				17F8BCCB1CA24CBA00B9977B /* YSLMenuHorizontal */,
 			);
 			name = Helpers;
@@ -2529,6 +2535,7 @@
 				1702BD241CB093E400F26F42 /* PublishActionController.m in Sources */,
 				D0FBFA2D1CBD2B3100D5465E /* CustomButtonView.m in Sources */,
 				171AFA6D1CD1E37F00705817 /* CVElDeportivo.m in Sources */,
+				D0ACD52C1D2329E4006C27DA /* UserProfile.m in Sources */,
 				1702BD251CB093E400F26F42 /* InfantilContainerVC.m in Sources */,
 				17DAB9B01CCDD414000CD406 /* YMCAudioPlayer.m in Sources */,
 				D0FBFA301CBD32CD00D5465E /* CustomButtonTercera.m in Sources */,
@@ -2601,6 +2608,7 @@
 				D008B4951D198DD6002DBBA7 /* Tickets.m in Sources */,
 				D0F094351CECC05000ABBD70 /* ClubSearchTableViewController.m in Sources */,
 				D039B9A51D104FD5002B1B09 /* Headline.m in Sources */,
+				D0ACD52B1D2329E4006C27DA /* UserProfile.m in Sources */,
 				D0522D5F1D09D32100D6E4C6 /* CollectionViewCellBanner.m in Sources */,
 				D008D7021D00897200502A69 /* CVNoticiasInicio.m in Sources */,
 				D039B9A91D106300002B1B09 /* CVNoticiasPolitica.m in Sources */,

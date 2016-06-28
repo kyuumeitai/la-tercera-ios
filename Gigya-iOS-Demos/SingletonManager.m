@@ -18,6 +18,7 @@
 @synthesize userLocation;
 @synthesize leftSlideMenu;
 @synthesize width;
+@synthesize dictProfile;
 @synthesize categoryList;
 
 #pragma mark Singleton Methods
@@ -43,6 +44,30 @@
         userLocation = nil;
         leftSlideMenu = nil;
         categoryList = [[NSMutableArray alloc]init];
+        dictProfile = [NSMutableDictionary
+                                     dictionaryWithDictionary:@{
+                                                                @"id": @26,
+                                                                @"rut": @"",
+                                                                @"name": @"nombre1",
+                                                                @"token": @"",
+                                                                @"status": @true,
+                                                                @"lastname": @"nombre2",
+                                                                @"email": @"perico@cool.com",
+                                                                @"other_emails": @"nil",
+                                                                @"gigya_id": @"8238328",
+                                                                @"gender": @"M",
+                                                                @"birthdate": @"1987-05-23",
+                                                                @"profile_type": @"",
+                                                                @"profile_level": @"nil",
+                                                                @"preferences": @"nil",
+                                                                @"site": @"MOBILE_LT",
+                                                                @"notificaciones_club": @true,
+                                                                @"notificaciones_noticias": @true,
+                                                                @"horario_1": @true,
+                                                                @"horario_2": @true,
+                                                                @"horario_3": @true,
+                                                                @"device": @1
+                                                                }];
         width = 0;
         NSLog(@"Estamos OK con el Singleton");
     }
@@ -51,7 +76,7 @@
 
 -(NSString*)description{
     
-    NSString *mensaje = [NSString stringWithFormat:@"\r***** Singleton ***** \r Storyboard Name: %@ \r ProfileGigyaId: %@ \r ProfileEmail: %@ \r ProfileCode: %d \r ProfileType: %@ \r User Location: (%f,%f)\r", storyBoardName,profileGigyaId,profileEmail, profileCode, profileType, userLocation.coordinate.latitude,userLocation.coordinate.longitude];
+    NSString *mensaje = [NSString stringWithFormat:@"\r***** Singleton ***** \r Storyboard Name: %@ \r ProfileGigyaId: %@ \r ProfileEmail: %@ \r ProfileCode: %d \r ProfileType: %@ \r DictionaryProfile: %@ \r User Location: (%f,%f)\r", storyBoardName,profileGigyaId,profileEmail, profileCode, profileType, dictProfile.description, userLocation.coordinate.latitude,userLocation.coordinate.longitude];
     
     return mensaje;
     
