@@ -301,6 +301,10 @@
 		D009C6DB1C91BC02001BD7A3 /* PT_Sans-Web-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0B9BF491C861A7600680EE4 /* PT_Sans-Web-Regular.ttf */; };
 		D00CAC661CD7B42700F2AE41 /* PlaceholderHeaderClub.png in Resources */ = {isa = PBXBuildFile; fileRef = D00CAC651CD7B42700F2AE41 /* PlaceholderHeaderClub.png */; };
 		D00CAC671CD7B42700F2AE41 /* PlaceholderHeaderClub.png in Resources */ = {isa = PBXBuildFile; fileRef = D00CAC651CD7B42700F2AE41 /* PlaceholderHeaderClub.png */; };
+		D014C8931D243E7900E3D3B5 /* VentasEspecialesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D014C8921D243E7900E3D3B5 /* VentasEspecialesViewController.m */; };
+		D014C8941D243E7900E3D3B5 /* VentasEspecialesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D014C8921D243E7900E3D3B5 /* VentasEspecialesViewController.m */; };
+		D014C8981D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D014C8971D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m */; };
+		D014C8991D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D014C8971D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m */; };
 		D01CF10F1CB6B9920050C008 /* LaTerceraTV.m in Sources */ = {isa = PBXBuildFile; fileRef = D01CF10E1CB6B9920050C008 /* LaTerceraTV.m */; };
 		D01CF1101CB6BAA10050C008 /* LaTerceraTV.m in Sources */ = {isa = PBXBuildFile; fileRef = D01CF10E1CB6B9920050C008 /* LaTerceraTV.m */; };
 		D03026581CBBE53D00B4149A /* CVLaTercera.m in Sources */ = {isa = PBXBuildFile; fileRef = D03026571CBBE53D00B4149A /* CVLaTercera.m */; };
@@ -709,6 +713,10 @@
 		D00E65381C87525900519B65 /* botonVerBeneficios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = botonVerBeneficios.png; sourceTree = "<group>"; };
 		D01021FA1C999A9900F5D88D /* DetalleBeneficioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleBeneficioViewController.h; sourceTree = "<group>"; };
 		D01021FB1C999A9900F5D88D /* DetalleBeneficioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalleBeneficioViewController.m; sourceTree = "<group>"; };
+		D014C8911D243E7900E3D3B5 /* VentasEspecialesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VentasEspecialesViewController.h; sourceTree = "<group>"; };
+		D014C8921D243E7900E3D3B5 /* VentasEspecialesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VentasEspecialesViewController.m; sourceTree = "<group>"; };
+		D014C8961D243F4D00E3D3B5 /* VentasEspecialesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VentasEspecialesTableViewController.h; sourceTree = "<group>"; };
+		D014C8971D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VentasEspecialesTableViewController.m; sourceTree = "<group>"; };
 		D01CF10D1CB6B9920050C008 /* LaTerceraTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaTerceraTV.h; sourceTree = "<group>"; };
 		D01CF10E1CB6B9920050C008 /* LaTerceraTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaTerceraTV.m; sourceTree = "<group>"; };
 		D029B2FB1C8768300088DCD3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -1087,6 +1095,8 @@
 		1702BDFF1CB18B2400F26F42 /* TableViewControllerCategories */ = {
 			isa = PBXGroup;
 			children = (
+				D014C8961D243F4D00E3D3B5 /* VentasEspecialesTableViewController.h */,
+				D014C8971D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m */,
 				1702BE061CB18BB500F26F42 /* ServiciosTableViewController.h */,
 				1702BE071CB18BB500F26F42 /* ServiciosTableViewController.m */,
 				1702BE031CB18B9200F26F42 /* VidaSanaTableViewController.h */,
@@ -1369,6 +1379,8 @@
 		17F8BCCF1CA24FCE00B9977B /* Club */ = {
 			isa = PBXGroup;
 			children = (
+				D014C8951D243F0200E3D3B5 /* Concursos */,
+				D014C8901D243E6300E3D3B5 /* VentasEspeciales */,
 				D008B4921D197D7D002DBBA7 /* Tickets */,
 				D0FF55771CCFC99300EA71F4 /* TCMastercard */,
 				D0FF55721CCFC92800EA71F4 /* ViajesClub */,
@@ -1581,6 +1593,22 @@
 				D03631D81CA2EA090095C2AE /* Session */,
 			);
 			name = Logic;
+			sourceTree = "<group>";
+		};
+		D014C8901D243E6300E3D3B5 /* VentasEspeciales */ = {
+			isa = PBXGroup;
+			children = (
+				D014C8911D243E7900E3D3B5 /* VentasEspecialesViewController.h */,
+				D014C8921D243E7900E3D3B5 /* VentasEspecialesViewController.m */,
+			);
+			name = VentasEspeciales;
+			sourceTree = "<group>";
+		};
+		D014C8951D243F0200E3D3B5 /* Concursos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Concursos;
 			sourceTree = "<group>";
 		};
 		D01CF10C1CB6B9700050C008 /* LaTercera TV */ = {
@@ -2521,6 +2549,7 @@
 				D0FFBAC41D05E620001F501D /* CollectionViewCellMediana.m in Sources */,
 				D0D56D371CE4B4F60064DE64 /* DetalleBeneficioViewControllerFromMap.m in Sources */,
 				D0B65CEC1D1B049E00B8968F /* TarjetaVirtual.m in Sources */,
+				D014C8991D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m in Sources */,
 				171AFA5F1CCF8BE000705817 /* EventosViewController.m in Sources */,
 				1702BD141CB093E400F26F42 /* GSWebBridgeController.m in Sources */,
 				D03026621CBC0FEF00B4149A /* CollectionViewCellPortada.m in Sources */,
@@ -2605,6 +2634,7 @@
 				D0D56D411CE4D5040064DE64 /* YActionSheet.m in Sources */,
 				D0DD6E401CBFEB7500994DDF /* NewsPageViewController.m in Sources */,
 				1702BD431CB093E400F26F42 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				D014C8941D243E7900E3D3B5 /* VentasEspecialesViewController.m in Sources */,
 				1702BD441CB093E400F26F42 /* UIButton+AFNetworking.m in Sources */,
 				1702BD451CB093E400F26F42 /* AFAutoPurgingImageCache.m in Sources */,
 				1702BD461CB093E400F26F42 /* AFSecurityPolicy.m in Sources */,
@@ -2656,9 +2686,11 @@
 				175F13651CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */,
 				D03026611CBC0FDF00B4149A /* CollectionViewCellPortada.m in Sources */,
 				D0FBFA2F1CBD32CD00D5465E /* CustomButtonTercera.m in Sources */,
+				D014C8931D243E7900E3D3B5 /* VentasEspecialesViewController.m in Sources */,
 				D0DD6E3D1CBFD69D00994DDF /* NewsPageViewController.m in Sources */,
 				D0522D581D09C21100D6E4C6 /* CollectionViewCellHorizontal.m in Sources */,
 				1702BE1E1CB20BF500F26F42 /* Benefit.m in Sources */,
+				D014C8981D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m in Sources */,
 				17F321BC1CBEBEDD00005964 /* NewspaperPage.m in Sources */,
 				171AFA6C1CD1E37F00705817 /* CVElDeportivo.m in Sources */,
 				1702BE021CB18B7100F26F42 /* TiempoLibreTableViewController.m in Sources */,
