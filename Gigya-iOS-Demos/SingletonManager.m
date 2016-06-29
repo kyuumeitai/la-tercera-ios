@@ -18,8 +18,8 @@
 @synthesize userLocation;
 @synthesize leftSlideMenu;
 @synthesize width;
-@synthesize dictProfile;
 @synthesize categoryList;
+@synthesize userProfile;
 
 #pragma mark Singleton Methods
 
@@ -36,38 +36,40 @@
     if (self = [super init]) {
         
         storyBoardName =  @"MainStoryBoard";
+        
+        //Temp vars
         profileGigyaId =  @"noneId ";
         profileEmail = @"anyone@anywhere.com";
         profileCode = -1;
         profileType = @"anonimo";
+        //End temp vars
         
         userLocation = nil;
         leftSlideMenu = nil;
         categoryList = [[NSMutableArray alloc]init];
-        dictProfile = [NSMutableDictionary
-                                     dictionaryWithDictionary:@{
-                                                                @"id": @26,
-                                                                @"rut": @"",
-                                                                @"name": @"nombre1",
-                                                                @"token": @"",
-                                                                @"status": @true,
-                                                                @"lastname": @"nombre2",
-                                                                @"email": @"perico@cool.com",
-                                                                @"other_emails": @"nil",
-                                                                @"gigya_id": @"8238328",
-                                                                @"gender": @"M",
-                                                                @"birthdate": @"1987-05-23",
-                                                                @"profile_type": @"",
-                                                                @"profile_level": @"nil",
-                                                                @"preferences": @"nil",
-                                                                @"site": @"MOBILE_LT",
-                                                                @"notificaciones_club": @true,
-                                                                @"notificaciones_noticias": @true,
-                                                                @"horario_1": @true,
-                                                                @"horario_2": @true,
-                                                                @"horario_3": @true,
-                                                                @"device": @1
-                                                                }];
+        
+        userProfile = [[UserProfile alloc] init];
+        userProfile.userProfileId = -1;
+        userProfile.rut = @"";
+        userProfile.name = @"";
+        userProfile.lastName = @"";
+        userProfile.email = @"";
+        userProfile.status = false;
+        userProfile.token = @"";
+        userProfile.other_emails = [[NSMutableArray alloc]init];
+        userProfile.gender = @"";
+        userProfile.birthdate = @"";
+        userProfile.profileType = @"";
+        userProfile.profileLevel = @"";
+        userProfile.preferences = [[NSMutableArray alloc]init];
+        userProfile.site = @"";
+        userProfile.notificacionesClub = false;
+        userProfile.notificacionesNoticias = false;
+        userProfile.horario1 = false;
+        userProfile.horario2 = false;
+        userProfile.horario3 = false;
+        userProfile.device = -1;
+
         width = 0;
         NSLog(@"Estamos OK con el Singleton");
     }
@@ -76,9 +78,15 @@
 
 -(NSString*)description{
     
-    NSString *mensaje = [NSString stringWithFormat:@"\r***** Singleton ***** \r Storyboard Name: %@ \r ProfileGigyaId: %@ \r ProfileEmail: %@ \r ProfileCode: %d \r ProfileType: %@ \r DictionaryProfile: %@ \r User Location: (%f,%f)\r", storyBoardName,profileGigyaId,profileEmail, profileCode, profileType, dictProfile.description, userLocation.coordinate.latitude,userLocation.coordinate.longitude];
+    NSString *mensaje = [NSString stringWithFormat:@"\r***** Singleton ***** \r Storyboard Name: %@ \r ProfileGigyaId: %@ \r ProfileEmail: %@ \r ProfileCode: %d \r ProfileType: %@ \r User status: %d \r User ProfileId: %d  \r User Location: (%f,%f)\r", storyBoardName,profileGigyaId,profileEmail, profileCode, profileType, userProfile.status, userProfile.userProfileId, userLocation.coordinate.latitude,userLocation.coordinate.longitude];
     
     return mensaje;
+    
+}
+
+-(UserProfile *)getUserProfile{
+    
+    return userProfile;
     
 }
 

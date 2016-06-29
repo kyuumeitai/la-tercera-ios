@@ -27,6 +27,8 @@
     
     //Creamos el singleton
     SingletonManager *singleton = [SingletonManager singletonManager];
+    NSLog(@"Wntonces la descri es: %@",[singleton description]);
+    
     //ConnectionManager * connection = [[ConnectionManager alloc] init];
     
     SWRevealViewController *revealViewController = self.revealViewController;
