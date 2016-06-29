@@ -7,7 +7,7 @@
 //
 
 #import "LaTerceraTV.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 #import "SWRevealViewController.h"
 #import "SVProgressHUD.h"
 
@@ -20,12 +20,12 @@
     [SVProgressHUD setStatus:@"Cargando datos"];
     // Do any additional setup after loading the view.
     //Creamos el singleton
-    SingletonManager *singleton = [SingletonManager singletonManager];
+    SessionManager *sesion = [SessionManager session];
     
     
     SWRevealViewController *revealViewController = self.revealViewController;
-    singleton.leftSlideMenu = revealViewController;
-    [_menuButton addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    sesion.leftSlideMenu = revealViewController;
+    [_menuButton addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
     [self loadWeb];
     // NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);

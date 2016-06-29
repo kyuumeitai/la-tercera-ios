@@ -7,14 +7,14 @@
 //
 
 #import "EventosViewController.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 
 @implementation EventosViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-       SingletonManager *singleton = [SingletonManager singletonManager];
-     [_menuButton addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    SessionManager *sesion = [SessionManager session];
+     [_menuButton addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 @end

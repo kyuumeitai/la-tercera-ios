@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 #import "InfantilContainerVC.h"
 #import "InitialViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -265,7 +265,7 @@ return YES;
 
 - (UIStoryboard *)grabStoryboard {
     //Singleton for grab storyboardName properly
-    SingletonManager *singleton = [SingletonManager singletonManager];
+    SessionManager *sesion = [SessionManager session];
     
     // determine screen size
     int screenHeight = [UIScreen mainScreen].bounds.size.height;
@@ -277,24 +277,24 @@ return YES;
         case 480:
             NSLog(@"iPhone 4");
             storyboard = [UIStoryboard storyboardWithName:@"LaTerceraStoryboard-iPhone4" bundle:nil];
-            singleton.storyBoardName = @"LaTerceraStoryboard-iPhone4";
-            singleton.width = 320;
+            sesion.storyBoardName = @"LaTerceraStoryboard-iPhone4";
+            sesion.width = 320;
             break;
             
             // iPhone 5s
         case 568:
             NSLog(@"iPhone 5");
             storyboard = [UIStoryboard storyboardWithName:@"LaTerceraStoryboard-iPhone5" bundle:nil];
-            singleton.storyBoardName = @"LaTerceraStoryboard-iPhone5";
-            singleton.width = 320;
+            sesion.storyBoardName = @"LaTerceraStoryboard-iPhone5";
+            sesion.width = 320;
             break;
             
             // iPhone 6
         case 667:
             NSLog(@"iPhone 6");
             storyboard = [UIStoryboard storyboardWithName:@"LaTerceraStoryboard-iPhone6" bundle:nil];
-            singleton.storyBoardName = @"LaTerceraStoryboard-iPhone6";
-            singleton.width = 375;
+            sesion.storyBoardName = @"LaTerceraStoryboard-iPhone6";
+            sesion.width = 375;
             
             break;
             
@@ -303,15 +303,15 @@ return YES;
         case 736:
             NSLog(@"iPhone 6 PLus");
             storyboard = [UIStoryboard storyboardWithName:@"LaTerceraStoryboard-iPhone6Plus" bundle:nil];
-            singleton.storyBoardName = @"LaTerceraStoryboard-iPhone6Plus";
+            sesion.storyBoardName = @"LaTerceraStoryboard-iPhone6Plus";
             break;
             
         default:
             // it's an iPad
             NSLog(@"NONE");
             storyboard = [UIStoryboard storyboardWithName:@"LaTerceraStoryboard-iPhone6" bundle:nil];
-            singleton.storyBoardName = @"LaTerceraStoryboard-iPhone6";
-            singleton.width = 375;
+            sesion.storyBoardName = @"LaTerceraStoryboard-iPhone6";
+            sesion.width = 375;
             
             break;
     }

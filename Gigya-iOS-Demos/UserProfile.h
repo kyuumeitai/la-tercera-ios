@@ -20,7 +20,7 @@
 @property (nonatomic,strong) NSString * gender;
 @property (nonatomic,strong) NSString * birthdate;
 @property (nonatomic,strong) NSString * profileType;
-@property (nonatomic,strong) NSString * profileLevel;
+@property int profileLevel;
 @property (nonatomic,strong) NSMutableArray * preferences;
 @property (nonatomic,strong) NSMutableArray * other_emails;
 @property (nonatomic,strong) NSString * token;

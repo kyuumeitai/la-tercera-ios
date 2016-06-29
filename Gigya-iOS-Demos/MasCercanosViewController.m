@@ -12,7 +12,7 @@
 #import "SVProgressHUD.h"
 #import "Store.h"
 #import "Tools.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 #import "MapAnnotation.h"
 #import "MKMapView+ZoomLevel.h"
 #import "DetalleBeneficioViewControllerFromMap.h"
@@ -26,7 +26,7 @@
 
     CLLocationManager *locationManager;
     CLLocation  *userLocation;
-    SingletonManager *singleton;
+    SessionManager *sesion;
     bool firstTime;
 int cuenta;
 
@@ -47,7 +47,7 @@ int cuenta;
     // Do any additional setup after loading the view, typically from a nib.
         [self requestLocation];
     
-    singleton = [SingletonManager singletonManager];
+    sesion = [SessionManager session];
     _mapView.delegate = self;
     _mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
@@ -115,8 +115,8 @@ int cuenta;
     NSLog(@"Finished map load");    // Place a single pin
 
    // [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(loadStoresPin) userInfo:nil repeats:NO];
-    SingletonManager *singleton = [SingletonManager singletonManager];
-    userLocation = singleton.userLocation;
+    SessionManager *session = [SessionManager session];
+    userLocation = sesion.userLocation;
     _mapView.centerCoordinate =     userLocation.coordinate;
 
 }
@@ -231,8 +231,8 @@ int cuenta;
 [locationManager stopUpdatingLocation];
     
     _mapView.delegate = self;
-    SingletonManager *singleton = [SingletonManager singletonManager];
-     _userLocation = singleton.userLocation;
+    SessionManager *sesion = [SessionManager session];
+     _userLocation = sesion.userLocation;
     MKMapRect zoomRect = MKMapRectNull;
     _mapView.showsUserLocation = YES;
 
@@ -262,8 +262,8 @@ int cuenta;
 -(void)loadStores: (int) idCategory{
     
     NSLog(@"Load Stores");
-    SingletonManager *singleton = [SingletonManager singletonManager];
-    _userLocation = singleton.userLocation;
+    SessionManager *sesion = [SessionManager session];
+    _userLocation = sesion.userLocation;
   ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     double puntoX = _userLocation.coordinate.latitude;
     double puntoY = _userLocation.coordinate.longitude;

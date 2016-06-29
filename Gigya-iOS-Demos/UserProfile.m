@@ -21,7 +21,7 @@
 
 -(void)logDescription{
     
-    NSLog(@" >>>> Objeto UserProfile de email: %@, status activo: %@,  perfil tipo: %i",_email,_profileType,_status);
+    NSLog(@" >>>> Objeto UserProfile /r Email: %@, status activo: %i,  perfil tipo: %i",_email,_status,_profileLevel);
 }
 
 @end

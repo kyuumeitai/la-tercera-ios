@@ -6,9 +6,9 @@
 //
 //
 
-#import "SingletonManager.h"
+#import "SessionManager.h"
 
-@implementation SingletonManager
+@implementation SessionManager
 
 @synthesize profileCode;
 @synthesize profileType;
@@ -23,13 +23,13 @@
 
 #pragma mark Singleton Methods
 
-+ (id)singletonManager {
-    static SingletonManager *singletonManager = nil;
++ (id)session{
+    static SessionManager *session = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        singletonManager = [[self alloc] init];
+        session = [[self alloc] init];
     });
-    return singletonManager;
+    return session;
 }
 
 - (id)init {
@@ -90,8 +90,5 @@
     
 }
 
-- (void)dealloc {
-    // Should never be called, but just here for clarity really.
-}
 
 @end

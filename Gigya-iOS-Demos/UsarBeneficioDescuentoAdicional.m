@@ -10,7 +10,7 @@
 #import "ConfirmationViewController.h"
 #import "TarjetaVirtual.h"
 #import "ConnectionManager.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 
 @interface UsarBeneficioDescuentoAdicional ()
 
@@ -36,9 +36,9 @@ int monto = 1000;
     
     NSLog(@"Confirmar beneficio click DETECTED");
     
-    SingletonManager *singleton = [SingletonManager singletonManager];
+    SessionManager *sesion = [SessionManager session];
     
-    NSLog(@"Singleton description: %@",[singleton description]);
+    NSLog(@"Singleton description: %@",[sesion description]);
     
     ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
     email = _emailTesting.text;

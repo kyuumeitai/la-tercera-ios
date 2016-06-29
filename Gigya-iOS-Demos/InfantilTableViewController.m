@@ -12,7 +12,7 @@
 #import  "DetalleBeneficioViewController.h"
 #import "Category.h"
 #import "Benefit.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 #import "ConnectionManager.h"
 #import "SVProgressHUD.h"
 #import "Tools.h"
@@ -27,9 +27,9 @@ NSMutableArray *listaBeneficios2;
 @synthesize benefitsItemsArray4;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    SingletonManager *singleton = [SingletonManager singletonManager];
+    SessionManager *sesion = [SessionManager session];
     listaCategorias2 = [[NSMutableArray alloc] init];
-    listaCategorias2 = singleton.categoryList;
+    listaCategorias2 = sesion.categoryList;
     //NSLog(@"La lista de categorias es: %@",listaCategorias2.description);
     
     [self loadBenefitsForCategoryId:43];

@@ -7,7 +7,7 @@
 //
 
 #import "PapelDigital.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 #import "SWRevealViewController.h"
 #import "SVProgressHUD.h"
 
@@ -39,13 +39,13 @@
     //[SVProgressHUD setStatus:@"Obteniendo categorías disponibles"];
     // Do any additional setup after loading the view.
    
-    //Creamos el singleton
-    SingletonManager *singleton = [SingletonManager singletonManager];
+    //Creamos el singleton sesión
+    SessionManager *sesion = [SessionManager session];
     
     
     SWRevealViewController *revealViewController = self.revealViewController;
-    singleton.leftSlideMenu = revealViewController;
-    [_menuButton addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    sesion.leftSlideMenu = revealViewController;
+    [_menuButton addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
     [self setupNewsCategory];
     //[self loadWeb];

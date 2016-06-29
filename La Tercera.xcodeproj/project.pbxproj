@@ -53,7 +53,7 @@
 		1702BD3B1CB093E400F26F42 /* NoticiasHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F8BCCD1CA24F4B00B9977B /* NoticiasHomeViewController.m */; };
 		1702BD3C1CB093E400F26F42 /* UsarBeneficioNoLogueado.m in Sources */ = {isa = PBXBuildFile; fileRef = D03859EC1CA0674A00E907FF /* UsarBeneficioNoLogueado.m */; };
 		1702BD3D1CB093E400F26F42 /* ServiciosContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D19C5D1CAD735400D2DE7F /* ServiciosContainerVC.m */; };
-		1702BD3E1CB093E400F26F42 /* SingletonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D03631DA1CA2EA300095C2AE /* SingletonManager.m */; };
+		1702BD3E1CB093E400F26F42 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D03631DA1CA2EA300095C2AE /* SessionManager.m */; };
 		1702BD3F1CB093E400F26F42 /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 17899F931CA8E73500ADD960 /* AFImageDownloader.m */; };
 		1702BD401CB093E400F26F42 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 17899F841CA8E70300ADD960 /* AFURLRequestSerialization.m */; };
 		1702BD411CB093E400F26F42 /* YSLScrollMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F8BCC81CA24CAD00B9977B /* YSLScrollMenuView.m */; };
@@ -720,8 +720,8 @@
 		D03026641CBC190E00B4149A /* CollectionViewCellStandar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCellStandar.m; sourceTree = "<group>"; };
 		D0308E891CB6DD7000D8619D /* PapelDigital.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PapelDigital.h; sourceTree = "<group>"; };
 		D0308E8A1CB6DD7000D8619D /* PapelDigital.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PapelDigital.m; sourceTree = "<group>"; };
-		D03631D91CA2EA300095C2AE /* SingletonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonManager.h; sourceTree = "<group>"; };
-		D03631DA1CA2EA300095C2AE /* SingletonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonManager.m; sourceTree = "<group>"; };
+		D03631D91CA2EA300095C2AE /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
+		D03631DA1CA2EA300095C2AE /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
 		D036FA891CD01BB90096FE14 /* MostrarBeneficioDescuentoAdicional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MostrarBeneficioDescuentoAdicional.h; sourceTree = "<group>"; };
 		D036FA8A1CD01BB90096FE14 /* MostrarBeneficioDescuentoAdicional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MostrarBeneficioDescuentoAdicional.m; sourceTree = "<group>"; };
 		D03859D81CA0337600E907FF /* usar-beneficio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "usar-beneficio.png"; sourceTree = "<group>"; };
@@ -1437,10 +1437,9 @@
 				D01282281C8DC04400A05FF0 /* Connection */,
 				D0E84DCF1C9B089300FDE6D2 /* Helpers */,
 				D0E495071C9726D20030F56C /* Model */,
-				D0FF33BD1C9859FF008832F3 /* Views */,
-				D0E495061C9726C90030F56C /* Controllers */,
+				D0FF33BD1C9859FF008832F3 /* View */,
+				D0E495061C9726C90030F56C /* Controller */,
 				177723841C7300410075DFBE /* Resources */,
-				1777237E1C72EF600075DFBE /* Libraries */,
 				52BCE1EC1A48A65900924AD8 /* Images.xcassets */,
 				52BCE1DF1A48A65800924AD8 /* Supporting Files */,
 				52BCE2071A48CE9500924AD8 /* Frameworks */,
@@ -1555,6 +1554,35 @@
 			name = Connection;
 			sourceTree = "<group>";
 		};
+		D014C88A1D240BE400E3D3B5 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				D0ACD5291D2329E4006C27DA /* UserProfile.h */,
+				D0ACD52A1D2329E4006C27DA /* UserProfile.m */,
+				17F321BA1CBEBEDD00005964 /* NewspaperPage.h */,
+				17F321BB1CBEBEDD00005964 /* NewspaperPage.m */,
+				1702BE181CB1D2FC00F26F42 /* Category.h */,
+				1702BE191CB1D2FC00F26F42 /* Category.m */,
+				1702BE1C1CB20BF500F26F42 /* Benefit.h */,
+				1702BE1D1CB20BF500F26F42 /* Benefit.m */,
+				D0FC069B1CB2A0D0000DF39B /* Store.h */,
+				D0FC069C1CB2A0D0000DF39B /* Store.m */,
+				D039B99F1D10495C002B1B09 /* Article.h */,
+				D039B9A01D10495C002B1B09 /* Article.m */,
+				D039B9A31D104FD5002B1B09 /* Headline.h */,
+				D039B9A41D104FD5002B1B09 /* Headline.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		D014C88B1D240BF800E3D3B5 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				D03631D81CA2EA090095C2AE /* Session */,
+			);
+			name = Logic;
+			sourceTree = "<group>";
+		};
 		D01CF10C1CB6B9700050C008 /* LaTercera TV */ = {
 			isa = PBXGroup;
 			children = (
@@ -1600,13 +1628,13 @@
 			name = PapelDigital;
 			sourceTree = "<group>";
 		};
-		D03631D81CA2EA090095C2AE /* Singleton */ = {
+		D03631D81CA2EA090095C2AE /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				D03631D91CA2EA300095C2AE /* SingletonManager.h */,
-				D03631DA1CA2EA300095C2AE /* SingletonManager.m */,
+				D03631D91CA2EA300095C2AE /* SessionManager.h */,
+				D03631DA1CA2EA300095C2AE /* SessionManager.m */,
 			);
-			name = Singleton;
+			name = Session;
 			sourceTree = "<group>";
 		};
 		D03859E71CA0628F00E907FF /* UsarBeneficios */ = {
@@ -1763,7 +1791,7 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		D0E495061C9726C90030F56C /* Controllers */ = {
+		D0E495061C9726C90030F56C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				D03F4F371CCE768500B5835D /* Tutorial */,
@@ -1771,26 +1799,14 @@
 				17F8BCD01CA24FD900B9977B /* News */,
 				17F8BCCF1CA24FCE00B9977B /* Club */,
 			);
-			name = Controllers;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		D0E495071C9726D20030F56C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D0ACD5291D2329E4006C27DA /* UserProfile.h */,
-				D0ACD52A1D2329E4006C27DA /* UserProfile.m */,
-				17F321BA1CBEBEDD00005964 /* NewspaperPage.h */,
-				17F321BB1CBEBEDD00005964 /* NewspaperPage.m */,
-				1702BE181CB1D2FC00F26F42 /* Category.h */,
-				1702BE191CB1D2FC00F26F42 /* Category.m */,
-				1702BE1C1CB20BF500F26F42 /* Benefit.h */,
-				1702BE1D1CB20BF500F26F42 /* Benefit.m */,
-				D0FC069B1CB2A0D0000DF39B /* Store.h */,
-				D0FC069C1CB2A0D0000DF39B /* Store.m */,
-				D039B99F1D10495C002B1B09 /* Article.h */,
-				D039B9A01D10495C002B1B09 /* Article.m */,
-				D039B9A31D104FD5002B1B09 /* Headline.h */,
-				D039B9A41D104FD5002B1B09 /* Headline.m */,
+				D014C88B1D240BF800E3D3B5 /* Logic */,
+				D014C88A1D240BE400E3D3B5 /* Objects */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1798,7 +1814,7 @@
 		D0E84DCF1C9B089300FDE6D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D03631D81CA2EA090095C2AE /* Singleton */,
+				1777237E1C72EF600075DFBE /* Libraries */,
 				D0D56D3C1CE4D4F40064DE64 /* YActionSheet */,
 				17DAB9B11CCDD41C000CD406 /* AudioPlayer */,
 				D0FBFA2A1CBD2AC900D5465E /* Custom Controls */,
@@ -1921,13 +1937,13 @@
 			name = DevNotes;
 			sourceTree = "<group>";
 		};
-		D0FF33BD1C9859FF008832F3 /* Views */ = {
+		D0FF33BD1C9859FF008832F3 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				D0FF33DC1C9888AE008832F3 /* Storyboards */,
 				D0FF33BE1C985A07008832F3 /* Cells */,
 			);
-			name = Views;
+			name = View;
 			sourceTree = "<group>";
 		};
 		D0FF33BE1C985A07008832F3 /* Cells */ = {
@@ -2576,7 +2592,7 @@
 				175F13661CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */,
 				1702BD3D1CB093E400F26F42 /* ServiciosContainerVC.m in Sources */,
 				1702BE151CB1A3A700F26F42 /* ServiciosTableViewController.m in Sources */,
-				1702BD3E1CB093E400F26F42 /* SingletonManager.m in Sources */,
+				1702BD3E1CB093E400F26F42 /* SessionManager.m in Sources */,
 				D0D56D3B1CE4B5500064DE64 /* MKPointAnnotation_custom.m in Sources */,
 				D0522D601D09D32100D6E4C6 /* CollectionViewCellBanner.m in Sources */,
 				1702BD3F1CB093E400F26F42 /* AFImageDownloader.m in Sources */,

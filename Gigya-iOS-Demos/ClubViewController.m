@@ -12,7 +12,7 @@
 #import "Benefit.h"
 #import "CategoriasTableViewCell.h"
 #import "CategoriaViewController.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 #import "SWRevealViewController.h"
 #import "SVProgressHUD.h"
 
@@ -30,7 +30,7 @@
    //[self loadCategories];
     // Do any additional setup after loading the view.
     //Creamos el singleton
-    SingletonManager *singleton = [SingletonManager singletonManager];
+    SessionManager *sesion = [SessionManager session];
     
     SWRevealViewController *revealViewController2 = self.revealViewController;
     if (revealViewController2) {
@@ -81,8 +81,8 @@
         
         NSString *str=[[NSString alloc] initWithFormat:@" latitude:%f longitude:%f",coordinate.latitude,coordinate.longitude];
         NSLog(@"%@",str);
-        SingletonManager *singleton = [SingletonManager singletonManager];
-        singleton.userLocation = location;
+        SessionManager *sesion = [SessionManager session];
+        sesion.userLocation = location;
 
     }else{
         [locationManager requestWhenInUseAuthorization];
@@ -374,8 +374,8 @@
     if ([[segue identifier] isEqualToString:@"segueInfantil"])
     {
         NSLog(@"MI Segue Infantil detected");
-        SingletonManager *singleton = [SingletonManager singletonManager];
-        singleton.categoryList = categoryItemsArray;
+        SessionManager *sesion = [SessionManager session];
+        sesion.categoryList = categoryItemsArray;
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"infantil";
         NSLog(@"MI CategoryName es: %@",categoriaViewController.categoryName);
@@ -400,8 +400,8 @@
     {
         NSLog(@"MI Segue Sabores detected");
         
-        SingletonManager *singleton = [SingletonManager singletonManager];
-        singleton.categoryList = categoryItemsArray;
+        SessionManager *sesion = [SessionManager session];
+        sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"sabores";
@@ -423,8 +423,8 @@
     if ([[segue identifier] isEqualToString:@"segueTiempoLibre"])
     {
         NSLog(@"Segue Tiempo Libre detected");
-        SingletonManager *singleton = [SingletonManager singletonManager];
-        singleton.categoryList = categoryItemsArray;
+        SessionManager *sesion = [SessionManager session];
+        sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"tiempoLibre";
@@ -446,8 +446,8 @@
     {
         NSLog(@"Segue Vida Sana detected");
         
-        SingletonManager *singleton = [SingletonManager singletonManager];
-        singleton.categoryList = categoryItemsArray;
+        SessionManager *sesion = [SessionManager session];
+        sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"vidaSana";
@@ -457,8 +457,8 @@
     if ([[segue identifier] isEqualToString:@"segueMastercard"])
     {
         NSLog(@"Segue Mastercard detected");
-        SingletonManager *singleton = [SingletonManager singletonManager];
-        singleton.categoryList = categoryItemsArray;
+        SessionManager *sesion = [SessionManager session];
+        sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"mastercard";
@@ -468,8 +468,8 @@
     if ([[segue identifier] isEqualToString:@"segueServicios"])
     {
         NSLog(@"Segue Servicios detected");
-        SingletonManager *singleton = [SingletonManager singletonManager];
-        singleton.categoryList = categoryItemsArray;
+        SessionManager *sesion = [SessionManager session];
+        sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"servicios";
@@ -479,8 +479,8 @@
     if ([[segue identifier] isEqualToString:@"segueTiendaClub"])
     {
         NSLog(@"Segue Tienda detected");
-        SingletonManager *singleton = [SingletonManager singletonManager];
-        singleton.categoryList = categoryItemsArray;
+        SessionManager *sesion = [SessionManager session];
+        sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"tienda";
@@ -490,8 +490,8 @@
     if ([[segue identifier] isEqualToString:@"segueViajesClub"])
     {
         NSLog(@"Segue Viajes detected");
-        SingletonManager *singleton = [SingletonManager singletonManager];
-        singleton.categoryList = categoryItemsArray;
+        SessionManager *sesion = [SessionManager session];
+        sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"viajes";

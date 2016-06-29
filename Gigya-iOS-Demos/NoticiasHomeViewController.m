@@ -11,8 +11,9 @@
 #import "NewsCategoryInicioViewController.h"
 #import "NewsCategoryPoliticaViewController.h"
 #import "SWRevealViewController.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 #import "ConnectionManager.h"
+#import "UserProfile.h"
 
 @interface NoticiasHomeViewController() <YSLContainerViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
@@ -23,11 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupFakeProfileData];
     [self setupNewsCategories];
-    
-    //Creamos el singleton
-    SingletonManager *singleton = [SingletonManager singletonManager];
-    NSLog(@"Wntonces la descri es: %@",[singleton description]);
     
     //ConnectionManager * connection = [[ConnectionManager alloc] init];
     
@@ -71,14 +69,13 @@
 - (IBAction)menuPressed:(id)sender {
     
     //Creamos el singleton
-    SingletonManager *singleton = [SingletonManager singletonManager];
+    SessionManager *sesion = [SessionManager session];
    // [sender addTarget:self.revealViewController action:@selector(revealToogle:) forControlEvents:UIControlEventTouchUpInside];
        // singleton.leftSlideMenu = self.revealViewController;
         //[singleton.leftSlideMenu revealViewController];
         //[singleton.leftSlideMenu revealToggleAnimated:YES];
         //[self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     }
-
 
 #pragma mark -- YSLContainerViewControllerDelegate
 - (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
@@ -99,6 +96,23 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+}
+
+- (void) setupFakeProfileData{
+
+    //Creamos el singleton
+    SessionManager *sesion = [SessionManager session];
+    NSLog(@"Profile - Data original: %@",[sesion description]);
+
+    UserProfile * perfilUsuario = [sesion getUserProfile];
+    
+    perfilUsuario.status = true;
+    
+    
+    NSLog(@"Fakeamos alguna data: %@",[sesion description]);
+
+    
+    
 }
 
 

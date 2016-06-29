@@ -9,7 +9,7 @@
 #import "DetalleBeneficioViewControllerFromMap.h"
 #import "UsarBeneficioEstandar.h"
 #import "ConnectionManager.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 #import "Tools.h"
 
 @interface DetalleBeneficioViewControllerFromMap ()
@@ -47,8 +47,8 @@ CLLocationCoordinate2D storeLocation;
 }
 
 - (IBAction)seeInTheMapClicked:(id)sender {
-    SingletonManager *singleton = [SingletonManager singletonManager];
-    CLLocation *userLocation = singleton.userLocation;
+    SessionManager *sesion = [SessionManager session];
+    CLLocation *userLocation = sesion.userLocation;
     
     
     CLLocationCoordinate2D coord2DSource = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude);
@@ -124,7 +124,6 @@ CLLocationCoordinate2D storeLocation;
                      animations:^{ self.benefitAdressLabel.alpha = 1;}
                      completion:nil];
     // NSLog(@"Geolocalizacion es: Latitud:%f, Longuitud:%f",coordenadas.latitude,coordenadas.longitude);
-    //SingletonManager *singleton = [SingletonManager singletonManager];
     //CLLocation *userLocation = singleton.userLocation;
     
     //CLLocationDistance distanceMeters = [coordenadas distanceFromLocation:userLocation];

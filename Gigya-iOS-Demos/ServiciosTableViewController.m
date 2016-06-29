@@ -12,7 +12,7 @@
 #import "DetalleBeneficioViewController.h"
 #import "Category.h"
 #import "Benefit.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 #import "ConnectionManager.h"
 #import "SVProgressHUD.h"
 #import "Tools.h"
@@ -28,8 +28,8 @@ NSMutableArray *listaBeneficios6;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    SingletonManager *singleton = [SingletonManager singletonManager];
-        [self loadBenefitsForCategoryId:40];
+    SessionManager *sesion = [SessionManager session];
+    [self loadBenefitsForCategoryId:40];
    
 }
 

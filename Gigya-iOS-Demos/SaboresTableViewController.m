@@ -12,7 +12,7 @@
 #import  "DetalleBeneficioViewController.h"
 #import "Category.h"
 #import "Benefit.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 #import "ConnectionManager.h"
 #import "SVProgressHUD.h"
 #import "Tools.h"
@@ -28,9 +28,9 @@ NSMutableArray *listaBeneficios;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    SingletonManager *singleton = [SingletonManager singletonManager];
+    SessionManager *sesion = [SessionManager session];
     listaCategorias = [[NSMutableArray alloc] init];
-    listaCategorias = singleton.categoryList;
+    listaCategorias = sesion.categoryList;
     //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
     [self loadBenefitsForCategoryId:39];
        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.

@@ -10,7 +10,7 @@
 #import "CategoriaViewController.h"
 #import "InfantilTableViewController.h"
 #import "SWRevealViewController.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 
 @interface CategoriasViewController () <SWRevealViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
@@ -23,15 +23,15 @@
     [super viewDidLoad];
    
     //Creamos el singleton
-    SingletonManager *singleton = [SingletonManager singletonManager];
+    SessionManager *sesion = [SessionManager session];
    
         
         SWRevealViewController *revealViewController = self.revealViewController;
-        singleton.leftSlideMenu = revealViewController;
+        sesion.leftSlideMenu = revealViewController;
         [_menuButton
-         addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+         addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
   
-    NSLog(@"Entoncs el singleton es: %@",singleton.leftSlideMenu);
+    NSLog(@"Entoncs el singleton es: %@",sesion.leftSlideMenu);
     // Do any additional setup after loading the view.
 
 }

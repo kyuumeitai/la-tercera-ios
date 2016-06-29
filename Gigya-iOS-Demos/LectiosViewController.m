@@ -7,7 +7,7 @@
 //
 
 #import "LectiosViewController.h"
-#import "SingletonManager.h"
+#import "SessionManager.h"
 #import "SWRevealViewController.h"
 #import "SVProgressHUD.h"
 #import "AFNetworking.h"
@@ -24,12 +24,12 @@ static NSString * const LectiosBaseURLString = @"http://api.lectios.com/?a=url&i
     //[SVProgressHUD setStatus:@"Obteniendo categorías disponibles"];
     // Do any additional setup after loading the view.
     //Creamos el singleton
-    SingletonManager *singleton = [SingletonManager singletonManager];
+    SessionManager *sesion = [SessionManager session];
       self.audioPlayer = [[YMCAudioPlayer alloc] init];
     
     SWRevealViewController *revealViewController = self.revealViewController;
-    singleton.leftSlideMenu = revealViewController;
-    [_menuButton addTarget:singleton.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    sesion.leftSlideMenu = revealViewController;
+    [_menuButton addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
     /*
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);

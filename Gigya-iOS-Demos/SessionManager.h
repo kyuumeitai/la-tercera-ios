@@ -11,7 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "UserProfile.h"
 
-@interface SingletonManager : NSObject {
+@interface SessionManager : NSObject {
     
     NSString *storyBoardName;
     
@@ -44,7 +44,7 @@
 @property  int profileCode;
 @property  int width;
 
-+ (id)singletonManager;
++ (id)session;
 -(NSString*)description;
 -(UserProfile *)getUserProfile;
 
