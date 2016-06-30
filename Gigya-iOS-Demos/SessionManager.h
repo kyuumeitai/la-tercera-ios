@@ -15,18 +15,21 @@
     
     NSString *storyBoardName;
     
+    BOOL isLogged;
+    
     //temp
     int profileCode;
-    NSString *profileType;
+    NSString * profileType;
     NSString *profileEmail;
     NSString *profileGigyaId;
     NSMutableArray *preferencesList;
     //End Temp
+    
     UserProfile * userProfile;
     
-    CLLocation *userLocation;
-    SWRevealViewController *leftSlideMenu;
-    NSMutableArray *categoryList;
+    CLLocation * userLocation;
+    SWRevealViewController * leftSlideMenu;
+    NSMutableArray * categoryList;
 
     int width;
     
