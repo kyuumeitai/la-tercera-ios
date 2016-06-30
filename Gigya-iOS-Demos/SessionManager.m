@@ -55,12 +55,13 @@
         userProfile.lastName = @"";
         userProfile.email = @"";
         userProfile.status = false;
+        userProfile.suscriber = false;
         userProfile.token = @"";
         userProfile.other_emails = [[NSMutableArray alloc]init];
         userProfile.gender = @"";
         userProfile.birthdate = @"";
         userProfile.profileType = @"";
-        userProfile.profileLevel = @"";
+        userProfile.profileLevel = -1;
         userProfile.preferences = [[NSMutableArray alloc]init];
         userProfile.site = @"";
         userProfile.notificacionesClub = false;
@@ -78,7 +79,7 @@
 
 -(NSString*)description{
     
-    NSString *mensaje = [NSString stringWithFormat:@"\r***** Singleton ***** \r Storyboard Name: %@ \r ProfileGigyaId: %@ \r ProfileEmail: %@ \r ProfileCode: %d \r ProfileType: %@ \r User status: %d \r User ProfileId: %d  \r User Location: (%f,%f)\r", storyBoardName,profileGigyaId,profileEmail, profileCode, profileType, userProfile.status, userProfile.userProfileId, userLocation.coordinate.latitude,userLocation.coordinate.longitude];
+    NSString *mensaje = [NSString stringWithFormat:@"\r***** Singleton ***** \r Storyboard Name: %@ \r ProfileGigyaId: %@ \r ProfileEmail: %@ \r ProfileLevel: %d \r ProfileType: %@ \r User status: %d \r User ProfileId: %d  \r User Location: (%f,%f)\r", storyBoardName,profileGigyaId,profileEmail, userProfile.profileLevel, profileType, userProfile.status, userProfile.userProfileId, userLocation.coordinate.latitude,userLocation.coordinate.longitude];
     
     return mensaje;
     

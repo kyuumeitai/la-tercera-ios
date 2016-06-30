@@ -86,7 +86,7 @@
     [params setObject:@"Mobile-login" forKey:@"screenSet"];
     //[params setObject:@"gigya-complete-registration-screen" forKey:@"startScreen"];
     
-    //[params setObject:@"gigya-register-screen" forKey:@"startScreen"];
+   [params setObject:@"gigya-register-screen" forKey:@"startScreen"];
     [Gigya showPluginDialogOver:self plugin:@"accounts.screenSet" parameters:params completionHandler:^(BOOL closedByUser, NSError *error) {
             if (!error) {
             // Login was successful
@@ -213,6 +213,7 @@
                 
                 NSLog(@"---------*** Es un Registro ***---------");
                 email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
+                if([email isEqualToString:@"errorCode"]== false){
                 verifyState = [self getStringValueForResponseString:responseString andLlave:@"email"];
                 firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
                 lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
@@ -236,6 +237,10 @@
                 NSString *respuesta = [connectionManager sendRegisterDataWithEmail:email firstName:firstName lastName:lastName gender:gender birthdate:birthdate uid:deviceId os:os gigyaId:gigyaID];
                 
                 NSLog(@"***::::-----  La respuesta es:   %@     -----::::***",respuesta);
+                }else{
+                    NSLog(@"***::::-----  EMAIL YA REGISTRADO:      -----::::***");
+
+                }
     
             }
      [self performSegueWithIdentifier:@"GoToSWReveal" sender:self];

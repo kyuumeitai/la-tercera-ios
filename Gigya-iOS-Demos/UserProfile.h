@@ -16,6 +16,7 @@
 @property (nonatomic,strong) NSString * name;
 @property (nonatomic,strong) NSString * lastName;
 @property (nonatomic,strong) NSString * email;
+@property BOOL suscriber;
 @property BOOL status;
 @property (nonatomic,strong) NSString * gender;
 @property (nonatomic,strong) NSString * birthdate;
