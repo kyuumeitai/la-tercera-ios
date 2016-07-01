@@ -32,7 +32,7 @@ typedef void (^getDataBlock)(BOOL success, NSArray* arrayJson, NSError *error);
 -(NSString*)getVirtualCardWithEmail:(NSString *)email;
 -(void)getDigitalPaper:(getDataBlock)completionBlock;
 -(NSString*)sendRegisterDataWithEmail:(NSString *)email firstName:(NSString*)firstName lastName:(NSString*)lastName gender:(NSString*)gender birthdate:(NSString*)birthdate uid:(NSString*)uid os:(NSString*)os gigyaId:(NSString*)gigyaId;
--(NSString*)sendLoginDataWithEmail:(NSString *)email;
+-(NSString*)sendLoginDataWithEmail:(NSString *)email andGigyaId:(NSString*)gigyaId;
 -(NSString*)UseBenefitWithIdBenefit:(NSString *)idBeneficio codigoComercio:(NSString*)codComercio sucursal:(NSString*)sucursal email:(NSString*)email monto:(int)monto;
 
 @property  BOOL isConnected;

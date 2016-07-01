@@ -14,6 +14,7 @@
 #import "SessionManager.h"
 #import "ConnectionManager.h"
 #import "UserProfile.h"
+#import "EHPlainAlert.h"
 
 @interface NoticiasHomeViewController() <YSLContainerViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
@@ -26,7 +27,7 @@
     [super viewDidLoad];
     [self setupFakeProfileData];
     [self setupNewsCategories];
-    
+    [EHPlainAlert showAlertWithTitle:@"YUJUUU" message:@"Hola Lonyii!" type:ViewAlertSuccess];
     //ConnectionManager * connection = [[ConnectionManager alloc] init];
     
     SWRevealViewController *revealViewController = self.revealViewController;
@@ -76,6 +77,8 @@
         //[singleton.leftSlideMenu revealToggleAnimated:YES];
         //[self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     }
+
+
 
 #pragma mark -- YSLContainerViewControllerDelegate
 - (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller

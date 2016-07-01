@@ -78,7 +78,7 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
         return responseString;
 }
 
--(NSString*)sendLoginDataWithEmail:(NSString *)email{
+-(NSString*)sendLoginDataWithEmail:(NSString *)email andGigyaId:(NSString*)gigyaId{
     
     NSString * responseString;
     // Send a synchronous request
@@ -88,7 +88,7 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
                                                        timeoutInterval:60.0];
     
     [request setHTTPMethod:@"POST"];
-    NSString *postString = [NSString stringWithFormat:@"email=%@",email];
+    NSString *postString = [NSString stringWithFormat:@"email=%@&gigya_id=%@",email,gigyaId];
     NSLog(@"Postring Login: %@ ",postString);
     [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
     

@@ -11,5 +11,10 @@
 
 @interface LoginViewController : UIViewController <GSPluginViewDelegate, GSAccountsDelegate>
 
+typedef enum {
+    REGISTRO,
+    LOGIN
+} GigyaFormAction;
+
 @end
 

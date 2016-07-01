@@ -1,0 +1,82 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 HelveticaNeue-Bold;\f2\fnil\fcharset0 Consolas;
+\f3\fnil\fcharset0 HelveticaNeue-BoldItalic;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red38\green38\blue38;\red245\green245\blue245;
+}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl500\sa320\qc\partightenfactor0
+
+\f0\b\fs42 \cf2 \expnd0\expndtw0\kerning0
+\
+Local Notification simulation
+\f1 \cf3 \outl0\strokewidth0 \strokec3 \
+\pard\pardeftab720\sl500\sa320\partightenfactor0
+\cf3 Usage\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\b0\fs28 \cf3 \cb4 #import <EHPlainAlert/EHPlainAlert.h>\
+\pard\pardeftab720\sl500\sa320\partightenfactor0
+
+\f1\b\fs36 \cf3 \cb1 Presenting notification\
+\pard\pardeftab720\sl512\sa320\partightenfactor0
+
+\f0\b0\fs32 \cf3 All messages can simply presented via static method call:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs28 \cf3 \cb4 [EHPlainAlert showAlertWithTitle:@"Success" message:@"Something works!" type:ViewAlertSuccess];\
+\pard\pardeftab720\sl500\sa320\partightenfactor0
+
+\f1\b\fs36 \cf3 \cb1 Presenting error notification\
+\pard\pardeftab720\sl512\sa320\partightenfactor0
+
+\f0\b0\fs32 \cf3 For simplifying error handling you can use:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs28 \cf3 \cb4 - (void)someError:(NSError *)myError\
+\{\
+    [EHPlainAlert showError:error];\
+\}\
+\pard\pardeftab720\sl500\sa320\partightenfactor0
+
+\f1\b\fs36 \cf3 \cb1 Hiding Messages\
+\pard\pardeftab720\sl512\sa320\partightenfactor0
+
+\f0\b0\fs32 \cf3 Notifications will hidden automatically after 4 seconds. You can override 
+\f3\i\b EHDEFAULT_HIDING_DELAY
+\f0\i0\b0  for change this behavior.\
+Also you can just tap on message to hide it.\
+\pard\pardeftab720\sl500\sa320\partightenfactor0
+
+\f1\b\fs36 \cf3 On Tap Actions\
+\pard\pardeftab720\sl512\sa320\partightenfactor0
+
+\f0\b0\fs32 \cf3 You can change the default behavior for tapping on the notification:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs28 \cf3 \cb4 EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Tap for information" type:ViewAlertInfo];\
+ehAlert.action = ^\{\
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/josshad/EHPlainAlert"]];\
+\};\
+[ehAlert show];\
+\pard\pardeftab720\sl500\sa320\partightenfactor0
+
+\f1\b\fs36 \cf3 \cb1 Customization\
+\pard\pardeftab720\sl512\sa320\partightenfactor0
+
+\f0\b0\fs32 \cf3 Fonts:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs28 \cf3 \cb4 EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Info" message:@"This is info message" type:ViewAlertInfo];\
+ehAlert.titleFont = [UIFont fontWithName:@"TrebuchetMS" size:15];\
+ehAlert.subTitleFont = [UIFont fontWithName:@"TrebuchetMS-Italic" size:12];\
+[ehAlert show];\
+\pard\pardeftab720\sl512\sa320\partightenfactor0
+
+\f0\fs32 \cf3 \cb1 Colors:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs28 \cf3 \cb4 EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Blue color alert" type:ViewAlertInfo];\
+ehAlert.messageColor = [UIColor blueColor];\
+[ehAlert show];\
+}

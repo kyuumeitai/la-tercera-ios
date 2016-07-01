@@ -21,6 +21,7 @@
 
 @implementation LoginViewController
 
+GigyaFormAction formType;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -101,6 +102,27 @@
         delegate:self
     ];
 }
+
+- (IBAction)loginButtonClicked:(id)sender {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:@"Mobile-login" forKey:@"screenSet"];
+    //[params setObject:@"gigya-complete-registration-screen" forKey:@"startScreen"];
+    
+   // [params setObject:@"gigya-register-screen" forKey:@"startScreen"];
+    [Gigya showPluginDialogOver:self plugin:@"accounts.screenSet" parameters:params completionHandler:^(BOOL closedByUser, NSError *error) {
+        if (!error) {
+            // Login was successful
+            NSLog(@"Screenset exitoso!");
+        }
+        else {
+            // Handle error
+            NSLog(@"Error mostrando el screenset");
+        }
+    }
+                       delegate:self
+     ];
+}
+
 
 - (IBAction)nativeLoginButtonAction:(id)sender {
     
@@ -186,9 +208,11 @@
             operation = [self getStringValueForResponseString:responseString andLlave:@"operation"];
             NSLog(@"*******++++++ La operacion: %@ ++++++*******",operation);
 
-            if([operation isEqualToString:@"/accounts.s"]){
+            if([operation isEqualToString:@"/accounts.l"]){
               NSLog(@"---------*** Es un login ***---------");
-                email = [self getStringValueForResponseString:responseString andLlave:@"email"];
+                formType = LOGIN;
+                email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
+                
                 gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
                 /*
                 firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
@@ -204,7 +228,7 @@
                 NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
                  */
                 ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
-                NSString *respuesta = [connectionManager sendLoginDataWithEmail:email];
+                NSString *respuesta = [connectionManager sendLoginDataWithEmail:email andGigyaId:gigyaID];
                 NSLog(@"***::::-----    %@     -----::::***",respuesta);
                 
             }
@@ -212,6 +236,8 @@
             if([operation isEqualToString:@"/accounts.r"]){
                 
                 NSLog(@"---------*** Es un Registro ***---------");
+                formType = REGISTRO;
+
                 email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
                 if([email isEqualToString:@"errorCode"]== false){
                 verifyState = [self getStringValueForResponseString:responseString andLlave:@"email"];
@@ -243,7 +269,16 @@
                 }
     
             }
-     [self performSegueWithIdentifier:@"GoToSWReveal" sender:self];
+            
+            switch (formType) {
+                case REGISTRO:
+                    [self performSegueWithIdentifier:@"GoToSWReveal" sender:self];
+                    break;
+                    
+                case LOGIN:
+                          [self performSegueWithIdentifier:@"goToNews" sender:self];
+                    break;
+            }
         }
              NSLog(@"*** La respuesta es: negativa");
     }
