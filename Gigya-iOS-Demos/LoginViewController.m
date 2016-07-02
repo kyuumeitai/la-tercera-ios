@@ -13,6 +13,7 @@
 #import "NoticiasHomeViewController.h"
 #import "SWRevealViewController.h"
 #import "ConnectionManager.h"
+#import "SessionManager.h"
 
 
 @interface LoginViewController ()
@@ -82,26 +83,8 @@ GigyaFormAction formType;
 }
 
 
-- (IBAction)showScreenSet:(id)sender {
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:@"Mobile-login" forKey:@"screenSet"];
-    //[params setObject:@"gigya-complete-registration-screen" forKey:@"startScreen"];
-    
-   [params setObject:@"gigya-register-screen" forKey:@"startScreen"];
-    [Gigya showPluginDialogOver:self plugin:@"accounts.screenSet" parameters:params completionHandler:^(BOOL closedByUser, NSError *error) {
-            if (!error) {
-            // Login was successful
-                 NSLog(@"Screenset exitoso!");
-                
-            }
-            else {
-            // Handle error
-                NSLog(@"Error mostrando el screenset");
-            }
-        }
-        delegate:self
-    ];
-}
+
+
 
 - (IBAction)loginButtonClicked:(id)sender {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -177,6 +160,10 @@ GigyaFormAction formType;
 
 - (void)accountDidLogout {
     self.user = nil;
+}
+- (IBAction)caminoRapido:(id)sender {
+    NSLog(@"Usamos el camino rapido");
+    [self setupFakeProfileData];
 }
 
 - (void)pluginView:(GSPluginView *)pluginView finishedLoadingPluginWithEvent:(NSDictionary *)event {
@@ -322,6 +309,20 @@ GigyaFormAction formType;
     [alert show];
 }
 
-
+- (void) setupFakeProfileData{
+    
+    //Creamos el singleton
+    SessionManager *sesion = [SessionManager session];
+    NSLog(@"Profile - Data original: %@",[sesion description]);
+    
+    UserProfile * perfilUsuario = [sesion getUserProfile];
+    
+    perfilUsuario.status = true;
+    
+    
+    NSLog(@"Fakeamos alguna data: %@",[sesion description]);
+    
+    
+}
 
 @end

@@ -10,9 +10,9 @@
 #import "UIColor+EHColorAdditions.h"
 
 #define EHDEFAULT_TITLE_FONT [UIFont fontWithName:@"HelveticaNeue-Light" size:15]
-#define EHDEFAULT_SUBTITLE_FONT [UIFont fontWithName:@"HelveticaNeue-Light" size:12]
-#define EHDEFAULT_MAX_ALERTS_NUMBER 3
-#define EHDEFAULT_HIDING_DELAY 4
+#define EHDEFAULT_SUBTITLE_FONT [UIFont fontWithName:@"HelveticaNeue-Light" size:13]
+#define EHDEFAULT_MAX_ALERTS_NUMBER 4
+#define EHDEFAULT_HIDING_DELAY 10
 
 
 float EH_iOS_Version() {
@@ -152,25 +152,25 @@ static NSMutableArray * currentAlertArray = nil;
         case ViewAlertError:
         {
             bgColor = [UIColor colorWithHex:0xFDB937];
-            _iconImage =[self imageNamed:@"eh_alert_error_icon"];
+            _iconImage =[self imageNamed:@"icons/eh_alert_error_icon"];
             break;
         }
         case ViewAlertSuccess:
         {
             bgColor = [UIColor colorWithHex:0x49BB7B];
-            _iconImage =[self imageNamed:@"eh_alert_complete_icon"];
+            _iconImage =[self imageNamed:@"icons/eh_alert_complete_icon"];
             break;
         }
         case ViewAlertInfo:
         {
             bgColor = [UIColor colorWithHex:0x00B2F4];
-            _iconImage = [self imageNamed:@"eh_alert_info_icon"];
+            _iconImage = [self imageNamed:@"icons/eh_alert_info_icon"];
             break;
         }
         case ViewAlertPanic:
         {
             bgColor = [UIColor colorWithHex:0xf24841];
-            _iconImage = [self imageNamed:@"eh_alert_error_icon"];
+            _iconImage = [self imageNamed:@"icons/eh_alert_error_icon"];
             
             break;
         }
@@ -187,7 +187,7 @@ static NSMutableArray * currentAlertArray = nil;
     imageView.contentMode = UIViewContentModeCenter;
     [infoView addSubview:imageView];
     
-    UIImageView * closeView = [[UIImageView alloc] initWithImage:[self imageNamed:@"eh_alert_close_icon"]];
+    UIImageView * closeView = [[UIImageView alloc] initWithImage:[self imageNamed:@"icons/eh_alert_close_icon"]];
     closeView.frame = CGRectMake(infoView.bounds.size.width - 15, 8, 7, 7);
     closeView.contentMode = UIViewContentModeCenter;
     [infoView addSubview:closeView];

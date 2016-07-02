@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import "Reachability.h"
+#import "EHPlainAlert.h"
 #import <UIKit/UIKit.h>
 
 
@@ -53,4 +54,15 @@
 
 + (NSUInteger) numberOfOccurrencesOfString:(NSString *)needle inString:(NSString *)haystack; 
 + (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData;
+
+/**************************** LOCAL NOTIFICATION ALERTS ****************************************/
+
++ (void)showLocalSuccessNotificationWithTitle:(NSString*)title andMessage:(NSString*)message;
++ (void)showLocalInfoNotificationWithTitle:(NSString*)title andMessage:(NSString*)message;
++ (void)showLocalErrorNotificationWithTitle:(NSString*)title andMessage:(NSString*)message;
++ (void)showLocalPanicNotificationWithTitle:(NSString*)title andMessage:(NSString*)message;
++ (void)showLocalUnknownNotificationWithTitle:(NSString*)title andMessage:(NSString*)message;
+
+
+
 @end

@@ -275,7 +275,68 @@ if ([[UIApplication sharedApplication] canOpenURL:
     return [UIImage imageWithData:data];
 }
 
+/*
+ ViewAlertError,
+ ViewAlertSuccess,
+ ViewAlertInfo,
+ ViewAlertPanic,
+ ViewAlertUnknown
+ */
 
++ (void)showLocalErrorNotificationWithTitle:(NSString*)title andMessage:(NSString*)message{
+    
+    EHPlainAlert * localNotif = [[EHPlainAlert alloc] initWithTitle:title message:message type:ViewAlertError];
+   
+    //localNotif.titleFont = [UIFont fontWithName:@"TrebuchetMS" size:15];
+    //localNotif.subTitleFont = [UIFont fontWithName:@"TrebuchetMS-Italic" size:12];
+    //localNotif.messageColor = [UIColor blackColor];
+    
+    [localNotif show];
+}
+
++ (void)showLocalSuccessNotificationWithTitle:(NSString*)title andMessage:(NSString*)message{
+    
+    EHPlainAlert * localNotif = [[EHPlainAlert alloc] initWithTitle:title message:message type:ViewAlertSuccess];
+    
+    //localNotif.titleFont = [UIFont fontWithName:@"TrebuchetMS" size:15];
+    //localNotif.subTitleFont = [UIFont fontWithName:@"TrebuchetMS-Italic" size:12];
+    //localNotif.messageColor = [UIColor blackColor];
+    
+    [localNotif show];
+}
+
++ (void)showLocalInfoNotificationWithTitle:(NSString*)title andMessage:(NSString*)message{
+    
+    EHPlainAlert * localNotif = [[EHPlainAlert alloc] initWithTitle:title message:message type:ViewAlertInfo];
+    
+    //localNotif.titleFont = [UIFont fontWithName:@"TrebuchetMS" size:15];
+    //localNotif.subTitleFont = [UIFont fontWithName:@"TrebuchetMS-Italic" size:12];
+    //localNotif.messageColor = [UIColor blackColor];
+    
+    [localNotif show];
+}
+
++ (void)showLocalPanicNotificationWithTitle:(NSString*)title andMessage:(NSString*)message{
+    
+    EHPlainAlert * localNotif = [[EHPlainAlert alloc] initWithTitle:title message:message type:ViewAlertError];
+    
+    //localNotif.titleFont = [UIFont fontWithName:@"TrebuchetMS" size:15];
+    //localNotif.subTitleFont = [UIFont fontWithName:@"TrebuchetMS-Italic" size:12];
+    //localNotif.messageColor = [UIColor redColor];
+    
+    [localNotif show];
+}
+
++ (void)showLocalUnknownNotificationWithTitle:(NSString*)title andMessage:(NSString*)message{
+    
+    EHPlainAlert * localNotif = [[EHPlainAlert alloc] initWithTitle:title message:message type:ViewAlertUnknown];
+    
+    //localNotif.titleFont = [UIFont fontWithName:@"TrebuchetMS" size:15];
+    //localNotif.subTitleFont = [UIFont fontWithName:@"TrebuchetMS-Italic" size:12];
+    //localNotif.messageColor = [UIColor redColor];
+    
+    [localNotif show];
+}
 
 
 @end

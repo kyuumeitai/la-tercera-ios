@@ -14,7 +14,7 @@
 #import "SessionManager.h"
 #import "ConnectionManager.h"
 #import "UserProfile.h"
-#import "EHPlainAlert.h"
+#import "Tools.h"
 
 @interface NoticiasHomeViewController() <YSLContainerViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
@@ -27,8 +27,7 @@
     [super viewDidLoad];
     [self setupFakeProfileData];
     [self setupNewsCategories];
-    [EHPlainAlert showAlertWithTitle:@"YUJUUU" message:@"Hola Lonyii!" type:ViewAlertSuccess];
-    //ConnectionManager * connection = [[ConnectionManager alloc] init];
+    
     
     SWRevealViewController *revealViewController = self.revealViewController;
     if (revealViewController) {
@@ -114,8 +113,10 @@
     
     NSLog(@"Fakeamos alguna data: %@",[sesion description]);
 
-    
-    
+    [Tools showLocalInfoNotificationWithTitle:@"Info del perfil" andMessage:[sesion description]];
+    [Tools showLocalSuccessNotificationWithTitle:@"Erxito" andMessage:@"Exitooooo"];
+    [Tools showLocalErrorNotificationWithTitle:@"Cueck!" andMessage:@"Errorr"];
+    [Tools showLocalUnknownNotificationWithTitle:@"Desconocemos" andMessage:@"No savemos na de nah"];
 }
 
 
