@@ -48,7 +48,8 @@
 @property  int width;
 
 + (id)session;
--(NSString*)description;
+-(NSString*)sessionDescription;
+-(NSString*)profileDescription;
 -(UserProfile *)getUserProfile;
 
 @end

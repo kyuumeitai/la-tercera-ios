@@ -77,9 +77,17 @@
     return self;
 }
 
--(NSString*)description{
+-(NSString*)sessionDescription{
     
-    NSString *mensaje = [NSString stringWithFormat:@"\r***** Singleton ***** \r Storyboard Name: %@ \r ProfileGigyaId: %@ \r ProfileEmail: %@ \r ProfileLevel: %d \r ProfileType: %@ \r User status: %d \r User ProfileId: %d  \r User Location: (%f,%f)\r", storyBoardName,profileGigyaId,profileEmail, userProfile.profileLevel, profileType, userProfile.status, userProfile.userProfileId, userLocation.coordinate.latitude,userLocation.coordinate.longitude];
+    NSString *mensaje = [NSString stringWithFormat:@" Está logueado: %d ,  Storyboard: %@  User ProfileId: %d   ", isLogged, storyBoardName, userProfile.userProfileId];
+    
+    return mensaje;
+    
+}
+
+-(NSString*)profileDescription{
+    
+    NSString *mensaje = [NSString stringWithFormat:@" GigyaId: %@ Email %@ ProfileLevel: %d  ProfileType: %@  User status: %d   ",  profileGigyaId,profileEmail, userProfile.profileLevel, profileType, userProfile.status];
     
     return mensaje;
     

@@ -79,6 +79,7 @@
 
 
 
+
 #pragma mark -- YSLContainerViewControllerDelegate
 - (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
 {
@@ -113,10 +114,9 @@
     
     NSLog(@"Fakeamos alguna data: %@",[sesion description]);
 
-    [Tools showLocalInfoNotificationWithTitle:@"Info del perfil" andMessage:[sesion description]];
-    [Tools showLocalSuccessNotificationWithTitle:@"Erxito" andMessage:@"Exitooooo"];
-    [Tools showLocalErrorNotificationWithTitle:@"Cueck!" andMessage:@"Errorr"];
-    [Tools showLocalUnknownNotificationWithTitle:@"Desconocemos" andMessage:@"No savemos na de nah"];
+    [Tools showLocalInfoNotificationWithTitle:@"Info del perfil" andMessage:[sesion profileDescription]];
+    [Tools showLocalSuccessNotificationWithTitle:@"Erxito" andMessage:[sesion sessionDescription]];
+    //[Tools showLocalErrorNotificationWithTitle:@"Cueck!" andMessage:@"Errorr"];
 }
 
 

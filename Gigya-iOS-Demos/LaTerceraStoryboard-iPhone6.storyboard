@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -319,7 +319,7 @@ REGISTRARSE?</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="showScreenSet:" destination="xVx-rM-Fhg" eventType="touchUpInside" id="SG3-uu-Rd1"/>
+                                    <action selector="showScreenSet:" destination="xVx-rM-Fhg" eventType="touchUpInside" id="50k-1x-1ij"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -619,7 +619,7 @@ REGISTRARSE?</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9C4-tE-Jat" userLabel="BotonCaminoSecreto">
-                                <rect key="frame" x="96" y="77" width="195" height="45"/>
+                                <rect key="frame" x="79" y="77" width="53" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="caminoRapido:" destination="Xmx-eN-OsC" eventType="touchUpInside" id="4NW-D4-Sn7"/>
@@ -677,6 +677,46 @@ REGISTRARSE?</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CQw-2s-EK1" userLabel="BotonCaminoSecreto">
+                                <rect key="frame" x="170" y="77" width="53" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="caminoRapidoRegistrado:" destination="Xmx-eN-OsC" eventType="touchUpInside" id="KKg-aV-Cz3"/>
+                                    <segue destination="FRq-Fc-Jtx" kind="push" id="NZJ-gN-Ume"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lve-WA-cRt" userLabel="BotonCaminoSecreto">
+                                <rect key="frame" x="80" y="20" width="53" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="caminoRapidoInactivo:" destination="Xmx-eN-OsC" eventType="touchUpInside" id="MQk-hh-2Yf"/>
+                                    <segue destination="FRq-Fc-Jtx" kind="push" id="7oe-MN-xJC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H8B-fK-0Ee" userLabel="BotonCaminoSecreto">
+                                <rect key="frame" x="171" y="20" width="53" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="caminoRapidoRegistradoInactivo:" destination="Xmx-eN-OsC" eventType="touchUpInside" id="55M-Fw-ngA"/>
+                                    <segue destination="FRq-Fc-Jtx" kind="push" id="H8t-bM-9si"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XmY-2R-vpO" userLabel="BotonCaminoSecreto">
+                                <rect key="frame" x="260" y="20" width="53" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="caminoRapidoSuscritoInactivo:" destination="Xmx-eN-OsC" eventType="touchUpInside" id="AQR-Ca-uei"/>
+                                    <segue destination="FRq-Fc-Jtx" kind="push" id="XPN-8J-j0B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6ON-Gg-B60" userLabel="BotonCaminoSecreto">
+                                <rect key="frame" x="260" y="77" width="53" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="caminoRapidoSuscrito:" destination="Xmx-eN-OsC" eventType="touchUpInside" id="0zZ-JO-9tE"/>
+                                    <segue destination="FRq-Fc-Jtx" kind="push" id="jwz-IK-BPu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -4422,11 +4462,11 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N2U-nl-Vbn"/>
+        <segue reference="QpD-Og-2iF"/>
         <segue reference="tqi-Nf-HuD"/>
-        <segue reference="vnn-UP-oet"/>
         <segue reference="LjX-Ol-dSP"/>
         <segue reference="wuf-Nj-3R8"/>
+        <segue reference="vnn-UP-oet"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
 </document>

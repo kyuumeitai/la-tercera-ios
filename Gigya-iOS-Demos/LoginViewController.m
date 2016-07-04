@@ -83,6 +83,26 @@ GigyaFormAction formType;
 }
 
 
+- (IBAction)showScreenSet:(id)sender {
+
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:@"Mobile-login" forKey:@"screenSet"];
+    //[params setObject:@"gigya-complete-registration-screen" forKey:@"startScreen"];
+    
+    // [params setObject:@"gigya-register-screen" forKey:@"startScreen"];
+    [Gigya showPluginDialogOver:self plugin:@"accounts.screenSet" parameters:params completionHandler:^(BOOL closedByUser, NSError *error) {
+        if (!error) {
+            // Login was successful
+            NSLog(@"Screenset exitoso!");
+        }
+        else {
+            // Handle error
+            NSLog(@"Error mostrando el screenset");
+        }
+    }
+                       delegate:self
+     ];
+}
 
 
 
@@ -162,8 +182,33 @@ GigyaFormAction formType;
     self.user = nil;
 }
 - (IBAction)caminoRapido:(id)sender {
-    NSLog(@"Usamos el camino rapido");
-    [self setupFakeProfileData];
+    NSLog(@"Usamos el camino rapido anonimo");
+    [self setupFakeProfileData:3 andActiveState:true];
+}
+
+- (IBAction)caminoRapidoRegistrado:(id)sender {
+    NSLog(@"Usamos el camino rapido para un registrado");
+    [self setupFakeProfileData:2 andActiveState:true];
+}
+
+- (IBAction)caminoRapidoSuscrito:(id)sender {
+    NSLog(@"Usamos el camino rapido suscrito");
+    [self setupFakeProfileData:1 andActiveState:true];
+}
+
+- (IBAction)caminoRapidoInactivo:(id)sender {
+    NSLog(@"Usamos el camino rapido anonimo");
+    [self setupFakeProfileData:3 andActiveState:false];
+}
+
+- (IBAction)caminoRapidoRegistradoInactivo:(id)sender {
+    NSLog(@"Usamos el camino rapido para un registrado");
+    [self setupFakeProfileData:2 andActiveState:false];
+}
+
+- (IBAction)caminoRapidoSuscritoInactivo:(id)sender {
+    NSLog(@"Usamos el camino rapido suscrito");
+    [self setupFakeProfileData:1 andActiveState:false];
 }
 
 - (void)pluginView:(GSPluginView *)pluginView finishedLoadingPluginWithEvent:(NSDictionary *)event {
@@ -217,8 +262,46 @@ GigyaFormAction formType;
                 ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
                 NSString *respuesta = [connectionManager sendLoginDataWithEmail:email andGigyaId:gigyaID];
                 NSLog(@"***::::-----    %@     -----::::***",respuesta);
+                /*
+                NSData *data = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
+                id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 
+                NSString * test = [json objectForKey:@"ID"];
+                NSLog(@"TEST IS %@", test);
+                */
             }
+            
+            if([operation isEqualToString:@"/accounts.s"]){
+                NSLog(@"---------*** Es un login con red socil***---------");
+                formType = LOGIN;
+                email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
+                
+                gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
+                /*
+                 firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
+                 lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
+                 gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
+                 NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
+                 NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
+                 NSString *birthYear = [self getStringValueForResponseString:responseString andLlave:@"birthYear"];
+                 
+                 birthdate = [NSString stringWithFormat:@"%@/%@/%@",birthYear,birthMonth,birthDay];
+                 
+                 NSString *allDataMessage = [NSString stringWithFormat:@"Los datos son: os: %@, deviceID: %@, email: %@, Nombre: %@, Apellidos: %@, Gender: %@, dateBirth: %@",os,deviceId,email,firstName,lastName, gender, birthdate];
+                 NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
+                 */
+                ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+                NSString *respuesta = [connectionManager sendLoginDataWithEmail:email andGigyaId:gigyaID];
+                NSLog(@"***::::-----    %@     -----::::***",respuesta);
+                /*
+                 NSData *data = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
+                 id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                 
+                 NSString * test = [json objectForKey:@"ID"];
+                 NSLog(@"TEST IS %@", test);
+                 */
+            }
+
             
             if([operation isEqualToString:@"/accounts.r"]){
                 
@@ -309,7 +392,7 @@ GigyaFormAction formType;
     [alert show];
 }
 
-- (void) setupFakeProfileData{
+- (void) setupFakeProfileData:(int)profileCode andActiveState:(BOOL)state{
     
     //Creamos el singleton
     SessionManager *sesion = [SessionManager session];
@@ -317,7 +400,8 @@ GigyaFormAction formType;
     
     UserProfile * perfilUsuario = [sesion getUserProfile];
     
-    perfilUsuario.status = true;
+    perfilUsuario.status = state;
+    perfilUsuario.profileLevel = profileCode;
     
     
     NSLog(@"Fakeamos alguna data: %@",[sesion description]);
