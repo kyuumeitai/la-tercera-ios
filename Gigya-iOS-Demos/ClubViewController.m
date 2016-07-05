@@ -17,7 +17,19 @@
 #import "SVProgressHUD.h"
 
 
-@interface ClubViewController () 
+#import "ClubViewController.h"
+#import "ConnectionManager.h"
+#import "Category.h"
+#import "Benefit.h"
+#import "CategoriasTableViewCell.h"
+#import "CategoriaViewController.h"
+#import "SessionManager.h"
+#import "SWRevealViewController.h"
+#import "SVProgressHUD.h"
+#import "Tools.h"
+
+
+@interface ClubViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *menuButtonClub;
 @end
 
@@ -27,14 +39,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self requestLocation];
-   //[self loadCategories];
+    //[self loadCategories];
     // Do any additional setup after loading the view.
+    
+    NSLog(@"Club View Controller loaded");
+    
     //Creamos el singleton
-    SessionManager *sesion = [SessionManager session];
+  
     
     SWRevealViewController *revealViewController2 = self.revealViewController;
     if (revealViewController2) {
-        NSLog(@"SI existe el reveeal");
         [_menuButtonClub
          addTarget:revealViewController2 action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
         // [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
@@ -42,13 +56,12 @@
         SWRevealViewController *revealViewController3 = [[SWRevealViewController alloc] init];
         [_menuButtonClub
          addTarget:revealViewController3 action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-        NSLog(@"No existe el reveeal");
         
     }
     
     
     // Do any additional setup after loading the view.
-   
+    
 }
 
 
@@ -57,7 +70,7 @@
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     
     //self.locationManager.distanceFilter  = 1000.0f;
     
@@ -72,9 +85,6 @@
     
     if (authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
         NSLog(@"Autorizado");
-        locationManager .desiredAccuracy = kCLLocationAccuracyBestForNavigation;   // 2 kilometers - hope for accuracy within 2 km.
-        //_locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
-        [locationManager startUpdatingLocation];
         
         CLLocation *location = [locationManager location];
         CLLocationCoordinate2D coordinate = [location coordinate];
@@ -83,9 +93,34 @@
         NSLog(@"%@",str);
         SessionManager *sesion = [SessionManager session];
         sesion.userLocation = location;
-
+        
+        
     }else{
         [locationManager requestWhenInUseAuthorization];
+    }
+}
+
+-(void)loadData {
+    NSLog(@"LOAD DATA ");
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    if (![Tools isLocationServiceEnabled]) {
+        [Tools showLocationServicesErrorByType:@"locationServicesDisabledError"];
+        [SVProgressHUD dismiss];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+    }
+    else {
+        if (![Tools isNetworkAvailable]) {
+            [Tools showNetworkError];
+            [SVProgressHUD dismiss];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            
+        }
+        else {
+            NSLog(@"LOAD DATA OKKKKK");
+            [locationManager stopUpdatingLocation];
+            
+        }
     }
 }
 
@@ -99,7 +134,7 @@
     BOOL estaConectado = [connectionManager verifyConnection];
     NSLog(@"Verificando conexión: %d",estaConectado);
     [connectionManager getMainCategories:^(BOOL success, NSArray *arrayJson, NSError *error) {
-     
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
@@ -108,7 +143,7 @@
             }
         });
     }];
-
+    
 }
 
 
@@ -196,41 +231,41 @@
 -(void) reloadMainCategoriesDataFromService:(NSArray*)arrayJson{
     NSLog(@"  reload Main categories   ");
     categoryItemsArray = [[NSMutableArray alloc] init];
-
-       for (id object in arrayJson){
+    
+    for (id object in arrayJson){
         
         if ([object objectForKey:@"category_parent"] == [NSNull null]) {
-      
+            
             id title = [object objectForKey:@"title"];
             id idCat = [object objectForKey:@"id"];
             id benefits = [object objectForKey:@"benefits"];
             id url = [object objectForKey:@"url"];
-                
-                UIImage *imagenDestacada = nil;
-                if([object objectForKey:@"starred_image"] != [NSNull null]){
+            
+            UIImage *imagenDestacada = nil;
+            if([object objectForKey:@"starred_image"] != [NSNull null]){
                 NSString *imagenDestacadaEncoded = [object objectForKey:@"starred_image"] ;
-                    //Creating the data from your base64String
-                    
-                    //Now data is decoded. You can convert them to UIImage
-                    imagenDestacada = [self decodeBase64ToImage:imagenDestacadaEncoded];
-                }
+                //Creating the data from your base64String
                 
-                Category *categoria = [[Category alloc] init ];
-
-               
-                categoria.title = title;
-                categoria.idCat = idCat;
-                categoria.url = url;
-           
-                
-                categoria.imagenDestacada = imagenDestacada;
-                // NSLog(@"Categoría: %@ , id: %@, url: %@, imagenDesatacada: %@ ",title,idCat,url, imagenDestacada);
-                
-                
-                NSMutableArray* categoryBenefitsArray = [[NSMutableArray alloc] init];
-                
+                //Now data is decoded. You can convert them to UIImage
+                imagenDestacada = [self decodeBase64ToImage:imagenDestacadaEncoded];
+            }
+            
+            Category *categoria = [[Category alloc] init ];
+            
+            
+            categoria.title = title;
+            categoria.idCat = idCat;
+            categoria.url = url;
+            
+            
+            categoria.imagenDestacada = imagenDestacada;
+            // NSLog(@"Categoría: %@ , id: %@, url: %@, imagenDesatacada: %@ ",title,idCat,url, imagenDestacada);
+            
+            
+            NSMutableArray* categoryBenefitsArray = [[NSMutableArray alloc] init];
+            
             for (id benefit in benefits){
-
+                
                 id titleBen = [benefit objectForKey:@"title"];
                 id idBen = [benefit objectForKey:@"id"] ;
                 id linkBen = [benefit objectForKey:@"url"] ;
@@ -239,13 +274,13 @@
                 
                 
                 Benefit *beneficio = [[Benefit alloc] init];
-                beneficio.idBen = idBen;
+                beneficio.idBen = [idBen intValue];
                 beneficio.title = titleBen;
                 beneficio.url = linkBen;
                 beneficio.summary= summaryBen;
                 beneficio.desclabel = benefitLabelBen;
                 
-               
+                
                 if([benefit objectForKey:@"image"] != [NSNull null]){
                     UIImage *imagenBeneficio = nil;
                     NSString *imagenBen = [benefit objectForKey:@"image"] ;
@@ -254,20 +289,20 @@
                     //Now data is decoded. You can convert them to UIImage
                     imagenBeneficio = [self decodeBase64ToImage:[arr lastObject]];
                     beneficio.imagenNormal = imagenBeneficio;
-               
+                    
                 }
                 
                 [categoryBenefitsArray addObject:beneficio];
             }
-
-                categoria.arrayBenefits = categoryBenefitsArray;
-                [categoryItemsArray addObject:categoria];
-                [SVProgressHUD dismiss];
-            }
-
+            
+            categoria.arrayBenefits = categoryBenefitsArray;
+            [categoryItemsArray addObject:categoria];
+            [SVProgressHUD dismiss];
+        }
+        
     }
     
- 
+    
     NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
 }
 
@@ -294,14 +329,14 @@
     NSLog(@" ******* LISTADO DE BENEFICIOS PRINCIPALES ****** ----------------------");
     
     for (id object in arrayJson){
-       
-            
-            id title = [object objectForKey:@"title"];
-            id idCat = [object objectForKey:@"summary"];
-            NSLog(@"titulo: %@ , resumen: %@",title,idCat);
-            
-        }
-
+        
+        
+        id title = [object objectForKey:@"title"];
+        id idCat = [object objectForKey:@"summary"];
+        NSLog(@"titulo: %@ , resumen: %@",title,idCat);
+        
+    }
+    
     NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
     
 }
@@ -318,7 +353,7 @@
         //id marker = [object objectForKey:@"marker"];
         NSLog(@"id: %@, titulo: %@  ",idCom,title );
         id stores = [object objectForKey:@"stores"];
-
+        
         for (id store in stores){
             
             id idStore = [store objectForKey:@"id"];
@@ -327,10 +362,10 @@
             id city = [store objectForKey:@"city"];
             id address = [store objectForKey:@"address"];
             id geoLocation = [store objectForKey:@"geolocation"];
-
+            
             NSLog(@"           Store id: %@ , titulo: %@, region: %@, city: %@, address: %@, geolocacion: %@",idStore,title,region,city,address,geoLocation);
         }
-
+        
     }
     
     NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
@@ -343,15 +378,15 @@
     
     for (id store in arrayJson){
         
-       
-            id idStore = [store objectForKey:@"id"];
-            id title = [store objectForKey:@"title"];
-            id region = [store objectForKey:@"region"];
-            id city = [store objectForKey:@"city"];
-            id address = [store objectForKey:@"address"];
-            id geoLocation = [store objectForKey:@"geolocation"];
-            
-            NSLog(@"           Store id: %@ , titulo: %@, region: %@, city: %@, address: %@, geolocacion: %@",idStore,title,region,city,address,geoLocation);
+        
+        id idStore = [store objectForKey:@"id"];
+        id title = [store objectForKey:@"title"];
+        id region = [store objectForKey:@"region"];
+        id city = [store objectForKey:@"city"];
+        id address = [store objectForKey:@"address"];
+        id geoLocation = [store objectForKey:@"geolocation"];
+        
+        NSLog(@"           Store id: %@ , titulo: %@, region: %@, city: %@, address: %@, geolocacion: %@",idStore,title,region,city,address,geoLocation);
         
         
     }
@@ -393,7 +428,7 @@
         categoriaViewController.categoryItemsArray = firstFoundObject.arrayBenefits;
         
         NSLog(@" El array de beneficios  Infantil es : %@", categoriaViewController.categoryItemsArray);
-
+        
     }
     
     if ([[segue identifier] isEqualToString:@"segueSabores"])
@@ -405,7 +440,7 @@
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"sabores";
-            NSLog(@"Mi CategoryName es: %@",categoriaViewController.categoryName);
+        NSLog(@"Mi CategoryName es: %@",categoriaViewController.categoryName);
         
         categoriaViewController.categoryItemsArray = categoryItemsArray;
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 3];
@@ -508,7 +543,7 @@
 - (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
 {
     NSLog(@"Original current Index : %ld",(long)index);
-   NSLog(@"Original current controller : %@",controller);
+    NSLog(@"Original current controller : %@",controller);
     [controller viewWillAppear:YES];
 }
 
@@ -520,6 +555,27 @@
 - (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData {
     NSData *data = [[NSData alloc]initWithBase64EncodedString:strEncodeData options:NSDataBase64DecodingIgnoreUnknownCharacters];
     return [UIImage imageWithData:data];
+}
+
+-(void)goLocationSet{
+    if (firstTime == false){
+        [self requestLocation];
+        firstTime  = true;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        //[self loadData ];
+        
+        NSLog(@"Estoy acaaa en change status");
+        locationManager .desiredAccuracy = kCLLocationAccuracyNearestTenMeters;   // 2 kilometers - hope for accuracy within 2 km.
+        locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
+        [locationManager startUpdatingLocation];
+        
+        [self goLocationSet];
+        
+    }
 }
 
 @end
