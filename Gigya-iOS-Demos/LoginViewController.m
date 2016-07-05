@@ -14,6 +14,7 @@
 #import "SWRevealViewController.h"
 #import "ConnectionManager.h"
 #import "SessionManager.h"
+#import "UserProfile.h"
 
 
 @interface LoginViewController ()
@@ -269,12 +270,34 @@ GigyaFormAction formType;
                 NSData *data = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
                 id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 
+                NSString *userEmail = [json objectForKey:@"email"];
+                int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
+                //id status = [json objectForKey:@"status"];
+          
+                //int userDevice = [[json objectForKey:@"device"] intValue];
+                int userDevice =-111;
+                NSString *userGigyaId = [json objectForKey:@"gigya_id"];
+                BOOL userStatus = true;
+                SessionManager *sesion = [SessionManager session];
+                UserProfile *perfil = [sesion getUserProfile];
+                perfil.email = userEmail;
+                perfil.profileLevel = userProfileLevel;
+                perfil.status = true;
+                perfil.device = userDevice;
+                perfil.gigyaId = userGigyaId;
+                [sesion loadUserProfileData:userEmail status:userStatus profileLevel:userProfileLevel device:userDevice];
+                sesion.isLogged = true;
+                
+
                 for (NSString* key in json) {
                     id value = [json objectForKey:key];
                    NSLog(@"Clave %@: %@", key,value);
                 }
                 NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
-            
+                
+                
+                NSLog(@"***************::::----- session  : %@  -----::::**************\r\r",[sesion profileDescription]);
+    
             }
             
             if([operation isEqualToString:@"/accounts.s"]){
@@ -306,11 +329,34 @@ GigyaFormAction formType;
                 NSData *data = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
                 id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 
+                NSString *userEmail = [json objectForKey:@"email"];
+                int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
+                id status = [json objectForKey:@"status"];
+               BOOL userStatus = true;
+                //int userDevice = [[json objectForKey:@"device"] intValue];
+                int userDevice =-111;
+                NSString *userGigyaId = [json objectForKey:@"gigya_id"];
+                
+                SessionManager *sesion = [SessionManager session];
+                UserProfile *perfil = [sesion getUserProfile];
+                perfil.email = userEmail;
+                perfil.profileLevel = userProfileLevel;
+                perfil.status = userStatus;
+                perfil.device = userDevice;
+                perfil.gigyaId = userGigyaId;
+                sesion.isLogged = true;
+                sesion.userProfile = perfil;
+                
+                [sesion loadUserProfileData:userEmail status:userStatus profileLevel:userProfileLevel device:userDevice];
+                sesion.isLogged = true;
+                
                 for (NSString* key in json) {
                     id value = [json objectForKey:key];
                     NSLog(@"Clave %@: %@", key,value);
                 }
+                
                 NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
+                     NSLog(@"***************::::----- session  : %@  -----::::**************\r\r",[sesion profileDescription]);
             }
 
             
@@ -351,11 +397,33 @@ GigyaFormAction formType;
                     NSData *data = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
                     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                     
+                    NSString *userEmail = [json objectForKey:@"email"];
+                    int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
+                    id status = [json objectForKey:@"status"];
+                    BOOL userStatus = true;
+                    //int userDevice = [[json objectForKey:@"device"] intValue];
+                    int userDevice =-111;
+                    NSString *userGigyaId = [json objectForKey:@"gigya_id"];
+                    
+                    SessionManager *sesion = [SessionManager session];
+                    UserProfile *perfil = [sesion getUserProfile];
+                    perfil.email = userEmail;
+                    perfil.profileLevel = userProfileLevel;
+                    perfil.status = userStatus;
+                    perfil.device = userDevice;
+                    perfil.gigyaId = userGigyaId;
+                    sesion.isLogged = true;
+                    sesion.userProfile = perfil;
+                    
+                    [sesion loadUserProfileData:userEmail status:userStatus profileLevel:userProfileLevel device:userDevice];
+                    sesion.isLogged = true;
+                    
                     for (NSString* key in json) {
                         id value = [json objectForKey:key];
                         NSLog(@"Clave %@: %@", key,value);
                     }
                     NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
+                         NSLog(@"***************::::----- session  : %@  -----::::**************\r\r",[sesion profileDescription]);
                 }else{
                     NSLog(@"***::::-----  EMAIL YA REGISTRADO:      -----::::***");
 

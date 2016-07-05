@@ -115,7 +115,7 @@
     NSLog(@"Fakeamos alguna data: %@",[sesion description]);
 
     [Tools showLocalInfoNotificationWithTitle:@"Info del perfil" andMessage:[sesion profileDescription]];
-    [Tools showLocalSuccessNotificationWithTitle:@"Erxito" andMessage:[sesion sessionDescription]];
+    //[Tools showLocalSuccessNotificationWithTitle:@"Erxito" andMessage:[sesion sessionDescription]];
     //[Tools showLocalErrorNotificationWithTitle:@"Cueck!" andMessage:@"Errorr"];
 }
 

@@ -20,6 +20,7 @@
 @synthesize width;
 @synthesize categoryList;
 @synthesize userProfile;
+@synthesize isLogged;
 
 #pragma mark Singleton Methods
 
@@ -46,6 +47,7 @@
         
         userLocation = nil;
         leftSlideMenu = nil;
+        
         categoryList = [[NSMutableArray alloc]init];
         
         userProfile = [[UserProfile alloc] init];
@@ -70,6 +72,7 @@
         userProfile.horario2 = false;
         userProfile.horario3 = false;
         userProfile.device = -1;
+         
 
         width = 0;
         NSLog(@"Estamos OK con el Singleton");
@@ -77,9 +80,18 @@
     return self;
 }
 
+-(void)loadUserProfileData:(NSString*)email  status:(BOOL)status profileLevel:(int)profileLevel device:(int)device{
+    
+    self.userProfile.email =email;
+    self.userProfile.status = status;
+    self.userProfile.profileLevel = profileLevel;
+    self.userProfile.device = device;
+    
+}
+
 -(NSString*)sessionDescription{
     
-    NSString *mensaje = [NSString stringWithFormat:@" Está logueado: %d ,  Storyboard: %@  User ProfileId: %d   ", isLogged, storyBoardName, userProfile.userProfileId];
+    NSString *mensaje = [NSString stringWithFormat:@" Está logueado: %d ,  Storyboard: %@  User ProfileId: %d   ", self.isLogged, self.storyBoardName, self.userProfile.userProfileId];
     
     return mensaje;
     
@@ -87,7 +99,7 @@
 
 -(NSString*)profileDescription{
     
-    NSString *mensaje = [NSString stringWithFormat:@" GigyaId: %@ Email %@ ProfileLevel: %d  ProfileType: %@  User status: %d   ",  profileGigyaId,profileEmail, userProfile.profileLevel, profileType, userProfile.status];
+    NSString *mensaje = [NSString stringWithFormat:@"Email %@ ProfileLevel: %d  ProfileType: %@  User status: %d   ", userProfile.email, userProfile.profileLevel , userProfile.profileType, userProfile.status];
     
     return mensaje;
     

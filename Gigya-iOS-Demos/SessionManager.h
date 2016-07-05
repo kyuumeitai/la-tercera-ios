@@ -34,7 +34,7 @@
     int width;
     
 }
-
+@property  BOOL isLogged;
 @property (nonatomic, retain) NSString *storyBoardName;
 @property (nonatomic, retain) UserProfile * userProfile;
 @property (nonatomic, retain) NSString *profileType;
@@ -51,5 +51,6 @@
 -(NSString*)sessionDescription;
 -(NSString*)profileDescription;
 -(UserProfile *)getUserProfile;
+-(void)loadUserProfileData:(NSString*)email  status:(BOOL)status profileLevel:(int)profileLevel device:(int)device;
 
 @end
