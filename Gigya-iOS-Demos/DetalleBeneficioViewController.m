@@ -221,10 +221,13 @@ CLLocationCoordinate2D storeLocation;
                                             ];
 
     self.benefitDescriptionTextView.attributedText = attributedString;
-
-    
 }
 
+-(IBAction)shareBenefit:(id)sender{
+    
+    [Tools shareText:self.benefitSubtitleLabel.text andImage:self.benefitImageView.image  andUrl:[NSURL URLWithString:@"www.google.com"] forSelf:self];
+    
+}
 
 
 @end

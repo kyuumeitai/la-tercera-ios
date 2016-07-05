@@ -277,15 +277,20 @@ GigyaFormAction formType;
                 //int userDevice = [[json objectForKey:@"device"] intValue];
                 int userDevice =-111;
                 NSString *userGigyaId = [json objectForKey:@"gigya_id"];
-                BOOL userStatus = true;
+                BOOL userStatus = false;
+                if([json objectForKey:@"status"] == NULL){
+                    userStatus = false;
+                }else{
+                    userStatus = [[json objectForKey:@"status"] boolValue];
+                }
                 SessionManager *sesion = [SessionManager session];
                 UserProfile *perfil = [sesion getUserProfile];
                 perfil.email = userEmail;
                 perfil.profileLevel = userProfileLevel;
-                perfil.status = true;
+                perfil.status = userStatus;
                 perfil.device = userDevice;
                 perfil.gigyaId = userGigyaId;
-                [sesion loadUserProfileData:userEmail status:userStatus profileLevel:userProfileLevel device:userDevice];
+                //[sesion loadUserProfileData:userEmail status:userStatus profileLevel:userProfileLevel device:userDevice];
                 sesion.isLogged = true;
                 
 
@@ -331,8 +336,12 @@ GigyaFormAction formType;
                 
                 NSString *userEmail = [json objectForKey:@"email"];
                 int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
-                id status = [json objectForKey:@"status"];
-               BOOL userStatus = true;
+                BOOL userStatus = false;
+                if([json objectForKey:@"status"] == NULL){
+                    userStatus = false;
+                }else{
+                    userStatus = [[json objectForKey:@"status"] boolValue];
+                }
                 //int userDevice = [[json objectForKey:@"device"] intValue];
                 int userDevice =-111;
                 NSString *userGigyaId = [json objectForKey:@"gigya_id"];
@@ -347,7 +356,7 @@ GigyaFormAction formType;
                 sesion.isLogged = true;
                 sesion.userProfile = perfil;
                 
-                [sesion loadUserProfileData:userEmail status:userStatus profileLevel:userProfileLevel device:userDevice];
+                //[sesion loadUserProfileData:userEmail status:userStatus profileLevel:userProfileLevel device:userDevice];
                 sesion.isLogged = true;
                 
                 for (NSString* key in json) {
@@ -356,7 +365,7 @@ GigyaFormAction formType;
                 }
                 
                 NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
-                     NSLog(@"***************::::----- session  : %@  -----::::**************\r\r",[sesion profileDescription]);
+                NSLog(@"***************::::-----   Session : %@  -----::::**************\r\r",[sesion profileDescription]);
             }
 
             
@@ -399,8 +408,12 @@ GigyaFormAction formType;
                     
                     NSString *userEmail = [json objectForKey:@"email"];
                     int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
-                    id status = [json objectForKey:@"status"];
-                    BOOL userStatus = true;
+                    BOOL userStatus = false;
+                    if([json objectForKey:@"status"] == NULL){
+                       userStatus = false;
+                    }else{
+                     userStatus = [[json objectForKey:@"status"] boolValue];
+                    }
                     //int userDevice = [[json objectForKey:@"device"] intValue];
                     int userDevice =-111;
                     NSString *userGigyaId = [json objectForKey:@"gigya_id"];
@@ -414,8 +427,6 @@ GigyaFormAction formType;
                     perfil.gigyaId = userGigyaId;
                     sesion.isLogged = true;
                     sesion.userProfile = perfil;
-                    
-                    [sesion loadUserProfileData:userEmail status:userStatus profileLevel:userProfileLevel device:userDevice];
                     sesion.isLogged = true;
                     
                     for (NSString* key in json) {
@@ -487,7 +498,7 @@ GigyaFormAction formType;
     
     //Creamos el singleton
     SessionManager *sesion = [SessionManager session];
-    NSLog(@"Profile - Data original: %@",[sesion description]);
+    NSLog(@"Profile - Data original: %@",[sesion profileDescription]);
     
     UserProfile * perfilUsuario = [sesion getUserProfile];
     
@@ -495,7 +506,7 @@ GigyaFormAction formType;
     perfilUsuario.profileLevel = profileCode;
     
     
-    NSLog(@"Fakeamos alguna data: %@",[sesion description]);
+    NSLog(@"Fakeamos alguna data: %@",[sesion profileDescription]);
     
     
 }

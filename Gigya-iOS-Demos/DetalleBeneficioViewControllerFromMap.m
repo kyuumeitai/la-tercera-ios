@@ -102,8 +102,6 @@ CLLocationCoordinate2D storeLocation;
     }:idStore];
 }
 
-
-
 -(void) loadStoreDataFromService:(NSArray*)arrayJson{
     
     //NSDictionary *storeDict = (NSDictionary*)arrayJson;
@@ -225,8 +223,6 @@ CLLocationCoordinate2D storeLocation;
                                                    ];
     
     self.benefitDescriptionTextView.attributedText = attributedString;
-    
-    
 }
 
 

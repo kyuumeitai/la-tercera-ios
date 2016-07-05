@@ -10,6 +10,7 @@
 #import "ConfirmationViewController.h"
 #import "TarjetaVirtual.h"
 #import "ConnectionManager.h"
+#import "UserProfile.h"
 #import "SessionManager.h"
 
 @interface UsarBeneficioDescuentoAdicional ()
@@ -38,12 +39,15 @@ int monto = 1000;
     
     SessionManager *sesion = [SessionManager session];
     
-    NSLog(@"Singleton description: %@",[sesion description]);
-    
+    NSLog(@"Singleton description: %@",[sesion profileDescription]);
+    UserProfile *perfil = [sesion getUserProfile];
+
     ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
-    email = _emailTesting.text;
-    NSString *resultMessage = [connectionManager getVirtualCardWithEmail:_emailTesting.text];
-    //NSLog(@"El mensaje del WS de tarjeta es: %@",resultMessage);
+    
+    //email = perfil.email;
+    /*
+    NSString *resultMessage = [connectionManager getVirtualCardWithEmail:email];
+    NSLog(@"El mensaje del WS de tarjeta es: %@",resultMessage);
     
     NSData *data = [resultMessage dataUsingEncoding:NSUTF8StringEncoding];
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
@@ -78,10 +82,10 @@ int monto = 1000;
         [alert show];
 
     }
-
-    /*
+*/
+    
     NSLog(@"Vamos a usar el beneficio y llamar al WS");
-    ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
+   // ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
     NSString *resultMessage = [connectionManager UseBenefitWithIdBenefit:idBeneficio codigoComercio:codComercio sucursal:sucursal email:email monto:monto];
     NSLog(@"El mensaje del WS es: %@",resultMessage);
     
@@ -89,7 +93,7 @@ int monto = 1000;
     //confirmationViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     confirmationViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     //[self presentViewController:confirmationViewController animated:YES completion:nil];
-     */
+   
     
 }
 

@@ -63,6 +63,8 @@
 + (void)showLocalPanicNotificationWithTitle:(NSString*)title andMessage:(NSString*)message;
 + (void)showLocalUnknownNotificationWithTitle:(NSString*)title andMessage:(NSString*)message;
 
+/**************************** LOCAL NOTIFICATION ALERTS ****************************************/
 
++ (void)shareText:(NSString *)text andImage:(UIImage *)image andUrl:(NSURL *)url forSelf:(id)yoMismo;
 
 @end

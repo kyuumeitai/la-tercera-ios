@@ -80,14 +80,6 @@
     return self;
 }
 
--(void)loadUserProfileData:(NSString*)email  status:(BOOL)status profileLevel:(int)profileLevel device:(int)device{
-    
-    self.userProfile.email =email;
-    self.userProfile.status = status;
-    self.userProfile.profileLevel = profileLevel;
-    self.userProfile.device = device;
-    
-}
 
 -(NSString*)sessionDescription{
     
@@ -99,7 +91,7 @@
 
 -(NSString*)profileDescription{
     
-    NSString *mensaje = [NSString stringWithFormat:@"Email %@ ProfileLevel: %d  ProfileType: %@  User status: %d   ", userProfile.email, userProfile.profileLevel , userProfile.profileType, userProfile.status];
+    NSString *mensaje = [NSString stringWithFormat:@"Email %@ ProfileLevel: %d, es Suscriptor?: %d , ProfileType: %@  User status: %d   ", userProfile.email, userProfile.profileLevel , userProfile.suscriber, userProfile.profileType, userProfile.status];
     
     return mensaje;
     

@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupFakeProfileData];
+    [self setupLocalNotification];
     [self setupNewsCategories];
     
     
@@ -101,18 +101,12 @@
     // Pass the selected object to the new view controller.
 }
 
-- (void) setupFakeProfileData{
+- (void) setupLocalNotification{
 
     //Creamos el singleton
     SessionManager *sesion = [SessionManager session];
-    NSLog(@"Profile - Data original: %@",[sesion description]);
-
-    UserProfile * perfilUsuario = [sesion getUserProfile];
     
-    perfilUsuario.status = true;
-    
-    
-    NSLog(@"Fakeamos alguna data: %@",[sesion description]);
+    NSLog(@"^^^^^^^^^^Descripción perfil: %@         ^^^^^^^^^^^",[sesion profileDescription]);
 
     [Tools showLocalInfoNotificationWithTitle:@"Info del perfil" andMessage:[sesion profileDescription]];
     //[Tools showLocalSuccessNotificationWithTitle:@"Erxito" andMessage:[sesion sessionDescription]];

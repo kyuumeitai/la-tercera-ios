@@ -275,13 +275,23 @@ if ([[UIApplication sharedApplication] canOpenURL:
     return [UIImage imageWithData:data];
 }
 
-/*
- ViewAlertError,
- ViewAlertSuccess,
- ViewAlertInfo,
- ViewAlertPanic,
- ViewAlertUnknown
- */
++ (void)shareText:(NSString *)text andImage:(UIImage *)image andUrl:(NSURL *)url forSelf:(id)yoMismo
+{
+    NSMutableArray *sharingItems = [NSMutableArray new];
+    
+    if (text) {
+        [sharingItems addObject:text];
+    }
+    if (image) {
+        [sharingItems addObject:image];
+    }
+    if (url) {
+        [sharingItems addObject:url];
+    }
+    
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    [yoMismo presentViewController:activityController animated:YES completion:nil];
+}
 
 + (void)showLocalErrorNotificationWithTitle:(NSString*)title andMessage:(NSString*)message{
     
