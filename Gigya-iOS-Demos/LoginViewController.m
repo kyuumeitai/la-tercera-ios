@@ -261,18 +261,24 @@ GigyaFormAction formType;
                  */
                 ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
                 NSString *respuesta = [connectionManager sendLoginDataWithEmail:email andGigyaId:gigyaID];
-                NSLog(@"***::::-----    %@     -----::::***",respuesta);
-                /*
+                NSLog(@"***::::-----    %@     -----::::***\r\r\r",respuesta);
+                
+                //leemos el objeto retornado
+                NSLog(@"***************::::-----  Procedemos al leer el perfil:        -----::::**************");
+
                 NSData *data = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
                 id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 
-                NSString * test = [json objectForKey:@"ID"];
-                NSLog(@"TEST IS %@", test);
-                */
+                for (NSString* key in json) {
+                    id value = [json objectForKey:key];
+                   NSLog(@"Clave %@: %@", key,value);
+                }
+                NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
+            
             }
             
             if([operation isEqualToString:@"/accounts.s"]){
-                NSLog(@"---------*** Es un login con red socil***---------");
+                NSLog(@"---------*** Es un login con red social***---------");
                 formType = LOGIN;
                 email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
                 
@@ -292,14 +298,19 @@ GigyaFormAction formType;
                  */
                 ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
                 NSString *respuesta = [connectionManager sendLoginDataWithEmail:email andGigyaId:gigyaID];
-                NSLog(@"***::::-----    %@     -----::::***",respuesta);
-                /*
-                 NSData *data = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
-                 id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                 
-                 NSString * test = [json objectForKey:@"ID"];
-                 NSLog(@"TEST IS %@", test);
-                 */
+                NSLog(@"***::::-----    %@     -----::::***\r\r\r",respuesta);
+                
+                //leemos el objeto retornado
+                NSLog(@"***************::::-----  Procedemos al leer el perfil:        -----::::**************");
+                
+                NSData *data = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
+                id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                
+                for (NSString* key in json) {
+                    id value = [json objectForKey:key];
+                    NSLog(@"Clave %@: %@", key,value);
+                }
+                NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
             }
 
             
@@ -332,7 +343,19 @@ GigyaFormAction formType;
                 
                 NSString *respuesta = [connectionManager sendRegisterDataWithEmail:email firstName:firstName lastName:lastName gender:gender birthdate:birthdate uid:deviceId os:os gigyaId:gigyaID];
                 
-                NSLog(@"***::::-----  La respuesta es:   %@     -----::::***",respuesta);
+                NSLog(@"***::::-----  La respuesta es:   %@     -----::::***\r\r\r",respuesta);
+                    
+                    //leemos el objeto retornado
+                    NSLog(@"***************::::-----  Procedemos al leer el perfil:        -----::::**************");
+                    
+                    NSData *data = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
+                    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                    
+                    for (NSString* key in json) {
+                        id value = [json objectForKey:key];
+                        NSLog(@"Clave %@: %@", key,value);
+                    }
+                    NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
                 }else{
                     NSLog(@"***::::-----  EMAIL YA REGISTRADO:      -----::::***");
 
@@ -350,7 +373,7 @@ GigyaFormAction formType;
                     break;
             }
         }
-             NSLog(@"*** La respuesta es: negativa");
+             NSLog(@"*** La transacción esta finalizada");
     }
 }
 
