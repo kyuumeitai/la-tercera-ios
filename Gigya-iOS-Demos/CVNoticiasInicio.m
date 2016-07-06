@@ -19,6 +19,7 @@
 #import "Article.h"
 #import "UIImageView+AFNetworking.h"
 #import "DetalleNewsViewController.h"
+#import "SessionManager.h"
 //#import "SDWebImage/UIImageView+WebCache.h"
 
 #define categoryIdName @"lt"
@@ -38,6 +39,7 @@ int numeroPaginas;
 NSString *day;
 NSString *month;
 NSString *year;
+NSString *storyBoardName;
 
 BOOL nibMyCellloaded;
 BOOL nibMyCell2loaded;
@@ -46,6 +48,9 @@ BOOL nibMyCell2loaded;
     
     UINib *cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande" bundle: nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifierGrande];
+    
+    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"])
+        cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande4-5" bundle: nil];
     
     UINib *cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana" bundle: nil];
     
@@ -256,8 +261,14 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if([indexPath row]==0 || [indexPath row] % 6 == 0){
-        return CGSizeMake(370, 420);
+        
+        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+            
+            return CGSizeMake(286, 468);
 
+        }else{
+            return CGSizeMake(370, 420);
+        }
     }
     
     if([indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 ) {

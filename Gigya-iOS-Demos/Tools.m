@@ -321,7 +321,7 @@ if ([[UIApplication sharedApplication] canOpenURL:
     
     //localNotif.titleFont = [UIFont fontWithName:@"TrebuchetMS" size:15];
     //localNotif.subTitleFont = [UIFont fontWithName:@"TrebuchetMS-Italic" size:12];
-    //localNotif.messageColor = [UIColor blackColor];
+    localNotif.messageColor = [UIColor colorWithRed:0.65 green:0.09 blue:0.09 alpha:1.0];
     
     [localNotif show];
 }
