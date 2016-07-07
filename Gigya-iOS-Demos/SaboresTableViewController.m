@@ -25,6 +25,8 @@
 @synthesize benefitsItemsArray5;
 NSMutableArray *listaCategorias;
 NSMutableArray *listaBeneficios;
+int currentPageNumber ;
+BOOL isPageRefreshing =  false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,7 +34,11 @@ NSMutableArray *listaBeneficios;
     listaCategorias = [[NSMutableArray alloc] init];
     listaCategorias = sesion.categoryList;
     //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
+    //[self loadBenefitsForCategoryId:39];
+    currentPageNumber = 1;
+    
     [self loadBenefitsForCategoryId:39];
+
        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -163,6 +169,22 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
     NSLog(@"Verificando conexión: %d",estaConectado);
+    
+    //for Paging purposes
+    
+    [connectionManager getPagedBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!success) {
+                [self errorDetectedWithNSError:error];
+            } else {
+                [self reloadBenefitsDataFromService:arrayJson];
+                // NSLog(@"Lista jhson: %@",arrayJson);
+            }
+        });
+    }:idCategory andPage:currentPageNumber];
+    
+    /*
     [connectionManager getBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -174,12 +196,13 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
             }
         });
     }:idCategory];
+     */
 }
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
     NSLog(@"  reload beenfits Sabores");
     benefitsItemsArray5 = [[NSMutableArray alloc] init];
-    
+
     NSDictionary *tempDict = (NSDictionary*)arrayJson;
     id benefits = [tempDict objectForKey:@"benefits"];
     
@@ -240,6 +263,22 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil];
     [alert show];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    if(self.tableView.contentOffset.y >= (self.tableView.contentSize.height - self.tableView.bounds.size.height)) {
+        
+      
+        if(isPageRefreshing == NO){ // no need to worry about threads because this is always on main thread.
+             NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+            isPageRefreshing = YES;
+            //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+            currentPageNumber = currentPageNumber +1;
+            [self loadBenefitsForCategoryId:39];
+        }
+    }
+    
 }
 
 

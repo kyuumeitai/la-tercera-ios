@@ -27,6 +27,7 @@ typedef void (^getDataBlock)(BOOL success, NSArray* arrayJson, NSError *error);
 -(void)getStoresAndBenefitsForCategoryId:(getDataBlock)completionBlock :(int)idCat;
 -(void)getNearStoresAndBenefitsForCategoryId:(getDataBlock)completionBlock :(int)idCat andLatitud:(double)xPoint andLonguitud:(double)yPoint ;
 -(void)getBenefits:(getDataBlock)completionBlock;
+-(void)getPagedBenefitsForCategoryId:(getDataBlock)completionBlock :(int)idCat andPage:(int)pageNumber;
 -(void)getCommerces:(getDataBlock)completionBlock;
 -(void)getStores:(getDataBlock)completionBlock;
 -(NSString*)getVirtualCardWithEmail:(NSString *)email;

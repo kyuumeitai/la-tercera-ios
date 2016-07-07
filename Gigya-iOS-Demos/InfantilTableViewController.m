@@ -162,7 +162,8 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
     NSLog(@"Verificando conexión: %d",estaConectado);
-    [connectionManager getBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
+    
+    [connectionManager getPagedBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
@@ -172,7 +173,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
                 // NSLog(@"Lista jhson: %@",arrayJson);
             }
         });
-    }:idCategory];
+    }:idCategory andPage:1];
 }
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
