@@ -18,11 +18,13 @@
 @end
 
 @implementation UsarBeneficioDescuentoAdicional
-NSString * idBeneficio = @"18";
-NSString * codComercio = @"227";
-NSString * sucursal = @"377";
-//NSString * email = @"cristian.villarreal.urrutia@gmail.com";
-NSString * email = @"catabarbara.jpc@gmail.com";
+NSString * idBeneficio = @"187";
+NSString * codComercio = @"194";
+NSString * sucursal = @"273";
+NSString * email = @"pao.robles@gmail.com";
+//NSString * email = @"catabarbara.jpc@gmail.com";
+//NSString * email = @"acornejo@copesa.cl";
+
 
 int monto = 1000;
 
@@ -45,7 +47,7 @@ int monto = 1000;
     ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
     
     //email = perfil.email;
-    /*
+  
     NSString *resultMessage = [connectionManager getVirtualCardWithEmail:email];
     NSLog(@"El mensaje del WS de tarjeta es: %@",resultMessage);
     
@@ -82,11 +84,11 @@ int monto = 1000;
         [alert show];
 
     }
-*/
+
     
     NSLog(@"Vamos a usar el beneficio y llamar al WS");
    // ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
-    NSString *resultMessage = [connectionManager UseBenefitWithIdBenefit:idBeneficio codigoComercio:codComercio sucursal:sucursal email:email monto:monto];
+  resultMessage = [connectionManager UseBenefitWithIdBenefit:idBeneficio codigoComercio:codComercio sucursal:sucursal email:email monto:monto];
     NSLog(@"El mensaje del WS es: %@",resultMessage);
     
     ConfirmationViewController *confirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"confirmationScreen"];

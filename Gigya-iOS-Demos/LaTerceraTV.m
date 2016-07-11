@@ -41,9 +41,8 @@
 -(void)loadWeb{
     
    // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://especiales.latercera.com/pruebas/newsite/index4.html"]];
-
     
-    NSString *urlString = @"http://especiales.latercera.com/pruebas/newsite/index4.html";
+    NSString *urlString = @"http://rudo.video/vod/b4vgIzYqFx";
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     _webViewLTtv.delegate = self;

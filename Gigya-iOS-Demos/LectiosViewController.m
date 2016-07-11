@@ -44,7 +44,7 @@ static NSString * const LectiosBaseURLString = @"http://api.lectios.com/?a=url&i
     });
      
      */
-        NSString *articleURL = @"http://www.latercera.com/noticia/entretencion/2016/04/661-677834-9-quien-es-quien-en-game-of-thrones.shtml";
+        NSString *articleURL = @"http://especiales.latercera.com/test/lectios.html";
     [self getLectiosResponseForArticleURL:articleURL];
     
 }

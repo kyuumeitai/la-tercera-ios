@@ -21,6 +21,7 @@
             <string>PTSans-Bold</string>
             <string>PTSans-Bold</string>
             <string>PTSans-Bold</string>
+            <string>PTSans-Bold</string>
         </mutableArray>
         <mutableArray key="PT_Sans-Web-Regular.ttf">
             <string>PTSans-Regular</string>
@@ -2303,13 +2304,32 @@ de tu descuento.</string>
                                 <rect key="frame" x="0.0" y="77" width="375" height="590"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <webView contentMode="scaleToFill" scalesPageToFit="YES" id="1hX-iL-jRC">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
+                                    <view contentMode="scaleToFill" id="OwG-vg-er3">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="335"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                    </webView>
+                                        <subviews>
+                                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="1hX-iL-jRC">
+                                                <rect key="frame" x="27" y="121" width="321" height="193"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                            </webView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avión cae desde una gran altura par descender" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b8D-2V-9V5">
+                                                <rect key="frame" x="27" y="23" width="281" height="82"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="21"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view tag="100" contentMode="scaleToFill" id="tYZ-iP-vRX">
+                                <rect key="frame" x="0.0" y="414" width="375" height="590"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jQ8-8a-mHu">

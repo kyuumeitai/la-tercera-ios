@@ -27,20 +27,27 @@ NSMutableArray *listaCategorias;
 NSMutableArray *listaBeneficios;
 int currentPageNumber ;
 BOOL isPageRefreshing =  false;
+BOOL firstTime = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
     listaCategorias = [[NSMutableArray alloc] init];
+    benefitsItemsArray5 = [[NSMutableArray alloc] init];
     listaCategorias = sesion.categoryList;
     //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
     //[self loadBenefitsForCategoryId:39];
     currentPageNumber = 1;
+    firstTime = true;
     
     [self loadBenefitsForCategoryId:39];
 
        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    isPageRefreshing = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -201,7 +208,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
     NSLog(@"  reload beenfits Sabores");
-    benefitsItemsArray5 = [[NSMutableArray alloc] init];
+    //benefitsItemsArray5 = [[NSMutableArray alloc] init];
 
     NSDictionary *tempDict = (NSDictionary*)arrayJson;
     id benefits = [tempDict objectForKey:@"benefits"];
@@ -233,6 +240,8 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         [self.benefitsItemsArray5 addObject:beneficio];
 
     }
+    
+    if (firstTime ==true){
     self.view.alpha = 0.0;
     [self.tableView reloadData];
     [UIView animateWithDuration:0.5
@@ -243,6 +252,11 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
      {
          [SVProgressHUD dismiss];
      }];
+        firstTime = false;
+    }else{
+         [self.tableView reloadData];
+         [SVProgressHUD dismiss];
+    }
     
     NSLog(@" ******* RELOAD DATA TABLE Sabores ****** ----------------------");
 }
@@ -266,9 +280,15 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
     
-    if(self.tableView.contentOffset.y >= (self.tableView.contentSize.height - self.tableView.bounds.size.height)) {
-        
+    CGFloat maxPosition = scrollView.contentInset.top + scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.bounds.size.height;
+    CGFloat currentPosition = scrollView.contentOffset.y + self.topLayoutGuide.length;
+    //NSLog(@" Current Position: %f",currentPosition);
+   // NSLog(@"Max Position: %f",maxPosition);
+
+   if (currentPosition == maxPosition) {
+         NSLog(@"Estoy accaaaaa adentro, pagerefreshing: %d",isPageRefreshing);
       
         if(isPageRefreshing == NO){ // no need to worry about threads because this is always on main thread.
              NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
