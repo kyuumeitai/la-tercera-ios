@@ -499,6 +499,10 @@
 		D04546CE1CEB7183004A011D /* LaTerceraStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D04546CC1CEB7183004A011D /* LaTerceraStoryboard.storyboard */; };
 		D04546D11CEB9A6D004A011D /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D04546D01CEB9A6D004A011D /* InitialViewController.m */; };
 		D04546D21CEB9A6D004A011D /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D04546D01CEB9A6D004A011D /* InitialViewController.m */; };
+		D04B93731D35711800EBEA1D /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = D04B93701D35711800EBEA1D /* UIScrollView+SVInfiniteScrolling.m */; };
+		D04B93741D35711800EBEA1D /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = D04B93701D35711800EBEA1D /* UIScrollView+SVInfiniteScrolling.m */; };
+		D04B93751D35711800EBEA1D /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = D04B93721D35711800EBEA1D /* UIScrollView+SVPullToRefresh.m */; };
+		D04B93761D35711800EBEA1D /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = D04B93721D35711800EBEA1D /* UIScrollView+SVPullToRefresh.m */; };
 		D0522D4D1D09C05D00D6E4C6 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0522D451D09C05C00D6E4C6 /* AdSupport.framework */; };
 		D0522D4E1D09C05D00D6E4C6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0522D461D09C05C00D6E4C6 /* AudioToolbox.framework */; };
 		D0522D4F1D09C05D00D6E4C6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0522D471D09C05C00D6E4C6 /* AVFoundation.framework */; };
@@ -940,6 +944,11 @@
 		D04546CF1CEB9A6D004A011D /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
 		D04546D01CEB9A6D004A011D /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		D048C9D01C85CD4400621D97 /* summer-sunny-lifestyle-fashion-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "summer-sunny-lifestyle-fashion-1.png"; sourceTree = "<group>"; };
+		D04B936E1D35711800EBEA1D /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		D04B936F1D35711800EBEA1D /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		D04B93701D35711800EBEA1D /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		D04B93711D35711800EBEA1D /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		D04B93721D35711800EBEA1D /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		D0522D451D09C05C00D6E4C6 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		D0522D461D09C05C00D6E4C6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D0522D471D09C05C00D6E4C6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -1926,6 +1935,18 @@
 			name = Tutorial;
 			sourceTree = "<group>";
 		};
+		D04B936D1D35710D00EBEA1D /* PullToUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				D04B936E1D35711800EBEA1D /* SVPullToRefresh.h */,
+				D04B936F1D35711800EBEA1D /* UIScrollView+SVInfiniteScrolling.h */,
+				D04B93701D35711800EBEA1D /* UIScrollView+SVInfiniteScrolling.m */,
+				D04B93711D35711800EBEA1D /* UIScrollView+SVPullToRefresh.h */,
+				D04B93721D35711800EBEA1D /* UIScrollView+SVPullToRefresh.m */,
+			);
+			name = PullToUpdate;
+			sourceTree = "<group>";
+		};
 		D06DC3941C84A2430063B836 /* SWRevealMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -2033,6 +2054,7 @@
 		D0E84DCF1C9B089300FDE6D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D04B936D1D35710D00EBEA1D /* PullToUpdate */,
 				D0FB93401CAACB4700928159 /* Tools */,
 				1777237E1C72EF600075DFBE /* Libraries */,
 				D0D56D3C1CE4D4F40064DE64 /* YActionSheet */,
@@ -2861,6 +2883,7 @@
 				1702BD1C1CB093E400F26F42 /* SaboresTableViewController.m in Sources */,
 				1702BD1D1CB093E400F26F42 /* NewsCategoryInicioViewController.m in Sources */,
 				D008B4961D198DD6002DBBA7 /* Tickets.m in Sources */,
+				D04B93761D35711800EBEA1D /* UIScrollView+SVPullToRefresh.m in Sources */,
 				1702BD1E1CB093E400F26F42 /* AFURLSessionManager.m in Sources */,
 				1702BD1F1CB093E400F26F42 /* AFHTTPSessionManager.m in Sources */,
 				1702BD201CB093E400F26F42 /* UsarBeneficioDescuentoAdicional.m in Sources */,
@@ -2886,6 +2909,7 @@
 				1702BD2A1CB093E400F26F42 /* UIImageView+AFNetworking.m in Sources */,
 				D0E8B2891D26CB000056CBDA /* EHPlainAlert.m in Sources */,
 				1702BD2B1CB093E400F26F42 /* YSLContainerViewController.m in Sources */,
+				D04B93741D35711800EBEA1D /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				1702BD2C1CB093E400F26F42 /* CategoriasViewController.m in Sources */,
 				D08697591D10AEFA00919A81 /* DetalleNewsViewController.m in Sources */,
 				D03026591CBBE54600B4149A /* CVLaTercera.m in Sources */,
@@ -2974,6 +2998,7 @@
 				1702BE0A1CB18BB500F26F42 /* ServiciosTableViewController.m in Sources */,
 				D0B65CEB1D1B049E00B8968F /* TarjetaVirtual.m in Sources */,
 				D0DD6E431CBFFA2F00994DDF /* CVEdicionEspecial.m in Sources */,
+				D04B93751D35711800EBEA1D /* UIScrollView+SVPullToRefresh.m in Sources */,
 				D0FFBAC31D05E620001F501D /* CollectionViewCellMediana.m in Sources */,
 				D0DD6E531CC005A200994DDF /* CVNegocios.m in Sources */,
 				1702BE051CB18B9200F26F42 /* VidaSanaTableViewController.m in Sources */,
@@ -2986,6 +3011,7 @@
 				D0FBFA2F1CBD32CD00D5465E /* CustomButtonTercera.m in Sources */,
 				D014C8931D243E7900E3D3B5 /* VentasEspecialesViewController.m in Sources */,
 				D0DD6E3D1CBFD69D00994DDF /* NewsPageViewController.m in Sources */,
+				D04B93731D35711800EBEA1D /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				D0522D581D09C21100D6E4C6 /* CollectionViewCellHorizontal.m in Sources */,
 				1702BE1E1CB20BF500F26F42 /* Benefit.m in Sources */,
 				D014C8981D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m in Sources */,

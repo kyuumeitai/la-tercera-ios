@@ -52,6 +52,35 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
 }
 
 
+- (NSString*)sendLoginDataWithEmail:(NSString *)email gigyaId:(NSString*)gigyaId firstName:(NSString*)firstName lastName:(NSString*)lastName gender:(NSString*)gender birthdate:(NSString*)birthdate uid:(NSString*)uid andOs:(NSString*)os{
+    
+    
+    NSString * responseString;
+    // Send a synchronous request
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/profiles/login/",BaseURLString]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:20.0];
+    
+    [request setHTTPMethod:@"POST"];
+    NSString *postString = [NSString stringWithFormat:@"email=%@&gigya_id=%@",email,gigyaId];
+    NSLog(@"Postring Login: %@ ",postString);
+    [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:request
+                                          returningResponse:&response
+                                                      error:&error];
+    if (error == nil)
+    {
+        responseString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    }
+    return responseString;
+}
+
+
+
 -(NSString*)sendRegisterDataWithEmail:(NSString *)email firstName:(NSString*)firstName lastName:(NSString*)lastName gender:(NSString*)gender birthdate:(NSString*)birthdate uid:(NSString*)uid os:(NSString*)os gigyaId:(NSString*)gigyaId{
     
     NSString * responseString;
@@ -59,7 +88,7 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/profiles/register/",BaseURLString]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:60.0];
+                                                       timeoutInterval:20.0];
     
     [request setHTTPMethod:@"POST"];
     NSString *postString = [NSString stringWithFormat:@"email=%@&firstName=%@&lastName=%@&gender=%@&birthdate=%@&device_id=%@&os=%@&gigya_id=%@",email,firstName,lastName,gender,birthdate,uid,os,gigyaId];
@@ -85,7 +114,7 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/profiles/login/",BaseURLString]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:60.0];
+                                                       timeoutInterval:20.0];
     
     [request setHTTPMethod:@"POST"];
     NSString *postString = [NSString stringWithFormat:@"email=%@&gigya_id=%@",email,gigyaId];

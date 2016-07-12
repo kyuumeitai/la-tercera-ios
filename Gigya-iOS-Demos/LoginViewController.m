@@ -189,6 +189,9 @@ GigyaFormAction formType;
 
 - (IBAction)caminoRapidoRegistrado:(id)sender {
     NSLog(@"Usamos el camino rapido para un registrado");
+   // NSString *respuesta = [connectionManager sendLoginDataWithEmail:email andGigyaId:gigyaID];
+    //NSLog(@"***::::-----    %@     -----::::***\r\r\r",respuesta);
+
     [self setupFakeProfileData:2 andActiveState:true];
 }
 
@@ -247,19 +250,8 @@ GigyaFormAction formType;
                 email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
                 
                 gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
-                /*
-                firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
-                lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
-                gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
-                NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
-                NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
-                NSString *birthYear = [self getStringValueForResponseString:responseString andLlave:@"birthYear"];
+ 
                 
-                birthdate = [NSString stringWithFormat:@"%@/%@/%@",birthYear,birthMonth,birthDay];
-                
-                NSString *allDataMessage = [NSString stringWithFormat:@"Los datos son: os: %@, deviceID: %@, email: %@, Nombre: %@, Apellidos: %@, Gender: %@, dateBirth: %@",os,deviceId,email,firstName,lastName, gender, birthdate];
-                NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
-                 */
                 ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
                 NSString *respuesta = [connectionManager sendLoginDataWithEmail:email andGigyaId:gigyaID];
                 NSLog(@"***::::-----    %@     -----::::***\r\r\r",respuesta);
@@ -311,19 +303,7 @@ GigyaFormAction formType;
                 email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
                 
                 gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
-                /*
-                 firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
-                 lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
-                 gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
-                 NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
-                 NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
-                 NSString *birthYear = [self getStringValueForResponseString:responseString andLlave:@"birthYear"];
-                 
-                 birthdate = [NSString stringWithFormat:@"%@/%@/%@",birthYear,birthMonth,birthDay];
-                 
-                 NSString *allDataMessage = [NSString stringWithFormat:@"Los datos son: os: %@, deviceID: %@, email: %@, Nombre: %@, Apellidos: %@, Gender: %@, dateBirth: %@",os,deviceId,email,firstName,lastName, gender, birthdate];
-                 NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
-                 */
+
                 ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
                 NSString *respuesta = [connectionManager sendLoginDataWithEmail:email andGigyaId:gigyaID];
                 NSLog(@"***::::-----    %@     -----::::***\r\r\r",respuesta);
@@ -398,7 +378,7 @@ GigyaFormAction formType;
                 
                 NSString *respuesta = [connectionManager sendRegisterDataWithEmail:email firstName:firstName lastName:lastName gender:gender birthdate:birthdate uid:deviceId os:os gigyaId:gigyaID];
                 
-                NSLog(@"***::::-----  La respuesta es:   %@     -----::::***\r\r\r",respuesta);
+                    NSLog(@"***::::-----  La respuesta es:   %@     -----::::***\r\r\r",respuesta);
                     
                     //leemos el objeto retornado
                     NSLog(@"***************::::-----  Procedemos al leer el perfil:        -----::::**************");
@@ -450,11 +430,13 @@ GigyaFormAction formType;
                 case LOGIN:
                           [self performSegueWithIdentifier:@"goToNews" sender:self];
                     break;
-            }
-        }
+               }
+          }
              NSLog(@"*** La transacción esta finalizada");
+       }
     }
-}
+
+
 
 - (NSString*)getStringValueForResponseString:(NSString*)responseString andLlave:(NSString*)llave{
     
@@ -473,10 +455,9 @@ GigyaFormAction formType;
         NSArray *separados= [emailPrev componentsSeparatedByString:@"\""];
         resultado= separados[2];
        NSLog(@"Clave: %@ Valor: %@",llave,resultado);
-    }
+       }
     return resultado;
-   
-}
+   }
 
 - (void)pluginView:(GSPluginView *)pluginView didFailWithError:(NSError *)error {
     NSLog(@"Carga de plugin finalizada con evento:: %@", error);
@@ -505,9 +486,7 @@ GigyaFormAction formType;
     perfilUsuario.status = state;
     perfilUsuario.profileLevel = profileCode;
     
-    
     NSLog(@"Fakeamos alguna data: %@",[sesion profileDescription]);
-    
     
 }
 

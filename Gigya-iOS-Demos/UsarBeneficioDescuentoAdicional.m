@@ -21,7 +21,7 @@
 NSString * idBeneficio = @"187";
 NSString * codComercio = @"194";
 NSString * sucursal = @"273";
-NSString * email = @"pao.robles@gmail.com";
+NSString * email = @"mescañilla@vtr.net";
 //NSString * email = @"catabarbara.jpc@gmail.com";
 //NSString * email = @"acornejo@copesa.cl";
 
@@ -82,11 +82,10 @@ int monto = 1000;
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-
     }
-
     
     NSLog(@"Vamos a usar el beneficio y llamar al WS");
+     NSLog(@"El codigo comercio es: %@",codComercio);
    // ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
   resultMessage = [connectionManager UseBenefitWithIdBenefit:idBeneficio codigoComercio:codComercio sucursal:sucursal email:email monto:monto];
     NSLog(@"El mensaje del WS es: %@",resultMessage);

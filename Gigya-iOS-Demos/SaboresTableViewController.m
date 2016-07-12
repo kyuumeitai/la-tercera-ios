@@ -16,21 +16,29 @@
 #import "ConnectionManager.h"
 #import "SVProgressHUD.h"
 #import "Tools.h"
+#import "SVPullToRefresh.h"
 
 @interface SaboresTableViewController ()
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation SaboresTableViewController
 @synthesize benefitsItemsArray5;
+@synthesize tableView;
 NSMutableArray *listaCategorias;
 NSMutableArray *listaBeneficios;
+
 int currentPageNumber ;
 BOOL isPageRefreshing =  false;
 BOOL firstTime = false;
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    __weak SaboresTableViewController *weakSelf = self;
+
     SessionManager *sesion = [SessionManager session];
     listaCategorias = [[NSMutableArray alloc] init];
     benefitsItemsArray5 = [[NSMutableArray alloc] init];
@@ -41,6 +49,11 @@ BOOL firstTime = false;
     firstTime = true;
     
     [self loadBenefitsForCategoryId:39];
+    
+    // setup infinite scrolling
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [weakSelf loadMoreRows];
+    }];
 
        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -97,7 +110,9 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
             
             cell.imageDestacada.image = imagenBeneficio;
         }
+        
         return cell;
+        
     }else{
         
         CategoriasTableViewCell *cell = (CategoriasTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -164,13 +179,14 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
    // NSLog(@"ID beneficio es: %d",detalleBeneficio.benefitId);
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
-    
 }
 
 -(void)loadBenefitsForCategoryId:(int)idCategory{
     
     NSLog(@"Load category benefits Sabores");
+     __weak SaboresTableViewController *weakSelf = self;
     // IMPORTANT - Only update the UI on the main thread
+    if (isPageRefreshing == false)
     [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
@@ -183,36 +199,43 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
+                if (isPageRefreshing == false){
+                    
                 [self errorDetectedWithNSError:error];
+                }else{
+                    [weakSelf.tableView endUpdates];
+                    [weakSelf.tableView.infiniteScrollingView stopAnimating];
+                }
             } else {
+                
+                 NSDictionary *tempDict = (NSDictionary*)arrayJson;
+                id noData = [tempDict objectForKey:@"details"];
+                
+                if(noData){
+                    
+                    isPageRefreshing = YES;
+                    
+                }else{
+                    
                 [self reloadBenefitsDataFromService:arrayJson];
                 // NSLog(@"Lista jhson: %@",arrayJson);
+              }
             }
         });
     }:idCategory andPage:currentPageNumber];
     
-    /*
-    [connectionManager getBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (!success) {
-                [self errorDetectedWithNSError:error];
-            } else {
-                [self reloadBenefitsDataFromService:arrayJson];
-                // NSLog(@"Lista jhson: %@",arrayJson);
-            }
-        });
-    }:idCategory];
-     */
 }
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
+    
+    
+    __weak SaboresTableViewController *weakSelf = self;
     NSLog(@"  reload beenfits Sabores");
     //benefitsItemsArray5 = [[NSMutableArray alloc] init];
-
-    NSDictionary *tempDict = (NSDictionary*)arrayJson;
-    id benefits = [tempDict objectForKey:@"benefits"];
     
+    NSDictionary *tempDict = (NSDictionary*)arrayJson;
+    
+    id benefits = [tempDict objectForKey:@"benefits"];
     
     for (id benefit in benefits){
         
@@ -256,6 +279,9 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     }else{
          [self.tableView reloadData];
          [SVProgressHUD dismiss];
+        isPageRefreshing = NO;
+        [weakSelf.tableView endUpdates];
+        [weakSelf.tableView.infiniteScrollingView stopAnimating];
     }
     
     NSLog(@" ******* RELOAD DATA TABLE Sabores ****** ----------------------");
@@ -279,6 +305,22 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     [alert show];
 }
 
+- (void)loadMoreRows {
+
+    NSLog(@"***********   Load More Rows   ************");
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+
+            NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+            isPageRefreshing = YES;
+            //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+            currentPageNumber = currentPageNumber +1;
+            [self loadBenefitsForCategoryId:39];
+
+}
+
+
+
+/*
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
     
@@ -300,6 +342,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     }
     
 }
+*/
 
 
 @end
