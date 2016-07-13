@@ -91,7 +91,7 @@
 
 -(NSString*)profileDescription{
     
-    NSString *mensaje = [NSString stringWithFormat:@"Email %@ ProfileLevel: %d, es Suscriptor?: %d , ProfileType: %@  User status: %d   ", userProfile.email, userProfile.profileLevel , userProfile.suscriber, userProfile.profileType, userProfile.status];
+    NSString *mensaje = [NSString stringWithFormat:@"Email %@ , Nombres: %@ %@, ProfileLevel: %d, es Suscriptor?: %d , ProfileType: %@  User status: %d   ", userProfile.email,userProfile.name, userProfile.lastName, userProfile.profileLevel , userProfile.suscriber, userProfile.profileType, userProfile.status];
     
     return mensaje;
     
