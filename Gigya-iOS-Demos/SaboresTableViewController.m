@@ -320,29 +320,4 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
 
 
 
-/*
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
-    
-    CGFloat maxPosition = scrollView.contentInset.top + scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.bounds.size.height;
-    CGFloat currentPosition = scrollView.contentOffset.y + self.topLayoutGuide.length;
-    //NSLog(@" Current Position: %f",currentPosition);
-   // NSLog(@"Max Position: %f",maxPosition);
-
-   if (currentPosition == maxPosition) {
-         NSLog(@"Estoy accaaaaa adentro, pagerefreshing: %d",isPageRefreshing);
-      
-        if(isPageRefreshing == NO){ // no need to worry about threads because this is always on main thread.
-             NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
-            isPageRefreshing = YES;
-            //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
-            currentPageNumber = currentPageNumber +1;
-            [self loadBenefitsForCategoryId:39];
-        }
-    }
-    
-}
-*/
-
-
 @end

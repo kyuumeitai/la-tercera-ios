@@ -16,26 +16,47 @@
 #import "ConnectionManager.h"
 #import "SVProgressHUD.h"
 #import "Tools.h"
+#import "SVPullToRefresh.h"
 
 @interface InfantilTableViewController ()
-
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation InfantilTableViewController
+@synthesize tableView;
 NSMutableArray *listaCategorias2;
 NSMutableArray *listaBeneficios2;
 @synthesize benefitsItemsArray4;
+BOOL firstTime1 = false;
+
+int currentPageNumber ;
+BOOL isPageRefreshing1 =  false;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    __weak InfantilTableViewController *weakSelf = self;
+    
     SessionManager *sesion = [SessionManager session];
     listaCategorias2 = [[NSMutableArray alloc] init];
+    benefitsItemsArray4 = [[NSMutableArray alloc] init];
     listaCategorias2 = sesion.categoryList;
-    //NSLog(@"La lista de categorias es: %@",listaCategorias2.description);
+    //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
+    //[self loadBenefitsForCategoryId:39];
+    currentPageNumber = 1;
+    firstTime1 = true;
     
     [self loadBenefitsForCategoryId:43];
     
-}
+    // setup infinite scrolling
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [weakSelf loadMoreRows];
+    }];
 
+    
+}
+- (void)viewWillAppear:(BOOL)animated{
+    isPageRefreshing1 = NO;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -73,7 +94,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
                 cell.labelDescuento.alpha = 0;
             
             //Get Image
-
+            
             NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
             UIImage *imagenBeneficio = nil;
             
@@ -83,10 +104,10 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
                 imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
             
             cell.imageDestacada.image = imagenBeneficio;
-
-
         }
+        
         return cell;
+        
     }else{
         
         CategoriasTableViewCell *cell = (CategoriasTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -116,6 +137,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
         
         return cell;
     }
+
     
 }
 
@@ -155,39 +177,66 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
 
 -(void)loadBenefitsForCategoryId:(int)idCategory{
     
-    NSLog(@"Load category benefits");
+    NSLog(@"Load category benefits Infantil");
+    __weak InfantilTableViewController *weakSelf = self;
     // IMPORTANT - Only update the UI on the main thread
-    [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
+    if (isPageRefreshing1 == false)
+        [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
     NSLog(@"Verificando conexión: %d",estaConectado);
     
+    //for Paging purposes
+    
     [connectionManager getPagedBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
-                [self errorDetectedWithNSError:error];
+                if (isPageRefreshing1 == false){
+                    
+                    [self errorDetectedWithNSError:error];
+                }else{
+                    [weakSelf.tableView endUpdates];
+                    [weakSelf.tableView.infiniteScrollingView stopAnimating];
+                }
             } else {
-                [self reloadBenefitsDataFromService:arrayJson];
-                // NSLog(@"Lista jhson: %@",arrayJson);
+                
+                NSDictionary *tempDict = (NSDictionary*)arrayJson;
+                id noData = [tempDict objectForKey:@"details"];
+                
+                if(noData){
+                    
+                    isPageRefreshing1 = YES;
+                    
+                }else{
+                    
+                    [self reloadBenefitsDataFromService:arrayJson];
+                    // NSLog(@"Lista jhson: %@",arrayJson);
+                }
             }
         });
-    }:idCategory andPage:1];
+    }:idCategory andPage:currentPageNumber];
+    
 }
 
+
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
-    NSLog(@"  reload benefits Infantil ");
-    self.benefitsItemsArray4 = [[NSMutableArray alloc] init];
+    
+    
+    __weak InfantilTableViewController *weakSelf = self;
+    NSLog(@"  reload beenfits Sabores");
+    //benefitsItemsArray5 = [[NSMutableArray alloc] init];
     
     NSDictionary *tempDict = (NSDictionary*)arrayJson;
-    id benefits = [tempDict objectForKey:@"benefits"];
     
+    id benefits = [tempDict objectForKey:@"benefits"];
     
     for (id benefit in benefits){
         
         id titleBen = [benefit objectForKey:@"title"];
         int idBen =[ [benefit objectForKey:@"id"] intValue];;
+        //NSLog(@"idBen :%d",idBen);
         id linkBen = [benefit objectForKey:@"url"] ;
         id summaryBen = [benefit objectForKey:@"summary"] ;
         id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
@@ -207,19 +256,30 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
         }
         
         [self.benefitsItemsArray4 addObject:beneficio];
-
+        
     }
-    self.view.alpha = 0.0;
-    [self.tableView reloadData];
-    [UIView animateWithDuration:0.5
-                     animations:^{ self.view.alpha = 1.0; /* Some fake chages */
-                         
-                     }
-                     completion:^(BOOL finished)
-     {
-         //[SVProgressHUD dismiss];
-     }];
-    NSLog(@" ******* RELOAD DATA TABLE Infantil ****** ----------------------");
+    
+    if (firstTime1 ==true){
+        self.view.alpha = 0.0;
+        [self.tableView reloadData];
+        [UIView animateWithDuration:0.5
+                         animations:^{ self.view.alpha = 1.0; /* Some fake chages */
+                             
+                         }
+                         completion:^(BOOL finished)
+         {
+             [SVProgressHUD dismiss];
+         }];
+        firstTime1 = false;
+    }else{
+        [self.tableView reloadData];
+        [SVProgressHUD dismiss];
+        isPageRefreshing1 = NO;
+        [weakSelf.tableView endUpdates];
+        [weakSelf.tableView.infiniteScrollingView stopAnimating];
+    }
+    
+    NSLog(@" ******* RELOAD DATA TABLE Sabores ****** ----------------------");
 }
 
 //Error handler
@@ -239,6 +299,19 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
                           otherButtonTitles:nil];
     [alert show];
      */
+}
+
+- (void)loadMoreRows {
+    
+    NSLog(@"***********   Load More Rows   ************");
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    isPageRefreshing1 = YES;
+    //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+    currentPageNumber = currentPageNumber +1;
+    [self loadBenefitsForCategoryId:43];
+    
 }
 
 

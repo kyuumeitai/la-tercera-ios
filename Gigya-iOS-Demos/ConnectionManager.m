@@ -63,7 +63,7 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
                                                        timeoutInterval:20.0];
     
     [request setHTTPMethod:@"POST"];
-    NSString *postString = [NSString stringWithFormat:@"email=%@&gigya_id=%@",email,gigyaId];
+    NSString *postString = [NSString stringWithFormat:@"email=%@&firstName=%@&lastName=%@&gender=%@&birthdate=%@&device_id=%@&os=%@&gigya_id=%@",email,firstName,lastName,gender,birthdate,uid,os,gigyaId];
     NSLog(@"Postring Login: %@ ",postString);
     [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
     

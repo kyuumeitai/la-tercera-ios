@@ -250,10 +250,30 @@ GigyaFormAction formType;
                 email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
                 
                 gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
- 
+                if([email isEqualToString:@"errorCode"]== false){
+                    verifyState = [self getStringValueForResponseString:responseString andLlave:@"email"];
+                    firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
+                    lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
+                    gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
+                    gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
+                    NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
+                    NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
+                    NSString *birthYear = [self getStringValueForResponseString:responseString andLlave:@"birthYear"];
+                    
+                    if ([birthDay isEqualToString:@""]){
+                        birthdate = @"";
+                    }else{
+                        birthdate = [NSString stringWithFormat:@"%@/%@/%@",birthYear,birthMonth,birthDay];
+                    }
+                }
+                
+                    NSString *allDataMessage = [NSString stringWithFormat:@"Los datos son: os: %@, deviceID: %@, email: %@, Nombre: %@, Apellidos: %@, Gender: %@, dateBirth: %@",os,deviceId,email,firstName,lastName, gender, birthdate];
+                    NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
+                    
+
                 
                 ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
-                NSString *respuesta = [connectionManager sendLoginDataWithEmail:email andGigyaId:gigyaID];
+                NSString *respuesta = [connectionManager sendLoginDataWithEmail:email gigyaId:gigyaID firstName:firstName lastName:lastName gender:gender birthdate:birthdate uid:deviceId andOs:os];
                 NSLog(@"***::::-----    %@     -----::::***\r\r\r",respuesta);
                 
                 //leemos el objeto retornado
