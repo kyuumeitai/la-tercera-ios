@@ -283,6 +283,12 @@ GigyaFormAction formType;
                 id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 
                 NSString *userEmail = [json objectForKey:@"email"];
+                 NSString *userProfileType = [json objectForKey:@"profile_type"];
+                int notifClub = [[json objectForKey:@"notificaciones_club"] intValue];
+                int notifNoticias = [[json objectForKey:@"notificaciones_noticias"] intValue];
+
+                
+                
                 int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
                 //id status = [json objectForKey:@"status"];
           
@@ -298,11 +304,28 @@ GigyaFormAction formType;
                 SessionManager *sesion = [SessionManager session];
                 UserProfile *perfil = [sesion getUserProfile];
                 perfil.email = userEmail;
+                perfil.name = firstName;
+                perfil.lastName = lastName;
                 perfil.profileLevel = userProfileLevel;
+                perfil.profileType = userProfileType;
                 perfil.status = userStatus;
                 perfil.device = userDevice;
+                
+                if (notifClub == 1){
+                    perfil.notificacionesClub = true;
+                }else{
+                      perfil.notificacionesClub = true;
+                }
+                
+                if (notifNoticias == 1){
+                    perfil.notificacionesNoticias = true;
+                }else{
+                    perfil.notificacionesNoticias = true;
+                }
+                
+                
+                
                 perfil.gigyaId = userGigyaId;
-                //[sesion loadUserProfileData:userEmail status:userStatus profileLevel:userProfileLevel device:userDevice];
                 sesion.isLogged = true;
                 
 
@@ -361,6 +384,9 @@ GigyaFormAction formType;
                 
                 NSString *userEmail = [json objectForKey:@"email"];
                 int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
+                NSString *userProfileType = [json objectForKey:@"profile_type"];
+                int notifClub = [[json objectForKey:@"notificaciones_club"] intValue];
+                int notifNoticias = [[json objectForKey:@"notificaciones_noticias"] intValue];
                 BOOL userStatus = false;
                 if([json objectForKey:@"status"] == NULL){
                     userStatus = false;
@@ -374,14 +400,28 @@ GigyaFormAction formType;
                 SessionManager *sesion = [SessionManager session];
                 UserProfile *perfil = [sesion getUserProfile];
                 perfil.email = userEmail;
+                perfil.name = firstName;
+                perfil.lastName = lastName;
                 perfil.profileLevel = userProfileLevel;
+                perfil.profileType = userProfileType;
                 perfil.status = userStatus;
                 perfil.device = userDevice;
-                perfil.gigyaId = userGigyaId;
-                sesion.isLogged = true;
-                sesion.userProfile = perfil;
                 
-                //[sesion loadUserProfileData:userEmail status:userStatus profileLevel:userProfileLevel device:userDevice];
+                if (notifClub == 1){
+                    perfil.notificacionesClub = true;
+                }else{
+                    perfil.notificacionesClub = true;
+                }
+                
+                if (notifNoticias == 1){
+                    perfil.notificacionesNoticias = true;
+                }else{
+                    perfil.notificacionesNoticias = true;
+                }
+                
+                
+                
+                perfil.gigyaId = userGigyaId;
                 sesion.isLogged = true;
                 
                 for (NSString* key in json) {
@@ -446,6 +486,8 @@ GigyaFormAction formType;
                     SessionManager *sesion = [SessionManager session];
                     UserProfile *perfil = [sesion getUserProfile];
                     perfil.email = userEmail;
+                    perfil.name = firstName;
+                    perfil.lastName = lastName;
                     perfil.profileLevel = userProfileLevel;
                     perfil.status = userStatus;
                     perfil.device = userDevice;
