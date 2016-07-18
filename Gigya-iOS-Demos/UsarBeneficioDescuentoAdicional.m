@@ -25,7 +25,6 @@ NSString * email = @"mescañilla@vtr.net";
 //NSString * email = @"catabarbara.jpc@gmail.com";
 //NSString * email = @"acornejo@copesa.cl";
 
-
 int monto = 1000;
 
 - (void)viewDidLoad {
@@ -46,7 +45,7 @@ int monto = 1000;
 
     ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
     
-    //email = perfil.email;
+   email = perfil.email;
   
     NSString *resultMessage = [connectionManager getVirtualCardWithEmail:email];
     NSLog(@"El mensaje del WS de tarjeta es: %@",resultMessage);

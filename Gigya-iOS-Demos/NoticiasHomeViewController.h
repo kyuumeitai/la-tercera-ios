@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
-@interface NoticiasHomeViewController : UIViewController{
+#import <GigyaSDK/Gigya.h>
+@interface NoticiasHomeViewController : UIViewController <GSPluginViewDelegate, GSAccountsDelegate> {
 }
 @end

@@ -37,6 +37,23 @@
     }
 }
 
+- (IBAction)logoutGigyaButtonAction:(id)sender {
+    [Gigya logoutWithCompletionHandler:^(GSResponse *response, NSError *error) {
+        //self.user = nil;
+        if (error) {
+            UIAlertView *alert;
+            alert = [[UIAlertView alloc] initWithTitle:@"Salir de Gigya"
+                                               message:[@"Hubo un problema saliendo de Gigya. Codigo error " stringByAppendingFormat:@"%d",response.errorCode]
+                                              delegate:nil
+                                     cancelButtonTitle:@"OK"
+                                     otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
+    
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

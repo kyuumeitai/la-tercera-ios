@@ -88,9 +88,10 @@ GigyaFormAction formType;
 
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:@"Mobile-login" forKey:@"screenSet"];
-    //[params setObject:@"gigya-complete-registration-screen" forKey:@"startScreen"];
+  //[params setObject:@"gigya-complete-registration-screen" forKey:@"startScreen"];
     
-    // [params setObject:@"gigya-register-screen" forKey:@"startScreen"];
+    [params setObject:@"gigya-register-screen" forKey:@"startScreen"];
+    
     [Gigya showPluginDialogOver:self plugin:@"accounts.screenSet" parameters:params completionHandler:^(BOOL closedByUser, NSError *error) {
         if (!error) {
             // Login was successful

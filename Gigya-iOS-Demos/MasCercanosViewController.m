@@ -56,6 +56,13 @@ int cuenta;
 -(void)viewWillAppear:(BOOL)animated{
    
 }
+
+- (IBAction)refreshMap:(id)sender{
+    
+    [self updateMyMap];
+    
+}
+
 - (IBAction)openFilter:(UIButton *)sender {
     YActionSheet *options = [[YActionSheet alloc] initWithTitle:@"Filtrar por Ciudad:"
                                             dismissButtonTitle:@"Cancelar"

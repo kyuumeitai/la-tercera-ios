@@ -166,7 +166,7 @@
             <objects>
                 <viewController title="ViewControllerRootPage" id="IUM-VR-pR3" customClass="ViewControllerRootPage" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HB5-Yf-XYM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1315,7 +1315,7 @@ REGISTRARSE?</string>
                                 </state>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="Wsm-WF-ByM">
-                                <rect key="frame" x="0.0" y="184" width="375" height="232"/>
+                                <rect key="frame" x="0.0" y="184" width="375" height="225"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="YpZ-qM-Zfn" id="qs1-y0-Gw2"/>
@@ -1353,7 +1353,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6fa-yo-9V4">
-                                <rect key="frame" x="0.0" y="417" width="375" height="250"/>
+                                <rect key="frame" x="0.0" y="407" width="375" height="260"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -1478,7 +1478,7 @@ REGISTRARSE?</string>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6nO-zR-QMo">
-                                <rect key="frame" x="314" y="344" width="55" height="55"/>
+                                <rect key="frame" x="300" y="344" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="updateMap.png"/>
                             </button>
@@ -1950,6 +1950,16 @@ de tu descuento.</string>
                                     <segue destination="LKO-m6-Nmk" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="Yn4-yz-IfR"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="izm-EB-FHl">
+                                <rect key="frame" x="136" y="34" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutGigyaButtonAction:" destination="0B8-6F-OFF" eventType="touchUpInside" id="1dO-Kj-qjU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -2110,7 +2120,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxh-0L-hJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2274.5" y="1773.5"/>
+            <point key="canvasLocation" x="-2264.5" y="1798.5"/>
         </scene>
         <!--Tiempo Libre Table View-->
         <scene sceneID="QQN-Q9-ykW">
@@ -4506,10 +4516,10 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QpD-Og-2iF"/>
-        <segue reference="3eI-5G-D6D"/>
+        <segue reference="Yn4-yz-IfR"/>
         <segue reference="wa8-wA-Ypp"/>
-        <segue reference="tqi-Nf-HuD"/>
+        <segue reference="QpD-Og-2iF"/>
+        <segue reference="uX9-Ov-tlW"/>
         <segue reference="vnn-UP-oet"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
