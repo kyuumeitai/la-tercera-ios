@@ -387,6 +387,8 @@
 		D014C8991D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D014C8971D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m */; };
 		D01CF10F1CB6B9920050C008 /* LaTerceraTV.m in Sources */ = {isa = PBXBuildFile; fileRef = D01CF10E1CB6B9920050C008 /* LaTerceraTV.m */; };
 		D01CF1101CB6BAA10050C008 /* LaTerceraTV.m in Sources */ = {isa = PBXBuildFile; fileRef = D01CF10E1CB6B9920050C008 /* LaTerceraTV.m */; };
+		D024EDE41D3ED9BB002CCC2C /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D024EDE31D3ED9BA002CCC2C /* GoogleMobileAds.framework */; };
+		D024EDE51D3ED9BB002CCC2C /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D024EDE31D3ED9BA002CCC2C /* GoogleMobileAds.framework */; };
 		D03026581CBBE53D00B4149A /* CVLaTercera.m in Sources */ = {isa = PBXBuildFile; fileRef = D03026571CBBE53D00B4149A /* CVLaTercera.m */; };
 		D03026591CBBE54600B4149A /* CVLaTercera.m in Sources */ = {isa = PBXBuildFile; fileRef = D03026571CBBE53D00B4149A /* CVLaTercera.m */; };
 		D03026611CBC0FDF00B4149A /* CollectionViewCellPortada.m in Sources */ = {isa = PBXBuildFile; fileRef = D03026601CBC0FDF00B4149A /* CollectionViewCellPortada.m */; };
@@ -855,6 +857,7 @@
 		D014C8971D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VentasEspecialesTableViewController.m; sourceTree = "<group>"; };
 		D01CF10D1CB6B9920050C008 /* LaTerceraTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaTerceraTV.h; sourceTree = "<group>"; };
 		D01CF10E1CB6B9920050C008 /* LaTerceraTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaTerceraTV.m; sourceTree = "<group>"; };
+		D024EDE31D3ED9BA002CCC2C /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		D029B2FB1C8768300088DCD3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D03026561CBBE53D00B4149A /* CVLaTercera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVLaTercera.h; sourceTree = "<group>"; };
 		D03026571CBBE53D00B4149A /* CVLaTercera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVLaTercera.m; sourceTree = "<group>"; };
@@ -1200,6 +1203,7 @@
 			files = (
 				D0E8B2671D26C1F20056CBDA /* CoreFoundation.framework in Frameworks */,
 				D0522D701D09DBB300D6E4C6 /* CoreBluetooth.framework in Frameworks */,
+				D024EDE51D3ED9BB002CCC2C /* GoogleMobileAds.framework in Frameworks */,
 				D0522D6E1D09DB7800D6E4C6 /* SafariServices.framework in Frameworks */,
 				D0522D6C1D09DA5200D6E4C6 /* GoogleMobileAds.framework in Frameworks */,
 				D0522D4D1D09C05D00D6E4C6 /* AdSupport.framework in Frameworks */,
@@ -1236,6 +1240,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D024EDE41D3ED9BB002CCC2C /* GoogleMobileAds.framework in Frameworks */,
 				D0522D6B1D09DA5200D6E4C6 /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1628,6 +1633,7 @@
 		52BCE2071A48CE9500924AD8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D024EDE31D3ED9BA002CCC2C /* GoogleMobileAds.framework */,
 				D0522D451D09C05C00D6E4C6 /* AdSupport.framework */,
 				D0522D461D09C05C00D6E4C6 /* AudioToolbox.framework */,
 				D0522D471D09C05C00D6E4C6 /* AVFoundation.framework */,

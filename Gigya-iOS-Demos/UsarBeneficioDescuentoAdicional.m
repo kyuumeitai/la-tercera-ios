@@ -21,7 +21,7 @@
 NSString * idBeneficio = @"187";
 NSString * codComercio = @"194";
 NSString * sucursal = @"273";
-NSString * email = @"mescañilla@vtr.net";
+NSString * email = @"olgaeliagarrido@yahoo.com";
 //NSString * email = @"catabarbara.jpc@gmail.com";
 //NSString * email = @"acornejo@copesa.cl";
 

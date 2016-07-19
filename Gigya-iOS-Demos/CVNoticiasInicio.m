@@ -294,8 +294,8 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
         
         CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
         // Configure the cell
-        cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-A";
-        //cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio";
+        //cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-A";
+        cell.bannerUnitID =  @"ca-app-pub-3940256099942544/2934735716";
         [cell initBanner];
         return cell;
         
