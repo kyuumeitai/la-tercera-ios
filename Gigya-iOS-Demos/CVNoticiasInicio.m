@@ -23,7 +23,7 @@
 //#import "SDWebImage/UIImageView+WebCache.h"
 
 #define categoryIdName @"lt"
-#define categoryId 20
+#define categoryId 11
 #define categoryName @"Home"
 
 @implementation CVNoticiasInicio
@@ -103,10 +103,11 @@ BOOL nibMyCell2loaded;
     
   
     headlinesArray = [[NSMutableArray alloc] init];
-    
+    int indice = 0;
+
        for (id titularTemp in arrayTitulares){
-            
-           //NSLog(@"El titular: %@ ", titularTemp);
+           indice ++;
+           //NSLog(@"El Indice es: %d ", indice);
            NSDictionary *dictTitular = (NSDictionary*) titularTemp;
            id idArt =  [dictTitular objectForKey:@"id"];
            id title = [dictTitular objectForKey:@"title"];
@@ -119,11 +120,12 @@ BOOL nibMyCell2loaded;
            titular.summary = summary;
            titular.imagenThumbString = imageThumb;
            
+           if (indice % 6 == 0)
+               [headlinesArray addObject:@"OBJETO"];
            //[titular logDescription];
            [headlinesArray addObject:titular];
         }
-        
-           // [SVProgressHUD dismiss];
+
     
     [self.collectionView reloadData];
     [UIView transitionWithView:self.collectionView duration:1.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{ [self.collectionView setAlpha:1.0]; } completion:nil];
@@ -140,9 +142,7 @@ BOOL nibMyCell2loaded;
    }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
     return [headlinesArray count];
-  
 }
 
 
@@ -225,6 +225,7 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     
     if (indexPath.item == 5 || ((indexPath.item % 6)-5) )
     {
+        
         
         CollectionViewCellBanner *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
         // Configure the cell
