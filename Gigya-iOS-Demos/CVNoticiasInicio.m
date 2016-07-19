@@ -21,6 +21,7 @@
 #import "DetalleNewsViewController.h"
 #import "SessionManager.h"
 //#import "SDWebImage/UIImageView+WebCache.h"
+#import "SVPullToRefresh.h"
 
 #define categoryIdName @"lt"
 #define categoryId 11
@@ -29,11 +30,17 @@
 @implementation CVNoticiasInicio
 
 @synthesize headlinesArray;
+@synthesize collectionView;
 
 static NSString * const reuseIdentifierGrande = @"collectionViewGrande";
 static NSString * const reuseIdentifierMediana = @"collectionViewMediana";
 static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
 static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
+
+//New Pagination code
+int currentPageNumber ;
+BOOL isPageRefreshing =  false;
+BOOL firstTime = false;
 
 int numeroPaginas;
 NSString *day;
@@ -45,6 +52,11 @@ BOOL nibMyCellloaded;
 BOOL nibMyCell2loaded;
 
 - (void) viewDidLoad{
+     [super viewDidLoad];
+    
+    __weak CVNoticiasInicio *weakSelf = self;
+    headlinesArray = [[NSMutableArray alloc] init];
+
     
     UINib *cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande" bundle: nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifierGrande];
@@ -63,19 +75,32 @@ BOOL nibMyCell2loaded;
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
     
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
-
-    [super viewDidLoad];
-    [self.collectionView setAlpha:0.0];
+    
+    currentPageNumber = 1;
+    firstTime = true;
+   
+    //[self.collectionView setAlpha:0.0];
     dispatch_async(dispatch_get_main_queue(), ^{
         // code here
        [self loadHeadlinesWithCategory:categoryId];
     });
+    
+    // setup infinite scrolling
+    [self.collectionView addInfiniteScrollingWithActionHandler:^{
+        [weakSelf loadMoreRows];
+    }];
 
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    isPageRefreshing = NO;
+}
+
 -(void)loadHeadlinesWithCategory:(int)idCategory{
+     NSLog(@"Load Headlines");
     
-    NSLog(@"Load Headlines");
+    __weak CVNoticiasInicio *weakSelf = self;
+   
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
@@ -84,17 +109,39 @@ BOOL nibMyCell2loaded;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
+                if (isPageRefreshing == false){
+                    
+                    //[self errorDetectedWithNSError:error];
+                }else{
+                    //[self.collectionView reloadData];
+                    //[self.collectionView layoutIfNeeded];
+                    [weakSelf.collectionView.infiniteScrollingView stopAnimating];
+                    }
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
-            } else {
+            }
+            else {
+                
+                NSDictionary *tempDict = (NSDictionary*)arrayJson;
+                id noData = [tempDict objectForKey:@"details"];
+                
+                if(noData){
+                    
+                    isPageRefreshing = YES;
+                    
+                }else{
+
                 [self reloadHeadlinesDataFromArrayJson:arrayJson];
-               // NSLog(@"Lista headlines jhson: %@",arrayJson);
+             //NSLog(@"Lista headlines jhson: %@",arrayJson);
+            }
             }
         });
-    }:idCategory];
+    }:idCategory andPage:currentPageNumber];
 
 }
 
 -(void) reloadHeadlinesDataFromArrayJson:(NSArray*)arrayJson{
+     __weak CVNoticiasInicio *weakSelf = self;
+    NSLog(@"  reload headlines");
     NSDictionary *diccionarioTitulares = (NSDictionary*)arrayJson;
     //NSLog(@"  reload headlines array, is: %@ ",diccionarioTitulares);
     
@@ -102,12 +149,11 @@ BOOL nibMyCell2loaded;
     //NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
     
   
-    headlinesArray = [[NSMutableArray alloc] init];
     int indice = 0;
 
        for (id titularTemp in arrayTitulares){
            indice ++;
-           //NSLog(@"El Indice es: %d ", indice);
+           NSLog(@"El Indice es: %d ", indice);
            NSDictionary *dictTitular = (NSDictionary*) titularTemp;
            id idArt =  [dictTitular objectForKey:@"id"];
            id title = [dictTitular objectForKey:@"title"];
@@ -119,19 +165,38 @@ BOOL nibMyCell2loaded;
            titular.title = title;
            titular.summary = summary;
            titular.imagenThumbString = imageThumb;
-           
-           if (indice % 6 == 0)
-               [headlinesArray addObject:@"OBJETO"];
+        
+           //if ((indice == 6) || (indice % 6 == 0))
+             //  [headlinesArray addObject:@"OBJETO"];
            //[titular logDescription];
+        
            [headlinesArray addObject:titular];
         }
 
-    
-    [self.collectionView reloadData];
-    [UIView transitionWithView:self.collectionView duration:1.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{ [self.collectionView setAlpha:1.0]; } completion:nil];
-    
+    //New code
+    if (firstTime ==true){
+        self.view.alpha = 0.0;
+        [self.collectionView reloadData];
+        [UIView animateWithDuration:0.5
+                         animations:^{ self.view.alpha = 1.0; /* Some fake chages */
+                             
+                         }
+                         completion:^(BOOL finished)
+         {
+             //[SVProgressHUD dismiss];
+         }];
+        firstTime= false;
+    }else{
+        [self.collectionView reloadData];
+        //[SVProgressHUD dismiss];
+        isPageRefreshing= NO;
+       // [weakSelf.collectionView endUpdates];
+        //[self.collectionView reloadData];
+        //[self.collectionView layoutIfNeeded];
+        [weakSelf.collectionView.infiniteScrollingView stopAnimating];
+        NSLog(@"LA cantidad es: %lu",(unsigned long)headlinesArray.count);
+    }
     NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
-    
 }
 
 
@@ -153,7 +218,7 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     
     if (indexPath.item == 0 || indexPath.item % 6 == 0) {
         
-             CollectionViewCellGrande *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
+             CollectionViewCellGrande *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
         
     
         // Configure the cell
@@ -183,7 +248,7 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     {
               
         
-        CollectionViewCellMediana *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
+        CollectionViewCellMediana *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
         
         
         // Configure the cell
@@ -214,7 +279,7 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     {
         
         
-        CollectionViewCellHorizontal*cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierHorizontal forIndexPath:indexPath];
+        CollectionViewCellHorizontal*cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierHorizontal forIndexPath:indexPath];
         
         // Configure the cell
         cell.labelSummary.text = titular.title;
@@ -223,19 +288,19 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
         
     }
     
-    if (indexPath.item == 5 || ((indexPath.item % 6)-5) )
+    if (indexPath.item == 5 || ((indexPath.item % 6)-5) == 0 )
     {
         
         
-        CollectionViewCellBanner *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
+        CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
         // Configure the cell
-        //cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-A";
-        cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio";
+        cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-A";
+        //cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio";
         [cell initBanner];
         return cell;
         
     }
-    CollectionViewCellBanner *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
+    CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
 
     return cell;
 }
@@ -243,7 +308,7 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSLog(@"ENtonces el indexpath es: %ld",(long)[indexPath row]);
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
         return ;
         
@@ -258,6 +323,16 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     }
 }
 
+- (void)loadMoreRows {
+    
+    NSLog(@"***********   Load More Rows   ************");
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    isPageRefreshing = YES;
+    //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+    currentPageNumber = currentPageNumber +1;
+    [self loadHeadlinesWithCategory:categoryId];
+    
+}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -278,7 +353,7 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     }
     
       if([indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
-        return CGSizeMake(374, 80);
+        return CGSizeMake(370, 80);
         
     }
     
@@ -287,7 +362,7 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
         
     }
     
-    return CGSizeMake(374, 428);
+    return CGSizeMake(370, 428);
 }
 
 

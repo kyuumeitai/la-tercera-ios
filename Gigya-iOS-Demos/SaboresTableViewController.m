@@ -30,9 +30,10 @@
 NSMutableArray *listaCategorias;
 NSMutableArray *listaBeneficios;
 
+//New Pagination code
 int currentPageNumber ;
-BOOL isPageRefreshing =  false;
-BOOL firstTime = false;
+BOOL isPageRefreshingSabores =  false;
+BOOL firstTimeSabores = false;
 
 
 - (void)viewDidLoad {
@@ -46,7 +47,7 @@ BOOL firstTime = false;
     //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
     //[self loadBenefitsForCategoryId:39];
     currentPageNumber = 1;
-    firstTime = true;
+    firstTimeSabores = true;
     
     [self loadBenefitsForCategoryId:39];
     
@@ -60,7 +61,7 @@ BOOL firstTime = false;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    isPageRefreshing = NO;
+    isPageRefreshingSabores = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -186,7 +187,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     NSLog(@"Load category benefits Sabores");
      __weak SaboresTableViewController *weakSelf = self;
     // IMPORTANT - Only update the UI on the main thread
-    if (isPageRefreshing == false)
+    if (isPageRefreshingSabores == false)
     [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
@@ -199,7 +200,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
-                if (isPageRefreshing == false){
+                if (isPageRefreshingSabores == false){
                     
                 [self errorDetectedWithNSError:error];
                 }else{
@@ -213,7 +214,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
                 
                 if(noData){
                     
-                    isPageRefreshing = YES;
+                    isPageRefreshingSabores = YES;
                     
                 }else{
                     
@@ -264,7 +265,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
 
     }
     
-    if (firstTime ==true){
+    if (firstTimeSabores ==true){
     self.view.alpha = 0.0;
     [self.tableView reloadData];
     [UIView animateWithDuration:0.5
@@ -275,11 +276,11 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
      {
          [SVProgressHUD dismiss];
      }];
-        firstTime = false;
+        firstTimeSabores = false;
     }else{
          [self.tableView reloadData];
          [SVProgressHUD dismiss];
-        isPageRefreshing = NO;
+        isPageRefreshingSabores = NO;
         [weakSelf.tableView endUpdates];
         [weakSelf.tableView.infiniteScrollingView stopAnimating];
     }
@@ -311,7 +312,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
 
             NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
-            isPageRefreshing = YES;
+            isPageRefreshingSabores = YES;
             //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
             currentPageNumber = currentPageNumber +1;
             [self loadBenefitsForCategoryId:39];

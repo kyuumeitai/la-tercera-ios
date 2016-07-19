@@ -10,6 +10,7 @@
 
 @interface CVNoticiasInicio : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, retain) NSMutableArray *headlinesArray;
 
 @end
