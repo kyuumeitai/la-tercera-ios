@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 @import GoogleMobileAds;
 
-@interface CollectionViewCellBanner : UICollectionViewCell <GADBannerViewDelegate>
+@interface CollectionViewCellBanner : UICollectionViewCell <DFPCustomRenderedBannerViewDelegate>
 
 -(void)initBanner;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
+@property (weak, nonatomic) IBOutlet DFPBannerView *bannerView;
 @property (nonatomic, copy) NSString* bannerUnitID;
+@property (weak, nonatomic) IBOutlet UIView *view;
 
 @end

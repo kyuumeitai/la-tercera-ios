@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titulo;
 @property (weak, nonatomic) IBOutlet UILabel *summary;
 @property (weak, nonatomic) IBOutlet UIImageView *imagenNews;
-@property (weak, nonatomic) IBOutlet UILabel *content;
+@property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 
 -(void)loadBenefitForBenefitId:(int)idArticle;
 @end

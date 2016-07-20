@@ -166,8 +166,11 @@ BOOL nibMyCell2loaded;
            titular.summary = summary;
            titular.imagenThumbString = imageThumb;
         
-           //if ((indice == 6) || (indice % 6 == 0))
-             //  [headlinesArray addObject:@"OBJETO"];
+           NSLog(@"____ Numero de pagina: %d", currentPageNumber);
+           if (indice == currentPageNumber*6 ){
+                NSLog(@"____ currentPageNumber*6: %d", currentPageNumber*6);
+               [headlinesArray addObject:@"OBJETO"];
+           }
            //[titular logDescription];
         
            [headlinesArray addObject:titular];
@@ -295,7 +298,7 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
         CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
         // Configure the cell
         //cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-A";
-        cell.bannerUnitID =  @"ca-app-pub-3940256099942544/2934735716";
+        cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/mi-seleccion_300x250-A";
         [cell initBanner];
         return cell;
         

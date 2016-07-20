@@ -173,11 +173,11 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     detalleBeneficio.benefitImage = imagenBeneficio;
     
     detalleBeneficio.benefitTitle= beneficio.title;
-    detalleBeneficio.benefitAddress = @"Nueva Providencia #283, Providencia, Santiago       A 200 metros de su ubicación";
+    detalleBeneficio.benefitAddress = @"";
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
-   // NSLog(@"ID beneficio es: %d",detalleBeneficio.benefitId);
+    [beneficio logDescription];
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
 }

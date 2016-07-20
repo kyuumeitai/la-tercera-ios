@@ -20,7 +20,7 @@
 }
 -(void)logDescription{
     
-    NSLog(@" >>>> Beneficio de id: %@, titulo: %@, url:%@, imagen: %@, summary: %@",_idBen,_title,_url,_imagenNormal,_summary );
+    NSLog(@" >>>> Beneficio de id: %d, titulo: %@, url:%@, imagen: %@, summary: %@",_idBen,_title,_url,_imagenNormal,_summary );
     
 }
 @end

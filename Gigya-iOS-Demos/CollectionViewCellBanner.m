@@ -12,20 +12,25 @@
 - (void)awakeFromNib {
     
     [super awakeFromNib];
-    
-    NSLog(@"Google Mobile Ads SDK version: %@", [DFPRequest sdkVersion]);
+   
+    //NSLog(@"Google Mobile Ads SDK version: %@", [DFPRequest sdkVersion]);
 
     // Initialization code
 }
 
 - (void)initBanner{
-    
-    self.bannerView.adUnitID = self.bannerUnitID;
+   
+   // [self.bannerView loadRequest:[GADRequest request]];
+   self.bannerView.adUnitID = self.bannerUnitID;
     self.bannerView.rootViewController = self;
     self.bannerView.delegate = self;
-    
+    self.bannerView.backgroundColor = [UIColor redColor];
+    self.bannerView.autoloadEnabled = YES;
+    [self.bannerView layoutSubviews];
+ 
     DFPRequest *request=[DFPRequest request];
-    //request.testDevices = @[ @"4ed3d28192b2fcc07d35bfefc87bef48" ];
+
+    //request.testDevices = @[ @"1cfe50f939bddb106fe8f60a030ffe93" ];
     [self.bannerView loadRequest:request];
 }
 

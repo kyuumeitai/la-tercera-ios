@@ -19,12 +19,12 @@
     [super viewDidLoad];
     _titulo.text= @"";
     _summary.text= @"";
-    _content.text= @"";
+    _contentTextView.text= @"";
     _imagenNews.image = nil;
     
     _titulo.alpha = 0;
     _summary.alpha = 0;
-    _content.alpha = 0;
+    _contentTextView.alpha = 0;
     _imagenNews.alpha = 0;
     
     // Do any additional setup after loading the view.
@@ -33,6 +33,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)selectionButtonPressed:(id)sender {
+}
+- (IBAction)decreaseTextSizePressed:(id)sender {
+}
+- (IBAction)increaseTextSizePressed:(id)sender {
 }
 
 #pragma mark -->> Data Functions <<---
@@ -65,12 +71,25 @@
     
     _titulo.text= [articleDict objectForKey:@"title"];
     _summary.text= [articleDict objectForKey:@"short_description"];
-    _content.text= [articleDict objectForKey:@"content"];
+    //_content.text=
+    
+    NSString *htmlString = [articleDict objectForKey:@"content"];
+    NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: 16\">%@</span>",htmlString];
+
+
+    NSAttributedString *attributedString = [[NSAttributedString alloc]
+                                            initWithData: [finalDescription dataUsingEncoding:NSUnicodeStringEncoding]
+                                            options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                                            documentAttributes: nil
+                                            error: nil
+                                            ];
+    _contentTextView.attributedText = attributedString;
+    
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          _titulo.alpha = 1;
                          _summary.alpha = 1;
-                         _content.alpha = 1;
+                         _contentTextView.alpha = 1;
                          _imagenNews.alpha = 1;
                          
                      }
@@ -88,9 +107,6 @@
             _imagenNews.image = image;
         });  
     });
-    
-    
-    
 
     //NSLog(@"A %f kms de distancia",distanceMeters);
 }

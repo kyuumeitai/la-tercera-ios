@@ -13,9 +13,15 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="370" height="265"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DdV-fC-Gql" customClass="GADBannerView">
-                        <rect key="frame" x="35" y="7" width="300" height="250"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.43708053691275167" alpha="1" colorSpace="calibratedRGB"/>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F3G-DS-3Sh">
+                        <rect key="frame" x="35" y="8" width="300" height="249"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DdV-fC-Gql" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.43708053691275167" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -23,6 +29,7 @@
             <size key="customSize" width="316" height="265"/>
             <connections>
                 <outlet property="bannerView" destination="DdV-fC-Gql" id="3Pe-FY-81v"/>
+                <outlet property="view" destination="F3G-DS-3Sh" id="cz8-hX-V9b"/>
             </connections>
             <point key="canvasLocation" x="257" y="307.5"/>
         </collectionViewCell>

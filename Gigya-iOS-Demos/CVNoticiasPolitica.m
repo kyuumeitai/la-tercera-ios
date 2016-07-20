@@ -234,7 +234,7 @@ BOOL nibMyCell2loaded;
         
         CollectionViewCellBanner *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
         // Configure the cell
-        cell.bannerUnitID =  @"ca-app-pub-3940256099942544/2934735716";
+        cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-A";
         [cell initBanner];
         return cell;
         
