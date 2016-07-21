@@ -14,6 +14,8 @@
 @end
 
 @implementation DetalleNewsViewController
+int fontSize = 16;
+NSString *textoContenidoTemporal = @"";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,8 +39,46 @@
 - (IBAction)selectionButtonPressed:(id)sender {
 }
 - (IBAction)decreaseTextSizePressed:(id)sender {
+    
+    NSLog(@"Disminuir Fuente Presionado");
+    NSLog(@"FontSize: %d",fontSize);
+    if (fontSize >16){
+       
+        fontSize--;
+        NSLog(@"Nuevo FontSize: %d",fontSize);
+        NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSize,textoContenidoTemporal];
+        
+        
+        NSAttributedString *attributedString = [[NSAttributedString alloc]
+                                                initWithData: [finalDescription dataUsingEncoding:NSUnicodeStringEncoding]
+                                                options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                                                documentAttributes: nil
+                                                error: nil
+                                                ];
+        _contentTextView.attributedText = attributedString;
+    }
+    
+    
 }
 - (IBAction)increaseTextSizePressed:(id)sender {
+    NSLog(@"Aumentar Fuente Presionado");
+    NSLog(@"FontSize: %d",fontSize);
+
+    if (fontSize <24){
+        
+        fontSize++;
+        NSLog(@"Nuevo FontSize: %d",fontSize);
+        NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSize,textoContenidoTemporal];
+    
+    NSAttributedString *attributedString = [[NSAttributedString alloc]
+                                            initWithData: [finalDescription dataUsingEncoding:NSUnicodeStringEncoding]
+                                            options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                                            documentAttributes: nil
+                                            error: nil
+                                            ];
+    _contentTextView.attributedText = attributedString;
+    }
+
 }
 
 #pragma mark -->> Data Functions <<---
@@ -68,13 +108,14 @@
 -(void) loadArticleDataFromService:(NSArray*)arrayJson{
     
     NSDictionary *articleDict = (NSDictionary*)arrayJson;
+    NSLog(@"***** Print: %@",arrayJson);
     
     _titulo.text= [articleDict objectForKey:@"title"];
     _summary.text= [articleDict objectForKey:@"short_description"];
     //_content.text=
     
-    NSString *htmlString = [articleDict objectForKey:@"content"];
-    NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: 16\">%@</span>",htmlString];
+   textoContenidoTemporal = [articleDict objectForKey:@"content"];
+    NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSize,textoContenidoTemporal];
 
 
     NSAttributedString *attributedString = [[NSAttributedString alloc]
@@ -94,8 +135,18 @@
                          
                      }
                      completion:nil];
+    id urlImagen;
     
-    NSString *urlImagen = [articleDict objectForKey:@"image_url"];
+    if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
+        urlImagen = @"https://placekitten.com/400/400";
+    }else{
+        urlImagen = [articleDict objectForKey:@"image_url"];
+    }
+    
+    urlImagen = [articleDict objectForKey:@"image_url"];
+    
+    
+    
     NSURL *url = [NSURL URLWithString:urlImagen];
     
     _imagenNews.image = [UIImage imageNamed:@"icn_default"];

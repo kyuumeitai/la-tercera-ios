@@ -24,9 +24,6 @@
    self.bannerView.adUnitID = self.bannerUnitID;
     self.bannerView.rootViewController = self;
     self.bannerView.delegate = self;
-    self.bannerView.backgroundColor = [UIColor redColor];
-    self.bannerView.autoloadEnabled = YES;
-    [self.bannerView layoutSubviews];
  
     DFPRequest *request=[DFPRequest request];
 

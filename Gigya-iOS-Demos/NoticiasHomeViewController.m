@@ -69,11 +69,11 @@
     NewsCategoryPoliticaViewController *miSeleccionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
     miSeleccionVC.title = @"Mi Selección";
     
-    NewsCategoryPoliticaViewController *newsPoliticaVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
-    newsPoliticaVC.title = @"Política";
+    //NewsCategoryPoliticaViewController *newsPoliticaVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
+    //newsPoliticaVC.title = @"Política";
     
-    NewsCategoryPoliticaViewController *newsDeporteVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
-    newsDeporteVC.title = @"Deporte";
+    //NewsCategoryPoliticaViewController *newsDeporteVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
+    //newsDeporteVC.title = @"Deporte";
     
     
     
@@ -81,7 +81,7 @@
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,miSeleccionVC,newsPoliticaVC,newsDeporteVC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,miSeleccionVC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];

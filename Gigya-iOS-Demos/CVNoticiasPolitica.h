@@ -11,5 +11,6 @@
 @interface CVNoticiasPolitica : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, retain) NSMutableArray *headlinesArray;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

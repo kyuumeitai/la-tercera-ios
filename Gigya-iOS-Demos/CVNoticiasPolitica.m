@@ -16,24 +16,33 @@
 #import "NewsPageViewController.h"
 #import "Tools.h"
 #import "Headline.h"
+#import "DetalleNewsViewController.h"
 #import "Article.h"
 #import "UIImageView+AFNetworking.h"
 #import "SessionManager.h"
+#import "SVPullToRefresh.h"
 
 //#import "SDWebImage/UIImageView+WebCache.h"
 
 #define categoryIdName @"lt"
-#define categoryId 9
+#define categoryId 8
 #define categoryName @"Politica"
 
 @implementation CVNoticiasPolitica
 
 @synthesize headlinesArray;
+@synthesize collectionView;
 
 static NSString * const reuseIdentifierGrande = @"collectionViewGrande";
 static NSString * const reuseIdentifierMediana = @"collectionViewMediana";
 static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
 static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
+
+//New Pagination code
+int currentPageNumber ;
+BOOL isPageRefreshingPolitica =  false;
+BOOL firstTimePolitica = false;
+NSArray *bannersPolitica= nil;
 
 int numeroPaginas;
 NSString *day;
@@ -41,22 +50,20 @@ NSString *month;
 NSString *year;
 NSString *storyBoardName;
 
-BOOL nibMyCellloaded;
-BOOL nibMyCell2loaded;
 
 - (void) viewDidLoad{
+    [super viewDidLoad];
     
-    SessionManager *sesion = [SessionManager session];
+    __weak CVNoticiasPolitica *weakSelf = self;
+    headlinesArray = [[NSMutableArray alloc] init];
     
-    storyBoardName = sesion.storyBoardName;
+    bannersPolitica = [NSArray arrayWithObjects:@"/124506296/La_Tercera_com/La_Tercera_com_APP/politica_300x250-A", @"/124506296/La_Tercera_com/La_Tercera_com_APP/politica_300x250-B", @"/124506296/La_Tercera_com/La_Tercera_com_APP/politica_300x250-C", @"/124506296/La_Tercera_com/La_Tercera_com_APP/politica_300x250-D", @"/124506296/La_Tercera_com/La_Tercera_com_APP/politica_300x250-E", nil];
     
     UINib *cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande" bundle: nil];
-    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"])
-       cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande4-5" bundle: nil];
-    
-    
-    
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifierGrande];
+    
+    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"])
+        cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande4-5" bundle: nil];
     
     UINib *cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana" bundle: nil];
     
@@ -69,19 +76,32 @@ BOOL nibMyCell2loaded;
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
     
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
-
-    [super viewDidLoad];
-    [self.collectionView setAlpha:0.0];
+    
+    currentPageNumber = 1;
+    firstTimePolitica = true;
+    
+    //[self.collectionView setAlpha:0.0];
     dispatch_async(dispatch_get_main_queue(), ^{
         // code here
-       [self loadHeadlinesWithCategory:categoryId];
+        [self loadHeadlinesWithCategory:categoryId];
     });
+    
+    // setup infinite scrolling
+    [self.collectionView addInfiniteScrollingWithActionHandler:^{
+        [weakSelf loadMoreRows];
+    }];
+    
+}
 
+- (void)viewWillAppear:(BOOL)animated{
+    isPageRefreshingPolitica = NO;
 }
 
 -(void)loadHeadlinesWithCategory:(int)idCategory{
-    
     NSLog(@"Load Headlines");
+    
+    __weak CVNoticiasPolitica *weakSelf = self;
+    
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
@@ -90,52 +110,105 @@ BOOL nibMyCell2loaded;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
+                if (isPageRefreshingPolitica == false){
+                    
+                    //[self errorDetectedWithNSError:error];
+                }else{
+                    //[self.collectionView reloadData];
+                    //[self.collectionView layoutIfNeeded];
+                    [weakSelf.collectionView.infiniteScrollingView stopAnimating];
+                }
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
-            } else {
-                [self reloadHeadlinesDataFromArrayJson:arrayJson];
-               // NSLog(@"Lista headlines jhson: %@",arrayJson);
+            }
+            else {
+                
+                NSDictionary *tempDict = (NSDictionary*)arrayJson;
+                id noData = [tempDict objectForKey:@"details"];
+                
+                if(noData){
+                    
+                    isPageRefreshingPolitica = YES;
+                    
+                }else{
+                    
+                    [self reloadHeadlinesDataFromArrayJson:arrayJson];
+                  //NSLog(@"Lista headlines jhson: %@",arrayJson);
+                }
             }
         });
-    }:idCategory];
-
+    }:idCategory andPage:currentPageNumber];
+    
 }
 
 -(void) reloadHeadlinesDataFromArrayJson:(NSArray*)arrayJson{
+    __weak CVNoticiasPolitica *weakSelf = self;
+    NSLog(@"  reload headlines");
     NSDictionary *diccionarioTitulares = (NSDictionary*)arrayJson;
     //NSLog(@"  reload headlines array, is: %@ ",diccionarioTitulares);
     
     NSArray* arrayTitulares = [diccionarioTitulares objectForKey:@"articles"];
-    NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
+    //NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
     
-  
-    headlinesArray = [[NSMutableArray alloc] init];
     
-       for (id titularTemp in arrayTitulares){
-            
-           NSLog(@"El titular: %@ ", titularTemp);
-           NSDictionary *dictTitular = (NSDictionary*) titularTemp;
-           id idArt =  [dictTitular objectForKey:@"id"];
-           id title = [dictTitular objectForKey:@"title"];
-           id summary = [dictTitular objectForKey:@"short_description"];
-           id imageThumb = [dictTitular objectForKey:@"thumb_url"];
-           
-           Headline *titular = [[Headline alloc] init];
-           titular.idArt = [idArt intValue];
-           titular.title = title;
-           titular.summary = summary;
-           titular.imagenThumbString = imageThumb;
-           
-           //[titular logDescription];
-           [headlinesArray addObject:titular];
+    int indice = 0;
+    
+    for (id titularTemp in arrayTitulares){
+        indice ++;
+        NSLog(@"El Indice es: %d ", indice);
+        NSDictionary *dictTitular = (NSDictionary*) titularTemp;
+        id idArt =  [dictTitular objectForKey:@"id"];
+        id title = [dictTitular objectForKey:@"title"];
+        id summary = [dictTitular objectForKey:@"short_description"];
+        
+        id imageThumb ;
+        
+        if ([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]){
+            imageThumb = @"https://placekitten.com/200/200";
+        }else{
+           imageThumb = [dictTitular objectForKey:@"thumb_url"];
         }
         
-           // [SVProgressHUD dismiss];
+        Headline *titular = [[Headline alloc] init];
+        titular.idArt = [idArt intValue];
+        titular.title = title;
+        titular.summary = summary;
+        titular.imagenThumbString = imageThumb;
+        
+        NSLog(@"____ Numero de pagina: %d", currentPageNumber);
+        if (indice == currentPageNumber*6 ){
+            NSLog(@"____ currentPageNumber*6: %d", currentPageNumber*6);
+            [headlinesArray addObject:@"OBJETO"];
+        }
+        //[titular logDescription];
+        
+        [headlinesArray addObject:titular];
+    }
     
-    [self.collectionView reloadData];
-    [UIView transitionWithView:self.collectionView duration:1.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{ [self.collectionView setAlpha:1.0]; } completion:nil];
-    
+    //New code
+    if (firstTimePolitica ==true){
+        self.view.alpha = 0.0;
+        [self.collectionView reloadData];
+        [UIView animateWithDuration:0.5
+                         animations:^{ self.view.alpha = 1.0; /* Some fake chages */
+                             
+                         }
+                         completion:^(BOOL finished)
+         {
+             //[SVProgressHUD dismiss];
+         }];
+        firstTimePolitica = false;
+    }else{
+        
+        //[SVProgressHUD dismiss];
+        isPageRefreshingPolitica = NO;
+        // [weakSelf.collectionView endUpdates];
+        
+        [self.collectionView reloadData];
+        [self.collectionView layoutIfNeeded];
+        [weakSelf.collectionView.infiniteScrollingView stopAnimating];
+        NSLog(@"LA cantidad es: %lu",(unsigned long)headlinesArray.count);
+    }
     NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
-    
 }
 
 
@@ -143,10 +216,9 @@ BOOL nibMyCell2loaded;
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
-   }
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
     return [headlinesArray count];
 }
 
@@ -158,7 +230,7 @@ BOOL nibMyCell2loaded;
     
     if (indexPath.item == 0 || indexPath.item % 6 == 0) {
         
-        CollectionViewCellGrande *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
+        CollectionViewCellGrande *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
         
         
         // Configure the cell
@@ -188,11 +260,10 @@ BOOL nibMyCell2loaded;
     {
         
         
-        CollectionViewCellMediana *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
+        CollectionViewCellMediana *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
         
         
         // Configure the cell
-        // cell.labelTituloNews.text = titular.title;
         cell.labelSummary.text = titular.title;
         NSString *urlImagen = titular.imagenThumbString;
         NSURL *url = [NSURL URLWithString:urlImagen];
@@ -219,7 +290,7 @@ BOOL nibMyCell2loaded;
     {
         
         
-        CollectionViewCellHorizontal*cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierHorizontal forIndexPath:indexPath];
+        CollectionViewCellHorizontal*cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierHorizontal forIndexPath:indexPath];
         
         // Configure the cell
         cell.labelSummary.text = titular.title;
@@ -228,18 +299,40 @@ BOOL nibMyCell2loaded;
         
     }
     
-    if (indexPath.item == 5 || ((indexPath.item % 6)-5) == 0 || ((indexPath.item % 6)-5) == 0 )
+    if (indexPath.item == 5 || ((indexPath.item % 6)-5) == 0 )
     {
         
         
-        CollectionViewCellBanner *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
+        CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
         // Configure the cell
-        cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-A";
+        //cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-A";
+        /*
+         NSLog(@" Indexpath %ld",(long)indexPath.item);
+         
+         NSLog(banners[currentPageNumber]);
+         */
+        switch (indexPath.item) {
+            case 5:
+                cell.bannerUnitID =  bannersPolitica[0]  ;
+                break;
+            case 11:
+                cell.bannerUnitID =  bannersPolitica[1]  ;
+                break;
+            case 17:
+                cell.bannerUnitID =  bannersPolitica[2]  ;
+                break;
+            case 23:
+                cell.bannerUnitID =  bannersPolitica[3]  ;
+                break;
+            default:
+                cell.bannerUnitID =  bannersPolitica[2]  ;
+                break;
+        }
         [cell initBanner];
         return cell;
         
     }
-    CollectionViewCellBanner *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
+    CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
     
     return cell;
 }
@@ -247,22 +340,36 @@ BOOL nibMyCell2loaded;
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    /*
-    NewsPageViewController *newsPage =  (NewsPageViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"newsPageSB"];
-    NewspaperPage *paginita = (NewspaperPage*)[self.pagesArray objectAtIndex:indexPath.row ];
-    newsPage.numeroPagina = paginita.pageNumber;
-    newsPage.urlDetailPage = paginita.urlDetail;
-    newsPage.categoria = paginita.categoria;
-    newsPage.totalPaginas = (int)[self.pagesArray count] ;
-    newsPage.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self presentViewController:newsPage animated:YES completion:nil];
-  */  
+    NSLog(@"ENtonces el indexpath es: %ld",(long)[indexPath row]);
+    if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
+        return ;
+        
+    }else{
+        Headline *titular = (Headline*)[headlinesArray objectAtIndex:indexPath.row ];
+        [titular logDescription];
+        int idArticulo = titular.idArt;
+        NSLog(@"id Artículo = %d",idArticulo);
+        DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
+        [detalleNews loadBenefitForBenefitId:idArticulo];
+        [self.navigationController pushViewController:detalleNews animated:YES];
+    }
 }
 
+- (void)loadMoreRows {
+    
+    NSLog(@"***********   Load More Rows   ************");
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    isPageRefreshingPolitica = YES;
+    //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+    currentPageNumber = currentPageNumber +1;
+    [self loadHeadlinesWithCategory:categoryId];
+    
+}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if([indexPath row]==0 || [indexPath row] % 6 == 0){
+        
         if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             
             return CGSizeMake(286, 468);
@@ -270,7 +377,6 @@ BOOL nibMyCell2loaded;
         }else{
             return CGSizeMake(370, 420);
         }
-        
     }
     
     if([indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 ) {
@@ -279,17 +385,20 @@ BOOL nibMyCell2loaded;
     }
     
     if([indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
-        return CGSizeMake(374, 80);
+        return CGSizeMake(370, 80);
         
     }
     
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
-        return CGSizeMake(316, 265);
+        return CGSizeMake(370, 265);
         
     }
     
-    return CGSizeMake(374, 428);
+    return CGSizeMake(370, 428);
 }
+
+//New code
+
 
 
 @end

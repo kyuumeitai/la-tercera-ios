@@ -41,6 +41,7 @@ static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
 int currentPageNumber ;
 BOOL isPageRefreshing =  false;
 BOOL firstTime = false;
+NSArray *banners= nil;
 
 int numeroPaginas;
 NSString *day;
@@ -57,6 +58,7 @@ BOOL nibMyCell2loaded;
     __weak CVNoticiasInicio *weakSelf = self;
     headlinesArray = [[NSMutableArray alloc] init];
 
+    banners = [NSArray arrayWithObjects:@"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-A", @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-B", @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-C", @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-D", @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-E", nil];
     
     UINib *cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande" bundle: nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifierGrande];
@@ -190,13 +192,14 @@ BOOL nibMyCell2loaded;
          }];
         firstTime= false;
     }else{
-        [self.collectionView reloadData];
+        
         //[SVProgressHUD dismiss];
         isPageRefreshing= NO;
        // [weakSelf.collectionView endUpdates];
-        //[self.collectionView reloadData];
-        //[self.collectionView layoutIfNeeded];
-        [weakSelf.collectionView.infiniteScrollingView stopAnimating];
+        
+     [self.collectionView reloadData];
+     [self.collectionView layoutIfNeeded];
+    [weakSelf.collectionView.infiniteScrollingView stopAnimating];
         NSLog(@"LA cantidad es: %lu",(unsigned long)headlinesArray.count);
     }
     NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
@@ -298,7 +301,28 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
         CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
         // Configure the cell
         //cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-A";
-        cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/mi-seleccion_300x250-A";
+        /*
+        NSLog(@" Indexpath %ld",(long)indexPath.item);
+
+        NSLog(banners[currentPageNumber]);
+        */
+        switch (indexPath.item) {
+            case 5:
+                cell.bannerUnitID =  banners[0]  ;
+                break;
+            case 11:
+                cell.bannerUnitID =  banners[1]  ;
+                break;
+            case 17:
+                cell.bannerUnitID =  banners[2]  ;
+                break;
+            case 23:
+                cell.bannerUnitID =  banners[3]  ;
+                break;
+            default:
+                 cell.bannerUnitID =  banners[2]  ;
+                break;
+        }
         [cell initBanner];
         return cell;
         
@@ -367,6 +391,9 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     
     return CGSizeMake(370, 428);
 }
+
+//New code
+
 
 
 @end
