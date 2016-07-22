@@ -10,6 +10,7 @@
 #import "Article.h"
 #import "ConnectionManager.h"
 @interface DetalleNewsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *labelFecha;
 
 @end
 
@@ -20,14 +21,20 @@ NSString *textoContenidoTemporal = @"";
 - (void)viewDidLoad {
     [super viewDidLoad];
     _titulo.text= @"";
+    _titulo.textAlignment = NSTextAlignmentJustified;
     _summary.text= @"";
+    _summary.textAlignment = NSTextAlignmentJustified;
     _contentTextView.text= @"";
+    
+    
     _imagenNews.image = nil;
     
     _titulo.alpha = 0;
     _summary.alpha = 0;
     _contentTextView.alpha = 0;
+    _contentTextView.textAlignment = NSTextAlignmentJustified;
     _imagenNews.alpha = 0;
+    _labelFecha.alpha = 0;
     
     // Do any additional setup after loading the view.
 }
@@ -56,6 +63,15 @@ NSString *textoContenidoTemporal = @"";
                                                 error: nil
                                                 ];
         _contentTextView.attributedText = attributedString;
+        
+        CGRect frame = _contentTextView.frame;
+        
+        frame.size =  _contentTextView.contentSize;
+        
+        
+
+        
+        _contentTextView.frame = frame;
     }
     
     
@@ -77,6 +93,13 @@ NSString *textoContenidoTemporal = @"";
                                             error: nil
                                             ];
     _contentTextView.attributedText = attributedString;
+        
+        CGRect frame = _contentTextView.frame;
+        
+        frame.size =  _contentTextView.contentSize;
+        frame.size.height =  _contentTextView.contentSize.height+20;
+        
+        _contentTextView.frame = frame;
     }
 
 }
@@ -112,7 +135,18 @@ NSString *textoContenidoTemporal = @"";
     
     _titulo.text= [articleDict objectForKey:@"title"];
     _summary.text= [articleDict objectForKey:@"short_description"];
-    //_content.text=
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    NSString * originalDateString = [articleDict objectForKey:@"article_date"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+    //[dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    NSDate *newsDate = [dateFormatter dateFromString:originalDateString];
+     [dateFormatter setDateFormat:@"dd' de 'MMMM' del 'yyyy' / 'HH:mm' Hrs'"];
+
+    NSString *dateFinalText=[dateFormatter stringFromDate:newsDate];
+    
+    NSLog(@"Fehca es:%@", dateFinalText);
+    _labelFecha.text = dateFinalText;
     
    textoContenidoTemporal = [articleDict objectForKey:@"content"];
     NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSize,textoContenidoTemporal];
@@ -126,12 +160,13 @@ NSString *textoContenidoTemporal = @"";
                                             ];
     _contentTextView.attributedText = attributedString;
     
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          _titulo.alpha = 1;
                          _summary.alpha = 1;
                          _contentTextView.alpha = 1;
                          _imagenNews.alpha = 1;
+                         _labelFecha.alpha = 1;
                          
                      }
                      completion:nil];
@@ -142,9 +177,6 @@ NSString *textoContenidoTemporal = @"";
     }else{
         urlImagen = [articleDict objectForKey:@"image_url"];
     }
-    
-    urlImagen = [articleDict objectForKey:@"image_url"];
-    
     
     
     NSURL *url = [NSURL URLWithString:urlImagen];
@@ -158,6 +190,12 @@ NSString *textoContenidoTemporal = @"";
             _imagenNews.image = image;
         });  
     });
+    
+    CGRect frame = _contentTextView.frame;
+    
+    frame.size =  _contentTextView.contentSize;
+    
+     _contentTextView.frame = frame;
 
     //NSLog(@"A %f kms de distancia",distanceMeters);
 }
