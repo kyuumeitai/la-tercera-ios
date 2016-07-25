@@ -7,8 +7,10 @@
 //
 
 #import "SaboresTableViewController.h"
-#import  "CategoriasTableViewCell.h"
-#import  "DestacadoTableViewCell.h"
+//#import  "CategoriasTableViewCell.h"
+//#import  "DestacadoTableViewCell.h"
+#import "BeneficioGeneralTableViewCell.h"
+#import "BeneficioGeneralDestacadoTableViewCell.h"
 #import  "DetalleBeneficioViewController.h"
 #import "Category.h"
 #import "Benefit.h"
@@ -17,6 +19,7 @@
 #import "SVProgressHUD.h"
 #import "Tools.h"
 #import "SVPullToRefresh.h"
+#define benefitCategoryId 39
 
 @interface SaboresTableViewController ()
 
@@ -49,7 +52,7 @@ BOOL firstTimeSabores = false;
     currentPageNumber = 1;
     firstTimeSabores = true;
     
-    [self loadBenefitsForCategoryId:39];
+    [self loadBenefitsForCategoryId:benefitCategoryId];
     
     // setup infinite scrolling
     [self.tableView addInfiniteScrollingWithActionHandler:^{
@@ -85,11 +88,11 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     NSArray *nib;
     
     if (indexPath.row==0) {
-        DestacadoTableViewCell *cell = (DestacadoTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        BeneficioGeneralDestacadoTableViewCell *cell = (BeneficioGeneralDestacadoTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
         
         if (cell == nil)
         {
-            nib = [[NSBundle mainBundle] loadNibNamed:@"DestacadoTableViewCell" owner:self options:nil];
+            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
             Benefit *beneficio = [self.benefitsItemsArray5 objectAtIndex:0];
             
@@ -117,11 +120,11 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         
     }else{
         
-        CategoriasTableViewCell *cell = (CategoriasTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        BeneficioGeneralTableViewCell *cell = (BeneficioGeneralTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
         if (cell == nil)
         {
             
-            nib = [[NSBundle mainBundle] loadNibNamed:@"CategoriasTableViewCell" owner:self options:nil];
+            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
         }
         
@@ -130,6 +133,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         
         cell.labelTitulo.text = beneficio2.title;
         cell.labelDescuento.text = beneficio2.desclabel;
+        cell.labelSubtitulo.text = beneficio2.summary;
         if((unsigned long)beneficio2.desclabel.length >3)
             cell.labelDescuento.alpha = 0;
         //Get Image
@@ -151,7 +155,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         return 278.0;
     }
     else {
-        return 100.0;
+        return 114.0;
     }
 }
 
@@ -316,7 +320,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
             isPageRefreshingSabores = YES;
             //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
             currentPageNumber = currentPageNumber +1;
-            [self loadBenefitsForCategoryId:39];
+            [self loadBenefitsForCategoryId:benefitCategoryId];
 
 }
 

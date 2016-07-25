@@ -7,8 +7,8 @@
 //
 
 #import  "InfantilTableViewController.h"
-#import  "CategoriasTableViewCell.h"
-#import  "DestacadoTableViewCell.h"
+#import "BeneficioGeneralTableViewCell.h"
+#import "BeneficioGeneralDestacadoTableViewCell.h"
 #import  "DetalleBeneficioViewController.h"
 #import "Category.h"
 #import "Benefit.h"
@@ -17,6 +17,7 @@
 #import "SVProgressHUD.h"
 #import "Tools.h"
 #import "SVPullToRefresh.h"
+#define benefitCategoryId 43
 
 @interface InfantilTableViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -29,8 +30,12 @@ NSMutableArray *listaBeneficios2;
 @synthesize benefitsItemsArray4;
 BOOL firstTime1 = false;
 
+
+//New Pagination code
 int currentPageNumber ;
-BOOL isPageRefreshing1 =  false;
+BOOL isPageRefreshingInfantil=  false;
+BOOL firstTimeInfantil = false;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,20 +48,23 @@ BOOL isPageRefreshing1 =  false;
     //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
     //[self loadBenefitsForCategoryId:39];
     currentPageNumber = 1;
-    firstTime1 = true;
+    firstTimeInfantil = true;
     
-    [self loadBenefitsForCategoryId:43];
+    [self loadBenefitsForCategoryId:benefitCategoryId];
     
     // setup infinite scrolling
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         [weakSelf loadMoreRows];
     }];
-
     
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 - (void)viewWillAppear:(BOOL)animated{
-    isPageRefreshing1 = NO;
+    isPageRefreshingInfantil = NO;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -74,22 +82,22 @@ BOOL isPageRefreshing1 =  false;
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";    
+    static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     NSArray *nib;
     
     if (indexPath.row==0) {
-        DestacadoTableViewCell *cell = (DestacadoTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        BeneficioGeneralDestacadoTableViewCell *cell = (BeneficioGeneralDestacadoTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
         
         if (cell == nil)
         {
-            nib = [[NSBundle mainBundle] loadNibNamed:@"DestacadoTableViewCell" owner:self options:nil];
+            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
             Benefit *beneficio = [self.benefitsItemsArray4 objectAtIndex:0];
             
             cell.labelTitulo.text = beneficio.title;
             cell.labelSubtitulo.text = beneficio.summary;
             cell.labelDescuento.text = beneficio.desclabel;
+            
             if((unsigned long)beneficio.desclabel.length >3)
                 cell.labelDescuento.alpha = 0;
             
@@ -110,11 +118,11 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
         
     }else{
         
-        CategoriasTableViewCell *cell = (CategoriasTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        BeneficioGeneralTableViewCell *cell = (BeneficioGeneralTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
         if (cell == nil)
         {
             
-            nib = [[NSBundle mainBundle] loadNibNamed:@"CategoriasTableViewCell" owner:self options:nil];
+            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
         }
         
@@ -123,6 +131,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
         
         cell.labelTitulo.text = beneficio2.title;
         cell.labelDescuento.text = beneficio2.desclabel;
+        cell.labelSubtitulo.text = beneficio2.summary;
         if((unsigned long)beneficio2.desclabel.length >3)
             cell.labelDescuento.alpha = 0;
         //Get Image
@@ -137,8 +146,6 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
         
         return cell;
     }
-
-    
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -146,17 +153,17 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
         return 278.0;
     }
     else {
-        return 100.0;
+        return 114.0;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     NSLog(@"DETECTED");
     
-    
     DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
     Benefit *beneficio = [self.benefitsItemsArray4 objectAtIndex:indexPath.row];
     [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen];
+    
     //Get Image
     NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
     UIImage *imagenBeneficio = nil;
@@ -166,21 +173,24 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
     if(imagenBeneficio == nil)
         imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
     
-    detalleBeneficio.benefitImage = imagenBeneficio;    detalleBeneficio.benefitTitle= beneficio.title;
+    detalleBeneficio.benefitImage = imagenBeneficio;
+    
+    detalleBeneficio.benefitTitle= beneficio.title;
+    detalleBeneficio.benefitAddress = @"";
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
-
-    [self.navigationController pushViewController: detalleBeneficio animated:YES];
+    [beneficio logDescription];
     
+    [self.navigationController pushViewController: detalleBeneficio animated:YES];
 }
 
 -(void)loadBenefitsForCategoryId:(int)idCategory{
     
-    NSLog(@"Load category benefits Infantil");
+    NSLog(@"Load category benefits Sabores");
     __weak InfantilTableViewController *weakSelf = self;
     // IMPORTANT - Only update the UI on the main thread
-    if (isPageRefreshing1 == false)
+    if (isPageRefreshingInfantil == false)
         [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
@@ -193,7 +203,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
-                if (isPageRefreshing1 == false){
+                if (isPageRefreshingInfantil == false){
                     
                     [self errorDetectedWithNSError:error];
                 }else{
@@ -207,7 +217,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
                 
                 if(noData){
                     
-                    isPageRefreshing1 = YES;
+                    isPageRefreshingInfantil = YES;
                     
                 }else{
                     
@@ -219,7 +229,6 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
     }:idCategory andPage:currentPageNumber];
     
 }
-
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
     
@@ -259,7 +268,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
         
     }
     
-    if (firstTime1 ==true){
+    if (firstTimeInfantil ==true){
         self.view.alpha = 0.0;
         [self.tableView reloadData];
         [UIView animateWithDuration:0.5
@@ -270,11 +279,11 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
          {
              [SVProgressHUD dismiss];
          }];
-        firstTime1 = false;
+        firstTimeInfantil = false;
     }else{
         [self.tableView reloadData];
         [SVProgressHUD dismiss];
-        isPageRefreshing1 = NO;
+        isPageRefreshingInfantil = NO;
         [weakSelf.tableView endUpdates];
         [weakSelf.tableView.infiniteScrollingView stopAnimating];
     }
@@ -286,7 +295,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
 -(void) errorDetectedWithNSError:(NSError*) error{
     
     NSLog(@"Error obteniendo datos! El error es:  %@", [error localizedDescription]);
-    /*
+    
     //Escondemos el loading
     [SVProgressHUD dismiss];
     
@@ -298,7 +307,6 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil];
     [alert show];
-     */
 }
 
 - (void)loadMoreRows {
@@ -307,12 +315,14 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell4";
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
     
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
-    isPageRefreshing1 = YES;
+    isPageRefreshingInfantil = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
     currentPageNumber = currentPageNumber +1;
-    [self loadBenefitsForCategoryId:43];
+    [self loadBenefitsForCategoryId:benefitCategoryId];
     
 }
 
 
+
 @end
+

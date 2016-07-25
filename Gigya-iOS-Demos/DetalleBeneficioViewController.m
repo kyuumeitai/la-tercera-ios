@@ -187,17 +187,17 @@ CLLocationCoordinate2D storeLocation;
 
         if ( valor == 0 ){
             forAnonimo = true;
-           // NSLog(@"Es anonimo");
+           NSLog(@"Es anonimo");
         }
         
         if ( valor == 1 ){
             forFremium = true;
-           // NSLog(@"Es fremium");
+            NSLog(@"Es fremium");
         }
         
         if ( valor == 2 ){
             forSuscriptor = true;
-            //NSLog(@"Es suscriptor");
+            NSLog(@"Es suscriptor");
         }
 
      }
