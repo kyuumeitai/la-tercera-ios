@@ -9,6 +9,9 @@
 #import "CollectionViewCellBanner.h"
 @implementation CollectionViewCellBanner
 
+
+DFPRequest *request;
+
 - (void)awakeFromNib {
     
     [super awakeFromNib];
@@ -25,10 +28,13 @@
     self.bannerView.rootViewController = self;
     self.bannerView.delegate = self;
  
-    DFPRequest *request=[DFPRequest request];
+   request = [DFPRequest request];
 
-    //request.testDevices = @[ @"1cfe50f939bddb106fe8f60a030ffe93" ];
-    [self.bannerView loadRequest:request];
+}
+
+-(void)loadBanner{
+    
+        [self.bannerView loadRequest:request];
 }
 
 @end

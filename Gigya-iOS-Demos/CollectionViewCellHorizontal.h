@@ -10,4 +10,5 @@
 
 @interface CollectionViewCellHorizontal : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *labelSummary;
+@property (weak, nonatomic) IBOutlet UIImageView *imageNews;
 @end

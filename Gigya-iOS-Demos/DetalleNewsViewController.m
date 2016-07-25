@@ -9,16 +9,22 @@
 #import "DetalleNewsViewController.h"
 #import "Article.h"
 #import "ConnectionManager.h"
+
 @interface DetalleNewsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *labelFecha;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
 @implementation DetalleNewsViewController
+
 int fontSize = 16;
+
+
 NSString *textoContenidoTemporal = @"";
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     _titulo.text= @"";
     _titulo.textAlignment = NSTextAlignmentJustified;
@@ -64,14 +70,8 @@ NSString *textoContenidoTemporal = @"";
                                                 ];
         _contentTextView.attributedText = attributedString;
         
-        CGRect frame = _contentTextView.frame;
-        
-        frame.size =  _contentTextView.contentSize;
-        
-        
-
-        
-        _contentTextView.frame = frame;
+        [_contentTextView sizeToFit];
+        [self.scrollView sizeToFit];
     }
     
     
@@ -94,12 +94,8 @@ NSString *textoContenidoTemporal = @"";
                                             ];
     _contentTextView.attributedText = attributedString;
         
-        CGRect frame = _contentTextView.frame;
-        
-        frame.size =  _contentTextView.contentSize;
-        frame.size.height =  _contentTextView.contentSize.height+20;
-        
-        _contentTextView.frame = frame;
+ [_contentTextView sizeToFit];
+        [self.scrollView sizeToFit];
     }
 
 }
@@ -191,12 +187,8 @@ NSString *textoContenidoTemporal = @"";
         });  
     });
     
-    CGRect frame = _contentTextView.frame;
-    
-    frame.size =  _contentTextView.contentSize;
-    
-     _contentTextView.frame = frame;
-
+ [_contentTextView sizeToFit];
+ [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 5000)];
     //NSLog(@"A %f kms de distancia",distanceMeters);
 }
 

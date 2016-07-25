@@ -15,12 +15,13 @@
     self = [super init];
     if (self) {
         
+        
     }
     return self;
 }
 -(void)logDescription{
     
-    NSLog(@" >>>> Beneficio de id: %d, titulo: %@, url:%@, imagen: %@, summary: %@",_idBen,_title,_url,_imagenNormal,_summary );
+    NSLog(@" >>>> Beneficio de id: %d, titulo: %@, url:%@, imagen: %@, summary: %@, disponible anonimo: %i, disponible fremium: %i, disponible suscriptor: %i ",_idBen,_title,_url,_imagenNormal,_summary,_disponibleParaAnonimo,_disponibleParaFremium,_disponibleParaSuscriptor );
     
 }
 @end

@@ -18,6 +18,9 @@
 @property (nonatomic,strong) NSString * desclabel;
 @property (nonatomic,strong) UIImage *imagenNormal;
 @property (nonatomic,strong) NSString *imagenNormalString;
+@property BOOL disponibleParaAnonimo;
+@property BOOL disponibleParaFremium;
+@property BOOL disponibleParaSuscriptor;
 
 -(void)logDescription;
 @end

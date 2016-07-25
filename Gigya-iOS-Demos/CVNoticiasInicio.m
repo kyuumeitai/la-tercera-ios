@@ -36,7 +36,7 @@ static NSString * const reuseIdentifierGrande = @"collectionViewGrande";
 static NSString * const reuseIdentifierMediana = @"collectionViewMediana";
 static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
 static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
-
+BOOL _isScrolling;
 //New Pagination code
 int currentPageNumber ;
 BOOL isPageRefreshing =  false;
@@ -218,6 +218,9 @@ BOOL nibMyCell2loaded;
 
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+   
+    CollectionViewCellBanner *celdaBanner;
+     celdaBanner = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
     
 
 Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
@@ -264,11 +267,8 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
         NSURL *url = [NSURL URLWithString:urlImagen];
         UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-
-        //__weak UITableViewCell *weakCell = cell;
         
         __weak CollectionViewCellMediana *weakCellMediana = cell;
-        
         
         [cell.imageNews setImageWithURLRequest:request
                               placeholderImage:placeholderImage
@@ -289,44 +289,76 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
         
         // Configure the cell
         cell.labelSummary.text = titular.title;
+        NSString *urlImagen = titular.imagenThumbString;
+        NSURL *url = [NSURL URLWithString:urlImagen];
+        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        __weak CollectionViewCellHorizontal *weakCellHorizontal = cell;
+        
+        [cell.imageNews setImageWithURLRequest:request
+                              placeholderImage:placeholderImage
+                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                           weakCellHorizontal.imageNews.image = image;
+                                           [weakCellHorizontal setNeedsLayout];
+                                       } failure:nil];
+
 
         return cell;
         
     }
-    
+  
     if (indexPath.item == 5 || ((indexPath.item % 6)-5) == 0 )
     {
         
         
-        CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
-        // Configure the cell
-        //cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-A";
-        /*
-        NSLog(@" Indexpath %ld",(long)indexPath.item);
-
-        NSLog(banners[currentPageNumber]);
-        */
         switch (indexPath.item) {
             case 5:
-                cell.bannerUnitID =  banners[0]  ;
+                     celdaBanner.bannerUnitID =  banners[0]  ;
                 break;
             case 11:
-                cell.bannerUnitID =  banners[1]  ;
+
+                    celdaBanner.bannerUnitID =  banners[1]  ;
+
                 break;
             case 17:
-                cell.bannerUnitID =  banners[2]  ;
+
+                celdaBanner.bannerUnitID =  banners[2]  ;
+
                 break;
             case 23:
-                cell.bannerUnitID =  banners[3]  ;
+
+                    celdaBanner.bannerUnitID =  banners[3]  ;
+
                 break;
             default:
-                 cell.bannerUnitID =  banners[2]  ;
+                    celdaBanner.bannerUnitID =  banners[2]  ;
+
                 break;
         }
-        [cell initBanner];
-        return cell;
+        
+        
+        if (self.collectionView.dragging == NO && self.collectionView.decelerating == NO){
+            
+                [celdaBanner initBanner];
+                [celdaBanner loadBanner];
+        }
+        
+        if(_isScrolling == false){
+            [celdaBanner initBanner];
+            [celdaBanner loadBanner];
+        }
+        
+        
+
+
+        
+        
+        
+        return celdaBanner;
         
     }
+    
     CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
 
     return cell;
@@ -380,7 +412,7 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     }
     
       if([indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
-        return CGSizeMake(370, 80);
+        return CGSizeMake(356, 100);
         
     }
     
@@ -394,6 +426,14 @@ Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
 
 //New code
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    _isScrolling = NO;
+}
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        _isScrolling = NO;
+    }
+}
 
 @end

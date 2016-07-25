@@ -12,6 +12,7 @@
 @interface CollectionViewCellBanner : UICollectionViewCell
 
 -(void)initBanner;
+-(void)loadBanner;
 @property (weak, nonatomic) IBOutlet DFPBannerView *bannerView;
 @property (nonatomic, copy) NSString* bannerUnitID;
 

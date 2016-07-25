@@ -175,12 +175,34 @@ CLLocationCoordinate2D storeLocation;
     
     NSArray *profilesArray= (NSArray*)[tempDict objectForKey:@"profiles"];
     NSDictionary * profileDictionary = (NSDictionary*)profilesArray[0];
-    //NSLog(@"Profile text : %@",profileDictionary );
+    NSLog(@"Profile text : %@",profileDictionary );
     
-    NSString* nameProfile = [profileDictionary objectForKey:@"nombre"];
-    NSString* idProfile = [profileDictionary objectForKey:@"id"];
-    NSLog(@"El perfil es: %@ y el id: %@",nameProfile,idProfile );
-    self.profileBenefitLabel.text = nameProfile;
+    BOOL forFremium = false;
+    BOOL forSuscriptor = false;
+    BOOL forAnonimo = false;
+    
+    
+    for(id key in profileDictionary) {
+        int valor= [[profileDictionary objectForKey:@"id"] intValue];
+
+        if ( valor == 0 ){
+            forAnonimo = true;
+           // NSLog(@"Es anonimo");
+        }
+        
+        if ( valor == 1 ){
+            forFremium = true;
+           // NSLog(@"Es fremium");
+        }
+        
+        if ( valor == 2 ){
+            forSuscriptor = true;
+            //NSLog(@"Es suscriptor");
+        }
+
+     }
+
+      //  self.profileBenefitLabel.text = nameProfile;
     self.profileBenefitLabel.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{ self.profileBenefitLabel.alpha = 1;}

@@ -96,6 +96,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
             cell.labelTitulo.text = beneficio.title;
             cell.labelSubtitulo.text = beneficio.summary;
             cell.labelDescuento.text = beneficio.desclabel;
+
             if((unsigned long)beneficio.desclabel.length >3)
                 cell.labelDescuento.alpha = 0;
             
@@ -260,7 +261,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
             NSString *imagenBen = [benefit objectForKey:@"image"] ;
             beneficio.imagenNormalString = imagenBen;
         }
-        
+
         [self.benefitsItemsArray5 addObject:beneficio];
 
     }

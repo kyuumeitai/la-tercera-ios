@@ -43,7 +43,7 @@ int currentPageNumber ;
 BOOL isPageRefreshingPolitica =  false;
 BOOL firstTimePolitica = false;
 NSArray *bannersPolitica= nil;
-
+BOOL _isScrollingPolitica;
 int numeroPaginas;
 NSString *day;
 NSString *month;
@@ -196,11 +196,11 @@ NSString *storyBoardName;
          {
              //[SVProgressHUD dismiss];
          }];
-        firstTimePolitica = false;
+        firstTimePolitica= false;
     }else{
         
         //[SVProgressHUD dismiss];
-        isPageRefreshingPolitica = NO;
+        isPageRefreshingPolitica= NO;
         // [weakSelf.collectionView endUpdates];
         
         [self.collectionView reloadData];
@@ -224,6 +224,9 @@ NSString *storyBoardName;
 
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CollectionViewCellBanner *celdaBanner;
+    celdaBanner = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
     
     
     Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
@@ -264,16 +267,14 @@ NSString *storyBoardName;
         
         
         // Configure the cell
+        // cell.labelTituloNews.text = titular.title;
         cell.labelSummary.text = titular.title;
         NSString *urlImagen = titular.imagenThumbString;
         NSURL *url = [NSURL URLWithString:urlImagen];
         UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
-        //__weak UITableViewCell *weakCell = cell;
-        
         __weak CollectionViewCellMediana *weakCellMediana = cell;
-        
         
         [cell.imageNews setImageWithURLRequest:request
                               placeholderImage:placeholderImage
@@ -294,6 +295,20 @@ NSString *storyBoardName;
         
         // Configure the cell
         cell.labelSummary.text = titular.title;
+        NSString *urlImagen = titular.imagenThumbString;
+        NSURL *url = [NSURL URLWithString:urlImagen];
+        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        __weak CollectionViewCellHorizontal *weakCellHorizontal = cell;
+        
+        [cell.imageNews setImageWithURLRequest:request
+                              placeholderImage:placeholderImage
+                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                           weakCellHorizontal.imageNews.image = image;
+                                           [weakCellHorizontal setNeedsLayout];
+                                       } failure:nil];
+        
         
         return cell;
         
@@ -303,35 +318,53 @@ NSString *storyBoardName;
     {
         
         
-        CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
-        // Configure the cell
-        //cell.bannerUnitID =  @"/124506296/La_Tercera_com/La_Tercera_com_APP/inicio_300x250-A";
-        /*
-         NSLog(@" Indexpath %ld",(long)indexPath.item);
-         
-         NSLog(banners[currentPageNumber]);
-         */
         switch (indexPath.item) {
             case 5:
-                cell.bannerUnitID =  bannersPolitica[0]  ;
+                celdaBanner.bannerUnitID =  bannersPolitica[0]  ;
                 break;
             case 11:
-                cell.bannerUnitID =  bannersPolitica[1]  ;
+                
+                celdaBanner.bannerUnitID =  bannersPolitica[1]  ;
+                
                 break;
             case 17:
-                cell.bannerUnitID =  bannersPolitica[2]  ;
+                
+                celdaBanner.bannerUnitID =  bannersPolitica[2]  ;
+                
                 break;
             case 23:
-                cell.bannerUnitID =  bannersPolitica[3]  ;
+                
+                celdaBanner.bannerUnitID =  bannersPolitica[3]  ;
+                
                 break;
             default:
-                cell.bannerUnitID =  bannersPolitica[2]  ;
+                celdaBanner.bannerUnitID =  bannersPolitica[2]  ;
+                
                 break;
         }
-        [cell initBanner];
-        return cell;
+        
+        
+        if (self.collectionView.dragging == NO && self.collectionView.decelerating == NO){
+            
+            [celdaBanner initBanner];
+            [celdaBanner loadBanner];
+        }
+        
+        if(_isScrollingPolitica == false){
+            [celdaBanner initBanner];
+            [celdaBanner loadBanner];
+        }
+        
+        
+        
+        
+        
+        
+        
+        return celdaBanner;
         
     }
+    
     CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
     
     return cell;
@@ -350,7 +383,7 @@ NSString *storyBoardName;
         int idArticulo = titular.idArt;
         NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
-        [detalleNews loadBenefitForBenefitId:idArticulo];
+        [detalleNews loadBenefitForBenefitId:idArticulo];    //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         [self.navigationController pushViewController:detalleNews animated:YES];
     }
 }
@@ -385,7 +418,7 @@ NSString *storyBoardName;
     }
     
     if([indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
-        return CGSizeMake(370, 80);
+        return CGSizeMake(356, 100);
         
     }
     
@@ -399,6 +432,14 @@ NSString *storyBoardName;
 
 //New code
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    _isScrollingPolitica = NO;
+}
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        _isScrollingPolitica = NO;
+    }
+}
 
 @end

@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"Usar beneficio estandar loaded");
     // Do view setup here.
 }
 - (IBAction)confirmedPressed:(id)sender {
