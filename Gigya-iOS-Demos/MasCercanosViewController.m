@@ -108,6 +108,7 @@ int cuenta;
         point.subtitle = tienda.storeAddress;
         point.benefitId = tienda.idBenefit ;
         point.storeId = tienda.idStore ;
+        point.commerceId = tienda.relatedCommerce;
         point.normalImageString = tienda.imagenNormalString;
         point.benefitTitle = tienda.titleBenefit;
         point.DescText = tienda.descText;
@@ -167,11 +168,12 @@ int cuenta;
     NSLog(@"Detail Opened");
     int benefitId = ((MKPointAnnotation_custom*)view.annotation).benefitId;
     int storeId = ((MKPointAnnotation_custom*)view.annotation).storeId;
+    int commerceId = ((MKPointAnnotation_custom*)view.annotation).commerceId;
     NSString *normalImage = ((MKPointAnnotation_custom*)view.annotation).normalImageString;
     NSString *titleBen = ((MKPointAnnotation_custom*)view.annotation).benefitTitle;
     NSString *discBen = ((MKPointAnnotation_custom*)view.annotation).DescText;
     
-    NSLog(@"el Id del beneficio es:%d y el id del Store es:%d",benefitId,storeId);
+    NSLog(@"el Id del beneficio es:%d y el id del Store es:%d y el commerceId :%d ",benefitId,storeId,commerceId);
     NSString *store = [NSString stringWithFormat:@"%i",storeId];
     //Party goes on
     DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
@@ -312,7 +314,7 @@ int cuenta;
         
          id title = [benefitsArray[0] objectForKey:@"title"];
         id discount = [benefitsArray[0] objectForKey:@"benefit_label"];
-        id relatedCommerce = [benefitsArray[0] objectForKey:@"related_commerce"];
+        int relatedCommerce = [[benefitsArray[0] objectForKey:@"related_commerce"] intValue];
         int idBenefit = [[benefitsArray[0] objectForKey:@"id"] intValue];
         NSString *normalImageString = [benefitsArray[0] objectForKey:@"image"];
           NSString *newString ;

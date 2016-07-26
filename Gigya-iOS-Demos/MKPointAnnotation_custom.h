@@ -11,6 +11,7 @@
 @interface MKPointAnnotation_custom : MKPointAnnotation
 @property int benefitId;
 @property int storeId;
+@property int commerceId;
 @property (nonatomic,strong) NSString * normalImageString;
 @property (nonatomic,strong) NSString * benefitTitle;
 @property (nonatomic,strong) NSString * DescText;

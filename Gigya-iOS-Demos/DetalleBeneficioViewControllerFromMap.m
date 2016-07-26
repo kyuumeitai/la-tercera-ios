@@ -60,7 +60,7 @@ CLLocationCoordinate2D storeLocation;
 
 #pragma mark -->> Data Functions <<---
 
--(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore{
+-(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore andRelatedCommerce:(int)relatedCommerce{
     
     NSLog(@"Load category benefits");
     NSLog(@"La store es%@",_idStore);
