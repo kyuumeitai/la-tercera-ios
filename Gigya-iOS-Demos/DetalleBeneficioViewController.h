@@ -12,6 +12,8 @@
 
 @property (strong,nonatomic) NSString* benefitTitle;
 @property (nonatomic,assign)  int benefitId;
+@property (nonatomic,assign)  int storeId;
+
 @property (strong,nonatomic) NSString* benefitSubtitle;
 @property (strong,nonatomic) NSString* benefitDiscount;
 @property (strong,nonatomic) NSString* benefitAddress;
@@ -24,14 +26,12 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *benefitTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *benefitSubtitleLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *benefitDiscountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *benefitAdressLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *benefitConditionsLabel;
 @property (weak, nonatomic) IBOutlet UITextView *benefitDescriptionTextView;
-
 @property (weak, nonatomic) IBOutlet UIImageView *benefitImageView;
+
 
 -(void)loadBenefitForBenefitId:(int)idBenefit;
 @end

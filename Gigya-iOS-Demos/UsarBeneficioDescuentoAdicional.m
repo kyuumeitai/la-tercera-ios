@@ -18,20 +18,32 @@
 @end
 
 @implementation UsarBeneficioDescuentoAdicional
-NSString * idBeneficio = @"187";
-NSString * codComercio = @"194";
-NSString * sucursal = @"273";
-NSString * email = @"olgaeliagarrido@yahoo.com";
+NSString * idBeneficio = @"";//@"187";
+NSString * codComercio = @"";
+NSString * sucursal = @"";//@"273";
+NSString * email;
+//NSString * email = @"olgaeliagarrido@yahoo.com";
 //NSString * email = @"catabarbara.jpc@gmail.com";
 //NSString * email = @"acornejo@copesa.cl";
 
-int monto = 1000;
+int monto = 0;
 
 - (void)viewDidLoad {
+    
+   monto = [_montoTextField.text intValue];
+
     [super viewDidLoad];
     
-    codComercio = [NSString stringWithFormat:@"C%@S%@",codComercio,sucursal];
+    codComercio = _codigoComercioTextfield.text;
+       //codComercio = [NSString stringWithFormat:@"C%@S%@",codComercio,sucursal];
     // Do view setup here.
+}
+
+- (void)initWithIdBeneficio:(NSString*)_idBeneficio andSucursal:(NSString*)_idSucursal{
+    idBeneficio = _idBeneficio;
+    sucursal = _idSucursal;
+    NSLog(@"Iniciado y el beneficio es id: %@ y la sucursal: %@", idBeneficio, sucursal);
+
 }
 
 - (IBAction)confirmUseBenefitClicked:(id)sender {
@@ -94,7 +106,6 @@ int monto = 1000;
     confirmationViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     //[self presentViewController:confirmationViewController animated:YES completion:nil];
    
-    
 }
 
 - (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData {

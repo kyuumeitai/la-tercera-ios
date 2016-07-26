@@ -172,10 +172,10 @@ int cuenta;
     NSString *discBen = ((MKPointAnnotation_custom*)view.annotation).DescText;
     
     NSLog(@"el Id del beneficio es:%d y el id del Store es:%d",benefitId,storeId);
-    
+    NSString *store = [NSString stringWithFormat:@"%i",storeId];
     //Party goes on
     DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
-    [detalleBeneficio loadBenefitForBenefitId:benefitId];
+    [detalleBeneficio loadBenefitForBenefitId:benefitId andStore:store];
     
     //Get Image
     NSArray * arr = [normalImage componentsSeparatedByString:@","];
@@ -312,6 +312,7 @@ int cuenta;
         
          id title = [benefitsArray[0] objectForKey:@"title"];
         id discount = [benefitsArray[0] objectForKey:@"benefit_label"];
+        id relatedCommerce = [benefitsArray[0] objectForKey:@"related_commerce"];
         int idBenefit = [[benefitsArray[0] objectForKey:@"id"] intValue];
         NSString *normalImageString = [benefitsArray[0] objectForKey:@"image"];
           NSString *newString ;
@@ -342,6 +343,8 @@ int cuenta;
         store.storeLocation = storeLocation;
         store.idStore = idStore;
         store.idBenefit = idBenefit;
+        store.relatedCommerce = relatedCommerce;
+        
           [tableData addObject:store];
         
         [storeItemsArray addObject:store];
@@ -630,12 +633,13 @@ int cuenta;
         NSString *normalImage = tiendita.imagenNormalString;
         NSString *titleBen = tiendita.titleBenefit;
         NSString *discBen = tiendita.descText;
+        NSString *storeId = tiendita.storeId;
         
-       // NSLog(@"el Id del beneficio es:%d y el id del Store es:%d",benefitId,storeId);
+       NSLog(@"el Id del beneficio es:%d y el id del Store es:%@",benefitId,storeId);
         
         //Party goes on
         DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
-        [detalleBeneficio loadBenefitForBenefitId:benefitId];
+        [detalleBeneficio loadBenefitForBenefitId:benefitId andStore:storeId ];
         
         //Get Image
         NSArray * arr = [normalImage componentsSeparatedByString:@","];
@@ -672,7 +676,7 @@ int cuenta;
         
         //Party goes on
         DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
-        [detalleBeneficio loadBenefitForBenefitId:benefitId];
+        [detalleBeneficio loadBenefitForBenefitId:benefitId andStore:@""];
         
         //Get Image
         NSArray * arr = [normalImage componentsSeparatedByString:@","];

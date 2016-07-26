@@ -19,6 +19,7 @@
 @property (nonatomic, assign) CGFloat                dMeter;
 @property (nonatomic, assign) int idStore;
 @property (nonatomic, assign) int idBenefit;
+@property (nonatomic, assign) int relatedCommerce;
 @property (nonatomic, strong) UIImage *imagenStore;
 @property (nonatomic, strong) NSString* titleBenefit;
 @property (nonatomic, strong) NSString* descText;

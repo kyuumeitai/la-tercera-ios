@@ -60,9 +60,10 @@ CLLocationCoordinate2D storeLocation;
 
 #pragma mark -->> Data Functions <<---
 
--(void)loadBenefitForBenefitId:(int)idBenefit{
+-(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore{
     
     NSLog(@"Load category benefits");
+    NSLog(@"La store es%@",_idStore);
     // IMPORTANT - Only update the UI on the main thread
     // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     

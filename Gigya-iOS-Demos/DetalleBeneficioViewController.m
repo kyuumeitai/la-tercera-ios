@@ -9,6 +9,7 @@
 #import "DetalleBeneficioViewController.h"
 #import "UsarBeneficioEstandar.h"
 #import "UsarBeneficioNoLogueado.h"
+#import "UsarBeneficioDescuentoAdicional.h"
 #import "ConnectionManager.h"
 #import "SessionManager.h"
 #import "UserProfile.h"
@@ -19,6 +20,7 @@
 @end
 @implementation DetalleBeneficioViewController
 @synthesize benefitId;
+@synthesize storeId;
 CLLocationCoordinate2D storeLocation;
 BOOL forFremium = false;
 BOOL forSuscriptor = false;
@@ -50,9 +52,15 @@ BOOL forAnonimo = false;
     if ((profileCode == 0 && forAnonimo) || (profileCode == 1 && forFremium) || (profileCode == 2 && forSuscriptor)){
         NSLog(@"Beneficio válido para el usuario");
         
-        UsarBeneficioEstandar *usarBeneficioEstandarViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"usarBeneficioScreen"];
-        usarBeneficioEstandarViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-        [self presentViewController:usarBeneficioEstandarViewController animated:YES completion:nil];
+        UsarBeneficioDescuentoAdicional *usarBeneficioController = [self.storyboard instantiateViewControllerWithIdentifier:@"usarBeneficioScreen"];
+        
+        NSString * ben = [ NSString stringWithFormat:@"%i",benefitId];
+        NSString * sto = [ NSString stringWithFormat:@"%i",storeId];
+
+        [usarBeneficioController initWithIdBeneficio:ben  andSucursal:sto];
+    
+        usarBeneficioController.modalPresentationStyle = UIModalPresentationCurrentContext;
+        [self presentViewController:usarBeneficioController animated:YES completion:nil];
     
     } else {
         
@@ -81,8 +89,9 @@ BOOL forAnonimo = false;
 #pragma mark -->> Data Functions <<---
 
 -(void)loadBenefitForBenefitId:(int)idBenefit{
-    
     NSLog(@"Load category benefits");
+    benefitId = idBenefit;
+
     // IMPORTANT - Only update the UI on the main thread
    // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     
@@ -232,6 +241,7 @@ BOOL forAnonimo = false;
     self.benefitDiscountLabel.text = _benefitDiscount;
     self.benefitTitleLabel.text = _benefitTitle;
     self.benefitAdressLabel.text = _benefitAddress;
+
     
     self.benefitDiscountLabel.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
@@ -246,8 +256,9 @@ BOOL forAnonimo = false;
 
     //Loading Store
     NSArray* storeArray = (NSArray*)[tempDict objectForKey:@"related_store"];
-    int storeId = [[storeArray firstObject] intValue];
+    storeId = [[storeArray firstObject] intValue];
     NSLog(@" EL store relacionado es:%d",storeId);
+    
     [self loadStoreWithId:storeId];
 
     //Loading Description

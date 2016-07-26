@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GigyaSDK/Gigya.h>
 
-@interface UsarBeneficioNoLogueado : UIViewController
+@interface UsarBeneficioNoLogueado : UIViewController <GSPluginViewDelegate, GSAccountsDelegate>
+
+typedef enum {
+    REGISTRO,
+    LOGIN
+} GigyaFormAction;
 
 @end
