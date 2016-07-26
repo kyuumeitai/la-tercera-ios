@@ -131,6 +131,7 @@ NSString *textoContenidoTemporal = @"";
     
     _titulo.text= [articleDict objectForKey:@"title"];
     _summary.text= [articleDict objectForKey:@"short_description"];
+    _summary.numberOfLines = 0;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     NSString * originalDateString = [articleDict objectForKey:@"article_date"];
@@ -186,8 +187,10 @@ NSString *textoContenidoTemporal = @"";
             _imagenNews.image = image;
         });  
     });
-    
+ 
  [_contentTextView sizeToFit];
+ [_summary sizeToFit];
+    
  [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 5000)];
     //NSLog(@"A %f kms de distancia",distanceMeters);
 }

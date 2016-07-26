@@ -7,7 +7,15 @@
 //
 
 #import "UsarBeneficioNoLogueado.h"
+#import "Tools.h"
 
 @implementation UsarBeneficioNoLogueado
+- (IBAction)openSuscriptionWeb:(id)sender {
+    [Tools openSafariWithURL:@"http://suscripcioneslt.latercera.com/"];
+    
+    [self dismissViewControllerAnimated:YES
+                                           completion:nil];
+    
+}
 
 @end

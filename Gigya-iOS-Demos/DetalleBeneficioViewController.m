@@ -8,6 +8,7 @@
 
 #import "DetalleBeneficioViewController.h"
 #import "UsarBeneficioEstandar.h"
+#import "UsarBeneficioNoLogueado.h"
 #import "ConnectionManager.h"
 #import "SessionManager.h"
 #import "UserProfile.h"
@@ -47,17 +48,21 @@ BOOL forAnonimo = false;
     int profileCode = profile.profileLevel;
     
     if ((profileCode == 0 && forAnonimo) || (profileCode == 1 && forFremium) || (profileCode == 2 && forSuscriptor)){
+        NSLog(@"Beneficio válido para el usuario");
         
         UsarBeneficioEstandar *usarBeneficioEstandarViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"usarBeneficioScreen"];
         usarBeneficioEstandarViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
         [self presentViewController:usarBeneficioEstandarViewController animated:YES completion:nil];
+    
+    } else {
         
-    }else{
-        NSLog(@"No es valido");
+        //suscriberNeededScreen
+        NSLog(@"Sin permisos");
+        UsarBeneficioNoLogueado *usarBeneficioNoLogueadoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"suscriberNeededScreen"];
+        usarBeneficioNoLogueadoViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+        [self presentViewController:usarBeneficioNoLogueadoViewController animated:YES completion:nil];
+        
     }
-    
-    
-
 
 }
 
