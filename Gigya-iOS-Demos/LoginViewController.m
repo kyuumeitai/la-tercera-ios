@@ -289,8 +289,30 @@ GigyaFormAction formType;
                 int notifNoticias = [[json objectForKey:@"notificaciones_noticias"] intValue];
 
                 
+                //temporary comment
+               // int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
+                int userProfileLevel = 0 ;
+                    NSString *valor= userProfileType;
+                    
+                    if ( [valor isEqualToString:@"anonimo"] ){
+                        userProfileLevel = 0;
+                        NSLog(@"Es anonimo");
+                    }
+                    
+                    if ( [valor isEqualToString:@"fremium"]){
+                        userProfileLevel = 1;
+                        NSLog(@"Es fremium");
+                    }
+                    
+                    if ( [valor isEqualToString:@"suscriptor"] ){
+                        userProfileLevel = 2;
+                        NSLog(@"Es suscriptor");
+                    }
+                    
+             
                 
-                int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
+                
+                
                 //id status = [json objectForKey:@"status"];
           
                 //int userDevice = [[json objectForKey:@"device"] intValue];

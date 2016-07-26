@@ -62,8 +62,8 @@
         userProfile.other_emails = [[NSMutableArray alloc]init];
         userProfile.gender = @"";
         userProfile.birthdate = @"";
-        userProfile.profileType = @"";
-        userProfile.profileLevel = -1;
+        userProfile.profileType = @"anonimo";
+        userProfile.profileLevel = 0;
         userProfile.preferences = [[NSMutableArray alloc]init];
         userProfile.site = @"";
         userProfile.notificacionesClub = false;

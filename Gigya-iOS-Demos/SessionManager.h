@@ -51,6 +51,5 @@
 -(NSString*)sessionDescription;
 -(NSString*)profileDescription;
 -(UserProfile *)getUserProfile;
--(void)loadUserProfileData:(NSString*)email  status:(BOOL)status profileLevel:(int)profileLevel device:(int)device;
 
 @end

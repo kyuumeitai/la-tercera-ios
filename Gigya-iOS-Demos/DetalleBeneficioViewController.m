@@ -10,6 +10,7 @@
 #import "UsarBeneficioEstandar.h"
 #import "ConnectionManager.h"
 #import "SessionManager.h"
+#import "UserProfile.h"
 #import "Tools.h"
 
 @interface DetalleBeneficioViewController ()
@@ -18,7 +19,9 @@
 @implementation DetalleBeneficioViewController
 @synthesize benefitId;
 CLLocationCoordinate2D storeLocation;
-
+BOOL forFremium = false;
+BOOL forSuscriptor = false;
+BOOL forAnonimo = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,10 +42,22 @@ CLLocationCoordinate2D storeLocation;
 - (IBAction)usarBeneficioPressed:(id)sender {
     
     NSLog(@"Usar beneficio click DETECTED");
+     SessionManager *sesion = [SessionManager session];
+    UserProfile *profile = [sesion getUserProfile];
+    int profileCode = profile.profileLevel;
     
-    UsarBeneficioEstandar *usarBeneficioEstandarViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"usarBeneficioScreen"];
-    usarBeneficioEstandarViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-    [self presentViewController:usarBeneficioEstandarViewController animated:YES completion:nil];
+    if ((profileCode == 0 && forAnonimo) || (profileCode == 1 && forFremium) || (profileCode == 2 && forSuscriptor)){
+        
+        UsarBeneficioEstandar *usarBeneficioEstandarViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"usarBeneficioScreen"];
+        usarBeneficioEstandarViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+        [self presentViewController:usarBeneficioEstandarViewController animated:YES completion:nil];
+        
+    }else{
+        NSLog(@"No es valido");
+    }
+    
+    
+
 
 }
 
@@ -177,12 +192,10 @@ CLLocationCoordinate2D storeLocation;
     NSDictionary * profileDictionary = (NSDictionary*)profilesArray[0];
     NSLog(@"Profile text : %@",profileDictionary );
     
-    BOOL forFremium = false;
-    BOOL forSuscriptor = false;
-    BOOL forAnonimo = false;
     
-    
+    //We can read benefit profile
     for(id key in profileDictionary) {
+        
         int valor= [[profileDictionary objectForKey:@"id"] intValue];
 
         if ( valor == 0 ){
@@ -201,6 +214,8 @@ CLLocationCoordinate2D storeLocation;
         }
 
      }
+
+    
 
       //  self.profileBenefitLabel.text = nameProfile;
     self.profileBenefitLabel.alpha = 0;
