@@ -27,6 +27,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *benefitDescriptionTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *benefitImageView;
 
-//-(void)loadBenefitForBenefitId:(int)idBenefit;
+-(void)loadBenefitForBenefitId:(int)idBenefit;
 -(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore;
 @end

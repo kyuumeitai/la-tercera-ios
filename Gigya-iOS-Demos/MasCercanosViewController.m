@@ -63,6 +63,11 @@ int cuenta;
     
 }
 
+- (IBAction)backButtonPressed:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (IBAction)openFilter:(UIButton *)sender {
     YActionSheet *options = [[YActionSheet alloc] initWithTitle:@"Filtrar por Ciudad:"
                                             dismissButtonTitle:@"Cancelar"
@@ -315,6 +320,7 @@ int cuenta;
          id title = [benefitsArray[0] objectForKey:@"title"];
         id discount = [benefitsArray[0] objectForKey:@"benefit_label"];
         int relatedCommerce = [[benefitsArray[0] objectForKey:@"related_commerce"] intValue];
+        NSLog(@"Related commerce: %i",relatedCommerce);
         int idBenefit = [[benefitsArray[0] objectForKey:@"id"] intValue];
         NSString *normalImageString = [benefitsArray[0] objectForKey:@"image"];
           NSString *newString ;
@@ -673,12 +679,14 @@ int cuenta;
         NSString *normalImage = tiendita.imagenNormalString;
         NSString *titleBen = tiendita.titleBenefit;
         NSString *discBen = tiendita.descText;
+        NSString *storeId = tiendita.storeId;
+
         
         // NSLog(@"el Id del beneficio es:%d y el id del Store es:%d",benefitId,storeId);
         
         //Party goes on
         DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
-        [detalleBeneficio loadBenefitForBenefitId:benefitId andStore:@""];
+        [detalleBeneficio loadBenefitForBenefitId:benefitId andStore:storeId ];
         
         //Get Image
         NSArray * arr = [normalImage componentsSeparatedByString:@","];

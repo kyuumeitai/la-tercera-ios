@@ -40,7 +40,7 @@ typedef void (^getDataBlock)(BOOL success, NSArray* arrayJson, NSError *error);
 - (NSString*)sendLoginDataWithEmail:(NSString *)email gigyaId:(NSString*)gigyaId firstName:(NSString*)firstName lastName:(NSString*)lastName gender:(NSString*)gender birthdate:(NSString*)birthdate uid:(NSString*)uid andOs:(NSString*)os;
 -(NSString*)sendLoginDataWithEmail:(NSString *)email andGigyaId:(NSString*)gigyaId;
 -(NSString*)UseBenefitWithIdBenefit:(NSString *)idBeneficio codigoComercio:(NSString*)codComercio sucursal:(NSString*)sucursal email:(NSString*)email monto:(int)monto;
-
+-(NSString*)getCommerceFromBenefitWithIdBenefit:(int)idBeneficio;
 @property  BOOL isConnected;
 
 @end

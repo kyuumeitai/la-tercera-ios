@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -381,7 +381,7 @@ REGISTRARSE?</string>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="VerBeneficiosCerca.png"/>
                                                 <connections>
-                                                    <segue destination="Uc6-It-8ad" kind="push" customClass="SWRevealViewControllerSeguePushController" id="3BC-u9-lZ8"/>
+                                                    <segue destination="Uc6-It-8ad" kind="push" identifier="segueMasCercanos" id="3BC-u9-lZ8"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categorías" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7l9-pw-46F">
@@ -1347,7 +1347,7 @@ REGISTRARSE?</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="botonVolver.png"/>
                                 <connections>
-                                    <segue destination="LKO-m6-Nmk" kind="push" customClass="SWRevealViewControllerSeguePushController" id="LjX-Ol-dSP"/>
+                                    <action selector="backButtonPressed:" destination="Uc6-It-8ad" eventType="touchUpInside" id="laO-S2-mNl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1Wf-3B-RVb">
@@ -4579,10 +4579,10 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jwz-IK-BPu"/>
-        <segue reference="wa8-wA-Ypp"/>
-        <segue reference="Yn4-yz-IfR"/>
+        <segue reference="me0-ej-09l"/>
+        <segue reference="JhD-SO-oge"/>
         <segue reference="vnn-UP-oet"/>
+        <segue reference="wuf-Nj-3R8"/>
         <segue reference="uX9-Ov-tlW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>

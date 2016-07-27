@@ -14,5 +14,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *codigoComercioTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *emailTesting;
 
-- (void)initWithIdBeneficio:(NSString*)_idBeneficio andSucursal:(NSString*)_idSucursal;
+- (void)initWithIdBeneficio:(NSString*)_idBeneficio andSucursal:(NSString*)_idSucursal andCommerce:(NSString*)_idComercio;
 @end

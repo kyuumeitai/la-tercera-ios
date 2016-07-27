@@ -487,4 +487,34 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     return responseString;
 }
 
+
+-(NSString*)getCommerceFromBenefitWithIdBenefit:(int)idBeneficio  {
+    
+    NSString * responseString = @"";
+    // Send a synchronous request
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/benefits/%d/?format=json",BaseURLString,idBeneficio]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:5.0];
+    //id_beneficio, cod_comercio, sucursal, email, monto
+    [request setHTTPMethod:@"GET"];
+    
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:request
+                                          returningResponse:&response
+                                                      error:&error];
+    if (error == nil)
+    {
+        responseString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        //NSLog(@"LAAA RESPUESTAA NUEVAA ES: %@",responseString);
+        
+        
+    }else{
+        responseString = error.description;
+    }
+    return responseString;
+}
+
+
 @end

@@ -20,6 +20,7 @@
 @implementation UsarBeneficioDescuentoAdicional
 NSString * idBeneficio = @"";//@"187";
 NSString * codComercio = @"";
+NSString * idComercio = @"";
 NSString * sucursal = @"";//@"273";
 NSString * email;
 //NSString * email = @"olgaeliagarrido@yahoo.com";
@@ -34,15 +35,17 @@ int monto = 0;
 
     [super viewDidLoad];
     
-    codComercio = _codigoComercioTextfield.text;
-       //codComercio = [NSString stringWithFormat:@"C%@S%@",codComercio,sucursal];
+    //codComercio = _codigoComercioTextfield.text;
+
     // Do view setup here.
 }
 
-- (void)initWithIdBeneficio:(NSString*)_idBeneficio andSucursal:(NSString*)_idSucursal{
+- (void)initWithIdBeneficio:(NSString*)_idBeneficio andSucursal:(NSString*)_idSucursal andCommerce:(NSString*)_idComercio{
     idBeneficio = _idBeneficio;
     sucursal = _idSucursal;
-    NSLog(@"Iniciado y el beneficio es id: %@ y la sucursal: %@", idBeneficio, sucursal);
+    idComercio = _idComercio;
+    //_commerce
+    NSLog(@"Iniciado y el beneficio es id: %@ y la sucursal %@ y el comercio es: %@", idBeneficio, sucursal, idComercio);
 
 }
 
@@ -72,29 +75,32 @@ int monto = 0;
         
         NSLog(@"Erxitoooo! :D");
 
-     NSString *cardImage64 = [json objectForKey:@"imagen_tarjeta"];
-       
-        NSArray * stringFiltrado = [cardImage64 componentsSeparatedByString:@","];
-        
-        //Now data is decoded. You can convert them to UIImage
-     
-        UIImage *imagenTarjetaVirtual =  [self decodeBase64ToImage:[stringFiltrado lastObject]];
-        
-        TarjetaVirtual * tarjetaVirtual = [self.storyboard instantiateViewControllerWithIdentifier:@"tarjetaVirtualScreen"];
-        tarjetaVirtual.virtualCardImage = imagenTarjetaVirtual;
-        [self presentViewController:tarjetaVirtual animated:YES completion:nil];
-       // [self pushViewController:tarjetaVirtual animated:YES];
+            // [self pushViewController:tarjetaVirtual animated:YES];
     }else{
         
          NSLog(@"Failed :(");
+        /*
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                                         message:@"Usuario no suscrito"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+         */
+        NSString *cardImage64 = [json objectForKey:@"imagen_tarjeta"];
+        
+        NSArray * stringFiltrado = [cardImage64 componentsSeparatedByString:@","];
+        
+        //Now data is decoded. You can convert them to UIImage
+        
+        UIImage *imagenTarjetaVirtual =  [self decodeBase64ToImage:[stringFiltrado lastObject]];
+        
+        TarjetaVirtual * tarjetaVirtual = [self.storyboard instantiateViewControllerWithIdentifier:@"tarjetaVirtualScreen"];
+        tarjetaVirtual.virtualCardImage = imagenTarjetaVirtual;
+        [self presentViewController:tarjetaVirtual animated:YES completion:nil];
+
     }
-    
+    codComercio = [NSString stringWithFormat:@"C%@S%@",idComercio,sucursal];
     NSLog(@"Vamos a usar el beneficio y llamar al WS");
      NSLog(@"El codigo comercio es: %@",codComercio);
    // ConnectionManager * connectionManager = [[ConnectionManager alloc] init];

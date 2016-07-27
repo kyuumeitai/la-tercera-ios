@@ -13,6 +13,7 @@
 @property (strong,nonatomic) NSString* benefitTitle;
 @property (nonatomic,assign)  int benefitId;
 @property (nonatomic,assign)  int storeId;
+@property (nonatomic,assign)  int commerceId;
 
 @property (strong,nonatomic) NSString* benefitSubtitle;
 @property (strong,nonatomic) NSString* benefitDiscount;
@@ -32,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *benefitDescriptionTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *benefitImageView;
 
-
 -(void)loadBenefitForBenefitId:(int)idBenefit;
+-(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore andRelatedCommerce:(int)relatedCommerce;
+-(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore;
 @end

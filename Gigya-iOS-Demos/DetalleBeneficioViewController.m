@@ -21,6 +21,7 @@
 @implementation DetalleBeneficioViewController
 @synthesize benefitId;
 @synthesize storeId;
+@synthesize commerceId;
 CLLocationCoordinate2D storeLocation;
 BOOL forFremium = false;
 BOOL forSuscriptor = false;
@@ -56,8 +57,9 @@ BOOL forAnonimo = false;
         
         NSString * ben = [ NSString stringWithFormat:@"%i",benefitId];
         NSString * sto = [ NSString stringWithFormat:@"%i",storeId];
-
-        [usarBeneficioController initWithIdBeneficio:ben  andSucursal:sto];
+        NSString *comm = [ NSString stringWithFormat:@"%i",commerceId];
+        NSLog(@"el detalle el parametro comercio sale con valor: %@ y commerce Id: %d",comm,commerceId);
+        [usarBeneficioController initWithIdBeneficio:ben  andSucursal:sto andCommerce:comm];
     
         usarBeneficioController.modalPresentationStyle = UIModalPresentationCurrentContext;
         [self presentViewController:usarBeneficioController animated:YES completion:nil];
@@ -89,7 +91,36 @@ BOOL forAnonimo = false;
 #pragma mark -->> Data Functions <<---
 
 -(void)loadBenefitForBenefitId:(int)idBenefit{
+    
     NSLog(@"Load category benefits");
+    benefitId = idBenefit;
+    
+    // IMPORTANT - Only update the UI on the main thread
+    // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
+    
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    BOOL estaConectado = [connectionManager verifyConnection];
+    NSLog(@"Verificando conexión: %d",estaConectado);
+    [connectionManager getBenefitWithBenefitId:^(BOOL success, NSArray *arrayJson, NSError *error){
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!success) {
+                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+            } else {
+                [self reloadBenefitsDataFromService:arrayJson];
+            }
+        });
+    }:idBenefit];
+    
+}
+
+-(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore {
+    
+    
+    
+    
+    NSLog(@"Load category benefits");
+    NSLog(@"La store es%@",_idStore);
     benefitId = idBenefit;
 
     // IMPORTANT - Only update the UI on the main thread
@@ -97,7 +128,18 @@ BOOL forAnonimo = false;
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
+
     NSLog(@"Verificando conexión: %d",estaConectado);
+    
+     NSString *resultMessage = [connectionManager getCommerceFromBenefitWithIdBenefit:benefitId];
+    NSData *data = [resultMessage dataUsingEncoding:NSUTF8StringEncoding];
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    int exito = [[json objectForKey:@"related_commerce"] intValue];
+    
+    NSLog(@"Entonces el comercio asociado es : %d",exito);
+  
+    commerceId = exito;
+    
     [connectionManager getBenefitWithBenefitId:^(BOOL success, NSArray *arrayJson, NSError *error){
         
         dispatch_async(dispatch_get_main_queue(), ^{
