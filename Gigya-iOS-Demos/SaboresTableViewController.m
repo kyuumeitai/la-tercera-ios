@@ -47,8 +47,6 @@ BOOL firstTimeSabores = false;
     listaCategorias = [[NSMutableArray alloc] init];
     benefitsItemsArray5 = [[NSMutableArray alloc] init];
     listaCategorias = sesion.categoryList;
-    //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
-    //[self loadBenefitsForCategoryId:39];
     currentPageNumber = 1;
     firstTimeSabores = true;
     
@@ -58,9 +56,6 @@ BOOL firstTimeSabores = false;
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         [weakSelf loadMoreRows];
     }];
-
-       // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -323,7 +318,4 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
             [self loadBenefitsForCategoryId:benefitCategoryId];
 
 }
-
-
-
 @end

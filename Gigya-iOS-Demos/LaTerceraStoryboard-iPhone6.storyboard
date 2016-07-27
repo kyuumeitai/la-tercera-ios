@@ -2265,6 +2265,9 @@ de tu descuento.</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="CRv-uv-ex1" id="hxT-yx-lFb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1RV-dN-dFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2296,10 +2299,10 @@ de tu descuento.</string>
             </objects>
             <point key="canvasLocation" x="-2264.5" y="3289.5"/>
         </scene>
-        <!--Mastercard Table View-->
+        <!--Servicios Table View-->
         <scene sceneID="P46-kf-hkI">
             <objects>
-                <tableViewController storyboardIdentifier="ServiciosTableView" title="Mastercard Table View" id="l39-wO-OTt" customClass="ServiciosTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ServiciosTableView" title="Servicios Table View" id="l39-wO-OTt" customClass="ServiciosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="gpt-m4-Ew7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2329,6 +2332,9 @@ de tu descuento.</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="gpt-m4-Ew7" id="U4B-PE-T86"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpy-55-ggB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

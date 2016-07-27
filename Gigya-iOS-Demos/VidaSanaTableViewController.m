@@ -7,6 +7,8 @@
 //
 
 #import "VidaSanaTableViewController.h"
+#import "BeneficioGeneralTableViewCell.h"
+#import "BeneficioGeneralDestacadoTableViewCell.h"
 #import  "CategoriasTableViewCell.h"
 #import  "DestacadoTableViewCell.h"
 #import  "DetalleBeneficioViewController.h"
@@ -16,24 +18,51 @@
 #import "ConnectionManager.h"
 #import "SVProgressHUD.h"
 #import "Tools.h"
+#import "SVPullToRefresh.h"
+#define benefitCategoryId 44
 
 @interface VidaSanaTableViewController ()
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation VidaSanaTableViewController
+@synthesize tableView;
 NSMutableArray *listaCategorias4;
 NSMutableArray *listaBeneficios4;
 @synthesize benefitsItemsArray2;
+
+//New Pagination code
+int currentPageNumber ;
+BOOL isPageRefreshingVidaSana=  false;
+BOOL firstTimeVidaSana = false;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self.tableView setContentS];
+    __weak VidaSanaTableViewController *weakSelf = self;
+    
     SessionManager *sesion = [SessionManager session];
     listaCategorias4 = [[NSMutableArray alloc] init];
+    benefitsItemsArray2 = [[NSMutableArray alloc] init];
     listaCategorias4 = sesion.categoryList;
-    //NSLog(@"La lista de categorias es: %@",listaCategorias4.description);
-   [self loadBenefitsForCategoryId:44];
-   }
+    //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
+    //[self loadBenefitsForCategoryId:39];
+    currentPageNumber = 1;
+    firstTimeVidaSana = true;
+    
+    [self loadBenefitsForCategoryId:benefitCategoryId];
+    
+    // setup infinite scrolling
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [weakSelf loadMoreRows];
+    }];
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    isPageRefreshingVidaSana = NO;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -52,27 +81,27 @@ NSMutableArray *listaBeneficios4;
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-static NSString *simpleTableIdentifier = @"ClubCategoryTableCell2";
+    static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     NSArray *nib;
     
     if (indexPath.row==0) {
-        DestacadoTableViewCell *cell = (DestacadoTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        BeneficioGeneralDestacadoTableViewCell *cell = (BeneficioGeneralDestacadoTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
         
         if (cell == nil)
         {
-            nib = [[NSBundle mainBundle] loadNibNamed:@"DestacadoTableViewCell" owner:self options:nil];
+            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
             Benefit *beneficio = [self.benefitsItemsArray2 objectAtIndex:0];
             
             cell.labelTitulo.text = beneficio.title;
             cell.labelSubtitulo.text = beneficio.summary;
             cell.labelDescuento.text = beneficio.desclabel;
+            
             if((unsigned long)beneficio.desclabel.length >3)
                 cell.labelDescuento.alpha = 0;
             
             //Get Image
-
+            
             NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
             UIImage *imagenBeneficio = nil;
             
@@ -82,17 +111,17 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell2";
                 imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
             
             cell.imageDestacada.image = imagenBeneficio;
-
-
         }
+        
         return cell;
+        
     }else{
         
-        CategoriasTableViewCell *cell = (CategoriasTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        BeneficioGeneralTableViewCell *cell = (BeneficioGeneralTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
         if (cell == nil)
         {
             
-            nib = [[NSBundle mainBundle] loadNibNamed:@"CategoriasTableViewCell" owner:self options:nil];
+            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
         }
         
@@ -101,6 +130,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell2";
         
         cell.labelTitulo.text = beneficio2.title;
         cell.labelDescuento.text = beneficio2.desclabel;
+        cell.labelSubtitulo.text = beneficio2.summary;
         if((unsigned long)beneficio2.desclabel.length >3)
             cell.labelDescuento.alpha = 0;
         //Get Image
@@ -109,13 +139,12 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell2";
         
         //Now data is decoded. You can convert them to UIImage
         imagenBeneficio2 = [Tools decodeBase64ToImage:[arr2 lastObject]];
-        if(imagenBeneficio2 == nil)
+        if(!imagenBeneficio2)
             imagenBeneficio2 = [UIImage imageNamed:@"PlaceholderHeaderClub"];
         cell.imageCategoria.image = imagenBeneficio2;
         
         return cell;
     }
-    
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -123,17 +152,17 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell2";
         return 278.0;
     }
     else {
-        return 100.0;
+        return 114.0;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     NSLog(@"DETECTED");
     
-    
     DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
     Benefit *beneficio = [self.benefitsItemsArray2 objectAtIndex:indexPath.row];
-    [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen];
+    [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen andStore:@"0"];
+    
     //Get Image
     NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
     UIImage *imagenBeneficio = nil;
@@ -144,50 +173,78 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell2";
         imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
     
     detalleBeneficio.benefitImage = imagenBeneficio;
+    
     detalleBeneficio.benefitTitle= beneficio.title;
-    detalleBeneficio.benefitAddress = @" ";
+    detalleBeneficio.benefitAddress = @"";
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
-
+    [beneficio logDescription];
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
-    
 }
 
 -(void)loadBenefitsForCategoryId:(int)idCategory{
     
+    NSLog(@"Load category benefits Sabores");
+    __weak VidaSanaTableViewController *weakSelf = self;
     // IMPORTANT - Only update the UI on the main thread
-    [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
+    if (isPageRefreshingVidaSana == false)
+        [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
     NSLog(@"Verificando conexión: %d",estaConectado);
+    
+    //for Paging purposes
+    
     [connectionManager getPagedBenefitsForCategoryId :^(BOOL success, NSArray *arrayJson, NSError *error){
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
-                [self errorDetectedWithNSError:error];
+                if (isPageRefreshingVidaSana == false){
+                    
+                    [self errorDetectedWithNSError:error];
+                }else{
+                    [weakSelf.tableView endUpdates];
+                    [weakSelf.tableView.infiniteScrollingView stopAnimating];
+                }
             } else {
-                [self reloadBenefitsDataFromService:arrayJson];
-                // NSLog(@"Lista jhson: %@",arrayJson);
+                
+                NSDictionary *tempDict = (NSDictionary*)arrayJson;
+                id noData = [tempDict objectForKey:@"details"];
+                
+                if(noData){
+                    
+                    isPageRefreshingVidaSana = YES;
+                    
+                }else{
+                    
+                    [self reloadBenefitsDataFromService:arrayJson];
+                    // NSLog(@"Lista jhson: %@",arrayJson);
+                }
             }
         });
-    }:idCategory andPage:1];
+    }:idCategory andPage:currentPageNumber];
     
 }
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
-    self.benefitsItemsArray2 = [[NSMutableArray alloc] init];
+    
+    
+    __weak VidaSanaTableViewController *weakSelf = self;
+    NSLog(@"  reload beenfits Sabores");
+    //benefitsItemsArray5 = [[NSMutableArray alloc] init];
     
     NSDictionary *tempDict = (NSDictionary*)arrayJson;
-    id benefits = [tempDict objectForKey:@"benefits"];
     
+    id benefits = [tempDict objectForKey:@"benefits"];
     
     for (id benefit in benefits){
         
         id titleBen = [benefit objectForKey:@"title"];
         int idBen =[ [benefit objectForKey:@"id"] intValue];;
+        //NSLog(@"idBen :%d",idBen);
         id linkBen = [benefit objectForKey:@"url"] ;
         id summaryBen = [benefit objectForKey:@"summary"] ;
         id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
@@ -200,7 +257,6 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell2";
         beneficio.summary= summaryBen;
         beneficio.desclabel = benefitLabelBen;
         
-        
         if([benefit objectForKey:@"image"] != [NSNull null]){
             
             NSString *imagenBen = [benefit objectForKey:@"image"] ;
@@ -209,26 +265,36 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell2";
         
         [self.benefitsItemsArray2 addObject:beneficio];
         
-        
-       
     }
-    self.view.alpha = 0.0;
-    [self.tableView reloadData];
-    [UIView animateWithDuration:0.5
-                     animations:^{ self.view.alpha = 1.0;                          
-                     }
-                     completion:^(BOOL finished)
-     {
-         //[SVProgressHUD dismiss];
-     }];
     
+    if (firstTimeVidaSana ==true){
+        self.view.alpha = 0.0;
+        [self.tableView reloadData];
+        [UIView animateWithDuration:0.5
+                         animations:^{ self.view.alpha = 1.0; /* Some fake chages */
+                             
+                         }
+                         completion:^(BOOL finished)
+         {
+             [SVProgressHUD dismiss];
+         }];
+        firstTimeVidaSana = false;
+    }else{
+        [self.tableView reloadData];
+        [SVProgressHUD dismiss];
+        isPageRefreshingVidaSana = NO;
+        [weakSelf.tableView endUpdates];
+        [weakSelf.tableView.infiniteScrollingView stopAnimating];
+    }
+    
+    NSLog(@" ******* RELOAD DATA TABLE Sabores ****** ----------------------");
 }
 
 //Error handler
 -(void) errorDetectedWithNSError:(NSError*) error{
     
     NSLog(@"Error obteniendo datos! El error es:  %@", [error localizedDescription]);
-    /*
+    
     //Escondemos el loading
     [SVProgressHUD dismiss];
     
@@ -240,7 +306,22 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell2";
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil];
     [alert show];
-     */
 }
 
+- (void)loadMoreRows {
+    
+    NSLog(@"***********   Load More Rows   ************");
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    isPageRefreshingVidaSana = YES;
+    //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+    currentPageNumber = currentPageNumber +1;
+    [self loadBenefitsForCategoryId:benefitCategoryId];
+    
+}
+
+
+
 @end
+

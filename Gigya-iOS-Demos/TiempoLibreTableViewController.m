@@ -162,7 +162,7 @@ BOOL firstTimeTiempoLibre = false;
     
     DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
     Benefit *beneficio = [self.benefitsItemsArray3 objectAtIndex:indexPath.row];
-    [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen];
+    [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen andStore:@"0"];
     
     //Get Image
     NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
