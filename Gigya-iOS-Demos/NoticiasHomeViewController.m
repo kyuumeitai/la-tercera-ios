@@ -10,6 +10,13 @@
 #import "YSLContainerViewController.h"
 #import "NewsCategoryInicioViewController.h"
 #import "NewsCategoryPoliticaViewController.h"
+#import "NewsCategoryMundoViewController.h"
+#import "NewsCategoryCulturaViewController.h"
+#import "NewsCategoryNacionalViewController.h"
+#import "NewsCategoryNegociosViewController.h"
+#import "NewsCategoryTendenciasViewController.h"
+#import "NewsCategoryElDeportivoViewController.h"
+#import "NewsCategoryEntretencionViewController.h"
 #import "SWRevealViewController.h"
 #import "SessionManager.h"
 #import "ConnectionManager.h"
@@ -65,23 +72,36 @@
     NewsCategoryInicioViewController *newsInicioVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
     newsInicioVC.title = @"Inicio";
     
+    //NewsCategoryNacionalViewController *newsNacionalVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryNacionl"];
+    //newsNacionalVC.title = @"Nacional";
+
+    NewsCategoryPoliticaViewController *newsPoliticaVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
+    newsPoliticaVC.title = @"Política";
     
-    NewsCategoryPoliticaViewController *miSeleccionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
-    miSeleccionVC.title = @"Mi Selección";
+    NewsCategoryMundoViewController *newsMundoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryMundo"];
+    newsMundoVC.title = @"Mundo";
     
-    //NewsCategoryPoliticaViewController *newsPoliticaVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
-    //newsPoliticaVC.title = @"Política";
+    NewsCategoryTendenciasViewController *newsTendenciasVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryTendencias"];
+    newsTendenciasVC.title = @"Tendencias";
     
-    //NewsCategoryPoliticaViewController *newsDeporteVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
-    //newsDeporteVC.title = @"Deporte";
+    //NewsCategoryNegociosViewController *newsNegociosVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryNegocios"];
+    //newsNegociosVC.title = @"Negocios";
     
+    //NewsCategoryElDeportivoViewController *newsElDeportivoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryElDeportivo"];
+    //newsElDeportivoVC.title = @"El Deportivo";
+    
+    NewsCategoryEntretencionViewController *newsEntretencionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryEntretencion"];
+    newsEntretencionVC.title = @"Entretención";
+    
+    NewsCategoryCulturaViewController *newsCulturaVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryCultura"];
+    newsCulturaVC.title = @"Cultura";
     
     
     // ContainerView
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,miSeleccionVC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,newsPoliticaVC,newsMundoVC,newsTendenciasVC,newsCulturaVC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
