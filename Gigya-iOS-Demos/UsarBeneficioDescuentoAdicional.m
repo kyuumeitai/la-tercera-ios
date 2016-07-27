@@ -15,6 +15,7 @@
 
 @interface UsarBeneficioDescuentoAdicional ()
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @end
 
 @implementation UsarBeneficioDescuentoAdicional
@@ -23,14 +24,11 @@ NSString * codComercio = @"";
 NSString * idComercio = @"";
 NSString * sucursal = @"";//@"273";
 NSString * email;
-//NSString * email = @"olgaeliagarrido@yahoo.com";
-//NSString * email = @"catabarbara.jpc@gmail.com";
-//NSString * email = @"acornejo@copesa.cl";
 
 int monto = 0;
 
 - (void)viewDidLoad {
-    
+    _spinner.hidden = true;
    monto = [_montoTextField.text intValue];
 
     [super viewDidLoad];
@@ -50,7 +48,7 @@ int monto = 0;
 }
 
 - (IBAction)confirmUseBenefitClicked:(id)sender {
-    
+    _spinner.hidden = false;
     NSLog(@"Confirmar beneficio click DETECTED");
     
     SessionManager *sesion = [SessionManager session];
@@ -61,32 +59,41 @@ int monto = 0;
     ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
     
    email = perfil.email;
-  
-    NSString *resultMessage = [connectionManager getVirtualCardWithEmail:email];
-    NSLog(@"El mensaje del WS de tarjeta es: %@",resultMessage);
+    monto = [_montoTextField.text intValue];
     
-    NSData *data = [resultMessage dataUsingEncoding:NSUTF8StringEncoding];
+
+    
+    codComercio = [NSString stringWithFormat:@"C%@S%@",idComercio,sucursal];
+    NSLog(@"Vamos a usar el beneficio y llamar al WS");
+    NSLog(@"El codigo comercio es: %@",codComercio);
+    // ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
+    NSString *textoCod = _codigoComercioTextfield.text;
+    NSString *resultMessageUseBenefit = [connectionManager UseBenefitWithIdBenefit:idBeneficio codigoComercio:textoCod sucursal:sucursal email:email monto:monto];
+    //NSString *resultMessageUseBenefit = [connectionManager UseBenefitWithIdBenefit:@"187" codigoComercio:@"C194S273" sucursal:@"273" email:email monto:monto];
+    NSLog(@"El mensaje del WS es: %@",resultMessageUseBenefit);
+    NSData *data = [resultMessageUseBenefit dataUsingEncoding:NSUTF8StringEncoding];
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     int exito = [[json objectForKey:@"exito"] intValue];
     
-    NSLog(@"Entonces el resultado de solicitar la tarjeta es : %d",exito);
     
     if(exito==1){
         
         NSLog(@"Erxitoooo! :D");
+        ConfirmationViewController *confirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"confirmationScreen"];
+        //confirmationViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        confirmationViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+       [self presentViewController:confirmationViewController animated:YES completion:nil];
 
             // [self pushViewController:tarjetaVirtual animated:YES];
     }else{
         
          NSLog(@"Failed :(");
-        /*
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
-                                                        message:@"Usuario no suscrito"
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-         */
+        
+        NSString *resultMessage = [connectionManager getVirtualCardWithEmail:email];
+        NSLog(@"El mensaje del WS de tarjeta es: %@",resultMessage);
+        
+        NSData *data = [resultMessage dataUsingEncoding:NSUTF8StringEncoding];
+        id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSString *cardImage64 = [json objectForKey:@"imagen_tarjeta"];
         
         NSArray * stringFiltrado = [cardImage64 componentsSeparatedByString:@","];
@@ -98,20 +105,11 @@ int monto = 0;
         TarjetaVirtual * tarjetaVirtual = [self.storyboard instantiateViewControllerWithIdentifier:@"tarjetaVirtualScreen"];
         tarjetaVirtual.virtualCardImage = imagenTarjetaVirtual;
         [self presentViewController:tarjetaVirtual animated:YES completion:nil];
-
+        
     }
-    codComercio = [NSString stringWithFormat:@"C%@S%@",idComercio,sucursal];
-    NSLog(@"Vamos a usar el beneficio y llamar al WS");
-     NSLog(@"El codigo comercio es: %@",codComercio);
-   // ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
-  resultMessage = [connectionManager UseBenefitWithIdBenefit:idBeneficio codigoComercio:codComercio sucursal:sucursal email:email monto:monto];
-    NSLog(@"El mensaje del WS es: %@",resultMessage);
+
     
-    ConfirmationViewController *confirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"confirmationScreen"];
-    //confirmationViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    confirmationViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    //[self presentViewController:confirmationViewController animated:YES completion:nil];
-   
+    
 }
 
 - (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData {

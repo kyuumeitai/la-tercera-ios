@@ -167,8 +167,7 @@ int cuenta;
     return view;
 }
 
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
-{
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
     //launch a new view upon touching the disclosure indicator
     NSLog(@"Detail Opened");
     int benefitId = ((MKPointAnnotation_custom*)view.annotation).benefitId;

@@ -115,10 +115,7 @@ BOOL forAnonimo = false;
 }
 
 -(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore {
-    
-    
-    
-    
+
     NSLog(@"Load category benefits");
     NSLog(@"La store es%@",_idStore);
     benefitId = idBenefit;
@@ -245,10 +242,31 @@ BOOL forAnonimo = false;
                      completion:nil];
     
     NSArray *profilesArray= (NSArray*)[tempDict objectForKey:@"profiles"];
-    NSDictionary * profileDictionary = (NSDictionary*)profilesArray[0];
+    
+    for ( int i = 0; i < profilesArray.count; i++){
+    NSDictionary * profileDictionary = (NSDictionary*)profilesArray[i];
     NSLog(@"Profile text : %@",profileDictionary );
+        
+        int valor= [[profileDictionary objectForKey:@"id"] intValue];
+        
+        if ( valor == 0 ){
+            forAnonimo = true;
+            NSLog(@"Es anonimo");
+        }
+        
+        if ( valor == 1 ){
+            forFremium = true;
+            NSLog(@"Es fremium");
+        }
+        
+        if ( valor == 2 ){
+            forSuscriptor = true;
+            NSLog(@"Es suscriptor");
+        }
+
     
-    
+    }
+    /*
     //We can read benefit profile
     for(id key in profileDictionary) {
         
@@ -270,7 +288,7 @@ BOOL forAnonimo = false;
         }
 
      }
-
+     */
     
 
       //  self.profileBenefitLabel.text = nameProfile;
