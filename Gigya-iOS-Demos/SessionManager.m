@@ -40,7 +40,7 @@
         
         //Temp vars
         profileGigyaId =  @"noneId ";
-        profileEmail = @"anyone@anywhere.com";
+        profileEmail = @"    - ";
         profileCode = -1;
         profileType = @"anonimo";
         //End temp vars
@@ -95,6 +95,46 @@
     
     return mensaje;
     
+}
+
+-(void) resetUserProfile{
+    
+    NSLog(@"Reset user profile");
+    
+    //Temp vars
+    profileGigyaId =  @"noneId ";
+    profileEmail = @"    - ";
+    profileCode = -1;
+    profileType = @"anonimo";
+    //End temp vars
+    
+    userLocation = nil;
+    leftSlideMenu = nil;
+    
+    categoryList = [[NSMutableArray alloc]init];
+    
+    userProfile = [[UserProfile alloc] init];
+    userProfile.userProfileId = -1;
+    userProfile.rut = @"";
+    userProfile.name = @"";
+    userProfile.lastName = @"";
+    userProfile.email = @"";
+    userProfile.status = false;
+    userProfile.suscriber = false;
+    userProfile.token = @"";
+    userProfile.other_emails = [[NSMutableArray alloc]init];
+    userProfile.gender = @"";
+    userProfile.birthdate = @"";
+    userProfile.profileType = @"anonimo";
+    userProfile.profileLevel = 0;
+    userProfile.preferences = [[NSMutableArray alloc]init];
+    userProfile.site = @"";
+    userProfile.notificacionesClub = false;
+    userProfile.notificacionesNoticias = false;
+    userProfile.horario1 = false;
+    userProfile.horario2 = false;
+    userProfile.horario3 = false;
+    userProfile.device = -1;
 }
 
 -(UserProfile *)getUserProfile{

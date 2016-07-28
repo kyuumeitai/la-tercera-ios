@@ -23,19 +23,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.tableView.delegate = self;
     menuItems = @[@"categoria11",@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria4", @"categoria5",@"categoria6", @"categoria7", @"categoria8",@"categoria9", @"categoria10",  @"categoria12", @"categoria13"];
 }
-- (IBAction)logoConfortPressed:(id)sender {
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if ( revealViewController )
-    {
-        NSLog(@"Reveal view controller created beach");
-        [revealViewController revealViewController];
-        [revealViewController revealToggle:nil];
-        [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
-    }
-}
+
 
 - (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
 {
@@ -60,15 +51,22 @@
     return menuItems.count;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
     NSString *CellIdentifier = [menuItems objectAtIndex:indexPath.row];
-
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier forIndexPath: indexPath];
- 
     return cell;
 }
+
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.row == 13)
+        return 120.0;
+    return 44.0;
+}
+
 
 #pragma mark state preservation / restoration
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder {

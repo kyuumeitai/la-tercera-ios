@@ -1,18 +1,18 @@
 //
-//  ConfirmationViewController.m
+//  MenuMiPerfilViewController.m
 //  La Tercera
 //
-//  Created by diseno on 27-04-16.
+//  Created by diseno on 28-07-16.
 //  Copyright © 2016 Gigya. All rights reserved.
 //
 
-#import "ConfirmationViewController.h"
+#import "MenuMiPerfilViewController.h"
 
-@interface ConfirmationViewController ()
+@interface MenuMiPerfilViewController ()
 
 @end
 
-@implementation ConfirmationViewController
+@implementation MenuMiPerfilViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,7 +26,7 @@
 
 - (IBAction)backButtonClicked:(id)sender {
     NSLog(@"OK closing time BABY");
-    [[[self presentingViewController] presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+       [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*

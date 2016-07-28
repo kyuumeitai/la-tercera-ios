@@ -958,11 +958,11 @@ REGISTRARSE?</string>
                                     <segue destination="IUM-VR-pR3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="tqi-Nf-HuD"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria12" rowHeight="45" id="iQ2-7t-fbP">
-                                <rect key="frame" x="0.0" y="517" width="259" height="45"/>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria12" rowHeight="34" id="iQ2-7t-fbP">
+                                <rect key="frame" x="0.0" y="517" width="259" height="34"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iQ2-7t-fbP" id="lmh-aO-T4E">
-                                    <rect key="frame" x="0.0" y="0.0" width="259" height="45"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="259" height="34"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider.png" id="qhl-gY-dRE">
@@ -974,11 +974,11 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria13" rowHeight="45" id="wIJ-se-IOU">
-                                <rect key="frame" x="0.0" y="562" width="259" height="45"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria13" rowHeight="50" id="wIJ-se-IOU">
+                                <rect key="frame" x="0.0" y="551" width="259" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wIJ-se-IOU" id="Akj-Fw-uG0">
-                                    <rect key="frame" x="0.0" y="0.0" width="259" height="45"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="259" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="F63-sR-KrU">
@@ -4333,7 +4333,6 @@ de La Tercera</string>
         <!--News Category Cultura View Controller-->
         <scene sceneID="NzR-Tk-wB7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XcX-Wd-yEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="newsCategoryCultura" id="eig-2S-yj5" customClass="NewsCategoryCulturaViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dJO-Rj-cHG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -4349,6 +4348,7 @@ de La Tercera</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XcX-Wd-yEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1083.5" y="-2625.5"/>
         </scene>
@@ -4432,7 +4432,6 @@ de La Tercera</string>
         <!--Noticias Cultura-->
         <scene sceneID="G4g-M6-NEO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QV0-ip-Q9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="d9F-zO-mKc" customClass="CVNoticiasCultura" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="M20-OF-OpM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -4478,6 +4477,7 @@ de La Tercera</string>
                         <outlet property="collectionView" destination="M20-OF-OpM" id="Qdm-e3-Slz"/>
                     </connections>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QV0-ip-Q9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-485.5" y="-2625.5"/>
         </scene>

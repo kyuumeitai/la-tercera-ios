@@ -51,5 +51,6 @@
 -(NSString*)sessionDescription;
 -(NSString*)profileDescription;
 -(UserProfile *)getUserProfile;
+-(void) resetUserProfile;
 
 @end

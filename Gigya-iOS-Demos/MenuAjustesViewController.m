@@ -1,18 +1,18 @@
 //
-//  ConfirmationViewController.m
+//  MenuAjustesViewController.m
 //  La Tercera
 //
-//  Created by diseno on 27-04-16.
+//  Created by diseno on 28-07-16.
 //  Copyright © 2016 Gigya. All rights reserved.
 //
 
-#import "ConfirmationViewController.h"
+#import "MenuAjustesViewController.h"
 
-@interface ConfirmationViewController ()
+@interface MenuAjustesViewController ()
 
 @end
 
-@implementation ConfirmationViewController
+@implementation MenuAjustesViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,9 +26,8 @@
 
 - (IBAction)backButtonClicked:(id)sender {
     NSLog(@"OK closing time BABY");
-    [[[self presentingViewController] presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+ [self.navigationController popViewControllerAnimated:YES];
 }
-
 /*
 #pragma mark - Navigation
 

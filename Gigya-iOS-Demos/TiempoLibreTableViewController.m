@@ -40,7 +40,7 @@ BOOL firstTimeTiempoLibre = false;
 - (void)viewDidLoad {
     [super viewDidLoad];
     __weak TiempoLibreTableViewController *weakSelf = self;
-    
+
     SessionManager *sesion = [SessionManager session];
     listaCategorias2 = [[NSMutableArray alloc] init];
     benefitsItemsArray3 = [[NSMutableArray alloc] init];
