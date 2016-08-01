@@ -280,6 +280,7 @@ int cuenta;
   ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     double puntoX = _userLocation.coordinate.latitude;
     double puntoY = _userLocation.coordinate.longitude;
+
     
     //BOOL estaConectado = [connectionManager verifyConnection];
    // NSLog(@"Verificando conexión: %d",estaConectado);
@@ -288,18 +289,21 @@ int cuenta;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
-                [self errorDetectedWithNSError:error];
+                [self noBenefitsFound];
+                NSLog(@"Noe xisten veneficios");
+
             } else {
                 [self reloadStoresDataFromService:arrayJson];
-                // NSLog(@"Lista jhson: %@",arrayJson);
             }
         });
     }:idCategory andLatitud:puntoX andLonguitud:puntoY];
-    
 }
 
 -(void) reloadStoresDataFromService:(NSArray*)arrayJson{
-   
+    NSLog(@"     ");
+    NSLog(@" *******   Respuesta   ****** ----------------------: %@", arrayJson );
+  
+
     storeItemsArray = [[NSMutableArray alloc] init];
     tableData = [[NSMutableArray alloc] init];
 
@@ -762,5 +766,23 @@ shouldReloadTableForSearchString:(NSString *)searchString
                           otherButtonTitles:nil];
     [alert show];
 }
+
+-(void) noBenefitsFound{
+    
+    NSLog(@"No se ha encontrado data");
+    
+    //Escondemos el loading
+    [SVProgressHUD dismiss];
+    
+    //Damos explicaciones del caso
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"No hay beneficios cercanos"
+                          message:@"No se han enxontrado beneficios cerca de su ubicación."
+                          delegate:nil //or self
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
+}
+
 
 @end
