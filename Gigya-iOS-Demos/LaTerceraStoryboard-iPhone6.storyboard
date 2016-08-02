@@ -1017,6 +1017,9 @@ REGISTRARSE?</string>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="n9c-AB-wOR" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="UKc-gN-ibL"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria10" id="Mga-7m-mzS">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
@@ -2768,7 +2771,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WD6-tP-ovG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1889.5" y="1099.5"/>
+            <point key="canvasLocation" x="1931.5" y="1558.5"/>
         </scene>
         <!--Tarjeta Virtual-->
         <scene sceneID="6vh-H8-hpd">
@@ -4464,7 +4467,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvz-R7-RXo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1461.5" y="1109.5"/>
+            <point key="canvasLocation" x="145.5" y="-421.5"/>
         </scene>
         <!--Ventas Especiales-->
         <scene sceneID="Zsp-HX-ZHJ">
@@ -5563,9 +5566,10 @@ de La Tercera</string>
     <inferredMetricsTieBreakers>
         <segue reference="jwz-IK-BPu"/>
         <segue reference="wa8-wA-Ypp"/>
-        <segue reference="tqi-Nf-HuD"/>
         <segue reference="3eI-5G-D6D"/>
+        <segue reference="tqi-Nf-HuD"/>
         <segue reference="vnn-UP-oet"/>
+        <segue reference="VHn-pv-49C"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
 </document>
