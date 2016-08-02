@@ -46,6 +46,8 @@
     SWRevealViewController *revealViewController = self.revealViewController;
     sesion.leftSlideMenu = revealViewController;
     [_menuButton addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+
     
     [self setupNewsCategory];
     //[self loadWeb];

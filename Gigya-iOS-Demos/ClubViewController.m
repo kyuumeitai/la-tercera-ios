@@ -51,12 +51,13 @@
     if (revealViewController2) {
         [_menuButtonClub
          addTarget:revealViewController2 action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-        // [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     }else{
         SWRevealViewController *revealViewController3 = [[SWRevealViewController alloc] init];
         [_menuButtonClub
          addTarget:revealViewController3 action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-        
+        [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+
     }
     
     

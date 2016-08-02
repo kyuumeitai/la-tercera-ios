@@ -27,6 +27,12 @@
     menuItems = @[@"categoria11",@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria4", @"categoria5",@"categoria6", @"categoria7", @"categoria8",@"categoria9", @"categoria10",  @"categoria12", @"categoria13"];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    self.automaticallyAdjustsScrollViewInsets = false;
+       [super viewWillLayoutSubviews];
+        [self.tableView reloadData];
+}
+
 
 - (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
 {

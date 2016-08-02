@@ -30,6 +30,8 @@
         sesion.leftSlideMenu = revealViewController;
         [_menuButton
          addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+
   
     NSLog(@"Entoncs el singleton es: %@",sesion.leftSlideMenu);
     // Do any additional setup after loading the view.

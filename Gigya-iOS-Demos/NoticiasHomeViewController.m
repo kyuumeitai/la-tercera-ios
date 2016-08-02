@@ -40,7 +40,7 @@
     if (revealViewController) {
         [_menuButton
          addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-        // [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+         [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     }
 }
 

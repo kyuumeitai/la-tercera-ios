@@ -32,7 +32,9 @@ NSString *email;
     sesion = [SessionManager session];
     profile = [sesion getUserProfile];
     
-    nombre = profile.name;
+    
+    NSString *nombreCompleto = [NSString stringWithFormat:@"%@ %@",profile.name, profile.lastName];
+    nombre = nombreCompleto;
     email = profile.email;
     
 

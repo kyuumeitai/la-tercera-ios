@@ -15,6 +15,8 @@
     
     SessionManager *sesion = [SessionManager session];
      [_menuButton addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+
 }
 
 @end
