@@ -67,7 +67,7 @@
 }
 
 -(void) setupNewsCategories{
-    
+
     // SetUp ViewControllers
     NewsCategoryInicioViewController *newsInicioVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
     newsInicioVC.title = @"Inicio";
