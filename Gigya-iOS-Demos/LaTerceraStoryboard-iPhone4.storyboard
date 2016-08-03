@@ -4140,7 +4140,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPs-va-mbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2542.5" y="-1140"/>
+            <point key="canvasLocation" x="2410.5" y="-1421"/>
         </scene>
         <!--Noticias Politica-->
         <scene sceneID="Jtf-eI-5B3">
@@ -4335,24 +4335,27 @@ de La Tercera</string>
         <!--News Category Cultura View Controller-->
         <scene sceneID="1Uv-p1-a5b">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zEs-1j-47f" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="newsCategoryCultura" id="jTh-nR-5jt" customClass="NewsCategoryCulturaViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iLC-fX-SpM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" id="vyn-Th-q0z">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="94C-rh-BI8" kind="embed" id="icu-Tr-Yw7"/>
+                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zEs-1j-47f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1083.5" y="-2625.5"/>
+            <point key="canvasLocation" x="-1084" y="-2626"/>
         </scene>
         <!--News Category Mundo View Controller-->
         <scene sceneID="hAQ-I0-9bm">
@@ -4434,21 +4437,20 @@ de La Tercera</string>
         <!--Noticias Cultura-->
         <scene sceneID="ygu-ro-zFI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KjN-P7-02a" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="94C-rh-BI8" customClass="CVNoticiasCultura" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="7OL-kE-thT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="MS2-Du-pdE">
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eyQ-M6-adO">
-                                <rect key="frame" x="10" y="30" width="170" height="267"/>
+                                <rect key="frame" x="75" y="30" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4458,7 +4460,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sko-mn-LNN">
-                                <rect key="frame" x="195" y="30" width="170" height="267"/>
+                                <rect key="frame" x="75" y="299" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4475,13 +4477,13 @@ de La Tercera</string>
                     </collectionView>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="7OL-kE-thT" id="OgU-xl-Im6"/>
                     </connections>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KjN-P7-02a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-485.5" y="-2625.5"/>
+            <point key="canvasLocation" x="-679" y="-2636"/>
         </scene>
         <!--News Category Tendencias View Controller-->
         <scene sceneID="DD6-9b-jJl">

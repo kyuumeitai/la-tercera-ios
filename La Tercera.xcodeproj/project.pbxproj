@@ -605,6 +605,12 @@
 		D0522D701D09DBB300D6E4C6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0522D6F1D09DBB300D6E4C6 /* CoreBluetooth.framework */; };
 		D052C30A1D2D42330059A0E5 /* LaTerceraStoryboard-iPhone5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D052C3091D2D42330059A0E5 /* LaTerceraStoryboard-iPhone5.storyboard */; };
 		D052C30B1D2D42330059A0E5 /* LaTerceraStoryboard-iPhone5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D052C3091D2D42330059A0E5 /* LaTerceraStoryboard-iPhone5.storyboard */; };
+		D07C589C1D5237F6000887E8 /* CollectionViewCellBanner4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07C58991D5237F6000887E8 /* CollectionViewCellBanner4-5.xib */; };
+		D07C589D1D5237F6000887E8 /* CollectionViewCellBanner4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07C58991D5237F6000887E8 /* CollectionViewCellBanner4-5.xib */; };
+		D07C589E1D5237F6000887E8 /* CollectionViewCellHorizontal4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07C589A1D5237F6000887E8 /* CollectionViewCellHorizontal4-5.xib */; };
+		D07C589F1D5237F6000887E8 /* CollectionViewCellHorizontal4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07C589A1D5237F6000887E8 /* CollectionViewCellHorizontal4-5.xib */; };
+		D07C58A01D5237F6000887E8 /* CollectionViewCellMediana4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07C589B1D5237F6000887E8 /* CollectionViewCellMediana4-5.xib */; };
+		D07C58A11D5237F6000887E8 /* CollectionViewCellMediana4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07C589B1D5237F6000887E8 /* CollectionViewCellMediana4-5.xib */; };
 		D08697581D10AEFA00919A81 /* DetalleNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08697571D10AEFA00919A81 /* DetalleNewsViewController.m */; };
 		D08697591D10AEFA00919A81 /* DetalleNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08697571D10AEFA00919A81 /* DetalleNewsViewController.m */; };
 		D08E12881CEE1FF200665795 /* mineria.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D08E12871CEE1FF200665795 /* mineria.jpg */; };
@@ -1116,6 +1122,9 @@
 		D06DC3911C84A23F0063B836 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		D06DC3921C84A23F0063B836 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		D06DC3951C84BAAD0063B836 /* MKHorizMenu */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MKHorizMenu; sourceTree = "<group>"; };
+		D07C58991D5237F6000887E8 /* CollectionViewCellBanner4-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "CollectionViewCellBanner4-5.xib"; sourceTree = "<group>"; };
+		D07C589A1D5237F6000887E8 /* CollectionViewCellHorizontal4-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "CollectionViewCellHorizontal4-5.xib"; sourceTree = "<group>"; };
+		D07C589B1D5237F6000887E8 /* CollectionViewCellMediana4-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "CollectionViewCellMediana4-5.xib"; sourceTree = "<group>"; };
 		D08697561D10AEFA00919A81 /* DetalleNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleNewsViewController.h; sourceTree = "<group>"; };
 		D08697571D10AEFA00919A81 /* DetalleNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalleNewsViewController.m; sourceTree = "<group>"; };
 		D08E12871CEE1FF200665795 /* mineria.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mineria.jpg; sourceTree = "<group>"; };
@@ -1859,19 +1868,16 @@
 		D008D6F71D0083F400502A69 /* CollectionVC */ = {
 			isa = PBXGroup;
 			children = (
-				D010582C1D2D7EC700311163 /* CollectionViewCellGrande4-5.xib */,
+				D07C58981D5235F8000887E8 /* iPhone6 */,
+				D07C58971D5235DB000887E8 /* iPhone4-5 */,
 				D008D6F81D00850D00502A69 /* CollectionViewCellGrande.h */,
 				D008D6F91D00850D00502A69 /* CollectionViewCellGrande.m */,
-				D008D6FA1D00850D00502A69 /* CollectionViewCellGrande.xib */,
 				D0FFBAC01D05E620001F501D /* CollectionViewCellMediana.h */,
 				D0FFBAC11D05E620001F501D /* CollectionViewCellMediana.m */,
-				D0FFBAC21D05E620001F501D /* CollectionViewCellMediana.xib */,
 				D0522D551D09C21100D6E4C6 /* CollectionViewCellHorizontal.h */,
 				D0522D561D09C21100D6E4C6 /* CollectionViewCellHorizontal.m */,
-				D0522D571D09C21100D6E4C6 /* CollectionViewCellHorizontal.xib */,
 				D0522D5C1D09D32100D6E4C6 /* CollectionViewCellBanner.h */,
 				D0522D5D1D09D32100D6E4C6 /* CollectionViewCellBanner.m */,
-				D0522D5E1D09D32100D6E4C6 /* CollectionViewCellBanner.xib */,
 			);
 			name = CollectionVC;
 			sourceTree = "<group>";
@@ -2201,6 +2207,28 @@
 				17CE96F61CA10A0100898C56 /* MenuViewController.m */,
 			);
 			name = SWRevealMenu;
+			sourceTree = "<group>";
+		};
+		D07C58971D5235DB000887E8 /* iPhone4-5 */ = {
+			isa = PBXGroup;
+			children = (
+				D07C58991D5237F6000887E8 /* CollectionViewCellBanner4-5.xib */,
+				D07C589A1D5237F6000887E8 /* CollectionViewCellHorizontal4-5.xib */,
+				D07C589B1D5237F6000887E8 /* CollectionViewCellMediana4-5.xib */,
+				D010582C1D2D7EC700311163 /* CollectionViewCellGrande4-5.xib */,
+			);
+			name = "iPhone4-5";
+			sourceTree = "<group>";
+		};
+		D07C58981D5235F8000887E8 /* iPhone6 */ = {
+			isa = PBXGroup;
+			children = (
+				D008D6FA1D00850D00502A69 /* CollectionViewCellGrande.xib */,
+				D0FFBAC21D05E620001F501D /* CollectionViewCellMediana.xib */,
+				D0522D571D09C21100D6E4C6 /* CollectionViewCellHorizontal.xib */,
+				D0522D5E1D09D32100D6E4C6 /* CollectionViewCellBanner.xib */,
+			);
+			name = iPhone6;
 			sourceTree = "<group>";
 		};
 		D08E127F1CEE0E3A00665795 /* News */ = {
@@ -2771,6 +2799,7 @@
 				D03F4F211CCE762700B5835D /* comoFunciona4@2x.png in Resources */,
 				D0DB18F51CB417FD00A0BBC5 /* new2.png in Resources */,
 				D0107A591D2ABAE200C9B4D8 /* Icon-Small-50.png in Resources */,
+				D07C589F1D5237F6000887E8 /* CollectionViewCellHorizontal4-5.xib in Resources */,
 				1702BD941CB093E400F26F42 /* SVProgressHUD.bundle in Resources */,
 				171AFA5A1CCF89F400705817 /* imagenEvento3@3x.png in Resources */,
 				1702BD951CB093E400F26F42 /* BotonShare.png in Resources */,
@@ -2884,6 +2913,7 @@
 				D0107A471D2ABAE200C9B4D8 /* Icon-60@2x.png in Resources */,
 				1702BDCD1CB093E400F26F42 /* botonVerBeneficiosCercanos.png in Resources */,
 				1702BDCE1CB093E400F26F42 /* botonTiempoLibre@2x.png in Resources */,
+				D07C589D1D5237F6000887E8 /* CollectionViewCellBanner4-5.xib in Resources */,
 				D03F4EF51CCE762700B5835D /* comoFunciona9@3x.png in Resources */,
 				1702BDCF1CB093E400F26F42 /* DestacadoTableViewCell.xib in Resources */,
 				D03F4F251CCE762700B5835D /* comoFunciona3.png in Resources */,
@@ -2930,6 +2960,7 @@
 				1702BDE81CB093E400F26F42 /* imagenDestacada@3x.png in Resources */,
 				1702BDE91CB093E400F26F42 /* boton-menu@2x.png in Resources */,
 				1702BDEA1CB093E400F26F42 /* imagenPlaceholderSabores@2x.png in Resources */,
+				D07C58A11D5237F6000887E8 /* CollectionViewCellMediana4-5.xib in Resources */,
 				D00B9C5D1D3FE80E00705A11 /* RemoveToSelection.png in Resources */,
 				1702BDEB1CB093E400F26F42 /* botonVolver@3x.png in Resources */,
 				D0DD6E4E1CBFFD9C00994DDF /* placeholder.png in Resources */,
@@ -3018,6 +3049,7 @@
 				D0D56D421CE4D5040064DE64 /* YActionSheetResources.bundle in Resources */,
 				D03F4EFC1CCE762700B5835D /* comoFunciona11@3x.png in Resources */,
 				171AFA531CCF89F400705817 /* imagenEvento2@3x.png in Resources */,
+				D07C589C1D5237F6000887E8 /* CollectionViewCellBanner4-5.xib in Resources */,
 				D03F4EB81CCE5E2600B5835D /* check.png in Resources */,
 				D008B4981D19C34E002DBBA7 /* Banners-DFP.rtf in Resources */,
 				D015204F1D4A8C63009CA13E /* Slice@1x.png in Resources */,
@@ -3054,6 +3086,7 @@
 				D03F4F0C1CCE762700B5835D /* comoFunciona7@3x.png in Resources */,
 				D03F4F1A1CCE762700B5835D /* comoFunciona5@2x.png in Resources */,
 				D03F4F061CCE762700B5835D /* comoFunciona8.png in Resources */,
+				D07C589E1D5237F6000887E8 /* CollectionViewCellHorizontal4-5.xib in Resources */,
 				D0107A4E1D2ABAE200C9B4D8 /* Icon-40.png in Resources */,
 				D03F4F1C1CCE762700B5835D /* comoFunciona5@3x.png in Resources */,
 				D0107A2C1D2ABAE200C9B4D8 /* Icon-60@3x.png in Resources */,
@@ -3104,6 +3137,7 @@
 				D0107A561D2ABAE200C9B4D8 /* Icon-72@2x.png in Resources */,
 				D03F4F141CCE762700B5835D /* comoFunciona6.png in Resources */,
 				D0C590161D35944B00525AD3 /* divider@2x.png in Resources */,
+				D07C58A01D5237F6000887E8 /* CollectionViewCellMediana4-5.xib in Resources */,
 				D0107A601D2ABAE200C9B4D8 /* Icon.png in Resources */,
 				D04546CD1CEB7183004A011D /* LaTerceraStoryboard.storyboard in Resources */,
 				171AFA571CCF89F400705817 /* imagenEvento3@2x.png in Resources */,

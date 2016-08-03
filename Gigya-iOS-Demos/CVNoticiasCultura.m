@@ -62,14 +62,14 @@ NSString *storyBoardName;
     headlinesArray = [[NSMutableArray alloc] init];
     
     bannersCultura = [NSArray arrayWithObjects:@"/124506296/La_Tercera_com/La_Tercera_com_APP/Cultura_300x250-A", @"/124506296/La_Tercera_com/La_Tercera_com_APP/Cultura_300x250-B", @"/124506296/La_Tercera_com/La_Tercera_com_APP/Cultura_300x250-C", @"/124506296/La_Tercera_com/La_Tercera_com_APP/Cultura_300x250-D", @"/124506296/La_Tercera_com/La_Tercera_com_APP/Cultura_300x250-E", nil];
+    
+    //Celda Grande
     UINib *cellNib ;
-    
-    
+
     if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
          cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande4-5" bundle: nil];
         [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"collectionViewGrande4-5"];
 
-       NSLog(@" Estamos en celda chica locooo");
     }else{
         
         cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande" bundle: nil];
@@ -77,13 +77,33 @@ NSString *storyBoardName;
     }
     
     
-    UINib *cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana" bundle: nil];
+    //Celda Mediana
+    UINib *cellNib2 ;
     
-    [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:reuseIdentifierMediana];
+    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana4-5" bundle: nil];
+        [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:@"collectionViewMediana4-5"];
+        
+    }else{
+        
+        cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana" bundle: nil];
+        [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:reuseIdentifierMediana];
+    }
     
-    UINib *cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal" bundle: nil];
+
+    //Celda Horizontal
+    UINib *cellNib3 ;
     
-    [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:reuseIdentifierHorizontal];
+    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal4-5" bundle: nil];
+        [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:@"collectionViewHorizontal4-5"];
+        
+    }else{
+        
+        cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal" bundle: nil];
+        [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:reuseIdentifierHorizontal];
+    }
+    
     
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
     
@@ -249,7 +269,6 @@ NSString *storyBoardName;
         if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewGrande4-5" forIndexPath:indexPath];
             
-            NSLog(@" Estamos en celda chica locooo");
         }else{
            cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
         
@@ -281,7 +300,14 @@ NSString *storyBoardName;
     {
         
         
-        CollectionViewCellMediana *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
+        CollectionViewCellMediana *cell;
+        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+            cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewMediana4-5" forIndexPath:indexPath];
+            
+        }else{
+            cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
+            
+        }
         
         
         // Configure the cell
@@ -309,7 +335,14 @@ NSString *storyBoardName;
     {
         
         
-        CollectionViewCellHorizontal*cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierHorizontal forIndexPath:indexPath];
+        CollectionViewCellHorizontal *cell;
+        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+            cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewHorizontal4-5" forIndexPath:indexPath];
+            
+        }else{
+            cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierHorizontal forIndexPath:indexPath];
+            
+        }
         
         // Configure the cell
         cell.labelSummary.text = titular.title;
@@ -417,8 +450,7 @@ NSString *storyBoardName;
     if([indexPath row]==0 || [indexPath row] % 6 == 0){
         
         if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            NSLog(@"Estamos en iphone 5 locooo o  4");
-            return CGSizeMake(320, 468);
+            return CGSizeMake(310, 468);
             
         }else{
             return CGSizeMake(370, 420);
@@ -426,12 +458,22 @@ NSString *storyBoardName;
     }
     
     if([indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 ) {
-        return CGSizeMake(170, 262);
+        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+            return CGSizeMake(154, 268);
+            
+        }else{
+            return CGSizeMake(154, 290);
+        }
         
     }
     
     if([indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
-        return CGSizeMake(356, 100);
+        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+            return CGSizeMake(300, 100);
+            
+        }else{
+            return CGSizeMake(356, 100);
+        }
         
     }
     
