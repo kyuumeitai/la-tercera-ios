@@ -72,8 +72,8 @@
     NewsCategoryInicioViewController *newsInicioVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
     newsInicioVC.title = @"Inicio";
     
-    //NewsCategoryNacionalViewController *newsNacionalVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryNacionl"];
-    //newsNacionalVC.title = @"Nacional";
+    NewsCategoryNacionalViewController *newsNacionalVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryNacional"];
+    newsNacionalVC.title = @"Nacional";
 
     NewsCategoryPoliticaViewController *newsPoliticaVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
     newsPoliticaVC.title = @"Política";
@@ -84,11 +84,11 @@
     NewsCategoryTendenciasViewController *newsTendenciasVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryTendencias"];
     newsTendenciasVC.title = @"Tendencias";
     
-    //NewsCategoryNegociosViewController *newsNegociosVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryNegocios"];
-    //newsNegociosVC.title = @"Negocios";
+    NewsCategoryNegociosViewController *newsNegociosVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryNegocios"];
+    newsNegociosVC.title = @"Negocios";
     
-    //NewsCategoryElDeportivoViewController *newsElDeportivoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryElDeportivo"];
-    //newsElDeportivoVC.title = @"El Deportivo";
+    NewsCategoryElDeportivoViewController *newsElDeportivoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryElDeportivo"];
+    newsElDeportivoVC.title = @"El Deportivo";
     
     NewsCategoryEntretencionViewController *newsEntretencionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryEntretencion"];
     newsEntretencionVC.title = @"Entretención";
@@ -101,7 +101,7 @@
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,newsPoliticaVC,newsMundoVC,newsTendenciasVC,newsCulturaVC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,newsNacionalVC,newsPoliticaVC,newsMundoVC,newsTendenciasVC,newsNegociosVC, newsElDeportivoVC ,newsEntretencionVC ,newsCulturaVC]                                                                                        topBarHeight:headerSpace                                                                                parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
