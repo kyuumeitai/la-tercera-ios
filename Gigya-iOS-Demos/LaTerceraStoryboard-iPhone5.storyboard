@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1935,7 +1935,7 @@ de tu descuento.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RG8-4U-QSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1944" y="1725"/>
+            <point key="canvasLocation" x="-2028" y="1725"/>
         </scene>
         <!--Sabores ContainerVC-->
         <scene sceneID="4IV-VL-2sl">
@@ -1996,10 +1996,13 @@ de tu descuento.</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="FjI-yW-jjB" id="cRS-Y7-eSA"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmj-rE-UhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1766.5" y="2525.5"/>
+            <point key="canvasLocation" x="-1992" y="2507"/>
         </scene>
         <!--Tiempo Libre ContainerVC-->
         <scene sceneID="9cj-lG-Qi4">
@@ -2060,10 +2063,13 @@ de tu descuento.</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="CRv-uv-ex1" id="A6i-bM-8QO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1RV-dN-dFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1759" y="3289"/>
+            <point key="canvasLocation" x="-2012" y="3301"/>
         </scene>
         <!--Vida Sana ContainerVC-->
         <scene sceneID="EGD-9h-4en">
@@ -2091,10 +2097,10 @@ de tu descuento.</string>
             </objects>
             <point key="canvasLocation" x="-2490" y="3289"/>
         </scene>
-        <!--Mastercard Table View-->
+        <!--Servicios Table View-->
         <scene sceneID="P46-kf-hkI">
             <objects>
-                <tableViewController storyboardIdentifier="ServiciosTableView" title="Mastercard Table View" id="l39-wO-OTt" customClass="ServiciosTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ServiciosTableView" title="Servicios Table View" id="l39-wO-OTt" customClass="ServiciosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="gpt-m4-Ew7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2124,10 +2130,13 @@ de tu descuento.</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="gpt-m4-Ew7" id="Jcl-zb-ldJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpy-55-ggB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1759" y="4025"/>
+            <point key="canvasLocation" x="-2028" y="4018"/>
         </scene>
         <!--Servicios ContainerVC-->
         <scene sceneID="wCt-Th-CCM">
@@ -2419,53 +2428,6 @@ de tu descuento.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ubf-RK-e9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042" y="1316"/>
-        </scene>
-        <!--Usar Beneficio No Logueado-->
-        <scene sceneID="BIm-0R-QGl">
-            <objects>
-                <viewController storyboardIdentifier="permissionNeededScreen" id="s3z-zX-z52" customClass="UsarBeneficioNoLogueado" sceneMemberID="viewController">
-                    <view key="view" alpha="0.84999999999999998" contentMode="scaleToFill" id="fur-zX-T5W">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     Para usar este beneficio debes ser Suscriptor del Club La Tercera" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fBT-ae-c6I">
-                                <rect key="frame" x="40" y="92" width="241" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7sV-NZ-huX" customClass="CustomButtonTercera">
-                                <rect key="frame" x="24" y="320" width="137" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Iniciar Sesión"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="A34-iN-fU1" customClass="CustomButtonTercera">
-                                <rect key="frame" x="169" y="320" width="131" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.3156650641" green="0.3156650641" blue="0.3156650641" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Suscríbete"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dZc-VU-ZDx">
-                                <rect key="frame" x="40" y="432" width="249" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
-                                <state key="normal" title="Volver y no ocupar el beneficio">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="hSv-YR-ihB"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qz9-lx-yC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1032" y="712"/>
         </scene>
         <!--Tarjeta Virtual-->
         <scene sceneID="6vh-H8-hpd">
@@ -4307,7 +4269,7 @@ de La Tercera</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cJu-mm-P8z">
@@ -4354,15 +4316,15 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="2" id="iHB-Q1-fIe">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="iHB-Q1-fIe">
                             <size key="itemSize" width="286" height="467"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="5" minY="20" maxX="5" maxY="8"/>
+                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jKy-Fp-pFJ">
-                                <rect key="frame" x="29" y="20" width="263" height="467"/>
+                                <rect key="frame" x="29" y="30" width="263" height="467"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="263" height="467"/>
@@ -4373,7 +4335,7 @@ de La Tercera</string>
                                 <size key="customSize" width="263" height="467"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0L4-uz-XMB">
-                                <rect key="frame" x="17" y="492" width="286" height="467"/>
+                                <rect key="frame" x="17" y="499" width="286" height="467"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="286" height="467"/>
@@ -4383,7 +4345,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yQp-NE-BM0">
-                                <rect key="frame" x="17" y="964" width="286" height="467"/>
+                                <rect key="frame" x="17" y="968" width="286" height="467"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="251" height="261"/>
@@ -4393,7 +4355,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Aym-2a-axi">
-                                <rect key="frame" x="17" y="1436" width="286" height="467"/>
+                                <rect key="frame" x="17" y="1437" width="286" height="467"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="251" height="261"/>
@@ -4403,7 +4365,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3vx-vi-AfL">
-                                <rect key="frame" x="17" y="1908" width="286" height="467"/>
+                                <rect key="frame" x="17" y="1906" width="286" height="467"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="251" height="261"/>
@@ -4849,7 +4811,7 @@ de La Tercera</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presidente del Senado propone contrapesar poder de Hacienda en materia presupuestaria" textAlignment="justified" lineBreakMode="clip" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" id="gM1-fn-8xK">
-                                        <rect key="frame" x="20" y="50" width="289" height="111"/>
+                                        <rect key="frame" x="20" y="50" width="283" height="111"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -4895,14 +4857,8 @@ de La Tercera</string>
                                             <action selector="decreaseTextSizePressed:" destination="6oI-mI-HJC" eventType="touchUpInside" id="soR-DR-hG6"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vAb-bZ-m4X">
-                                        <rect key="frame" x="22" y="293" width="276" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                        <fontDescription key="fontDescription" name="PTSans-Italic" family="PT Sans" pointSize="16"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" id="iWY-Pi-6lt">
-                                        <rect key="frame" x="20" y="160" width="283" height="134"/>
+                                        <rect key="frame" x="20" y="160" width="278" height="134"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                         <string key="text">El presidente altiplanico volvio a reunirse con la comitiva que visito los puertos de Arica y El presidente altiplanico volvio a reunirse con la comitiva que visito </string>
                                         <fontDescription key="fontDescription" name="PTSans-Italic" family="PT Sans" pointSize="19"/>
@@ -4912,6 +4868,12 @@ de La Tercera</string>
                                         <rect key="frame" x="24" y="325" width="274" height="187"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vAb-bZ-m4X">
+                                        <rect key="frame" x="23" y="293" width="276" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Italic" family="PT Sans" pointSize="16"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
@@ -4938,6 +4900,62 @@ de La Tercera</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0u9-as-hU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-813" y="-1403"/>
+        </scene>
+        <!--Usar Beneficio No Logueado-->
+        <scene sceneID="y1j-Qd-gMA">
+            <objects>
+                <viewController storyboardIdentifier="suscriberNeededScreen" id="5Vg-m2-tdB" customClass="UsarBeneficioNoLogueado" sceneMemberID="viewController">
+                    <view key="view" alpha="0.85000002384185791" contentMode="scaleToFill" id="ueq-zv-Cvh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para usar este beneficio debes ser Suscriptor del Club La Tercera" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bB6-Ix-xvs">
+                                <rect key="frame" x="45" y="105" width="231" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e6n-VY-Nm5">
+                                <rect key="frame" x="20" y="309" width="124" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Iniciar Sesión"/>
+                                <connections>
+                                    <action selector="loginWithGigya:" destination="5Vg-m2-tdB" eventType="touchUpInside" id="dM3-uZ-ZA5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8LW-XL-ghd">
+                                <rect key="frame" x="173" y="309" width="127" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.3156650641" green="0.3156650641" blue="0.3156650641" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Suscríbete"/>
+                                <connections>
+                                    <action selector="openSuscriptionWeb:" destination="5Vg-m2-tdB" eventType="touchUpInside" id="NyW-Ym-ZaU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XaS-zK-hwK">
+                                <rect key="frame" x="38" y="397" width="245" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
+                                <state key="normal" title="Volver y no ocupar el beneficio">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="volver:" destination="5Vg-m2-tdB" eventType="touchUpInside" id="ivQ-qs-uFK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Vks-Tj-5hB"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uoT-Oz-yjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021" y="700"/>
         </scene>
     </scenes>
     <resources>

@@ -198,6 +198,7 @@ NSString *storyBoardName;
             imageThumb = @"https://placekitten.com/200/200";
         }else{
            imageThumb = [dictTitular objectForKey:@"thumb_url"];
+            NSLog(@" el thumbnail  es: %@ ",imageThumb);
         }
         
         Headline *titular = [[Headline alloc] init];
