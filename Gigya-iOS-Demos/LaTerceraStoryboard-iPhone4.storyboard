@@ -20,7 +20,10 @@
             <string>PTSans-Bold</string>
             <string>PTSans-Bold</string>
             <string>PTSans-Bold</string>
-            <string>PTSans-Bold</string>
+        </mutableArray>
+        <mutableArray key="PT_Sans-Web-Italic.ttf">
+            <string>PTSans-Italic</string>
+            <string>PTSans-Italic</string>
         </mutableArray>
         <mutableArray key="PT_Sans-Web-Regular.ttf">
             <string>PTSans-Regular</string>
@@ -1085,104 +1088,13 @@ REGISTRARSE?</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="C3w-uL-EQG" id="m2H-MD-gQy"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Yg-W1-QeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1923" y="-3131"/>
-        </scene>
-        <!--DetalleNewsCategory-->
-        <scene sceneID="EAI-CS-DBR">
-            <objects>
-                <viewController storyboardIdentifier="DetalleNewsCategory" title="DetalleNewsCategory" id="Ukj-Fb-xdc" customClass="DetalleNewsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zOZ-Io-1a1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" indicatorStyle="black" id="h5W-Eo-x1V">
-                                <rect key="frame" x="0.0" y="72" width="375" height="1128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Muere David Bowie a los 69 años producto de un cáncer, años producto de un cáncer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AsS-bt-9Fb">
-                                        <rect key="frame" x="24" y="48" width="278" height="109"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="26"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kcB-NZ-pf3">
-                                        <rect key="frame" x="27" y="158" width="281" height="67"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.</string>
-                                        <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entretención" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8fs-FM-4xo">
-                                        <rect key="frame" x="25" y="19" width="115" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="20"/>
-                                        <color key="textColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="summer-sunny-lifestyle-fashion-1.png" id="tVX-fa-Oop">
-                                        <rect key="frame" x="24" y="233" width="278" height="169"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="27" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="Asb-hc-GU6">
-                                        <rect key="frame" x="22" y="417" width="286" height="369"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                                 La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                              La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.</string>
-                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
-                                        <size key="value" width="375" height="1400"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" id="ndh-wh-qlr">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" id="V1x-gI-gXa">
-                                <rect key="frame" x="140" y="20" width="229" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaTercera.png" id="WrK-Yz-lEi">
-                                        <rect key="frame" x="0.0" y="13" width="167" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.70196078429999997" green="0.15686274510000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qor-aa-5m4">
-                                <rect key="frame" x="6" y="17" width="48" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="botonVolver.png"/>
-                                <connections>
-                                    <action selector="backButtonClicked:" destination="Ukj-Fb-xdc" eventType="touchUpInside" id="FVI-6f-FZu"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Glv-hW-7aZ"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="content" destination="Asb-hc-GU6" id="Jmy-ds-QdV"/>
-                        <outlet property="imagenNews" destination="tVX-fa-Oop" id="Vsw-io-Pow"/>
-                        <outlet property="summary" destination="kcB-NZ-pf3" id="sro-Ze-CbZ"/>
-                        <outlet property="titulo" destination="AsS-bt-9Fb" id="63q-Ae-hIr"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pmi-lf-oXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-783" y="-1990"/>
         </scene>
         <!--News Category Politica View Controller-->
         <scene sceneID="NOU-LM-nKV">
@@ -4185,6 +4097,9 @@ de La Tercera</string>
                     </collectionView>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="q3p-lK-1jh" id="vXK-pV-Q52"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mC8-eY-WUU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4394,7 +4309,7 @@ de La Tercera</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Lod-0e-Xsb">
@@ -4522,7 +4437,7 @@ de La Tercera</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Im7-Ah-vO7">
@@ -4599,11 +4514,11 @@ de La Tercera</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="30" maxX="10" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MMV-UA-GI0">
-                                <rect key="frame" x="75" y="30" width="170" height="267"/>
+                                <rect key="frame" x="73" y="30" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4613,7 +4528,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ghk-et-rBl">
-                                <rect key="frame" x="75" y="299" width="170" height="267"/>
+                                <rect key="frame" x="73" y="299" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4650,6 +4565,9 @@ de La Tercera</string>
                             <containerView opaque="NO" contentMode="scaleToFill" id="bif-mM-rdy">
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="gXx-Db-z54" kind="embed" id="GNs-Nd-yfb"/>
+                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4673,7 +4591,7 @@ de La Tercera</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yzG-3p-Y5V">
@@ -4711,12 +4629,298 @@ de La Tercera</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jyr-m1-zct" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-518" y="-5391"/>
+            <point key="canvasLocation" x="-518" y="-5398"/>
+        </scene>
+        <!--News Category El Deportivo View Controller-->
+        <scene sceneID="OuK-n8-fz6">
+            <objects>
+                <viewController storyboardIdentifier="newsCategoryElDeportivo" id="YeP-VJ-lyG" customClass="NewsCategoryElDeportivoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tmr-Xh-SpA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" id="g5L-89-qAY">
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="fwJ-hL-5FX" kind="embed" id="CPl-cF-47v"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dYt-vq-g94" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1112" y="-5977"/>
+        </scene>
+        <!--Noticias El Deportivo-->
+        <scene sceneID="LR2-ED-PEe">
+            <objects>
+                <collectionViewController id="fwJ-hL-5FX" customClass="CVNoticiasElDeportivo" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="kFa-nd-Kzf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="afe-KE-2lb">
+                            <size key="itemSize" width="170" height="267"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Hb7-O3-aYo">
+                                <rect key="frame" x="75" y="30" width="170" height="267"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="d4g-i7-Lw3">
+                                <rect key="frame" x="75" y="299" width="170" height="267"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="fwJ-hL-5FX" id="btj-7s-F0q"/>
+                            <outlet property="delegate" destination="fwJ-hL-5FX" id="Wxh-ze-sxg"/>
+                        </connections>
+                    </collectionView>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="kFa-nd-Kzf" id="5rr-nU-vUK"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nvi-hs-cLl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-518" y="-5977"/>
+        </scene>
+        <!--News Category Negocios View Controller-->
+        <scene sceneID="MlH-An-BWR">
+            <objects>
+                <viewController storyboardIdentifier="newsCategoryNegocios" id="cm1-bp-Neq" customClass="NewsCategoryNegociosViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YdS-kv-fau">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" id="3Mb-X4-mds">
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="h44-nN-PGU" kind="embed" id="QFB-NK-6VL"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mtg-0f-MbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1112" y="-6545"/>
+        </scene>
+        <!--Noticias Negocios-->
+        <scene sceneID="ysG-tx-Opv">
+            <objects>
+                <collectionViewController id="h44-nN-PGU" customClass="CVNoticiasNegocios" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="sfl-od-H75">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="B8C-pu-x0o">
+                            <size key="itemSize" width="170" height="267"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nmU-fE-880">
+                                <rect key="frame" x="75" y="30" width="170" height="267"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="G0u-w2-cTk">
+                                <rect key="frame" x="75" y="299" width="170" height="267"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="h44-nN-PGU" id="90Q-0k-07d"/>
+                            <outlet property="delegate" destination="h44-nN-PGU" id="INg-ek-VEz"/>
+                        </connections>
+                    </collectionView>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="sfl-od-H75" id="bqO-d7-Sle"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ibL-BW-N1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-531" y="-6545"/>
+        </scene>
+        <!--DetalleNewsCategory-->
+        <scene sceneID="JqR-3S-AyD">
+            <objects>
+                <viewController storyboardIdentifier="DetalleNewsCategory" title="DetalleNewsCategory" id="pSg-bU-ZFN" customClass="DetalleNewsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FoI-te-8SP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" id="jMw-jF-REa">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="M0o-HF-gHr">
+                                <rect key="frame" x="6" y="17" width="48" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="botonVolver.png"/>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="pSg-bU-ZFN" eventType="touchUpInside" id="Pn4-IE-WrH"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="Ty4-PM-YdP">
+                                <rect key="frame" x="62" y="20" width="258" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nue-ha-zw3">
+                                        <rect key="frame" x="202" y="4" width="45" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="BotonShare.png"/>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaTercera.png" id="1t6-tu-3Oq">
+                                        <rect key="frame" x="-3" y="13" width="167" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.70196078429999997" green="0.15686274510000001" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" id="ak3-Nf-ad8">
+                                <rect key="frame" x="0.0" y="74" width="320" height="595"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presidente del Senado propone contrapesar poder de Hacienda en materia presupuestaria" textAlignment="justified" lineBreakMode="clip" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" id="6MQ-1t-u5h">
+                                        <rect key="frame" x="20" y="50" width="289" height="111"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="25"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entretención" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iSC-pO-p9W">
+                                        <rect key="frame" x="20" y="21" width="115" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="21"/>
+                                        <color key="textColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fhr-A8-EjE">
+                                        <rect key="frame" x="144" y="12" width="40" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="AddToSelection.png"/>
+                                        <connections>
+                                            <action selector="selectionButtonPressed:" destination="pSg-bU-ZFN" eventType="touchUpInside" id="NSg-VN-auy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="8T2-nf-CUj">
+                                        <rect key="frame" x="260" y="8" width="49" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="agrandarTexto.png"/>
+                                        <connections>
+                                            <action selector="increaseTextSizePressed:" destination="pSg-bU-ZFN" eventType="touchUpInside" id="mmS-Wp-HSc"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" indicatorStyle="black" editable="NO" textAlignment="natural" selectable="NO" id="0eg-vo-WGK">
+                                        <rect key="frame" x="24" y="520" width="279" height="799"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                                 La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                              La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.                                             La leyenda de la música británica falleció esta mañana según confirmación de su hijo, a dos días del lanzamiento de su último disco.</string>
+                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="cDd-V5-lvo">
+                                        <rect key="frame" x="203" y="8" width="49" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="achicarTexto.png"/>
+                                        <connections>
+                                            <action selector="decreaseTextSizePressed:" destination="pSg-bU-ZFN" eventType="touchUpInside" id="coK-Nx-wPA"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pnh-GJ-8MR">
+                                        <rect key="frame" x="22" y="293" width="276" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Italic" family="PT Sans" pointSize="16"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" id="Mdq-7V-CKh">
+                                        <rect key="frame" x="20" y="160" width="283" height="134"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                        <string key="text">El presidente altiplanico volvio a reunirse con la comitiva que visito los puertos de Arica y El presidente altiplanico volvio a reunirse con la comitiva que visito </string>
+                                        <fontDescription key="fontDescription" name="PTSans-Italic" family="PT Sans" pointSize="19"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="summer-sunny-lifestyle-fashion-1.png" id="dcb-00-pQE">
+                                        <rect key="frame" x="24" y="325" width="274" height="187"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                        <size key="value" width="375" height="1500"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wcq-mx-B4D"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="contentTextView" destination="0eg-vo-WGK" id="ZQB-1q-YSe"/>
+                        <outlet property="imagenNews" destination="dcb-00-pQE" id="RJF-OW-OAP"/>
+                        <outlet property="labelFecha" destination="pnh-GJ-8MR" id="OBd-jQ-Rxn"/>
+                        <outlet property="scrollView" destination="ak3-Nf-ad8" id="9kL-o6-aJH"/>
+                        <outlet property="summary" destination="Mdq-7V-CKh" id="fGk-g4-fPG"/>
+                        <outlet property="titulo" destination="6MQ-1t-u5h" id="bx9-tA-Do6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Mg-VM-RGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1112" y="-1781"/>
         </scene>
     </scenes>
     <resources>
         <image name=" " width="360" height="640"/>
         <image name="0.1 Bienvenida.png" width="360" height="640"/>
+        <image name="AddToSelection.png" width="34" height="34"/>
         <image name="BarraLT.png" width="359" height="88"/>
         <image name="BotonShare.png" width="34" height="34"/>
         <image name="CellNormal.png" width="340" height="70"/>
@@ -4724,6 +4928,8 @@ de La Tercera</string>
         <image name="LaTercera.png" width="278" height="40"/>
         <image name="OpacityForImage.png" width="359" height="186"/>
         <image name="VerBeneficiosCerca.png" width="332" height="43"/>
+        <image name="achicarTexto.png" width="34" height="34"/>
+        <image name="agrandarTexto.png" width="35" height="34"/>
         <image name="audioplayer_play.png" width="66" height="65"/>
         <image name="boton-menu.png" width="34" height="34"/>
         <image name="botonConcursos.png" width="332" height="43"/>
