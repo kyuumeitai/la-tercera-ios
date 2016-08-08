@@ -574,7 +574,7 @@ REGISTRARSE?</string>
             <objects>
                 <tableViewController storyboardIdentifier="infantilTableView" title="Infantil Table View" id="u1e-Us-Qm7" customClass="InfantilTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="mqI-45-TgB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="620"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="90"/>
@@ -582,10 +582,10 @@ REGISTRARSE?</string>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="i7u-iR-DP4">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i7u-iR-DP4" id="Dgy-zF-X2r">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
@@ -601,12 +601,13 @@ REGISTRARSE?</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="620"/>
+                    <connections>
+                        <outlet property="tableView" destination="mqI-45-TgB" id="tIo-4X-lU6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X7O-2d-xbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1950.5" y="1100"/>
+            <point key="canvasLocation" x="-1956.5" y="989"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="iL4-zK-Tag">
@@ -1145,11 +1146,11 @@ REGISTRARSE?</string>
             <objects>
                 <viewController title="Mas Cercanos" id="Uc6-It-8ad" customClass="MasCercanosViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YpZ-qM-Zfn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" id="yL5-Z8-hMZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Spn-zu-oet">
@@ -1161,7 +1162,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1Wf-3B-RVb">
-                                <rect key="frame" x="300" y="87" width="75" height="44"/>
+                                <rect key="frame" x="245" y="87" width="75" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
@@ -1170,14 +1171,14 @@ REGISTRARSE?</string>
                                 </state>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="Wsm-WF-ByM">
-                                <rect key="frame" x="0.0" y="184" width="375" height="232"/>
+                                <rect key="frame" x="0.0" y="184" width="320" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="YpZ-qM-Zfn" id="qs1-y0-Gw2"/>
                                 </connections>
                             </mapView>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Buscar Descuentos" scopeBarBackgroundImage="CellNormal.png" id="1DB-2m-DGQ">
-                                <rect key="frame" x="0.0" y="87" width="300" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="245" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1185,11 +1186,11 @@ REGISTRARSE?</string>
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" id="bi9-qh-sbZ">
-                                <rect key="frame" x="214" y="22" width="155" height="48"/>
+                                <rect key="frame" x="165" y="20" width="155" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HfU-oJ-cYP">
-                                        <rect key="frame" x="108" y="9" width="44" height="44"/>
+                                        <rect key="frame" x="103" y="8" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="iconFilter.png"/>
                                         <connections>
@@ -1200,7 +1201,7 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6fa-yo-9V4">
-                                <rect key="frame" x="0.0" y="417" width="375" height="250"/>
+                                <rect key="frame" x="0.0" y="333" width="320" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -1209,7 +1210,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </tableView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="jCz-mG-vNw">
-                                <rect key="frame" x="0.0" y="131" width="375" height="52"/>
+                                <rect key="frame" x="0.0" y="131" width="320" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="0rR-Sh-fHN">
@@ -1324,11 +1325,6 @@ REGISTRARSE?</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6nO-zR-QMo">
-                                <rect key="frame" x="314" y="344" width="55" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="updateMap.png"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9lh-Ox-HQh">
                                 <rect key="frame" x="55" y="35" width="38" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1337,6 +1333,11 @@ REGISTRARSE?</string>
                                     <segue destination="FRq-Fc-Jtx" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="JhD-SO-oge"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6nO-zR-QMo">
+                                <rect key="frame" x="255" y="270" width="55" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="updateMap.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1344,7 +1345,7 @@ REGISTRARSE?</string>
                     <navigationItem key="navigationItem" id="3o1-n4-fai"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="botonInfantil" destination="8Gw-o7-k8E" id="k7I-es-EJu"/>
                         <outlet property="botonMasterCard" destination="iOy-OP-85b" id="zAF-UB-3Fa"/>
@@ -1462,7 +1463,7 @@ REGISTRARSE?</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-727.5" y="1087.5"/>
+            <point key="canvasLocation" x="-728" y="1087"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nox-kR-Te4">
@@ -1878,11 +1879,11 @@ de tu descuento.</string>
             <objects>
                 <viewController storyboardIdentifier="clubCategoryInfantil" id="xCX-qZ-iab" customClass="InfantilContainerVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bnK-nG-Wmv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" id="tsK-SM-zby">
-                                <rect key="frame" x="0.0" y="47" width="375" height="620"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="430"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="u1e-Us-Qm7" kind="embed" id="ACw-EX-mL4"/>
@@ -1893,19 +1894,18 @@ de tu descuento.</string>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6E-CK-8Cg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2522.5" y="1005.5"/>
+            <point key="canvasLocation" x="-2523" y="1005"/>
         </scene>
         <!--Sabores Table View-->
         <scene sceneID="tNE-EH-e3k">
             <objects>
                 <tableViewController storyboardIdentifier="saboresTableView" title="Sabores Table View" id="aSI-C4-E1d" customClass="SaboresTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ffc-Li-KkR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="90"/>
@@ -1913,10 +1913,10 @@ de tu descuento.</string>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="perico" id="28b-fv-BhW">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="28b-fv-BhW" id="Yex-mv-a5z">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
@@ -1932,22 +1932,24 @@ de tu descuento.</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ffc-Li-KkR" id="NKp-yN-Jay"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RG8-4U-QSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1776.5" y="1798.5"/>
+            <point key="canvasLocation" x="-1951" y="1515"/>
         </scene>
         <!--Sabores ContainerVC-->
         <scene sceneID="4IV-VL-2sl">
             <objects>
                 <viewController storyboardIdentifier="clubCategorySabores" id="nJa-gk-s1V" customClass="SaboresContainerVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pEs-p8-qCW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" id="O9G-2s-Kj5">
-                                <rect key="frame" x="0.0" y="47" width="375" height="620"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="430"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="aSI-C4-E1d" kind="embed" id="rIp-9a-lnH"/>
@@ -1958,18 +1960,18 @@ de tu descuento.</string>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxh-0L-hJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2274.5" y="1773.5"/>
+            <point key="canvasLocation" x="-2532" y="1535"/>
         </scene>
         <!--Tiempo Libre Table View-->
         <scene sceneID="QQN-Q9-ykW">
             <objects>
                 <tableViewController storyboardIdentifier="tiempoLibreTableView" title="Tiempo Libre Table View" id="r9M-Ut-GBU" customClass="TiempoLibreTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="FjI-yW-jjB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="90"/>
@@ -1977,10 +1979,10 @@ de tu descuento.</string>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pw1-fI-OFp">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pw1-fI-OFp" id="gcU-FF-Yvx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
@@ -1996,22 +1998,24 @@ de tu descuento.</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="FjI-yW-jjB" id="QkY-4c-Bd9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmj-rE-UhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1766.5" y="2525.5"/>
+            <point key="canvasLocation" x="-1957" y="2105"/>
         </scene>
         <!--Tiempo Libre ContainerVC-->
         <scene sceneID="9cj-lG-Qi4">
             <objects>
                 <viewController storyboardIdentifier="clubCategoryTiempoLibre" id="3St-1a-j83" customClass="TiempoLibreContainerVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lhp-XC-nbv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" id="ebw-qG-wEC">
-                                <rect key="frame" x="0.0" y="47" width="375" height="620"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="430"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="r9M-Ut-GBU" kind="embed" id="4PI-st-JWN"/>
@@ -2022,18 +2026,18 @@ de tu descuento.</string>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngh-5X-rRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2274.5" y="2525.5"/>
+            <point key="canvasLocation" x="-2532" y="2125"/>
         </scene>
         <!--Visa Sana Table View-->
         <scene sceneID="Yt3-Vf-cyY">
             <objects>
                 <tableViewController storyboardIdentifier="vidaSanaTableView" title="Visa Sana Table View" id="HGH-I5-Mvg" customClass="VidaSanaTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="CRv-uv-ex1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="620"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="90"/>
@@ -2041,10 +2045,10 @@ de tu descuento.</string>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WU5-ek-hN4">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WU5-ek-hN4" id="I0R-YQ-61w">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
@@ -2060,21 +2064,24 @@ de tu descuento.</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="CRv-uv-ex1" id="v2I-3m-BO1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1RV-dN-dFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1758.5" y="3261"/>
+            <point key="canvasLocation" x="-1951" y="2673"/>
         </scene>
         <!--Vida Sana ContainerVC-->
         <scene sceneID="EGD-9h-4en">
             <objects>
                 <viewController storyboardIdentifier="clubCategoryVidaSana" id="eE9-Ry-CwY" customClass="VidaSanaContainerVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="718-WW-LHo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" id="pBs-ZE-HTs">
-                                <rect key="frame" x="0.0" y="47" width="375" height="620"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="430"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="HGH-I5-Mvg" kind="embed" id="rbi-hv-TAX"/>
@@ -2085,18 +2092,18 @@ de tu descuento.</string>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="unE-7R-lXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2264.5" y="3289.5"/>
+            <point key="canvasLocation" x="-2532" y="2693"/>
         </scene>
         <!--Mastercard Table View-->
         <scene sceneID="P46-kf-hkI">
             <objects>
                 <tableViewController storyboardIdentifier="ServiciosTableView" title="Mastercard Table View" id="l39-wO-OTt" customClass="ServiciosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="gpt-m4-Ew7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="90"/>
@@ -2104,10 +2111,10 @@ de tu descuento.</string>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Kcx-uX-lg0">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kcx-uX-lg0" id="mjN-zF-tSW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
@@ -2123,22 +2130,24 @@ de tu descuento.</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="gpt-m4-Ew7" id="Sn3-fF-6iy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpy-55-ggB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1758.5" y="4017.5"/>
+            <point key="canvasLocation" x="-1943" y="3273"/>
         </scene>
         <!--Servicios ContainerVC-->
         <scene sceneID="wCt-Th-CCM">
             <objects>
                 <viewController storyboardIdentifier="clubCategoryServicios" id="78D-Yi-HSE" customClass="ServiciosContainerVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iYQ-2b-IF9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" id="YJP-f3-TCx">
-                                <rect key="frame" x="0.0" y="47" width="375" height="620"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="430"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="l39-wO-OTt" kind="embed" id="2Eh-OS-uEM"/>
@@ -2149,11 +2158,11 @@ de tu descuento.</string>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iwH-yi-puN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2264.5" y="4025.5"/>
+            <point key="canvasLocation" x="-2532" y="3293"/>
         </scene>
         <!--La TerceraTV-->
         <scene sceneID="ddT-vI-tsS">
@@ -3823,7 +3832,7 @@ de La Tercera</string>
             <objects>
                 <viewController storyboardIdentifier="detalleBeneficioViewControllerFromMap" title="Detalle View Controller From Map" id="Q1O-Q2-TSV" customClass="DetalleBeneficioViewControllerFromMap" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rC7-W4-HmS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="670"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" id="UuJ-sS-xiT">
@@ -3831,11 +3840,11 @@ de La Tercera</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="A23-Bx-0vg">
-                                <rect key="frame" x="215" y="23" width="155" height="48"/>
+                                <rect key="frame" x="202" y="23" width="123" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oeI-sM-rnz">
-                                        <rect key="frame" x="25" y="2" width="123" height="44"/>
+                                        <rect key="frame" x="-8" y="2" width="123" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" image="usar-beneficio.png"/>
@@ -3854,34 +3863,20 @@ de La Tercera</string>
                                     <action selector="backPressed:" destination="Q1O-Q2-TSV" eventType="touchUpInside" id="6k9-qA-4OY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="A25-nD-T0v">
-                                <rect key="frame" x="185" y="26" width="45" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="BotonShare.png"/>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="iPp-2u-3sT">
                                 <rect key="frame" x="0.0" y="70" width="375" height="1000"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento3.png" id="aeM-4J-ONn">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpacityForImage.png" id="9se-c1-cML">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qua-55-31y">
-                                        <rect key="frame" x="21" y="9" width="334" height="73"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="26"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <size key="shadowOffset" width="0.0" height="1"/>
-                                    </label>
                                     <view contentMode="scaleToFill" id="dcG-7S-Ilb" customClass="CustomBorderView">
-                                        <rect key="frame" x="19" y="201" width="338" height="230"/>
+                                        <rect key="frame" x="8" y="201" width="307" height="230"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sucursal más cercana:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NHj-Lf-5Qu">
@@ -3940,7 +3935,7 @@ de La Tercera</string>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" id="Uok-vc-mp1" customClass="CustomBorderView">
-                                        <rect key="frame" x="18" y="439" width="338" height="82"/>
+                                        <rect key="frame" x="8" y="439" width="307" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jC3-8D-4xL">
@@ -3951,7 +3946,7 @@ de La Tercera</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AtL-J7-Wfc">
-                                                <rect key="frame" x="14" y="29" width="311" height="46"/>
+                                                <rect key="frame" x="14" y="29" width="279" height="46"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -3971,12 +3966,30 @@ de La Tercera</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CkC-Tn-8QA">
+                                        <rect key="frame" x="21" y="97" width="245" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="35"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ork-m7-IeH">
+                                        <rect key="frame" x="21" y="137" width="144" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                    </label>
                                     <view contentMode="scaleToFill" id="9e5-bf-5HM" customClass="CustomBorderView">
-                                        <rect key="frame" x="18" y="529" width="338" height="422"/>
+                                        <rect key="frame" x="8" y="529" width="307" height="422"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" id="RuN-lU-Ef6">
-                                                <rect key="frame" x="8" y="37" width="322" height="377"/>
+                                                <rect key="frame" x="8" y="37" width="286" height="377"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
@@ -4008,22 +4021,13 @@ de La Tercera</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CkC-Tn-8QA">
-                                        <rect key="frame" x="21" y="97" width="336" height="48"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qua-55-31y">
+                                        <rect key="frame" x="21" y="8" width="273" height="73"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="35"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="26"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <size key="shadowOffset" width="0.0" height="1"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ork-m7-IeH">
-                                        <rect key="frame" x="21" y="137" width="144" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                 </subviews>
@@ -4033,12 +4037,16 @@ de La Tercera</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="A25-nD-T0v">
+                                <rect key="frame" x="138" y="26" width="45" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="BotonShare.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="M1R-tQ-Nzy"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="670"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="benefitAdressLabel" destination="ly1-pg-90S" id="SJ6-WK-aHE"/>
                         <outlet property="benefitDescriptionTextView" destination="RuN-lU-Ef6" id="P3i-YZ-pry"/>
@@ -4979,11 +4987,11 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EJO-cu-oTk"/>
-        <segue reference="vnn-UP-oet"/>
-        <segue reference="wa8-wA-Ypp"/>
-        <segue reference="tr4-cY-ltW"/>
+        <segue reference="LjX-Ol-dSP"/>
+        <segue reference="JhD-SO-oge"/>
         <segue reference="tqi-Nf-HuD"/>
+        <segue reference="wa8-wA-Ypp"/>
+        <segue reference="vnn-UP-oet"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
 </document>

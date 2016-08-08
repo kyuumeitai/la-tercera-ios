@@ -31,6 +31,7 @@
 NSMutableArray *listaCategorias4;
 NSMutableArray *listaBeneficios4;
 @synthesize benefitsItemsArray2;
+NSString *storyBoardName;
 
 //New Pagination code
 int currentPageNumber ;
@@ -41,6 +42,8 @@ BOOL firstTimeVidaSana = false;
     __weak VidaSanaTableViewController *weakSelf = self;
     
     SessionManager *sesion = [SessionManager session];
+    storyBoardName = sesion.storyBoardName;
+
     listaCategorias4 = [[NSMutableArray alloc] init];
     benefitsItemsArray2 = [[NSMutableArray alloc] init];
     listaCategorias4 = sesion.categoryList;
@@ -89,7 +92,12 @@ BOOL firstTimeVidaSana = false;
         
         if (cell == nil)
         {
-            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell" owner:self options:nil];
+            if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+                nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell-iPhone4-5" owner:self options:nil];
+            }else{
+                
+                nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell" owner:self options:nil];
+            }
             cell = [nib objectAtIndex:0];
             Benefit *beneficio = [self.benefitsItemsArray2 objectAtIndex:0];
             
@@ -121,7 +129,13 @@ BOOL firstTimeVidaSana = false;
         if (cell == nil)
         {
             
-            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell" owner:self options:nil];
+            if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+                nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell-iPhone4-5" owner:self options:nil];
+            }else{
+                
+                nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell" owner:self options:nil];
+            }
+
             cell = [nib objectAtIndex:0];
         }
         

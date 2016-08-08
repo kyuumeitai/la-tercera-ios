@@ -67,6 +67,7 @@
     //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
     float headerSpace = 5.0;
+    
     YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[clubSabores,clubInfantil,clubTiempoLibre,clubVidaSana,clubServicios]    topBarHeight:headerSpace                                                                                parentViewController:self selectedIndex:indexCat];
     
     containerVC.delegate = self;

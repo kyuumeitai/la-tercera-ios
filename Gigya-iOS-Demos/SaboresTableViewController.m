@@ -32,6 +32,8 @@
 @synthesize tableView;
 NSMutableArray *listaCategorias;
 NSMutableArray *listaBeneficios;
+NSString *storyBoardName;
+
 
 //New Pagination code
 int currentPageNumber ;
@@ -44,6 +46,7 @@ BOOL firstTimeSabores = false;
     __weak SaboresTableViewController *weakSelf = self;
 
     SessionManager *sesion = [SessionManager session];
+        storyBoardName = sesion.storyBoardName;
     listaCategorias = [[NSMutableArray alloc] init];
     benefitsItemsArray5 = [[NSMutableArray alloc] init];
     listaCategorias = sesion.categoryList;
@@ -87,7 +90,13 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         
         if (cell == nil)
         {
-            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell" owner:self options:nil];
+            if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+                nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell-iPhone4-5" owner:self options:nil];
+            }else{
+                
+                nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell" owner:self options:nil];
+            }
+            //
             cell = [nib objectAtIndex:0];
             Benefit *beneficio = [self.benefitsItemsArray5 objectAtIndex:0];
             
@@ -118,8 +127,13 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         BeneficioGeneralTableViewCell *cell = (BeneficioGeneralTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
         if (cell == nil)
         {
-            
-            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell" owner:self options:nil];
+            if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+                     nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell-iPhone4-5" owner:self options:nil];
+            }else{
+                
+                     nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell" owner:self options:nil];
+            }
+       
             cell = [nib objectAtIndex:0];
         }
         

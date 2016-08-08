@@ -31,7 +31,7 @@ NSMutableArray *listaCategorias6;
 NSMutableArray *listaBeneficios6;
 @synthesize benefitsItemsArray1;
 
-
+NSString *storyBoardName;
 //New Pagination code
 int currentPageNumber ;
 BOOL isPageRefreshingServicios=  false;
@@ -43,6 +43,7 @@ BOOL firstTimeServicios = false;
     __weak ServiciosTableViewController *weakSelf = self;
     
     SessionManager *sesion = [SessionManager session];
+     storyBoardName = sesion.storyBoardName;
     listaCategorias6 = [[NSMutableArray alloc] init];
     benefitsItemsArray1 = [[NSMutableArray alloc] init];
     listaCategorias6 = sesion.categoryList;
@@ -91,7 +92,13 @@ BOOL firstTimeServicios = false;
         
         if (cell == nil)
         {
-            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell" owner:self options:nil];
+            if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+                nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell-iPhone4-5" owner:self options:nil];
+            }else{
+                
+                nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell" owner:self options:nil];
+            }
+
             cell = [nib objectAtIndex:0];
             Benefit *beneficio = [self.benefitsItemsArray1 objectAtIndex:0];
             
@@ -123,7 +130,13 @@ BOOL firstTimeServicios = false;
         if (cell == nil)
         {
             
-            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell" owner:self options:nil];
+            if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+                nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell-iPhone4-5" owner:self options:nil];
+            }else{
+                
+                nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell" owner:self options:nil];
+            }
+
             cell = [nib objectAtIndex:0];
         }
         
