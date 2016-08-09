@@ -8,6 +8,7 @@
 
 #import "MenuViewController.h"
 #import "SWRevealViewController.h"
+#import "SessionManager.h"
 
 
 @implementation SWUITableViewCell
@@ -24,7 +25,17 @@
 {
     [super viewDidLoad];
     self.tableView.delegate = self;
+    SessionManager *sesion = [SessionManager session];
+    NSString *stbName = sesion.storyBoardName;
+    
+    
+    if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [stbName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+    menuItems = @[@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria4", @"categoria5",@"categoria6", @"categoria7", @"categoria8",@"categoria9", @"categoria10",@"categoria13"];
+    }else{
     menuItems = @[@"categoria11",@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria4", @"categoria5",@"categoria6", @"categoria7", @"categoria8",@"categoria9", @"categoria10",  @"categoria12", @"categoria13"];
+    
+    }
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

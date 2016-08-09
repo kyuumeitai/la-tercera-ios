@@ -17,7 +17,7 @@
     
     [SVProgressHUD show];
     //[self loadPaper];
-    [SVProgressHUD setStatus:@"Cargando datos"];
+    [SVProgressHUD setStatus:@"Actualizando contenido"];
     // Do any additional setup after loading the view.
     //Creamos el singleton
     SessionManager *sesion = [SessionManager session];

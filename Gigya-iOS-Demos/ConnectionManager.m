@@ -80,6 +80,33 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
 }
 
 
+- (NSString*)getHistoryWithEmail:(NSString *)email {
+    
+    
+    NSString * responseString;
+    // Send a synchronous request
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/club/solicitaHistorial/",BaseURLString]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:20.0];
+    
+    [request setHTTPMethod:@"POST"];
+    NSString *postString = [NSString stringWithFormat:@"email=%@",email];
+    NSLog(@"Postring Login: %@ ",postString);
+    [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:request
+                                          returningResponse:&response
+                                                      error:&error];
+    if (error == nil)
+    {
+        responseString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    }
+    return responseString;
+}
+
 
 -(NSString*)sendRegisterDataWithEmail:(NSString *)email firstName:(NSString*)firstName lastName:(NSString*)lastName gender:(NSString*)gender birthdate:(NSString*)birthdate uid:(NSString*)uid os:(NSString*)os gigyaId:(NSString*)gigyaId{
     

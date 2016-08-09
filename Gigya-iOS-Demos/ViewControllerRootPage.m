@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
-      _pageImages = @[@"comoFunciona1", @"comoFunciona2", @"comoFunciona3", @"comoFunciona4",@"comoFunciona5", @"comoFunciona6", @"comoFunciona7", @"comoFunciona8", @"comoFunciona9", @"comoFunciona10", @"comoFunciona11"];
+      _pageImages = @[@"comoFunciona1", @"comoFunciona2", @"comoFunciona3", @"comoFunciona4",@"comoFunciona5", @"comoFunciona6", @"comoFunciona7", @"comoFunciona8", @"comoFunciona9", @"comoFunciona10"];
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"pageViewController"];
     self.pageViewController.dataSource = self;
