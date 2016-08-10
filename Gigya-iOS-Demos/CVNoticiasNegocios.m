@@ -21,18 +21,19 @@
 #import "UIImageView+AFNetworking.h"
 #import "SessionManager.h"
 #import "SVPullToRefresh.h"
+#import "ContentType.h"
+
 
 //#import "SDWebImage/UIImageView+WebCache.h"
 
 #define categoryIdName @"lt"
-#define categoryId 6
-#define categoryName @"Negocios"
+#define categorySlug @"negocios"
 
 @implementation CVNoticiasNegocios
 
 @synthesize headlinesArray;
 @synthesize collectionView;
-
+@synthesize categoryId;
 static NSString * const reuseIdentifierGrande = @"collectionViewGrande";
 static NSString * const reuseIdentifierMediana = @"collectionViewMediana";
 static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
@@ -49,14 +50,22 @@ NSString *day;
 NSString *month;
 NSString *year;
 NSString *storyBoardName;
-
+int categoryId;
 
 - (void) viewDidLoad{
-    [super viewDidLoad];
+    categoryId = 0;
+[super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
     storyBoardName = sesion.storyBoardName;
     
+    for (ContentType *contenido in sesion.categoryList) {
+        if([contenido.contentSlug isEqualToString:categorySlug])
+            self.categoryId = contenido.contentId;
+    }
+    
     NSLog(@" El nombre del storboard es: %@", storyBoardName);
+    NSLog(@"CategoryId: %d", self.categoryId);
+
     __weak CVNoticiasNegocios *weakSelf = self;
     headlinesArray = [[NSMutableArray alloc] init];
     
@@ -114,7 +123,7 @@ NSString *storyBoardName;
     //[self.collectionView setAlpha:0.0];
     dispatch_async(dispatch_get_main_queue(), ^{
         // code here
-        [self loadHeadlinesWithCategory:categoryId];
+        [self loadHeadlinesWithCategory:self.categoryId];
     });
     
     // setup infinite scrolling

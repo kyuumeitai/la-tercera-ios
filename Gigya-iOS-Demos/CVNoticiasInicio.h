@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, retain) NSMutableArray *headlinesArray;
+@property int categoryId;
 
 @end

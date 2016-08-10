@@ -24,8 +24,6 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     if (self) {
         isConnected = [self verifyConnection];
     }
-    
-    
     return self;
 }
 
@@ -183,9 +181,9 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
 }
 
 -(void)getHeadlinesForCategoryId:(getDataBlock)completionBlock :(int)idCat andPage:(int)pageNumber{
-    
+    NSLog(@" La categoria essss:%d",idCat);
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@contenido/headlines/%d/?format=json&page=%d",BaseURLString,idCat,pageNumber]];
-    NSLog(URL.absoluteString);
+    //NSLog(URL.absoluteString);
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
@@ -221,13 +219,26 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     }];
 }
 
--(NSDictionary*)getAllCategories{
+-(void)getAllCategories:(getDataBlock)completionBlock{
     
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@contenido/headlines/?format=json",BaseURLString]];
     
-    NSDictionary * dictionary = nil;
-    
-    return dictionary;
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        NSArray *jsonArray = (NSArray *) responseObject;
+        
+        completionBlock(YES,jsonArray ,nil);
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+        completionBlock(NO,nil,error);
+        
+    }];
 }
+
+
 -(void)getMainCategories:(getDataBlock)completionBlock{
     
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/categories/?type=json",BaseURLString]];

@@ -94,6 +94,11 @@ int monto = 0;
         
         NSData *data = [resultMessage dataUsingEncoding:NSUTF8StringEncoding];
         id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        BOOL success = [[json  valueForKey:@"exito"] boolValue];
+        
+        if (success){
+        
+        
         NSString *cardImage64 = [json objectForKey:@"imagen_tarjeta"];
         
         NSArray * stringFiltrado = [cardImage64 componentsSeparatedByString:@","];
@@ -105,6 +110,16 @@ int monto = 0;
         TarjetaVirtual * tarjetaVirtual = [self.storyboard instantiateViewControllerWithIdentifier:@"tarjetaVirtualScreen"];
         tarjetaVirtual.virtualCardImage = imagenTarjetaVirtual;
         [self presentViewController:tarjetaVirtual animated:YES completion:nil];
+            
+        }else{
+            UIAlertView *alert;
+            alert = [[UIAlertView alloc] initWithTitle:@"Error al cargar tarjeta"
+                                               message:@"Has salido correctamente de Gigya."
+                                              delegate:nil
+                                     cancelButtonTitle:@"OK"
+                                     otherButtonTitles:nil];
+            [alert show];
+        }
         
     }
 

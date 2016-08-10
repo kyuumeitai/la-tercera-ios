@@ -21,17 +21,18 @@
 #import "UIImageView+AFNetworking.h"
 #import "SessionManager.h"
 #import "SVPullToRefresh.h"
+#import "ContentType.h"
 
 //#import "SDWebImage/UIImageView+WebCache.h"
 
 #define categoryIdName @"lt"
-#define categoryId 3
-#define categoryName @"Entretencion"
+#define categorySlug @"entretencion"
 
 @implementation CVNoticiasEntretencion
 
 @synthesize headlinesArray;
 @synthesize collectionView;
+@synthesize categoryId;
 
 static NSString * const reuseIdentifierGrande = @"collectionViewGrande";
 static NSString * const reuseIdentifierMediana = @"collectionViewMediana";
@@ -50,14 +51,22 @@ NSString *month;
 NSString *year;
 NSString *storyBoardName;
 
-
 - (void) viewDidLoad{
+    self.categoryId = 0;
+
     [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
     storyBoardName = sesion.storyBoardName;
     __weak CVNoticiasEntretencion *weakSelf = self;
     headlinesArray = [[NSMutableArray alloc] init];
     
+    for (ContentType *contenido in sesion.categoryList) {
+        if([contenido.contentSlug isEqualToString:categorySlug])
+            self.categoryId = contenido.contentId;
+    }
+    
+    NSLog(@"CategoryId: %d", self.categoryId);
+
     bannersEntretencion = [NSArray arrayWithObjects:@"/124506296/La_Tercera_com/La_Tercera_com_APP/Entretencion_300x250-A", @"/124506296/La_Tercera_com/La_Tercera_com_APP/Entretencion_300x250-B", @"/124506296/La_Tercera_com/La_Tercera_com_APP/Entretencion_300x250-C", @"/124506296/La_Tercera_com/La_Tercera_com_APP/Entretencion_300x250-D", @"/124506296/La_Tercera_com/La_Tercera_com_APP/Entretencion_300x250-E", nil];
     
     //Celda Grande
@@ -112,7 +121,7 @@ NSString *storyBoardName;
     //[self.collectionView setAlpha:0.0];
     dispatch_async(dispatch_get_main_queue(), ^{
         // code here
-        [self loadHeadlinesWithCategory:categoryId];
+        [self loadHeadlinesWithCategory:self.categoryId];
     });
     
     // setup infinite scrolling

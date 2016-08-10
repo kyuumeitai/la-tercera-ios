@@ -22,10 +22,10 @@
 #import "SessionManager.h"
 //#import "SDWebImage/UIImageView+WebCache.h"
 #import "SVPullToRefresh.h"
+#import "ContentType.h"
 
 #define categoryIdName @"lt"
-#define categoryId 11
-#define categoryName @"Home"
+#define categorySlug @"home"
 
 @implementation CVNoticiasInicio
 
@@ -42,7 +42,7 @@ int currentPageNumber ;
 BOOL isPageRefreshing =  false;
 BOOL firstTime = false;
 NSArray *banners= nil;
-
+int categoryId;
 int numeroPaginas;
 NSString *day;
 NSString *month;
@@ -56,8 +56,16 @@ BOOL nibMyCell2loaded;
      [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
     storyBoardName = sesion.storyBoardName;
+    for (ContentType *contenido in sesion.categoryList) {
+        if([contenido.contentSlug isEqualToString:categorySlug]){
+            self.categoryId = contenido.contentId;
+          NSLog(@"ESTAMOS OKEYYY %d", self.categoryId);
+        }
+    }
     
     NSLog(@" El nombre del storboard es: %@", storyBoardName);
+    NSLog(@"CategoryId: %d", self.categoryId);
+
     __weak CVNoticiasInicio *weakSelf = self;
     headlinesArray = [[NSMutableArray alloc] init];
 
@@ -114,7 +122,9 @@ BOOL nibMyCell2loaded;
     //[self.collectionView setAlpha:0.0];
     dispatch_async(dispatch_get_main_queue(), ^{
         // code here
-       [self loadHeadlinesWithCategory:categoryId];
+        NSLog(@"CategoryId: %d", self.categoryId);
+
+       [self loadHeadlinesWithCategory:self.categoryId];
     });
     
     // setup infinite scrolling

@@ -15,7 +15,7 @@ typedef void (^getDataBlock)(BOOL success, NSArray* arrayJson, NSError *error);
 }
 
 -(BOOL)verifyConnection;
--(NSDictionary*)getAllCategories;
+-(void)getAllCategories:(getDataBlock)completionBlock;
 -(void)getMainCategories:(getDataBlock)completionBlock;
 -(void)getHeadlinesForCategoryId:(getDataBlock)completionBlock :(int)idCat;
 

@@ -21,17 +21,18 @@
 #import "UIImageView+AFNetworking.h"
 #import "SessionManager.h"
 #import "SVPullToRefresh.h"
+#import "ContentType.h"
 
 //#import "SDWebImage/UIImageView+WebCache.h"
 
 #define categoryIdName @"lt"
-#define categoryId 2
-#define categoryName @"Cultura"
+#define categorySlug @"cultura"
 
 @implementation CVNoticiasCultura
 
 @synthesize headlinesArray;
 @synthesize collectionView;
+@synthesize categoryId;
 
 static NSString * const reuseIdentifierGrande = @"collectionViewGrande";
 
@@ -52,12 +53,21 @@ NSString *year;
 NSString *storyBoardName;
 
 
+
 - (void) viewDidLoad{
+    categoryId = 0;
+
     [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
     storyBoardName = sesion.storyBoardName;
 
+    for (ContentType *contenido in sesion.categoryList) {
+        if([contenido.contentSlug isEqualToString:categorySlug])
+            self.categoryId = contenido.contentId;
+    }
+    
      NSLog(@" El nombre del storboard es: %@", storyBoardName);
+    NSLog(@"CategoryId: %d", self.categoryId);
     __weak CVNoticiasCultura *weakSelf = self;
     headlinesArray = [[NSMutableArray alloc] init];
     
@@ -115,7 +125,7 @@ NSString *storyBoardName;
     //[self.collectionView setAlpha:0.0];
     dispatch_async(dispatch_get_main_queue(), ^{
         // code here
-        [self loadHeadlinesWithCategory:categoryId];
+        [self loadHeadlinesWithCategory:self.categoryId];
     });
     
     // setup infinite scrolling
