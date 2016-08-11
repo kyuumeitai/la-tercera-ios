@@ -20,7 +20,6 @@
 #import "UIImageView+AFNetworking.h"
 #import "DetalleNewsViewController.h"
 #import "SessionManager.h"
-//#import "SDWebImage/UIImageView+WebCache.h"
 #import "SVPullToRefresh.h"
 #import "ContentType.h"
 
@@ -131,7 +130,6 @@ BOOL nibMyCell2loaded;
     [self.collectionView addInfiniteScrollingWithActionHandler:^{
         [weakSelf loadMoreRows];
     }];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -469,7 +467,9 @@ BOOL nibMyCell2loaded;
             return CGSizeMake(154, 268);
             
         }else{
-            return CGSizeMake(154, 290);
+
+            return CGSizeMake(170, 262);
+
         }
         
     }

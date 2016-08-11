@@ -473,7 +473,8 @@ NSString *storyBoardName;
             return CGSizeMake(154, 268);
             
         }else{
-            return CGSizeMake(154, 290);
+            return CGSizeMake(170, 262);
+
         }
         
     }

@@ -309,10 +309,6 @@ GigyaFormAction formType;
                         userProfileLevel = 2;
                         NSLog(@"Es suscriptor");
                     }
-                    
-             
-                
-                
                 
                 //id status = [json objectForKey:@"status"];
           

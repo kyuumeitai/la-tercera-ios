@@ -55,7 +55,6 @@ NSString *storyBoardName;
 
 
 - (void) viewDidLoad{
-    categoryId = 0;
 
     [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
@@ -473,7 +472,7 @@ NSString *storyBoardName;
             return CGSizeMake(154, 268);
             
         }else{
-            return CGSizeMake(154, 290);
+            return CGSizeMake(170, 262);
         }
         
     }

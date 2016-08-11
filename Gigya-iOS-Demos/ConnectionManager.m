@@ -52,7 +52,6 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
 
 - (NSString*)sendLoginDataWithEmail:(NSString *)email gigyaId:(NSString*)gigyaId firstName:(NSString*)firstName lastName:(NSString*)lastName gender:(NSString*)gender birthdate:(NSString*)birthdate uid:(NSString*)uid andOs:(NSString*)os{
     
-    
     NSString * responseString;
     // Send a synchronous request
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/profiles/login/",BaseURLString]];
@@ -79,7 +78,6 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
 
 
 - (NSString*)getHistoryWithEmail:(NSString *)email {
-    
     
     NSString * responseString;
     // Send a synchronous request

@@ -620,6 +620,10 @@
 		D07C589F1D5237F6000887E8 /* CollectionViewCellHorizontal4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07C589A1D5237F6000887E8 /* CollectionViewCellHorizontal4-5.xib */; };
 		D07C58A01D5237F6000887E8 /* CollectionViewCellMediana4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07C589B1D5237F6000887E8 /* CollectionViewCellMediana4-5.xib */; };
 		D07C58A11D5237F6000887E8 /* CollectionViewCellMediana4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07C589B1D5237F6000887E8 /* CollectionViewCellMediana4-5.xib */; };
+		D085C6671D5CF2A100AD2333 /* LaTerceraTV-HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D085C6661D5CF2A100AD2333 /* LaTerceraTV-HomeTableViewController.m */; };
+		D085C6681D5CF2A100AD2333 /* LaTerceraTV-HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D085C6661D5CF2A100AD2333 /* LaTerceraTV-HomeTableViewController.m */; };
+		D085C66C1D5CFB8F00AD2333 /* LaTerceraTVHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D085C66B1D5CFB8F00AD2333 /* LaTerceraTVHomeViewController.m */; };
+		D085C66D1D5CFB8F00AD2333 /* LaTerceraTVHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D085C66B1D5CFB8F00AD2333 /* LaTerceraTVHomeViewController.m */; };
 		D08697581D10AEFA00919A81 /* DetalleNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08697571D10AEFA00919A81 /* DetalleNewsViewController.m */; };
 		D08697591D10AEFA00919A81 /* DetalleNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08697571D10AEFA00919A81 /* DetalleNewsViewController.m */; };
 		D08E12881CEE1FF200665795 /* mineria.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D08E12871CEE1FF200665795 /* mineria.jpg */; };
@@ -1144,6 +1148,10 @@
 		D07C58991D5237F6000887E8 /* CollectionViewCellBanner4-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "CollectionViewCellBanner4-5.xib"; sourceTree = "<group>"; };
 		D07C589A1D5237F6000887E8 /* CollectionViewCellHorizontal4-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "CollectionViewCellHorizontal4-5.xib"; sourceTree = "<group>"; };
 		D07C589B1D5237F6000887E8 /* CollectionViewCellMediana4-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "CollectionViewCellMediana4-5.xib"; sourceTree = "<group>"; };
+		D085C6651D5CF2A100AD2333 /* LaTerceraTV-HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LaTerceraTV-HomeTableViewController.h"; sourceTree = "<group>"; };
+		D085C6661D5CF2A100AD2333 /* LaTerceraTV-HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LaTerceraTV-HomeTableViewController.m"; sourceTree = "<group>"; };
+		D085C66A1D5CFB8F00AD2333 /* LaTerceraTVHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaTerceraTVHomeViewController.h; sourceTree = "<group>"; };
+		D085C66B1D5CFB8F00AD2333 /* LaTerceraTVHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaTerceraTVHomeViewController.m; sourceTree = "<group>"; };
 		D08697561D10AEFA00919A81 /* DetalleNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleNewsViewController.h; sourceTree = "<group>"; };
 		D08697571D10AEFA00919A81 /* DetalleNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalleNewsViewController.m; sourceTree = "<group>"; };
 		D08E12871CEE1FF200665795 /* mineria.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mineria.jpg; sourceTree = "<group>"; };
@@ -1761,6 +1769,8 @@
 		17F8BCCF1CA24FCE00B9977B /* Club */ = {
 			isa = PBXGroup;
 			children = (
+				D0F6B83E1C90958A0060D256 /* ClubViewController.h */,
+				D0F6B83F1C90958A0060D256 /* ClubViewController.m */,
 				D014C8951D243F0200E3D3B5 /* Concursos */,
 				D014C8901D243E6300E3D3B5 /* VentasEspeciales */,
 				D008B4921D197D7D002DBBA7 /* Tickets */,
@@ -1768,8 +1778,6 @@
 				D0FF55721CCFC92800EA71F4 /* ViajesClub */,
 				D0FF556D1CCFC8A400EA71F4 /* TiendaClub */,
 				171AFA5B1CCF8BBC00705817 /* Eventos */,
-				D0F6B83E1C90958A0060D256 /* ClubViewController.h */,
-				D0F6B83F1C90958A0060D256 /* ClubViewController.m */,
 				D0F7F76D1CB2B631008BB49D /* Mapas */,
 				D0FF33C41C985C3B008832F3 /* Categorias */,
 				D03859E71CA0628F00E907FF /* UsarBeneficios */,
@@ -2114,6 +2122,7 @@
 		D01CF10C1CB6B9700050C008 /* LaTercera TV */ = {
 			isa = PBXGroup;
 			children = (
+				D085C6641D5CF24C00AD2333 /* Categories */,
 				D01CF10D1CB6B9920050C008 /* LaTerceraTV.h */,
 				D01CF10E1CB6B9920050C008 /* LaTerceraTV.m */,
 			);
@@ -2299,6 +2308,25 @@
 				D0522D5E1D09D32100D6E4C6 /* CollectionViewCellBanner.xib */,
 			);
 			name = iPhone6;
+			sourceTree = "<group>";
+		};
+		D085C6641D5CF24C00AD2333 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D085C6691D5CFB5E00AD2333 /* TableViews */,
+				D085C66A1D5CFB8F00AD2333 /* LaTerceraTVHomeViewController.h */,
+				D085C66B1D5CFB8F00AD2333 /* LaTerceraTVHomeViewController.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		D085C6691D5CFB5E00AD2333 /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				D085C6651D5CF2A100AD2333 /* LaTerceraTV-HomeTableViewController.h */,
+				D085C6661D5CF2A100AD2333 /* LaTerceraTV-HomeTableViewController.m */,
+			);
+			name = TableViews;
 			sourceTree = "<group>";
 		};
 		D08E127F1CEE0E3A00665795 /* News */ = {
@@ -3319,6 +3347,7 @@
 				17F321BD1CBEBEDD00005964 /* NewspaperPage.m in Sources */,
 				1702BD261CB093E400F26F42 /* MasCercanosViewController.m in Sources */,
 				D04546D21CEB9A6D004A011D /* InitialViewController.m in Sources */,
+				D085C6681D5CF2A100AD2333 /* LaTerceraTV-HomeTableViewController.m in Sources */,
 				1702BD281CB093E400F26F42 /* UIRefreshControl+AFNetworking.m in Sources */,
 				D03893031D494DA600650F27 /* CVNoticiasNacional.m in Sources */,
 				1702BD291CB093E400F26F42 /* DetalleBeneficioViewController.m in Sources */,
@@ -3332,6 +3361,7 @@
 				1702BD2D1CB093E400F26F42 /* AFURLResponseSerialization.m in Sources */,
 				D038932B1D4953B900650F27 /* CVNoticiasNegocios.m in Sources */,
 				D0FF557B1CCFC9A900EA71F4 /* TCMastercard.m in Sources */,
+				D085C66D1D5CFB8F00AD2333 /* LaTerceraTVHomeViewController.m in Sources */,
 				1702BD2E1CB093E400F26F42 /* TiempoLibreContainerVC.m in Sources */,
 				1702BD2F1CB093E400F26F42 /* UIProgressView+AFNetworking.m in Sources */,
 				D0E8B28D1D26CB000056CBDA /* UIColor+EHColorAdditions.m in Sources */,
@@ -3399,6 +3429,7 @@
 				171AFA5E1CCF8BE000705817 /* EventosViewController.m in Sources */,
 				D0FAD5971CDA641000BF00D4 /* MKMapView+ZoomLevel.m in Sources */,
 				D0FF55751CCFC94F00EA71F4 /* ViajesClub.m in Sources */,
+				D085C66C1D5CFB8F00AD2333 /* LaTerceraTVHomeViewController.m in Sources */,
 				D03893161D49527E00650F27 /* NewsCategoryElDeportivoViewController.m in Sources */,
 				D008B4951D198DD6002DBBA7 /* Tickets.m in Sources */,
 				D038930A1D49522C00650F27 /* NewsCategoryMundoViewController.m in Sources */,
@@ -3411,6 +3442,7 @@
 				D0522D5F1D09D32100D6E4C6 /* CollectionViewCellBanner.m in Sources */,
 				D038932E1D49556A00650F27 /* CVNoticiasElDeportivo.m in Sources */,
 				D03893321D4955D400650F27 /* CVNoticiasEntretencion.m in Sources */,
+				D085C6671D5CF2A100AD2333 /* LaTerceraTV-HomeTableViewController.m in Sources */,
 				D03893021D494DA600650F27 /* CVNoticiasNacional.m in Sources */,
 				D008D7021D00897200502A69 /* CVNoticiasInicio.m in Sources */,
 				D039B9A91D106300002B1B09 /* CVNoticiasPolitica.m in Sources */,

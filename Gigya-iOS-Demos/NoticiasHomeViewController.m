@@ -34,8 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupLocalNotification];
-    
-    
+ 
     [self loadContentHeadlines];
     
     
@@ -46,8 +45,6 @@
          [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     }
 }
-
-
 
 - (IBAction)logoutGigyaButtonAction:(id)sender {
     [Gigya logoutWithCompletionHandler:^(GSResponse *response, NSError *error) {
@@ -94,7 +91,6 @@
     
     // SetUp ViewControllers
     NewsCategoryInicioViewController *newsInicioVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
-    
     
     NewsCategoryNacionalViewController *newsNacionalVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryNacional"];
     
