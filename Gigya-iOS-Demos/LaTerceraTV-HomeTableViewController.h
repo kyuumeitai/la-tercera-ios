@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LaTerceraTV_HomeTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, retain) NSMutableArray *headlinesArray;
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@interface LaTerceraTV_HomeTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>{
+    NSMutableArray *laTerceraTVArray;
+}
+@property (nonatomic, retain) NSMutableArray *laTerceraTVArray;
 @property int categoryId;
 
 @end
