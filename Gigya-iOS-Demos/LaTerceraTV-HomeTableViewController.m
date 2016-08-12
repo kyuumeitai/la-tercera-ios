@@ -10,6 +10,7 @@
 #import "ConnectionManager.h"
 #import "CollectionViewCellGrande.h"
 #import "CollectionViewCellBanner.h"
+#import "VideoTableViewCell.h"
 #import "NewspaperPage.h"
 #import "NewsPageViewController.h"
 #import "Tools.h"
@@ -35,6 +36,7 @@
 
 static NSString * const reuseIdentifierGrande = @"collectionViewGrande";
 static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
+static NSString * const reuseIdentifierVideo = @"videoTableViewCell";
 
 //New Pagination code
 int currentPageNumber ;
@@ -128,85 +130,87 @@ NSString *storyBoardName;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
+    static NSString *simpleTableIdentifier = @"videoTableViewCell";
     NSArray *nib;
     Video *video = (Video*)[laTerceraTVArray objectAtIndex:indexPath.row ];
+        //CollectionViewCellBanner *celdaBanner = (CollectionViewCellBanner*)[self.tableView dequeueReusableCellWithIdentifier:reuseIdentifierBanner];
     
-    BeneficioGeneralDestacadoTableViewCell *cell = (BeneficioGeneralDestacadoTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    VideoTableViewCell *cell = (VideoTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil)
     {
         if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell-iPhone4-5" owner:self options:nil];
+            nib = [[NSBundle mainBundle] loadNibNamed:@"VideoTableViewCell" owner:self options:nil];
         }else{
             
-            nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell" owner:self options:nil];
+            nib = [[NSBundle mainBundle] loadNibNamed:@"VideoTableViewCell" owner:self options:nil];
         }
         cell = [nib objectAtIndex:0];
         
-        cell.labelTitulo.text = video.title;
-        cell.labelSubtitulo.text = video.link;
-        cell.labelDescuento.text = video.link;
+        cell.labelTituloVideo.text = video.title;
+        cell.labelSummary.text = video.summary;
+        cell.rudoVideoUrl = video.link;
+        [cell loadBanner];
         
         
         return cell;
         
     }
-    
+    /*
+    if (indexPath.row == 5 || ((indexPath.row % 6)-5) == 0 )
+    {
+        
+        
+        switch (indexPath.row) {
+            case 5:
+                celdaBanner.bannerUnitID =  bannersLaTerceraTV[0]  ;
+                break;
+            case 11:
+                
+                celdaBanner.bannerUnitID =  bannersLaTerceraTV[1]  ;
+                
+                break;
+            case 17:
+                
+                celdaBanner.bannerUnitID =  bannersLaTerceraTV[2]  ;
+                
+                break;
+            case 23:
+                
+                celdaBanner.bannerUnitID =  bannersLaTerceraTV[3]  ;
+                
+                break;
+            default:
+                celdaBanner.bannerUnitID =  bannersLaTerceraTV[2]  ;
+                
+                break;
+        }
+        
+        
+        if (self.tableView.dragging == NO && self.tableView.decelerating == NO){
+            
+            [celdaBanner initBanner];
+            [celdaBanner loadBanner];
+        }
+        
+        if(_isScrollingLaTerceraTV == false){
+            [celdaBanner initBanner];
+            [celdaBanner loadBanner];
+        }
+        
+        return celdaBanner;
+        
+    }
+    */
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 260;
+    return 438;
 }
 
-/*
- if (indexPath.item == 5 || ((indexPath.item % 6)-5) == 0 )
- {
- 
- 
- switch (indexPath.item) {
- case 5:
- celdaBanner.bannerUnitID =  bannersTendencias[0]  ;
- break;
- case 11:
- 
- celdaBanner.bannerUnitID =  bannersTendencias[1]  ;
- 
- break;
- case 17:
- 
- celdaBanner.bannerUnitID =  bannersTendencias[2]  ;
- 
- break;
- case 23:
- 
- celdaBanner.bannerUnitID =  bannersTendencias[3]  ;
- 
- break;
- default:
- celdaBanner.bannerUnitID =  bannersTendencias[2]  ;
- 
- break;
- }
- 
- 
- if (self.collectionView.dragging == NO && self.collectionView.decelerating == NO){
- 
- [celdaBanner initBanner];
- [celdaBanner loadBanner];
- }
- 
- if(_isScrollingTendencias == false){
- [celdaBanner initBanner];
- [celdaBanner loadBanner];
- }
- 
- return celdaBanner;
- 
- }
- */
+
 
 
 -(void)loadHeadlinesWithCategory:(int)idCategory{

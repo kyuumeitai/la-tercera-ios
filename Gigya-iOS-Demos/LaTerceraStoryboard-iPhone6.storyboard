@@ -5646,7 +5646,7 @@ de La Tercera</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" id="oCD-IV-dkB">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="34" width="375" height="633"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="fbZ-ws-dqm" kind="embed" id="07B-SB-sbr"/>
@@ -5668,12 +5668,13 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="fbZ-ws-dqm" customClass="LaTerceraTV_HomeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="3JK-p4-V9t">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="633"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="contentInset" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HELLO" rowHeight="68" id="bdR-CK-LWM">
-                                <rect key="frame" x="0.0" y="28" width="375" height="68"/>
+                                <rect key="frame" x="0.0" y="48" width="375" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bdR-CK-LWM" id="Jww-tu-32J">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
@@ -5686,6 +5687,9 @@ de La Tercera</string>
                             <outlet property="delegate" destination="fbZ-ws-dqm" id="UUK-6f-Wdn"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="3JK-p4-V9t" id="hcK-qU-rrf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1U-Ib-uW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
