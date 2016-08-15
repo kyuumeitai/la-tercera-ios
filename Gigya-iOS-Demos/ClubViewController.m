@@ -411,7 +411,7 @@
     {
         NSLog(@"MI Segue Infantil detected");
         SessionManager *sesion = [SessionManager session];
-        sesion.categoryList = categoryItemsArray;
+        //sesion.categoryList = categoryItemsArray;
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"infantil";
         NSLog(@"MI CategoryName es: %@",categoriaViewController.categoryName);
@@ -437,7 +437,7 @@
         NSLog(@"MI Segue Sabores detected");
         
         SessionManager *sesion = [SessionManager session];
-        sesion.categoryList = categoryItemsArray;
+        //sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"sabores";
@@ -460,7 +460,7 @@
     {
         NSLog(@"Segue Tiempo Libre detected");
         SessionManager *sesion = [SessionManager session];
-        sesion.categoryList = categoryItemsArray;
+        //sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"tiempoLibre";
@@ -483,7 +483,7 @@
         NSLog(@"Segue Vida Sana detected");
         
         SessionManager *sesion = [SessionManager session];
-        sesion.categoryList = categoryItemsArray;
+        //sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"vidaSana";
@@ -494,7 +494,7 @@
     {
         NSLog(@"Segue Mastercard detected");
         SessionManager *sesion = [SessionManager session];
-        sesion.categoryList = categoryItemsArray;
+        //sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"mastercard";
@@ -505,7 +505,7 @@
     {
         NSLog(@"Segue Servicios detected");
         SessionManager *sesion = [SessionManager session];
-        sesion.categoryList = categoryItemsArray;
+        //sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"servicios";
@@ -516,7 +516,7 @@
     {
         NSLog(@"Segue Tienda detected");
         SessionManager *sesion = [SessionManager session];
-        sesion.categoryList = categoryItemsArray;
+        //sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"tienda";
@@ -527,7 +527,7 @@
     {
         NSLog(@"Segue Viajes detected");
         SessionManager *sesion = [SessionManager session];
-        sesion.categoryList = categoryItemsArray;
+        //sesion.categoryList = categoryItemsArray;
         
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"viajes";

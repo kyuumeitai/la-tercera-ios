@@ -44,9 +44,9 @@ BOOL firstTimeVidaSana = false;
     SessionManager *sesion = [SessionManager session];
     storyBoardName = sesion.storyBoardName;
 
-    listaCategorias4 = [[NSMutableArray alloc] init];
+    //listaCategorias4 = [[NSMutableArray alloc] init];
     benefitsItemsArray2 = [[NSMutableArray alloc] init];
-    listaCategorias4 = sesion.categoryList;
+    //listaCategorias4 = sesion.categoryList;
     //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
     //[self loadBenefitsForCategoryId:39];
     currentPageNumber = 1;

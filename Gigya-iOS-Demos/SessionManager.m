@@ -72,7 +72,6 @@
         userProfile.horario2 = false;
         userProfile.horario3 = false;
         userProfile.device = -1;
-         
 
         width = 0;
         NSLog(@"Estamos OK con el Singleton");
@@ -83,7 +82,7 @@
 
 -(NSString*)sessionDescription{
     
-    NSString *mensaje = [NSString stringWithFormat:@" Está logueado: %d ,  Storyboard: %@  User ProfileId: %d   ", self.isLogged, self.storyBoardName, self.userProfile.userProfileId];
+    NSString *mensaje = [NSString stringWithFormat:@" Está logueado: %d ,  Storyboard: %@  User ProfileId: %d y categoryList: %@  ", self.isLogged, self.storyBoardName, self.userProfile.userProfileId, self.categoryList];
     
     return mensaje;
     

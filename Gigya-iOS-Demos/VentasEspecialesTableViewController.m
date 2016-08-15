@@ -28,8 +28,8 @@ NSMutableArray *listaBeneficios3;
 - (void)viewDidLoad {
     [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
-    listaCategorias3 = [[NSMutableArray alloc] init];
-    listaCategorias3 = sesion.categoryList;
+   // listaCategorias3 = [[NSMutableArray alloc] init];
+    //listaCategorias3 = sesion.categoryList;
     //NSLog(@"La lista de categorias es: %@",listaCategorias3.description);
     
     [self loadBenefitsForCategoryId:41];

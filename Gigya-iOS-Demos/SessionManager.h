@@ -40,7 +40,7 @@
 @property (nonatomic, retain) NSString *profileType;
 @property (nonatomic, retain) NSString *profileEmail;
 @property (nonatomic, retain) NSString *profileGigyaId;
-@property (nonatomic, strong) NSMutableArray *categoryList;
+@property (nonatomic, copy) NSMutableArray *categoryList;
 @property (nonatomic, retain) CLLocation *userLocation;
 @property (nonatomic,retain) SWRevealViewController *leftSlideMenu;
 

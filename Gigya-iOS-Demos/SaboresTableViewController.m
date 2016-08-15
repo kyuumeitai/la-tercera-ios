@@ -47,9 +47,9 @@ BOOL firstTimeSabores = false;
 
     SessionManager *sesion = [SessionManager session];
         storyBoardName = sesion.storyBoardName;
-    listaCategorias = [[NSMutableArray alloc] init];
+    //listaCategorias = [[NSMutableArray alloc] init];
     benefitsItemsArray5 = [[NSMutableArray alloc] init];
-    listaCategorias = sesion.categoryList;
+    //listaCategorias = sesion.categoryList;
     currentPageNumber = 1;
     firstTimeSabores = true;
     
