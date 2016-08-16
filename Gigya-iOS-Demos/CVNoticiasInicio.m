@@ -197,12 +197,15 @@ BOOL nibMyCell2loaded;
            NSLog(@"El Indice es: %d ", indice);
            NSDictionary *dictTitular = (NSDictionary*) titularTemp;
            id idArt =  [dictTitular objectForKey:@"id"];
-           id title = [dictTitular objectForKey:@"title"];
+          // id title = [dictTitular objectForKey:@"title"];
            id summary = [dictTitular objectForKey:@"short_description"];
            id imageThumb = [dictTitular objectForKey:@"thumb_url"];
            
            Headline *titular = [[Headline alloc] init];
            titular.idArt = [idArt intValue];
+           NSString *title= [[dictTitular objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+           title = [title stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
+
            titular.title = title;
            titular.summary = summary;
            titular.imagenThumbString = imageThumb;

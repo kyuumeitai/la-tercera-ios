@@ -136,7 +136,9 @@ NSString *textoContenidoTemporal = @"";
     NSDictionary *articleDict = (NSDictionary*)arrayJson;
     NSLog(@"***** Print: %@",arrayJson);
     
-    _titulo.text= [articleDict objectForKey:@"title"];
+    NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+    titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
+    _titulo.text= titulo;
     _summary.text= [articleDict objectForKey:@"short_description"];
     _summary.numberOfLines = 0;
     
@@ -164,12 +166,12 @@ NSString *textoContenidoTemporal = @"";
                                             ];
     _contentTextView.attributedText = attributedString;
     
-    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseIn
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          _titulo.alpha = 1;
                          _summary.alpha = 1;
                          _contentTextView.alpha = 1;
-                         _imagenNews.alpha = 1;
+                         
                          _labelFecha.alpha = 1;
                          
                      }
@@ -192,15 +194,28 @@ NSString *textoContenidoTemporal = @"";
         UIImage *image = [UIImage imageWithData:data];
         dispatch_async(dispatch_get_main_queue(), ^{
             _imagenNews.image = image;
+            
+            
+            [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                             animations:^{
+                                 _imagenNews.alpha = 1;
+                                 
+                             }
+                             completion:nil];
+            
         });  
     });
  
- [_contentTextView sizeToFit];
+ //[_contentTextView sizeToFit];
     self.labelCat.text = self.tituloCategoria;
 
  [_summary sizeToFit];
     
- [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 5000)];
+    CGRect frame;
+    frame = _contentTextView.frame;
+    frame.size.height = [_contentTextView contentSize].height;
+    _contentTextView.frame = frame;
+// [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 5000)];
     //NSLog(@"A %f kms de distancia",distanceMeters);
 }
 
