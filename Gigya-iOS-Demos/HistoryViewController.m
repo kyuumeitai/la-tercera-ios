@@ -1,18 +1,18 @@
 //
-//  FavoritosViewController.m
+//  HistoryViewController.m
 //  La Tercera
 //
-//  Created by BrUjO on 29-07-16.
+//  Created by Mario Alejandro on 16-08-16.
 //  Copyright © 2016 Gigya. All rights reserved.
 //
 
-#import "FavoritosViewController.h"
+#import "HistoryViewController.h"
 
-@interface FavoritosViewController ()
+@interface HistoryViewController ()
 
 @end
 
-@implementation FavoritosViewController
+@implementation HistoryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,8 +27,6 @@
     NSLog(@"OK closing time BABY");
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-
 
 /*
 #pragma mark - Navigation

@@ -366,7 +366,6 @@
             
             NSLog(@"           Store id: %@ , titulo: %@, region: %@, city: %@, address: %@, geolocacion: %@",idStore,title,region,city,address,geoLocation);
         }
-        
     }
     
     NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
@@ -388,7 +387,6 @@
         id geoLocation = [store objectForKey:@"geolocation"];
         
         NSLog(@"           Store id: %@ , titulo: %@, region: %@, city: %@, address: %@, geolocacion: %@",idStore,title,region,city,address,geoLocation);
-        
         
     }
     
