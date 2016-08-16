@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *summary;
 @property (weak, nonatomic) IBOutlet UIImageView *imagenNews;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+@property (retain,nonatomic) NSString * tituloCategoria;
 
--(void)loadBenefitForBenefitId:(int)idArticle;
+-(void)loadBenefitForBenefitId:(int)idArticle andCategory:(NSString*)categoria;
 @end

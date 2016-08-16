@@ -152,56 +152,10 @@ NSString *storyBoardName;
         cell.rudoVideoUrl = video.link;
         [cell loadBanner];
         
-        
         return cell;
         
     }
-    /*
-    if (indexPath.row == 5 || ((indexPath.row % 6)-5) == 0 )
-    {
-        
-        
-        switch (indexPath.row) {
-            case 5:
-                celdaBanner.bannerUnitID =  bannersLaTerceraTV[0]  ;
-                break;
-            case 11:
-                
-                celdaBanner.bannerUnitID =  bannersLaTerceraTV[1]  ;
-                
-                break;
-            case 17:
-                
-                celdaBanner.bannerUnitID =  bannersLaTerceraTV[2]  ;
-                
-                break;
-            case 23:
-                
-                celdaBanner.bannerUnitID =  bannersLaTerceraTV[3]  ;
-                
-                break;
-            default:
-                celdaBanner.bannerUnitID =  bannersLaTerceraTV[2]  ;
-                
-                break;
-        }
-        
-        
-        if (self.tableView.dragging == NO && self.tableView.decelerating == NO){
-            
-            [celdaBanner initBanner];
-            [celdaBanner loadBanner];
-        }
-        
-        if(_isScrollingLaTerceraTV == false){
-            [celdaBanner initBanner];
-            [celdaBanner loadBanner];
-        }
-        
-        return celdaBanner;
-        
-    }
-    */
+
     return cell;
 }
 

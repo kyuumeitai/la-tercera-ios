@@ -13,11 +13,14 @@
 @interface DetalleNewsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *labelFecha;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UILabel *labelCat;
+
+
 
 @end
 
 @implementation DetalleNewsViewController
-
+@synthesize tituloCategoria;
 int fontSize = 16;
 
 
@@ -27,6 +30,7 @@ NSString *textoContenidoTemporal = @"";
     
     [super viewDidLoad];
     _titulo.text= @"";
+    //_labelCategoria.text = @"";
     _titulo.textAlignment = NSTextAlignmentJustified;
     _summary.text= @"";
     _summary.textAlignment = NSTextAlignmentJustified;
@@ -95,6 +99,7 @@ NSString *textoContenidoTemporal = @"";
     _contentTextView.attributedText = attributedString;
         
  [_contentTextView sizeToFit];
+        [_labelCat sizeToFit];
         [self.scrollView sizeToFit];
     }
 
@@ -102,9 +107,11 @@ NSString *textoContenidoTemporal = @"";
 
 #pragma mark -->> Data Functions <<---
 
--(void)loadBenefitForBenefitId:(int)idArticle{
+-(void)loadBenefitForBenefitId:(int)idArticle andCategory:(NSString*)categoria{
     
     NSLog(@"Load article for Id:%d",idArticle);
+      NSLog(@"Titulo de categoria:%@",categoria);
+    self.tituloCategoria = categoria;
     // IMPORTANT - Only update the UI on the main thread
     // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     
@@ -189,6 +196,8 @@ NSString *textoContenidoTemporal = @"";
     });
  
  [_contentTextView sizeToFit];
+    self.labelCat.text = self.tituloCategoria;
+
  [_summary sizeToFit];
     
  [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 5000)];

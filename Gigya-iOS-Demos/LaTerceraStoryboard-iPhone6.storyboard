@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GVp-39-K6N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1243,7 +1243,7 @@ REGISTRARSE?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entretención" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8fs-FM-4xo">
-                                        <rect key="frame" x="25" y="21" width="115" height="21"/>
+                                        <rect key="frame" x="20" y="21" width="122" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="21"/>
                                         <color key="textColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
@@ -1253,14 +1253,6 @@ REGISTRARSE?</string>
                                         <rect key="frame" x="22" y="328" width="330" height="187"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OYT-FF-AXh">
-                                        <rect key="frame" x="154" y="12" width="41" height="39"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="AddToSelection.png"/>
-                                        <connections>
-                                            <action selector="selectionButtonPressed:" destination="Ukj-Fb-xdc" eventType="touchUpInside" id="eaj-a3-C4D"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="JCB-QJ-XNz">
                                         <rect key="frame" x="310" y="7" width="49" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1299,6 +1291,14 @@ REGISTRARSE?</string>
                                         <fontDescription key="fontDescription" name="PTSans-Italic" family="PT Sans" pointSize="19"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OYT-FF-AXh">
+                                        <rect key="frame" x="166" y="12" width="41" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="AddToSelection.png"/>
+                                        <connections>
+                                            <action selector="selectionButtonPressed:" destination="Ukj-Fb-xdc" eventType="touchUpInside" id="eaj-a3-C4D"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
@@ -1316,6 +1316,7 @@ REGISTRARSE?</string>
                     <connections>
                         <outlet property="contentTextView" destination="xpP-i3-YaQ" id="DkX-sS-le9"/>
                         <outlet property="imagenNews" destination="tVX-fa-Oop" id="Vsw-io-Pow"/>
+                        <outlet property="labelCat" destination="8fs-FM-4xo" id="PiT-NL-QNB"/>
                         <outlet property="labelFecha" destination="DOz-Lf-QQQ" id="vHs-7B-Zoe"/>
                         <outlet property="scrollView" destination="h5W-Eo-x1V" id="Y1D-xh-LY3"/>
                         <outlet property="summary" destination="kcB-NZ-pf3" id="sro-Ze-CbZ"/>

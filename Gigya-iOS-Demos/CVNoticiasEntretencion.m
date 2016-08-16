@@ -27,6 +27,7 @@
 
 #define categoryIdName @"lt"
 #define categorySlug @"entretencion"
+#define categoryTitle @"Entretención"
 
 @implementation CVNoticiasEntretencion
 
@@ -440,7 +441,7 @@ NSString *storyBoardName;
         int idArticulo = titular.idArt;
         NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
-        [detalleNews loadBenefitForBenefitId:idArticulo];    //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+         [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];   //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         [self.navigationController pushViewController:detalleNews animated:YES];
     }
 }

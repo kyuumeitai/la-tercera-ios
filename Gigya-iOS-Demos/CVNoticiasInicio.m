@@ -25,6 +25,7 @@
 
 #define categoryIdName @"lt"
 #define categorySlug @"home"
+#define categoryTitle @"Inicio"
 
 @implementation CVNoticiasInicio
 
@@ -434,8 +435,8 @@ BOOL nibMyCell2loaded;
     int idArticulo = titular.idArt;
     NSLog(@"id Artículo = %d",idArticulo);
     DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
-        [detalleNews loadBenefitForBenefitId:idArticulo];    //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self.navigationController pushViewController:detalleNews animated:YES];
+        [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];
+        [self.navigationController pushViewController:detalleNews animated:YES];
     }
 }
 

@@ -27,6 +27,7 @@
 
 #define categoryIdName @"lt"
 #define categorySlug @"politica"
+#define categoryTitle @"Política"
 
 @implementation CVNoticiasPolitica
 
@@ -442,7 +443,7 @@ int categoryId;
         int idArticulo = titular.idArt;
         NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
-        [detalleNews loadBenefitForBenefitId:idArticulo];    //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];
         [self.navigationController pushViewController:detalleNews animated:YES];
     }
 }
