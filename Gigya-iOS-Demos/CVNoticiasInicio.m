@@ -189,7 +189,6 @@ BOOL nibMyCell2loaded;
     NSArray* arrayTitulares = [diccionarioTitulares objectForKey:@"articles"];
     //NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
     
-  
     int indice = 0;
 
        for (id titularTemp in arrayTitulares){
@@ -279,6 +278,7 @@ BOOL nibMyCell2loaded;
         }
         // Configure the cell
         cell.labelTituloNews.text = titular.title;
+        [cell.labelTituloNews sizeToFit];
         cell.labelSummary.text = titular.summary;
         NSString *urlImagen = titular.imagenThumbString;
         NSURL *url = [NSURL URLWithString:urlImagen];
@@ -312,7 +312,6 @@ BOOL nibMyCell2loaded;
             cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
             
         }
-        
         
         // Configure the cell
         // cell.labelTituloNews.text = titular.title;
@@ -364,7 +363,6 @@ BOOL nibMyCell2loaded;
                                            [weakCellHorizontal setNeedsLayout];
                                        } failure:nil];
         
-        
         return cell;
         
     }
@@ -409,13 +407,7 @@ BOOL nibMyCell2loaded;
             [celdaBanner initBanner];
             [celdaBanner loadBanner];
         }
-        
-        
 
-
-        
-        
-        
         return celdaBanner;
         
     }
@@ -453,6 +445,7 @@ BOOL nibMyCell2loaded;
     [self loadHeadlinesWithCategory:categoryId];
     
 }
+
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
