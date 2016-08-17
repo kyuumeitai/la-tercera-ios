@@ -119,7 +119,7 @@ BOOL nibMyCell2loaded;
     currentPageNumber = 1;
     firstTime = true;
    
-    //[self.collectionView setAlpha:0.0];
+   //[self.collectionView setAlpha:0.0];
     dispatch_async(dispatch_get_main_queue(), ^{
         // code here
         NSLog(@"CategoryId: %d", self.categoryId);
@@ -283,7 +283,7 @@ BOOL nibMyCell2loaded;
         NSString *urlImagen = titular.imagenThumbString;
         NSURL *url = [NSURL URLWithString:urlImagen];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+        UIImage *placeholderImage = [UIImage imageNamed:@"placeholderWhite"];
         
         //__weak UITableViewCell *weakCell = cell;
         
@@ -294,7 +294,7 @@ BOOL nibMyCell2loaded;
                               placeholderImage:placeholderImage
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                            weakCell.imageNews.image = image;
-                                           [weakCell setNeedsLayout];
+                                           //[weakCell setNeedsLayout];
                                        } failure:nil];
         
         return cell;
@@ -318,7 +318,7 @@ BOOL nibMyCell2loaded;
         cell.labelSummary.text = titular.title;
         NSString *urlImagen = titular.imagenThumbString;
         NSURL *url = [NSURL URLWithString:urlImagen];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+        UIImage *placeholderImage = [UIImage imageNamed:@"placeholderWhite"];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
         __weak CollectionViewCellMediana *weakCellMediana = cell;
@@ -327,7 +327,7 @@ BOOL nibMyCell2loaded;
                               placeholderImage:placeholderImage
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                            weakCellMediana.imageNews.image = image;
-                                           [weakCellMediana setNeedsLayout];
+                                           //[weakCellMediana setNeedsLayout];
                                        } failure:nil];
         
         return cell;
@@ -351,7 +351,7 @@ BOOL nibMyCell2loaded;
         cell.labelSummary.text = titular.title;
         NSString *urlImagen = titular.imagenThumbString;
         NSURL *url = [NSURL URLWithString:urlImagen];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+        UIImage *placeholderImage = [UIImage imageNamed:@"placeholderWhite"];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
         __weak CollectionViewCellHorizontal *weakCellHorizontal = cell;
@@ -359,8 +359,9 @@ BOOL nibMyCell2loaded;
         [cell.imageNews setImageWithURLRequest:request
                               placeholderImage:placeholderImage
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                           
                                            weakCellHorizontal.imageNews.image = image;
-                                           [weakCellHorizontal setNeedsLayout];
+                                          // [weakCellHorizontal setNeedsLayout];
                                        } failure:nil];
         
         return cell;

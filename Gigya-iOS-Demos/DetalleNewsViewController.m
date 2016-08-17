@@ -10,12 +10,15 @@
 #import "Article.h"
 #import "ConnectionManager.h"
 
-@interface DetalleNewsViewController ()
+@interface DetalleNewsViewController () <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *labelFecha;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *labelCat;
+@property (weak, nonatomic) IBOutlet UILabel *labelAutor;
 
+@property (weak, nonatomic) IBOutlet UIImageView *upperSeparador;
 
+@property (weak, nonatomic) IBOutlet UIImageView *lowerSeparador;
 
 @end
 
@@ -28,6 +31,11 @@ NSString *textoContenidoTemporal = @"";
 
 - (void)viewDidLoad {
     
+    _upperSeparador.hidden = YES;
+    _lowerSeparador.hidden = YES;
+       UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(backButtonClicked:)];
+    [gestureRecognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
+    [self.navigationController.view addGestureRecognizer:gestureRecognizer];
     [super viewDidLoad];
     _titulo.text= @"";
     //_labelCategoria.text = @"";
@@ -45,6 +53,7 @@ NSString *textoContenidoTemporal = @"";
     _contentTextView.textAlignment = NSTextAlignmentJustified;
     _imagenNews.alpha = 0;
     _labelFecha.alpha = 0;
+    _labelAutor.alpha = 0;
     
     // Do any additional setup after loading the view.
 }
@@ -136,19 +145,22 @@ NSString *textoContenidoTemporal = @"";
     NSDictionary *articleDict = (NSDictionary*)arrayJson;
     NSLog(@"***** Print: %@",arrayJson);
     
+    
+    NSString * autor = [articleDict objectForKey:@"author"];
     NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
     titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
     _titulo.text= titulo;
     _summary.text= [articleDict objectForKey:@"short_description"];
     _summary.numberOfLines = 0;
+
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     NSString * originalDateString = [articleDict objectForKey:@"article_date"];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
     //[dateFormatter setDateStyle:NSDateFormatterLongStyle];
     NSDate *newsDate = [dateFormatter dateFromString:originalDateString];
-     [dateFormatter setDateFormat:@"dd' de 'MMMM' del 'yyyy' / 'HH:mm' Hrs'"];
-
+     [dateFormatter setDateFormat:@"dd' de 'MMMM', 'yyyy' / 'HH:mm "];
+    _labelAutor.text = autor;
     NSString *dateFinalText=[dateFormatter stringFromDate:newsDate];
     
     NSLog(@"Fehca es:%@", dateFinalText);
@@ -173,6 +185,7 @@ NSString *textoContenidoTemporal = @"";
                          _contentTextView.alpha = 1;
                          
                          _labelFecha.alpha = 1;
+                         _labelAutor.alpha = 1;
                          
                      }
                      completion:nil];
@@ -199,7 +212,8 @@ NSString *textoContenidoTemporal = @"";
             [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                              animations:^{
                                  _imagenNews.alpha = 1;
-                                 
+                                 _upperSeparador.hidden = NO;
+                                 _lowerSeparador.hidden = NO;
                              }
                              completion:nil];
             
