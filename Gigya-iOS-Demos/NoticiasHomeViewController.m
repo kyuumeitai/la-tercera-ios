@@ -17,6 +17,7 @@
 #import "NewsCategoryTendenciasViewController.h"
 #import "NewsCategoryElDeportivoViewController.h"
 #import "NewsCategoryEntretencionViewController.h"
+#import "MiSeleccionViewController.h"
 #import "SWRevealViewController.h"
 #import "SessionManager.h"
 #import "ConnectionManager.h"
@@ -108,6 +109,8 @@
     
     NewsCategoryCulturaViewController *newsCulturaVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryCultura"];
     
+    MiSeleccionViewController *miSeleccion = [self.storyboard instantiateViewControllerWithIdentifier:@"newsMiSeleccion"];
+    
     
     SessionManager *sesion = [SessionManager session];
 
@@ -126,6 +129,7 @@
         }
         if([slug isEqualToString:@"nacional"]){
             newsNacionalVC.title = contenido.contentTitle;
+            miSeleccion.title = @"Mi Selección";
         }
         if([slug isEqualToString:@"politica"]){
             newsPoliticaVC.title = contenido.contentTitle;
@@ -151,7 +155,7 @@
     }
     
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,newsNacionalVC,newsPoliticaVC,newsMundoVC,newsTendenciasVC,newsNegociosVC, newsElDeportivoVC ,newsEntretencionVC ,newsCulturaVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,miSeleccion,newsNacionalVC,newsPoliticaVC,newsMundoVC,newsTendenciasVC,newsNegociosVC, newsElDeportivoVC ,newsEntretencionVC ,newsCulturaVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];

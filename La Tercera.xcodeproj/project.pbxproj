@@ -274,6 +274,10 @@
 		173A31281D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173A31261D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard */; };
 		175F13651CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 175F13641CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m */; };
 		175F13661CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 175F13641CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m */; };
+		17B6A2311D6577CF005B4E46 /* MiSeleccionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B6A2301D6577CF005B4E46 /* MiSeleccionViewController.m */; };
+		17B6A2321D6577CF005B4E46 /* MiSeleccionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B6A2301D6577CF005B4E46 /* MiSeleccionViewController.m */; };
+		17B6A2351D657854005B4E46 /* CVMiSeleccion.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B6A2341D657854005B4E46 /* CVMiSeleccion.m */; };
+		17B6A2361D657854005B4E46 /* CVMiSeleccion.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B6A2341D657854005B4E46 /* CVMiSeleccion.m */; };
 		17CE13971D585ED5009A7F16 /* CategoriasTableViewCell-iPhone4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17CE13961D585ED5009A7F16 /* CategoriasTableViewCell-iPhone4-5.xib */; };
 		17CE13981D585ED5009A7F16 /* CategoriasTableViewCell-iPhone4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17CE13961D585ED5009A7F16 /* CategoriasTableViewCell-iPhone4-5.xib */; };
 		17CE139A1D585EE9009A7F16 /* DestacadoTableViewCell-iPhone4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17CE13991D585EE9009A7F16 /* DestacadoTableViewCell-iPhone4-5.xib */; };
@@ -854,6 +858,10 @@
 		17899FAD1CA8E85F00ADD960 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		17899FAF1CA8E8C400ADD960 /* AFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
 		17AACC161CBD889100C2D090 /* Categorías.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Categorías.rtf"; sourceTree = "<group>"; };
+		17B6A22F1D6577CF005B4E46 /* MiSeleccionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiSeleccionViewController.h; sourceTree = "<group>"; };
+		17B6A2301D6577CF005B4E46 /* MiSeleccionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiSeleccionViewController.m; sourceTree = "<group>"; };
+		17B6A2331D657854005B4E46 /* CVMiSeleccion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVMiSeleccion.h; sourceTree = "<group>"; };
+		17B6A2341D657854005B4E46 /* CVMiSeleccion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVMiSeleccion.m; sourceTree = "<group>"; };
 		17CE13961D585ED5009A7F16 /* CategoriasTableViewCell-iPhone4-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "CategoriasTableViewCell-iPhone4-5.xib"; sourceTree = "<group>"; };
 		17CE13991D585EE9009A7F16 /* DestacadoTableViewCell-iPhone4-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "DestacadoTableViewCell-iPhone4-5.xib"; sourceTree = "<group>"; };
 		17CE139C1D585EF6009A7F16 /* BeneficioGeneralTableViewCell-iPhone4-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "BeneficioGeneralTableViewCell-iPhone4-5.xib"; sourceTree = "<group>"; };
@@ -1875,24 +1883,26 @@
 		17F8BCD11CA2501C00B9977B /* Categorias */ = {
 			isa = PBXGroup;
 			children = (
-				D008D6FF1D00894700502A69 /* Secciones */,
-				17F8BCD21CA2506900B9977B /* NewsCategoryInicioViewController.h */,
-				17F8BCD31CA2506900B9977B /* NewsCategoryInicioViewController.m */,
-				17F8BCD61CA250B200B9977B /* NewsCategoryPoliticaViewController.m */,
-				D03893041D49518C00650F27 /* NewsCategoryNacionalViewController.h */,
-				D03893051D49518C00650F27 /* NewsCategoryNacionalViewController.m */,
-				D03893081D49522C00650F27 /* NewsCategoryMundoViewController.h */,
-				D03893091D49522C00650F27 /* NewsCategoryMundoViewController.m */,
-				D038930C1D49524600650F27 /* NewsCategoryTendenciasViewController.h */,
-				D038930D1D49524600650F27 /* NewsCategoryTendenciasViewController.m */,
-				D03893101D49526400650F27 /* NewsCategoryNegociosViewController.h */,
-				D03893111D49526400650F27 /* NewsCategoryNegociosViewController.m */,
+				17B6A22F1D6577CF005B4E46 /* MiSeleccionViewController.h */,
+				17B6A2301D6577CF005B4E46 /* MiSeleccionViewController.m */,
+				D038931C1D4952AF00650F27 /* NewsCategoryCulturaViewController.h */,
+				D038931D1D4952AF00650F27 /* NewsCategoryCulturaViewController.m */,
 				D03893141D49527E00650F27 /* NewsCategoryElDeportivoViewController.h */,
 				D03893151D49527E00650F27 /* NewsCategoryElDeportivoViewController.m */,
 				D03893181D49529600650F27 /* NewsCategoryEntretencionViewController.h */,
 				D03893191D49529600650F27 /* NewsCategoryEntretencionViewController.m */,
-				D038931C1D4952AF00650F27 /* NewsCategoryCulturaViewController.h */,
-				D038931D1D4952AF00650F27 /* NewsCategoryCulturaViewController.m */,
+				17F8BCD21CA2506900B9977B /* NewsCategoryInicioViewController.h */,
+				17F8BCD31CA2506900B9977B /* NewsCategoryInicioViewController.m */,
+				D03893081D49522C00650F27 /* NewsCategoryMundoViewController.h */,
+				D03893091D49522C00650F27 /* NewsCategoryMundoViewController.m */,
+				D03893041D49518C00650F27 /* NewsCategoryNacionalViewController.h */,
+				D03893051D49518C00650F27 /* NewsCategoryNacionalViewController.m */,
+				D03893101D49526400650F27 /* NewsCategoryNegociosViewController.h */,
+				D03893111D49526400650F27 /* NewsCategoryNegociosViewController.m */,
+				17F8BCD61CA250B200B9977B /* NewsCategoryPoliticaViewController.m */,
+				D038930C1D49524600650F27 /* NewsCategoryTendenciasViewController.h */,
+				D038930D1D49524600650F27 /* NewsCategoryTendenciasViewController.m */,
+				D008D6FF1D00894700502A69 /* Secciones */,
 			);
 			name = Categorias;
 			sourceTree = "<group>";
@@ -2030,6 +2040,8 @@
 				D039B9A81D106300002B1B09 /* CVNoticiasPolitica.m */,
 				D008D7001D00897200502A69 /* CVNoticiasInicio.h */,
 				D008D7011D00897200502A69 /* CVNoticiasInicio.m */,
+				17B6A2331D657854005B4E46 /* CVMiSeleccion.h */,
+				17B6A2341D657854005B4E46 /* CVMiSeleccion.m */,
 			);
 			name = Secciones;
 			sourceTree = "<group>";
@@ -3539,6 +3551,8 @@
 				D039B9AA1D106300002B1B09 /* CVNoticiasPolitica.m in Sources */,
 				1702BD421CB093E400F26F42 /* main.m in Sources */,
 				D01520461D4A8653009CA13E /* MiPerfilTableViewController.m in Sources */,
+				17B6A2321D6577CF005B4E46 /* MiSeleccionViewController.m in Sources */,
+				17B6A2361D657854005B4E46 /* CVMiSeleccion.m in Sources */,
 				D0D56D411CE4D5040064DE64 /* YActionSheet.m in Sources */,
 				D0DD6E401CBFEB7500994DDF /* NewsPageViewController.m in Sources */,
 				1702BD431CB093E400F26F42 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -3575,6 +3589,7 @@
 				D038932E1D49556A00650F27 /* CVNoticiasElDeportivo.m in Sources */,
 				D03893321D4955D400650F27 /* CVNoticiasEntretencion.m in Sources */,
 				D085C6671D5CF2A100AD2333 /* LaTerceraTV-HomeTableViewController.m in Sources */,
+				17B6A2311D6577CF005B4E46 /* MiSeleccionViewController.m in Sources */,
 				D03893021D494DA600650F27 /* CVNoticiasNacional.m in Sources */,
 				D008D7021D00897200502A69 /* CVNoticiasInicio.m in Sources */,
 				D039B9A91D106300002B1B09 /* CVNoticiasPolitica.m in Sources */,
@@ -3600,6 +3615,7 @@
 				D09473E91D5BC13B00F696BB /* ContentType.m in Sources */,
 				1702BE0A1CB18BB500F26F42 /* ServiciosTableViewController.m in Sources */,
 				D0B65CEB1D1B049E00B8968F /* TarjetaVirtual.m in Sources */,
+				17B6A2351D657854005B4E46 /* CVMiSeleccion.m in Sources */,
 				D01520391D4A597D009CA13E /* MenuMiPerfilViewController.m in Sources */,
 				D0DD6E431CBFFA2F00994DDF /* CVEdicionEspecial.m in Sources */,
 				D00D40F01D46662E00D0EC7F /* BeneficioGeneralTableViewCell.m in Sources */,
