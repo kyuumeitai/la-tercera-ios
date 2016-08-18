@@ -29,11 +29,7 @@
 @implementation LaTerceraTV
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //[SVProgressHUD show];
-    //[self loadPaper];
-    //[SVProgressHUD setStatus:@"Actualizando contenido"];
-    // Do any additional setup after loading the view.
+
     //Creamos el singleton
     SessionManager *sesion = [SessionManager session];
     
@@ -44,15 +40,7 @@
     
     [self loadContentHeadlines];
 
-    //[self loadWeb];
-    // NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
-    // Do any additional setup after loading the view.
-    
-    //[self loadCategories];
-    //[self loadBenefits];
-    //[self loadCommerces];
-    //[self loadStores];
-    
+
 }
 
 

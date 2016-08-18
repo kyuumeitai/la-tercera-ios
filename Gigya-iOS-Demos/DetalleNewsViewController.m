@@ -9,6 +9,9 @@
 #import "DetalleNewsViewController.h"
 #import "Article.h"
 #import "ConnectionManager.h"
+#import "SessionManager.h"
+#import "UserProfile.h"
+#import "UsarBeneficioNoLogueado.h"
 
 @interface DetalleNewsViewController () <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *labelFecha;
@@ -63,6 +66,35 @@ NSString *textoContenidoTemporal = @"";
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)selectionButtonPressed:(id)sender {
+    
+    SessionManager *sesion = [SessionManager session];
+    UserProfile *profile = [sesion getUserProfile];
+    
+    int level = profile.profileLevel;
+    
+    if(level == 2){
+        //Es premium
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría añadida"
+                                                        message:@"Ha agregado exitosamente esta categoría a 'Mi Selección'."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+    }else{
+        //ES flaite
+        
+        //suscriberNeededScreen
+        NSLog(@"Sin permisos");
+        UsarBeneficioNoLogueado *usarBeneficioNoLogueadoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"suscriberNeededScreen"];
+        [usarBeneficioNoLogueadoViewController cancelButtonText:@"Volver a la noticia"];
+        usarBeneficioNoLogueadoViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+        [self presentViewController:usarBeneficioNoLogueadoViewController animated:YES completion:nil];
+    }
+    
+    
+    
+    
 }
 - (IBAction)decreaseTextSizePressed:(id)sender {
     

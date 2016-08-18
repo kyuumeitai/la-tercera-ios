@@ -20,6 +20,7 @@
 
 @implementation UsarBeneficioNoLogueado
 
+
 GigyaFormAction formTypeSecond;
 
 - (IBAction)openSuscriptionWeb:(id)sender {
@@ -60,6 +61,11 @@ GigyaFormAction formTypeSecond;
     }
                        delegate:self
      ];
+}
+
+- (void)cancelButtonText:(NSString*)texto{
+    
+    self.cancelButton.titleLabel.text = texto;
 }
 
 - (void)accountDidLogout {

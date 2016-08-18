@@ -84,7 +84,6 @@ int monto = 0;
         confirmationViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
        [self presentViewController:confirmationViewController animated:YES completion:nil];
 
-            // [self pushViewController:tarjetaVirtual animated:YES];
     }else{
         
          NSLog(@"Failed :(");

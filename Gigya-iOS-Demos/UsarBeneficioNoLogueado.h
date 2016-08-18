@@ -10,10 +10,11 @@
 #import <GigyaSDK/Gigya.h>
 
 @interface UsarBeneficioNoLogueado : UIViewController <GSPluginViewDelegate, GSAccountsDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 typedef enum {
     REGISTRO,
     LOGIN
 } GigyaFormAction;
-
+- (void)cancelButtonText:(NSString*)texto;
 @end
