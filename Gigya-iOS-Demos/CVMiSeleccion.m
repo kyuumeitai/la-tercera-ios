@@ -67,7 +67,7 @@ NSString *storyBoardName;
             categoryId = contenido.contentId;
     }
     
-    NSLog(@" El nombre del storboard es: %@", storyBoardName);
+    NSLog(@" El nombre del storyboard es: %@", storyBoardName);
     NSLog(@"CategoryId: %d", self.categoryId);
     
     __weak CVMiSeleccion *weakSelf = self;
@@ -275,7 +275,7 @@ NSString *storyBoardName;
     
     Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     
-    if (indexPath.item == 0 || indexPath.item % 6 == 0) {
+    if (indexPath.item == 0 || indexPath.item % 6 == 0 || indexPath.item == 1 || indexPath.item == 2 || ((indexPath.item % 6)-1) == 0 || ((indexPath.item % 6)-2) == 0 || indexPath.item == 3 || indexPath.item == 4 || ((indexPath.item % 6)-3) == 0 || ((indexPath.item % 6)-4) == 0) {
         
         CollectionViewCellGrande *cell;
         if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
@@ -306,8 +306,8 @@ NSString *storyBoardName;
                                        } failure:nil];
         
         return cell;
-    }
-    
+  }
+    /*
     if (indexPath.item == 1 || indexPath.item == 2 || ((indexPath.item % 6)-1) == 0 || ((indexPath.item % 6)-2) == 0  )
     {
         
@@ -377,6 +377,7 @@ NSString *storyBoardName;
         
     }
     
+     */
     if (indexPath.item == 5 || ((indexPath.item % 6)-5) == 0 )
     {
         
@@ -425,16 +426,19 @@ NSString *storyBoardName;
     CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
     
     return cell;
+ 
+    
 }
 
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"ENtonces el indexpath es: %ld",(long)[indexPath row]);
-    if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
+   /* if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
         return ;
         
     }else{
+    */
         Headline *titular = (Headline*)[headlinesArray objectAtIndex:indexPath.row ];
         [titular logDescription];
         int idArticulo = titular.idArt;
@@ -442,7 +446,7 @@ NSString *storyBoardName;
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
         [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];
         [self.navigationController pushViewController:detalleNews animated:YES];
-    }
+    //}
 }
 
 - (void)loadMoreRows {
@@ -458,7 +462,7 @@ NSString *storyBoardName;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    if([indexPath row]==0 || [indexPath row] % 6 == 0){
+    if((indexPath.item == 0 || indexPath.item % 6 == 0 || indexPath.item == 1 || indexPath.item == 2 || ((indexPath.item % 6)-1) == 0 || ((indexPath.item % 6)-2) == 0 || indexPath.item == 3 || indexPath.item == 4 || ((indexPath.item % 6)-3) == 0 || ((indexPath.item % 6)-4) == 0)){
         
         if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             return CGSizeMake(310, 468);
@@ -467,6 +471,7 @@ NSString *storyBoardName;
             return CGSizeMake(370, 420);
         }
     }
+    /*
     
     if([indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 ) {
         if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
@@ -489,13 +494,14 @@ NSString *storyBoardName;
         }
         
     }
-    
+     */
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
         return CGSizeMake(370, 265);
         
     }
     
     return CGSizeMake(370, 428);
+    
 }
 
 //New code

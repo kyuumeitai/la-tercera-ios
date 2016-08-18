@@ -92,6 +92,10 @@ NSString *textoContenidoTemporal = @"";
     [nuevoFavorito  setValue:@"Ajuaaa" forKey:@"summary"];
     [nuevoFavorito  setValue:@1 forKey:@"idArticle"];
     
+    NSError *error = nil;
+    if ([[self managedObjectContext] save:&error] == NO) {
+        NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
     
     SessionManager *sesion = [SessionManager session];
     UserProfile *profile = [sesion getUserProfile];
