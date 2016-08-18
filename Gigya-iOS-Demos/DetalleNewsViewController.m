@@ -13,6 +13,7 @@
 #import "UserProfile.h"
 #import "UsarBeneficioNoLogueado.h"
 
+
 @interface DetalleNewsViewController () <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *labelFecha;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -27,6 +28,8 @@
 
 @implementation DetalleNewsViewController
 @synthesize tituloCategoria;
+@synthesize fetchedResultsController;
+
 int fontSize = 16;
 
 
@@ -47,7 +50,7 @@ NSString *textoContenidoTemporal = @"";
     _summary.textAlignment = NSTextAlignmentJustified;
     _contentTextView.text= @"";
     
-    
+  //  self.managedObjectContext = managedObjectContext;
     _imagenNews.image = nil;
     
     _titulo.alpha = 0;
@@ -65,7 +68,30 @@ NSString *textoContenidoTemporal = @"";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 - (IBAction)selectionButtonPressed:(id)sender {
+    NSArray *noticias = [[NSArray alloc] init];
+    // Fetch the devices from persistent data store
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Noticia"];
+    noticias = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    NSLog(@"noticias: %@",noticias);
+    
+    // Create a new device
+    NSManagedObject *nuevoFavorito = [NSEntityDescription insertNewObjectForEntityForName:@"Noticia" inManagedObjectContext:managedObjectContext];
+    [nuevoFavorito  setValue:@"Cazaron 1000 polemones" forKey:@"title"];
+    [nuevoFavorito  setValue:@"Ajuaaa" forKey:@"summary"];
+    [nuevoFavorito  setValue:@1 forKey:@"idArticle"];
+    
     
     SessionManager *sesion = [SessionManager session];
     UserProfile *profile = [sesion getUserProfile];

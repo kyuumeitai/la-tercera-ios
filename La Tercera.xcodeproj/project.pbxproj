@@ -274,6 +274,9 @@
 		173A31281D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173A31261D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard */; };
 		175F13651CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 175F13641CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m */; };
 		175F13661CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 175F13641CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m */; };
+		17B42F041D65976E00A028E8 /* LaTerceraModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17B42F021D65976E00A028E8 /* LaTerceraModel.xcdatamodeld */; };
+		17B42F051D65976E00A028E8 /* LaTerceraModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17B42F021D65976E00A028E8 /* LaTerceraModel.xcdatamodeld */; };
+		17B42F071D659A8F00A028E8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B42F061D659A8F00A028E8 /* CoreData.framework */; };
 		17B6A2311D6577CF005B4E46 /* MiSeleccionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B6A2301D6577CF005B4E46 /* MiSeleccionViewController.m */; };
 		17B6A2321D6577CF005B4E46 /* MiSeleccionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B6A2301D6577CF005B4E46 /* MiSeleccionViewController.m */; };
 		17B6A2351D657854005B4E46 /* CVMiSeleccion.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B6A2341D657854005B4E46 /* CVMiSeleccion.m */; };
@@ -858,6 +861,8 @@
 		17899FAD1CA8E85F00ADD960 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		17899FAF1CA8E8C400ADD960 /* AFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
 		17AACC161CBD889100C2D090 /* Categorías.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Categorías.rtf"; sourceTree = "<group>"; };
+		17B42F031D65976E00A028E8 /* LaTerceraModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LaTerceraModel.xcdatamodel; sourceTree = "<group>"; };
+		17B42F061D659A8F00A028E8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		17B6A22F1D6577CF005B4E46 /* MiSeleccionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiSeleccionViewController.h; sourceTree = "<group>"; };
 		17B6A2301D6577CF005B4E46 /* MiSeleccionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiSeleccionViewController.m; sourceTree = "<group>"; };
 		17B6A2331D657854005B4E46 /* CVMiSeleccion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVMiSeleccion.h; sourceTree = "<group>"; };
@@ -1435,6 +1440,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B42F071D659A8F00A028E8 /* CoreData.framework in Frameworks */,
 				D0E8B2671D26C1F20056CBDA /* CoreFoundation.framework in Frameworks */,
 				D0522D701D09DBB300D6E4C6 /* CoreBluetooth.framework in Frameworks */,
 				D00B9C4F1D3FC6B900705A11 /* GoogleMobileAds.framework in Frameworks */,
@@ -1763,6 +1769,14 @@
 			name = "AFNetworking+UIKIT";
 			sourceTree = "<group>";
 		};
+		17B42F011D65974500A028E8 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				17B42F021D65976E00A028E8 /* LaTerceraModel.xcdatamodeld */,
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
 		17CE13931D585E62009A7F16 /* iPhone4-5 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1955,6 +1969,7 @@
 		52BCE2071A48CE9500924AD8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17B42F061D659A8F00A028E8 /* CoreData.framework */,
 				D0522D6D1D09DB7800D6E4C6 /* SafariServices.framework */,
 				D0522D6F1D09DBB300D6E4C6 /* CoreBluetooth.framework */,
 				D0E8B2661D26C1F20056CBDA /* CoreFoundation.framework */,
@@ -2543,6 +2558,7 @@
 		D0E495071C9726D20030F56C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				17B42F011D65974500A028E8 /* Persistence */,
 				D014C88B1D240BF800E3D3B5 /* Logic */,
 				D014C88A1D240BE400E3D3B5 /* Objects */,
 			);
@@ -3454,6 +3470,7 @@
 				1702BD171CB093E400F26F42 /* InfantilTableViewController.m in Sources */,
 				1702BD181CB093E400F26F42 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				1702BE121CB1A38F00F26F42 /* TiempoLibreTableViewController.m in Sources */,
+				17B42F051D65976E00A028E8 /* LaTerceraModel.xcdatamodeld in Sources */,
 				1702BD191CB093E400F26F42 /* VidaSanaContainerVC.m in Sources */,
 				D0DD6E541CC005A200994DDF /* CVNegocios.m in Sources */,
 				1702BD1B1CB093E400F26F42 /* SWRevealViewController.m in Sources */,
@@ -3624,6 +3641,7 @@
 				D0FFBAC31D05E620001F501D /* CollectionViewCellMediana.m in Sources */,
 				D03893221D4952DF00650F27 /* CVNoticiasMundo.m in Sources */,
 				D0DD6E531CC005A200994DDF /* CVNegocios.m in Sources */,
+				17B42F041D65976E00A028E8 /* LaTerceraModel.xcdatamodeld in Sources */,
 				1702BE051CB18B9200F26F42 /* VidaSanaTableViewController.m in Sources */,
 				D02A7CDC1D5E4FC800FDF893 /* Video.m in Sources */,
 				D0FF55701CCFC8F700EA71F4 /* TiendaClub.m in Sources */,
@@ -3882,6 +3900,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		17B42F021D65976E00A028E8 /* LaTerceraModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				17B42F031D65976E00A028E8 /* LaTerceraModel.xcdatamodel */,
+			);
+			currentVersion = 17B42F031D65976E00A028E8 /* LaTerceraModel.xcdatamodel */;
+			path = LaTerceraModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 52BCE1D41A48A65800924AD8 /* Project object */;
 }
