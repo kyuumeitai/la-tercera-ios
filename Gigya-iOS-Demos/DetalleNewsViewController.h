@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imagenNews;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (retain,nonatomic) NSString * tituloCategoria;
+@property int idArticulo;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 -(void)loadBenefitForBenefitId:(int)idArticle andCategory:(NSString*)categoria;

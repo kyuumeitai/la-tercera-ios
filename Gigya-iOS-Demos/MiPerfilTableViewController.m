@@ -44,9 +44,9 @@ NSString *email;
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     
-    NSString *respuesta = [connectionManager getHistoryWithEmail:@"cristian.villarreal.urrutia@gmail.com"];
+   // NSString *respuesta = [connectionManager getHistoryWithEmail:@"cristian.villarreal.urrutia@gmail.com"];
 
-    //NSString *respuesta = [connectionManager getHistoryWithEmail:email];
+    NSString *respuesta = [connectionManager getHistoryWithEmail:email];
     NSLog(@"***::::-----    %@     -----::::***\r\r\r",respuesta);
     
 }

@@ -29,7 +29,7 @@
 @implementation DetalleNewsViewController
 @synthesize tituloCategoria;
 @synthesize fetchedResultsController;
-
+@synthesize idArticulo;
 int fontSize = 16;
 
 
@@ -77,8 +77,11 @@ NSString *textoContenidoTemporal = @"";
     }
     return context;
 }
-
-- (IBAction)selectionButtonPressed:(id)sender {
+- (IBAction)addToFavorite:(id)sender {
+    
+    int level = [self getUserType];
+    
+     if(level == 2){
     NSArray *noticias = [[NSArray alloc] init];
     // Fetch the devices from persistent data store
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
@@ -88,16 +91,48 @@ NSString *textoContenidoTemporal = @"";
     
     // Create a new device
     NSManagedObject *nuevoFavorito = [NSEntityDescription insertNewObjectForEntityForName:@"Noticia" inManagedObjectContext:managedObjectContext];
-    [nuevoFavorito  setValue:@"Cazaron 1000 polemones" forKey:@"title"];
-    [nuevoFavorito  setValue:@"Ajuaaa" forKey:@"summary"];
-    [nuevoFavorito  setValue:@1 forKey:@"idArticle"];
+
+    [nuevoFavorito  setValue:_titulo.text forKey:@"title"];
+    [nuevoFavorito  setValue:_summary.text forKey:@"summary"];
+    [nuevoFavorito  setValue:[NSNumber numberWithInt:idArticulo] forKey:@"idArticle"];
+    [nuevoFavorito  setValue:_contentTextView.text forKey:@"content"];
+     NSData *imageData = UIImagePNGRepresentation(_imagenNews.image);
+    [nuevoFavorito  setValue:imageData forKey:@"imageLink"];
+    [nuevoFavorito  setValue:_labelFecha.text forKey:@"date"];
+    [nuevoFavorito  setValue:_labelAutor.text forKey:@"author"];
+    [nuevoFavorito  setValue:tituloCategoria forKey:@"category"];
+  
+        NSManagedObjectContext *context = [self managedObjectContext];
+         
+         NSError *error = nil;
+         // Save the object to persistent store
+         if (![context save:&error]) {
+             NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+         }else{
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Añadida a favoritos"
+                                                             message:@"Ha agregado esta notica a Favoritos."
+                                                            delegate:self
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil];
+             [alert show];
+         }
+  
+      }else{
+         //ES flaite
+         
+         //suscriberNeededScreen
+         NSLog(@"Sin permisos");
+         UsarBeneficioNoLogueado *usarBeneficioNoLogueadoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"suscriberNeededScreen"];
+         [usarBeneficioNoLogueadoViewController cancelButtonText:@"Volver a la noticia"];
+         usarBeneficioNoLogueadoViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+         [self presentViewController:usarBeneficioNoLogueadoViewController animated:YES completion:nil];
+     }
+
+}
+
+- (IBAction)selectionButtonPressed:(id)sender {
     
-    
-    SessionManager *sesion = [SessionManager session];
-    UserProfile *profile = [sesion getUserProfile];
-    
-    int level = profile.profileLevel;
-    
+    int level = [self getUserType];
     if(level == 2){
         //Es premium
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría añadida"
@@ -117,11 +152,18 @@ NSString *textoContenidoTemporal = @"";
         usarBeneficioNoLogueadoViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
         [self presentViewController:usarBeneficioNoLogueadoViewController animated:YES completion:nil];
     }
-    
-    
-    
-    
 }
+
+-(int) getUserType{
+
+    SessionManager *sesion = [SessionManager session];
+    UserProfile *profile = [sesion getUserProfile];
+    
+    int level = profile.profileLevel;
+
+    return level;
+}
+
 - (IBAction)decreaseTextSizePressed:(id)sender {
     
     NSLog(@"Disminuir Fuente Presionado");
@@ -177,6 +219,7 @@ NSString *textoContenidoTemporal = @"";
 -(void)loadBenefitForBenefitId:(int)idArticle andCategory:(NSString*)categoria{
     
     NSLog(@"Load article for Id:%d",idArticle);
+    self.idArticulo = idArticle;
       NSLog(@"Titulo de categoria:%@",categoria);
     self.tituloCategoria = categoria;
     // IMPORTANT - Only update the UI on the main thread
