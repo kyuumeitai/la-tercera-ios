@@ -91,6 +91,7 @@ NSString *textoContenidoTemporal = @"";
     
     // Create a new device
     NSManagedObject *nuevoFavorito = [NSEntityDescription insertNewObjectForEntityForName:@"Noticia" inManagedObjectContext:managedObjectContext];
+<<<<<<< HEAD
 
     [nuevoFavorito  setValue:_titulo.text forKey:@"title"];
     [nuevoFavorito  setValue:_summary.text forKey:@"summary"];
@@ -131,6 +132,21 @@ NSString *textoContenidoTemporal = @"";
 }
 
 - (IBAction)selectionButtonPressed:(id)sender {
+=======
+    [nuevoFavorito  setValue:@"Cazaron 1000 polemones" forKey:@"title"];
+    [nuevoFavorito  setValue:@"Ajuaaa" forKey:@"summary"];
+    [nuevoFavorito  setValue:@1 forKey:@"idArticle"];
+    
+    NSError *error = nil;
+    if ([[self managedObjectContext] save:&error] == NO) {
+        NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
+    
+    SessionManager *sesion = [SessionManager session];
+    UserProfile *profile = [sesion getUserProfile];
+    
+    int level = profile.profileLevel;
+>>>>>>> c4290c306cbc89e7171b38918f5cdcd2e24e114e
     
     int level = [self getUserType];
     if(level == 2){
