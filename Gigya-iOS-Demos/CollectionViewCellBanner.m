@@ -21,6 +21,7 @@ DFPRequest *request;
     // Initialization code
 }
 
+/*
 - (void)initBanner{
    
    // [self.bannerView loadRequest:[GADRequest request]];
@@ -31,10 +32,39 @@ DFPRequest *request;
    request = [DFPRequest request];
 
 }
+ */
+-(void)cellBannerView:(UIViewController*)rootVC {
+
+   // [self.bannerView loadRequest:[GADRequest request]];
+    self.bannerView.adUnitID = self.bannerUnitID;
+    self.bannerView.delegate = self;
+    self.bannerView.rootViewController = rootVC;
+    request = [DFPRequest request];
+  
+    //[self.contentView addSubview:self.bannerView];
+    [self.bannerView loadRequest:request];
+}
 
 -(void)loadBanner{
     
         [self.bannerView loadRequest:request];
+}
+- (void)adViewDidReceiveAd:(DFPBannerView *)bannerView {
+    NSLog(@"Mostrando el Ad %@ : %@",self.bannerView.adUnitID,  bannerView.adNetworkClassName);
+
+}
+
+- (void)adView:(DFPBannerView *)bannerView didFailToReceiveAdWithError:(GADRequestError *)error {
+    NSLog(@"Ha falado Mostrando el Ad %@ : %@",self.bannerView.adUnitID,  bannerView.adNetworkClassName);
+
+}
+
++(NSString*)resuseIdentifier {
+    return @"collectionViewBanner";
+}
+
+-(void)prepareForReuse {
+    [super prepareForReuse];
 }
 
 @end

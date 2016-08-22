@@ -68,7 +68,7 @@ NSString *storyBoardName;
     __weak CVNoticiasElDeportivo *weakSelf = self;
     headlinesArray = [[NSMutableArray alloc] init];
     
-    bannersElDeportivo = [NSArray arrayWithObjects:@"/124506296/La_Tercera_com/La_Tercera_com_APP/ElDeportivo_300x250-A", @"/124506296/La_Tercera_com/La_Tercera_com_APP/ElDeportivo_300x250-B", @"/124506296/La_Tercera_com/La_Tercera_com_APP/ElDeportivo_300x250-C", @"/124506296/La_Tercera_com/La_Tercera_com_APP/ElDeportivo_300x250-D", @"/124506296/La_Tercera_com/La_Tercera_com_APP/ElDeportivo_300x250-E", nil];
+    bannersElDeportivo = [NSArray arrayWithObjects:@"/124506296/La_Tercera_com/La_Tercera_com_APP/el-deportivo_300x250-A", @"/124506296/La_Tercera_com/La_Tercera_com_APP/el-deportivo_300x250-B", @"/124506296/La_Tercera_com/La_Tercera_com_APP/el-deportivo_300x250-C", @"/124506296/La_Tercera_com/La_Tercera_com_APP/el-deportivo_300x250-D", @"/124506296/La_Tercera_com/La_Tercera_com_APP/el-deportivo_300x250-E", nil];
     
     //Celda Grande
     UINib *cellNib ;
@@ -403,18 +403,29 @@ NSString *storyBoardName;
                 break;
         }
         
-        
         if (self.collectionView.dragging == NO && self.collectionView.decelerating == NO){
             
-            [celdaBanner initBanner];
-            [celdaBanner loadBanner];
+            for(UIView* view in celdaBanner.contentView.subviews) {
+                if([view isKindOfClass:[DFPBannerView class]]) {
+                    [view removeFromSuperview];
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [celdaBanner cellBannerView:self];
+            });
         }
         
         if(_isScrollingElDeportivo == false){
-            [celdaBanner initBanner];
-            [celdaBanner loadBanner];
+            for(UIView* view in celdaBanner.contentView.subviews) {
+                if([view isKindOfClass:[DFPBannerView class]]) {
+                    [view removeFromSuperview];
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [celdaBanner cellBannerView:self];
+            });
         }
-
+        
         return celdaBanner;
         
     }
@@ -487,7 +498,7 @@ NSString *storyBoardName;
     }
     
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
-        return CGSizeMake(350, 265);
+        return CGSizeMake(350, 290);
         
     }
     

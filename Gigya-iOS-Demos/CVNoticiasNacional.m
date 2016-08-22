@@ -68,7 +68,7 @@ int categoryId;
     __weak CVNoticiasNacional *weakSelf = self;
     headlinesArray = [[NSMutableArray alloc] init];
     
-    bannersNacional = [NSArray arrayWithObjects:@"/124506296/La_Tercera_com/La_Tercera_com_APP/Nacional_300x250-A", @"/124506296/La_Tercera_com/La_Tercera_com_APP/Nacional_300x250-B", @"/124506296/La_Tercera_com/La_Tercera_com_APP/Nacional_300x250-C", @"/124506296/La_Tercera_com/La_Tercera_com_APP/Nacional_300x250-D", @"/124506296/La_Tercera_com/La_Tercera_com_APP/Nacional_300x250-E", nil];
+    bannersNacional = [NSArray arrayWithObjects:@"/124506296/La_Tercera_com/La_Tercera_com_APP/nacional_300x250-A", @"/124506296/La_Tercera_com/La_Tercera_com_APP/nacional_300x250-B", @"/124506296/La_Tercera_com/La_Tercera_com_APP/nacional_300x250-C", @"/124506296/La_Tercera_com/La_Tercera_com_APP/nacional_300x250-D", @"/124506296/La_Tercera_com/La_Tercera_com_APP/nacional_300x250-E", nil];
     
     //Celda Grande
     UINib *cellNib ;
@@ -405,20 +405,26 @@ int categoryId;
         
         if (self.collectionView.dragging == NO && self.collectionView.decelerating == NO){
             
-            [celdaBanner initBanner];
-            [celdaBanner loadBanner];
+            for(UIView* view in celdaBanner.contentView.subviews) {
+                if([view isKindOfClass:[DFPBannerView class]]) {
+                    [view removeFromSuperview];
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [celdaBanner cellBannerView:self];
+            });
         }
         
         if(_isScrollingNacional == false){
-            [celdaBanner initBanner];
-            [celdaBanner loadBanner];
+            for(UIView* view in celdaBanner.contentView.subviews) {
+                if([view isKindOfClass:[DFPBannerView class]]) {
+                    [view removeFromSuperview];
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [celdaBanner cellBannerView:self];
+            });
         }
-        
-        
-        
-        
-        
-        
         
         return celdaBanner;
         
@@ -493,7 +499,7 @@ int categoryId;
     }
     
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
-        return CGSizeMake(350, 265);
+        return CGSizeMake(350, 290);
         
     }
     

@@ -408,20 +408,26 @@ int categoryId;
         
         if (self.collectionView.dragging == NO && self.collectionView.decelerating == NO){
             
-            [celdaBanner initBanner];
-            [celdaBanner loadBanner];
+            for(UIView* view in celdaBanner.contentView.subviews) {
+                if([view isKindOfClass:[DFPBannerView class]]) {
+                    [view removeFromSuperview];
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [celdaBanner cellBannerView:self];
+            });
         }
         
         if(_isScrollingPolitica == false){
-            [celdaBanner initBanner];
-            [celdaBanner loadBanner];
+            for(UIView* view in celdaBanner.contentView.subviews) {
+                if([view isKindOfClass:[DFPBannerView class]]) {
+                    [view removeFromSuperview];
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [celdaBanner cellBannerView:self];
+            });
         }
-        
-        
-        
-        
-        
-        
         
         return celdaBanner;
         
@@ -496,7 +502,7 @@ int categoryId;
     }
     
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
-        return CGSizeMake(350, 265);
+        return CGSizeMake(350, 290);
         
     }
     
