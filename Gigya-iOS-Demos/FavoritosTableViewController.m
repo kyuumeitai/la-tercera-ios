@@ -77,8 +77,8 @@
     [cell.labelTitle setText:[NSString stringWithFormat:@"%@ ", [device valueForKey:@"title"]]];
     [cell.labelFecha setText:[device valueForKey:@"date"]];
     [cell.labelCategory setText:[device valueForKey:@"category"]];
-    UIImage *imagen = [UIImage imageWithData:[device valueForKey:@"imageLink"]];
-    [cell.imageView setImage:imagen];
+    //UIImage *imagen = [UIImage imageWithData:[device valueForKey:@"imageLink"]];
+    //[cell.imageView setImage:imagen];
     
     return cell;
     

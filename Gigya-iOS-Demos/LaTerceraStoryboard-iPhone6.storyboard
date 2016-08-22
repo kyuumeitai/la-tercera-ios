@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GVp-39-K6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GVp-39-K6N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1503,8 +1503,8 @@ REGISTRARSE?</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6XK-JQ-idi">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6XK-JQ-idi">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <connections>
                                     <segue destination="SYc-4s-vqG" kind="embed" id="Ed0-MS-KP5"/>
                                 </connections>
@@ -1534,15 +1534,15 @@ REGISTRARSE?</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="cua-fp-mDq">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="12" minimumInteritemSpacing="2" id="cua-fp-mDq">
                             <size key="itemSize" width="170" height="255"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="10" minY="15" maxX="10" maxY="25"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="e3j-e5-lYp">
-                                <rect key="frame" x="10" y="30" width="170" height="255"/>
+                                <rect key="frame" x="10" y="15" width="170" height="255"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="255"/>
@@ -1552,7 +1552,7 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.93388637506284555" green="0.95256410256410251" blue="0.95256410256410251" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EAD-N9-Kpt">
-                                <rect key="frame" x="195" y="30" width="170" height="255"/>
+                                <rect key="frame" x="195" y="15" width="170" height="255"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="255"/>
@@ -5998,15 +5998,15 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="z9u-E0-Lzy">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="12" minimumInteritemSpacing="2" id="z9u-E0-Lzy">
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="12" minY="15" maxX="12" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7CW-9D-4Gy">
-                                <rect key="frame" x="10" y="30" width="170" height="267"/>
+                                <rect key="frame" x="12" y="15" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -6016,7 +6016,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6YQ-Y2-h2a">
-                                <rect key="frame" x="195" y="30" width="170" height="267"/>
+                                <rect key="frame" x="193" y="15" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -6256,8 +6256,8 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wIJ-9X-RfI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIJ-9X-RfI">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <connections>
                                     <segue destination="76x-PL-CyU" kind="embed" id="Djk-Zb-Bur"/>
                                 </connections>
@@ -6272,6 +6272,9 @@ de La Tercera</string>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iQP-Lz-mNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6286,28 +6289,48 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="xrw-5v-UvD">
-                            <size key="itemSize" width="170" height="267"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="12" minimumInteritemSpacing="2" id="xrw-5v-UvD">
+                            <size key="itemSize" width="170" height="262"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="12" minY="15" maxX="12" maxY="25"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6dK-Qo-NvF">
-                                <rect key="frame" x="10" y="30" width="170" height="267"/>
+                                <rect key="frame" x="12" y="15" width="170" height="262"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="262"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5Fs-1L-h6v">
-                                <rect key="frame" x="195" y="30" width="170" height="267"/>
+                                <rect key="frame" x="193" y="15" width="170" height="262"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="262"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6aC-uV-Tfs">
+                                <rect key="frame" x="12" y="289" width="170" height="262"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="262"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hq0-NN-QFD">
+                                <rect key="frame" x="193" y="289" width="170" height="262"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="262"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -6319,7 +6342,9 @@ de La Tercera</string>
                             <outlet property="delegate" destination="76x-PL-CyU" id="6Vu-Wc-7bj"/>
                         </connections>
                     </collectionView>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -6328,7 +6353,7 @@ de La Tercera</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0BN-6M-xSW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3398.4375" y="-4324.1197183098584"/>
+            <point key="canvasLocation" x="3000.5" y="-4341.5"/>
         </scene>
         <!--News Category Mundo View Controller-->
         <scene sceneID="CQf-rb-omb">
@@ -6342,8 +6367,8 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46c-UQ-FfG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46c-UQ-FfG">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <connections>
                                     <segue destination="3FC-Lv-A7W" kind="embed" id="0lm-nI-4wO"/>
                                 </connections>
@@ -6372,15 +6397,15 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="xD6-3J-vzg">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="2" id="xD6-3J-vzg">
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="12" minY="15" maxX="12" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Iar-sG-EGD">
-                                <rect key="frame" x="10" y="30" width="170" height="267"/>
+                                <rect key="frame" x="12" y="15" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -6390,7 +6415,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2UW-or-tc5">
-                                <rect key="frame" x="195" y="30" width="170" height="267"/>
+                                <rect key="frame" x="193" y="15" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -6428,8 +6453,8 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lQ-uH-6uL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lQ-uH-6uL">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <connections>
                                     <segue destination="mlH-VH-rW4" kind="embed" id="hNf-XG-c0R"/>
                                 </connections>
@@ -6458,15 +6483,15 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="obv-KN-VI0">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="2" id="obv-KN-VI0">
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="12" minY="15" maxX="12" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5v1-uC-E0f">
-                                <rect key="frame" x="10" y="30" width="170" height="267"/>
+                                <rect key="frame" x="12" y="15" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -6476,7 +6501,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OjD-Ag-YfC">
-                                <rect key="frame" x="195" y="30" width="170" height="267"/>
+                                <rect key="frame" x="193" y="15" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -6514,8 +6539,8 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aUw-tz-K2j">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUw-tz-K2j">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <connections>
                                     <segue destination="zxM-Ve-hzp" kind="embed" id="Yj6-Nq-7hr"/>
                                 </connections>
@@ -6544,15 +6569,15 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="rBd-tP-Pkq">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="2" id="rBd-tP-Pkq">
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="12" minY="15" maxX="12" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lzu-0s-54V">
-                                <rect key="frame" x="10" y="30" width="170" height="267"/>
+                                <rect key="frame" x="12" y="15" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -6562,7 +6587,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cV7-QF-jYk">
-                                <rect key="frame" x="195" y="30" width="170" height="267"/>
+                                <rect key="frame" x="193" y="15" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -6630,15 +6655,15 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="aMM-UZ-YBF">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="2" id="aMM-UZ-YBF">
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="12" minY="15" maxX="12" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="UdK-9N-Wzo">
-                                <rect key="frame" x="10" y="30" width="170" height="267"/>
+                                <rect key="frame" x="12" y="15" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -6648,7 +6673,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MXO-yv-nJu">
-                                <rect key="frame" x="195" y="30" width="170" height="267"/>
+                                <rect key="frame" x="193" y="15" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -6783,7 +6808,7 @@ de La Tercera</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sección de Inicio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1f6-wN-ulh">
-                                                    <rect key="frame" x="23" y="13" width="144" height="22"/>
+                                                    <rect key="frame" x="23" y="14" width="144" height="22"/>
                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -6791,7 +6816,7 @@ de La Tercera</string>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZh-Xg-MBO">
                                                     <rect key="frame" x="295" y="9" width="58" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="58" id="tSN-Ns-Fwa"/>
+                                                        <constraint firstAttribute="width" constant="58" id="oNG-I1-TGO"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="16"/>
                                                     <state key="normal" title="Cambiar"/>
@@ -6799,7 +6824,7 @@ de La Tercera</string>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Inicio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUs-DL-1Z7">
                                                     <rect key="frame" x="175" y="13" width="126" height="22"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="126" id="LCm-ZJ-2BD"/>
+                                                        <constraint firstAttribute="width" constant="126" id="8ZR-gb-dtQ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.3294117647" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -6807,19 +6832,18 @@ de La Tercera</string>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="NUs-DL-1Z7" firstAttribute="baseline" secondItem="nZh-Xg-MBO" secondAttribute="firstBaseline" id="3gY-ha-j5U"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="nZh-Xg-MBO" secondAttribute="trailing" constant="14" id="6ja-Ja-N4p"/>
-                                                <constraint firstItem="1f6-wN-ulh" firstAttribute="baseline" secondItem="NUs-DL-1Z7" secondAttribute="baseline" id="IrE-Eo-SA9"/>
-                                                <constraint firstItem="1f6-wN-ulh" firstAttribute="leading" secondItem="cYw-o0-2p5" secondAttribute="leadingMargin" constant="15" id="KXv-4I-HGp"/>
-                                                <constraint firstItem="NUs-DL-1Z7" firstAttribute="baseline" secondItem="nZh-Xg-MBO" secondAttribute="baseline" id="VuR-Hb-XZ5"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="NUs-DL-1Z7" secondAttribute="trailing" constant="66" id="fI2-DH-Qnq"/>
-                                                <constraint firstItem="nZh-Xg-MBO" firstAttribute="top" secondItem="cYw-o0-2p5" secondAttribute="topMargin" constant="1" id="jQ9-JH-q6W"/>
-                                                <constraint firstItem="1f6-wN-ulh" firstAttribute="centerY" secondItem="cYw-o0-2p5" secondAttribute="centerY" id="lKA-b7-Joj"/>
-                                                <constraint firstItem="1f6-wN-ulh" firstAttribute="top" secondItem="cYw-o0-2p5" secondAttribute="topMargin" constant="5" id="lxh-Sf-56y"/>
-                                                <constraint firstItem="1f6-wN-ulh" firstAttribute="firstBaseline" secondItem="NUs-DL-1Z7" secondAttribute="firstBaseline" id="oiz-4l-Kj6"/>
-                                                <constraint firstItem="1f6-wN-ulh" firstAttribute="centerY" secondItem="cYw-o0-2p5" secondAttribute="centerY" id="pnS-o8-aob"/>
-                                                <constraint firstItem="NUs-DL-1Z7" firstAttribute="leading" secondItem="1f6-wN-ulh" secondAttribute="trailing" constant="8" symbolic="YES" id="y5F-Vr-rgO"/>
-                                                <constraint firstItem="NUs-DL-1Z7" firstAttribute="centerY" secondItem="nZh-Xg-MBO" secondAttribute="centerY" id="zO8-Ih-XOh"/>
+                                                <constraint firstItem="NUs-DL-1Z7" firstAttribute="baseline" secondItem="nZh-Xg-MBO" secondAttribute="firstBaseline" id="JWN-bm-e68"/>
+                                                <constraint firstItem="NUs-DL-1Z7" firstAttribute="leading" secondItem="1f6-wN-ulh" secondAttribute="trailing" constant="8" symbolic="YES" id="K1L-bu-NDJ"/>
+                                                <constraint firstItem="NUs-DL-1Z7" firstAttribute="baseline" secondItem="nZh-Xg-MBO" secondAttribute="baseline" id="Pgj-sZ-1UH"/>
+                                                <constraint firstItem="NUs-DL-1Z7" firstAttribute="baseline" secondItem="1f6-wN-ulh" secondAttribute="firstBaseline" id="WYR-Qp-Q1K"/>
+                                                <constraint firstItem="NUs-DL-1Z7" firstAttribute="centerY" secondItem="nZh-Xg-MBO" secondAttribute="centerY" id="bgX-Zz-Qfn"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="1f6-wN-ulh" secondAttribute="bottom" constant="4" id="fJG-4F-BTU"/>
+                                                <constraint firstItem="NUs-DL-1Z7" firstAttribute="centerY" secondItem="cYw-o0-2p5" secondAttribute="centerY" id="hyM-yr-G8g"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nZh-Xg-MBO" secondAttribute="trailing" constant="14" id="m7o-67-9Vb"/>
+                                                <constraint firstItem="NUs-DL-1Z7" firstAttribute="top" secondItem="cYw-o0-2p5" secondAttribute="topMargin" constant="5" id="sd3-rH-i06"/>
+                                                <constraint firstItem="nZh-Xg-MBO" firstAttribute="top" secondItem="cYw-o0-2p5" secondAttribute="topMargin" constant="1" id="uZq-Uo-ta8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="NUs-DL-1Z7" secondAttribute="trailing" constant="66" id="vv3-mW-Iaz"/>
+                                                <constraint firstItem="1f6-wN-ulh" firstAttribute="leading" secondItem="cYw-o0-2p5" secondAttribute="leadingMargin" constant="15" id="xQT-s4-WtX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -7483,15 +7507,15 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="Nv4-Ka-iBW">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="2" id="Nv4-Ka-iBW">
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="12" minY="15" maxX="12" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="muy-yW-ZRG">
-                                <rect key="frame" x="10" y="30" width="170" height="267"/>
+                                <rect key="frame" x="12" y="15" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -7501,7 +7525,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fmR-sr-asD">
-                                <rect key="frame" x="195" y="30" width="170" height="267"/>
+                                <rect key="frame" x="193" y="15" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -7539,8 +7563,8 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5P-R3-jyd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5P-R3-jyd">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <connections>
                                     <segue destination="TMl-el-B4J" kind="embed" id="FTo-SI-IjI"/>
                                 </connections>
@@ -7569,28 +7593,48 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="iLK-1H-nCz">
-                            <size key="itemSize" width="170" height="267"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="2" id="CDh-y3-zNE">
+                            <size key="itemSize" width="170" height="262"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="15"/>
+                            <inset key="sectionInset" minX="12" minY="15" maxX="12" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9By-fJ-BHA">
-                                <rect key="frame" x="10" y="30" width="170" height="267"/>
+                                <rect key="frame" x="12" y="15" width="170" height="262"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="262"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fb6-vx-cIV">
-                                <rect key="frame" x="195" y="30" width="170" height="267"/>
+                                <rect key="frame" x="193" y="15" width="170" height="262"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="262"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fum-mM-ZbX">
+                                <rect key="frame" x="12" y="282" width="170" height="262"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="262"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="calibratedRGB"/>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CR9-kJ-IKG">
+                                <rect key="frame" x="193" y="282" width="170" height="262"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="262"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -7691,8 +7735,8 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="VJh-xz-ygN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="VJh-xz-ygN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DSf-1e-mRP">
                                 <rect key="frame" x="203" y="33" width="165" height="27"/>
@@ -7786,21 +7830,23 @@ de La Tercera</string>
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0.1 Bienvenida.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jik-Yp-x2Y">
-                                            <rect key="frame" x="2" y="0.0" width="81" height="80"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="80" id="OQe-pz-Kfd"/>
-                                                <constraint firstAttribute="width" constant="81" id="W0g-2v-wkV"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noticia es la notica que te dice noticia Noticia es la notica que te dice noticia Noticia es la notica que te dice noticia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vh8-8b-R6M">
-                                            <rect key="frame" x="89" y="20" width="275" height="60"/>
+                                            <rect key="frame" x="13" y="20" width="351" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="351" id="wAt-0N-yec"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29 -04 . 2012 / 12:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmP-xP-FBQ">
+                                            <rect key="frame" x="121" y="2" width="230" height="22"/>
+                                            <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="El Deportivo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9n-uC-Mdm">
-                                            <rect key="frame" x="89" y="2" width="106" height="22"/>
+                                            <rect key="frame" x="13" y="2" width="106" height="22"/>
                                             <color key="backgroundColor" red="0.68003517670000002" green="0.0066766623929999996" blue="0.034616023340000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="106" id="Tdj-sA-V5I"/>
@@ -7809,30 +7855,24 @@ de La Tercera</string>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="29 -04 . 2012 / 12:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmP-xP-FBQ">
-                                            <rect key="frame" x="197" y="2" width="154" height="22"/>
-                                            <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="13"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="wmP-xP-FBQ" firstAttribute="leading" secondItem="x9n-uC-Mdm" secondAttribute="trailing" constant="2" id="07d-me-gsC"/>
                                         <constraint firstItem="Vh8-8b-R6M" firstAttribute="leading" secondItem="x9n-uC-Mdm" secondAttribute="leading" id="6fs-cE-uZV"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="wmP-xP-FBQ" secondAttribute="trailing" constant="16" id="Gsz-Fc-zzN"/>
                                         <constraint firstItem="x9n-uC-Mdm" firstAttribute="top" secondItem="TLn-VV-Cun" secondAttribute="topMargin" constant="-6" id="L5A-9m-z2U"/>
                                         <constraint firstItem="Vh8-8b-R6M" firstAttribute="top" secondItem="TLn-VV-Cun" secondAttribute="topMargin" constant="12" id="UpI-S9-FtL"/>
                                         <constraint firstItem="x9n-uC-Mdm" firstAttribute="bottom" secondItem="wmP-xP-FBQ" secondAttribute="bottom" id="Uqk-bS-UUc"/>
                                         <constraint firstItem="x9n-uC-Mdm" firstAttribute="top" secondItem="wmP-xP-FBQ" secondAttribute="top" id="XSD-Rm-c8T"/>
-                                        <constraint firstItem="x9n-uC-Mdm" firstAttribute="leading" secondItem="Jik-Yp-x2Y" secondAttribute="trailing" constant="6" id="dGQ-Lf-wft"/>
-                                        <constraint firstItem="Jik-Yp-x2Y" firstAttribute="leading" secondItem="TLn-VV-Cun" secondAttribute="leadingMargin" constant="-6" id="g26-Fa-Zzh"/>
-                                        <constraint firstItem="Jik-Yp-x2Y" firstAttribute="top" secondItem="TLn-VV-Cun" secondAttribute="top" id="ibR-RA-2As"/>
-                                        <constraint firstItem="Jik-Yp-x2Y" firstAttribute="bottom" secondItem="Vh8-8b-R6M" secondAttribute="bottom" id="qHb-IS-8St"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Vh8-8b-R6M" secondAttribute="bottom" constant="-4" id="Xi3-sn-D8c"/>
+                                        <constraint firstItem="x9n-uC-Mdm" firstAttribute="leading" secondItem="TLn-VV-Cun" secondAttribute="leadingMargin" constant="5" id="YHc-vO-nVj"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Vh8-8b-R6M" secondAttribute="trailing" constant="3" id="gz3-Tz-WeL"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Vh8-8b-R6M" secondAttribute="trailing" constant="3" id="qTe-H1-d0w"/>
+                                        <constraint firstItem="Vh8-8b-R6M" firstAttribute="leading" secondItem="TLn-VV-Cun" secondAttribute="leadingMargin" constant="5" id="xrI-JT-T9y"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="x9n-uC-Mdm" secondAttribute="bottom" constant="52" id="zWx-67-Mvu"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="imagenView" destination="Jik-Yp-x2Y" id="whc-0M-nTi"/>
                                     <outlet property="labelCategory" destination="x9n-uC-Mdm" id="jCT-3I-bdG"/>
                                     <outlet property="labelFecha" destination="wmP-xP-FBQ" id="RCg-oL-1Mq"/>
                                     <outlet property="labelTitle" destination="Vh8-8b-R6M" id="xVQ-R1-OFH"/>
@@ -7863,8 +7903,8 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TEt-h9-QZL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEt-h9-QZL">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <connections>
                                     <segue destination="sua-Iy-dOK" kind="embed" id="02M-ZF-YZP"/>
                                 </connections>

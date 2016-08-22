@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,29 +16,26 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewGrande" id="gTV-IL-0wX" customClass="CollectionViewCellGrande">
-            <rect key="frame" x="0.0" y="0.0" width="370" height="420"/>
+            <rect key="frame" x="0.0" y="0.0" width="350" height="420"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="370" height="420"/>
+                <rect key="frame" x="0.0" y="0.0" width="350" height="420"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcw-W8-rBa" customClass="CustomBorderView">
-                        <rect key="frame" x="7" y="3" width="356" height="413"/>
+                        <rect key="frame" x="0.0" y="3" width="350" height="414"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="gsw-nl-PEE">
-                                <rect key="frame" x="23" y="318" width="310" height="89"/>
+                                <rect key="frame" x="30" y="323" width="290" height="85"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="89" id="jn4-az-hIv"/>
+                                    <constraint firstAttribute="height" constant="85" id="590-EJ-hqq"/>
                                 </constraints>
                                 <string key="text">El precio contado del cobre cerró con un leve descenso de 0,1% este jueves en la Bolsa de Metales de Londres, con lo que completó su sexta sesión consecutiva de retrocesos y anotó su menor nivel en cerca tres meses.</string>
                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="mineria.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="GNv-qf-bJU">
-                                <rect key="frame" x="18" y="101" width="322" height="207"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="Qkm-Aq-aA0">
-                                <rect key="frame" x="18" y="18" width="322" height="69"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="Qkm-Aq-aA0">
+                                <rect key="frame" x="26" y="18" width="294" height="69"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="69" id="5KR-EV-nG0"/>
                                 </constraints>
@@ -50,16 +47,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="gsw-nl-PEE" secondAttribute="trailing" constant="23" id="0Gu-7w-NCY"/>
-                            <constraint firstItem="GNv-qf-bJU" firstAttribute="top" secondItem="Qkm-Aq-aA0" secondAttribute="bottom" constant="14" id="B76-JY-cdP"/>
-                            <constraint firstAttribute="bottom" secondItem="gsw-nl-PEE" secondAttribute="bottom" constant="6" id="GLZ-x5-e53"/>
-                            <constraint firstItem="Qkm-Aq-aA0" firstAttribute="leading" secondItem="GNv-qf-bJU" secondAttribute="leading" id="ISP-tc-6mf"/>
-                            <constraint firstItem="Qkm-Aq-aA0" firstAttribute="trailing" secondItem="GNv-qf-bJU" secondAttribute="trailing" id="JQ4-U3-RFF"/>
-                            <constraint firstItem="gsw-nl-PEE" firstAttribute="top" secondItem="GNv-qf-bJU" secondAttribute="bottom" constant="10" id="P9u-9m-4Td"/>
-                            <constraint firstItem="gsw-nl-PEE" firstAttribute="leading" secondItem="Mcw-W8-rBa" secondAttribute="leading" constant="23" id="XHy-w2-c35"/>
-                            <constraint firstItem="Qkm-Aq-aA0" firstAttribute="top" secondItem="Mcw-W8-rBa" secondAttribute="top" constant="18" id="dfw-n0-jTA"/>
-                            <constraint firstItem="Qkm-Aq-aA0" firstAttribute="leading" secondItem="Mcw-W8-rBa" secondAttribute="leading" constant="23" id="fAx-wY-a2f"/>
-                            <constraint firstAttribute="trailing" secondItem="Qkm-Aq-aA0" secondAttribute="trailing" constant="23" id="vbJ-gH-61l"/>
+                            <constraint firstItem="gsw-nl-PEE" firstAttribute="leading" secondItem="Mcw-W8-rBa" secondAttribute="leading" constant="30" id="56O-Y7-tm1"/>
+                            <constraint firstAttribute="bottom" secondItem="gsw-nl-PEE" secondAttribute="bottom" constant="6" id="Ain-3k-1pw"/>
+                            <constraint firstItem="Qkm-Aq-aA0" firstAttribute="top" secondItem="Mcw-W8-rBa" secondAttribute="top" constant="18" id="Lo9-jk-AtS"/>
+                            <constraint firstItem="gsw-nl-PEE" firstAttribute="centerX" secondItem="Mcw-W8-rBa" secondAttribute="centerX" id="Rks-VR-vkt"/>
+                            <constraint firstItem="Qkm-Aq-aA0" firstAttribute="leading" secondItem="Mcw-W8-rBa" secondAttribute="leading" constant="26" id="gmn-Rt-jkS"/>
+                            <constraint firstItem="gsw-nl-PEE" firstAttribute="trailing" secondItem="Qkm-Aq-aA0" secondAttribute="trailing" id="sib-np-MtJ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -73,22 +66,53 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mineria.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="GNv-qf-bJU">
+                        <rect key="frame" x="28" y="104" width="290" height="211"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="211" id="KFI-3i-p2L"/>
+                            <constraint firstAttribute="width" constant="290" id="LGA-c1-fmv"/>
+                            <constraint firstAttribute="height" constant="211" id="uOe-7A-ENW"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KFI-3i-p2L"/>
+                                <exclude reference="LGA-c1-fmv"/>
+                            </mask>
+                        </variation>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="Mcw-W8-rBa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="35h-Hj-z3d"/>
-                <constraint firstItem="Mcw-W8-rBa" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Rq9-Jl-zzB"/>
-                <constraint firstItem="Mcw-W8-rBa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="YdY-ig-lg0"/>
-                <constraint firstItem="Mcw-W8-rBa" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="z3g-aa-XDB"/>
+                <constraint firstAttribute="trailing" secondItem="Mcw-W8-rBa" secondAttribute="trailing" id="7WM-hh-f6M"/>
+                <constraint firstItem="GNv-qf-bJU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="28" id="8SF-tG-NW7"/>
+                <constraint firstItem="Mcw-W8-rBa" firstAttribute="leading" secondItem="GNv-qf-bJU" secondAttribute="trailing" constant="-311" id="8jK-kJ-o5T"/>
+                <constraint firstItem="gsw-nl-PEE" firstAttribute="top" secondItem="GNv-qf-bJU" secondAttribute="bottom" constant="11" id="GsC-CO-tnh"/>
+                <constraint firstAttribute="trailing" secondItem="GNv-qf-bJU" secondAttribute="trailing" constant="32" id="IEK-BW-Rxg"/>
+                <constraint firstItem="Mcw-W8-rBa" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="MZN-TQ-sM8"/>
+                <constraint firstItem="Mcw-W8-rBa" firstAttribute="leading" secondItem="GNv-qf-bJU" secondAttribute="trailing" constant="-318" id="TVx-8D-Qoq"/>
+                <constraint firstItem="Mcw-W8-rBa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bDz-ey-TK7"/>
+                <constraint firstItem="GNv-qf-bJU" firstAttribute="top" secondItem="Qkm-Aq-aA0" secondAttribute="bottom" constant="14" id="lGe-tL-QqE"/>
+                <constraint firstItem="Mcw-W8-rBa" firstAttribute="leading" secondItem="GNv-qf-bJU" secondAttribute="trailing" constant="-318" id="lvz-Nr-Ke0"/>
+                <constraint firstItem="Mcw-W8-rBa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="vOK-xe-Aic"/>
+                <constraint firstItem="Mcw-W8-rBa" firstAttribute="centerY" secondItem="GNv-qf-bJU" secondAttribute="centerY" id="x1r-y7-ijH"/>
             </constraints>
-            <size key="customSize" width="374" height="428"/>
+            <size key="customSize" width="350" height="428"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="8jK-kJ-o5T"/>
+                    <exclude reference="TVx-8D-Qoq"/>
+                    <exclude reference="lvz-Nr-Ke0"/>
+                    <exclude reference="lGe-tL-QqE"/>
+                    <exclude reference="GsC-CO-tnh"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="imageNews" destination="GNv-qf-bJU" id="yty-6V-WRJ"/>
                 <outlet property="labelSummary" destination="gsw-nl-PEE" id="nIr-4S-4XJ"/>
                 <outlet property="labelTituloNews" destination="Qkm-Aq-aA0" id="eUe-T5-HwG"/>
             </connections>
-            <point key="canvasLocation" x="338" y="58"/>
+            <point key="canvasLocation" x="321" y="58"/>
         </collectionViewCell>
     </objects>
     <resources>

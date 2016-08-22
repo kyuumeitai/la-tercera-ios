@@ -469,7 +469,7 @@ int categoryId;
             return CGSizeMake(310, 468);
             
         }else{
-            return CGSizeMake(370, 420);
+            return CGSizeMake(350, 420);
         }
     }
     
@@ -496,11 +496,11 @@ int categoryId;
     }
     
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
-        return CGSizeMake(370, 265);
+        return CGSizeMake(350, 265);
         
     }
     
-    return CGSizeMake(370, 428);
+    return CGSizeMake(350, 428);
 }
 
 //New code
