@@ -75,7 +75,7 @@
         userProfile.device = -1;
 
         width = 0;
-        NSLog(@"Estamos OK con el Singleton");
+        NSLog(@"Sesión iniciada");
     }
     return self;
 }

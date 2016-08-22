@@ -274,6 +274,8 @@
 		172B6A761D5AC2B3005A857B /* LTLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172B6A751D5AC2B3005A857B /* LTLaunchScreen.storyboard */; };
 		173A31271D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173A31261D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard */; };
 		173A31281D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173A31261D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard */; };
+		175E1D7C1D6BA208007D4739 /* FavoritoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 175E1D7B1D6BA208007D4739 /* FavoritoDetailViewController.m */; };
+		175E1D7D1D6BA208007D4739 /* FavoritoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 175E1D7B1D6BA208007D4739 /* FavoritoDetailViewController.m */; };
 		175F13651CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 175F13641CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m */; };
 		175F13661CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 175F13641CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m */; };
 		17B42F041D65976E00A028E8 /* LaTerceraModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17B42F021D65976E00A028E8 /* LaTerceraModel.xcdatamodeld */; };
@@ -817,6 +819,8 @@
 		172819041D6956A20092CAC2 /* FavoritosTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritosTableViewCell.m; sourceTree = "<group>"; };
 		172B6A751D5AC2B3005A857B /* LTLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LTLaunchScreen.storyboard; sourceTree = "<group>"; };
 		173A31261D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaTerceraStoryboard-iPhone4.storyboard"; sourceTree = "<group>"; };
+		175E1D7A1D6BA208007D4739 /* FavoritoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritoDetailViewController.h; sourceTree = "<group>"; };
+		175E1D7B1D6BA208007D4739 /* FavoritoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritoDetailViewController.m; sourceTree = "<group>"; };
 		175F13641CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButtonTerceraDemo.m; sourceTree = "<group>"; };
 		177723761C72C2230075DFBE /* LaTerceraStoryboard-iPhone6.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaTerceraStoryboard-iPhone6.storyboard"; sourceTree = "<group>"; };
 		1777237B1C72C4570075DFBE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -1534,6 +1538,8 @@
 			children = (
 				172819031D6956A20092CAC2 /* FavoritosTableViewCell.h */,
 				172819041D6956A20092CAC2 /* FavoritosTableViewCell.m */,
+				175E1D7A1D6BA208007D4739 /* FavoritoDetailViewController.h */,
+				175E1D7B1D6BA208007D4739 /* FavoritoDetailViewController.m */,
 			);
 			name = Favoritos;
 			sourceTree = "<group>";
@@ -3608,6 +3614,7 @@
 				1702BD431CB093E400F26F42 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				D014C8941D243E7900E3D3B5 /* VentasEspecialesViewController.m in Sources */,
 				1702BD441CB093E400F26F42 /* UIButton+AFNetworking.m in Sources */,
+				175E1D7D1D6BA208007D4739 /* FavoritoDetailViewController.m in Sources */,
 				1702BD451CB093E400F26F42 /* AFAutoPurgingImageCache.m in Sources */,
 				D02A7CDD1D5E4FC800FDF893 /* Video.m in Sources */,
 				1702BD461CB093E400F26F42 /* AFSecurityPolicy.m in Sources */,
@@ -3704,6 +3711,7 @@
 				D01520411D4A7BA7009CA13E /* AjustesTableViewController.m in Sources */,
 				1702BE021CB18B7100F26F42 /* TiempoLibreTableViewController.m in Sources */,
 				D02C5E041D662A1B00CBDC38 /* DetalleNewsViewController.m in Sources */,
+				175E1D7C1D6BA208007D4739 /* FavoritoDetailViewController.m in Sources */,
 				17DAB9AF1CCDD414000CD406 /* YMCAudioPlayer.m in Sources */,
 				D0FF557A1CCFC9A900EA71F4 /* TCMastercard.m in Sources */,
 			);
