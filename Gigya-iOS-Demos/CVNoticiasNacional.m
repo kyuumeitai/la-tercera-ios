@@ -40,7 +40,7 @@ static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
 static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
 
 //New Pagination code
-int currentPageNumber ;
+int currentPageNumberNacional ;
 BOOL isPageRefreshingNacional =  false;
 BOOL firstTimeNacional = false;
 NSArray *bannersNacional= nil;
@@ -115,7 +115,7 @@ int categoryId;
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
     
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
-    currentPageNumber = 1;
+    currentPageNumberNacional = 1;
     firstTimeNacional = true;
     
     //[self.collectionView setAlpha:0.0];
@@ -174,7 +174,7 @@ int categoryId;
                 }
             }
         });
-    }:idCategory andPage:currentPageNumber];
+    }:idCategory andPage:currentPageNumberNacional];
     
 }
 
@@ -214,9 +214,9 @@ int categoryId;
         titular.summary = summary;
         titular.imagenThumbString = imageThumb;
         
-        NSLog(@"____ Numero de pagina: %d", currentPageNumber);
-        if (indice == currentPageNumber*6 ){
-            NSLog(@"____ currentPageNumber*6: %d", currentPageNumber*6);
+        NSLog(@"____ Numero de pagina: %d", currentPageNumberNacional);
+        if (indice == currentPageNumberNacional*6 ){
+            NSLog(@"____ currentPageNumberNacional*6: %d", currentPageNumberNacional*6);
             [headlinesArray addObject:@"OBJETO"];
         }
         //[titular logDescription];
@@ -456,10 +456,10 @@ int categoryId;
 - (void)loadMoreRows {
     
     NSLog(@"***********   Load More Rows   ************");
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberNacional);
     isPageRefreshingNacional = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
-    currentPageNumber = currentPageNumber +1;
+    currentPageNumberNacional = currentPageNumberNacional +1;
     [self loadHeadlinesWithCategory:categoryId];
     
 }

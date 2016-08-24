@@ -8,7 +8,9 @@
 
 #import "FavoritosTableViewController.h"
 #import "FavoritosTableViewCell.h"
+#import "FavoritoDetailViewController.h"
 #import "CoreData/CoreData.h"
+#import "Headline.h"
 
 @interface FavoritosTableViewController ()
 
@@ -77,10 +79,33 @@
     [cell.labelTitle setText:[NSString stringWithFormat:@"%@ ", [device valueForKey:@"title"]]];
     [cell.labelFecha setText:[device valueForKey:@"date"]];
     [cell.labelCategory setText:[device valueForKey:@"category"]];
-    //UIImage *imagen = [UIImage imageWithData:[device valueForKey:@"imageLink"]];
-    //[cell.imageView setImage:imagen];
     
     return cell;
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"ENtonces el indexpath es: %ld",(long)[indexPath row]);
+    if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
+        return ;
+        
+    }else{
+        
+        // Configure the cell...
+        NSManagedObject *device = [self.arrayFavoritos objectAtIndex:indexPath.row];
+        UIImage *imagen = [UIImage imageWithData:[device valueForKey:@"imageLink"]];
+        NSLog(@"id titulo = %@",[device valueForKey:@"title"]);
+        FavoritoDetailViewController *detalleNews =  (FavoritoDetailViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"detalleNewsFavorito"];
+        detalleNews.newsCategory = [device valueForKey:@"category"];
+        detalleNews.newsTitle = [device valueForKey:@"title"];
+        detalleNews.newsSummary = [device valueForKey:@"summary"];
+        detalleNews.newsContent = [device valueForKey:@"content"];
+        detalleNews.newsDate = [device valueForKey:@"date"];
+        detalleNews.newsAuthor = [device valueForKey:@"author"];
+        detalleNews.newsImage = imagen;
+ 
+        [self.navigationController pushViewController:detalleNews animated:YES];
+    }
     
 }
 

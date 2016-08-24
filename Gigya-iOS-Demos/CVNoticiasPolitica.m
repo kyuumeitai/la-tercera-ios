@@ -40,7 +40,7 @@ static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
 static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
 
 //New Pagination code
-int currentPageNumber ;
+int currentPageNumberPolitica ;
 BOOL isPageRefreshingPolitica =  false;
 BOOL firstTimePolitica = false;
 NSArray *bannersPolitica= nil;
@@ -118,7 +118,7 @@ int categoryId;
     
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
     
-    currentPageNumber = 1;
+    currentPageNumberPolitica = 1;
     firstTimePolitica = true;
     
     //[self.collectionView setAlpha:0.0];
@@ -177,7 +177,7 @@ int categoryId;
                 }
             }
         });
-    }:idCategory andPage:currentPageNumber];
+    }:idCategory andPage:currentPageNumberPolitica];
     
 }
 
@@ -217,9 +217,9 @@ int categoryId;
         titular.summary = summary;
         titular.imagenThumbString = imageThumb;
         
-        NSLog(@"____ Numero de pagina: %d", currentPageNumber);
-        if (indice == currentPageNumber*6 ){
-            NSLog(@"____ currentPageNumber*6: %d", currentPageNumber*6);
+        NSLog(@"____ Numero de pagina: %d", currentPageNumberPolitica);
+        if (indice == currentPageNumberPolitica*6 ){
+            NSLog(@"____ currentPageNumberPolitica*6: %d", currentPageNumberPolitica*6);
             [headlinesArray addObject:@"OBJETO"];
         }
         //[titular logDescription];
@@ -459,10 +459,10 @@ int categoryId;
 - (void)loadMoreRows {
     
     NSLog(@"***********   Load More Rows   ************");
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberPolitica);
     isPageRefreshingPolitica = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
-    currentPageNumber = currentPageNumber +1;
+    currentPageNumberPolitica = currentPageNumberPolitica +1;
     [self loadHeadlinesWithCategory:categoryId];
     
 }

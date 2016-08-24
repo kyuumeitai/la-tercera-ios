@@ -41,7 +41,7 @@ static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
 static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
 
 //New Pagination code
-int currentPageNumber ;
+int currentPageNumberEntretencion ;
 BOOL isPageRefreshingEntretencion =  false;
 BOOL firstTimeEntretencion = false;
 NSArray *bannersEntretencion= nil;
@@ -116,7 +116,7 @@ NSString *storyBoardName;
     
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
     
-    currentPageNumber = 1;
+    currentPageNumberEntretencion = 1;
     firstTimeEntretencion = true;
     
     //[self.collectionView setAlpha:0.0];
@@ -175,7 +175,7 @@ NSString *storyBoardName;
                 }
             }
         });
-    }:idCategory andPage:currentPageNumber];
+    }:idCategory andPage:currentPageNumberEntretencion];
     
 }
 
@@ -215,9 +215,9 @@ NSString *storyBoardName;
         titular.summary = summary;
         titular.imagenThumbString = imageThumb;
         
-        NSLog(@"____ Numero de pagina: %d", currentPageNumber);
-        if (indice == currentPageNumber*6 ){
-            NSLog(@"____ currentPageNumber*6: %d", currentPageNumber*6);
+        NSLog(@"____ Numero de pagina: %d", currentPageNumberEntretencion);
+        if (indice == currentPageNumberEntretencion*6 ){
+            NSLog(@"____ currentPageNumberEntretencion*6: %d", currentPageNumberEntretencion*6);
             [headlinesArray addObject:@"OBJETO"];
         }
         //[titular logDescription];
@@ -456,10 +456,10 @@ NSString *storyBoardName;
 - (void)loadMoreRows {
     
     NSLog(@"***********   Load More Rows   ************");
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberEntretencion);
     isPageRefreshingEntretencion = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
-    currentPageNumber = currentPageNumber +1;
+    currentPageNumberEntretencion = currentPageNumberEntretencion +1;
     [self loadHeadlinesWithCategory:categoryId];
     
 }

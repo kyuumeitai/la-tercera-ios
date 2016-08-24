@@ -39,7 +39,7 @@ static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
 static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
 BOOL _isScrolling;
 //New Pagination code
-int currentPageNumber ;
+int currentPageNumberInicio ;
 BOOL isPageRefreshing =  false;
 BOOL firstTime = false;
 NSArray *banners= nil;
@@ -117,7 +117,7 @@ BOOL nibMyCell2loaded;
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
     
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
-    currentPageNumber = 1;
+    currentPageNumberInicio = 1;
     firstTime = true;
    
    //[self.collectionView setAlpha:0.0];
@@ -177,7 +177,7 @@ BOOL nibMyCell2loaded;
             }
             }
         });
-    }:idCategory andPage:currentPageNumber];
+    }:idCategory andPage:currentPageNumberInicio];
 
 }
 
@@ -210,9 +210,9 @@ BOOL nibMyCell2loaded;
            titular.summary = summary;
            titular.imagenThumbString = imageThumb;
         
-           NSLog(@"____ Numero de pagina: %d", currentPageNumber);
-           if (indice == currentPageNumber*6 ){
-                NSLog(@"____ currentPageNumber*6: %d", currentPageNumber*6);
+           NSLog(@"____ Numero de pagina: %d", currentPageNumberInicio);
+           if (indice == currentPageNumberInicio*6 ){
+                NSLog(@"____ currentPageNumberInicio*6: %d", currentPageNumberInicio*6);
                [headlinesArray addObject:@"OBJETO"];
            }
            //[titular logDescription];
@@ -452,10 +452,10 @@ BOOL nibMyCell2loaded;
 - (void)loadMoreRows {
     
     NSLog(@"***********   Load More Rows   ************");
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberInicio);
     isPageRefreshing = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
-    currentPageNumber = currentPageNumber +1;
+    currentPageNumberInicio = currentPageNumberInicio +1;
     [self loadHeadlinesWithCategory:categoryId];
     
 }

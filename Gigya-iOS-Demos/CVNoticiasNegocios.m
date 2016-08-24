@@ -41,7 +41,7 @@ static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
 static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
 
 //New Pagination code
-int currentPageNumber ;
+int currentPageNumberNegocios ;
 BOOL isPageRefreshingNegocios =  false;
 BOOL firstTimeNegocios = false;
 NSArray *bannersNegocios= nil;
@@ -118,7 +118,7 @@ int categoryId;
     
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
     
-    currentPageNumber = 1;
+    currentPageNumberNegocios = 1;
     firstTimeNegocios = true;
     
     //[self.collectionView setAlpha:0.0];
@@ -177,7 +177,7 @@ int categoryId;
                 }
             }
         });
-    }:idCategory andPage:currentPageNumber];
+    }:idCategory andPage:currentPageNumberNegocios];
     
 }
 
@@ -217,9 +217,9 @@ int categoryId;
         titular.summary = summary;
         titular.imagenThumbString = imageThumb;
         
-        NSLog(@"____ Numero de pagina: %d", currentPageNumber);
-        if (indice == currentPageNumber*6 ){
-            NSLog(@"____ currentPageNumber*6: %d", currentPageNumber*6);
+        NSLog(@"____ Numero de pagina: %d", currentPageNumberNegocios);
+        if (indice == currentPageNumberNegocios*6 ){
+            NSLog(@"____ currentPageNumberNegocios*6: %d", currentPageNumberNegocios*6);
             [headlinesArray addObject:@"OBJETO"];
         }
         //[titular logDescription];
@@ -460,10 +460,10 @@ int categoryId;
 - (void)loadMoreRows {
     
     NSLog(@"***********   Load More Rows   ************");
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberNegocios);
     isPageRefreshingNegocios = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
-    currentPageNumber = currentPageNumber +1;
+    currentPageNumberNegocios = currentPageNumberNegocios +1;
     [self loadHeadlinesWithCategory:categoryId];
     
 }

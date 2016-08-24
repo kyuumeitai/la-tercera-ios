@@ -41,7 +41,7 @@ static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
 static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
 
 //New Pagination code
-int currentPageNumber ;
+int currentPageNumberTendencias ;
 BOOL isPageRefreshingTendencias =  false;
 BOOL firstTimeTendencias = false;
 NSArray *bannersTendencias= nil;
@@ -119,7 +119,7 @@ int categoryId;
     
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
     
-    currentPageNumber = 1;
+    currentPageNumberTendencias = 1;
     firstTimeTendencias = true;
     
     //[self.collectionView setAlpha:0.0];
@@ -178,7 +178,7 @@ int categoryId;
                 }
             }
         });
-    }:idCategory andPage:currentPageNumber];
+    }:idCategory andPage:currentPageNumberTendencias];
     
 }
 
@@ -218,9 +218,9 @@ int categoryId;
         titular.summary = summary;
         titular.imagenThumbString = imageThumb;
         
-        NSLog(@"____ Numero de pagina: %d", currentPageNumber);
-        if (indice == currentPageNumber*6 ){
-            NSLog(@"____ currentPageNumber*6: %d", currentPageNumber*6);
+        NSLog(@"____ Numero de pagina: %d", currentPageNumberTendencias);
+        if (indice == currentPageNumberTendencias*6 ){
+            NSLog(@"____ currentPageNumberTendencias*6: %d", currentPageNumberTendencias*6);
             [headlinesArray addObject:@"OBJETO"];
         }
         //[titular logDescription];
@@ -459,10 +459,10 @@ int categoryId;
 - (void)loadMoreRows {
     
     NSLog(@"***********   Load More Rows   ************");
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberTendencias);
     isPageRefreshingTendencias = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
-    currentPageNumber = currentPageNumber +1;
+    currentPageNumberTendencias = currentPageNumberTendencias +1;
     [self loadHeadlinesWithCategory:categoryId];
     
 }

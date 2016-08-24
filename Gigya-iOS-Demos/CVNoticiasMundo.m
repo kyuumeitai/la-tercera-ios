@@ -41,7 +41,7 @@ static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
 static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
 
 //New Pagination code
-int currentPageNumber ;
+int currentPageNumberMundo ;
 BOOL isPageRefreshingMundo =  false;
 BOOL firstTimeMundo = false;
 NSArray *bannersMundo= nil;
@@ -118,7 +118,7 @@ NSString *storyBoardName;
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
     
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
-    currentPageNumber = 1;
+    currentPageNumberMundo = 1;
     firstTimeMundo = true;
     
     //[self.collectionView setAlpha:0.0];
@@ -177,7 +177,7 @@ NSString *storyBoardName;
                 }
             }
         });
-    }:idCategory andPage:currentPageNumber];
+    }:idCategory andPage:currentPageNumberMundo];
     
 }
 
@@ -217,9 +217,9 @@ NSString *storyBoardName;
         titular.summary = summary;
         titular.imagenThumbString = imageThumb;
         
-        NSLog(@"____ Numero de pagina: %d", currentPageNumber);
-        if (indice == currentPageNumber*6 ){
-            NSLog(@"____ currentPageNumber*6: %d", currentPageNumber*6);
+        NSLog(@"____ Numero de pagina: %d", currentPageNumberMundo);
+        if (indice == currentPageNumberMundo*6 ){
+            NSLog(@"____ currentPageNumberMundo*6: %d", currentPageNumberMundo*6);
             [headlinesArray addObject:@"OBJETO"];
         }
         //[titular logDescription];
@@ -457,10 +457,10 @@ NSString *storyBoardName;
 - (void)loadMoreRows {
     
     NSLog(@"***********   Load More Rows   ************");
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberMundo);
     isPageRefreshingMundo = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
-    currentPageNumber = currentPageNumber +1;
+    currentPageNumberMundo = currentPageNumberMundo +1;
     [self loadHeadlinesWithCategory:categoryId];
     
 }

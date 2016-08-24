@@ -34,7 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupLocalNotification];
+    //[self setupLocalNotification];
  
     [self loadContentHeadlines];
     

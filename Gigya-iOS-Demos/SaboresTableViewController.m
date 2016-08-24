@@ -36,7 +36,7 @@ NSString *storyBoardName;
 
 
 //New Pagination code
-int currentPageNumber ;
+int currentPageNumberSabores ;
 BOOL isPageRefreshingSabores =  false;
 BOOL firstTimeSabores = false;
 
@@ -50,7 +50,7 @@ BOOL firstTimeSabores = false;
     //listaCategorias = [[NSMutableArray alloc] init];
     benefitsItemsArray5 = [[NSMutableArray alloc] init];
     //listaCategorias = sesion.categoryList;
-    currentPageNumber = 1;
+    currentPageNumberSabores = 1;
     firstTimeSabores = true;
     
     [self loadBenefitsForCategoryId:benefitCategoryId];
@@ -237,7 +237,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
               }
             }
         });
-    }:idCategory andPage:currentPageNumber];
+    }:idCategory andPage:currentPageNumberSabores];
     
 }
 
@@ -323,12 +323,12 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
 - (void)loadMoreRows {
 
     NSLog(@"***********   Load More Rows   ************");
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberSabores);
 
-            NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+            NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberSabores);
             isPageRefreshingSabores = YES;
             //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
-            currentPageNumber = currentPageNumber +1;
+            currentPageNumberSabores = currentPageNumberSabores +1;
             [self loadBenefitsForCategoryId:benefitCategoryId];
 
 }
