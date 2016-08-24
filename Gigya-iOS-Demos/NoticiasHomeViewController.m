@@ -24,6 +24,7 @@
 #import "UserProfile.h"
 #import "Tools.h"
 #import "ContentType.h"
+#import "SVProgressHUD.h"
 
 @interface NoticiasHomeViewController() <YSLContainerViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
@@ -35,7 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //[self setupLocalNotification];
- 
+    [SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
+
     [self loadContentHeadlines];
     
     
@@ -79,6 +81,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+                [SVProgressHUD dismiss];
             } else {
                 [self setupNewsCategories:arrayJson];
             }

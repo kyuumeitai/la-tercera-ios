@@ -22,6 +22,7 @@
 #import "SessionManager.h"
 #import "SVPullToRefresh.h"
 #import "ContentType.h"
+#import "HeaderMiSeleccionReusableView.h"
 
 #define categoryIdName @"lt"
 #define categorySlug @"home"
@@ -517,6 +518,24 @@ NSString *storyBoardName;
 }
 
 //New code
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        HeaderMiSeleccionReusableView *headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"categoryHeader" forIndexPath:indexPath];
+        NSString *title = [[NSString alloc]initWithFormat:@"El Deportivo #%li", indexPath.section + 1];
+        headerView.categoryTitleLabel.text = title;
+        //UIImage *headerImage = [UIImage imageNamed:@"header_banner.png"];
+        //headerView.backgroundImage.image = headerImage;
+        
+        reusableview = headerView;
+    }
+ 
+    return reusableview;
+}
+
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     _isScrollingMiSeleccion = NO;

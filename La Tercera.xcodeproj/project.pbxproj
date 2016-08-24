@@ -299,6 +299,8 @@
 		17CE139E1D585EF6009A7F16 /* BeneficioGeneralTableViewCell-iPhone4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17CE139C1D585EF6009A7F16 /* BeneficioGeneralTableViewCell-iPhone4-5.xib */; };
 		17CE13A01D585F04009A7F16 /* BeneficioGeneralDestacadoTableViewCell-iPhone4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17CE139F1D585F04009A7F16 /* BeneficioGeneralDestacadoTableViewCell-iPhone4-5.xib */; };
 		17CE13A11D585F04009A7F16 /* BeneficioGeneralDestacadoTableViewCell-iPhone4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17CE139F1D585F04009A7F16 /* BeneficioGeneralDestacadoTableViewCell-iPhone4-5.xib */; };
+		17D891E01D6D6DF700C66400 /* HeaderMiSeleccionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D891DF1D6D6DF700C66400 /* HeaderMiSeleccionReusableView.m */; };
+		17D891E11D6D6DF700C66400 /* HeaderMiSeleccionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D891DF1D6D6DF700C66400 /* HeaderMiSeleccionReusableView.m */; };
 		17DAB9A51CCDC57F000CD406 /* LectiosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DAB9A41CCDC57F000CD406 /* LectiosViewController.m */; };
 		17DAB9A61CCDC57F000CD406 /* LectiosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DAB9A41CCDC57F000CD406 /* LectiosViewController.m */; };
 		17DAB9A91CCDD1E8000CD406 /* audioplayer_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 17DAB9A71CCDD1E8000CD406 /* audioplayer_play.png */; };
@@ -890,6 +892,8 @@
 		17CE139F1D585F04009A7F16 /* BeneficioGeneralDestacadoTableViewCell-iPhone4-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "BeneficioGeneralDestacadoTableViewCell-iPhone4-5.xib"; sourceTree = "<group>"; };
 		17CE96F51CA10A0100898C56 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		17CE96F61CA10A0100898C56 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		17D891DE1D6D6DF700C66400 /* HeaderMiSeleccionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderMiSeleccionReusableView.h; sourceTree = "<group>"; };
+		17D891DF1D6D6DF700C66400 /* HeaderMiSeleccionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderMiSeleccionReusableView.m; sourceTree = "<group>"; };
 		17DAB9A31CCDC57F000CD406 /* LectiosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectiosViewController.h; sourceTree = "<group>"; };
 		17DAB9A41CCDC57F000CD406 /* LectiosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectiosViewController.m; sourceTree = "<group>"; };
 		17DAB9A71CCDD1E8000CD406 /* audioplayer_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = audioplayer_play.png; sourceTree = "<group>"; };
@@ -1839,6 +1843,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		17D891DD1D6D6DCD00C66400 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				17D891DE1D6D6DF700C66400 /* HeaderMiSeleccionReusableView.h */,
+				17D891DF1D6D6DF700C66400 /* HeaderMiSeleccionReusableView.m */,
+			);
+			name = Header;
+			sourceTree = "<group>";
+		};
 		17DAB9A21CCDC555000CD406 /* Lectios */ = {
 			isa = PBXGroup;
 			children = (
@@ -2501,6 +2514,7 @@
 		D08E127F1CEE0E3A00665795 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				17D891DD1D6D6DCD00C66400 /* Header */,
 				172819021D69567C0092CAC2 /* Favoritos */,
 				D02A7CDE1D5E63C200FDF893 /* VideoTableViewCells */,
 				D008D6F71D0083F400502A69 /* CollectionVC */,
@@ -3596,6 +3610,7 @@
 				1702BD3D1CB093E400F26F42 /* ServiciosContainerVC.m in Sources */,
 				1702BE151CB1A3A700F26F42 /* ServiciosTableViewController.m in Sources */,
 				1702BD3E1CB093E400F26F42 /* SessionManager.m in Sources */,
+				17D891E11D6D6DF700C66400 /* HeaderMiSeleccionReusableView.m in Sources */,
 				D0D56D3B1CE4B5500064DE64 /* MKPointAnnotation_custom.m in Sources */,
 				D0522D601D09D32100D6E4C6 /* CollectionViewCellBanner.m in Sources */,
 				D00D40F11D46662E00D0EC7F /* BeneficioGeneralTableViewCell.m in Sources */,
@@ -3689,6 +3704,7 @@
 				D038932A1D4953B900650F27 /* CVNoticiasNegocios.m in Sources */,
 				17EBCCFE1D62D36200931B39 /* FavoritosTableViewController.m in Sources */,
 				D036FA8B1CD01BB90096FE14 /* MostrarBeneficioDescuentoAdicional.m in Sources */,
+				17D891E01D6D6DF700C66400 /* HeaderMiSeleccionReusableView.m in Sources */,
 				D00D40F71D46664D00D0EC7F /* BeneficioGeneralDestacadoTableViewCell.m in Sources */,
 				D03893061D49518C00650F27 /* NewsCategoryNacionalViewController.m in Sources */,
 				D0308E8B1CB6DD7000D8619D /* PapelDigital.m in Sources */,

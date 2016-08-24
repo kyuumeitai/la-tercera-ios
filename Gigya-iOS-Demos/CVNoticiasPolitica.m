@@ -22,6 +22,8 @@
 #import "SessionManager.h"
 #import "SVPullToRefresh.h"
 #import "ContentType.h"
+#import "SVProgressHUD.h"
+
 
 //#import "SDWebImage/UIImageView+WebCache.h"
 
@@ -62,7 +64,8 @@ int categoryId;
         if([contenido.contentSlug isEqualToString:categorySlug])
             self.categoryId = contenido.contentId;
     }
-    
+    [SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
+
     
     NSLog(@" El nombre del storboard es: %@", storyBoardName);
     NSLog(@"CategoryId: %d", self.categoryId);
@@ -120,7 +123,6 @@ int categoryId;
     
     currentPageNumberPolitica = 1;
     firstTimePolitica = true;
-    
     //[self.collectionView setAlpha:0.0];
     dispatch_async(dispatch_get_main_queue(), ^{
         // code here
@@ -237,12 +239,12 @@ int categoryId;
                          }
                          completion:^(BOOL finished)
          {
-             //[SVProgressHUD dismiss];
+            [SVProgressHUD dismiss];
          }];
         firstTimePolitica= false;
     }else{
         
-        //[SVProgressHUD dismiss];
+        [SVProgressHUD dismiss];
         isPageRefreshingPolitica= NO;
         // [weakSelf.collectionView endUpdates];
         
