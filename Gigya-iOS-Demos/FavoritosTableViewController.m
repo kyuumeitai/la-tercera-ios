@@ -24,7 +24,11 @@
     // Fetch the devices from persistent data store
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Noticia"];
-    self.arrayFavoritos = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    NSMutableArray *tempResults = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    tempResults = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    self.arrayFavoritos = (NSMutableArray*)[[self.arrayFavoritos reverseObjectEnumerator] allObjects];
+
     
     NSLog(@"Array de favoritos: %@", self.arrayFavoritos);
     

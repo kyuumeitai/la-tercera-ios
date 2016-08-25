@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imagenNews;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (retain,nonatomic) NSString * tituloCategoria;
+@property int idCategoria;
 @property int idArticulo;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 

@@ -143,5 +143,86 @@
     
 }
 
+-(BOOL)isRepeatedForSelectedCategory:(int)idCat{
+    
+    
+    SessionManager *sesion = [SessionManager session];
+    
+    NSMutableArray *arreglo = (NSMutableArray*)[sesion getMiSeleccionArray];
+    for (NSManagedObject *objeto in arreglo) {
+        NSLog(@"Comparamos idCat: %d con: %d , que es: %@", idCat, [[objeto valueForKey:@"idCat"] intValue], [objeto valueForKey:@"nombreCat"]);
+        int valor = [[objeto valueForKey:@"idCat"] intValue];
+        
+        if (idCat == valor) {
+            
+            return true;
+            
+        }
+        
+    }
+    return false;
+}
+
+-(BOOL) saveMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName{
+    
+    BOOL exitoso = false;
+    
+
+    
+    if([self isRepeatedForSelectedCategory:idCat]){
+            
+            return false;
+            
+        }else{
+            
+            NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+            
+            // Create a new selection category
+            NSManagedObject *nuevaCategoriaSeleccion = [NSEntityDescription insertNewObjectForEntityForName:@"CategoriasSeleccion" inManagedObjectContext:managedObjectContext];
+            
+            [nuevaCategoriaSeleccion  setValue:categoryName forKey:@"nombreCat"];
+
+            [nuevaCategoriaSeleccion  setValue:[NSNumber numberWithInt:idCat] forKey:@"idCat"];
+            
+            NSError *error = nil;
+            // Save the object to persistent store
+            if (![managedObjectContext save:&error]) {
+                NSLog(@"No se pudo guardar! %@ %@", error, [error localizedDescription]);
+                exitoso = false;
+            }else{
+                
+                exitoso = true;
+            }
+            
+        }
+    
+
+    return exitoso;
+}
+
+
+-(NSArray*) getMiSeleccionArray{
+    
+    NSArray *arraySeleccion = [[NSArray alloc] init];
+    // Fetch the devices from persistent data store
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"CategoriasSeleccion"];
+    arraySeleccion = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    NSLog(@"El array seleccion es : %@",arraySeleccion);
+    
+    return arraySeleccion;
+}
+
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
+
 
 @end

@@ -452,6 +452,7 @@ NSString *storyBoardName;
         int idArticulo = titular.idArt;
         NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
+        detalleNews.idCategoria = self.categoryId;
          [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];   //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         [self.navigationController pushViewController:detalleNews animated:YES];
     }

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Xcode 7.0">
+    <entity name="CategoriasSeleccion" syncable="YES">
+        <attribute name="idCat" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nombreCat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ordenCat" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="Noticia" syncable="YES">
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,5 +17,6 @@
     </entity>
     <elements>
         <element name="Noticia" positionX="-1235" positionY="-10035" width="128" height="163"/>
+        <element name="CategoriasSeleccion" positionX="-1233" positionY="-9972" width="128" height="90"/>
     </elements>
 </model>

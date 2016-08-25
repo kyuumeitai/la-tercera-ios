@@ -30,6 +30,7 @@
 @synthesize tituloCategoria;
 @synthesize fetchedResultsController;
 @synthesize idArticulo;
+@synthesize idCategoria;
 int fontSize = 16;
 
 
@@ -89,9 +90,8 @@ NSString *textoContenidoTemporal = @"";
     noticias = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     NSLog(@"noticias: %@",noticias);
     
-    // Create a new device
+    // Create a new fav
     NSManagedObject *nuevoFavorito = [NSEntityDescription insertNewObjectForEntityForName:@"Noticia" inManagedObjectContext:managedObjectContext];
-
 
     [nuevoFavorito  setValue:_titulo.text forKey:@"title"];
     [nuevoFavorito  setValue:_summary.text forKey:@"summary"];
@@ -102,13 +102,12 @@ NSString *textoContenidoTemporal = @"";
     [nuevoFavorito  setValue:_labelFecha.text forKey:@"date"];
     [nuevoFavorito  setValue:_labelAutor.text forKey:@"author"];
     [nuevoFavorito  setValue:tituloCategoria forKey:@"category"];
-  
-        NSManagedObjectContext *context = [self managedObjectContext];
+
          
          NSError *error = nil;
          // Save the object to persistent store
-         if (![context save:&error]) {
-             NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+         if (![managedObjectContext save:&error]) {
+             NSLog(@"No se pudo guardar! %@ %@", error, [error localizedDescription]);
          }else{
              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Añadida a favoritos"
                                                              message:@"Ha agregado esta notica a Favoritos."
@@ -128,21 +127,43 @@ NSString *textoContenidoTemporal = @"";
          usarBeneficioNoLogueadoViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
          [self presentViewController:usarBeneficioNoLogueadoViewController animated:YES completion:nil];
      }
-
 }
 
 - (IBAction)selectionButtonPressed:(id)sender {
     
     int level = [self getUserType];
+    
     if(level == 2){
+       
+        NSLog(@"Empezó lo wendy");
         //Es premium
+        SessionManager *sesion = [SessionManager session];
+        
+        BOOL saveNewCat = [sesion saveMiSeleccionCategoryWithId:self.idCategoria andCategoryName:self.tituloCategoria];
+
+        if(saveNewCat){
+      
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría añadida"
                                                         message:@"Ha agregado exitosamente esta categoría a 'Mi Selección'."
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-        
+            
+         }else{
+            //ES flaite
+            
+            //suscriberNeededScreen
+            NSLog(@"Error al guardar");
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error al guardar"
+                                                             message:@"Error al guardar categoría."
+                                                            delegate:self
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil];
+             [alert show];
+
+        }
+
     }else{
         //ES flaite
         
@@ -187,9 +208,8 @@ NSString *textoContenidoTemporal = @"";
         [_contentTextView sizeToFit];
         [self.scrollView sizeToFit];
     }
-    
-    
 }
+
 - (IBAction)increaseTextSizePressed:(id)sender {
     NSLog(@"Aumentar Fuente Presionado");
     NSLog(@"FontSize: %d",fontSize);
@@ -254,7 +274,6 @@ NSString *textoContenidoTemporal = @"";
     _titulo.text= titulo;
     _summary.text= [articleDict objectForKey:@"short_description"];
     _summary.numberOfLines = 0;
-
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     NSString * originalDateString = [articleDict objectForKey:@"article_date"];

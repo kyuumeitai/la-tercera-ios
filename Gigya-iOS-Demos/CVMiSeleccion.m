@@ -525,7 +525,8 @@ NSString *storyBoardName;
     
     if (kind == UICollectionElementKindSectionHeader) {
         HeaderMiSeleccionReusableView *headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"categoryHeader" forIndexPath:indexPath];
-        NSString *title = [[NSString alloc]initWithFormat:@"El Deportivo #%li", indexPath.section + 1];
+        NSString *title = [[NSString alloc]initWithFormat:@"El Deportivo "] ;
+       // indexPath.section + 1];
         headerView.categoryTitleLabel.text = title;
         //UIImage *headerImage = [UIImage imageNamed:@"header_banner.png"];
         //headerView.backgroundImage.image = headerImage;

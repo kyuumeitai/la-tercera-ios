@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "SWRevealViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import <CoreData/CoreData.h>
 #import "UserProfile.h"
 
-@interface SessionManager : NSObject {
+@interface SessionManager : NSObject<NSFetchedResultsControllerDelegate> {
     
     NSString *storyBoardName;
     
@@ -47,10 +48,14 @@
 @property  int profileCode;
 @property  int width;
 
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
 + (id)session;
 -(NSString*)sessionDescription;
 -(NSString*)profileDescription;
 -(UserProfile *)getUserProfile;
 -(void) resetUserProfile;
+-(BOOL) saveMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName;
+-(NSArray*) getMiSeleccionArray;
 
 @end

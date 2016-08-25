@@ -445,6 +445,7 @@ BOOL nibMyCell2loaded;
     NSLog(@"id Artículo = %d",idArticulo);
     DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
         [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];
+        detalleNews.idCategoria = self.categoryId;
         [self.navigationController pushViewController:detalleNews animated:YES];
     }
 }
