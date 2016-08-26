@@ -577,4 +577,28 @@
     }
 }
 
+
+- (IBAction)ticketPressed:(id)sender {
+    
+    [Tools openSafariWithURL:@"http://tienda.clublatercera.com/tickets"];
+}
+
+- (IBAction)TiendaClubPressed:(id)sender {
+    
+    [Tools openSafariWithURL:@"http://tienda.clublatercera.com/"];
+}
+
+- (IBAction)TCMastercardPressed:(id)sender {
+    
+    [Tools openSafariWithURL:@"http://www.clublatercera.com/beneficios/17_2660.html"];
+}
+
+- (IBAction)ViajesClubPressed:(id)sender {
+    
+    [Tools openSafariWithURL:@"http://www.viajesclublatercera.cl/"];
+}
+
+
+
+
 @end

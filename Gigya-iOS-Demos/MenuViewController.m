@@ -9,6 +9,7 @@
 #import "MenuViewController.h"
 #import "SWRevealViewController.h"
 #import "SessionManager.h"
+#import "Tools.h"
 
 
 @implementation SWUITableViewCell
@@ -106,6 +107,10 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
     
     // TODO call whatever function you need to visually restore
+}
+- (IBAction)ticketsFromMenuPressed:(id)sender {
+    
+    [Tools openSafariWithURL:@"http://tienda.clublatercera.com/tickets" ];
 }
 
 @end
