@@ -27,7 +27,7 @@
     
     NSMutableArray *tempResults = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     tempResults = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    self.arrayFavoritos = (NSMutableArray*)[[self.arrayFavoritos reverseObjectEnumerator] allObjects];
+    self.arrayFavoritos = (NSMutableArray*)[[tempResults reverseObjectEnumerator] allObjects];
 
     
     NSLog(@"Array de favoritos: %@", self.arrayFavoritos);
