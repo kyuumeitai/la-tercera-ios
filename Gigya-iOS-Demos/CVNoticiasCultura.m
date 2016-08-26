@@ -477,7 +477,7 @@ NSString *storyBoardName;
             return CGSizeMake(310, 468);
             
         }else{
-            return CGSizeMake(370, 420);
+            return CGSizeMake(350, 420);
         }
     }
     
@@ -496,17 +496,17 @@ NSString *storyBoardName;
             return CGSizeMake(300, 100);
             
         }else{
-            return CGSizeMake(356, 100);
+            return CGSizeMake(350, 100);
         }
         
     }
     
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
-        return CGSizeMake(370, 290);
+        return CGSizeMake(350, 290);
         
     }
     
-    return CGSizeMake(370, 428);
+    return CGSizeMake(350, 428);
 }
 
 //New code

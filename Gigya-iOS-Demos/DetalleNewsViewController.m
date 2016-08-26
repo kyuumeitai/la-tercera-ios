@@ -142,7 +142,7 @@ NSString *textoContenidoTemporal = @"";
         BOOL saveNewCat = [sesion saveMiSeleccionCategoryWithId:self.idCategoria andCategoryName:self.tituloCategoria];
 
         if(saveNewCat){
-      
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"agregandoCategoriaAMiSeleccion" object:self];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría añadida"
                                                         message:@"Ha agregado exitosamente esta categoría a 'Mi Selección'."
                                                        delegate:self
@@ -155,8 +155,8 @@ NSString *textoContenidoTemporal = @"";
             
             //suscriberNeededScreen
             NSLog(@"Error al guardar");
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error al guardar"
-                                                             message:@"Error al guardar categoría."
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría ya agregada"
+                                                             message:@"Ésta categoría ya ha sido añanida."
                                                             delegate:self
                                                    cancelButtonTitle:@"OK"
                                                    otherButtonTitles:nil];

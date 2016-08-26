@@ -59,7 +59,7 @@ NSString *storyBoardName;
 
 
 - (void) viewDidLoad{
-    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSelectionItems) name:@"agregandoCategoriaAMiSeleccion" object:nil];
     [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
     storyBoardName = sesion.storyBoardName;
@@ -68,7 +68,7 @@ NSString *storyBoardName;
      headlinesArray = [[NSMutableArray alloc] init];
     __weak CVMiSeleccion *weakSelf = self;
    
-
+   
     categoryIdsArray = [[NSMutableArray alloc] init];
     categoryNamesArray = [[NSMutableArray alloc] init];
     bannersMiSeleccion = [NSArray arrayWithObjects:@"/124506296/La_Tercera_com/La_Tercera_com_APP/mi-seleccion_300x250-A", @"/124506296/La_Tercera_com/La_Tercera_com_APP/mi-seleccion_300x250-B", @"/124506296/La_Tercera_com/La_Tercera_com_APP/mi-seleccion_300x250-C", @"/124506296/La_Tercera_com/La_Tercera_com_APP/mi-seleccion_300x250-D", @"/124506296/La_Tercera_com/La_Tercera_com_APP/mi-seleccion_300x250-E", nil];
@@ -505,6 +505,11 @@ NSString *storyBoardName;
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     _isScrollingMiSeleccion = NO;
+}
+
+- (void)updateSelectionItems{
+    NSLog(@"................::::::^^^^^  Parece que tu quieres salsaaaa! ::::::^^^^^................");
+    [self viewDidLoad];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {

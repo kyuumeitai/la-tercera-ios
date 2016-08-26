@@ -42,12 +42,12 @@ NSString *email;
     _textFieldUserName.text = nombre;
     _texfieldEmail.text = email;
     
-   // ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    //ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     
-   // NSString *respuesta = [connectionManager getHistoryWithEmail:@"cristian.villarreal.urrutia@gmail.com"];
+    //NSString *respuesta = [connectionManager getHistoryWithEmail:@"cristian.villarreal.urrutia@gmail.com"];
 
-   // NSString *respuesta = [connectionManager getHistoryWithEmail:email];
-   // NSLog(@"***::::-----    %@     -----::::***\r\r\r",respuesta);
+    //NSString *respuesta = [connectionManager getHistoryWithEmail:email];
+    //NSLog(@"***::::-----    %@     -----::::***\r\r\r",respuesta);
     
 }
 
