@@ -36,12 +36,14 @@
 @synthesize headlinesArray;
 @synthesize collectionView;
 @synthesize categoryId;
+@synthesize categoryIdsArray,categoryNamesArray,arrayOfArrays;
 
 static NSString * const reuseIdentifierGrande = @"collectionViewGrande";
 static NSString * const reuseIdentifierMediana = @"collectionViewMediana";
 static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
 static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
 BOOL _isScrolling;
+int indiceArrayOfArrays;
 
 //New Pagination code
 int currentPageNumber ;
@@ -61,19 +63,14 @@ NSString *storyBoardName;
     [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
     storyBoardName = sesion.storyBoardName;
-    
-    
-    for (ContentType *contenido in sesion.categoryList) {
-        if([contenido.contentSlug isEqualToString:categorySlug])
-            categoryId = contenido.contentId;
-    }
-    
+    indiceArrayOfArrays = 0;
     NSLog(@" El nombre del storyboard es: %@", storyBoardName);
-    NSLog(@"CategoryId: %d", self.categoryId);
-    
+     headlinesArray = [[NSMutableArray alloc] init];
     __weak CVMiSeleccion *weakSelf = self;
-    headlinesArray = [[NSMutableArray alloc] init];
-    
+   
+
+    categoryIdsArray = [[NSMutableArray alloc] init];
+    categoryNamesArray = [[NSMutableArray alloc] init];
     bannersMiSeleccion = [NSArray arrayWithObjects:@"/124506296/La_Tercera_com/La_Tercera_com_APP/mi-seleccion_300x250-A", @"/124506296/La_Tercera_com/La_Tercera_com_APP/mi-seleccion_300x250-B", @"/124506296/La_Tercera_com/La_Tercera_com_APP/mi-seleccion_300x250-C", @"/124506296/La_Tercera_com/La_Tercera_com_APP/mi-seleccion_300x250-D", @"/124506296/La_Tercera_com/La_Tercera_com_APP/mi-seleccion_300x250-E", nil];
     
     //Celda Grande
@@ -123,18 +120,29 @@ NSString *storyBoardName;
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
     currentPageNumber = 1;
     firstTimeMiSeleccion = true;
+    self.categoryNamesArray = [sesion getMiSeleccionCategoryTitlesArray];
     
-    //[self.collectionView setAlpha:0.0];
+    self.categoryIdsArray  = [sesion getMiSeleccionCategoryIdsArray];
+    
+    NSLog(@"CategoryId: %d", self.categoryId);
+    NSLog(@"CategoryNamesArray: count:%lu and array %@",(unsigned long)self.categoryIdsArray.count, self.categoryNamesArray);
+    
+    int count = self.categoryIdsArray.count;
+    
+    arrayOfArrays  = [[NSMutableArray alloc] init];
+    
+    NSLog(@"CategoryNamesArray normal:%i",count);
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         // code here
+        for (int indice = 0; indice < count;indice++){
+            NSLog(@"EL Indice de los ids es: %i",indice);
+        self.categoryId = [self.categoryIdsArray[indice] intValue];
+              NSLog(@"self.categoryId es: %i",self.categoryId);
         [self loadHeadlinesWithCategory:self.categoryId];
+        }
     });
-    
-    // setup infinite scrolling
-    [self.collectionView addInfiniteScrollingWithActionHandler:^{
-        [weakSelf loadMoreRows];
-    }];
-    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -142,7 +150,7 @@ NSString *storyBoardName;
 }
 
 -(void)loadHeadlinesWithCategory:(int)idCategory{
-    NSLog(@"Load Headlines");
+    NSLog(@"Load Headlines for idCategory: %d",idCategory);
     
     __weak CVMiSeleccion *weakSelf = self;
     
@@ -176,29 +184,30 @@ NSString *storyBoardName;
                 }else{
                     
                     [self reloadHeadlinesDataFromArrayJson:arrayJson];
-                    //NSLog(@"Lista headlines jhson: %@",arrayJson);
+                  // NSLog(@"Lista headlines jhson: %@",arrayJson);
                 }
             }
         });
-    }:idCategory andPage:currentPageNumber];
+    }:idCategory andPage:1];
     
+
 }
 
 -(void) reloadHeadlinesDataFromArrayJson:(NSArray*)arrayJson{
     __weak CVMiSeleccion *weakSelf = self;
-    NSLog(@"  reload headlines");
+    NSLog(@">>>>>>>>>>  empieza el mambo headlines");
     NSDictionary *diccionarioTitulares = (NSDictionary*)arrayJson;
-    //NSLog(@"  reload headlines array, is: %@ ",diccionarioTitulares);
-    
-    NSArray* arrayTitulares = [diccionarioTitulares objectForKey:@"articles"];
+    NSLog(@"  Los titulares son: headlines array, is: %@ ",diccionarioTitulares);
+    NSArray* arrayTitulares = [[NSArray alloc] init];
+    arrayTitulares = [diccionarioTitulares objectForKey:@"articles"];
     //NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
     
-    
+    [headlinesArray removeAllObjects];
     int indice = 0;
     
     for (id titularTemp in arrayTitulares){
         indice ++;
-        NSLog(@"El Indice es: %d ", indice);
+        //NSLog(@"El Indice es: %d ", indice);
         NSDictionary *dictTitular = (NSDictionary*) titularTemp;
         id idArt =  [dictTitular objectForKey:@"id"];
         //id title = [dictTitular objectForKey:@"title"];
@@ -220,16 +229,23 @@ NSString *storyBoardName;
         titular.summary = summary;
         titular.imagenThumbString = imageThumb;
         
+        /*
         NSLog(@"____ Numero de pagina: %d", currentPageNumber);
         if (indice == currentPageNumber*6 ){
-            NSLog(@"____ currentPageNumber*6: %d", currentPageNumber*6);
+         
             [headlinesArray addObject:@"OBJETO"];
         }
+         */
         //[titular logDescription];
-        
+         NSLog(@"____ El titular es: %@", titular.title);
         [headlinesArray addObject:titular];
+        if (indice == 10){
+            NSLog(@"____ El INDICE ES: %i",indiceArrayOfArrays);
+            [arrayOfArrays insertObject:headlinesArray atIndex:indiceArrayOfArrays];
+            indiceArrayOfArrays++;
+        }
     }
-    
+
     //New code
     if (firstTimeMiSeleccion ==true){
         self.view.alpha = 0.0;
@@ -252,29 +268,67 @@ NSString *storyBoardName;
         [self.collectionView reloadData];
         [self.collectionView layoutIfNeeded];
         [weakSelf.collectionView.infiniteScrollingView stopAnimating];
-        NSLog(@"LA cantidad es: %lu",(unsigned long)headlinesArray.count);
+        NSLog(@"LA cantidad es: %lu",arrayOfArrays.count);
     }
     NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
+
 }
 
 
 #pragma mark <UICollectionViewDataSource>
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return categoryNamesArray.count;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [headlinesArray count];
-}
+    
+    int i=0;
+    
+    for (NSArray *item in arrayOfArrays) {
+        
+        
+        if (section==i) {
+            
+            NSLog(@"%lu",(unsigned long)item.count);
+            
+            return item.count;
+        }
+        
+        
+        i++;
+        
+    }
 
+    return 0;
+}
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCellBanner *celdaBanner;
     celdaBanner = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
+
+   // Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     
+    NSLog(@"[indexPath section] %li",(long)[indexPath section]);
+    NSLog(@"[arrayOfArrays  objectAtIndex:[indexPath section]] %@",[arrayOfArrays  objectAtIndex:[indexPath section]]);
+    id object;
+    int indiceArray = 0;
+    int indiceHeadline = 0;
+    for (object in arrayOfArrays) {
+
+        Headline* headline;
+        for (headline in object) {
+            NSLog(@"____ Del Array de indice: %i y Del iondice: %i,Headline titular: %@",indiceArray,indiceHeadline ,headline.title );
+            indiceHeadline++;
+        }
+        // NSLog(@"____ cOIbjetoo titular: %@",(Headline*)[object title] );
+        indiceArray++;
+    }
+
+    NSInteger idpSection = [indexPath section];
+    NSInteger idpRow = [indexPath item];
+    Headline *titular =  arrayOfArrays[idpSection][idpRow];
     
-    Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     
     if (indexPath.item == 0 || indexPath.item % 6 == 0 || indexPath.item == 1 || indexPath.item == 2 || ((indexPath.item % 6)-1) == 0 || ((indexPath.item % 6)-2) == 0 || indexPath.item == 3 || indexPath.item == 4 || ((indexPath.item % 6)-3) == 0 || ((indexPath.item % 6)-4) == 0) {
         
@@ -308,77 +362,8 @@ NSString *storyBoardName;
         
         return cell;
   }
-    /*
-    if (indexPath.item == 1 || indexPath.item == 2 || ((indexPath.item % 6)-1) == 0 || ((indexPath.item % 6)-2) == 0  )
-    {
-        
-        
-        CollectionViewCellMediana *cell;
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewMediana4-5" forIndexPath:indexPath];
-            
-        }else{
-            cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
-            
-        }
-        
-        
-        // Configure the cell
-        // cell.labelTituloNews.text = titular.title;
-        cell.labelSummary.text = titular.title;
-        NSString *urlImagen = titular.imagenThumbString;
-        NSURL *url = [NSURL URLWithString:urlImagen];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        
-        __weak CollectionViewCellMediana *weakCellMediana = cell;
-        
-        [cell.imageNews setImageWithURLRequest:request
-                              placeholderImage:placeholderImage
-                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                           weakCellMediana.imageNews.image = image;
-                                           [weakCellMediana setNeedsLayout];
-                                       } failure:nil];
-        
-        return cell;
-        
-    }
-    
-    if (indexPath.item == 3 || indexPath.item == 4 || ((indexPath.item % 6)-3) == 0 || ((indexPath.item % 6)-4) == 0 )
-    {
-        
-        
-        CollectionViewCellHorizontal *cell;
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewHorizontal4-5" forIndexPath:indexPath];
-            
-        }else{
-            cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierHorizontal forIndexPath:indexPath];
-            
-        }
-        
-        // Configure the cell
-        cell.labelSummary.text = titular.title;
-        NSString *urlImagen = titular.imagenThumbString;
-        NSURL *url = [NSURL URLWithString:urlImagen];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        
-        __weak CollectionViewCellHorizontal *weakCellHorizontal = cell;
-        
-        [cell.imageNews setImageWithURLRequest:request
-                              placeholderImage:placeholderImage
-                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                           weakCellHorizontal.imageNews.image = image;
-                                           [weakCellHorizontal setNeedsLayout];
-                                       } failure:nil];
-        
-        
-        return cell;
-        
-    }
-    
-     */
+
+  /*
     if (indexPath.item == 5 || ((indexPath.item % 6)-5) == 0 )
     {
         
@@ -407,7 +392,7 @@ NSString *storyBoardName;
                 
                 break;
         }
-        
+     
         
         if (self.collectionView.dragging == NO && self.collectionView.decelerating == NO){
             
@@ -421,6 +406,7 @@ NSString *storyBoardName;
             });
         }
         
+     
         if(_isScrollingMiSeleccion == false){
             for(UIView* view in celdaBanner.contentView.subviews) {
                 if([view isKindOfClass:[DFPBannerView class]]) {
@@ -431,11 +417,11 @@ NSString *storyBoardName;
                 [celdaBanner cellBannerView:self];
             });
         }
-        
+     
         return celdaBanner;
-        
+     
     }
-    
+    */
     CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
     
     return cell;
@@ -466,10 +452,12 @@ NSString *storyBoardName;
     
     NSLog(@"***********   Load More Rows   ************");
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    /*
     isPageRefreshingMiSeleccion = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
     currentPageNumber = currentPageNumber +1;
     [self loadHeadlinesWithCategory:categoryId];
+     */
     
 }
 
@@ -484,35 +472,12 @@ NSString *storyBoardName;
             return CGSizeMake(350, 420);
         }
     }
-    /*
-    
-    if([indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 ) {
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            return CGSizeMake(154, 268);
-            
-        }else{
-            
-            return CGSizeMake(170, 262);
-            
-        }
-        
-    }
-    
-    if([indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            return CGSizeMake(300, 100);
-            
-        }else{
-            return CGSizeMake(356, 100);
-        }
-        
-    }
-     */
+/*
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
         return CGSizeMake(350, 265);
         
     }
-    
+  */
     return CGSizeMake(350, 428);
     
 }
@@ -525,7 +490,7 @@ NSString *storyBoardName;
     
     if (kind == UICollectionElementKindSectionHeader) {
         HeaderMiSeleccionReusableView *headerView = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"categoryHeader" forIndexPath:indexPath];
-        NSString *title = [[NSString alloc]initWithFormat:@"El Deportivo "] ;
+        NSString *title = self.categoryNamesArray[indexPath.section];
        // indexPath.section + 1];
         headerView.categoryTitleLabel.text = title;
         //UIImage *headerImage = [UIImage imageNamed:@"header_banner.png"];

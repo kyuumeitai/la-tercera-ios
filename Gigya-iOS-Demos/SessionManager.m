@@ -213,6 +213,38 @@
     return arraySeleccion;
 }
 
+-(NSMutableArray*) getMiSeleccionCategoryIdsArray{
+    
+    NSMutableArray *arraySeleccionIds = [[NSMutableArray alloc] init];
+    
+    SessionManager *sesion = [SessionManager session];
+    
+    NSMutableArray *arreglo = (NSMutableArray*)[sesion getMiSeleccionArray];
+    for (NSManagedObject *objeto in arreglo) {
+        int valor = [[objeto valueForKey:@"idCat"] intValue];
+        [arraySeleccionIds addObject:[NSNumber numberWithInteger:valor]];
+    }
+
+    
+    return arraySeleccionIds;
+}
+
+-(NSMutableArray*) getMiSeleccionCategoryTitlesArray{
+    
+    NSMutableArray *arraySeleccionTitles = [[NSMutableArray alloc] init];
+    
+    SessionManager *sesion = [SessionManager session];
+    
+    NSMutableArray *arreglo = (NSMutableArray*)[sesion getMiSeleccionArray];
+    for (NSManagedObject *objeto in arreglo) {
+        NSString * tituloCat = [objeto valueForKey:@"nombreCat"];
+        [arraySeleccionTitles addObject:tituloCat];
+    }
+    
+    
+    return arraySeleccionTitles;
+}
+
 
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;
