@@ -17,11 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _finishButton.hidden = true;
+    _finishButton.alpha = 0.0;
     self.backgroundImageView.image = [UIImage imageNamed:self.imageFile];
     
     if (_isFinalPage){
         NSLog(@"Es la página final");
         self.finishButton.hidden = false;
+         _finishButton.alpha = 1.0;
     }
     // Do any additional setup after loading the view.
 }
