@@ -63,8 +63,8 @@
         userProfile.gender = @"";
         userProfile.birthdate = @"";
         userProfile.profileType = @"anonimo";
-        //userProfile.profileLevel = 0;
-        userProfile.profileLevel = 2;
+        userProfile.profileLevel = 0;
+        //userProfile.profileLevel = 2;
         userProfile.preferences = [[NSMutableArray alloc]init];
         userProfile.site = @"";
         userProfile.notificacionesClub = false;

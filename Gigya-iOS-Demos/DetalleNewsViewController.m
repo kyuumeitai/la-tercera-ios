@@ -12,6 +12,7 @@
 #import "SessionManager.h"
 #import "UserProfile.h"
 #import "UsarBeneficioNoLogueado.h"
+#import "Tools.h"
 
 
 @interface DetalleNewsViewController () <UIGestureRecognizerDelegate>
@@ -33,7 +34,8 @@
 @synthesize idCategoria;
 int fontSize = 16;
 
-
+NSString *slug = @"";
+NSString *newsLink= @"";
 NSString *textoContenidoTemporal = @"";
 
 - (void)viewDidLoad {
@@ -273,6 +275,8 @@ NSString *textoContenidoTemporal = @"";
     titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
     _titulo.text= titulo;
     _summary.text= [articleDict objectForKey:@"short_description"];
+    slug = [articleDict objectForKey:@"slug"];
+
     _summary.numberOfLines = 0;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
@@ -284,7 +288,7 @@ NSString *textoContenidoTemporal = @"";
     _labelAutor.text = autor;
     NSString *dateFinalText=[dateFormatter stringFromDate:newsDate];
     
-    NSLog(@"Fehca es:%@", dateFinalText);
+    NSLog(@"Fecha es:%@", dateFinalText);
     _labelFecha.text = dateFinalText;
     
    textoContenidoTemporal = [articleDict objectForKey:@"content"];
@@ -356,6 +360,12 @@ NSString *textoContenidoTemporal = @"";
 
 - (IBAction)backButtonClicked:(UIButton *)sender {
   [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)shareArticle:(id)sender {
+    NSString *tituloNoticia = _titulo.text;
+    newsLink = [NSString stringWithFormat:@"http://aniversario.latercera.com/%@",slug];
+
+        [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:newsLink] forSelf:self];
 }
 
 /*
