@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GVp-39-K6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GVp-39-K6N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -8006,17 +8006,17 @@ de La Tercera</string>
                                         <rect key="frame" x="9" y="14" width="146" height="22"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sb-44-aWy">
-                                        <rect key="frame" x="193" y="4" width="45" height="42"/>
+                                        <rect key="frame" x="188" y="4" width="50" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="DVB-kI-svP"/>
+                                            <constraint firstAttribute="width" constant="50" id="DVB-kI-svP"/>
                                         </constraints>
                                         <state key="normal" image="BotonShare.png"/>
                                         <connections>
                                             <action selector="shareArticle:" destination="p1G-LW-4Z3" eventType="touchUpInside" id="Es9-rQ-r3I"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHe-cd-u13">
-                                        <rect key="frame" x="241" y="6" width="49" height="38"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHe-cd-u13">
+                                        <rect key="frame" x="242" y="4" width="45" height="42"/>
                                         <state key="normal" image="botonFavorito.png"/>
                                         <connections>
                                             <action selector="addToFavorite:" destination="p1G-LW-4Z3" eventType="touchUpInside" id="JzW-BP-qVk"/>
@@ -8031,9 +8031,16 @@ de La Tercera</string>
                                     <constraint firstItem="h5i-FU-Wll" firstAttribute="centerY" secondItem="shL-tu-SHk" secondAttribute="centerY" constant="-3" id="JVI-SY-sr2"/>
                                     <constraint firstItem="5sb-44-aWy" firstAttribute="top" secondItem="shL-tu-SHk" secondAttribute="top" constant="4" id="Pp0-bE-NhO"/>
                                     <constraint firstItem="h5i-FU-Wll" firstAttribute="top" secondItem="shL-tu-SHk" secondAttribute="top" constant="14" id="QHT-TQ-pdF"/>
-                                    <constraint firstItem="5sb-44-aWy" firstAttribute="leading" secondItem="h5i-FU-Wll" secondAttribute="trailing" constant="38" id="eLP-s7-d4z"/>
+                                    <constraint firstAttribute="trailing" secondItem="zHe-cd-u13" secondAttribute="trailing" constant="18" id="ZES-WA-rXu"/>
+                                    <constraint firstItem="5sb-44-aWy" firstAttribute="leading" secondItem="h5i-FU-Wll" secondAttribute="trailing" constant="33" id="eLP-s7-d4z"/>
                                     <constraint firstAttribute="trailing" secondItem="5sb-44-aWy" secondAttribute="trailing" constant="67" id="rz5-yD-McW"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="DGm-o3-9m3"/>
+                                        <exclude reference="Pp0-bE-NhO"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <scrollView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Lah-vw-dZL">
                                 <rect key="frame" x="0.0" y="93" width="375" height="991"/>
@@ -8259,6 +8266,9 @@ de La Tercera</string>
                         <constraints>
                             <constraint firstItem="Lah-vw-dZL" firstAttribute="top" secondItem="Wlk-rF-wZC" secondAttribute="bottom" id="1Vn-f5-84r"/>
                             <constraint firstItem="Wlk-rF-wZC" firstAttribute="top" secondItem="cIg-mT-PPa" secondAttribute="top" id="31T-Mg-dLB"/>
+                            <constraint firstItem="Wlk-rF-wZC" firstAttribute="top" secondItem="zHe-cd-u13" secondAttribute="bottom" constant="-66" id="33b-WX-PDv"/>
+                            <constraint firstItem="Wlk-rF-wZC" firstAttribute="top" secondItem="5sb-44-aWy" secondAttribute="bottom" constant="-66" id="4rc-oH-qpR"/>
+                            <constraint firstItem="Wlk-rF-wZC" firstAttribute="top" secondItem="5sb-44-aWy" secondAttribute="bottom" constant="-66" id="6Xb-74-QeR"/>
                             <constraint firstItem="XMp-7Y-zoQ" firstAttribute="top" secondItem="Lah-vw-dZL" secondAttribute="bottom" constant="20" id="EcD-cr-peu"/>
                             <constraint firstItem="Wlk-rF-wZC" firstAttribute="trailing" secondItem="shL-tu-SHk" secondAttribute="trailing" id="EfC-d2-EUS"/>
                             <constraint firstItem="Lah-vw-dZL" firstAttribute="leading" secondItem="cIg-mT-PPa" secondAttribute="leading" id="IIS-yJ-bdJ"/>
@@ -8281,6 +8291,7 @@ de La Tercera</string>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="6Xb-74-QeR"/>
                                 <exclude reference="r40-Cl-MVq"/>
                                 <exclude reference="IIS-yJ-bdJ"/>
                                 <exclude reference="ZEM-Kx-Wet"/>
