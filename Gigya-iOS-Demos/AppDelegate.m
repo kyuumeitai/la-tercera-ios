@@ -13,6 +13,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <GigyaSDK/Gigya.h>
 #import <CoreData/CoreData.h>
+#import "Headers/MOCA.h"
 
 @interface AppDelegate () <GSAccountsDelegate>
 
