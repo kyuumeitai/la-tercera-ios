@@ -1477,7 +1477,7 @@ REGISTRARSE?</string>
                                             </constraints>
                                             <state key="normal" title="Mi Perfil"/>
                                             <connections>
-                                                <segue destination="hIZ-hV-EhB" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="EB3-k0-3ud"/>
+                                                <segue destination="hIZ-hV-EhB" kind="push" id="EB3-k0-3ud"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -2503,10 +2503,10 @@ REGISTRARSE?</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvf-wn-g7Q" customClass="CustomBorderView">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cvf-wn-g7Q" customClass="CustomBorderView">
                                         <rect key="frame" x="18" y="439" width="338" height="82"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1K-p2-v9m">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1K-p2-v9m">
                                                 <rect key="frame" x="14" y="7" width="169" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="169" id="0jl-QS-EOg"/>
@@ -2515,7 +2515,7 @@ REGISTRARSE?</string>
                                                 <color key="textColor" red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peQ-cN-ftW">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peQ-cN-ftW">
                                                 <rect key="frame" x="14" y="29" width="311" height="46"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2544,10 +2544,10 @@ REGISTRARSE?</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxZ-O9-WdS" customClass="CustomBorderView">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YxZ-O9-WdS" customClass="CustomBorderView">
                                         <rect key="frame" x="18" y="529" width="338" height="422"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bl-aW-pN3">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bl-aW-pN3">
                                                 <rect key="frame" x="8" y="37" width="322" height="377"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
@@ -2558,7 +2558,7 @@ REGISTRARSE?</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción del local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ViT-Ob-wC4">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Descripción del local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ViT-Ob-wC4">
                                                 <rect key="frame" x="13" y="10" width="179" height="26"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
                                                 <color key="textColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -5798,10 +5798,10 @@ de La Tercera</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uok-vc-mp1" customClass="CustomBorderView">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uok-vc-mp1" customClass="CustomBorderView">
                                         <rect key="frame" x="18" y="439" width="338" height="82"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jC3-8D-4xL">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jC3-8D-4xL">
                                                 <rect key="frame" x="14" y="7" width="169" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="169" id="gTl-m3-5G4"/>
@@ -5810,7 +5810,7 @@ de La Tercera</string>
                                                 <color key="textColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtL-J7-Wfc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtL-J7-Wfc">
                                                 <rect key="frame" x="14" y="29" width="311" height="46"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -5839,10 +5839,10 @@ de La Tercera</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9e5-bf-5HM" customClass="CustomBorderView">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9e5-bf-5HM" customClass="CustomBorderView">
                                         <rect key="frame" x="18" y="529" width="338" height="422"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuN-lU-Ef6">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuN-lU-Ef6">
                                                 <rect key="frame" x="8" y="37" width="322" height="377"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
@@ -5853,7 +5853,7 @@ de La Tercera</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción del local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX4-tP-qLz">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Descripción del local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX4-tP-qLz">
                                                 <rect key="frame" x="13" y="10" width="179" height="26"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
                                                 <color key="textColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -6970,7 +6970,7 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="C34-Qx-KuP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="C34-Qx-KuP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                             </imageView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3BA-YN-Hr5">
@@ -6990,10 +6990,10 @@ de La Tercera</string>
                                     <constraint firstAttribute="trailing" secondItem="Fb7-8k-3XH" secondAttribute="trailing" constant="25" id="fbd-Sg-qVI"/>
                                 </constraints>
                             </view>
-                            <view tag="100" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EK2-nj-Hv4">
+                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EK2-nj-Hv4">
                                 <rect key="frame" x="0.0" y="77" width="375" height="590"/>
                                 <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJe-Nq-kt6">
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJe-Nq-kt6">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -7009,12 +7009,16 @@ de La Tercera</string>
                                     <constraint firstItem="PJe-Nq-kt6" firstAttribute="leading" secondItem="EK2-nj-Hv4" secondAttribute="leading" id="myc-zT-2xZ"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwa-W6-zsq">
-                                <rect key="frame" x="11" y="13" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKh-bv-Ex6">
+                                <rect key="frame" x="8" y="13" width="47" height="47"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="9qg-ij-7qM"/>
+                                    <constraint firstAttribute="height" constant="47" id="Ise-VD-QkW"/>
+                                    <constraint firstAttribute="width" constant="47" id="Pxv-EN-7Xz"/>
                                 </constraints>
-                                <state key="normal" image="boton-menu.png"/>
+                                <state key="normal" image="botonVolver.png"/>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="3xQ-uh-2K3" eventType="touchUpInside" id="hEl-CV-ENg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -7026,10 +7030,11 @@ de La Tercera</string>
                             <constraint firstAttribute="trailing" secondItem="C34-Qx-KuP" secondAttribute="trailing" id="JUh-b3-Bq0"/>
                             <constraint firstItem="EK2-nj-Hv4" firstAttribute="top" secondItem="C34-Qx-KuP" secondAttribute="bottom" constant="1" id="KvB-6m-vHk"/>
                             <constraint firstItem="3BA-YN-Hr5" firstAttribute="top" secondItem="PML-LG-AKj" secondAttribute="bottom" constant="13" id="KwY-Pe-GgO"/>
+                            <constraint firstItem="tKh-bv-Ex6" firstAttribute="leading" secondItem="I25-4F-gYa" secondAttribute="leadingMargin" constant="-8" id="VT4-Kt-tIc"/>
+                            <constraint firstItem="tKh-bv-Ex6" firstAttribute="bottom" secondItem="3BA-YN-Hr5" secondAttribute="bottom" id="YQZ-jd-hew"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3BA-YN-Hr5" secondAttribute="trailing" constant="-9" id="YSL-mM-fc5"/>
                             <constraint firstItem="C34-Qx-KuP" firstAttribute="top" secondItem="I25-4F-gYa" secondAttribute="top" id="bnz-9C-m4I"/>
-                            <constraint firstItem="wwa-W6-zsq" firstAttribute="top" secondItem="C34-Qx-KuP" secondAttribute="bottom" constant="-63" id="mGP-cX-upc"/>
-                            <constraint firstItem="C34-Qx-KuP" firstAttribute="leading" secondItem="wwa-W6-zsq" secondAttribute="trailing" constant="-61" id="pcw-OC-kFd"/>
+                            <constraint firstItem="tKh-bv-Ex6" firstAttribute="top" secondItem="PML-LG-AKj" secondAttribute="bottom" constant="13" id="rRO-Kq-7dQ"/>
                             <constraint firstItem="C34-Qx-KuP" firstAttribute="trailing" secondItem="EK2-nj-Hv4" secondAttribute="trailing" id="tGh-ca-DCN"/>
                             <constraint firstItem="C34-Qx-KuP" firstAttribute="leading" secondItem="EK2-nj-Hv4" secondAttribute="leading" id="vil-9h-0G7"/>
                         </constraints>
@@ -7038,9 +7043,6 @@ de La Tercera</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="menuButton" destination="wwa-W6-zsq" id="7Pa-co-7yn"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mE-nl-6WH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
