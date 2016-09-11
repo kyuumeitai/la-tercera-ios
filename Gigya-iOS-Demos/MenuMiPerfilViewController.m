@@ -7,6 +7,7 @@
 //
 
 #import "MenuMiPerfilViewController.h"
+#import "SessionManager.h"
 
 @interface MenuMiPerfilViewController ()
 
@@ -16,6 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //Creamos el singleton sesión
+    SessionManager *sesion = [SessionManager session];
+    
+    
+    SWRevealViewController *revealViewController = self.revealViewController;
+    sesion.leftSlideMenu = revealViewController;
+    [_menuButton addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+
     // Do any additional setup after loading the view.
 }
 
@@ -38,5 +49,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - Load Categories
+#pragma mark -- YSLContainerViewControllerDelegate
+- (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
+{
+    NSLog(@"current Index : %ld",(long)index);
+    NSLog(@"current controller : %@",controller);
+    [controller viewWillAppear:YES];
+}
+
 
 @end

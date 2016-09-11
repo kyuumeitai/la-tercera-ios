@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YSLContainerViewController.h"
 
-@interface MenuMiPerfilViewController : UIViewController
+@interface MenuMiPerfilViewController : UIViewController <YSLContainerViewControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *menuButton;
 
 @end
