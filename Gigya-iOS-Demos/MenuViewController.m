@@ -30,11 +30,12 @@
     NSString *stbName = sesion.storyBoardName;
     
     
-    if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [stbName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+    if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone4"] ){
     menuItems = @[@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria4", @"categoria5",@"categoria6", @"categoria7", @"categoria8",@"categoria9", @"categoria10",@"categoria13"];
+    }else if( [stbName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        menuItems = @[@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria4", @"categoria5",@"categoria6", @"categoria7", @"categoria8",@"categoria9", @"categoria10", @"categoria13"];
     }else{
     menuItems = @[@"categoria11",@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria4", @"categoria5",@"categoria6", @"categoria7", @"categoria8",@"categoria9", @"categoria10",  @"categoria12", @"categoria13"];
-    
     }
     //self.automaticallyAdjustsScrollViewInsets = NO;
 
@@ -92,12 +93,47 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    SessionManager *sesion = [SessionManager session];
+    NSString *stbName = sesion.storyBoardName;
+    
+if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone4"] ){
+    NSLog(@"Estoy aca lonyi en el ipone 4");
+    if (indexPath.row == 11){
+        NSLog(@"fijo en 11 del 4");
+        
+        return 76.0;
+    }else{
+        return 35.0;
+    }
+
+} else if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone5"] ){
+        NSLog(@"Estoy aca lonyi");
+        if (indexPath.row == 11){
+            NSLog(@"fijo en 13");
+
+            return 64.0;
+        }else{
+                return 44.0;
+        }
+    }else if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone6"] ){
+    
     if (indexPath.row == 13)
         return 100.0;
     if (indexPath.row == 11)
         return 12.0;
     return 44.0;
+        
+    }else{
+        
+        if (indexPath.row == 13)
+            return 100.0;
+        if (indexPath.row == 11)
+            return 12.0;
+        return 44.0;
+    }
 }
+
+
 - (void) viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
