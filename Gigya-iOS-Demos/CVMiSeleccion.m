@@ -46,25 +46,25 @@ BOOL _isScrolling;
 int indiceArrayOfArrays;
 
 //New Pagination code
-int currentPageNumber ;
+int currentPageNumberMiSeleccion ;
 BOOL isPageRefreshingMiSeleccion =  false;
 BOOL firstTimeMiSeleccion = false;
 NSArray *bannersMiSeleccion= nil;
 BOOL _isScrollingMiSeleccion;
-int numeroPaginas;
-NSString *day;
-NSString *month;
-NSString *year;
-NSString *storyBoardName;
+int numeroPaginasMiSeleccion;
+NSString *dayMiSeleccion;
+NSString *monthMiSeleccion;
+NSString *yearMiSeleccion;
+NSString *storyBoardNameMiSeleccion;
 
 
 - (void) viewDidLoad{
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSelectionItems) name:@"agregandoCategoriaAMiSeleccion" object:nil];
     [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
-    storyBoardName = sesion.storyBoardName;
+    storyBoardNameMiSeleccion = sesion.storyBoardName;
     indiceArrayOfArrays = 0;
-    NSLog(@" El nombre del storyboard es: %@", storyBoardName);
+    NSLog(@" El nombre del storyboard es: %@", storyBoardNameMiSeleccion);
      headlinesArray = [[NSMutableArray alloc] init];
     __weak CVMiSeleccion *weakSelf = self;
    
@@ -76,7 +76,7 @@ NSString *storyBoardName;
     //Celda Grande
     UINib *cellNib ;
     
-    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+    if([storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
         cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande4-5" bundle: nil];
         [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"collectionViewGrande4-5"];
         
@@ -90,7 +90,7 @@ NSString *storyBoardName;
     //Celda Mediana
     UINib *cellNib2 ;
     
-    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+    if([storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
         cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana4-5" bundle: nil];
         [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:@"collectionViewMediana4-5"];
         
@@ -104,7 +104,7 @@ NSString *storyBoardName;
     //Celda Horizontal
     UINib *cellNib3 ;
     
-    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+    if([storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
         cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal4-5" bundle: nil];
         [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:@"collectionViewHorizontal4-5"];
         
@@ -118,7 +118,7 @@ NSString *storyBoardName;
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
     
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
-    currentPageNumber = 1;
+    currentPageNumberMiSeleccion = 1;
     firstTimeMiSeleccion = true;
     self.categoryNamesArray = [sesion getMiSeleccionCategoryTitlesArray];
     
@@ -230,8 +230,8 @@ NSString *storyBoardName;
         titular.imagenThumbString = imageThumb;
         
         /*
-        NSLog(@"____ Numero de pagina: %d", currentPageNumber);
-        if (indice == currentPageNumber*6 ){
+        NSLog(@"____ Numero de pagina: %d", currentPageNumberMiSeleccion);
+        if (indice == currentPageNumberMiSeleccion*6 ){
          
             [headlinesArray addObject:@"OBJETO"];
         }
@@ -333,7 +333,7 @@ NSString *storyBoardName;
     if (indexPath.item == 0 || indexPath.item % 6 == 0 || indexPath.item == 1 || indexPath.item == 2 || ((indexPath.item % 6)-1) == 0 || ((indexPath.item % 6)-2) == 0 || indexPath.item == 3 || indexPath.item == 4 || ((indexPath.item % 6)-3) == 0 || ((indexPath.item % 6)-4) == 0) {
         
         CollectionViewCellGrande *cell;
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewGrande4-5" forIndexPath:indexPath];
             
         }else{
@@ -451,11 +451,11 @@ NSString *storyBoardName;
 - (void)loadMoreRows {
     
     NSLog(@"***********   Load More Rows   ************");
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberMiSeleccion);
     /*
     isPageRefreshingMiSeleccion = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
-    currentPageNumber = currentPageNumber +1;
+    currentPageNumberMiSeleccion = currentPageNumberMiSeleccion +1;
     [self loadHeadlinesWithCategory:categoryId];
      */
     
@@ -465,7 +465,7 @@ NSString *storyBoardName;
     
     if((indexPath.item == 0 || indexPath.item % 6 == 0 || indexPath.item == 1 || indexPath.item == 2 || ((indexPath.item % 6)-1) == 0 || ((indexPath.item % 6)-2) == 0 || indexPath.item == 3 || indexPath.item == 4 || ((indexPath.item % 6)-3) == 0 || ((indexPath.item % 6)-4) == 0)){
         
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             return CGSizeMake(310, 468);
             
         }else{

@@ -27,8 +27,8 @@
     CLLocationManager *locationManager;
     CLLocation  *userLocation;
     SessionManager *sesion;
-NSString *storyBoardName;
-    bool firstTime;
+NSString *storyBoardNameMasCercanos;
+    bool firstTimeMasCercanos;
 int cuenta;
 
 @synthesize mapView = _mapView;
@@ -44,12 +44,12 @@ int cuenta;
     [self todosClicked:nil];
 
     cuenta = 0;
-    firstTime = true;
+    firstTimeMasCercanos = true;
     // Do any additional setup after loading the view, typically from a nib.
         [self requestLocation];
     
     sesion = [SessionManager session];
-         storyBoardName = sesion.storyBoardName;
+         storyBoardNameMasCercanos = sesion.storyBoardName;
     _mapView.delegate = self;
     _mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
@@ -572,7 +572,7 @@ int cuenta;
         if (cell == nil)
         {
             
-                        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+                        if([storyBoardNameMasCercanos isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameMasCercanos isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
                             nib = [[NSBundle mainBundle] loadNibNamed:@"CategoriasTableViewCell-iPhone4-5" owner:self options:nil];
             }else{
                 
@@ -634,7 +634,7 @@ int cuenta;
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     
-     if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+     if([storyBoardNameMasCercanos isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameMasCercanos isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
      return 116.0;
      }else{
          return 100.0;

@@ -34,7 +34,7 @@
 
 @synthesize headlinesArray;
 @synthesize collectionView;
-@synthesize categoryId;
+@synthesize categoryIdNoticiasNegocio;
 static NSString * const reuseIdentifierGrande = @"collectionViewGrande";
 static NSString * const reuseIdentifierMediana = @"collectionViewMediana";
 static NSString * const reuseIdentifierHorizontal = @"collectionViewHorizontal";
@@ -45,27 +45,27 @@ int currentPageNumberNegocios ;
 BOOL isPageRefreshingNegocios =  false;
 BOOL firstTimeNegocios = false;
 NSArray *bannersNegocios= nil;
-BOOL _isScrollingNegocios;
-int numeroPaginas;
-NSString *day;
-NSString *month;
-NSString *year;
-NSString *storyBoardName;
-int categoryId;
+BOOL _isScrollingNoticiasNegocios;
+int numeroPaginasNoticiasNegocios;
+NSString *dayNoticiasNegocios;
+NSString *monthNoticiasNegocios;
+NSString *yearNoticiasNegocios;
+NSString *storyBoardNameNoticiasNegocios;
+//int categoryId;
 
 - (void) viewDidLoad{
-    categoryId = 0;
+    categoryIdNoticiasNegocio = 0;
 [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
-    storyBoardName = sesion.storyBoardName;
+    storyBoardNameNoticiasNegocios = sesion.storyBoardName;
     
     for (ContentType *contenido in sesion.categoryList) {
         if([contenido.contentSlug isEqualToString:categorySlug])
-            self.categoryId = contenido.contentId;
+            self.categoryIdNoticiasNegocio = contenido.contentId;
     }
     
-    NSLog(@" El nombre del storboard es: %@", storyBoardName);
-    NSLog(@"CategoryId: %d", self.categoryId);
+    NSLog(@" El nombre del storboard es: %@", storyBoardNameNoticiasNegocios);
+    NSLog(@"CategoryId: %d", self.categoryIdNoticiasNegocio);
 
     __weak CVNoticiasNegocios *weakSelf = self;
     headlinesArray = [[NSMutableArray alloc] init];
@@ -75,7 +75,7 @@ int categoryId;
     //Celda Grande
     UINib *cellNib ;
     
-    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+    if([storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
         cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande4-5" bundle: nil];
         [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"collectionViewGrande4-5"];
         
@@ -89,7 +89,7 @@ int categoryId;
     //Celda Mediana
     UINib *cellNib2 ;
     
-    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+    if([storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
         cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana4-5" bundle: nil];
         [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:@"collectionViewMediana4-5"];
         
@@ -103,7 +103,7 @@ int categoryId;
     //Celda Horizontal
     UINib *cellNib3 ;
     
-    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+    if([storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
         cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal4-5" bundle: nil];
         [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:@"collectionViewHorizontal4-5"];
         
@@ -124,7 +124,7 @@ int categoryId;
     //[self.collectionView setAlpha:0.0];
     dispatch_async(dispatch_get_main_queue(), ^{
         // code here
-        [self loadHeadlinesWithCategory:self.categoryId];
+        [self loadHeadlinesWithCategory:self.categoryIdNoticiasNegocio];
     });
     
     // setup infinite scrolling
@@ -277,7 +277,7 @@ int categoryId;
     if (indexPath.item == 0 || indexPath.item % 6 == 0) {
         
         CollectionViewCellGrande *cell;
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewGrande4-5" forIndexPath:indexPath];
             
         }else{
@@ -312,7 +312,7 @@ int categoryId;
         
         
         CollectionViewCellMediana *cell;
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewMediana4-5" forIndexPath:indexPath];
             
         }else{
@@ -347,7 +347,7 @@ int categoryId;
         
         
         CollectionViewCellHorizontal *cell;
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewHorizontal4-5" forIndexPath:indexPath];
             
         }else{
@@ -419,7 +419,7 @@ int categoryId;
             });
         }
         
-        if(_isScrollingNegocios == false){
+        if(_isScrollingNoticiasNegocios == false){
             for(UIView* view in celdaBanner.contentView.subviews) {
                 if([view isKindOfClass:[DFPBannerView class]]) {
                     [view removeFromSuperview];
@@ -452,7 +452,7 @@ int categoryId;
         int idArticulo = titular.idArt;
         NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
-        detalleNews.idCategoria = self.categoryId;
+        detalleNews.idCategoria = self.categoryIdNoticiasNegocio;
          [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];   //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         [self.navigationController pushViewController:detalleNews animated:YES];
     }
@@ -465,7 +465,7 @@ int categoryId;
     isPageRefreshingNegocios = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
     currentPageNumberNegocios = currentPageNumberNegocios +1;
-    [self loadHeadlinesWithCategory:categoryId];
+    [self loadHeadlinesWithCategory:categoryIdNoticiasNegocio];
     
 }
 
@@ -473,7 +473,7 @@ int categoryId;
     
     if([indexPath row]==0 || [indexPath row] % 6 == 0){
         
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             return CGSizeMake(310, 468);
             
         }else{
@@ -482,7 +482,7 @@ int categoryId;
     }
     
     if([indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 ) {
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             return CGSizeMake(154, 268);
             
         }else{
@@ -494,7 +494,7 @@ int categoryId;
     }
     
     if([indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             return CGSizeMake(300, 100);
             
         }else{
@@ -515,12 +515,12 @@ int categoryId;
 //New code
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    _isScrollingNegocios = NO;
+    _isScrollingNoticiasNegocios = NO;
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (!decelerate) {
-        _isScrollingNegocios = NO;
+        _isScrollingNoticiasNegocios = NO;
     }
 }
 

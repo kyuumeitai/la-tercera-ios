@@ -16,37 +16,37 @@
 
 @interface MiPerfilTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *textFieldUserName;
-@property (weak, nonatomic) IBOutlet UILabel *texfieldEmail;
+@property (weak, nonatomic) IBOutlet UILabel *texfieldemailMiPerfil;
 @property GSAccount *user;
 @end
 
 @implementation MiPerfilTableViewController
 
-SessionManager *sesion;
+SessionManager *sesionMiPerfil;
 UserProfile *profile;
 NSString *nombre;
-NSString *email;
+NSString *emailMiPerfil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] init];
-    sesion = [SessionManager session];
-    profile = [sesion getUserProfile];
+    sesionMiPerfil = [SessionManager session];
+    profile = [sesionMiPerfil getUserProfile];
     
     
     NSString *nombreCompleto = [NSString stringWithFormat:@"%@ %@",profile.name, profile.lastName];
     nombre = nombreCompleto;
-    email = profile.email;
+    emailMiPerfil = profile.email;
     
 
     _textFieldUserName.text = nombre;
-    _texfieldEmail.text = email;
+    _texfieldemailMiPerfil.text = emailMiPerfil;
     
     //ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     
-    //NSString *respuesta = [connectionManager getHistoryWithEmail:@"cristian.villarreal.urrutia@gmail.com"];
+    //NSString *respuesta = [connectionManager getHistoryWithemailMiPerfil:@"cristian.villarreal.urrutia@gmail.com"];
 
-    //NSString *respuesta = [connectionManager getHistoryWithEmail:email];
+    //NSString *respuesta = [connectionManager getHistoryWithemailMiPerfil:emailMiPerfil];
     //NSLog(@"***::::-----    %@     -----::::***\r\r\r",respuesta);
     
 }
@@ -58,7 +58,7 @@ NSString *email;
 - (IBAction)closeSessionPressed:(id)sender {
     [Gigya logoutWithCompletionHandler:^(GSResponse *response, NSError *error) {
         self.user = nil;
-        [sesion resetUserProfile];
+        [sesionMiPerfil resetUserProfile];
         if (error) {
             UIAlertView *alert;
             alert = [[UIAlertView alloc] initWithTitle:@"Error"

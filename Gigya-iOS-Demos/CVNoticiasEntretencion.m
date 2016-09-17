@@ -33,7 +33,7 @@
 
 @synthesize headlinesArray;
 @synthesize collectionView;
-@synthesize categoryId;
+@synthesize categoryIdNoticiasEntretencion;
 
 static NSString * const reuseIdentifierGrande = @"collectionViewGrande";
 static NSString * const reuseIdentifierMediana = @"collectionViewMediana";
@@ -46,34 +46,34 @@ BOOL isPageRefreshingEntretencion =  false;
 BOOL firstTimeEntretencion = false;
 NSArray *bannersEntretencion= nil;
 BOOL _isScrollingEntretencion;
-int numeroPaginas;
-NSString *day;
-NSString *month;
-NSString *year;
-NSString *storyBoardName;
+int numeroPaginasNoticiasEntretencion;
+NSString *dayNoticiasEntretencion;
+NSString *monthNoticiasEntretencion;
+NSString *yearNoticiasEntretencion;
+NSString *storyBoardNameNoticiasEntretencion;
 
 - (void) viewDidLoad{
-    self.categoryId = 0;
+    self.categoryIdNoticiasEntretencion = 0;
 
     [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
-    storyBoardName = sesion.storyBoardName;
+    storyBoardNameNoticiasEntretencion = sesion.storyBoardName;
     __weak CVNoticiasEntretencion *weakSelf = self;
     headlinesArray = [[NSMutableArray alloc] init];
     
     for (ContentType *contenido in sesion.categoryList) {
         if([contenido.contentSlug isEqualToString:categorySlug])
-            self.categoryId = contenido.contentId;
+            self.categoryIdNoticiasEntretencion = contenido.contentId;
     }
     
-    NSLog(@"CategoryId: %d", self.categoryId);
+    NSLog(@"CategoryId: %d", self.categoryIdNoticiasEntretencion);
 
     bannersEntretencion = [NSArray arrayWithObjects:@"/124506296/La_Tercera_com/La_Tercera_com_APP/entretencion_300x250-A", @"/124506296/La_Tercera_com/La_Tercera_com_APP/entretencion_300x250-B", @"/124506296/La_Tercera_com/La_Tercera_com_APP/entretencion_300x250-C", @"/124506296/La_Tercera_com/La_Tercera_com_APP/entretencion_300x250-D", @"/124506296/La_Tercera_com/La_Tercera_com_APP/entretencion_300x250-E", nil];
     
     //Celda Grande
     UINib *cellNib ;
     
-    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+    if([storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
         cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande4-5" bundle: nil];
         [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"collectionViewGrande4-5"];
         
@@ -87,7 +87,7 @@ NSString *storyBoardName;
     //Celda Mediana
     UINib *cellNib2 ;
     
-    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+    if([storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
         cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana4-5" bundle: nil];
         [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:@"collectionViewMediana4-5"];
         
@@ -101,7 +101,7 @@ NSString *storyBoardName;
     //Celda Horizontal
     UINib *cellNib3 ;
     
-    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+    if([storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
         cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal4-5" bundle: nil];
         [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:@"collectionViewHorizontal4-5"];
         
@@ -122,7 +122,7 @@ NSString *storyBoardName;
     //[self.collectionView setAlpha:0.0];
     dispatch_async(dispatch_get_main_queue(), ^{
         // code here
-        [self loadHeadlinesWithCategory:self.categoryId];
+        [self loadHeadlinesWithCategory:self.categoryIdNoticiasEntretencion];
     });
     
     // setup infinite scrolling
@@ -275,7 +275,7 @@ NSString *storyBoardName;
     if (indexPath.item == 0 || indexPath.item % 6 == 0) {
         
         CollectionViewCellGrande *cell;
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewGrande4-5" forIndexPath:indexPath];
             
         }else{
@@ -310,7 +310,7 @@ NSString *storyBoardName;
         
         
         CollectionViewCellMediana *cell;
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewMediana4-5" forIndexPath:indexPath];
             
         }else{
@@ -345,7 +345,7 @@ NSString *storyBoardName;
         
         
         CollectionViewCellHorizontal *cell;
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewHorizontal4-5" forIndexPath:indexPath];
             
         }else{
@@ -448,7 +448,7 @@ NSString *storyBoardName;
         int idArticulo = titular.idArt;
         NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
-        detalleNews.idCategoria = self.categoryId;
+        detalleNews.idCategoria = self.categoryIdNoticiasEntretencion;
          [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];   //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         [self.navigationController pushViewController:detalleNews animated:YES];
     }
@@ -461,14 +461,14 @@ NSString *storyBoardName;
     isPageRefreshingEntretencion = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
     currentPageNumberEntretencion = currentPageNumberEntretencion +1;
-    [self loadHeadlinesWithCategory:categoryId];
+    [self loadHeadlinesWithCategory:categoryIdNoticiasEntretencion];
     
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if([indexPath row]==0 || [indexPath row] % 6 == 0){
         
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             return CGSizeMake(310, 468);
             
         }else{
@@ -477,7 +477,7 @@ NSString *storyBoardName;
     }
     
     if([indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 ) {
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             return CGSizeMake(154, 268);
             
         }else{
@@ -488,7 +488,7 @@ NSString *storyBoardName;
     }
     
     if([indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasEntretencion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             return CGSizeMake(300, 100);
             
         }else{

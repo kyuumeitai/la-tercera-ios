@@ -32,7 +32,7 @@
 @synthesize tableView;
 NSMutableArray *listaCategorias;
 NSMutableArray *listaBeneficios;
-NSString *storyBoardName;
+NSString *storyBoardNameSabores;
 
 
 //New Pagination code
@@ -46,7 +46,7 @@ BOOL firstTimeSabores = false;
     __weak SaboresTableViewController *weakSelf = self;
 
     SessionManager *sesion = [SessionManager session];
-        storyBoardName = sesion.storyBoardName;
+        storyBoardNameSabores = sesion.storyBoardName;
     //listaCategorias = [[NSMutableArray alloc] init];
     benefitsItemsArray5 = [[NSMutableArray alloc] init];
     //listaCategorias = sesion.categoryList;
@@ -90,7 +90,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         
         if (cell == nil)
         {
-            if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+            if([storyBoardNameSabores isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameSabores isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
                 nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell-iPhone4-5" owner:self options:nil];
             }else{
                 
@@ -127,7 +127,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         BeneficioGeneralTableViewCell *cell = (BeneficioGeneralTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
         if (cell == nil)
         {
-            if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+            if([storyBoardNameSabores isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameSabores isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
                      nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell-iPhone4-5" owner:self options:nil];
             }else{
                 

@@ -25,15 +25,15 @@
 
 @implementation InfantilTableViewController
 @synthesize tableView;
-NSMutableArray *listaCategorias2;
-NSMutableArray *listaBeneficios2;
+NSMutableArray *listaCategoriasInfantil;
+NSMutableArray *listaBeneficiosInfantil;
 @synthesize benefitsItemsArray4;
 BOOL firstTime1 = false;
-NSString *storyBoardName;
+NSString *storyBoardNameInfantil;
 
 
 //New Pagination code
-int currentPageNumber ;
+int currentPageNumberInfantil ;
 BOOL isPageRefreshingInfantil=  false;
 BOOL firstTimeInfantil = false;
 
@@ -43,13 +43,13 @@ BOOL firstTimeInfantil = false;
     __weak InfantilTableViewController *weakSelf = self;
     
     SessionManager *sesion = [SessionManager session];
-       storyBoardName = sesion.storyBoardName;
-    //listaCategorias2 = [[NSMutableArray alloc] init];
+       storyBoardNameInfantil = sesion.storyBoardName;
+    //listaCategoriasInfantil = [[NSMutableArray alloc] init];
     benefitsItemsArray4 = [[NSMutableArray alloc] init];
-    //listaCategorias2 = sesion.categoryList;
+    //listaCategoriasInfantil = sesion.categoryList;
     //NSLog(@"La lista de categorias es: %@",listaCategorias.description);
     //[self loadBenefitsForCategoryId:39];
-    currentPageNumber = 1;
+    currentPageNumberInfantil = 1;
     firstTimeInfantil = true;
     
     [self loadBenefitsForCategoryId:benefitCategoryId];
@@ -92,7 +92,7 @@ BOOL firstTimeInfantil = false;
         
         if (cell == nil)
         {
-            if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+            if([storyBoardNameInfantil isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameInfantil isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
                 nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell-iPhone4-5" owner:self options:nil];
             }else{
                 
@@ -129,7 +129,7 @@ BOOL firstTimeInfantil = false;
         if (cell == nil)
         {
             
-            if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+            if([storyBoardNameInfantil isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameInfantil isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
                 nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell-iPhone4-5" owner:self options:nil];
             }else{
                 
@@ -238,7 +238,7 @@ BOOL firstTimeInfantil = false;
                 }
             }
         });
-    }:idCategory andPage:currentPageNumber];
+    }:idCategory andPage:currentPageNumberInfantil];
     
 }
 
@@ -324,12 +324,12 @@ BOOL firstTimeInfantil = false;
 - (void)loadMoreRows {
     
     NSLog(@"***********   Load More Rows   ************");
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberInfantil);
     
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberInfantil);
     isPageRefreshingInfantil = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
-    currentPageNumber = currentPageNumber +1;
+    currentPageNumberInfantil = currentPageNumberInfantil +1;
     [self loadBenefitsForCategoryId:benefitCategoryId];
     
 }

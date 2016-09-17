@@ -17,7 +17,7 @@
 @end
 @implementation DetalleBeneficioViewControllerFromMap
 @synthesize benefitId;
-CLLocationCoordinate2D storeLocation;
+CLLocationCoordinate2D storeLocationFromMap;
 
 
 - (void)viewDidLoad {
@@ -52,7 +52,7 @@ CLLocationCoordinate2D storeLocation;
     
     
     CLLocationCoordinate2D coord2DSource = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude);
-    CLLocationCoordinate2D coord2DDestination = storeLocation;
+    CLLocationCoordinate2D coord2DDestination = storeLocationFromMap;
     
     [Tools openMapsAppWithSourceLocation:coord2DSource andDestinationLocation:coord2DDestination];
 }
@@ -114,7 +114,7 @@ CLLocationCoordinate2D storeLocation;
     //NSArray* arrayCoords = (NSArray*)[storeDict objectForKey:@"geocoords"];
    // double latitud = [arrayCoords[0] doubleValue];
     //double longuitud = [arrayCoords[1] doubleValue];
-    //storeLocation = CLLocationCoordinate2DMake(latitud, longuitud);
+    //storeLocationFromMap = CLLocationCoordinate2DMake(latitud, longuitud);
     //CLLocation *coordenadas = [[CLLocation alloc] initWithLatitude:latitud longitude:longuitud ];
     //NSString * direccion = [NSString stringWithFormat:@"%@, Región %@",address,region];
     //self.benefitAdressLabel.text = direccion;

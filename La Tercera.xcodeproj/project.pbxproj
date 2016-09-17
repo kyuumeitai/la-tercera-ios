@@ -596,8 +596,6 @@
 		D0522D601D09D32100D6E4C6 /* CollectionViewCellBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = D0522D5D1D09D32100D6E4C6 /* CollectionViewCellBanner.m */; };
 		D0522D611D09D32100D6E4C6 /* CollectionViewCellBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0522D5E1D09D32100D6E4C6 /* CollectionViewCellBanner.xib */; };
 		D0522D621D09D32100D6E4C6 /* CollectionViewCellBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0522D5E1D09D32100D6E4C6 /* CollectionViewCellBanner.xib */; };
-		D0522D6B1D09DA5200D6E4C6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0522D6A1D09DA5200D6E4C6 /* GoogleMobileAds.framework */; };
-		D0522D6C1D09DA5200D6E4C6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0522D6A1D09DA5200D6E4C6 /* GoogleMobileAds.framework */; };
 		D0522D6E1D09DB7800D6E4C6 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0522D6D1D09DB7800D6E4C6 /* SafariServices.framework */; };
 		D0522D701D09DBB300D6E4C6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0522D6F1D09DBB300D6E4C6 /* CoreBluetooth.framework */; };
 		D052C30A1D2D42330059A0E5 /* LaTerceraStoryboard-iPhone5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D052C3091D2D42330059A0E5 /* LaTerceraStoryboard-iPhone5.storyboard */; };
@@ -1485,7 +1483,6 @@
 				D0522D701D09DBB300D6E4C6 /* CoreBluetooth.framework in Frameworks */,
 				D00B9C4F1D3FC6B900705A11 /* GoogleMobileAds.framework in Frameworks */,
 				D0522D6E1D09DB7800D6E4C6 /* SafariServices.framework in Frameworks */,
-				D0522D6C1D09DA5200D6E4C6 /* GoogleMobileAds.framework in Frameworks */,
 				D0522D4D1D09C05D00D6E4C6 /* AdSupport.framework in Frameworks */,
 				D0522D4F1D09C05D00D6E4C6 /* AVFoundation.framework in Frameworks */,
 				D0522D501D09C05D00D6E4C6 /* CoreTelephony.framework in Frameworks */,
@@ -1522,7 +1519,6 @@
 			files = (
 				D00B9C4E1D3FC6B900705A11 /* GoogleMobileAds.framework in Frameworks */,
 				179D9D251D7D32A8004C972E /* libMOCALib.a in Frameworks */,
-				D0522D6B1D09DA5200D6E4C6 /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2958,7 +2954,7 @@
 		52BCE1D41A48A65800924AD8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Gigya;
 				TargetAttributes = {
 					1702BD0B1CB093E400F26F42 = {
@@ -3786,7 +3782,6 @@
 		1702BDFB1CB093E400F26F42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Cellkomm Chile S.A. (5N9H8P5H62)";
@@ -3799,7 +3794,7 @@
 					"$(PROJECT_DIR)/Gigya-iOS-Demos/lib",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Gigya-iOS-Demos/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3816,7 +3811,6 @@
 		1702BDFC1CB093E400F26F42 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Cellkomm Chile S.A. (5N9H8P5H62)";
@@ -3829,7 +3823,7 @@
 					"$(PROJECT_DIR)/Gigya-iOS-Demos/lib",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Gigya-iOS-Demos/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3847,7 +3841,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -3857,8 +3850,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -3869,6 +3864,7 @@
 				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -3885,7 +3881,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
 				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = "@loader_path/Frameworks @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3896,7 +3892,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -3906,8 +3901,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Cellkomm Chile S.A. (5N9H8P5H62)";
@@ -3918,6 +3915,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -3928,7 +3926,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

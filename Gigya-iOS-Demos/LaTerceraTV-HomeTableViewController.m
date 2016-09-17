@@ -39,30 +39,30 @@ static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
 static NSString * const reuseIdentifierVideo = @"videoTableViewCell";
 
 //New Pagination code
-int currentPageNumber ;
+int currentPageNumberTV ;
 BOOL isPageRefreshingLaTerceraTV =  false;
 BOOL firstTimeLaTerceraTV = false;
 
 NSArray *bannersLaTerceraTV= nil;
 
 BOOL _isScrollingLaTerceraTV;
-int numeroPaginas;
-NSString *day;
-NSString *month;
-NSString *year;
-NSString *storyBoardName;
+int numeroPaginasTV;
+NSString *dayTV;
+NSString *monthTV;
+NSString *yearTV;
+NSString *storyBoardNameTV;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
-    storyBoardName = sesion.storyBoardName;
+    storyBoardNameTV = sesion.storyBoardName;
     
     for (ContentType *contenido in sesion.categoryList) {
         if([contenido.contentSlug isEqualToString:categorySlug])
             self.categoryId = contenido.contentId;
     }
     
-    NSLog(@" El nombre del storboard es: %@", storyBoardName);
+    NSLog(@" El nombre del storboard es: %@", storyBoardNameTV);
     NSLog(@"CategoryId: %d", self.categoryId);
     __weak  LaTerceraTV_HomeTableViewController *weakSelf = self;
     laTerceraTVArray = [[NSMutableArray alloc] init];
@@ -72,7 +72,7 @@ NSString *storyBoardName;
     //Celda Grande
     UINib *cellNib ;
     
-    if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+    if([storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
         cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande4-5" bundle: nil];
         [self.tableView registerNib:cellNib  forCellReuseIdentifier:@"collectionViewGrande4-5"];
         
@@ -86,7 +86,7 @@ NSString *storyBoardName;
     
     [self.tableView registerNib:cellNib4  forCellReuseIdentifier:reuseIdentifierBanner];
     
-    currentPageNumber = 1;
+    currentPageNumberTV = 1;
     firstTimeLaTerceraTV = true;
     
     //[self.collectionView setAlpha:0.0];
@@ -139,7 +139,7 @@ NSString *storyBoardName;
     
     if (cell == nil)
     {
-        if([storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             nib = [[NSBundle mainBundle] loadNibNamed:@"VideoTableViewCell4-5" owner:self options:nil];
         }else{
             
@@ -206,7 +206,7 @@ NSString *storyBoardName;
                 }
             }
         });
-    }:idCategory andPage:currentPageNumber];
+    }:idCategory andPage:currentPageNumberTV];
     
 }
 
@@ -252,9 +252,9 @@ NSString *storyBoardName;
         video.imagenThumbString = imageThumb;
         video.link = linkVideo;
         
-        NSLog(@"____ Numero de pagina: %d", currentPageNumber);
-        if (indice == currentPageNumber*6 ){
-            NSLog(@"____ currentPageNumber*6: %d", currentPageNumber*6);
+        NSLog(@"____ Numero de pagina: %d", currentPageNumberTV);
+        if (indice == currentPageNumberTV*6 ){
+            NSLog(@"____ currentPageNumberTV*6: %d", currentPageNumberTV*6);
             // [laTerceraTVArray addObject:@"OBJETO"];
         }
         [video logDescription];

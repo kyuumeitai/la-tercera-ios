@@ -21,13 +21,13 @@
 @implementation CVLaTercera
   static NSString * const reuseIdentifier = @"cvCell";
   static NSString * const reuseIdentifierPortada = @"portadaCell";
-int numeroPaginas;
-NSString *day;
-NSString *month;
-NSString *year;
+int numeroPaginasLT;
+NSString *dayLT;
+NSString *monthLT;
+NSString *yearLT;
 
-BOOL nibMyCellloaded;
-BOOL nibMyCell2loaded;
+BOOL nibMyCellloadedLT;
+BOOL nibMyCell2loadedLT;
 
 - (void) viewDidLoad{
     
@@ -57,15 +57,15 @@ BOOL nibMyCell2loaded;
     
     NSString *categoryId = categoryIdName;
     
-    day = [NSString stringWithFormat:@"%li",(long)[components day]];
-    month = [NSString stringWithFormat:@"%li",(long)[components month]];
-    year = [NSString stringWithFormat:@"%li",(long)[components year]];
+    dayLT = [NSString stringWithFormat:@"%li",(long)[components day]];
+    monthLT = [NSString stringWithFormat:@"%li",(long)[components month]];
+    yearLT = [NSString stringWithFormat:@"%li",(long)[components year]];
     
-    if ([month length] == 1)
-        month = [NSString stringWithFormat:@"0%@",month];
+    if ([monthLT length] == 1)
+        monthLT = [NSString stringWithFormat:@"0%@",monthLT];
     
-    if ([day length] == 1)
-        day = [NSString stringWithFormat:@"0%@",day];
+    if ([dayLT length] == 1)
+        dayLT = [NSString stringWithFormat:@"0%@",dayLT];
 
     
     NSString *lastEditionString = @"http://papeldigital.info/settings_last.js";
@@ -86,37 +86,37 @@ NSArray *myWords = [googlePageEd componentsSeparatedByString:@"['"];
             NSArray *myComps = [myWords[i] componentsSeparatedByString:@"/"];
             
     
-               year = [myComps[0] substringFromIndex: [myComps[0] length] - 4];
-               month = myComps[1];
-               day = [myComps[2] substringToIndex:2];
+               yearLT = [myComps[0] substringFromIndex: [myComps[0] length] - 4];
+               monthLT = myComps[1];
+               dayLT = [myComps[2] substringToIndex:2];
             
         }
     }
     
-    NSString *pagesString = [NSString stringWithFormat:@"http://www.papeldigital.info/%@/%@/%@/%@/01/settings.js",categoryId,year,month,day];
+    NSString *pagesString = [NSString stringWithFormat:@"http://www.papeldigital.info/%@/%@/%@/%@/01/settings.js",categoryId,yearLT,monthLT,dayLT];
     NSURL *googleURL = [NSURL URLWithString:pagesString];
     NSError *error;
     NSString *googlePage = [NSString stringWithContentsOfURL:googleURL
                                                     encoding:NSASCIIStringEncoding
                                                        error:&error];
     
-    numeroPaginas= (int)[Tools numberOfOccurrencesOfString:@"site_thumbs[" inString:googlePage] ;
+    numeroPaginasLT= (int)[Tools numberOfOccurrencesOfString:@"site_thumbs[" inString:googlePage] ;
 
-    //NSLog(@" ****^^^^EL NUMERO DE PAGINAS ES: %li",(long)numeroPaginas);
+    //NSLog(@" ****^^^^EL NUMERO DE PAGINAS ES: %li",(long)numeroPaginasLT);
     
     NSString *temporalPage;
     NSString *temporalDetailPage;
     
     int numeroPagina = 1;
-    for (int i = 1; i <= numeroPaginas; i++) {
+    for (int i = 1; i <= numeroPaginasLT; i++) {
         
         if(i==1){
-            temporalPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/03/%03d.jpg",categoryId,year,month,day,i];
-            temporalDetailPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/04/%03d.jpg",categoryId,year,month,day,i];
+            temporalPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/03/%03d.jpg",categoryId,yearLT,monthLT,dayLT,i];
+            temporalDetailPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/04/%03d.jpg",categoryId,yearLT,monthLT,dayLT,i];
             
         }else{
-            temporalPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/02/%03d.jpg",categoryId,year,month,day,i];
-            temporalDetailPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/04/%03d.jpg",categoryId,year,month,day,i];
+            temporalPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/02/%03d.jpg",categoryId,yearLT,monthLT,dayLT,i];
+            temporalDetailPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/04/%03d.jpg",categoryId,yearLT,monthLT,dayLT,i];
         }
         //NSLog(@"Add new page");
         NSString *pageNumber = [NSString stringWithFormat:@"Página %i",numeroPagina];

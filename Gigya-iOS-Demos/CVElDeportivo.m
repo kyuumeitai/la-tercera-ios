@@ -21,13 +21,13 @@
 @implementation CVElDeportivo
   static NSString * const reuseIdentifier = @"cvCell";
   static NSString * const reuseIdentifierPortada = @"portadaCell";
-int numeroPaginas;
-NSString *day;
-NSString *month;
-NSString *year;
+int numeroPaginasElDeportivo;
+NSString *dayDeportivo;
+NSString *monthDeportivo;
+NSString *yearDeportivo;
 
-BOOL nibMyCellloaded;
-BOOL nibMyCell2loaded;
+BOOL nibMyCellloadedDepo;
+BOOL nibMyCell2loadedDepo;
 
 - (void) viewDidLoad{
     
@@ -57,15 +57,15 @@ BOOL nibMyCell2loaded;
     
     NSString *categoryId = categoryIdName;
     
-    day = [NSString stringWithFormat:@"%li",(long)[components day]];
-    month = [NSString stringWithFormat:@"%li",(long)[components month]];
-    year = [NSString stringWithFormat:@"%li",(long)[components year]];
+    dayDeportivo = [NSString stringWithFormat:@"%li",(long)[components day]];
+    monthDeportivo = [NSString stringWithFormat:@"%li",(long)[components month]];
+    yearDeportivo = [NSString stringWithFormat:@"%li",(long)[components year]];
     
-    if ([month length] == 1)
-        month = [NSString stringWithFormat:@"0%@",month];
+    if ([monthDeportivo length] == 1)
+        monthDeportivo = [NSString stringWithFormat:@"0%@",monthDeportivo];
     
-    if ([day length] == 1)
-        day = [NSString stringWithFormat:@"0%@",day];
+    if ([dayDeportivo length] == 1)
+        dayDeportivo = [NSString stringWithFormat:@"0%@",dayDeportivo];
     
     
     NSString *lastEditionString = @"http://papeldigital.info/settings_last.js";
@@ -87,37 +87,37 @@ BOOL nibMyCell2loaded;
             NSArray *myComps = [myWords[i] componentsSeparatedByString:@"/"];
             
             
-            year = [myComps[0] substringFromIndex: [myComps[0] length] - 4];
-            month = myComps[1];
-            day = [myComps[2] substringToIndex:2];
+            yearDeportivo = [myComps[0] substringFromIndex: [myComps[0] length] - 4];
+            monthDeportivo = myComps[1];
+            dayDeportivo = [myComps[2] substringToIndex:2];
             
         }
     }
     
-    NSString *pagesString = [NSString stringWithFormat:@"http://www.papeldigital.info/%@/%@/%@/%@/01/settings.js",categoryId,year,month,day];
+    NSString *pagesString = [NSString stringWithFormat:@"http://www.papeldigital.info/%@/%@/%@/%@/01/settings.js",categoryId,yearDeportivo,monthDeportivo,dayDeportivo];
     NSURL *googleURL = [NSURL URLWithString:pagesString];
     NSError *error;
     NSString *googlePage = [NSString stringWithContentsOfURL:googleURL
                                                     encoding:NSASCIIStringEncoding
                                                        error:&error];
     
-    numeroPaginas= (int)[Tools numberOfOccurrencesOfString:@"site_thumbs[" inString:googlePage] ;
+    numeroPaginasElDeportivo= (int)[Tools numberOfOccurrencesOfString:@"site_thumbs[" inString:googlePage] ;
     
-    //NSLog(@" ****^^^^EL NUMERO DE PAGINAS ES: %li",(long)numeroPaginas);
+    //NSLog(@" ****^^^^EL NUMERO DE PAGINAS ES: %li",(long)numeroPaginasElDeportivo);
     
     NSString *temporalPage;
     NSString *temporalDetailPage;
     
     int numeroPagina = 1;
-    for (int i = 1; i <= numeroPaginas; i++) {
+    for (int i = 1; i <= numeroPaginasElDeportivo; i++) {
         
         if(i==1){
-            temporalPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/03/%03d.jpg",categoryId,year,month,day,i];
-            temporalDetailPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/04/%03d.jpg",categoryId,year,month,day,i];
+            temporalPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/03/%03d.jpg",categoryId,yearDeportivo,monthDeportivo,dayDeportivo,i];
+            temporalDetailPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/04/%03d.jpg",categoryId,yearDeportivo,monthDeportivo,dayDeportivo,i];
             
         }else{
-            temporalPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/02/%03d.jpg",categoryId,year,month,day,i];
-            temporalDetailPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/04/%03d.jpg",categoryId,year,month,day,i];
+            temporalPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/02/%03d.jpg",categoryId,yearDeportivo,monthDeportivo,dayDeportivo,i];
+            temporalDetailPage = [NSString stringWithFormat:@"http://papeldigital.info/%@/%@/%@/%@/01/jpg/04/%03d.jpg",categoryId,yearDeportivo,monthDeportivo,dayDeportivo,i];
         }
         //NSLog(@"Add new page");
         NSString *pageNumber = [NSString stringWithFormat:@"Página %i",numeroPagina];
