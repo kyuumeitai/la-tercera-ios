@@ -268,6 +268,7 @@ NSString *storyBoardNameNoticiasPolitica;
 }
 
 
+//Changes
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CollectionViewCellBanner *celdaBanner;
@@ -276,7 +277,7 @@ NSString *storyBoardNameNoticiasPolitica;
     
     Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     
-    if (indexPath.item == 0 || indexPath.item % 6 == 0) {
+    if (indexPath.item == 0 || indexPath.item % 6 == 0 || indexPath.item == 1 || indexPath.item == 2 || ((indexPath.item % 6)-1) == 0 || ((indexPath.item % 6)-2) == 0 || indexPath.item == 3 || indexPath.item == 4 || ((indexPath.item % 6)-3) == 0 || ((indexPath.item % 6)-4) == 0 ) {
         
         CollectionViewCellGrande *cell;
         if([storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
@@ -288,7 +289,10 @@ NSString *storyBoardNameNoticiasPolitica;
         }
         // Configure the cell
         cell.labelTituloNews.text = titular.title;
+        
         cell.labelSummary.text = titular.summary;
+        
+        
         NSString *urlImagen = titular.imagenThumbString;
         NSURL *url = [NSURL URLWithString:urlImagen];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -309,74 +313,7 @@ NSString *storyBoardNameNoticiasPolitica;
         return cell;
     }
     
-    if (indexPath.item == 1 || indexPath.item == 2 || ((indexPath.item % 6)-1) == 0 || ((indexPath.item % 6)-2) == 0  )
-    {
-        
-        
-        CollectionViewCellMediana *cell;
-        if([storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewMediana4-5" forIndexPath:indexPath];
-            
-        }else{
-            cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
-            
-        }
-        
-        
-        // Configure the cell
-        // cell.labelTituloNews.text = titular.title;
-        cell.labelSummary.text = titular.title;
-        NSString *urlImagen = titular.imagenThumbString;
-        NSURL *url = [NSURL URLWithString:urlImagen];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        
-        __weak CollectionViewCellMediana *weakCellMediana = cell;
-        
-        [cell.imageNews setImageWithURLRequest:request
-                              placeholderImage:placeholderImage
-                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                           weakCellMediana.imageNews.image = image;
-                                           [weakCellMediana setNeedsLayout];
-                                       } failure:nil];
-        
-        return cell;
-        
-    }
     
-    if (indexPath.item == 3 || indexPath.item == 4 || ((indexPath.item % 6)-3) == 0 || ((indexPath.item % 6)-4) == 0 )
-    {
-        
-        
-        CollectionViewCellHorizontal *cell;
-        if([storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewHorizontal4-5" forIndexPath:indexPath];
-            
-        }else{
-            cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierHorizontal forIndexPath:indexPath];
-            
-        }
-        
-        // Configure the cell
-        cell.labelSummary.text = titular.title;
-        NSString *urlImagen = titular.imagenThumbString;
-        NSURL *url = [NSURL URLWithString:urlImagen];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        
-        __weak CollectionViewCellHorizontal *weakCellHorizontal = cell;
-        
-        [cell.imageNews setImageWithURLRequest:request
-                              placeholderImage:placeholderImage
-                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                           weakCellHorizontal.imageNews.image = image;
-                                           [weakCellHorizontal setNeedsLayout];
-                                       } failure:nil];
-        
-        
-        return cell;
-        
-    }
     
     if (indexPath.item == 5 || ((indexPath.item % 6)-5) == 0 )
     {
@@ -406,7 +343,6 @@ NSString *storyBoardNameNoticiasPolitica;
                 
                 break;
         }
-        
         
         if (self.collectionView.dragging == NO && self.collectionView.decelerating == NO){
             
@@ -439,7 +375,6 @@ NSString *storyBoardNameNoticiasPolitica;
     
     return cell;
 }
-
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -471,9 +406,11 @@ NSString *storyBoardNameNoticiasPolitica;
     
 }
 
+//other change
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    if([indexPath row]==0 || [indexPath row] % 6 == 0){
+    
+    if([indexPath row]==0 || [indexPath row] % 6 == 0 || [indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 || [indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
         
         if([storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             return CGSizeMake(310, 468);
@@ -483,28 +420,6 @@ NSString *storyBoardNameNoticiasPolitica;
         }
     }
     
-    if([indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 ) {
-        if([storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            return CGSizeMake(154, 268);
-            
-        }else{
-
-            return CGSizeMake(170, 262);
-
-        }
-        
-    }
-    
-    if([indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
-        if([storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            return CGSizeMake(300, 100);
-            
-        }else{
-            return CGSizeMake(350, 100);
-        }
-        
-    }
-    
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
         return CGSizeMake(350, 290);
         
@@ -512,9 +427,6 @@ NSString *storyBoardNameNoticiasPolitica;
     
     return CGSizeMake(350, 428);
 }
-
-//New code
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     _isScrollingPolitica = NO;
 }

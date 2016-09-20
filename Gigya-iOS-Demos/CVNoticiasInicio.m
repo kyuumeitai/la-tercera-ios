@@ -259,15 +259,16 @@ BOOL nibMyCell2loaded;
 }
 
 
+//Changes
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-   
+    
     CollectionViewCellBanner *celdaBanner;
     celdaBanner = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
     
     
     Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     
-    if (indexPath.item == 0 || indexPath.item % 6 == 0) {
+    if (indexPath.item == 0 || indexPath.item % 6 == 0 || indexPath.item == 1 || indexPath.item == 2 || ((indexPath.item % 6)-1) == 0 || ((indexPath.item % 6)-2) == 0 || indexPath.item == 3 || indexPath.item == 4 || ((indexPath.item % 6)-3) == 0 || ((indexPath.item % 6)-4) == 0 ) {
         
         CollectionViewCellGrande *cell;
         if([storyBoardNameInicio isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameInicio isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
@@ -279,12 +280,14 @@ BOOL nibMyCell2loaded;
         }
         // Configure the cell
         cell.labelTituloNews.text = titular.title;
-        [cell.labelTituloNews sizeToFit];
+        
         cell.labelSummary.text = titular.summary;
+        
+        
         NSString *urlImagen = titular.imagenThumbString;
         NSURL *url = [NSURL URLWithString:urlImagen];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholderWhite"];
+        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
         
         //__weak UITableViewCell *weakCell = cell;
         
@@ -295,109 +298,42 @@ BOOL nibMyCell2loaded;
                               placeholderImage:placeholderImage
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                            weakCell.imageNews.image = image;
-                                           //[weakCell setNeedsLayout];
+                                           [weakCell setNeedsLayout];
                                        } failure:nil];
         
         return cell;
     }
     
-    if (indexPath.item == 1 || indexPath.item == 2 || ((indexPath.item % 6)-1) == 0 || ((indexPath.item % 6)-2) == 0  )
-    {
-        
-        
-        CollectionViewCellMediana *cell;
-        if([storyBoardNameInicio isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameInicio isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewMediana4-5" forIndexPath:indexPath];
-            
-        }else{
-            cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierMediana forIndexPath:indexPath];
-            
-        }
-        
-        // Configure the cell
-        // cell.labelTituloNews.text = titular.title;
-        cell.labelSummary.text = titular.title;
-        NSString *urlImagen = titular.imagenThumbString;
-        NSURL *url = [NSURL URLWithString:urlImagen];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholderWhite"];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        
-        __weak CollectionViewCellMediana *weakCellMediana = cell;
-        
-        [cell.imageNews setImageWithURLRequest:request
-                              placeholderImage:placeholderImage
-                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                           weakCellMediana.imageNews.image = image;
-                                           //[weakCellMediana setNeedsLayout];
-                                       } failure:nil];
-        
-        return cell;
-        
-    }
     
-    if (indexPath.item == 3 || indexPath.item == 4 || ((indexPath.item % 6)-3) == 0 || ((indexPath.item % 6)-4) == 0 )
-    {
-        
-        
-        CollectionViewCellHorizontal *cell;
-        if([storyBoardNameInicio isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameInicio isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewHorizontal4-5" forIndexPath:indexPath];
-            
-        }else{
-            cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierHorizontal forIndexPath:indexPath];
-            
-        }
-        
-        // Configure the cell
-        cell.labelSummary.text = titular.title;
-        NSString *urlImagen = titular.imagenThumbString;
-        NSURL *url = [NSURL URLWithString:urlImagen];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholderWhite"];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        
-        __weak CollectionViewCellHorizontal *weakCellHorizontal = cell;
-        
-        [cell.imageNews setImageWithURLRequest:request
-                              placeholderImage:placeholderImage
-                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                           
-                                           weakCellHorizontal.imageNews.image = image;
-                                          // [weakCellHorizontal setNeedsLayout];
-                                       } failure:nil];
-        
-        return cell;
-        
-    }
-  
+    
     if (indexPath.item == 5 || ((indexPath.item % 6)-5) == 0 )
     {
         
         
         switch (indexPath.item) {
             case 5:
-                     celdaBanner.bannerUnitID =  banners[0]  ;
+                celdaBanner.bannerUnitID =  banners[0]  ;
                 break;
             case 11:
-
-                    celdaBanner.bannerUnitID =  banners[1]  ;
-
+                
+                celdaBanner.bannerUnitID =  banners[1]  ;
+                
                 break;
             case 17:
-
+                
                 celdaBanner.bannerUnitID =  banners[2]  ;
-
+                
                 break;
             case 23:
-
-                    celdaBanner.bannerUnitID =  banners[3]  ;
-
+                
+                celdaBanner.bannerUnitID =  banners[3]  ;
+                
                 break;
             default:
-                    celdaBanner.bannerUnitID =  banners[2]  ;
-
+                celdaBanner.bannerUnitID =  banners[2]  ;
+                
                 break;
         }
-        
         
         if (self.collectionView.dragging == NO && self.collectionView.decelerating == NO){
             
@@ -421,16 +357,15 @@ BOOL nibMyCell2loaded;
                 [celdaBanner cellBannerView:self];
             });
         }
-
+        
         return celdaBanner;
         
     }
     
     CollectionViewCellBanner *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierGrande forIndexPath:indexPath];
-
+    
     return cell;
 }
-
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -461,7 +396,8 @@ BOOL nibMyCell2loaded;
     
 }
 
-
+/*
+//Previous COde
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if([indexPath row]==0 || [indexPath row] % 6 == 0){
@@ -503,8 +439,29 @@ BOOL nibMyCell2loaded;
     
     return CGSizeMake(350, 428);
 }
-
+*/
 //New code
+//other change
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    if([indexPath row]==0 || [indexPath row] % 6 == 0 || [indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 || [indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
+        
+        if([storyBoardNameInicio isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameInicio isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+            return CGSizeMake(310, 468);
+            
+        }else{
+            return CGSizeMake(350, 420);
+        }
+    }
+    
+    if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
+        return CGSizeMake(350, 290);
+        
+    }
+    
+    return CGSizeMake(350, 428);
+}
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     _isScrollingInicio = NO;

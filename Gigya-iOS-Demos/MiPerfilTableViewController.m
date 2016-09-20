@@ -16,7 +16,7 @@
 
 @interface MiPerfilTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *textFieldUserName;
-@property (weak, nonatomic) IBOutlet UILabel *texfieldemailMiPerfil;
+@property (weak, nonatomic) IBOutlet UILabel *texfieldEmail;
 @property GSAccount *user;
 @end
 
@@ -40,7 +40,7 @@ NSString *emailMiPerfil;
     
 
     _textFieldUserName.text = nombre;
-    _texfieldemailMiPerfil.text = emailMiPerfil;
+    _texfieldEmail.text = emailMiPerfil;
     
     //ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     
