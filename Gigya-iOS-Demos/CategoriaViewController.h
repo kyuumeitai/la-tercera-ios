@@ -17,13 +17,13 @@ int categoryId;
 NSString* categoryName;
 NSString* categoryUrl;
 NSMutableArray * benefitsItemsArray;
-    Category *category;
+    Categoria *category;
     __weak IBOutlet UIView *viewCat;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property  int categoryId;
-@property (nonatomic, assign) Category* category;
+@property (nonatomic, assign) Categoria* category;
 @property (nonatomic, assign) NSString* categoryName;
 @property (nonatomic, assign) NSString* categoryUrl;
 @property (nonatomic, assign) NSMutableArray * categoryItemsArray;

@@ -8,27 +8,15 @@
 
 #import "ClubViewController.h"
 #import "ConnectionManager.h"
-#import "Category.h"
 #import "Benefit.h"
 #import "CategoriasTableViewCell.h"
 #import "CategoriaViewController.h"
 #import "SessionManager.h"
 #import "SWRevealViewController.h"
 #import "SVProgressHUD.h"
-
-
-#import "ClubViewController.h"
-#import "ConnectionManager.h"
-#import "Category.h"
-#import "Benefit.h"
-#import "CategoriasTableViewCell.h"
-#import "CategoriaViewController.h"
-#import "SessionManager.h"
-#import "SWRevealViewController.h"
-#import "SVProgressHUD.h"
+#import "UsarBeneficioNoLogueado.h"
 #import "Tools.h"
-
-
+#import "Category.h"
 @interface ClubViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *menuButtonClub;
 @end
@@ -251,7 +239,7 @@
                 imagenDestacada = [self decodeBase64ToImage:imagenDestacadaEncoded];
             }
             
-            Category *categoria = [[Category alloc] init ];
+            Categoria *categoria = [[Categoria alloc] init ];
             
             
             categoria.title = title;
@@ -418,7 +406,7 @@
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 8];
         NSArray *filteredArray = [categoryItemsArray filteredArrayUsingPredicate:predicate];
         
-        Category* firstFoundObject = nil;
+        Categoria* firstFoundObject = nil;
         firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
         categoriaViewController.category = firstFoundObject;
         NSLog(@"  obejtooo  Infantil cat : %@",firstFoundObject.description);
@@ -445,7 +433,7 @@
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 3];
         NSArray *filteredArray = [categoryItemsArray filteredArrayUsingPredicate:predicate];
         
-        Category* firstFoundObject = nil;
+        Categoria* firstFoundObject = nil;
         firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
         categoriaViewController.category = firstFoundObject;
         NSLog(@"  objetooo cat : %@",firstFoundObject);
@@ -468,7 +456,7 @@
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 3];
         NSArray *filteredArray = [categoryItemsArray filteredArrayUsingPredicate:predicate];
         
-        Category* firstFoundObject = nil;
+        Categoria* firstFoundObject = nil;
         firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
         categoriaViewController.category = firstFoundObject;
         NSLog(@"  obejtooo cat : %@",firstFoundObject);
@@ -598,6 +586,14 @@
     [Tools openSafariWithURL:@"http://www.viajesclublatercera.cl/"];
 }
 
+- (IBAction)identifyUser:(id)sender {
+
+    UsarBeneficioNoLogueado *usarBeneficioNoLogueadoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"suscriberNeededScreen"];
+    [usarBeneficioNoLogueadoViewController cancelButtonText:@"Volver a la noticia"];
+    
+    [self presentViewController:usarBeneficioNoLogueadoViewController animated:YES completion:nil];
+
+}
 
 
 

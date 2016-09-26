@@ -280,10 +280,10 @@ REGISTRARSE?</string>
                         <viewControllerLayoutGuide type="bottom" id="qNx-tv-d9P"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IfX-nN-EaX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="576"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iya-0o-y6w">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iya-0o-y6w">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wYU-8X-eIk">
                                         <subviews>
@@ -426,24 +426,27 @@ REGISTRARSE?</string>
                                                 <state key="normal" title="Identifícate como suscriptor">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="identifyUser:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="wJK-3D-9mm"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="777" id="c5A-HP-amb"/>
+                                            <constraint firstAttribute="height" constant="800" id="2ZS-yh-dHu"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="wYU-8X-eIk" firstAttribute="top" secondItem="iya-0o-y6w" secondAttribute="top" id="Utq-gv-3ls"/>
-                                    <constraint firstItem="wYU-8X-eIk" firstAttribute="centerX" secondItem="iya-0o-y6w" secondAttribute="centerX" id="Xbl-yF-fMp"/>
-                                    <constraint firstAttribute="bottom" secondItem="wYU-8X-eIk" secondAttribute="bottom" constant="-74" id="e1b-eS-6jL"/>
-                                    <constraint firstItem="wYU-8X-eIk" firstAttribute="leading" secondItem="iya-0o-y6w" secondAttribute="leading" id="jf2-xf-1e7"/>
-                                    <constraint firstAttribute="trailing" secondItem="wYU-8X-eIk" secondAttribute="trailing" constant="1" id="pRT-iY-d1l"/>
+                                    <constraint firstItem="wYU-8X-eIk" firstAttribute="centerX" secondItem="iya-0o-y6w" secondAttribute="centerX" id="1bq-VY-Myf"/>
+                                    <constraint firstItem="wYU-8X-eIk" firstAttribute="leading" secondItem="iya-0o-y6w" secondAttribute="leading" id="WLV-Lw-8yI"/>
+                                    <constraint firstAttribute="trailing" secondItem="wYU-8X-eIk" secondAttribute="trailing" id="dhO-NW-pdU"/>
+                                    <constraint firstItem="wYU-8X-eIk" firstAttribute="top" secondItem="iya-0o-y6w" secondAttribute="top" id="isx-os-Dh0"/>
+                                    <constraint firstAttribute="bottom" secondItem="wYU-8X-eIk" secondAttribute="bottom" constant="-201" id="tNA-bT-LjT"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
-                                        <size key="value" width="320" height="890"/>
+                                        <size key="value" width="320" height="1200"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
@@ -465,12 +468,12 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qO-rI-OhO">
-                                <frame key="frameInset" minX="5" minY="22" width="54" height="50"/>
+                                <frame key="frameInset" minX="5" minY="20" width="54" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="boton-menu.png"/>
                             </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AL8-S2-B9Z">
-                                <frame key="frameInset" minX="60" minY="22" width="50" height="50"/>
+                                <frame key="frameInset" minX="60" minY="20" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="icon-lt.png"/>
                                 <connections>
@@ -480,12 +483,12 @@ REGISTRARSE?</string>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="iya-0o-y6w" firstAttribute="top" secondItem="IfX-nN-EaX" secondAttribute="top" constant="77" id="2LV-4C-svH"/>
-                            <constraint firstItem="iya-0o-y6w" firstAttribute="leading" secondItem="IfX-nN-EaX" secondAttribute="leading" id="850-TT-W6k"/>
-                            <constraint firstAttribute="bottom" secondItem="iya-0o-y6w" secondAttribute="bottom" constant="20" symbolic="YES" id="AEO-Fg-czr"/>
-                            <constraint firstItem="iya-0o-y6w" firstAttribute="top" secondItem="SPq-Gj-ULl" secondAttribute="bottom" constant="1" id="AcN-yb-gS1"/>
-                            <constraint firstAttribute="trailing" secondItem="iya-0o-y6w" secondAttribute="trailing" id="djn-c9-N6S"/>
-                            <constraint firstItem="iya-0o-y6w" firstAttribute="leading" secondItem="SPq-Gj-ULl" secondAttribute="leading" id="sTk-J9-rbT"/>
+                            <constraint firstItem="qNx-tv-d9P" firstAttribute="top" secondItem="iya-0o-y6w" secondAttribute="bottom" constant="-77" id="3pB-Yg-Cvt"/>
+                            <constraint firstItem="iya-0o-y6w" firstAttribute="leading" secondItem="SPq-Gj-ULl" secondAttribute="leading" id="8je-HM-cex"/>
+                            <constraint firstAttribute="trailing" secondItem="iya-0o-y6w" secondAttribute="trailing" id="AaR-zj-1H0"/>
+                            <constraint firstItem="iya-0o-y6w" firstAttribute="top" secondItem="SPq-Gj-ULl" secondAttribute="bottom" constant="1" id="Fc3-7f-fZ5"/>
+                            <constraint firstItem="iya-0o-y6w" firstAttribute="leading" secondItem="IfX-nN-EaX" secondAttribute="leading" id="wMe-fK-rkG"/>
+                            <constraint firstItem="iya-0o-y6w" firstAttribute="top" secondItem="IfX-nN-EaX" secondAttribute="top" constant="77" id="xRT-RQ-kwH"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -494,7 +497,7 @@ REGISTRARSE?</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="800"/>
+                    <size key="freeformSize" width="320" height="576"/>
                     <connections>
                         <outlet property="menuButtonClub" destination="6qO-rI-OhO" id="ZVr-hu-wR0"/>
                     </connections>
@@ -1602,16 +1605,16 @@ de tu descuento.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="RPf-QG-taP">
-                                <frame key="frameInset" width="375" height="86"/>
+                                <frame key="frameInset" width="320" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view tag="200" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gSK-Zv-hWo" userLabel="View Cat">
-                                <frame key="frameInset" minY="88" width="320" height="392"/>
+                                <frame key="frameInset" minY="88" width="320" height="488"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MiV-Lw-3Ln">
-                                <frame key="frameInset" minX="136" minY="21" width="232" height="48"/>
+                                <frame key="frameInset" minX="136" minY="21" width="184" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TP-zx-2aM">
@@ -1644,7 +1647,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4f-Yh-fUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="298" y="1301"/>
+            <point key="canvasLocation" x="296.25" y="1300.3521126760563"/>
         </scene>
         <!--Infantil ContainerVC-->
         <scene sceneID="hmO-9N-q3D">
@@ -1964,7 +1967,7 @@ de tu descuento.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view tag="100" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVl-Cb-o0F">
-                                <frame key="frameInset" minY="77" width="375" height="590"/>
+                                <frame key="frameInset" minY="77" width="320" height="590"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hX-iL-jRC">
@@ -3952,7 +3955,7 @@ de La Tercera</string>
                         <viewControllerLayoutGuide type="bottom" id="wJ5-UD-nue"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c1l-f6-hpV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="xIW-0V-Abg">
@@ -4012,7 +4015,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="89F-gJ-cCJ" customClass="VentasEspecialesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oCa-f6-dfS">
-                        <rect key="frame" x="0.0" y="0.0" width="321" height="492"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
@@ -5492,7 +5495,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S8x-Ps-taf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5515.5" y="770"/>
+            <point key="canvasLocation" x="-5345" y="830"/>
         </scene>
         <!--Favoritos Perfil-->
         <scene sceneID="AP1-Ey-oyT">
@@ -6276,8 +6279,8 @@ de La Tercera</string>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dzp-LZ-aqw" firstAttribute="trailing" secondItem="wsd-B5-5GZ" secondAttribute="trailing" id="5kb-Zz-1p6"/>
-                            <constraint firstItem="yh7-3u-oBE" firstAttribute="top" secondItem="dzp-LZ-aqw" secondAttribute="bottom" constant="-66" id="67Z-0a-AfO"/>
-                            <constraint firstItem="DRd-fV-pee" firstAttribute="top" secondItem="dzp-LZ-aqw" secondAttribute="bottom" constant="-69" id="9Cy-xK-vC1"/>
+                            <constraint firstItem="yh7-3u-oBE" firstAttribute="top" secondItem="dzp-LZ-aqw" secondAttribute="bottom" constant="-62" id="67Z-0a-AfO"/>
+                            <constraint firstItem="DRd-fV-pee" firstAttribute="top" secondItem="dzp-LZ-aqw" secondAttribute="bottom" constant="-65" id="9Cy-xK-vC1"/>
                             <constraint firstItem="DRd-fV-pee" firstAttribute="leading" secondItem="yh7-3u-oBE" secondAttribute="trailing" constant="2" id="A2N-Qi-3Nc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DRd-fV-pee" secondAttribute="trailing" constant="-5" id="Hll-3f-cLX"/>
                             <constraint firstItem="dzp-LZ-aqw" firstAttribute="leading" secondItem="Cal-82-IdQ" secondAttribute="leading" id="L2e-xZ-ijB"/>
@@ -6286,7 +6289,7 @@ de La Tercera</string>
                             <constraint firstItem="lFi-Zd-9uj" firstAttribute="top" secondItem="DRd-fV-pee" secondAttribute="bottom" constant="489" id="QXr-SZ-YGh"/>
                             <constraint firstItem="yh7-3u-oBE" firstAttribute="baseline" secondItem="DRd-fV-pee" secondAttribute="baseline" id="UOI-Su-Ryh"/>
                             <constraint firstItem="15W-cJ-RXA" firstAttribute="leading" secondItem="Cal-82-IdQ" secondAttribute="leadingMargin" constant="-12" id="X6E-CO-ddV"/>
-                            <constraint firstItem="15W-cJ-RXA" firstAttribute="top" secondItem="dzp-LZ-aqw" secondAttribute="bottom" constant="-64" id="Yvg-K9-h5X"/>
+                            <constraint firstItem="15W-cJ-RXA" firstAttribute="top" secondItem="dzp-LZ-aqw" secondAttribute="bottom" constant="-60" id="Yvg-K9-h5X"/>
                             <constraint firstAttribute="trailing" secondItem="dzp-LZ-aqw" secondAttribute="trailing" id="ZpN-9p-qVt"/>
                             <constraint firstItem="15W-cJ-RXA" firstAttribute="top" secondItem="q6I-Le-e3g" secondAttribute="bottom" constant="6" id="cGQ-U4-4g8"/>
                             <constraint firstItem="dzp-LZ-aqw" firstAttribute="top" secondItem="Cal-82-IdQ" secondAttribute="top" id="ezk-JF-7Mz"/>
@@ -6309,7 +6312,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AC7-Ay-biW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1127" y="1390"/>
+            <point key="canvasLocation" x="1126.875" y="1389.0845070422536"/>
         </scene>
     </scenes>
     <resources>

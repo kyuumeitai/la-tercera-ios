@@ -8,7 +8,7 @@
 
 #import "Category.h"
 
-@implementation Category
+@implementation Categoria
 
 -(id)init {
     
