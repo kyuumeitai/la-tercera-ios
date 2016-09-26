@@ -152,7 +152,7 @@ REGISTRARSE?</string>
                                     <constraint firstAttribute="height" constant="33" id="t4P-KR-06v"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guarda tus ártículos y léelos offline." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjq-Ui-tfc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guarda tus artículos y léelos offline." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjq-Ui-tfc">
                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -296,7 +296,7 @@ REGISTRARSE?</string>
             <objects>
                 <navigationController storyboardIdentifier="initialViewController" navigationBarHidden="YES" id="GVp-39-K6N" customClass="InitialViewController" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hih-em-URh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hih-em-URh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -541,22 +541,6 @@ REGISTRARSE?</string>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLTRoja.png" translatesAutoresizingMaskIntoConstraints="NO" id="SPq-Gj-ULl"/>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYC-Qj-2sZ">
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvJ-lu-OYb">
-                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="FvJ-lu-OYb" firstAttribute="top" secondItem="dYC-Qj-2sZ" secondAttribute="top" constant="3" id="2Ua-fx-BXX"/>
-                                    <constraint firstAttribute="trailing" secondItem="FvJ-lu-OYb" secondAttribute="trailing" id="5Zr-31-DtW"/>
-                                    <constraint firstItem="FvJ-lu-OYb" firstAttribute="leading" secondItem="dYC-Qj-2sZ" secondAttribute="leading" constant="13" id="vcc-qs-8Ec"/>
-                                    <constraint firstItem="FvJ-lu-OYb" firstAttribute="centerY" secondItem="dYC-Qj-2sZ" secondAttribute="centerY" id="xkh-7t-bMn"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qO-rI-OhO">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="54" id="arz-sK-l6n"/>
@@ -573,25 +557,31 @@ REGISTRARSE?</string>
                                     <segue destination="0B8-6F-OFF" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="wuf-Nj-3R8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvJ-lu-OYb">
+                                <color key="tintColor" red="0.56198251247406006" green="0.1255054771900177" blue="0.13863018155097961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iya-0o-y6w" firstAttribute="top" secondItem="SPq-Gj-ULl" secondAttribute="bottom" constant="1" id="5eN-Gw-ESc"/>
                             <constraint firstAttribute="bottomMargin" secondItem="iya-0o-y6w" secondAttribute="bottom" constant="-68" id="7Z9-66-xAZ"/>
                             <constraint firstItem="SPq-Gj-ULl" firstAttribute="trailing" secondItem="iya-0o-y6w" secondAttribute="trailing" id="8hw-oj-fc7"/>
-                            <constraint firstItem="dYC-Qj-2sZ" firstAttribute="leading" secondItem="AL8-S2-B9Z" secondAttribute="trailing" constant="90" id="8se-78-KUy"/>
-                            <constraint firstItem="iya-0o-y6w" firstAttribute="top" secondItem="dYC-Qj-2sZ" secondAttribute="bottom" constant="16" id="A5f-63-YuN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dYC-Qj-2sZ" secondAttribute="trailing" constant="-6" id="B8K-Ic-0ih"/>
-                            <constraint firstItem="dYC-Qj-2sZ" firstAttribute="top" secondItem="fba-sV-wr0" secondAttribute="bottom" constant="14" id="EfO-mF-xTr"/>
+                            <constraint firstItem="FvJ-lu-OYb" firstAttribute="centerY" secondItem="IfX-nN-EaX" secondAttribute="centerY" constant="-354.5" id="9bN-y6-lrY"/>
                             <constraint firstItem="6qO-rI-OhO" firstAttribute="top" secondItem="fba-sV-wr0" secondAttribute="bottom" constant="4" id="IHA-8h-7aZ"/>
                             <constraint firstItem="6qO-rI-OhO" firstAttribute="bottom" secondItem="AL8-S2-B9Z" secondAttribute="bottom" id="Ogl-X7-Bm1"/>
                             <constraint firstItem="6qO-rI-OhO" firstAttribute="leading" secondItem="IfX-nN-EaX" secondAttribute="leadingMargin" constant="-11" id="TcV-Vb-52p"/>
+                            <constraint firstItem="FvJ-lu-OYb" firstAttribute="leading" secondItem="IfX-nN-EaX" secondAttribute="leading" constant="215" id="VOA-is-J24"/>
                             <constraint firstItem="SPq-Gj-ULl" firstAttribute="top" secondItem="IfX-nN-EaX" secondAttribute="top" id="c0I-RS-xw8"/>
                             <constraint firstItem="6qO-rI-OhO" firstAttribute="top" secondItem="AL8-S2-B9Z" secondAttribute="top" id="cB1-Wt-vKu"/>
                             <constraint firstAttribute="trailing" secondItem="SPq-Gj-ULl" secondAttribute="trailing" id="cpX-QB-rAY"/>
+                            <constraint firstAttribute="trailing" secondItem="FvJ-lu-OYb" secondAttribute="trailing" constant="8" id="erR-tg-qIG"/>
                             <constraint firstItem="AL8-S2-B9Z" firstAttribute="leading" secondItem="6qO-rI-OhO" secondAttribute="trailing" constant="1" id="gK9-Jv-cWV"/>
                             <constraint firstItem="SPq-Gj-ULl" firstAttribute="leading" secondItem="IfX-nN-EaX" secondAttribute="leading" id="je7-KX-G1S"/>
                             <constraint firstItem="SPq-Gj-ULl" firstAttribute="leading" secondItem="iya-0o-y6w" secondAttribute="leading" id="mc9-D1-hcQ"/>
+                            <constraint firstItem="FvJ-lu-OYb" firstAttribute="top" secondItem="IfX-nN-EaX" secondAttribute="top" constant="38" id="pca-6u-9Uj"/>
                             <constraint firstItem="iya-0o-y6w" firstAttribute="top" secondItem="6qO-rI-OhO" secondAttribute="bottom" constant="3" id="u2y-sL-I5H"/>
                         </constraints>
                     </view>
@@ -1718,7 +1708,7 @@ REGISTRARSE?</string>
                 <navigationController navigationBarHidden="YES" id="DtB-eu-V5K" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zRM-je-Mzk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zRM-je-Mzk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1739,7 +1729,7 @@ REGISTRARSE?</string>
                         <viewControllerLayoutGuide type="bottom" id="g7v-Y4-6sA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YpZ-qM-Zfn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="806"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="yL5-Z8-hMZ"/>
@@ -1759,10 +1749,9 @@ REGISTRARSE?</string>
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
-                                <frame key="frameInset" minY="184" width="375" height="225"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="225" id="JJU-R1-ZLX"/>
+                                    <constraint firstAttribute="height" constant="209" id="JJU-R1-ZLX"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="YpZ-qM-Zfn" id="qs1-y0-Gw2"/>
@@ -1803,11 +1792,10 @@ REGISTRARSE?</string>
                                     <segue destination="FRq-Fc-Jtx" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="JhD-SO-oge"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6fa-yo-9V4">
-                                <frame key="frameInset" minY="407" width="375" height="260"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6fa-yo-9V4">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="CnO-P3-MTj"/>
+                                    <constraint firstAttribute="height" constant="277" id="CnO-P3-MTj"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="Uc6-It-8ad" id="MYn-8x-Tor"/>
@@ -1937,8 +1925,7 @@ REGISTRARSE?</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nO-zR-QMo">
-                                <frame key="frameInset" minX="300" minY="344" width="55" height="55"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nO-zR-QMo">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="UzX-F6-cVQ"/>
                                     <constraint firstAttribute="width" constant="55" id="tFu-hX-Op3"/>
@@ -1950,15 +1937,15 @@ REGISTRARSE?</string>
                         <constraints>
                             <constraint firstItem="6fa-yo-9V4" firstAttribute="bottom" secondItem="g7v-Y4-6sA" secondAttribute="top" id="0WS-hj-LU9"/>
                             <constraint firstItem="Spn-zu-oet" firstAttribute="leading" secondItem="YpZ-qM-Zfn" secondAttribute="leadingMargin" constant="-11" id="1ya-JK-ODo"/>
-                            <constraint firstItem="g7v-Y4-6sA" firstAttribute="top" secondItem="Wsm-WF-ByM" secondAttribute="bottom" constant="258" id="4nB-ig-DRE"/>
+                            <constraint firstItem="g7v-Y4-6sA" firstAttribute="top" secondItem="Wsm-WF-ByM" secondAttribute="bottom" constant="274" id="4nB-ig-DRE"/>
                             <constraint firstItem="Wsm-WF-ByM" firstAttribute="top" secondItem="jCz-mG-vNw" secondAttribute="bottom" constant="1" id="7RZ-PY-kBC"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="yL5-Z8-hMZ" secondAttribute="bottom" constant="1" id="7SB-xD-QYG"/>
                             <constraint firstItem="6fa-yo-9V4" firstAttribute="top" secondItem="6nO-zR-QMo" secondAttribute="bottom" constant="8" symbolic="YES" id="8Es-IV-H5n"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6nO-zR-QMo" secondAttribute="trailing" constant="4" id="9fb-K5-IZX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6nO-zR-QMo" secondAttribute="trailing" id="9fb-K5-IZX"/>
                             <constraint firstItem="yL5-Z8-hMZ" firstAttribute="leading" secondItem="1DB-2m-DGQ" secondAttribute="leading" id="ASJ-A7-0AI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bi9-qh-sbZ" secondAttribute="trailing" constant="-10" id="Ily-b1-wj3"/>
                             <constraint firstItem="Spn-zu-oet" firstAttribute="centerY" secondItem="9lh-Ox-HQh" secondAttribute="centerY" id="KuP-9c-abD"/>
-                            <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="6nO-zR-QMo" secondAttribute="leading" id="Lcg-z0-hqm"/>
+                            <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="6nO-zR-QMo" secondAttribute="leading" constant="-4" id="Lcg-z0-hqm"/>
                             <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="1DB-2m-DGQ" secondAttribute="trailing" id="MK3-A2-tGx"/>
                             <constraint firstItem="bi9-qh-sbZ" firstAttribute="leading" secondItem="YpZ-qM-Zfn" secondAttribute="leading" constant="214" id="OYu-Q4-Bzr"/>
                             <constraint firstItem="jCz-mG-vNw" firstAttribute="top" secondItem="1DB-2m-DGQ" secondAttribute="bottom" id="Oyk-cI-3Je"/>
@@ -1986,6 +1973,8 @@ REGISTRARSE?</string>
                     <navigationItem key="navigationItem" id="3o1-n4-fai"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="botonInfantil" destination="8Gw-o7-k8E" id="k7I-es-EJu"/>
                         <outlet property="botonMasterCard" destination="iOy-OP-85b" id="zAF-UB-3Fa"/>
@@ -2111,7 +2100,7 @@ REGISTRARSE?</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1364.0625" y="1148.7676056338028"/>
+            <point key="canvasLocation" x="-1365.5999999999999" y="1148.2758620689656"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nox-kR-Te4">
@@ -2122,7 +2111,7 @@ REGISTRARSE?</string>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z4a-GB-7Hq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z4a-GB-7Hq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2519,7 +2508,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUs-eN-dpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3878.4375" y="2199.8239436619715"/>
+            <point key="canvasLocation" x="4087" y="2375"/>
         </scene>
         <!--Noticias Home View Controller-->
         <scene sceneID="lkj-LX-C17">
@@ -2588,6 +2577,8 @@ de tu descuento.</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="menuButton" destination="3SH-Vi-tow" id="ekK-OV-sW2"/>
                     </connections>
@@ -2605,12 +2596,11 @@ de tu descuento.</string>
                         <viewControllerLayoutGuide type="bottom" id="4LJ-hd-u5g"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WaG-Qo-cVe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="806"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="RPf-QG-taP"/>
-                            <view tag="200" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gSK-Zv-hWo" userLabel="View Cat">
-                                <frame key="frameInset" minY="88" width="375" height="579"/>
+                            <view tag="200" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gSK-Zv-hWo" userLabel="View Cat">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MiV-Lw-3Ln">
@@ -2662,6 +2652,8 @@ de tu descuento.</string>
                     <navigationItem key="navigationItem" id="e5L-dd-0MN"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4f-Yh-fUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3064,7 +3056,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myc-Gk-fdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1935.9375" y="-17.429577464788732"/>
+            <point key="canvasLocation" x="1863" y="-71"/>
         </scene>
         <!--Papel Digital-->
         <scene sceneID="meJ-3D-l3r">
@@ -3151,7 +3143,7 @@ de tu descuento.</string>
         <scene sceneID="dbQ-zF-WPo">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionLaTercera" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="b2P-Xe-VrB" customClass="CVLaTercera" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="LGB-uj-mbz">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="LGB-uj-mbz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342508798393" green="0.92718349358974361" blue="0.92718349358974361" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3717,7 +3709,7 @@ de tu descuento.</string>
         <scene sceneID="DAU-tE-vSo">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionEdicionEspecial" id="w1T-UP-eOG" customClass="CVEdicionEspecial" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" dataMode="prototypes" id="ByA-8c-pfG">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" misplaced="YES" dataMode="prototypes" id="ByA-8c-pfG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3759,7 +3751,7 @@ de tu descuento.</string>
         <scene sceneID="sUa-Lq-Mqe">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionNegocios" autoresizesArchivedViewToFullSize="NO" id="b5S-Wx-wkN" customClass="CVNegocios" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" dataMode="prototypes" id="uzd-Pj-NL4">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" dataMode="prototypes" id="uzd-Pj-NL4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4270,27 +4262,20 @@ de La Tercera</string>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rux-hs-5x9">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od6-fL-w5R">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eventos" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od6-fL-w5R">
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.70476769147256213" green="0.090196078431372548" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.70226532220840454" green="0.15807917714118958" blue="0.17483633756637573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="od6-fL-w5R" firstAttribute="centerY" secondItem="rux-hs-5x9" secondAttribute="centerY" id="2O5-5r-HEq"/>
+                                    <constraint firstItem="od6-fL-w5R" firstAttribute="centerY" secondItem="rux-hs-5x9" secondAttribute="centerY" constant="6" id="2O5-5r-HEq"/>
                                     <constraint firstItem="od6-fL-w5R" firstAttribute="leading" secondItem="rux-hs-5x9" secondAttribute="leading" constant="67" id="4oS-NE-MEN"/>
                                     <constraint firstItem="od6-fL-w5R" firstAttribute="top" secondItem="rux-hs-5x9" secondAttribute="top" constant="16" id="rC1-7T-hjF"/>
-                                    <constraint firstAttribute="trailing" secondItem="od6-fL-w5R" secondAttribute="trailing" constant="21" id="v8p-m8-43H"/>
+                                    <constraint firstAttribute="trailing" secondItem="od6-fL-w5R" secondAttribute="trailing" constant="45" id="v8p-m8-43H"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lng-W1-TcT">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="Q0M-c5-J59"/>
-                                    <constraint firstAttribute="height" constant="22" id="ycM-4E-1xz"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="icon-lt.png"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -4298,19 +4283,15 @@ de La Tercera</string>
                             <constraint firstItem="7Mh-pU-NqH" firstAttribute="leading" secondItem="gWl-RE-hGZ" secondAttribute="leading" id="6kR-lu-SWd"/>
                             <constraint firstItem="Wof-GV-Tr6" firstAttribute="bottom" secondItem="cW5-A0-R1c" secondAttribute="top" id="A7p-nK-2EJ"/>
                             <constraint firstItem="QPu-kd-bLU" firstAttribute="top" secondItem="lQh-65-U43" secondAttribute="bottom" constant="2" id="Arb-NX-GOe"/>
-                            <constraint firstItem="QPu-kd-bLU" firstAttribute="top" secondItem="rux-hs-5x9" secondAttribute="top" id="CTO-xw-RgW"/>
-                            <constraint firstItem="Lng-W1-TcT" firstAttribute="centerY" secondItem="rux-hs-5x9" secondAttribute="centerY" id="EqD-ac-ISp"/>
-                            <constraint firstItem="rux-hs-5x9" firstAttribute="leading" secondItem="Lng-W1-TcT" secondAttribute="trailing" constant="35" id="NTe-TS-cxg"/>
+                            <constraint firstItem="QPu-kd-bLU" firstAttribute="top" secondItem="rux-hs-5x9" secondAttribute="top" constant="3" id="CTO-xw-RgW"/>
                             <constraint firstItem="7Mh-pU-NqH" firstAttribute="top" secondItem="gWl-RE-hGZ" secondAttribute="top" id="ap0-BA-1m7"/>
                             <constraint firstItem="QPu-kd-bLU" firstAttribute="leading" secondItem="gWl-RE-hGZ" secondAttribute="leadingMargin" constant="-9" id="bQB-6U-LLW"/>
-                            <constraint firstItem="Lng-W1-TcT" firstAttribute="top" secondItem="lQh-65-U43" secondAttribute="bottom" constant="17" id="iNr-zo-GzX"/>
                             <constraint firstAttribute="trailing" secondItem="7Mh-pU-NqH" secondAttribute="trailing" id="kh4-Av-lT1"/>
                             <constraint firstItem="Wof-GV-Tr6" firstAttribute="top" secondItem="QPu-kd-bLU" secondAttribute="bottom" constant="5" id="okn-EW-e9g"/>
-                            <constraint firstItem="Wof-GV-Tr6" firstAttribute="top" secondItem="rux-hs-5x9" secondAttribute="bottom" constant="2" id="rEX-nL-zeC"/>
+                            <constraint firstItem="Wof-GV-Tr6" firstAttribute="top" secondItem="rux-hs-5x9" secondAttribute="bottom" constant="17" id="rEX-nL-zeC"/>
                             <constraint firstItem="Wof-GV-Tr6" firstAttribute="top" secondItem="7Mh-pU-NqH" secondAttribute="bottom" constant="1" id="sG2-Ic-hDr"/>
                             <constraint firstItem="7Mh-pU-NqH" firstAttribute="trailing" secondItem="rux-hs-5x9" secondAttribute="trailing" id="x0x-wt-JnV"/>
                             <constraint firstItem="7Mh-pU-NqH" firstAttribute="leading" secondItem="Wof-GV-Tr6" secondAttribute="leading" id="xhq-As-XQD"/>
-                            <constraint firstItem="Lng-W1-TcT" firstAttribute="leading" secondItem="QPu-kd-bLU" secondAttribute="trailing" constant="18" id="y3c-3h-lp6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="acs-1M-BFz"/>
@@ -4322,24 +4303,24 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfv-Em-m3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2404.6875" y="1899.8239436619717"/>
+            <point key="canvasLocation" x="-2405.5999999999999" y="1899.400299850075"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Z9U-h8-dco">
             <objects>
                 <tableViewController id="CuC-Ze-8No" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" id="eDd-ZL-vsc">
-                        <rect key="frame" x="0.0" y="0.0" width="381" height="499"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection id="nf5-Ql-ip6">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GDI-Fx-jOW">
-                                        <rect key="frame" x="0.0" y="0.0" width="381" height="88"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GDI-Fx-jOW" id="yYn-kX-ZdP">
-                                            <frame key="frameInset" width="381" height="87"/>
+                                            <frame key="frameInset" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fsj-2Q-KHa">
@@ -4375,10 +4356,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kzI-4F-Ixf">
-                                        <rect key="frame" x="0.0" y="88" width="381" height="88"/>
+                                        <rect key="frame" x="0.0" y="88" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kzI-4F-Ixf" id="t5D-D3-4ni">
-                                            <frame key="frameInset" width="381" height="87"/>
+                                            <frame key="frameInset" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento2.png" translatesAutoresizingMaskIntoConstraints="NO" id="byQ-o2-sne">
@@ -4412,10 +4393,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7FT-3q-bWx">
-                                        <rect key="frame" x="0.0" y="176" width="381" height="88"/>
+                                        <rect key="frame" x="0.0" y="176" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7FT-3q-bWx" id="0w0-pu-Bif">
-                                            <frame key="frameInset" width="381" height="87"/>
+                                            <frame key="frameInset" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" translatesAutoresizingMaskIntoConstraints="NO" id="sNd-rT-nIu">
@@ -4449,10 +4430,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6KO-4D-YYv">
-                                        <rect key="frame" x="0.0" y="264" width="381" height="88"/>
+                                        <rect key="frame" x="0.0" y="264" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6KO-4D-YYv" id="QvQ-CT-fDU">
-                                            <frame key="frameInset" width="381" height="87"/>
+                                            <frame key="frameInset" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento2.png" translatesAutoresizingMaskIntoConstraints="NO" id="7xO-C4-1se">
@@ -4487,10 +4468,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tsw-Ag-DUG">
-                                        <rect key="frame" x="0.0" y="352" width="381" height="88"/>
+                                        <rect key="frame" x="0.0" y="352" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tsw-Ag-DUG" id="GEs-RL-uqD">
-                                            <frame key="frameInset" width="381" height="87"/>
+                                            <frame key="frameInset" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" translatesAutoresizingMaskIntoConstraints="NO" id="s7f-2B-sgm">
@@ -4524,10 +4505,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tS3-kG-c4y">
-                                        <rect key="frame" x="0.0" y="440" width="381" height="88"/>
+                                        <rect key="frame" x="0.0" y="440" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tS3-kG-c4y" id="EIl-W2-hwc">
-                                            <frame key="frameInset" width="381" height="87"/>
+                                            <frame key="frameInset" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" translatesAutoresizingMaskIntoConstraints="NO" id="tCf-3s-2ZP">
@@ -4561,10 +4542,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Zje-8d-BYG">
-                                        <rect key="frame" x="0.0" y="528" width="381" height="88"/>
+                                        <rect key="frame" x="0.0" y="528" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zje-8d-BYG" id="3SM-rg-d0V">
-                                            <frame key="frameInset" width="381" height="87"/>
+                                            <frame key="frameInset" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" translatesAutoresizingMaskIntoConstraints="NO" id="YZn-Aa-aw5">
@@ -4598,10 +4579,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="HOX-hS-GQm">
-                                        <rect key="frame" x="0.0" y="616" width="381" height="88"/>
+                                        <rect key="frame" x="0.0" y="616" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HOX-hS-GQm" id="Uma-9j-lAy">
-                                            <frame key="frameInset" width="381" height="87"/>
+                                            <frame key="frameInset" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" translatesAutoresizingMaskIntoConstraints="NO" id="JDt-vD-foR">
@@ -4635,10 +4616,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="BVJ-0l-ocZ">
-                                        <rect key="frame" x="0.0" y="704" width="381" height="88"/>
+                                        <rect key="frame" x="0.0" y="704" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BVJ-0l-ocZ" id="aBw-DA-n0G">
-                                            <frame key="frameInset" width="381" height="87"/>
+                                            <frame key="frameInset" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" translatesAutoresizingMaskIntoConstraints="NO" id="ExN-2D-VmT">
@@ -4672,10 +4653,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fxB-Rq-K8e">
-                                        <rect key="frame" x="0.0" y="792" width="381" height="88"/>
+                                        <rect key="frame" x="0.0" y="792" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fxB-Rq-K8e" id="lX6-4X-ZLt">
-                                            <frame key="frameInset" width="381" height="87"/>
+                                            <frame key="frameInset" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" translatesAutoresizingMaskIntoConstraints="NO" id="D1Q-ek-p9c">
@@ -4709,10 +4690,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ZA1-Dg-KGS">
-                                        <rect key="frame" x="0.0" y="880" width="381" height="88"/>
+                                        <rect key="frame" x="0.0" y="880" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZA1-Dg-KGS" id="eIF-Ib-FTJ">
-                                            <frame key="frameInset" width="381" height="87"/>
+                                            <frame key="frameInset" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" translatesAutoresizingMaskIntoConstraints="NO" id="e5K-Ju-5EG">
@@ -4746,10 +4727,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2ga-tj-Pmn">
-                                        <rect key="frame" x="0.0" y="968" width="381" height="88"/>
+                                        <rect key="frame" x="0.0" y="968" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2ga-tj-Pmn" id="2sj-Bm-J6w">
-                                            <frame key="frameInset" width="381" height="87"/>
+                                            <frame key="frameInset" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenEvento.png" translatesAutoresizingMaskIntoConstraints="NO" id="q5l-7F-F4j">
@@ -4790,6 +4771,8 @@ de La Tercera</string>
                             <outlet property="delegate" destination="CuC-Ze-8No" id="fsH-jY-EgU"/>
                         </connections>
                     </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="499"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mx6-Eo-Ff1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -5136,7 +5119,7 @@ de La Tercera</string>
         <scene sceneID="kO4-N2-n99">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionElDeportivo" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="6Fm-tF-vXq" customClass="CVElDeportivo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="d7Y-uL-ajO">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="d7Y-uL-ajO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6290,12 +6273,10 @@ de La Tercera</string>
                                             <frame key="frameInset" width="375" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wmG-SP-tDd">
-                                                    <frame key="frameInset" minX="297" minY="10" width="51" height="31"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wmG-SP-tDd">
                                                     <color key="onTintColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Notificaciones de Noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BR-jA-hKp">
-                                                    <frame key="frameInset" minX="21" minY="13" width="189" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notificaciones de Noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BR-jA-hKp">
                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -6318,11 +6299,11 @@ de La Tercera</string>
                                             <frame key="frameInset" width="375" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="h41-Pa-khP">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="h41-Pa-khP">
                                                     <frame key="frameInset" minX="522" minY="9" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Notificaciones Club La Tercera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8Y-eO-XWB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Notificaciones Club La Tercera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8Y-eO-XWB">
                                                     <frame key="frameInset" minX="22" minY="13" width="443" height="23"/>
                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -7802,10 +7783,10 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NZJ-gN-Ume"/>
-        <segue reference="3eI-5G-D6D"/>
+        <segue reference="QpD-Og-2iF"/>
         <segue reference="tqi-Nf-HuD"/>
-        <segue reference="wa8-wA-Ypp"/>
+        <segue reference="Yn4-yz-IfR"/>
+        <segue reference="wuf-Nj-3R8"/>
         <segue reference="vnn-UP-oet"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
