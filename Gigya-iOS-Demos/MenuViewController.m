@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 #import "SessionManager.h"
 #import "Tools.h"
+#import "UsarBeneficioNoLogueado.h"
 
 
 @implementation SWUITableViewCell
@@ -139,6 +140,43 @@ if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone4"] ){
     [super viewWillLayoutSubviews];
     [self.tableView setContentInset:UIEdgeInsetsMake(25,0,0,0)];
 
+}
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    
+    if ([identifier isEqualToString:@"goToAjustes"] || ([identifier isEqualToString:@"goToMiPerfil"])){
+
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"isLogged"]) {
+        
+            return YES;
+      
+        }else{
+            //suscriberNeededScreen
+            NSLog(@"Sin permisos");
+            [self.revealViewController revealToggleAnimated:YES];
+            UsarBeneficioNoLogueado *usarBeneficioNoLogueadoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"suscriberNeededScreen"];
+            [usarBeneficioNoLogueadoViewController cancelButtonText:@"Volver a la noticia"];
+            
+            [self.revealViewController presentViewController:usarBeneficioNoLogueadoViewController animated:YES completion:nil];
+            
+            return NO;
+        
+        }
+        
+    } else {
+        
+        return YES;
+    }
+}
+
+-(void)showLoginScreenModal{
+    
+ 
+
+    //[self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
+   // [self.revealViewController.rightViewController presentViewController:usarBeneficioNoLogueadoViewController animated:YES completion:nil];
+
+    
 }
 
 #pragma mark state preservation / restoration

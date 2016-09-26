@@ -7,6 +7,7 @@
 //
 
 #import "FavoritosViewController.h"
+#import "SWRevealViewController.h"
 
 @interface FavoritosViewController ()
 
@@ -24,7 +25,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)backButtonPressed:(id)sender {
-
+    [self.revealViewController revealToggleAnimated:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

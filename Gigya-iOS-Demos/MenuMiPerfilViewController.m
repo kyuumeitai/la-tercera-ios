@@ -31,7 +31,9 @@
 
 - (IBAction)backButtonClicked:(id)sender {
     NSLog(@"OK closing time BABY");
+    [self.revealViewController revealToggleAnimated:YES];
        [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 /*

@@ -13,5 +13,5 @@
 @end
 
 @interface MenuViewController : UITableViewController <UITableViewDelegate>
-
+-(void)showLoginScreenModal;
 @end
