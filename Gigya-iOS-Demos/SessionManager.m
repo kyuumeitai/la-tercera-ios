@@ -135,6 +135,12 @@
     userProfile.horario2 = false;
     userProfile.horario3 = false;
     userProfile.device = -1;
+    
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"isLogged"];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
 }
 
 -(UserProfile *)getUserProfile{

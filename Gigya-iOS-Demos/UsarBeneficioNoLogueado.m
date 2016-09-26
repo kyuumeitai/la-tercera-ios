@@ -167,8 +167,8 @@ GigyaFormAction formTypeSecond;
                 
                 //id status = [json objectForKey:@"status"];
                 
-                //int userDevice = [[json objectForKey:@"device"] intValue];
-                int userDevice =-111;
+                int userDevice = [[json objectForKey:@"device"] intValue];
+                //int userDevice =-111;
                 NSString *userGigyaId = [json objectForKey:@"gigya_id"];
                 BOOL userStatus = false;
                 if([json objectForKey:@"status"] == NULL){
@@ -185,6 +185,14 @@ GigyaFormAction formTypeSecond;
                 perfil.profileType = userProfileType;
                 perfil.status = userStatus;
                 perfil.device = userDevice;
+                
+                NSString *saveEmail= userEmail;
+                NSString *saveGigyaId= userGigyaId;
+                [[NSUserDefaults standardUserDefaults] setObject:saveEmail forKey:@"savedEmail"];
+                [[NSUserDefaults standardUserDefaults] setObject:saveGigyaId forKey:@"savedGigyaId"];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLogged"];
+                
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 
                 if (notifClub == 1){
                     perfil.notificacionesClub = true;
@@ -265,8 +273,8 @@ GigyaFormAction formTypeSecond;
                 }else{
                     userStatus = [[json objectForKey:@"status"] boolValue];
                 }
-                //int userDevice = [[json objectForKey:@"device"] intValue];
-                int userDevice =-111;
+                int userDevice = [[json objectForKey:@"device"] intValue];
+                //userDevice =-111;
                 NSString *userGigyaId = [json objectForKey:@"gigya_id"];
                 
                 SessionManager *sesion = [SessionManager session];
@@ -291,7 +299,14 @@ GigyaFormAction formTypeSecond;
                     perfil.notificacionesNoticias = true;
                 }
                 
-
+                NSString *saveEmail= userEmail;
+                NSString *saveGigyaId= userGigyaId;
+                [[NSUserDefaults standardUserDefaults] setObject:saveEmail forKey:@"savedEmail"];
+                [[NSUserDefaults standardUserDefaults] setObject:saveGigyaId forKey:@"savedGigyaId"];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLogged"];
+                
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
                 perfil.gigyaId = userGigyaId;
                 sesion.isLogged = true;
                 
@@ -350,8 +365,8 @@ GigyaFormAction formTypeSecond;
                     }else{
                         userStatus = [[json objectForKey:@"status"] boolValue];
                     }
-                    //int userDevice = [[json objectForKey:@"device"] intValue];
-                    int userDevice =-111;
+                    int userDevice = [[json objectForKey:@"device"] intValue];
+                    // userDevice =-111;
                     NSString *userGigyaId = [json objectForKey:@"gigya_id"];
                     
                     SessionManager *sesion = [SessionManager session];
@@ -366,6 +381,14 @@ GigyaFormAction formTypeSecond;
                     sesion.isLogged = true;
                     sesion.userProfile = perfil;
                     sesion.isLogged = true;
+                    
+                    NSString *saveEmail= userEmail;
+                    NSString *saveGigyaId= userGigyaId;
+                    [[NSUserDefaults standardUserDefaults] setObject:saveEmail forKey:@"savedEmail"];
+                    [[NSUserDefaults standardUserDefaults] setObject:saveGigyaId forKey:@"savedGigyaId"];
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLogged"];
+                    
+                    [[NSUserDefaults standardUserDefaults] synchronize];
                     
                     for (NSString* key in json) {
                         id value = [json objectForKey:key];

@@ -14,6 +14,7 @@
 #import "SWRevealViewController.h"
 #import "ConnectionManager.h"
 #import "SessionManager.h"
+#import "Tools.h"
 #import "UserProfile.h"
 
 
@@ -27,14 +28,79 @@ GigyaFormAction formType;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"Estoy en el login View controller");
+
     
-    // Do any additional setup after loading the view, typically from a nib.
-    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"isLogged"]) {
+        
+        if ([Tools isNetworkAvailable]){
+            NSLog(@"Autologueamos");
+            [self autoLogin];
+        }else{
+            NSLog(@"No hay coneccion");
+        }
+    }
+
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) autoLogin{
+    
+    //Login code
+    
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    NSString *emilio = [[NSUserDefaults standardUserDefaults] stringForKey:@"savedEmail"];
+    NSString *gisyaId = [[NSUserDefaults standardUserDefaults] stringForKey:@"savedGigyaId"];
+    
+    NSString *respuesta = [connectionManager sendLoginDataWithEmail:emilio andGigyaId:gisyaId ];
+    NSLog(@"***::::----- RESPUESTA PRIMARIAAA   %@     -----::::***\r\r\r",respuesta);
+    //leemos el objeto retornado
+    NSLog(@"***************::::-----  Procedemos al leer el perfil:        -----::::**************");
+    
+    NSData *data = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    NSString *firstName = [json objectForKey:@"name"];
+    NSString *lastName = [json objectForKey:@"lastname"];
+    int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
+    BOOL userStatus = false;
+    if([json objectForKey:@"status"] == NULL){
+        userStatus = false;
+    }else{
+        userStatus = [[json objectForKey:@"status"] boolValue];
+    }
+    int userDevice = [[json objectForKey:@"device"] intValue];
+    // int userDevice =-111;
+    NSString *userGigyaId = [json objectForKey:@"gigya_id"];
+    
+    SessionManager *sesion = [SessionManager session];
+    UserProfile *perfil = [sesion getUserProfile];
+    perfil.email = emilio;
+    perfil.name = firstName;
+    perfil.lastName = lastName;
+    perfil.profileLevel = userProfileLevel;
+    perfil.status = userStatus;
+    perfil.device = userDevice;
+    perfil.gigyaId = userGigyaId;
+    sesion.isLogged = true;
+    sesion.userProfile = perfil;
+    sesion.isLogged = true;
+    
+    for (NSString* key in json) {
+        id value = [json objectForKey:key];
+        NSLog(@"Clave %@: %@", key,value);
+    }
+    NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
+    NSLog(@"***************::::----- session  : %@  -----::::**************\r\r",[sesion profileDescription]);
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self performSegueWithIdentifier:@"goToNews" sender:self];
+    
 }
 
 - (IBAction)logoutButtonAction:(id)sender {
@@ -291,8 +357,8 @@ GigyaFormAction formType;
 
                 
                 //temporary comment
-               // int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
-                int userProfileLevel = 0 ;
+                int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
+                //int userProfileLevel = 0 ;
                     NSString *valor= userProfileType;
                     
                     if ( [valor isEqualToString:@"anonimo"] ){
@@ -310,10 +376,10 @@ GigyaFormAction formType;
                         NSLog(@"Es suscriptor");
                     }
                 
-                //id status = [json objectForKey:@"status"];
+               //id status = [json objectForKey:@"status"];
           
-                //int userDevice = [[json objectForKey:@"device"] intValue];
-                int userDevice =-111;
+                int userDevice = [[json objectForKey:@"device"] intValue];
+                //int userDevice =-111;
                 NSString *userGigyaId = [json objectForKey:@"gigya_id"];
                 BOOL userStatus = false;
                 if([json objectForKey:@"status"] == NULL){
@@ -334,19 +400,26 @@ GigyaFormAction formType;
                 if (notifClub == 1){
                     perfil.notificacionesClub = true;
                 }else{
-                      perfil.notificacionesClub = true;
+                      perfil.notificacionesClub = false;
                 }
                 
                 if (notifNoticias == 1){
                     perfil.notificacionesNoticias = true;
                 }else{
-                    perfil.notificacionesNoticias = true;
+                    perfil.notificacionesNoticias = false;
                 }
                 
-                
-                
+
                 perfil.gigyaId = userGigyaId;
                 sesion.isLogged = true;
+                
+                NSString *saveEmail= userEmail;
+                NSString *saveGigyaId= userGigyaId;
+                [[NSUserDefaults standardUserDefaults] setObject:saveEmail forKey:@"savedEmail"];
+                [[NSUserDefaults standardUserDefaults] setObject:saveGigyaId forKey:@"savedGigyaId"];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLogged"];
+                
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 
 
                 for (NSString* key in json) {
@@ -413,8 +486,8 @@ GigyaFormAction formType;
                 }else{
                     userStatus = [[json objectForKey:@"status"] boolValue];
                 }
-                //int userDevice = [[json objectForKey:@"device"] intValue];
-                int userDevice =-111;
+                int userDevice = [[json objectForKey:@"device"] intValue];
+                //int userDevice =-111;
                 NSString *userGigyaId = [json objectForKey:@"gigya_id"];
                 
                 SessionManager *sesion = [SessionManager session];
@@ -443,6 +516,14 @@ GigyaFormAction formType;
                 
                 perfil.gigyaId = userGigyaId;
                 sesion.isLogged = true;
+                
+                NSString *saveEmail= userEmail;
+                NSString *saveGigyaId= userGigyaId;
+                [[NSUserDefaults standardUserDefaults] setObject:saveEmail forKey:@"savedEmail"];
+                [[NSUserDefaults standardUserDefaults] setObject:saveGigyaId forKey:@"savedGigyaId"];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLogged"];
+                
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 
                 for (NSString* key in json) {
                     id value = [json objectForKey:key];
@@ -499,8 +580,8 @@ GigyaFormAction formType;
                     }else{
                      userStatus = [[json objectForKey:@"status"] boolValue];
                     }
-                    //int userDevice = [[json objectForKey:@"device"] intValue];
-                    int userDevice =-111;
+                    int userDevice = [[json objectForKey:@"device"] intValue];
+                    //int userDevice =-111;
                     NSString *userGigyaId = [json objectForKey:@"gigya_id"];
                     
                     SessionManager *sesion = [SessionManager session];
@@ -516,6 +597,15 @@ GigyaFormAction formType;
                     sesion.userProfile = perfil;
                     sesion.isLogged = true;
                     
+                    NSString *saveEmail= userEmail;
+                    NSString *saveGigyaId= userGigyaId;
+                    [[NSUserDefaults standardUserDefaults] setObject:saveEmail forKey:@"savedEmail"];
+                    [[NSUserDefaults standardUserDefaults] setObject:saveGigyaId forKey:@"savedGigyaId"];
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLogged"];
+                    
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+
+                    
                     for (NSString* key in json) {
                         id value = [json objectForKey:key];
                         NSLog(@"Clave %@: %@", key,value);
@@ -526,6 +616,7 @@ GigyaFormAction formType;
                     NSLog(@"***::::-----  EMAIL YA REGISTRADO:      -----::::***");
 
                 }
+                
     
             }
             
@@ -535,7 +626,7 @@ GigyaFormAction formType;
                     break;
                     
                 case LOGIN:
-                          [self performSegueWithIdentifier:@"goToNews" sender:self];
+                    [self performSegueWithIdentifier:@"goToNews" sender:self];
                     break;
                }
           }
