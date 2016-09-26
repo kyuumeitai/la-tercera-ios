@@ -283,6 +283,8 @@ REGISTRARSE?</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IMT-Al-5dW"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <segue destination="FRq-Fc-Jtx" kind="show" identifier="GoToSWReveal" id="QpD-Og-2iF"/>
                     </connections>
@@ -317,7 +319,7 @@ REGISTRARSE?</string>
                         <viewControllerLayoutGuide type="bottom" id="gSa-8I-DXD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IfX-nN-EaX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="806"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="860"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iya-0o-y6w">
@@ -447,7 +449,7 @@ REGISTRARSE?</string>
                                                     <action selector="ticketPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="l4k-Ou-LcA"/>
                                                 </connections>
                                             </button>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-hL-wGC">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-hL-wGC">
                                                 <color key="backgroundColor" red="0.63529411764705879" green="0.090196078431372548" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="CnA-2I-plr"/>
@@ -531,12 +533,12 @@ REGISTRARSE?</string>
                                     <constraint firstItem="wYU-8X-eIk" firstAttribute="top" secondItem="iya-0o-y6w" secondAttribute="top" id="0Kd-bp-lhZ"/>
                                     <constraint firstItem="wYU-8X-eIk" firstAttribute="leading" secondItem="iya-0o-y6w" secondAttribute="leading" id="1Qq-Yu-yLh"/>
                                     <constraint firstItem="wYU-8X-eIk" firstAttribute="centerX" secondItem="iya-0o-y6w" secondAttribute="centerX" id="HTi-MM-3X3"/>
-                                    <constraint firstAttribute="bottom" secondItem="wYU-8X-eIk" secondAttribute="bottom" constant="-2" id="aqm-8k-6fr"/>
+                                    <constraint firstAttribute="bottom" secondItem="wYU-8X-eIk" secondAttribute="bottom" constant="6" id="aqm-8k-6fr"/>
                                     <constraint firstAttribute="trailing" secondItem="wYU-8X-eIk" secondAttribute="trailing" id="fuq-si-POy"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
-                                        <size key="value" width="367" height="980"/>
+                                        <size key="value" width="367" height="1100"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
@@ -557,8 +559,7 @@ REGISTRARSE?</string>
                                     <segue destination="0B8-6F-OFF" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="wuf-Nj-3R8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvJ-lu-OYb">
-                                <color key="tintColor" red="0.56198251247406006" green="0.1255054771900177" blue="0.13863018155097961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7t-Ml-NcK">
                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -567,21 +568,21 @@ REGISTRARSE?</string>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iya-0o-y6w" firstAttribute="top" secondItem="SPq-Gj-ULl" secondAttribute="bottom" constant="1" id="5eN-Gw-ESc"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="iya-0o-y6w" secondAttribute="bottom" constant="-68" id="7Z9-66-xAZ"/>
+                            <constraint firstItem="S7t-Ml-NcK" firstAttribute="leading" secondItem="AL8-S2-B9Z" secondAttribute="trailing" constant="97" id="7DH-Q6-4Hz"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="iya-0o-y6w" secondAttribute="bottom" id="7Z9-66-xAZ"/>
                             <constraint firstItem="SPq-Gj-ULl" firstAttribute="trailing" secondItem="iya-0o-y6w" secondAttribute="trailing" id="8hw-oj-fc7"/>
-                            <constraint firstItem="FvJ-lu-OYb" firstAttribute="centerY" secondItem="IfX-nN-EaX" secondAttribute="centerY" constant="-354.5" id="9bN-y6-lrY"/>
+                            <constraint firstItem="iya-0o-y6w" firstAttribute="top" secondItem="S7t-Ml-NcK" secondAttribute="bottom" constant="17" id="Hdt-uU-LEH"/>
                             <constraint firstItem="6qO-rI-OhO" firstAttribute="top" secondItem="fba-sV-wr0" secondAttribute="bottom" constant="4" id="IHA-8h-7aZ"/>
                             <constraint firstItem="6qO-rI-OhO" firstAttribute="bottom" secondItem="AL8-S2-B9Z" secondAttribute="bottom" id="Ogl-X7-Bm1"/>
+                            <constraint firstItem="S7t-Ml-NcK" firstAttribute="centerY" secondItem="AL8-S2-B9Z" secondAttribute="centerY" id="TSz-Oe-mN4"/>
                             <constraint firstItem="6qO-rI-OhO" firstAttribute="leading" secondItem="IfX-nN-EaX" secondAttribute="leadingMargin" constant="-11" id="TcV-Vb-52p"/>
-                            <constraint firstItem="FvJ-lu-OYb" firstAttribute="leading" secondItem="IfX-nN-EaX" secondAttribute="leading" constant="215" id="VOA-is-J24"/>
                             <constraint firstItem="SPq-Gj-ULl" firstAttribute="top" secondItem="IfX-nN-EaX" secondAttribute="top" id="c0I-RS-xw8"/>
                             <constraint firstItem="6qO-rI-OhO" firstAttribute="top" secondItem="AL8-S2-B9Z" secondAttribute="top" id="cB1-Wt-vKu"/>
                             <constraint firstAttribute="trailing" secondItem="SPq-Gj-ULl" secondAttribute="trailing" id="cpX-QB-rAY"/>
-                            <constraint firstAttribute="trailing" secondItem="FvJ-lu-OYb" secondAttribute="trailing" constant="8" id="erR-tg-qIG"/>
                             <constraint firstItem="AL8-S2-B9Z" firstAttribute="leading" secondItem="6qO-rI-OhO" secondAttribute="trailing" constant="1" id="gK9-Jv-cWV"/>
                             <constraint firstItem="SPq-Gj-ULl" firstAttribute="leading" secondItem="IfX-nN-EaX" secondAttribute="leading" id="je7-KX-G1S"/>
                             <constraint firstItem="SPq-Gj-ULl" firstAttribute="leading" secondItem="iya-0o-y6w" secondAttribute="leading" id="mc9-D1-hcQ"/>
-                            <constraint firstItem="FvJ-lu-OYb" firstAttribute="top" secondItem="IfX-nN-EaX" secondAttribute="top" constant="38" id="pca-6u-9Uj"/>
+                            <constraint firstItem="S7t-Ml-NcK" firstAttribute="trailing" secondItem="IfX-nN-EaX" secondAttribute="trailingMargin" id="shW-Pr-X5f"/>
                             <constraint firstItem="iya-0o-y6w" firstAttribute="top" secondItem="6qO-rI-OhO" secondAttribute="bottom" constant="3" id="u2y-sL-I5H"/>
                         </constraints>
                     </view>
@@ -591,14 +592,14 @@ REGISTRARSE?</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="806"/>
+                    <size key="freeformSize" width="375" height="860"/>
                     <connections>
                         <outlet property="menuButtonClub" destination="6qO-rI-OhO" id="ZVr-hu-wR0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSR-ne-YT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="-8"/>
+            <point key="canvasLocation" x="1074.4000000000001" y="15.292353823088456"/>
         </scene>
         <!--Infantil Table View-->
         <scene sceneID="r9W-hT-15V">
@@ -1751,7 +1752,7 @@ REGISTRARSE?</string>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="209" id="JJU-R1-ZLX"/>
+                                    <constraint firstAttribute="height" constant="208" id="JJU-R1-ZLX"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="YpZ-qM-Zfn" id="qs1-y0-Gw2"/>
@@ -1764,23 +1765,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-qh-sbZ">
-                                <subviews>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfU-oJ-cYP">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="8Q5-Y6-rsV"/>
-                                        </constraints>
-                                        <state key="normal" image="iconFilter.png"/>
-                                        <connections>
-                                            <action selector="openFilter:" destination="Uc6-It-8ad" eventType="touchUpInside" id="mHI-8O-ZZ5"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="HfU-oJ-cYP" secondAttribute="bottom" constant="-5" id="JeT-Vy-9ua"/>
-                                    <constraint firstAttribute="trailing" secondItem="HfU-oJ-cYP" secondAttribute="trailing" constant="3" id="MsW-tU-tJi"/>
-                                    <constraint firstItem="HfU-oJ-cYP" firstAttribute="top" secondItem="bi9-qh-sbZ" secondAttribute="top" constant="9" id="TsP-VA-OFJ"/>
-                                </constraints>
+                                <color key="backgroundColor" red="0.70226532220840454" green="0.15807917714118958" blue="0.17483633756637573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lh-Ox-HQh">
                                 <constraints>
@@ -1925,7 +1910,8 @@ REGISTRARSE?</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nO-zR-QMo">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nO-zR-QMo">
+                                <frame key="frameInset" minX="313" minY="336" width="46" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="UzX-F6-cVQ"/>
                                     <constraint firstAttribute="width" constant="55" id="tFu-hX-Op3"/>
@@ -1937,8 +1923,8 @@ REGISTRARSE?</string>
                         <constraints>
                             <constraint firstItem="6fa-yo-9V4" firstAttribute="bottom" secondItem="g7v-Y4-6sA" secondAttribute="top" id="0WS-hj-LU9"/>
                             <constraint firstItem="Spn-zu-oet" firstAttribute="leading" secondItem="YpZ-qM-Zfn" secondAttribute="leadingMargin" constant="-11" id="1ya-JK-ODo"/>
-                            <constraint firstItem="g7v-Y4-6sA" firstAttribute="top" secondItem="Wsm-WF-ByM" secondAttribute="bottom" constant="274" id="4nB-ig-DRE"/>
-                            <constraint firstItem="Wsm-WF-ByM" firstAttribute="top" secondItem="jCz-mG-vNw" secondAttribute="bottom" constant="1" id="7RZ-PY-kBC"/>
+                            <constraint firstItem="g7v-Y4-6sA" firstAttribute="top" secondItem="Wsm-WF-ByM" secondAttribute="bottom" constant="279" id="4nB-ig-DRE"/>
+                            <constraint firstItem="Wsm-WF-ByM" firstAttribute="top" secondItem="jCz-mG-vNw" secondAttribute="bottom" constant="-3" id="7RZ-PY-kBC"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="yL5-Z8-hMZ" secondAttribute="bottom" constant="1" id="7SB-xD-QYG"/>
                             <constraint firstItem="6fa-yo-9V4" firstAttribute="top" secondItem="6nO-zR-QMo" secondAttribute="bottom" constant="8" symbolic="YES" id="8Es-IV-H5n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6nO-zR-QMo" secondAttribute="trailing" id="9fb-K5-IZX"/>
@@ -5603,7 +5589,7 @@ de La Tercera</string>
                         <viewControllerLayoutGuide type="bottom" id="uHc-sG-Mwg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c1l-f6-hpV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="806"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="860"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="xIW-0V-Abg"/>
@@ -7773,7 +7759,6 @@ de La Tercera</string>
         <image name="fondoPorque.png" width="360" height="627"/>
         <image name="ic_check_black_24px.png" width="26" height="20"/>
         <image name="icon-lt.png" width="22" height="19"/>
-        <image name="iconFilter.png" width="24" height="24"/>
         <image name="imagenEvento.png" width="76" height="74"/>
         <image name="imagenEvento2.png" width="76" height="74"/>
         <image name="imagenEvento3.png" width="76" height="74"/>
@@ -7783,11 +7768,11 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QpD-Og-2iF"/>
-        <segue reference="tqi-Nf-HuD"/>
+        <segue reference="JhD-SO-oge"/>
         <segue reference="Yn4-yz-IfR"/>
         <segue reference="wuf-Nj-3R8"/>
         <segue reference="vnn-UP-oet"/>
+        <segue reference="tqi-Nf-HuD"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
