@@ -268,7 +268,7 @@ REGISTRARSE?</string>
                         <viewControllerLayoutGuide type="bottom" id="8rZ-be-ofb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IfX-nN-EaX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="850"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iya-0o-y6w">
@@ -407,13 +407,16 @@ REGISTRARSE?</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-hL-wGC">
-                                                <frame key="frameInset" minX="16" minY="719" width="296" height="42"/>
+                                                <frame key="frameInset" minX="16" minY="715" width="296" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.63529411764705879" green="0.090196078431372548" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
                                                 <state key="normal" title="Identifícate como suscriptor">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="identifyUser:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="Gdw-B1-WIw"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -425,8 +428,8 @@ REGISTRARSE?</string>
                                 <constraints>
                                     <constraint firstItem="wYU-8X-eIk" firstAttribute="leading" secondItem="iya-0o-y6w" secondAttribute="leading" id="4Vc-gt-YLB"/>
                                     <constraint firstItem="wYU-8X-eIk" firstAttribute="top" secondItem="iya-0o-y6w" secondAttribute="top" id="aAx-Px-zLE"/>
-                                    <constraint firstAttribute="bottom" secondItem="wYU-8X-eIk" secondAttribute="bottom" constant="-79" id="hN3-vk-RZ3"/>
-                                    <constraint firstAttribute="trailing" secondItem="wYU-8X-eIk" secondAttribute="trailing" constant="1" id="onp-ju-vJB"/>
+                                    <constraint firstAttribute="bottom" secondItem="wYU-8X-eIk" secondAttribute="bottom" constant="-16" id="hN3-vk-RZ3"/>
+                                    <constraint firstAttribute="trailing" secondItem="wYU-8X-eIk" secondAttribute="trailing" id="onp-ju-vJB"/>
                                     <constraint firstItem="wYU-8X-eIk" firstAttribute="centerX" secondItem="iya-0o-y6w" secondAttribute="centerX" id="qz6-Ki-yp0"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -453,12 +456,12 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qO-rI-OhO">
-                                <frame key="frameInset" minX="5" minY="22" width="54" height="50"/>
+                                <frame key="frameInset" minX="5" minY="20" width="54" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="boton-menu.png"/>
                             </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AL8-S2-B9Z">
-                                <frame key="frameInset" minX="60" minY="23" width="50" height="50"/>
+                                <frame key="frameInset" minX="60" minY="21" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="icon-lt.png"/>
                                 <connections>
@@ -473,7 +476,7 @@ REGISTRARSE?</string>
                             <constraint firstItem="iya-0o-y6w" firstAttribute="leading" secondItem="SPq-Gj-ULl" secondAttribute="leading" id="IAX-vM-MOo"/>
                             <constraint firstItem="iya-0o-y6w" firstAttribute="top" secondItem="SPq-Gj-ULl" secondAttribute="bottom" constant="1" id="ZCq-U3-x3e"/>
                             <constraint firstItem="iya-0o-y6w" firstAttribute="leading" secondItem="IfX-nN-EaX" secondAttribute="leading" id="jU7-gI-5k7"/>
-                            <constraint firstItem="8rZ-be-ofb" firstAttribute="top" secondItem="iya-0o-y6w" secondAttribute="bottom" constant="25" id="rG0-wo-JdW"/>
+                            <constraint firstItem="8rZ-be-ofb" firstAttribute="top" secondItem="iya-0o-y6w" secondAttribute="bottom" constant="12" id="rG0-wo-JdW"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -482,7 +485,7 @@ REGISTRARSE?</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="800"/>
+                    <size key="freeformSize" width="320" height="850"/>
                     <connections>
                         <outlet property="menuButtonClub" destination="6qO-rI-OhO" id="ZVr-hu-wR0"/>
                     </connections>
@@ -4140,7 +4143,7 @@ de La Tercera</string>
                         <viewControllerLayoutGuide type="bottom" id="wPL-zS-4Ru"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c1l-f6-hpV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="xIW-0V-Abg">
@@ -4200,7 +4203,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="89F-gJ-cCJ" customClass="VentasEspecialesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oCa-f6-dfS">
-                        <rect key="frame" x="0.0" y="0.0" width="321" height="404"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
@@ -4321,7 +4324,7 @@ de La Tercera</string>
         <scene sceneID="ygu-ro-zFI">
             <objects>
                 <collectionViewController id="94C-rh-BI8" customClass="CVNoticiasCultura" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="7OL-kE-thT">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="7OL-kE-thT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4473,7 +4476,7 @@ de La Tercera</string>
         <scene sceneID="L5a-rC-VYR">
             <objects>
                 <collectionViewController id="E5J-KX-lxp" customClass="CVNoticiasEntretencion" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="0sP-wY-pkf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="0sP-wY-pkf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4625,7 +4628,7 @@ de La Tercera</string>
         <scene sceneID="LR2-ED-PEe">
             <objects>
                 <collectionViewController id="fwJ-hL-5FX" customClass="CVNoticiasElDeportivo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="kFa-nd-Kzf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="kFa-nd-Kzf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5532,7 +5535,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="NRc-Bo-ZLp" customClass="MiPerfilTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="28" sectionFooterHeight="28" id="lnc-H6-gbB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="404"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
@@ -5665,15 +5668,13 @@ de La Tercera</string>
                         <viewControllerLayoutGuide type="bottom" id="CMx-UM-nSl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SwJ-uJ-oxf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="404"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLTRoja.png" translatesAutoresizingMaskIntoConstraints="NO" id="JOQ-mD-I7F"/>
-                            <view tag="100" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cBV-eJ-Xhe">
-                                <frame key="frameInset" minY="77" width="320" height="403"/>
+                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBV-eJ-Xhe">
                                 <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hkR-4q-SeL">
-                                        <frame key="frameInset" width="320" height="403"/>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hkR-4q-SeL">
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="lSl-vw-SRH" kind="embed" id="5Bg-Jn-cBh"/>
@@ -5736,7 +5737,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="lSl-vw-SRH" customClass="FavoritosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" id="WNQ-1j-ccQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="403"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
