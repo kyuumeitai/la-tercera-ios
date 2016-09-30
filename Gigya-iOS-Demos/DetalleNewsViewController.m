@@ -68,7 +68,7 @@ NSString *textoContenidoTemporal = @"";
     
     // Do any additional setup after loading the view.
     
-    [self loadRelatedArticles];
+    //[self loadRelatedArticles];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,7 +103,7 @@ NSString *textoContenidoTemporal = @"";
                     NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
                 } else {
                     
-                    [self loadRelatedArticleDataFromService:arrayJson];
+                    [self loadRelatedArticleDataFromService:arrayJson andIndexNumber:contando ];
                  
                 }
             });
@@ -308,56 +308,23 @@ NSString *textoContenidoTemporal = @"";
 }
 
 
--(void) loadRelatedArticleDataFromService:(NSArray*)arrayJson{
+-(void) loadRelatedArticleDataFromService:(NSArray*)arrayJson andIndexNumber:(int)indice{
     
     NSDictionary *articleDict = (NSDictionary*)arrayJson;
+    
     NSLog(@"***** Print Related article: %@",arrayJson);
     
-    /*
-    NSString * autor = [articleDict objectForKey:@"author"];
+ 
     NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
     titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
+    
+    
     _titulo.text= titulo;
     _summary.text= [articleDict objectForKey:@"short_description"];
-    slug = [articleDict objectForKey:@"slug"];
+    //slug = [articleDict objectForKey:@"slug"];
     
     _summary.numberOfLines = 0;
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    NSString * originalDateString = [articleDict objectForKey:@"article_date"];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
-    //[dateFormatter setDateStyle:NSDateFormatterLongStyle];
-    NSDate *newsDate = [dateFormatter dateFromString:originalDateString];
-    [dateFormatter setDateFormat:@"dd' de 'MMMM', 'yyyy' / 'HH:mm "];
-    _labelAutor.text = autor;
-    NSString *dateFinalText=[dateFormatter stringFromDate:newsDate];
-    
-    NSLog(@"Fecha es:%@", dateFinalText);
-    _labelFecha.text = dateFinalText;
-    
-    textoContenidoTemporal = [articleDict objectForKey:@"content"];
-    NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSize,textoContenidoTemporal];
-    
-    
-    NSAttributedString *attributedString = [[NSAttributedString alloc]
-                                            initWithData: [finalDescription dataUsingEncoding:NSUnicodeStringEncoding]
-                                            options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
-                                            documentAttributes: nil
-                                            error: nil
-                                            ];
-    _contentTextView.attributedText = attributedString;
-    
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                         _titulo.alpha = 1;
-                         _summary.alpha = 1;
-                         _contentTextView.alpha = 1;
-                         
-                         _labelFecha.alpha = 1;
-                         _labelAutor.alpha = 1;
-                         
-                     }
-                     completion:nil];
+   
     id urlImagen;
     
     if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
@@ -381,27 +348,16 @@ NSString *textoContenidoTemporal = @"";
             [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                              animations:^{
                                  _imagenNews.alpha = 1;
-                                 _upperSeparador.hidden = NO;
-                                 _lowerSeparador.hidden = NO;
+                       
                              }
                              completion:nil];
-            
         });
     });
     
-    //[_contentTextView sizeToFit];
-    self.labelCat.text = self.tituloCategoria;
     
-    [_summary sizeToFit];
     
-    CGRect frame;
-    frame = _contentTextView.frame;
-    frame.size.height = [_contentTextView contentSize].height;
-    _contentTextView.frame = frame;
-    // [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 5000)];
-    //NSLog(@"A %f kms de distancia",distanceMeters);
-     
-     */
+    
+    
 }
 
 

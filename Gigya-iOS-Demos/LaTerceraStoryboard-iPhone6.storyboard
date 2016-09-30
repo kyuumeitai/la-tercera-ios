@@ -854,7 +854,7 @@ REGISTRARSE?</string>
         <scene sceneID="Gsd-9V-kVK">
             <objects>
                 <tableViewController autoresizesArchivedViewToFullSize="NO" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" id="uon-o4-wxz" customClass="MenuViewController" sceneMemberID="viewController">
-                    <tableView key="view" autoresizesSubviews="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="top" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="40" sectionFooterHeight="1" id="GvN-4a-O77">
+                    <tableView key="view" autoresizesSubviews="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="top" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="40" sectionFooterHeight="1" id="GvN-4a-O77">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1163,34 +1163,30 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria10" id="Mga-7m-mzS">
-                                <rect key="frame" x="0.0" y="524" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria10" rowHeight="60" id="Mga-7m-mzS">
+                                <rect key="frame" x="0.0" y="524" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mga-7m-mzS" id="RH0-cO-Bwl">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ver Tour Virtual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ET-12-cXk">
+                                        <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="hcX-2I-ApK">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="119" id="mgo-Rh-PZe"/>
+                                                <constraint firstAttribute="height" constant="11" id="ycA-o7-FLp"/>
                                             </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ver Tour Virtual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ET-12-cXk">
+                                            <frame key="frameInset" minX="22" minY="16" width="119" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
                                             <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="hcX-2I-ApK">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="11" id="PzD-b5-XW2"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="hcX-2I-ApK" secondAttribute="trailing" constant="53" id="0nM-Ct-EJp"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="4ET-12-cXk" secondAttribute="bottom" constant="2" id="M0w-xc-y2c"/>
-                                        <constraint firstItem="hcX-2I-ApK" firstAttribute="top" secondItem="RH0-cO-Bwl" secondAttribute="topMargin" constant="-13" id="fy2-wy-ZXp"/>
-                                        <constraint firstItem="4ET-12-cXk" firstAttribute="top" secondItem="hcX-2I-ApK" secondAttribute="bottom" constant="7" id="hfC-GP-1sU"/>
-                                        <constraint firstItem="4ET-12-cXk" firstAttribute="leading" secondItem="RH0-cO-Bwl" secondAttribute="leadingMargin" constant="13" id="jDP-Uh-gNa"/>
-                                        <constraint firstItem="hcX-2I-ApK" firstAttribute="leading" secondItem="RH0-cO-Bwl" secondAttribute="leading" id="tlt-4Y-ZvU"/>
+                                        <constraint firstItem="hcX-2I-ApK" firstAttribute="leading" secondItem="RH0-cO-Bwl" secondAttribute="leading" id="BBL-9e-0VT"/>
+                                        <constraint firstItem="hcX-2I-ApK" firstAttribute="top" secondItem="RH0-cO-Bwl" secondAttribute="topMargin" constant="-8.5" id="VbJ-am-b51"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hcX-2I-ApK" secondAttribute="trailing" constant="53" id="poO-kz-Idu"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1199,29 +1195,18 @@ REGISTRARSE?</string>
                                     <segue destination="IUM-VR-pR3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="tqi-Nf-HuD"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria12" rowHeight="27" id="iQ2-7t-fbP">
-                                <rect key="frame" x="0.0" y="568" width="375" height="27"/>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria12" rowHeight="13" id="iQ2-7t-fbP">
+                                <rect key="frame" x="0.0" y="584" width="375" height="13"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iQ2-7t-fbP" id="lmh-aO-T4E">
-                                    <frame key="frameInset" width="375" height="27"/>
+                                    <frame key="frameInset" width="375" height="13"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Om-pA-3Uf">
-                                            <frame key="frameInset" width="259" height="11"/>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="9Om-pA-3Uf" secondAttribute="bottom" constant="15" id="0kf-qG-RXD"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="9Om-pA-3Uf" secondAttribute="trailing" constant="53" id="Oxh-FB-ppD"/>
-                                        <constraint firstItem="9Om-pA-3Uf" firstAttribute="leading" secondItem="lmh-aO-T4E" secondAttribute="leading" id="qEh-RQ-Kyb"/>
-                                        <constraint firstItem="9Om-pA-3Uf" firstAttribute="top" secondItem="lmh-aO-T4E" secondAttribute="top" id="r2z-hu-Q2P"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                             <tableViewCell autoresizesSubviews="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria13" rowHeight="73" id="wIJ-se-IOU">
-                                <rect key="frame" x="0.0" y="595" width="375" height="73"/>
+                                <rect key="frame" x="0.0" y="597" width="375" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wIJ-se-IOU" id="Akj-Fw-uG0">
                                     <frame key="frameInset" width="375" height="73"/>
@@ -1292,10 +1277,12 @@ REGISTRARSE?</string>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a32-VP-ogJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="273.5" y="-1618.5"/>
+            <point key="canvasLocation" x="272.80000000000001" y="-1618.7406296851575"/>
         </scene>
         <!--News Category Inicio View Controller-->
         <scene sceneID="whl-V5-alw">
@@ -1753,7 +1740,8 @@ REGISTRARSE?</string>
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
+                                <frame key="frameInset" width="1000" height="1000"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="207" id="JJU-R1-ZLX"/>
                                 </constraints>
@@ -1791,7 +1779,7 @@ REGISTRARSE?</string>
                                     <outlet property="delegate" destination="Uc6-It-8ad" id="VhC-wz-YdW"/>
                                 </connections>
                             </tableView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCz-mG-vNw">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCz-mG-vNw">
                                 <frame key="frameInset" minY="131" width="375" height="52"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rR-Sh-fHN">
@@ -7750,9 +7738,9 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="wa8-wA-Ypp"/>
         <segue reference="JhD-SO-oge"/>
-        <segue reference="Yn4-yz-IfR"/>
-        <segue reference="wuf-Nj-3R8"/>
+        <segue reference="3eI-5G-D6D"/>
         <segue reference="vnn-UP-oet"/>
         <segue reference="tqi-Nf-HuD"/>
     </inferredMetricsTieBreakers>
