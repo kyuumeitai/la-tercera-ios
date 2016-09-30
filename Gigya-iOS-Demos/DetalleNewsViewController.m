@@ -65,11 +65,48 @@ NSString *textoContenidoTemporal = @"";
     _labelAutor.alpha = 0;
     
     // Do any additional setup after loading the view.
+    
+    [self loadRelatedArticles];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) loadRelatedArticles{
+    
+    NSLog(@"El aritrculo id es: %d",idArticulo);
+    
+    int contando = 1;
+    int articuloTemp = 0;
+    while(contando < 5){
+        articuloTemp = idArticulo+contando;
+        NSLog(@"Arituiclo temp:%d",articuloTemp);
+        ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+        BOOL estaConectado = [connectionManager verifyConnection];
+        NSLog(@"Verificando conexión: %d",estaConectado);
+        
+        [connectionManager getArticleWithId:^(BOOL success, NSArray *arrayJson, NSError *error){
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (!success) {
+                    NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+                } else {
+                    
+                    [self loadArticleDataFromService:arrayJson];
+                 
+                }
+            });
+        }:articuloTemp];
+        
+        contando++;
+
+        
+    }
+    
+    
+    
 }
 
 - (NSManagedObjectContext *)managedObjectContext {

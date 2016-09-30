@@ -47,6 +47,29 @@
     self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
 
+    // Init MOCA SDK
+    [MOCA initializeSDK];
+    if (launchOptions != nil) {
+        // Launched from push notification
+        NSDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (notification) {
+            // Notify MOCA the app started from push
+            [MOCA handleRemoteNotification:notification];
+        }
+    }
+    // Optionally, set guest properties
+    /*
+    MOCAInstance * currentInstance = [MOCA currentInstance];
+    if (currentInstance) {
+        
+        // Submit change to the cloud
+        [currentInstance saveWithBlock:^(MOCAInstance *instance, NSError *error) {
+            if (error) {
+                NSLog(@"Save instance failed: %@", error);
+            }
+        }];
+    }
+    */
 return YES;
 }
 
@@ -385,5 +408,35 @@ return YES;
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma mark Notifications
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    if (MOCA.initialized)
+    {
+        [MOCA handleRemoteNotification:userInfo];
+    }
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    if (MOCA.initialized)
+    {
+        [MOCA handleLocalNotification:notification];
+    }
+}
+// Called when your app has been activated by the user selecting an action from a local notification.
+// A nil action identifier indicates the default action.
+// You should call the completion handler as soon as you've finished handling the action.
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier
+forLocalNotification:(UILocalNotification *)notification completionHandler:(void(^)())completionHandler
+{
+    if (MOCA.initialized && [MOCA isMocaLocalNotification:notification])
+    {
+        [MOCA handleActionWithIdentifier:identifier
+                    forLocalNotification:notification];
+    }
+    if (completionHandler) completionHandler ();
+}
 
 @end
