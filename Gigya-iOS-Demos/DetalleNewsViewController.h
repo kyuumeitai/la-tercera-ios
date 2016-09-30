@@ -18,6 +18,7 @@
 @property int idCategoria;
 @property int idArticulo;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property(nonatomic,retain)NSMutableArray *relatedIdsArray;
 
 -(void)loadBenefitForBenefitId:(int)idArticle andCategory:(NSString*)categoria;
 @end

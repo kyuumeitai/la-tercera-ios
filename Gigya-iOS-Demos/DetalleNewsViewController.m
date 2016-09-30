@@ -32,6 +32,8 @@
 @synthesize fetchedResultsController;
 @synthesize idArticulo;
 @synthesize idCategoria;
+@synthesize relatedIdsArray;
+
 int fontSize = 16;
 
 NSString *slug = @"";
@@ -76,13 +78,20 @@ NSString *textoContenidoTemporal = @"";
 
 - (void) loadRelatedArticles{
     
-    NSLog(@"El aritrculo id es: %d",idArticulo);
+    NSLog(@"El articulo id es: %d",idArticulo);
+    NSLog(@"Entonces el array de Noticias Relacionadas es: %@.",relatedIdsArray);
     
     int contando = 1;
-    int articuloTemp = 0;
-    while(contando < 5){
-        articuloTemp = idArticulo+contando;
-        NSLog(@"Arituiclo temp:%d",articuloTemp);
+    
+    for (NSNumber *idArtTemp in relatedIdsArray) {
+    if (contando >4)
+        return;
+    
+        int idArtInt = [idArtTemp intValue];
+        if (idArtInt == idArticulo ){
+            NSLog(@" es el mesmiitoh ");
+        }else{
+                   NSLog(@"Arituiclo temp:%d",idArtInt);
         ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
         BOOL estaConectado = [connectionManager verifyConnection];
         NSLog(@"Verificando conexión: %d",estaConectado);
@@ -94,18 +103,15 @@ NSString *textoContenidoTemporal = @"";
                     NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
                 } else {
                     
-                    [self loadArticleDataFromService:arrayJson];
+                    [self loadRelatedArticleDataFromService:arrayJson];
                  
                 }
             });
-        }:articuloTemp];
+        }:idArtInt];
         
         contando++;
-
-        
+        }
     }
-    
-    
     
 }
 
@@ -300,6 +306,104 @@ NSString *textoContenidoTemporal = @"";
         });
     }:idArticle];
 }
+
+
+-(void) loadRelatedArticleDataFromService:(NSArray*)arrayJson{
+    
+    NSDictionary *articleDict = (NSDictionary*)arrayJson;
+    NSLog(@"***** Print Related article: %@",arrayJson);
+    
+    /*
+    NSString * autor = [articleDict objectForKey:@"author"];
+    NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+    titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
+    _titulo.text= titulo;
+    _summary.text= [articleDict objectForKey:@"short_description"];
+    slug = [articleDict objectForKey:@"slug"];
+    
+    _summary.numberOfLines = 0;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    NSString * originalDateString = [articleDict objectForKey:@"article_date"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+    //[dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    NSDate *newsDate = [dateFormatter dateFromString:originalDateString];
+    [dateFormatter setDateFormat:@"dd' de 'MMMM', 'yyyy' / 'HH:mm "];
+    _labelAutor.text = autor;
+    NSString *dateFinalText=[dateFormatter stringFromDate:newsDate];
+    
+    NSLog(@"Fecha es:%@", dateFinalText);
+    _labelFecha.text = dateFinalText;
+    
+    textoContenidoTemporal = [articleDict objectForKey:@"content"];
+    NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSize,textoContenidoTemporal];
+    
+    
+    NSAttributedString *attributedString = [[NSAttributedString alloc]
+                                            initWithData: [finalDescription dataUsingEncoding:NSUnicodeStringEncoding]
+                                            options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                                            documentAttributes: nil
+                                            error: nil
+                                            ];
+    _contentTextView.attributedText = attributedString;
+    
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         _titulo.alpha = 1;
+                         _summary.alpha = 1;
+                         _contentTextView.alpha = 1;
+                         
+                         _labelFecha.alpha = 1;
+                         _labelAutor.alpha = 1;
+                         
+                     }
+                     completion:nil];
+    id urlImagen;
+    
+    if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
+        urlImagen = @"https://placekitten.com/400/400";
+    }else{
+        urlImagen = [articleDict objectForKey:@"image_url"];
+    }
+    
+    
+    NSURL *url = [NSURL URLWithString:urlImagen];
+    
+    _imagenNews.image = [UIImage imageNamed:@"icn_default"];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    dispatch_async(queue, ^{
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *image = [UIImage imageWithData:data];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _imagenNews.image = image;
+            
+            
+            [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                             animations:^{
+                                 _imagenNews.alpha = 1;
+                                 _upperSeparador.hidden = NO;
+                                 _lowerSeparador.hidden = NO;
+                             }
+                             completion:nil];
+            
+        });
+    });
+    
+    //[_contentTextView sizeToFit];
+    self.labelCat.text = self.tituloCategoria;
+    
+    [_summary sizeToFit];
+    
+    CGRect frame;
+    frame = _contentTextView.frame;
+    frame.size.height = [_contentTextView contentSize].height;
+    _contentTextView.frame = frame;
+    // [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 5000)];
+    //NSLog(@"A %f kms de distancia",distanceMeters);
+     
+     */
+}
+
 
 -(void) loadArticleDataFromService:(NSArray*)arrayJson{
     
