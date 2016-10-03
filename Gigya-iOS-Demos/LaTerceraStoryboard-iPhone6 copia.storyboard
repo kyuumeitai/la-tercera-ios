@@ -298,7 +298,7 @@ REGISTRARSE?</string>
             <objects>
                 <navigationController storyboardIdentifier="initialViewController" navigationBarHidden="YES" id="GVp-39-K6N" customClass="InitialViewController" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hih-em-URh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hih-em-URh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1321,7 +1321,7 @@ REGISTRARSE?</string>
         <scene sceneID="C4h-Xp-o5n">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="SYc-4s-vqG" customClass="CVNoticiasInicio" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="C3w-uL-EQG">
+                    <collectionView key="view" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="C3w-uL-EQG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1733,23 +1733,16 @@ REGISTRARSE?</string>
                                     <action selector="backButtonPressed:" destination="Uc6-It-8ad" eventType="touchUpInside" id="laO-S2-mNl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Wf-3B-RVb">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Wf-3B-RVb">
+                                <frame key="frameInset" minX="300" minY="83" width="75" height="44"/>
                                 <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
                                 <state key="normal" title="Buscar">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
-                                <frame key="frameInset" width="1000" height="1000"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="207" id="JJU-R1-ZLX"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="YpZ-qM-Zfn" id="qs1-y0-Gw2"/>
-                                </connections>
-                            </mapView>
-                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Buscar Descuentos" scopeBarBackgroundImage="CellNormal.png" translatesAutoresizingMaskIntoConstraints="NO" id="1DB-2m-DGQ">
+                            <searchBar contentMode="redraw" misplaced="YES" searchBarStyle="prominent" placeholder="Buscar Descuentos" scopeBarBackgroundImage="CellNormal.png" translatesAutoresizingMaskIntoConstraints="NO" id="1DB-2m-DGQ">
+                                <frame key="frameInset" minY="83" width="300" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="Uc6-It-8ad" id="VYp-7s-txs"/>
@@ -1779,10 +1772,10 @@ REGISTRARSE?</string>
                                     <outlet property="delegate" destination="Uc6-It-8ad" id="VhC-wz-YdW"/>
                                 </connections>
                             </tableView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCz-mG-vNw">
-                                <frame key="frameInset" minY="131" width="375" height="52"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCz-mG-vNw">
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rR-Sh-fHN">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0rR-Sh-fHN">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arh-8q-SxO">
                                                 <state key="normal" backgroundImage="botonTodosOff.png">
@@ -1910,34 +1903,42 @@ REGISTRARSE?</string>
                                 </constraints>
                                 <state key="normal" backgroundImage="updateMap.png"/>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="JJU-R1-ZLX"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="YpZ-qM-Zfn" id="qs1-y0-Gw2"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6fa-yo-9V4" firstAttribute="bottom" secondItem="g7v-Y4-6sA" secondAttribute="top" id="0WS-hj-LU9"/>
                             <constraint firstItem="Spn-zu-oet" firstAttribute="leading" secondItem="YpZ-qM-Zfn" secondAttribute="leadingMargin" constant="-11" id="1ya-JK-ODo"/>
-                            <constraint firstItem="g7v-Y4-6sA" firstAttribute="top" secondItem="Wsm-WF-ByM" secondAttribute="bottom" constant="277" id="4nB-ig-DRE"/>
-                            <constraint firstItem="Wsm-WF-ByM" firstAttribute="top" secondItem="jCz-mG-vNw" secondAttribute="bottom" id="7RZ-PY-kBC"/>
-                            <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="yL5-Z8-hMZ" secondAttribute="bottom" constant="10" id="7SB-xD-QYG"/>
+                            <constraint firstItem="g7v-Y4-6sA" firstAttribute="top" secondItem="Wsm-WF-ByM" secondAttribute="bottom" constant="273" id="4nB-ig-DRE"/>
+                            <constraint firstItem="Wsm-WF-ByM" firstAttribute="top" secondItem="jCz-mG-vNw" secondAttribute="bottom" constant="-5" id="7RZ-PY-kBC"/>
+                            <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="yL5-Z8-hMZ" secondAttribute="bottom" constant="7" id="7SB-xD-QYG"/>
                             <constraint firstItem="6fa-yo-9V4" firstAttribute="top" secondItem="6nO-zR-QMo" secondAttribute="bottom" constant="8" symbolic="YES" id="8Es-IV-H5n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6nO-zR-QMo" secondAttribute="trailing" id="9fb-K5-IZX"/>
                             <constraint firstItem="yL5-Z8-hMZ" firstAttribute="leading" secondItem="1DB-2m-DGQ" secondAttribute="leading" id="ASJ-A7-0AI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bi9-qh-sbZ" secondAttribute="trailing" constant="-10" id="Ily-b1-wj3"/>
                             <constraint firstItem="Spn-zu-oet" firstAttribute="centerY" secondItem="9lh-Ox-HQh" secondAttribute="centerY" id="KuP-9c-abD"/>
-                            <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="6nO-zR-QMo" secondAttribute="leading" constant="-4" id="Lcg-z0-hqm"/>
+                            <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="6nO-zR-QMo" secondAttribute="leading" constant="-13" id="Lcg-z0-hqm"/>
                             <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="1DB-2m-DGQ" secondAttribute="trailing" id="MK3-A2-tGx"/>
                             <constraint firstItem="bi9-qh-sbZ" firstAttribute="leading" secondItem="YpZ-qM-Zfn" secondAttribute="leading" constant="214" id="OYu-Q4-Bzr"/>
-                            <constraint firstItem="jCz-mG-vNw" firstAttribute="top" secondItem="1DB-2m-DGQ" secondAttribute="bottom" id="Oyk-cI-3Je"/>
+                            <constraint firstItem="jCz-mG-vNw" firstAttribute="top" secondItem="1DB-2m-DGQ" secondAttribute="bottom" constant="4" id="Oyk-cI-3Je"/>
                             <constraint firstItem="9lh-Ox-HQh" firstAttribute="leading" secondItem="Spn-zu-oet" secondAttribute="trailing" constant="8" symbolic="YES" id="Q1V-po-pne"/>
                             <constraint firstItem="jCz-mG-vNw" firstAttribute="leading" secondItem="Wsm-WF-ByM" secondAttribute="leading" id="Qxi-NI-Lf2"/>
-                            <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="9lh-Ox-HQh" secondAttribute="bottom" constant="17" id="Rk3-E0-fcn"/>
+                            <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="9lh-Ox-HQh" secondAttribute="bottom" constant="14" id="Rk3-E0-fcn"/>
                             <constraint firstItem="yL5-Z8-hMZ" firstAttribute="leading" secondItem="YpZ-qM-Zfn" secondAttribute="leading" id="Umd-Xi-7Ud"/>
                             <constraint firstItem="jCz-mG-vNw" firstAttribute="trailing" secondItem="Wsm-WF-ByM" secondAttribute="trailing" id="bZr-ve-Eb7"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="bottom" secondItem="1Wf-3B-RVb" secondAttribute="bottom" id="crg-hA-rAQ"/>
-                            <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="Spn-zu-oet" secondAttribute="bottom" constant="13" id="eVl-Qq-oWF"/>
+                            <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="Spn-zu-oet" secondAttribute="bottom" constant="10" id="eVl-Qq-oWF"/>
                             <constraint firstItem="Wsm-WF-ByM" firstAttribute="leading" secondItem="6fa-yo-9V4" secondAttribute="leading" id="exu-4R-9Gw"/>
                             <constraint firstItem="Wsm-WF-ByM" firstAttribute="trailing" secondItem="6fa-yo-9V4" secondAttribute="trailing" id="fSC-h3-Nhw"/>
                             <constraint firstAttribute="trailing" secondItem="yL5-Z8-hMZ" secondAttribute="trailing" id="moG-WX-K5I"/>
-                            <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="bi9-qh-sbZ" secondAttribute="bottom" constant="17" id="myq-md-VfA"/>
+                            <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="bi9-qh-sbZ" secondAttribute="bottom" constant="14" id="myq-md-VfA"/>
                             <constraint firstItem="yL5-Z8-hMZ" firstAttribute="top" secondItem="YpZ-qM-Zfn" secondAttribute="top" id="p3b-zh-Skb"/>
                             <constraint firstItem="Spn-zu-oet" firstAttribute="top" secondItem="NNW-UA-OuE" secondAttribute="bottom" constant="7" id="pjN-x6-L0S"/>
                             <constraint firstItem="yL5-Z8-hMZ" firstAttribute="trailing" secondItem="1Wf-3B-RVb" secondAttribute="trailing" id="rZ2-kE-NpN"/>
@@ -2089,7 +2090,7 @@ REGISTRARSE?</string>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z4a-GB-7Hq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z4a-GB-7Hq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2723,7 +2724,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxh-0L-hJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4661.5" y="1899.5"/>
+            <point key="canvasLocation" x="-4100" y="1908"/>
         </scene>
         <!--Tiempo Libre Table View-->
         <scene sceneID="QQN-Q9-ykW">
@@ -3710,7 +3711,7 @@ de tu descuento.</string>
         <scene sceneID="sUa-Lq-Mqe">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionNegocios" autoresizesArchivedViewToFullSize="NO" id="b5S-Wx-wkN" customClass="CVNegocios" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" dataMode="prototypes" id="uzd-Pj-NL4">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" dataMode="prototypes" id="uzd-Pj-NL4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4735,7 +4736,7 @@ de La Tercera</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mx6-Eo-Ff1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1415.625" y="1910.9154929577464"/>
+            <point key="canvasLocation" x="-1353" y="2203"/>
         </scene>
         <!--ViajesClub-->
         <scene sceneID="MnV-Or-1z9">
@@ -5078,7 +5079,7 @@ de La Tercera</string>
         <scene sceneID="kO4-N2-n99">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionElDeportivo" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="6Fm-tF-vXq" customClass="CVElDeportivo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="d7Y-uL-ajO">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="d7Y-uL-ajO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5425,7 +5426,7 @@ de La Tercera</string>
         <scene sceneID="Jtf-eI-5B3">
             <objects>
                 <collectionViewController id="wwa-n8-FIc" customClass="CVNoticiasPolitica" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="q3p-lK-1jh">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="q3p-lK-1jh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5692,7 +5693,7 @@ de La Tercera</string>
         <scene sceneID="NEb-IA-Cy2">
             <objects>
                 <collectionViewController id="76x-PL-CyU" customClass="CVNoticiasNegocios" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="3hz-1t-Nct">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="3hz-1t-Nct">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5872,7 +5873,7 @@ de La Tercera</string>
         <scene sceneID="Lbb-Mb-WZn">
             <objects>
                 <collectionViewController id="mlH-VH-rW4" customClass="CVNoticiasCultura" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="QAL-lD-aX0">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="QAL-lD-aX0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -7327,7 +7328,7 @@ de La Tercera</string>
                         <viewControllerLayoutGuide type="bottom" id="XMp-7Y-zoQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cIg-mT-PPa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="2000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1104"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wlk-rF-wZC">
@@ -7386,7 +7387,7 @@ de La Tercera</string>
                                 </variation>
                             </view>
                             <scrollView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Lah-vw-dZL">
-                                <frame key="frameInset" minY="93" width="375" height="1887"/>
+                                <frame key="frameInset" minY="93" width="375" height="991"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Presidente del Senado propone contrapesar poder de Hacienda en materia presupuestaria" textAlignment="justified" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nYU-H2-4gE">
                                         <rect key="frame" x="21" y="70" width="334" height="99"/>
@@ -7519,20 +7520,13 @@ de La Tercera</string>
                                             </mask>
                                         </variation>
                                     </textView>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b1B-00-BbV">
-                                        <rect key="frame" x="20" y="1001" width="331" height="865"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="865" id="ewc-Nc-WgS"/>
-                                            <constraint firstAttribute="width" constant="331" id="rbs-hX-5Rt"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="rlQ-DY-Vo7" firstAttribute="baseline" secondItem="6SW-Nb-gDc" secondAttribute="baseline" id="1wU-Vm-ZuG"/>
                                     <constraint firstItem="nYU-H2-4gE" firstAttribute="top" secondItem="8uC-oN-aJA" secondAttribute="bottom" constant="11" id="4Xr-if-6It"/>
                                     <constraint firstAttribute="trailing" secondItem="791-hr-bfN" secondAttribute="trailing" constant="17" id="60N-71-79b"/>
                                     <constraint firstAttribute="bottom" secondItem="GdF-yH-5Z9" secondAttribute="bottom" constant="39" id="62b-B9-wGV"/>
+                                    <constraint firstAttribute="bottom" secondItem="GdF-yH-5Z9" secondAttribute="bottom" constant="48" id="6r9-YX-map"/>
                                     <constraint firstItem="GdF-yH-5Z9" firstAttribute="top" secondItem="TMC-5c-gxS" secondAttribute="bottom" constant="5" id="7Fl-Ha-gJ2"/>
                                     <constraint firstItem="rlQ-DY-Vo7" firstAttribute="centerY" secondItem="6SW-Nb-gDc" secondAttribute="centerY" id="7Um-26-xTK"/>
                                     <constraint firstItem="Gx3-zG-rka" firstAttribute="top" secondItem="iGz-n2-CJz" secondAttribute="bottom" constant="3" id="8th-ck-Liq"/>
@@ -7548,13 +7542,11 @@ de La Tercera</string>
                                     <constraint firstItem="nYU-H2-4gE" firstAttribute="centerX" secondItem="Lah-vw-dZL" secondAttribute="centerX" id="H6F-uL-iU0"/>
                                     <constraint firstItem="Voe-tK-Tcd" firstAttribute="top" secondItem="791-hr-bfN" secondAttribute="bottom" constant="8" id="Hhi-Od-zvH"/>
                                     <constraint firstItem="Gx3-zG-rka" firstAttribute="leading" secondItem="Lah-vw-dZL" secondAttribute="leading" constant="23" id="J7M-j7-Vo1"/>
-                                    <constraint firstItem="b1B-00-BbV" firstAttribute="top" secondItem="GdF-yH-5Z9" secondAttribute="bottom" constant="24" id="K2D-a2-LMw"/>
                                     <constraint firstItem="bNl-4x-ZMM" firstAttribute="top" secondItem="Lah-vw-dZL" secondAttribute="top" constant="20" id="KUi-a6-pgP"/>
                                     <constraint firstItem="Cee-VY-hSk" firstAttribute="top" secondItem="791-hr-bfN" secondAttribute="bottom" constant="17" id="KlA-DA-ST8"/>
                                     <constraint firstAttribute="trailing" secondItem="TMC-5c-gxS" secondAttribute="trailing" constant="24" id="LJ4-k4-dgH"/>
                                     <constraint firstItem="Cee-VY-hSk" firstAttribute="leading" secondItem="Lah-vw-dZL" secondAttribute="leading" constant="30" id="LR9-MK-1QF"/>
                                     <constraint firstItem="Cee-VY-hSk" firstAttribute="top" secondItem="Voe-tK-Tcd" secondAttribute="bottom" constant="1" id="LsW-sk-iZp"/>
-                                    <constraint firstItem="b1B-00-BbV" firstAttribute="leading" secondItem="Lah-vw-dZL" secondAttribute="leading" constant="20" id="M7b-az-ABu"/>
                                     <constraint firstItem="iGz-n2-CJz" firstAttribute="top" secondItem="Voe-tK-Tcd" secondAttribute="bottom" constant="7" id="O0p-YW-swq"/>
                                     <constraint firstItem="rlQ-DY-Vo7" firstAttribute="top" secondItem="Lah-vw-dZL" secondAttribute="top" constant="7" id="OIR-p5-r3K"/>
                                     <constraint firstItem="8uC-oN-aJA" firstAttribute="centerX" secondItem="TMC-5c-gxS" secondAttribute="centerX" id="PNS-Ph-QlI"/>
@@ -7566,7 +7558,6 @@ de La Tercera</string>
                                     <constraint firstItem="bNl-4x-ZMM" firstAttribute="leading" secondItem="Lah-vw-dZL" secondAttribute="leading" constant="22" id="UKI-83-2zK"/>
                                     <constraint firstItem="TMC-5c-gxS" firstAttribute="top" secondItem="iGz-n2-CJz" secondAttribute="bottom" constant="15" id="UZd-Hr-AEZ"/>
                                     <constraint firstAttribute="trailing" secondItem="GdF-yH-5Z9" secondAttribute="trailing" constant="25" id="Uwg-oW-WV5"/>
-                                    <constraint firstAttribute="bottom" secondItem="b1B-00-BbV" secondAttribute="bottom" constant="21" id="VIc-Th-c3g"/>
                                     <constraint firstItem="iGz-n2-CJz" firstAttribute="leading" secondItem="Cee-VY-hSk" secondAttribute="trailing" constant="8" id="YSV-yK-PZt"/>
                                     <constraint firstItem="6SW-Nb-gDc" firstAttribute="leading" secondItem="rlQ-DY-Vo7" secondAttribute="trailing" constant="8" symbolic="YES" id="Zl4-EI-qjx"/>
                                     <constraint firstAttribute="trailing" secondItem="Voe-tK-Tcd" secondAttribute="trailing" constant="26" id="Znx-OH-qgg"/>
@@ -7623,6 +7614,7 @@ de La Tercera</string>
                             <constraint firstItem="Wlk-rF-wZC" firstAttribute="top" secondItem="5sb-44-aWy" secondAttribute="bottom" constant="-70" id="4rc-oH-qpR"/>
                             <constraint firstItem="Wlk-rF-wZC" firstAttribute="top" secondItem="5sb-44-aWy" secondAttribute="bottom" constant="-66" id="6Xb-74-QeR"/>
                             <constraint firstItem="XEJ-1T-06x" firstAttribute="top" secondItem="Wlk-rF-wZC" secondAttribute="bottom" constant="-63" id="89E-Kg-bxp"/>
+                            <constraint firstItem="XMp-7Y-zoQ" firstAttribute="top" secondItem="Lah-vw-dZL" secondAttribute="bottom" constant="20" id="EcD-cr-peu"/>
                             <constraint firstItem="Wlk-rF-wZC" firstAttribute="trailing" secondItem="shL-tu-SHk" secondAttribute="trailing" id="EfC-d2-EUS"/>
                             <constraint firstItem="Lah-vw-dZL" firstAttribute="leading" secondItem="cIg-mT-PPa" secondAttribute="leading" id="IIS-yJ-bdJ"/>
                             <constraint firstItem="Wlk-rF-wZC" firstAttribute="leading" secondItem="cIg-mT-PPa" secondAttribute="leading" id="JJK-4I-qzD"/>
@@ -7632,7 +7624,6 @@ de La Tercera</string>
                             <constraint firstItem="h5i-FU-Wll" firstAttribute="top" secondItem="Wlk-rF-wZC" secondAttribute="bottom" constant="-55" id="ZNA-7r-9x6"/>
                             <constraint firstItem="XEJ-1T-06x" firstAttribute="leading" secondItem="cIg-mT-PPa" secondAttribute="leadingMargin" constant="-14" id="bbe-uK-2Sx"/>
                             <constraint firstItem="Lah-vw-dZL" firstAttribute="trailing" secondItem="shL-tu-SHk" secondAttribute="trailing" id="bdS-mZ-f3T"/>
-                            <constraint firstItem="XMp-7Y-zoQ" firstAttribute="top" secondItem="Lah-vw-dZL" secondAttribute="bottom" constant="20" id="bkK-gX-b1Y"/>
                             <constraint firstItem="Lah-vw-dZL" firstAttribute="trailing" secondItem="Wlk-rF-wZC" secondAttribute="trailing" id="cc4-mv-Qj5"/>
                             <constraint firstItem="Wlk-rF-wZC" firstAttribute="leading" secondItem="Lah-vw-dZL" secondAttribute="leading" id="eXS-Y9-QmG"/>
                             <constraint firstItem="Lah-vw-dZL" firstAttribute="leading" secondItem="Wlk-rF-wZC" secondAttribute="leading" id="f9b-Ne-vch"/>
@@ -7660,7 +7651,7 @@ de La Tercera</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="2000"/>
+                    <size key="freeformSize" width="375" height="1104"/>
                     <connections>
                         <outlet property="contentTextView" destination="GdF-yH-5Z9" id="6nx-Td-oRL"/>
                         <outlet property="imagenNews" destination="TMC-5c-gxS" id="Ruv-XU-ku1"/>
@@ -7676,7 +7667,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZS-3W-8EK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5533.6000000000004" y="644.07796101949032"/>
+            <point key="canvasLocation" x="-5975" y="758"/>
         </scene>
     </scenes>
     <resources>
