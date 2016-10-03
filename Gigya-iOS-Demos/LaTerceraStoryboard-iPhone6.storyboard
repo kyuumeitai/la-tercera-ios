@@ -1740,21 +1740,14 @@ REGISTRARSE?</string>
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
-                                <frame key="frameInset" width="1000" height="1000"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="207" id="JJU-R1-ZLX"/>
+                                    <constraint firstAttribute="height" constant="223" id="JJU-R1-ZLX"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="YpZ-qM-Zfn" id="qs1-y0-Gw2"/>
                                 </connections>
                             </mapView>
-                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Buscar Descuentos" scopeBarBackgroundImage="CellNormal.png" translatesAutoresizingMaskIntoConstraints="NO" id="1DB-2m-DGQ">
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Uc6-It-8ad" id="VYp-7s-txs"/>
-                                </connections>
-                            </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-qh-sbZ">
                                 <color key="backgroundColor" red="0.70226532220840454" green="0.15807917714118958" blue="0.17483633756637573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -1779,129 +1772,6 @@ REGISTRARSE?</string>
                                     <outlet property="delegate" destination="Uc6-It-8ad" id="VhC-wz-YdW"/>
                                 </connections>
                             </tableView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCz-mG-vNw">
-                                <frame key="frameInset" minY="131" width="375" height="52"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rR-Sh-fHN">
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arh-8q-SxO">
-                                                <state key="normal" backgroundImage="botonTodosOff.png">
-                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <state key="selected" backgroundImage="botonTodosOn.png"/>
-                                                <state key="focused" backgroundImage="botonTodosOn.png"/>
-                                                <connections>
-                                                    <action selector="todosClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="uhH-Xp-FBv"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyT-nS-1w1">
-                                                <state key="normal" backgroundImage="botonSaboresOff.png">
-                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <state key="selected" backgroundImage="botonSaboresOn.png"/>
-                                                <state key="focused" backgroundImage="botonSaboresOn.png"/>
-                                                <connections>
-                                                    <action selector="saboresClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="B9i-HU-CG1"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rG8-2y-dmJ">
-                                                <state key="normal" backgroundImage="botonTiempoLibreOff.png">
-                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <state key="selected" backgroundImage="botonTiempoLibreOn.png"/>
-                                                <state key="focused" backgroundImage="botonTiempoLibreOn.png"/>
-                                                <connections>
-                                                    <action selector="tiempoLibreClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="v4o-qJ-WVq"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyt-ox-K1d">
-                                                <state key="normal" backgroundImage="botonVidaSanaOff.png">
-                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <state key="selected" backgroundImage="botonVidaSanaOn.png"/>
-                                                <state key="highlighted" backgroundImage="botonVidaSanaOn.png"/>
-                                                <connections>
-                                                    <action selector="vidaSanaClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="es3-Vx-idw"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOy-OP-85b">
-                                                <state key="normal" backgroundImage="botonMastercardOff.png">
-                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <state key="selected" backgroundImage="botonMastercardOn.png"/>
-                                                <state key="highlighted" backgroundImage=" "/>
-                                                <state key="focused" backgroundImage="botonMastercardOn.png"/>
-                                                <connections>
-                                                    <action selector="mastercardClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="rBr-Pf-bnp"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNq-OX-5Kf">
-                                                <state key="normal" backgroundImage="botonViajesOff.png">
-                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <state key="selected" backgroundImage="botonViajesOn.png"/>
-                                                <state key="focused" backgroundImage="botonViajesOn.png"/>
-                                                <connections>
-                                                    <action selector="viajesClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="1SG-gd-MD9"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbe-IV-xS5">
-                                                <state key="normal" backgroundImage="botonServiciosOff.png">
-                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <state key="selected" backgroundImage="botonServiciosOn.png"/>
-                                                <state key="focused" backgroundImage="botonServiciosOn.png"/>
-                                                <connections>
-                                                    <action selector="serviciosClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="rmr-nk-j57"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gw-o7-k8E">
-                                                <state key="normal" backgroundImage="botonInfantilOff.png">
-                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <state key="selected" backgroundImage="botonInfantilOn.png"/>
-                                                <state key="focused" backgroundImage="botonInfantilOff.png"/>
-                                                <connections>
-                                                    <action selector="infantilClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="Hto-6E-oYA"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="iOy-OP-85b" firstAttribute="top" secondItem="xbe-IV-xS5" secondAttribute="top" id="8Xr-vn-NbZ"/>
-                                            <constraint firstItem="lNq-OX-5Kf" firstAttribute="leading" secondItem="iOy-OP-85b" secondAttribute="trailing" constant="80" id="BT8-wb-yhE"/>
-                                            <constraint firstItem="rG8-2y-dmJ" firstAttribute="top" secondItem="eyt-ox-K1d" secondAttribute="top" id="FVe-Vg-Kct"/>
-                                            <constraint firstItem="lNq-OX-5Kf" firstAttribute="leading" secondItem="xbe-IV-xS5" secondAttribute="trailing" constant="3" id="Ffz-yL-amg"/>
-                                            <constraint firstItem="8Gw-o7-k8E" firstAttribute="leading" secondItem="kyT-nS-1w1" secondAttribute="trailing" constant="5" id="KJq-YI-UZ5"/>
-                                            <constraint firstItem="rG8-2y-dmJ" firstAttribute="leading" secondItem="8Gw-o7-k8E" secondAttribute="trailing" id="QeS-zr-EYO"/>
-                                            <constraint firstItem="iOy-OP-85b" firstAttribute="leading" secondItem="rG8-2y-dmJ" secondAttribute="trailing" constant="80" id="RpO-h9-bXn"/>
-                                            <constraint firstItem="iOy-OP-85b" firstAttribute="leading" secondItem="eyt-ox-K1d" secondAttribute="trailing" constant="2" id="Un6-9G-ka7"/>
-                                            <constraint firstAttribute="trailing" secondItem="lNq-OX-5Kf" secondAttribute="trailing" constant="13" id="YE7-Qd-YKu"/>
-                                            <constraint firstItem="arh-8q-SxO" firstAttribute="top" secondItem="0rR-Sh-fHN" secondAttribute="top" constant="5" id="a2e-6b-DYK"/>
-                                            <constraint firstItem="xbe-IV-xS5" firstAttribute="top" secondItem="lNq-OX-5Kf" secondAttribute="top" id="ac7-9n-MO5"/>
-                                            <constraint firstItem="kyT-nS-1w1" firstAttribute="leading" secondItem="arh-8q-SxO" secondAttribute="trailing" constant="3" id="eNM-Gr-7H6"/>
-                                            <constraint firstItem="arh-8q-SxO" firstAttribute="leading" secondItem="0rR-Sh-fHN" secondAttribute="leading" constant="6" id="ee8-rv-D0A"/>
-                                            <constraint firstItem="8Gw-o7-k8E" firstAttribute="top" secondItem="rG8-2y-dmJ" secondAttribute="top" id="fGI-0I-XHw"/>
-                                            <constraint firstItem="arh-8q-SxO" firstAttribute="top" secondItem="kyT-nS-1w1" secondAttribute="top" id="fLb-1j-auJ"/>
-                                            <constraint firstItem="eyt-ox-K1d" firstAttribute="top" secondItem="iOy-OP-85b" secondAttribute="top" id="nHP-pD-cBk"/>
-                                            <constraint firstItem="kyT-nS-1w1" firstAttribute="top" secondItem="8Gw-o7-k8E" secondAttribute="top" id="q1f-Sw-OLd"/>
-                                            <constraint firstAttribute="bottom" secondItem="arh-8q-SxO" secondAttribute="bottom" id="vkY-sy-v2f"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="0rR-Sh-fHN" firstAttribute="leading" secondItem="jCz-mG-vNw" secondAttribute="leading" id="dAo-we-jnS"/>
-                                    <constraint firstAttribute="bottom" secondItem="0rR-Sh-fHN" secondAttribute="bottom" constant="5" id="qDp-vj-sL1"/>
-                                    <constraint firstAttribute="trailing" secondItem="0rR-Sh-fHN" secondAttribute="trailing" constant="-245" id="sd3-22-63t"/>
-                                    <constraint firstItem="0rR-Sh-fHN" firstAttribute="top" secondItem="jCz-mG-vNw" secondAttribute="top" id="x4a-i5-mSK"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
-                                        <size key="value" width="620" height="50"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nO-zR-QMo">
                                 <frame key="frameInset" minX="313" minY="336" width="46" height="46"/>
                                 <constraints>
@@ -1910,31 +1780,138 @@ REGISTRARSE?</string>
                                 </constraints>
                                 <state key="normal" backgroundImage="updateMap.png"/>
                             </button>
+                            <searchBar contentMode="redraw" misplaced="YES" searchBarStyle="prominent" placeholder="Buscar Descuentos" scopeBarBackgroundImage="CellNormal.png" translatesAutoresizingMaskIntoConstraints="NO" id="1DB-2m-DGQ">
+                                <frame key="frameInset" minX="1" minY="86" width="300" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Uc6-It-8ad" id="VYp-7s-txs"/>
+                                </connections>
+                            </searchBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfE-t3-j9D">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ii2-PD-af7">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QS4-WP-51D">
+                                                <state key="normal" backgroundImage="botonTodosOff.png">
+                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="botonTodosOn.png"/>
+                                                <state key="focused" backgroundImage="botonTodosOn.png"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oh4-42-9Vz">
+                                                <state key="normal" backgroundImage="botonSaboresOff.png">
+                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="botonSaboresOn.png"/>
+                                                <state key="focused" backgroundImage="botonSaboresOn.png"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGM-zC-RuM">
+                                                <state key="normal" backgroundImage="botonInfantilOff.png">
+                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="botonInfantilOn.png"/>
+                                                <state key="focused" backgroundImage="botonInfantilOn.png"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1O-iN-d1q">
+                                                <state key="normal" backgroundImage="botonTiempoLibreOff.png">
+                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="botonTiempoLibreOn.png"/>
+                                                <state key="focused" backgroundImage="botonTiempoLibreOn.png"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7o9-j9-5yb">
+                                                <state key="normal" backgroundImage="botonVidaSanaOff.png">
+                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="botonVidaSanaOn.png"/>
+                                                <state key="highlighted" backgroundImage="botonVidaSanaOn.png"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2b-5s-aRq">
+                                                <state key="normal" backgroundImage="botonMastercardOff.png">
+                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="botonMastercardOn.png"/>
+                                                <state key="highlighted" backgroundImage=" "/>
+                                                <state key="focused" backgroundImage="botonMastercardOn.png"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ear-A0-uG2">
+                                                <state key="normal" backgroundImage="botonViajesOff.png">
+                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="botonViajesOn.png"/>
+                                                <state key="focused" backgroundImage="botonViajesOn.png"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ZI-ev-Uq8">
+                                                <state key="normal" backgroundImage="botonServiciosOff.png">
+                                                    <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="botonServiciosOn.png"/>
+                                                <state key="focused" backgroundImage="botonServiciosOn.png"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="Oh4-42-9Vz" firstAttribute="top" secondItem="qGM-zC-RuM" secondAttribute="top" id="3yX-OW-fNX"/>
+                                            <constraint firstItem="7o9-j9-5yb" firstAttribute="top" secondItem="e2b-5s-aRq" secondAttribute="top" id="5KB-nW-NzD"/>
+                                            <constraint firstItem="e2b-5s-aRq" firstAttribute="top" secondItem="0ZI-ev-Uq8" secondAttribute="top" id="7hG-Y3-PwC"/>
+                                            <constraint firstItem="qGM-zC-RuM" firstAttribute="top" secondItem="b1O-iN-d1q" secondAttribute="top" id="Bdk-lA-0eY"/>
+                                            <constraint firstItem="QS4-WP-51D" firstAttribute="top" secondItem="Oh4-42-9Vz" secondAttribute="top" id="D3g-W2-q6t"/>
+                                            <constraint firstItem="Oh4-42-9Vz" firstAttribute="leading" secondItem="QS4-WP-51D" secondAttribute="trailing" constant="2" id="Gc3-zh-OBn"/>
+                                            <constraint firstItem="b1O-iN-d1q" firstAttribute="leading" secondItem="Oh4-42-9Vz" secondAttribute="trailing" constant="65" id="JL4-aP-OwH"/>
+                                            <constraint firstItem="QS4-WP-51D" firstAttribute="leading" secondItem="ii2-PD-af7" secondAttribute="leadingMargin" id="LfV-8R-SC6"/>
+                                            <constraint firstItem="0ZI-ev-Uq8" firstAttribute="top" secondItem="Ear-A0-uG2" secondAttribute="top" id="LjA-MJ-lGO"/>
+                                            <constraint firstItem="e2b-5s-aRq" firstAttribute="leading" secondItem="7o9-j9-5yb" secondAttribute="trailing" constant="2" id="Rqj-N9-Q7T"/>
+                                            <constraint firstItem="Ear-A0-uG2" firstAttribute="leading" secondItem="e2b-5s-aRq" secondAttribute="trailing" constant="80" id="UuQ-y5-xxk"/>
+                                            <constraint firstItem="Ear-A0-uG2" firstAttribute="leading" secondItem="0ZI-ev-Uq8" secondAttribute="trailing" constant="3" id="aDb-lZ-3rK"/>
+                                            <constraint firstItem="b1O-iN-d1q" firstAttribute="top" secondItem="7o9-j9-5yb" secondAttribute="top" id="e44-KZ-Z83"/>
+                                            <constraint firstAttribute="width" constant="620" id="iRp-eu-t1e"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ear-A0-uG2" secondAttribute="trailing" constant="13" id="oD9-0j-Cg5"/>
+                                            <constraint firstItem="QS4-WP-51D" firstAttribute="top" secondItem="ii2-PD-af7" secondAttribute="top" constant="5" id="rnc-TO-u9L"/>
+                                            <constraint firstItem="7o9-j9-5yb" firstAttribute="leading" secondItem="b1O-iN-d1q" secondAttribute="trailing" constant="1" id="vJJ-uq-lvZ"/>
+                                            <constraint firstItem="qGM-zC-RuM" firstAttribute="leading" secondItem="Oh4-42-9Vz" secondAttribute="trailing" constant="2" id="zeG-n8-oHK"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.7340745192" green="0.7340745192" blue="0.7340745192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ii2-PD-af7" secondAttribute="trailing" constant="-244" id="2lo-Bm-Gf1"/>
+                                    <constraint firstItem="ii2-PD-af7" firstAttribute="centerY" secondItem="VfE-t3-j9D" secondAttribute="centerY" id="Ccj-Cq-LFn"/>
+                                    <constraint firstItem="ii2-PD-af7" firstAttribute="top" secondItem="VfE-t3-j9D" secondAttribute="top" id="EYc-ce-Tcm"/>
+                                    <constraint firstItem="ii2-PD-af7" firstAttribute="leading" secondItem="VfE-t3-j9D" secondAttribute="leading" id="H1p-hL-yvg"/>
+                                    <constraint firstAttribute="bottom" secondItem="ii2-PD-af7" secondAttribute="bottom" id="L7M-JX-yuh"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                        <size key="value" width="1500" height="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6fa-yo-9V4" firstAttribute="bottom" secondItem="g7v-Y4-6sA" secondAttribute="top" id="0WS-hj-LU9"/>
                             <constraint firstItem="Spn-zu-oet" firstAttribute="leading" secondItem="YpZ-qM-Zfn" secondAttribute="leadingMargin" constant="-11" id="1ya-JK-ODo"/>
-                            <constraint firstItem="g7v-Y4-6sA" firstAttribute="top" secondItem="Wsm-WF-ByM" secondAttribute="bottom" constant="277" id="4nB-ig-DRE"/>
-                            <constraint firstItem="Wsm-WF-ByM" firstAttribute="top" secondItem="jCz-mG-vNw" secondAttribute="bottom" id="7RZ-PY-kBC"/>
+                            <constraint firstItem="g7v-Y4-6sA" firstAttribute="top" secondItem="Wsm-WF-ByM" secondAttribute="bottom" constant="268" id="4nB-ig-DRE"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="yL5-Z8-hMZ" secondAttribute="bottom" constant="10" id="7SB-xD-QYG"/>
                             <constraint firstItem="6fa-yo-9V4" firstAttribute="top" secondItem="6nO-zR-QMo" secondAttribute="bottom" constant="8" symbolic="YES" id="8Es-IV-H5n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6nO-zR-QMo" secondAttribute="trailing" id="9fb-K5-IZX"/>
-                            <constraint firstItem="yL5-Z8-hMZ" firstAttribute="leading" secondItem="1DB-2m-DGQ" secondAttribute="leading" id="ASJ-A7-0AI"/>
+                            <constraint firstItem="yL5-Z8-hMZ" firstAttribute="leading" secondItem="1DB-2m-DGQ" secondAttribute="leading" constant="-5" id="ASJ-A7-0AI"/>
+                            <constraint firstItem="VfE-t3-j9D" firstAttribute="centerX" secondItem="yL5-Z8-hMZ" secondAttribute="centerX" id="AsD-tn-45g"/>
+                            <constraint firstItem="VfE-t3-j9D" firstAttribute="trailing" secondItem="1Wf-3B-RVb" secondAttribute="trailing" id="B0B-kF-3J3"/>
+                            <constraint firstItem="VfE-t3-j9D" firstAttribute="centerX" secondItem="Wsm-WF-ByM" secondAttribute="centerX" id="ClR-rn-upe"/>
+                            <constraint firstItem="VfE-t3-j9D" firstAttribute="trailing" secondItem="Wsm-WF-ByM" secondAttribute="trailing" id="IHy-KT-XAp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bi9-qh-sbZ" secondAttribute="trailing" constant="-10" id="Ily-b1-wj3"/>
                             <constraint firstItem="Spn-zu-oet" firstAttribute="centerY" secondItem="9lh-Ox-HQh" secondAttribute="centerY" id="KuP-9c-abD"/>
                             <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="6nO-zR-QMo" secondAttribute="leading" constant="-4" id="Lcg-z0-hqm"/>
-                            <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="1DB-2m-DGQ" secondAttribute="trailing" id="MK3-A2-tGx"/>
+                            <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="1DB-2m-DGQ" secondAttribute="trailing" constant="-5" id="MK3-A2-tGx"/>
                             <constraint firstItem="bi9-qh-sbZ" firstAttribute="leading" secondItem="YpZ-qM-Zfn" secondAttribute="leading" constant="214" id="OYu-Q4-Bzr"/>
-                            <constraint firstItem="jCz-mG-vNw" firstAttribute="top" secondItem="1DB-2m-DGQ" secondAttribute="bottom" id="Oyk-cI-3Je"/>
                             <constraint firstItem="9lh-Ox-HQh" firstAttribute="leading" secondItem="Spn-zu-oet" secondAttribute="trailing" constant="8" symbolic="YES" id="Q1V-po-pne"/>
-                            <constraint firstItem="jCz-mG-vNw" firstAttribute="leading" secondItem="Wsm-WF-ByM" secondAttribute="leading" id="Qxi-NI-Lf2"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="9lh-Ox-HQh" secondAttribute="bottom" constant="17" id="Rk3-E0-fcn"/>
                             <constraint firstItem="yL5-Z8-hMZ" firstAttribute="leading" secondItem="YpZ-qM-Zfn" secondAttribute="leading" id="Umd-Xi-7Ud"/>
-                            <constraint firstItem="jCz-mG-vNw" firstAttribute="trailing" secondItem="Wsm-WF-ByM" secondAttribute="trailing" id="bZr-ve-Eb7"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="bottom" secondItem="1Wf-3B-RVb" secondAttribute="bottom" id="crg-hA-rAQ"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="Spn-zu-oet" secondAttribute="bottom" constant="13" id="eVl-Qq-oWF"/>
                             <constraint firstItem="Wsm-WF-ByM" firstAttribute="leading" secondItem="6fa-yo-9V4" secondAttribute="leading" id="exu-4R-9Gw"/>
+                            <constraint firstAttribute="bottom" secondItem="VfE-t3-j9D" secondAttribute="bottom" constant="487" id="fAA-m5-1TW"/>
                             <constraint firstItem="Wsm-WF-ByM" firstAttribute="trailing" secondItem="6fa-yo-9V4" secondAttribute="trailing" id="fSC-h3-Nhw"/>
                             <constraint firstAttribute="trailing" secondItem="yL5-Z8-hMZ" secondAttribute="trailing" id="moG-WX-K5I"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="bi9-qh-sbZ" secondAttribute="bottom" constant="17" id="myq-md-VfA"/>
@@ -1942,9 +1919,8 @@ REGISTRARSE?</string>
                             <constraint firstItem="Spn-zu-oet" firstAttribute="top" secondItem="NNW-UA-OuE" secondAttribute="bottom" constant="7" id="pjN-x6-L0S"/>
                             <constraint firstItem="yL5-Z8-hMZ" firstAttribute="trailing" secondItem="1Wf-3B-RVb" secondAttribute="trailing" id="rZ2-kE-NpN"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="1Wf-3B-RVb" secondAttribute="top" id="tQ7-35-Xin"/>
-                            <constraint firstItem="1DB-2m-DGQ" firstAttribute="leading" secondItem="jCz-mG-vNw" secondAttribute="leading" id="wcp-Sn-pjN"/>
                             <constraint firstItem="bi9-qh-sbZ" firstAttribute="top" secondItem="NNW-UA-OuE" secondAttribute="bottom" constant="2" id="zJj-lH-a3c"/>
-                            <constraint firstItem="1Wf-3B-RVb" firstAttribute="trailing" secondItem="jCz-mG-vNw" secondAttribute="trailing" id="zP4-EY-SWD"/>
+                            <constraint firstItem="VfE-t3-j9D" firstAttribute="top" secondItem="1DB-2m-DGQ" secondAttribute="bottom" id="ze3-tg-THf"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -1954,120 +1930,13 @@ REGISTRARSE?</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="botonInfantil" destination="8Gw-o7-k8E" id="k7I-es-EJu"/>
-                        <outlet property="botonMasterCard" destination="iOy-OP-85b" id="zAF-UB-3Fa"/>
-                        <outlet property="botonSabores" destination="kyT-nS-1w1" id="WeD-eX-iWx"/>
-                        <outlet property="botonServicios" destination="xbe-IV-xS5" id="Y2f-9v-EN3"/>
-                        <outlet property="botonTiempoLibre" destination="rG8-2y-dmJ" id="YfS-kj-AkU"/>
-                        <outlet property="botonTodos" destination="arh-8q-SxO" id="JQ3-UF-lLN"/>
-                        <outlet property="botonViajes" destination="lNq-OX-5Kf" id="CNx-FL-QUq"/>
-                        <outlet property="botonVidaSana" destination="eyt-ox-K1d" id="SzA-5D-X9Y"/>
                         <outlet property="mapTableView" destination="6fa-yo-9V4" id="xLh-ni-amq"/>
                         <outlet property="mapView" destination="Wsm-WF-ByM" id="Nb6-XL-f0T"/>
+                        <outlet property="scrollView" destination="VfE-t3-j9D" id="GXD-Sl-Q6R"/>
                         <outlet property="searchDisplayController" destination="k78-Xh-hou" id="3OE-zT-xm5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v0M-I2-UaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="VfE-t3-j9D">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ii2-PD-af7">
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QS4-WP-51D">
-                                    <state key="normal" backgroundImage="botonTodosOff.png">
-                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected" backgroundImage="botonTodosOn.png"/>
-                                    <state key="focused" backgroundImage="botonTodosOn.png"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oh4-42-9Vz">
-                                    <state key="normal" backgroundImage="botonSaboresOff.png">
-                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected" backgroundImage="botonSaboresOn.png"/>
-                                    <state key="focused" backgroundImage="botonSaboresOn.png"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGM-zC-RuM">
-                                    <state key="normal" backgroundImage="botonInfantilOff.png">
-                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected" backgroundImage="botonInfantilOn.png"/>
-                                    <state key="focused" backgroundImage="botonInfantilOn.png"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1O-iN-d1q">
-                                    <state key="normal" backgroundImage="botonTiempoLibreOff.png">
-                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected" backgroundImage="botonTiempoLibreOn.png"/>
-                                    <state key="focused" backgroundImage="botonTiempoLibreOn.png"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7o9-j9-5yb">
-                                    <state key="normal" backgroundImage="botonVidaSanaOff.png">
-                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected" backgroundImage="botonVidaSanaOn.png"/>
-                                    <state key="highlighted" backgroundImage="botonVidaSanaOn.png"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2b-5s-aRq">
-                                    <state key="normal" backgroundImage="botonMastercardOff.png">
-                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected" backgroundImage="botonMastercardOn.png"/>
-                                    <state key="highlighted" backgroundImage=" "/>
-                                    <state key="focused" backgroundImage="botonMastercardOn.png"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ear-A0-uG2">
-                                    <state key="normal" backgroundImage="botonViajesOff.png">
-                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected" backgroundImage="botonViajesOn.png"/>
-                                    <state key="focused" backgroundImage="botonViajesOn.png"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ZI-ev-Uq8">
-                                    <state key="normal" backgroundImage="botonServiciosOff.png">
-                                        <color key="titleColor" red="0.35632913189999998" green="0.362585351" blue="0.39173736799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected" backgroundImage="botonServiciosOn.png"/>
-                                    <state key="focused" backgroundImage="botonServiciosOn.png"/>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstItem="Oh4-42-9Vz" firstAttribute="top" secondItem="qGM-zC-RuM" secondAttribute="top" id="3yX-OW-fNX"/>
-                                <constraint firstItem="7o9-j9-5yb" firstAttribute="top" secondItem="e2b-5s-aRq" secondAttribute="top" id="5KB-nW-NzD"/>
-                                <constraint firstItem="e2b-5s-aRq" firstAttribute="top" secondItem="0ZI-ev-Uq8" secondAttribute="top" id="7hG-Y3-PwC"/>
-                                <constraint firstItem="qGM-zC-RuM" firstAttribute="top" secondItem="b1O-iN-d1q" secondAttribute="top" id="Bdk-lA-0eY"/>
-                                <constraint firstItem="QS4-WP-51D" firstAttribute="top" secondItem="Oh4-42-9Vz" secondAttribute="top" id="D3g-W2-q6t"/>
-                                <constraint firstItem="Oh4-42-9Vz" firstAttribute="leading" secondItem="QS4-WP-51D" secondAttribute="trailing" constant="2" id="Gc3-zh-OBn"/>
-                                <constraint firstItem="b1O-iN-d1q" firstAttribute="leading" secondItem="Oh4-42-9Vz" secondAttribute="trailing" constant="65" id="JL4-aP-OwH"/>
-                                <constraint firstItem="QS4-WP-51D" firstAttribute="leading" secondItem="ii2-PD-af7" secondAttribute="leadingMargin" id="LfV-8R-SC6"/>
-                                <constraint firstItem="0ZI-ev-Uq8" firstAttribute="top" secondItem="Ear-A0-uG2" secondAttribute="top" id="LjA-MJ-lGO"/>
-                                <constraint firstItem="e2b-5s-aRq" firstAttribute="leading" secondItem="7o9-j9-5yb" secondAttribute="trailing" constant="2" id="Rqj-N9-Q7T"/>
-                                <constraint firstItem="Ear-A0-uG2" firstAttribute="leading" secondItem="e2b-5s-aRq" secondAttribute="trailing" constant="80" id="UuQ-y5-xxk"/>
-                                <constraint firstItem="Ear-A0-uG2" firstAttribute="leading" secondItem="0ZI-ev-Uq8" secondAttribute="trailing" constant="3" id="aDb-lZ-3rK"/>
-                                <constraint firstItem="b1O-iN-d1q" firstAttribute="top" secondItem="7o9-j9-5yb" secondAttribute="top" id="e44-KZ-Z83"/>
-                                <constraint firstAttribute="trailing" secondItem="Ear-A0-uG2" secondAttribute="trailing" constant="13" id="oD9-0j-Cg5"/>
-                                <constraint firstItem="QS4-WP-51D" firstAttribute="top" secondItem="ii2-PD-af7" secondAttribute="top" constant="5" id="rnc-TO-u9L"/>
-                                <constraint firstItem="7o9-j9-5yb" firstAttribute="leading" secondItem="b1O-iN-d1q" secondAttribute="trailing" constant="1" id="vJJ-uq-lvZ"/>
-                                <constraint firstItem="qGM-zC-RuM" firstAttribute="leading" secondItem="Oh4-42-9Vz" secondAttribute="trailing" constant="2" id="zeG-n8-oHK"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" red="0.7340745192" green="0.7340745192" blue="0.7340745192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="ii2-PD-af7" secondAttribute="trailing" constant="-245" id="Kju-0R-7fa"/>
-                        <constraint firstAttribute="bottom" secondItem="ii2-PD-af7" secondAttribute="bottom" id="Rvn-bq-coo"/>
-                        <constraint firstItem="ii2-PD-af7" firstAttribute="top" secondItem="VfE-t3-j9D" secondAttribute="top" id="rBw-1b-GiL"/>
-                        <constraint firstItem="ii2-PD-af7" firstAttribute="centerY" secondItem="VfE-t3-j9D" secondAttribute="centerY" id="wle-Qu-vY1"/>
-                        <constraint firstItem="ii2-PD-af7" firstAttribute="leading" secondItem="VfE-t3-j9D" secondAttribute="leading" id="xx0-D0-pYx"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
-                            <size key="value" width="620" height="50"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </scrollView>
                 <searchDisplayController id="k78-Xh-hou">
                     <connections>
                         <outlet property="delegate" destination="Uc6-It-8ad" id="58v-vf-isF"/>
@@ -2078,7 +1947,7 @@ REGISTRARSE?</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1365.5999999999999" y="1148.2758620689656"/>
+            <point key="canvasLocation" x="-1367.2" y="1170.7646176911546"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nox-kR-Te4">
@@ -4735,7 +4604,7 @@ de La Tercera</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mx6-Eo-Ff1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1415.625" y="1910.9154929577464"/>
+            <point key="canvasLocation" x="-1001" y="2015"/>
         </scene>
         <!--ViajesClub-->
         <scene sceneID="MnV-Or-1z9">

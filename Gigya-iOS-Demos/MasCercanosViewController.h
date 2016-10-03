@@ -40,5 +40,6 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation        *userLocation;
 @property (nonatomic, retain) NSMutableArray *storeItemsArray;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, retain) NSMutableArray *tableData;
 @end

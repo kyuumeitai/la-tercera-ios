@@ -764,6 +764,14 @@ shouldReloadTableForSearchString:(NSString *)searchString
     return YES;
 }
 
+- (void)viewDidLayoutSubviews
+{
+    dispatch_async (dispatch_get_main_queue(), ^
+                    {
+                        [self.scrollView setContentSize:CGSizeMake(620, 50)];
+                    });
+}
+
 //Error handler
 -(void) errorDetectedWithNSError:(NSError*) error{
     
