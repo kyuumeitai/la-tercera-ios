@@ -15,7 +15,7 @@
 #import <CoreData/CoreData.h>
 #import "Headers/MOCA.h"
 
-@interface AppDelegate () <GSAccountsDelegate>
+@interface AppDelegate  () <GSAccountsDelegate>
 
 @end
 
@@ -56,6 +56,13 @@
             // Notify MOCA the app started from push
             [MOCA handleRemoteNotification:notification];
         }
+    }
+    
+    MOCAProximityService * proxService = [MOCA proximityService];
+    if (proxService)
+    {
+        // Notify me when beacon-related events are fired.
+        proxService.eventsDelegate = self;
     }
     // Optionally, set guest properties
     /*
@@ -437,6 +444,44 @@ forLocalNotification:(UILocalNotification *)notification completionHandler:(void
                     forLocalNotification:notification];
     }
     if (completionHandler) completionHandler ();
+}
+
+/**
+ * Method invoked when a proximity service loaded or updated a registry of beacons
+ * from MOCA cloud.
+ *
+ * @param service proximity service
+ * @param beacons current collection of registered beacons
+ *
+ * @return YES if the custom trigger fired, or NO otherwise.
+ */
+-(void)proximityService:(MOCAProximityService*)service
+   didLoadedBeaconsData:(NSArray*)beacons
+{
+    NSLog(@"Current beacon registry:");
+    for (MOCABeacon * beacon in beacons)
+    {
+        NSLog(@"\tBeacon name %@",            beacon.name);
+
+    }
+}
+
+-(void)proximityService:(MOCAProximityService*)service didEnterRange:(MOCABeacon *)beacon withProximity:(CLProximity)proximity{
+       NSLog(@"\tBeacon name %@ entró al rango",            beacon.name);
+    
+}
+-(void)proximityService:(MOCAProximityService*)service didExitRange:(MOCABeacon *)beacon{
+       NSLog(@"\tBeacon name %@ salió de rango",            beacon.name);
+}
+-(void)proximityService:(MOCAProximityService*)service didBeaconProximityChange:(MOCABeacon*)beacon
+          fromProximity:(CLProximity)prevProximity toProximity:(CLProximity)curProximity{
+       NSLog(@"\tBeacon name %@ tuvo un cambio de proximidad",            beacon.name);
+}
+-(void)proximityService:(MOCAProximityService*)service didEnterPlace:(MOCAPlace *)place{
+       NSLog(@"\tEl Beacon entró al lugar");
+}
+-(void)proximityService:(MOCAProximityService*)service didExitPlace:(MOCAPlace *)place{
+       NSLog(@"\tEl Beacon  salió del lugar");
 }
 
 @end

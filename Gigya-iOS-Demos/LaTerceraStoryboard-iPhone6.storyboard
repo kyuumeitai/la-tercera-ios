@@ -1740,7 +1740,8 @@ REGISTRARSE?</string>
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
+                                <frame key="frameInset" width="1000" height="1000"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="201" id="JJU-R1-ZLX"/>
                                 </constraints>
@@ -7113,7 +7114,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ivH-Qb-mRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2314.5" y="-5932.5"/>
+            <point key="canvasLocation" x="2095" y="-5901"/>
         </scene>
         <!--Mi Seleccion-->
         <scene sceneID="qc9-nM-yca">
@@ -7398,7 +7399,7 @@ de La Tercera</string>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BANNER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nS-Sr-s3H">
                                                         <frame key="frameInset" minX="65" minY="109" width="158" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -7406,7 +7407,7 @@ de La Tercera</string>
                                                 <color key="backgroundColor" red="0.15507582110000001" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z4b-AO-X8L" userLabel="RelatedNews1" customClass="CustomBorderView">
-                                                <frame key="frameInset" minX="8" minY="322" width="156" height="195"/>
+                                                <frame key="frameInset" minX="2" minY="322" width="156" height="195"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comoFunciona.png" translatesAutoresizingMaskIntoConstraints="NO" id="tac-Gi-Y2f">
@@ -7422,6 +7423,7 @@ de La Tercera</string>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <integer key="value" value="1"/>
@@ -7445,9 +7447,12 @@ de La Tercera</string>
                                                         <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Y9u-qS-85b" appends="YES" id="4gT-oM-QJO"/>
+                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aKE-lj-WJh" userLabel="RelatedNews2" customClass="CustomBorderView">
-                                                <frame key="frameInset" minX="167" minY="322" width="156" height="195"/>
+                                                <frame key="frameInset" minX="173" minY="322" width="156" height="195"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comoFunciona.png" translatesAutoresizingMaskIntoConstraints="NO" id="GrY-7S-Jqd">
@@ -7463,6 +7468,7 @@ de La Tercera</string>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <integer key="value" value="1"/>
@@ -7486,9 +7492,12 @@ de La Tercera</string>
                                                         <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="hce-Ya-zHk" appends="YES" id="LDx-oj-WnW"/>
+                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bBY-r6-jIL" userLabel="RelatedNews3" customClass="CustomBorderView">
-                                                <frame key="frameInset" minX="8" minY="530" width="156" height="195"/>
+                                                <frame key="frameInset" minX="2" minY="530" width="156" height="195"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comoFunciona.png" translatesAutoresizingMaskIntoConstraints="NO" id="j11-ai-fme">
@@ -7504,6 +7513,7 @@ de La Tercera</string>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <integer key="value" value="1"/>
@@ -7527,9 +7537,12 @@ de La Tercera</string>
                                                         <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="ISP-9O-dV2" appends="YES" id="Pp5-dY-uVl"/>
+                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sl4-VE-C7I" userLabel="RelatedNews4" customClass="CustomBorderView">
-                                                <frame key="frameInset" minX="167" minY="530" width="156" height="195"/>
+                                                <frame key="frameInset" minX="173" minY="530" width="156" height="195"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comoFunciona.png" translatesAutoresizingMaskIntoConstraints="NO" id="1K7-l4-Ir5">
@@ -7545,6 +7558,7 @@ de La Tercera</string>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <integer key="value" value="1"/>
@@ -7568,9 +7582,12 @@ de La Tercera</string>
                                                         <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="uL2-qS-kif" appends="YES" id="Z10-fw-BgA"/>
+                                                </connections>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artículos relacionados" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ej-C9-gZF">
-                                                <frame key="frameInset" minX="10" minY="287" width="199" height="21"/>
+                                                <frame key="frameInset" minX="10" minY="284" width="199" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -7718,7 +7735,12 @@ de La Tercera</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1890"/>
                     <connections>
+                        <outlet property="bannerNewsDetailView" destination="UvC-kT-bGt" id="2Xc-ZV-5vi"/>
                         <outlet property="contentTextView" destination="GdF-yH-5Z9" id="6nx-Td-oRL"/>
+                        <outlet property="imageViewNews1" destination="tac-Gi-Y2f" id="C16-uf-l27"/>
+                        <outlet property="imageViewNews2" destination="GrY-7S-Jqd" id="8yf-06-kU7"/>
+                        <outlet property="imageViewNews3" destination="j11-ai-fme" id="GX5-eJ-3fL"/>
+                        <outlet property="imageViewNews4" destination="1K7-l4-Ir5" id="wae-vR-iJl"/>
                         <outlet property="imagenNews" destination="TMC-5c-gxS" id="Ruv-XU-ku1"/>
                         <outlet property="labelAutor" destination="Cee-VY-hSk" id="Qa1-VD-07y"/>
                         <outlet property="labelCat" destination="bNl-4x-ZMM" id="Gtc-eE-6rq"/>
@@ -7726,11 +7748,35 @@ de La Tercera</string>
                         <outlet property="lowerSeparador" destination="Gx3-zG-rka" id="ugW-4P-b2V"/>
                         <outlet property="scrollView" destination="Lah-vw-dZL" id="VWj-nN-hdi"/>
                         <outlet property="summary" destination="791-hr-bfN" id="OR3-GG-7P1"/>
+                        <outlet property="titleNews1" destination="vbM-dQ-Q3z" id="y6M-JV-joJ"/>
+                        <outlet property="titleNews2" destination="8YZ-w0-W6k" id="dMZ-kc-fZM"/>
+                        <outlet property="titleNews3" destination="aef-z5-DVV" id="9nq-3F-ARK"/>
+                        <outlet property="titleNews4" destination="aIG-la-xrU" id="iFC-gP-vE0"/>
                         <outlet property="titulo" destination="nYU-H2-4gE" id="oEt-Ue-zHn"/>
                         <outlet property="upperSeparador" destination="Voe-tK-Tcd" id="cS9-cw-N4p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZS-3W-8EK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Y9u-qS-85b" userLabel="Tap Gesture Recognizer News 1">
+                    <connections>
+                        <action selector="tapRelatedNews1:" destination="p1G-LW-4Z3" id="wkN-vc-RfI"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="hce-Ya-zHk" userLabel="Tap Gesture Recognizer News 2">
+                    <connections>
+                        <action selector="tapRelatedNews2:" destination="p1G-LW-4Z3" id="hHm-rH-91V"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ISP-9O-dV2" userLabel="Tap Gesture Recognizer News 3">
+                    <connections>
+                        <action selector="tapRelatedNews3:" destination="p1G-LW-4Z3" id="ZtF-f2-70F"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="uL2-qS-kif" userLabel="Tap Gesture Recognizer News 4">
+                    <connections>
+                        <action selector="tapRelatedNews4:" destination="p1G-LW-4Z3" id="HKH-LE-IGW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-5533.6000000000004" y="644.07796101949032"/>
         </scene>

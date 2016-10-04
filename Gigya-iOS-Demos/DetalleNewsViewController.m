@@ -25,6 +25,17 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *lowerSeparador;
 
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewNews1;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewNews2;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewNews3;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewNews4;
+@property (weak, nonatomic) IBOutlet UILabel *titleNews1;
+@property (weak, nonatomic) IBOutlet UILabel *titleNews2;
+@property (weak, nonatomic) IBOutlet UILabel *titleNews3;
+@property (weak, nonatomic) IBOutlet UILabel *titleNews4;
+
+
 @end
 
 @implementation DetalleNewsViewController
@@ -68,7 +79,7 @@ NSString *textoContenidoTemporal = @"";
     
     // Do any additional setup after loading the view.
     
-    //[self loadRelatedArticles];
+    [self loadRelatedArticles];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -314,49 +325,166 @@ NSString *textoContenidoTemporal = @"";
     
     NSLog(@"***** Print Related article: %@",arrayJson);
     
- 
-    NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
-    titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
-    
-    
-    _titulo.text= titulo;
-    _summary.text= [articleDict objectForKey:@"short_description"];
-    //slug = [articleDict objectForKey:@"slug"];
-    
-    _summary.numberOfLines = 0;
-   
-    id urlImagen;
-    
-    if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-        urlImagen = @"https://placekitten.com/400/400";
-    }else{
-        urlImagen = [articleDict objectForKey:@"image_url"];
+    if (indice == 1) {
+        
+        NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+        titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
+        
+        
+        _titleNews1.text= titulo;
+        
+        
+        id urlImagen;
+        
+        if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
+            urlImagen = @"https://placekitten.com/400/400";
+        }else{
+            urlImagen = [articleDict objectForKey:@"image_url"];
+        }
+        
+        
+        NSURL *url = [NSURL URLWithString:urlImagen];
+        
+        _imageViewNews1.image = [UIImage imageNamed:@"icn_default"];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+        dispatch_async(queue, ^{
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            UIImage *image = [UIImage imageWithData:data];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _imageViewNews1.image = image;
+                
+                
+                [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                                 animations:^{
+                                     _imageViewNews1.alpha = 1;
+                                     
+                                 }
+                                 completion:nil];
+            });
+        });
+
     }
     
     
-    NSURL *url = [NSURL URLWithString:urlImagen];
-    
-    _imagenNews.image = [UIImage imageNamed:@"icn_default"];
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-    dispatch_async(queue, ^{
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [UIImage imageWithData:data];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            _imagenNews.image = image;
-            
-            
-            [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
-                             animations:^{
-                                 _imagenNews.alpha = 1;
-                       
-                             }
-                             completion:nil];
+    if (indice == 2) {
+        
+        NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+        titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
+        
+        
+        _titleNews2.text= titulo;
+        
+        
+        id urlImagen;
+        
+        if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
+            urlImagen = @"https://placekitten.com/400/400";
+        }else{
+            urlImagen = [articleDict objectForKey:@"image_url"];
+        }
+        
+        
+        NSURL *url = [NSURL URLWithString:urlImagen];
+        
+        _imageViewNews2.image = [UIImage imageNamed:@"icn_default"];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+        dispatch_async(queue, ^{
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            UIImage *image = [UIImage imageWithData:data];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _imageViewNews2.image = image;
+                
+                
+                [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                                 animations:^{
+                                     _imageViewNews2.alpha = 1;
+                                     
+                                 }
+                                 completion:nil];
+            });
         });
-    });
+        
+    }
     
+    if (indice == 3) {
+        
+        NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+        titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
+        
+        
+        _titleNews3.text= titulo;
+        
+        
+        id urlImagen;
+        
+        if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
+            urlImagen = @"https://placekitten.com/400/400";
+        }else{
+            urlImagen = [articleDict objectForKey:@"image_url"];
+        }
+        
+        
+        NSURL *url = [NSURL URLWithString:urlImagen];
+        
+        _imageViewNews3.image = [UIImage imageNamed:@"icn_default"];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+        dispatch_async(queue, ^{
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            UIImage *image = [UIImage imageWithData:data];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _imageViewNews3.image = image;
+                
+                
+                [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                                 animations:^{
+                                     _imageViewNews3.alpha = 1;
+                                     
+                                 }
+                                 completion:nil];
+            });
+        });
+        
+    }
     
-    
-    
+    if (indice == 4) {
+        
+        NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+        titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
+        
+        
+        _titleNews1.text= titulo;
+        
+        
+        id urlImagen;
+        
+        if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
+            urlImagen = @"https://placekitten.com/400/400";
+        }else{
+            urlImagen = [articleDict objectForKey:@"image_url"];
+        }
+        
+        
+        NSURL *url = [NSURL URLWithString:urlImagen];
+        
+        _imageViewNews4.image = [UIImage imageNamed:@"icn_default"];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+        dispatch_async(queue, ^{
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            UIImage *image = [UIImage imageWithData:data];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _imageViewNews4.image = image;
+                
+                
+                [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                                 animations:^{
+                                     _imageViewNews4.alpha = 1;
+                                     
+                                 }
+                                 completion:nil];
+            });
+        });
+        
+    }
     
 }
 
@@ -436,6 +564,9 @@ NSString *textoContenidoTemporal = @"";
                                  _imagenNews.alpha = 1;
                                  _upperSeparador.hidden = NO;
                                  _lowerSeparador.hidden = NO;
+                                 self.bannerNewsDetailView.adUnitID = @"/124506296/La_Tercera_com/La_Tercera_com_APP/mi-seleccion_300x250-A";
+                                 self.bannerNewsDetailView.rootViewController = self;
+                                 [self.bannerNewsDetailView loadRequest:[DFPRequest request]];
                              }
                              completion:nil];
             
@@ -465,9 +596,32 @@ NSString *textoContenidoTemporal = @"";
         [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:newsLink] forSelf:self];
 }
 
-/*
-#pragma mark - Navigation
 
+#pragma mark - Related News
+
+- (IBAction)tapRelatedNews1:(id)sender {
+    NSLog(@"Click en related news 1");
+    
+}
+
+- (IBAction)tapRelatedNews2:(id)sender {
+    NSLog(@"Click en related news 2");
+    
+}
+
+- (IBAction)tapRelatedNews3:(id)sender {
+    NSLog(@"Click en related news 3");
+    
+}
+
+- (IBAction)tapRelatedNews4:(id)sender {
+    NSLog(@"Click en related news 4");
+    
+}
+
+
+
+/*
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].

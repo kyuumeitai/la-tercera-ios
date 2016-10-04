@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+@import GoogleMobileAds;
 
 @interface DetalleNewsViewController : UIViewController <NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titulo;
@@ -19,6 +20,7 @@
 @property int idArticulo;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property(nonatomic,retain)NSMutableArray *relatedIdsArray;
+@property (weak, nonatomic) IBOutlet DFPBannerView *bannerNewsDetailView;
 
 -(void)loadBenefitForBenefitId:(int)idArticle andCategory:(NSString*)categoria;
 @end
