@@ -323,7 +323,7 @@ NSString *textoContenidoTemporal = @"";
     
     NSDictionary *articleDict = (NSDictionary*)arrayJson;
     
-    NSLog(@"***** Print Related article: %@",arrayJson);
+    //NSLog(@"***** Print Related article: %@",arrayJson);
     
     if (indice == 1) {
         
@@ -492,7 +492,7 @@ NSString *textoContenidoTemporal = @"";
 -(void) loadArticleDataFromService:(NSArray*)arrayJson{
     
     NSDictionary *articleDict = (NSDictionary*)arrayJson;
-    NSLog(@"***** Print: %@",arrayJson);
+    //NSLog(@"***** Print: %@",arrayJson);
     
     
     NSString * autor = [articleDict objectForKey:@"author"];
@@ -599,34 +599,94 @@ NSString *textoContenidoTemporal = @"";
 
 #pragma mark - Related News
 
+- (void)updateArticle{
+    
+    _upperSeparador.hidden = YES;
+    _lowerSeparador.hidden = YES;
+    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(backButtonClicked:)];
+    [gestureRecognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
+    [self.navigationController.view addGestureRecognizer:gestureRecognizer];
+    [super viewDidLoad];
+    _titulo.text= @"";
+    //_labelCategoria.text = @"";
+    _titulo.textAlignment = NSTextAlignmentJustified;
+    _summary.text= @"";
+    _summary.textAlignment = NSTextAlignmentJustified;
+    _contentTextView.text= @"";
+    
+    //  self.managedObjectContext = managedObjectContext;
+    _imagenNews.image = nil;
+    
+    _titulo.alpha = 0;
+    _summary.alpha = 0;
+    _contentTextView.alpha = 0;
+    _contentTextView.textAlignment = NSTextAlignmentJustified;
+    _imagenNews.alpha = 0;
+    _labelFecha.alpha = 0;
+    _labelAutor.alpha = 0;
+    
+    // Do any additional setup after loading the view.
+    
+    [self loadRelatedArticles];
+
+    
+}
+
+
 - (IBAction)tapRelatedNews1:(id)sender {
     NSLog(@"Click en related news 1");
     
+    idArticulo = [relatedIdsArray[1] intValue] ;
+    [self updateArticle];
+    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    [self.scrollView setContentOffset:
+     CGPointMake(0, -self.scrollView.contentInset.top) animated:YES];
+    [self.scrollView setContentOffset:
+     CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
+    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+
 }
 
 - (IBAction)tapRelatedNews2:(id)sender {
     NSLog(@"Click en related news 2");
-    
+    idArticulo = [relatedIdsArray[2] intValue] ;
+    [self updateArticle];
+    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    [self.scrollView setContentOffset:
+     CGPointMake(0, -self.scrollView.contentInset.top) animated:YES];
+    [self.scrollView setContentOffset:
+     CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
+    [self.scrollView layoutIfNeeded];
 }
 
 - (IBAction)tapRelatedNews3:(id)sender {
     NSLog(@"Click en related news 3");
-    
+    idArticulo = [relatedIdsArray[3] intValue] ;
+    [self updateArticle];
+    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    [self.scrollView setContentOffset:
+     CGPointMake(0, -self.scrollView.contentInset.top) animated:YES];
+    [self.scrollView setContentOffset:
+     CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
+    [self.scrollView layoutIfNeeded];
+
+
 }
 
 - (IBAction)tapRelatedNews4:(id)sender {
     NSLog(@"Click en related news 4");
-    
+    idArticulo = [relatedIdsArray[4] intValue] ;
+    [self updateArticle];
+    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+
+    [self.scrollView setContentOffset:
+     CGPointMake(0, -self.scrollView.contentInset.top) animated:YES];
+    [self.scrollView setContentOffset:
+     CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
+    [self.scrollView layoutIfNeeded];
+
 }
 
 
-
-/*
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
