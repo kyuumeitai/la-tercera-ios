@@ -417,6 +417,13 @@ return YES;
 
 #pragma mark Notifications
 
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    NSLog(@"APNS token: %@", deviceToken);
+    // Register push token in MOCA
+    [MOCA registerDeviceToken:deviceToken];
+}
+
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     if (MOCA.initialized)
@@ -461,7 +468,7 @@ forLocalNotification:(UILocalNotification *)notification completionHandler:(void
     NSLog(@"Current beacon registry:");
     for (MOCABeacon * beacon in beacons)
     {
-        NSLog(@"\tBeacon name %@",            beacon.name);
+      NSLog(@"\tBeacon name %@ de identificador %@ UUID identificado",            beacon.name , beacon.identifier  );
 
     }
 }
