@@ -66,13 +66,14 @@
     // Check for iOS 8 Vs earlier version like iOS7.Otherwise code will
     // crash on ios 7
     if ([locationManager respondsToSelector:@selector
-         (requestWhenInUseAuthorization)]) {
-        [locationManager requestWhenInUseAuthorization];
+         (requestAlwaysAuthorization)]) {
+        [locationManager requestAlwaysAuthorization];
     }
     
     CLAuthorizationStatus authorizationStatus= [CLLocationManager authorizationStatus];
     
-    if (authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
+   // if (authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
+    if (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways) {
         NSLog(@"Autorizado");
         
         CLLocation *location = [locationManager location];
@@ -85,7 +86,7 @@
         
         
     }else{
-        [locationManager requestWhenInUseAuthorization];
+        [locationManager requestAlwaysAuthorization];
     }
 }
 
@@ -555,7 +556,7 @@
     if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         //[self loadData ];
         
-        NSLog(@"Estoy acaaa en change status");
+       // NSLog(@"Estoy acaaa en change status");
         locationManager .desiredAccuracy = kCLLocationAccuracyNearestTenMeters;   // 2 kilometers - hope for accuracy within 2 km.
         locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
         [locationManager startUpdatingLocation];
