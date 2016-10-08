@@ -474,21 +474,60 @@ forLocalNotification:(UILocalNotification *)notification completionHandler:(void
 }
 
 -(void)proximityService:(MOCAProximityService*)service didEnterRange:(MOCABeacon *)beacon withProximity:(CLProximity)proximity{
-       NSLog(@"\tBeacon name %@ entró al rango",            beacon.name);
+    
+    NSLog(@"\tBeacon name %@ entró al rango",            beacon.name);
+    
+    NSString *mensaje = [NSString stringWithFormat:@"\tEl Beacon name %@ entró al rango",            beacon.name];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Beacon"
+                                                                             message:mensaje
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    //We add buttons to the alert controller by creating UIAlertActions:
+    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Ok"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:nil]; //You can use a block here to handle a press on this button
+    [alertController addAction:actionOk];
+    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
     
 }
 -(void)proximityService:(MOCAProximityService*)service didExitRange:(MOCABeacon *)beacon{
-       NSLog(@"\tBeacon name %@ salió de rango",            beacon.name);
+    NSString *mensaje = [NSString stringWithFormat:@"\tEl Beacon name %@ Salió del rango",            beacon.name];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Beacon"
+                                                                             message:mensaje
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    //We add buttons to the alert controller by creating UIAlertActions:
+    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Ok"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:nil]; //You can use a block here to handle a press on this button
+    [alertController addAction:actionOk];
+    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
 }
 -(void)proximityService:(MOCAProximityService*)service didBeaconProximityChange:(MOCABeacon*)beacon
           fromProximity:(CLProximity)prevProximity toProximity:(CLProximity)curProximity{
        NSLog(@"\tBeacon name %@ tuvo un cambio de proximidad",            beacon.name);
 }
 -(void)proximityService:(MOCAProximityService*)service didEnterPlace:(MOCAPlace *)place{
-       NSLog(@"\tEl Beacon entró al lugar");
+    NSString *mensaje = [NSString stringWithFormat:@"\tSe ha ingresado al lugar: %@",            place];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Beacon"
+                                                                             message:mensaje
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    //We add buttons to the alert controller by creating UIAlertActions:
+    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Ok"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:nil]; //You can use a block here to handle a press on this button
+    [alertController addAction:actionOk];
+    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
 }
 -(void)proximityService:(MOCAProximityService*)service didExitPlace:(MOCAPlace *)place{
-       NSLog(@"\tEl Beacon  salió del lugar");
+    NSString *mensaje = [NSString stringWithFormat:@"\tH salido del lugar: %@",            place];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Beacon"
+                                                                             message:mensaje
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    //We add buttons to the alert controller by creating UIAlertActions:
+    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Ok"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:nil]; //You can use a block here to handle a press on this button
+    [alertController addAction:actionOk];
+    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

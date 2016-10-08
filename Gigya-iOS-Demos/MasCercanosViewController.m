@@ -51,7 +51,7 @@ int cuenta;
     sesion = [SessionManager session];
          storyBoardNameMasCercanos = sesion.storyBoardName;
     _mapView.delegate = self;
-    _mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    //_mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
 }
 
@@ -252,6 +252,7 @@ int cuenta;
     _mapView.showsUserLocation = YES;
 
     MKMapPoint annotationPoint = MKMapPointForCoordinate(_userLocation.coordinate);
+
     MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
     if (MKMapRectIsNull(zoomRect)) {
         zoomRect = pointRect;
@@ -261,10 +262,11 @@ int cuenta;
     zoomRect = MKMapRectUnion(zoomRect, pointRect);
     
     CLLocationCoordinate2D coordenadaUser = CLLocationCoordinate2DMake(_userLocation.coordinate.latitude, _userLocation.coordinate.longitude);
-    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(coordenadaUser, 480, 480)];
-    adjustedRegion.span.longitudeDelta  = 0.02;
-    adjustedRegion.span.latitudeDelta  = 0.02;
+    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(coordenadaUser, 120, 120)];
+    adjustedRegion.span.longitudeDelta  = 0.1;
+    adjustedRegion.span.latitudeDelta  = 0.1;
     [self.mapView setRegion:adjustedRegion animated:YES];
+
 
 }
 
@@ -374,9 +376,14 @@ int cuenta;
     NSSortDescriptor *menorAMayor = [NSSortDescriptor sortDescriptorWithKey:@"self.dMeter" ascending:YES];
     [tableData sortUsingDescriptors:[NSArray arrayWithObject:menorAMayor]];
     
-    //NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
+    NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
     [mapTableView reloadData];
       [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    CLLocationCoordinate2D coordenadaUser = CLLocationCoordinate2DMake(_userLocation.coordinate.latitude, _userLocation.coordinate.longitude);
+    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(coordenadaUser, 120, 120)];
+    adjustedRegion.span.longitudeDelta  = 0.01;
+    adjustedRegion.span.latitudeDelta  = 0.01;
+    [self.mapView setRegion:adjustedRegion animated:YES];
 
 }
 

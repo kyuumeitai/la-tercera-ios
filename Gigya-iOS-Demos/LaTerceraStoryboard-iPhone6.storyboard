@@ -1740,18 +1740,15 @@ REGISTRARSE?</string>
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
-                                <frame key="frameInset" width="1000" height="1000"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="201" id="JJU-R1-ZLX"/>
+                                    <constraint firstAttribute="width" constant="375" id="qSb-8v-0KS"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="delegate" destination="YpZ-qM-Zfn" id="qs1-y0-Gw2"/>
+                                    <outlet property="delegate" destination="Uc6-It-8ad" id="wHe-4r-Xc1"/>
                                 </connections>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-qh-sbZ">
-                                <color key="backgroundColor" red="0.70226532220840454" green="0.15807917714118958" blue="0.17483633756637573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lh-Ox-HQh">
                                 <frame key="frameInset" minX="60" minY="31" width="38" height="38"/>
                                 <constraints>
@@ -1798,6 +1795,9 @@ REGISTRARSE?</string>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonTodosOn.png"/>
                                                 <state key="focused" backgroundImage="botonTodosOn.png"/>
+                                                <connections>
+                                                    <action selector="todosClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="Tm8-qZ-Mhk"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oh4-42-9Vz">
                                                 <state key="normal" backgroundImage="botonSaboresOff.png">
@@ -1805,6 +1805,9 @@ REGISTRARSE?</string>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonSaboresOn.png"/>
                                                 <state key="focused" backgroundImage="botonSaboresOn.png"/>
+                                                <connections>
+                                                    <action selector="saboresClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="c5q-4m-fb9"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGM-zC-RuM">
                                                 <state key="normal" backgroundImage="botonInfantilOff.png">
@@ -1812,6 +1815,9 @@ REGISTRARSE?</string>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonInfantilOn.png"/>
                                                 <state key="focused" backgroundImage="botonInfantilOn.png"/>
+                                                <connections>
+                                                    <action selector="infantilClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="Lwo-Hq-zbz"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1O-iN-d1q">
                                                 <state key="normal" backgroundImage="botonTiempoLibreOff.png">
@@ -1819,6 +1825,9 @@ REGISTRARSE?</string>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonTiempoLibreOn.png"/>
                                                 <state key="focused" backgroundImage="botonTiempoLibreOn.png"/>
+                                                <connections>
+                                                    <action selector="tiempoLibreClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="7pl-fw-whB"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7o9-j9-5yb">
                                                 <state key="normal" backgroundImage="botonVidaSanaOff.png">
@@ -1826,6 +1835,9 @@ REGISTRARSE?</string>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonVidaSanaOn.png"/>
                                                 <state key="highlighted" backgroundImage="botonVidaSanaOn.png"/>
+                                                <connections>
+                                                    <action selector="vidaSanaClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="IEc-Tb-wNr"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2b-5s-aRq">
                                                 <state key="normal" backgroundImage="botonMastercardOff.png">
@@ -1834,6 +1846,9 @@ REGISTRARSE?</string>
                                                 <state key="selected" backgroundImage="botonMastercardOn.png"/>
                                                 <state key="highlighted" backgroundImage=" "/>
                                                 <state key="focused" backgroundImage="botonMastercardOn.png"/>
+                                                <connections>
+                                                    <action selector="mastercardClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="4C4-vm-nql"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ear-A0-uG2">
                                                 <state key="normal" backgroundImage="botonViajesOff.png">
@@ -1841,6 +1856,9 @@ REGISTRARSE?</string>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonViajesOn.png"/>
                                                 <state key="focused" backgroundImage="botonViajesOn.png"/>
+                                                <connections>
+                                                    <action selector="serviciosClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="cP8-hI-hZi"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ZI-ev-Uq8">
                                                 <state key="normal" backgroundImage="botonServiciosOff.png">
@@ -1848,6 +1866,9 @@ REGISTRARSE?</string>
                                                 </state>
                                                 <state key="selected" backgroundImage="botonServiciosOn.png"/>
                                                 <state key="focused" backgroundImage="botonServiciosOn.png"/>
+                                                <connections>
+                                                    <action selector="viajesClicked:" destination="Uc6-It-8ad" eventType="touchUpInside" id="AeM-IL-k02"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1887,21 +1908,36 @@ REGISTRARSE?</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-qh-sbZ">
+                                <frame key="frameInset" minX="211" minY="20" width="155" height="47"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5O-IV-cGy">
+                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.70226532220840454" green="0.15807917714118958" blue="0.17483633756637573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="J5O-IV-cGy" firstAttribute="leading" secondItem="bi9-qh-sbZ" secondAttribute="leading" constant="-5" id="Nek-eh-HAl"/>
+                                    <constraint firstAttribute="bottom" secondItem="J5O-IV-cGy" secondAttribute="bottom" constant="7" id="a1L-Im-7Cy"/>
+                                    <constraint firstItem="J5O-IV-cGy" firstAttribute="trailing" secondItem="bi9-qh-sbZ" secondAttribute="trailingMargin" id="uAq-Tl-0cH"/>
+                                    <constraint firstItem="J5O-IV-cGy" firstAttribute="top" secondItem="bi9-qh-sbZ" secondAttribute="top" constant="18" id="vZH-eU-Vdz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6fa-yo-9V4" firstAttribute="bottom" secondItem="g7v-Y4-6sA" secondAttribute="top" id="0WS-hj-LU9"/>
                             <constraint firstItem="Spn-zu-oet" firstAttribute="leading" secondItem="YpZ-qM-Zfn" secondAttribute="leadingMargin" constant="-11" id="1ya-JK-ODo"/>
-                            <constraint firstItem="g7v-Y4-6sA" firstAttribute="top" secondItem="Wsm-WF-ByM" secondAttribute="bottom" constant="278" id="4nB-ig-DRE"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="yL5-Z8-hMZ" secondAttribute="bottom" constant="10" id="7SB-xD-QYG"/>
                             <constraint firstItem="6fa-yo-9V4" firstAttribute="top" secondItem="6nO-zR-QMo" secondAttribute="bottom" constant="8" symbolic="YES" id="8Es-IV-H5n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6nO-zR-QMo" secondAttribute="trailing" id="9fb-K5-IZX"/>
                             <constraint firstItem="yL5-Z8-hMZ" firstAttribute="leading" secondItem="1DB-2m-DGQ" secondAttribute="leading" constant="-5" id="ASJ-A7-0AI"/>
                             <constraint firstItem="VfE-t3-j9D" firstAttribute="centerX" secondItem="yL5-Z8-hMZ" secondAttribute="centerX" id="AsD-tn-45g"/>
                             <constraint firstItem="VfE-t3-j9D" firstAttribute="trailing" secondItem="1Wf-3B-RVb" secondAttribute="trailing" id="B0B-kF-3J3"/>
-                            <constraint firstItem="VfE-t3-j9D" firstAttribute="centerX" secondItem="Wsm-WF-ByM" secondAttribute="centerX" id="ClR-rn-upe"/>
-                            <constraint firstItem="VfE-t3-j9D" firstAttribute="trailing" secondItem="Wsm-WF-ByM" secondAttribute="trailing" id="IHy-KT-XAp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bi9-qh-sbZ" secondAttribute="trailing" constant="-10" id="Ily-b1-wj3"/>
+                            <constraint firstItem="Wsm-WF-ByM" firstAttribute="leading" secondItem="VfE-t3-j9D" secondAttribute="leading" id="JDt-m6-ieP"/>
                             <constraint firstItem="Spn-zu-oet" firstAttribute="centerY" secondItem="9lh-Ox-HQh" secondAttribute="centerY" id="KuP-9c-abD"/>
                             <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="6nO-zR-QMo" secondAttribute="leading" constant="-4" id="Lcg-z0-hqm"/>
                             <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="1DB-2m-DGQ" secondAttribute="trailing" constant="-5" id="MK3-A2-tGx"/>
@@ -1909,16 +1945,17 @@ REGISTRARSE?</string>
                             <constraint firstItem="9lh-Ox-HQh" firstAttribute="leading" secondItem="Spn-zu-oet" secondAttribute="trailing" constant="8" symbolic="YES" id="Q1V-po-pne"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="9lh-Ox-HQh" secondAttribute="bottom" constant="17" id="Rk3-E0-fcn"/>
                             <constraint firstItem="yL5-Z8-hMZ" firstAttribute="leading" secondItem="YpZ-qM-Zfn" secondAttribute="leading" id="Umd-Xi-7Ud"/>
+                            <constraint firstItem="Wsm-WF-ByM" firstAttribute="trailing" secondItem="6fa-yo-9V4" secondAttribute="trailing" id="cKT-lu-4Na"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="bottom" secondItem="1Wf-3B-RVb" secondAttribute="bottom" id="crg-hA-rAQ"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="Spn-zu-oet" secondAttribute="bottom" constant="13" id="eVl-Qq-oWF"/>
-                            <constraint firstItem="Wsm-WF-ByM" firstAttribute="leading" secondItem="6fa-yo-9V4" secondAttribute="leading" id="exu-4R-9Gw"/>
                             <constraint firstAttribute="bottom" secondItem="VfE-t3-j9D" secondAttribute="bottom" constant="487" id="fAA-m5-1TW"/>
-                            <constraint firstItem="Wsm-WF-ByM" firstAttribute="trailing" secondItem="6fa-yo-9V4" secondAttribute="trailing" id="fSC-h3-Nhw"/>
                             <constraint firstAttribute="trailing" secondItem="yL5-Z8-hMZ" secondAttribute="trailing" id="moG-WX-K5I"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="bi9-qh-sbZ" secondAttribute="bottom" constant="17" id="myq-md-VfA"/>
                             <constraint firstItem="yL5-Z8-hMZ" firstAttribute="top" secondItem="YpZ-qM-Zfn" secondAttribute="top" id="p3b-zh-Skb"/>
                             <constraint firstItem="Spn-zu-oet" firstAttribute="top" secondItem="NNW-UA-OuE" secondAttribute="bottom" constant="7" id="pjN-x6-L0S"/>
                             <constraint firstItem="yL5-Z8-hMZ" firstAttribute="trailing" secondItem="1Wf-3B-RVb" secondAttribute="trailing" id="rZ2-kE-NpN"/>
+                            <constraint firstItem="Wsm-WF-ByM" firstAttribute="leading" secondItem="6fa-yo-9V4" secondAttribute="leading" id="t0O-tf-9XF"/>
+                            <constraint firstItem="Wsm-WF-ByM" firstAttribute="top" secondItem="ii2-PD-af7" secondAttribute="bottom" constant="8" id="tNG-wD-vJo"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="1Wf-3B-RVb" secondAttribute="top" id="tQ7-35-Xin"/>
                             <constraint firstItem="bi9-qh-sbZ" firstAttribute="top" secondItem="NNW-UA-OuE" secondAttribute="bottom" constant="2" id="zJj-lH-a3c"/>
                             <constraint firstItem="VfE-t3-j9D" firstAttribute="top" secondItem="1DB-2m-DGQ" secondAttribute="bottom" id="ze3-tg-THf"/>
@@ -1931,6 +1968,14 @@ REGISTRARSE?</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="botonInfantil" destination="qGM-zC-RuM" id="dof-r9-jyo"/>
+                        <outlet property="botonMasterCard" destination="e2b-5s-aRq" id="Jak-0Q-f4r"/>
+                        <outlet property="botonSabores" destination="Oh4-42-9Vz" id="OGK-3M-tnf"/>
+                        <outlet property="botonServicios" destination="Ear-A0-uG2" id="GNc-GR-8Ea"/>
+                        <outlet property="botonTiempoLibre" destination="b1O-iN-d1q" id="lQG-kI-hIa"/>
+                        <outlet property="botonTodos" destination="QS4-WP-51D" id="UGn-es-aL8"/>
+                        <outlet property="botonViajes" destination="0ZI-ev-Uq8" id="r7P-Di-TId"/>
+                        <outlet property="botonVidaSana" destination="7o9-j9-5yb" id="un3-OP-QbK"/>
                         <outlet property="mapTableView" destination="6fa-yo-9V4" id="xLh-ni-amq"/>
                         <outlet property="mapView" destination="Wsm-WF-ByM" id="Nb6-XL-f0T"/>
                         <outlet property="scrollView" destination="VfE-t3-j9D" id="GXD-Sl-Q6R"/>
@@ -1948,7 +1993,7 @@ REGISTRARSE?</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1367.2" y="1170.7646176911546"/>
+            <point key="canvasLocation" x="-1174" y="1355"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nox-kR-Te4">
@@ -2486,7 +2531,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4f-Yh-fUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.399999999999999" y="1391.1544227886059"/>
+            <point key="canvasLocation" x="617" y="1451"/>
         </scene>
         <!--Infantil ContainerVC-->
         <scene sceneID="hmO-9N-q3D">
@@ -7846,11 +7891,11 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wa8-wA-Ypp"/>
-        <segue reference="JhD-SO-oge"/>
         <segue reference="3eI-5G-D6D"/>
-        <segue reference="vnn-UP-oet"/>
+        <segue reference="JhD-SO-oge"/>
         <segue reference="tqi-Nf-HuD"/>
+        <segue reference="vnn-UP-oet"/>
+        <segue reference="wuf-Nj-3R8"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
