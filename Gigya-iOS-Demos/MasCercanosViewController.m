@@ -51,7 +51,7 @@ int cuenta;
     sesion = [SessionManager session];
          storyBoardNameMasCercanos = sesion.storyBoardName;
     _mapView.delegate = self;
-    //_mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    _mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
 }
 
@@ -133,7 +133,13 @@ int cuenta;
     SessionManager *session = [SessionManager session];
     userLocation = sesion.userLocation;
     _mapView.centerCoordinate =     userLocation.coordinate;
-
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    CLLocationCoordinate2D coordenadaUser = CLLocationCoordinate2DMake(_userLocation.coordinate.latitude, _userLocation.coordinate.longitude);
+    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(coordenadaUser, 120, 120)];
+    adjustedRegion.span.longitudeDelta  = 0.01;
+    adjustedRegion.span.latitudeDelta  = 0.01;
+    [self.mapView setRegion:adjustedRegion animated:YES];
 }
 
 
@@ -243,15 +249,18 @@ int cuenta;
     
     NSLog(@"Llegue a updateMyMap");
     
-[locationManager stopUpdatingLocation];
+//[locationManager stopUpdatingLocation];
     
     _mapView.delegate = self;
     SessionManager *sesion = [SessionManager session];
      _userLocation = sesion.userLocation;
-    MKMapRect zoomRect = MKMapRectNull;
     _mapView.showsUserLocation = YES;
 
-
+    CLLocationCoordinate2D coordenadaUser = CLLocationCoordinate2DMake(_userLocation.coordinate.latitude, _userLocation.coordinate.longitude);
+    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(coordenadaUser, 120, 120)];
+    adjustedRegion.span.longitudeDelta  = 0.01;
+    adjustedRegion.span.latitudeDelta  = 0.01;
+    [self.mapView setRegion:adjustedRegion animated:NO];
 
 
 }
@@ -364,13 +373,13 @@ int cuenta;
     
     NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
     
-    [mapTableView reloadData];
-      [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     CLLocationCoordinate2D coordenadaUser = CLLocationCoordinate2DMake(_userLocation.coordinate.latitude, _userLocation.coordinate.longitude);
     MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(coordenadaUser, 120, 120)];
     adjustedRegion.span.longitudeDelta  = 0.01;
     adjustedRegion.span.latitudeDelta  = 0.01;
-    [self.mapView setRegion:adjustedRegion animated:YES];
+    [self.mapView setRegion:adjustedRegion animated:NO];
+
+        [mapTableView reloadData];
 
 }
 
