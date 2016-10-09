@@ -1740,7 +1740,8 @@ REGISTRARSE?</string>
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
+                                <frame key="frameInset" width="1000" height="1000"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="201" id="JJU-R1-ZLX"/>
                                     <constraint firstAttribute="width" constant="375" id="qSb-8v-0KS"/>
@@ -1749,17 +1750,6 @@ REGISTRARSE?</string>
                                     <outlet property="delegate" destination="Uc6-It-8ad" id="wHe-4r-Xc1"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lh-Ox-HQh">
-                                <frame key="frameInset" minX="60" minY="31" width="38" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="Lbh-gd-hyo"/>
-                                    <constraint firstAttribute="width" constant="38" id="o9C-wA-GW0"/>
-                                </constraints>
-                                <state key="normal" image="icon-lt.png"/>
-                                <connections>
-                                    <segue destination="FRq-Fc-Jtx" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="JhD-SO-oge"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6fa-yo-9V4">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1770,13 +1760,15 @@ REGISTRARSE?</string>
                                     <outlet property="delegate" destination="Uc6-It-8ad" id="VhC-wz-YdW"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nO-zR-QMo">
-                                <frame key="frameInset" minX="313" minY="336" width="46" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nO-zR-QMo">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="UzX-F6-cVQ"/>
-                                    <constraint firstAttribute="width" constant="55" id="tFu-hX-Op3"/>
+                                    <constraint firstAttribute="height" constant="46" id="UzX-F6-cVQ"/>
+                                    <constraint firstAttribute="width" constant="46" id="tFu-hX-Op3"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="updateMap.png"/>
+                                <connections>
+                                    <action selector="refreshMap:" destination="Uc6-It-8ad" eventType="touchUpInside" id="5BS-wp-7h0"/>
+                                </connections>
                             </button>
                             <searchBar contentMode="redraw" misplaced="YES" searchBarStyle="prominent" placeholder="Buscar Descuentos" scopeBarBackgroundImage="CellNormal.png" translatesAutoresizingMaskIntoConstraints="NO" id="1DB-2m-DGQ">
                                 <frame key="frameInset" minX="1" minY="86" width="300" height="44"/>
@@ -1938,12 +1930,9 @@ REGISTRARSE?</string>
                             <constraint firstItem="VfE-t3-j9D" firstAttribute="trailing" secondItem="1Wf-3B-RVb" secondAttribute="trailing" id="B0B-kF-3J3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bi9-qh-sbZ" secondAttribute="trailing" constant="-10" id="Ily-b1-wj3"/>
                             <constraint firstItem="Wsm-WF-ByM" firstAttribute="leading" secondItem="VfE-t3-j9D" secondAttribute="leading" id="JDt-m6-ieP"/>
-                            <constraint firstItem="Spn-zu-oet" firstAttribute="centerY" secondItem="9lh-Ox-HQh" secondAttribute="centerY" id="KuP-9c-abD"/>
-                            <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="6nO-zR-QMo" secondAttribute="leading" constant="-4" id="Lcg-z0-hqm"/>
+                            <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="6nO-zR-QMo" secondAttribute="leading" constant="-13" id="Lcg-z0-hqm"/>
                             <constraint firstItem="1Wf-3B-RVb" firstAttribute="leading" secondItem="1DB-2m-DGQ" secondAttribute="trailing" constant="-5" id="MK3-A2-tGx"/>
                             <constraint firstItem="bi9-qh-sbZ" firstAttribute="leading" secondItem="YpZ-qM-Zfn" secondAttribute="leading" constant="214" id="OYu-Q4-Bzr"/>
-                            <constraint firstItem="9lh-Ox-HQh" firstAttribute="leading" secondItem="Spn-zu-oet" secondAttribute="trailing" constant="8" symbolic="YES" id="Q1V-po-pne"/>
-                            <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="9lh-Ox-HQh" secondAttribute="bottom" constant="17" id="Rk3-E0-fcn"/>
                             <constraint firstItem="yL5-Z8-hMZ" firstAttribute="leading" secondItem="YpZ-qM-Zfn" secondAttribute="leading" id="Umd-Xi-7Ud"/>
                             <constraint firstItem="Wsm-WF-ByM" firstAttribute="trailing" secondItem="6fa-yo-9V4" secondAttribute="trailing" id="cKT-lu-4Na"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="bottom" secondItem="1Wf-3B-RVb" secondAttribute="bottom" id="crg-hA-rAQ"/>
@@ -1993,7 +1982,7 @@ REGISTRARSE?</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1174" y="1355"/>
+            <point key="canvasLocation" x="-1175.2" y="1354.2728635682161"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nox-kR-Te4">
@@ -5477,7 +5466,7 @@ de La Tercera</string>
                         <viewControllerLayoutGuide type="bottom" id="uHc-sG-Mwg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c1l-f6-hpV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="860"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="xIW-0V-Abg"/>
@@ -5556,7 +5545,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="89F-gJ-cCJ" customClass="VentasEspecialesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oCa-f6-dfS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
@@ -6090,7 +6079,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="wOF-aa-wio" customClass="AjustesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jrg-YW-eJ7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
@@ -6340,7 +6329,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="U5g-z8-PYI" customClass="MiPerfilTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="40" sectionFooterHeight="28" id="iao-05-2L3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="scrollIndicatorInsets" minX="0.0" minY="-2" maxX="0.0" maxY="0.0"/>
@@ -6994,7 +6983,7 @@ de La Tercera</string>
                         <viewControllerLayoutGuide type="bottom" id="4Wx-a6-r9E"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Vox-df-RfI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLTRoja.png" translatesAutoresizingMaskIntoConstraints="NO" id="VJh-xz-ygN"/>
@@ -7061,7 +7050,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="w6k-Lh-qys" customClass="FavoritosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" id="u9y-7n-72N">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="513"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -7891,11 +7880,11 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3eI-5G-D6D"/>
-        <segue reference="JhD-SO-oge"/>
+        <segue reference="tr4-cY-ltW"/>
         <segue reference="tqi-Nf-HuD"/>
-        <segue reference="vnn-UP-oet"/>
+        <segue reference="3eI-5G-D6D"/>
         <segue reference="wuf-Nj-3R8"/>
+        <segue reference="vnn-UP-oet"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

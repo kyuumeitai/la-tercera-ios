@@ -251,21 +251,7 @@ int cuenta;
     MKMapRect zoomRect = MKMapRectNull;
     _mapView.showsUserLocation = YES;
 
-    MKMapPoint annotationPoint = MKMapPointForCoordinate(_userLocation.coordinate);
 
-    MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
-    if (MKMapRectIsNull(zoomRect)) {
-        zoomRect = pointRect;
-    }else{
-        zoomRect = MKMapRectUnion(zoomRect, pointRect);
-    }
-    zoomRect = MKMapRectUnion(zoomRect, pointRect);
-    
-    CLLocationCoordinate2D coordenadaUser = CLLocationCoordinate2DMake(_userLocation.coordinate.latitude, _userLocation.coordinate.longitude);
-    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(coordenadaUser, 120, 120)];
-    adjustedRegion.span.longitudeDelta  = 0.1;
-    adjustedRegion.span.latitudeDelta  = 0.1;
-    [self.mapView setRegion:adjustedRegion animated:YES];
 
 
 }
@@ -377,6 +363,7 @@ int cuenta;
     [tableData sortUsingDescriptors:[NSArray arrayWithObject:menorAMayor]];
     
     NSLog(@"--------------------- ******* RELOAD DATA TABLEEE ****** ----------------------");
+    
     [mapTableView reloadData];
       [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     CLLocationCoordinate2D coordenadaUser = CLLocationCoordinate2DMake(_userLocation.coordinate.latitude, _userLocation.coordinate.longitude);
