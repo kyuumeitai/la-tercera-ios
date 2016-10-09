@@ -620,9 +620,97 @@ GigyaFormAction formType;
     
             }
             
+            
+            //nuevo
+            if([operation isEqualToString:@"/accounts.g"]){
+                
+                NSLog(@"---------*** Es un Registro ***---------");
+                formType = REGISTRO;
+                
+                email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
+                if([email isEqualToString:@"errorCode"]== false){
+                    verifyState = [self getStringValueForResponseString:responseString andLlave:@"email"];
+                    firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
+                    lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
+                    gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
+                    gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
+                    NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
+                    NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
+                    NSString *birthYear = [self getStringValueForResponseString:responseString andLlave:@"birthYear"];
+                    
+                    if ([birthDay isEqualToString:@""]){
+                        birthdate = @"";
+                    }else{
+                        birthdate = [NSString stringWithFormat:@"%@/%@/%@",birthYear,birthMonth,birthDay];
+                    }
+                    
+                    NSString *allDataMessage = [NSString stringWithFormat:@"Los datos son: os: %@, deviceID: %@, email: %@, Nombre: %@, Apellidos: %@, Gender: %@, dateBirth: %@",os,deviceId,email,firstName,lastName, gender, birthdate];
+                    NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
+                    
+                    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+                    
+                    NSString *respuesta = [connectionManager sendRegisterDataWithEmail:email firstName:firstName lastName:lastName gender:gender birthdate:birthdate uid:deviceId os:os gigyaId:gigyaID];
+                    
+                    NSLog(@"***::::-----  La respuesta es:   %@     -----::::***\r\r\r",respuesta);
+                    
+                    //leemos el objeto retornado
+                    NSLog(@"***************::::-----  Procedemos al leer el perfil:        -----::::**************");
+                    
+                    NSData *data = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
+                    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                    
+                    NSString *userEmail = [json objectForKey:@"email"];
+                    int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
+                    BOOL userStatus = false;
+                    if([json objectForKey:@"status"] == NULL){
+                        userStatus = false;
+                    }else{
+                        userStatus = [[json objectForKey:@"status"] boolValue];
+                    }
+                    int userDevice = [[json objectForKey:@"device"] intValue];
+                    //int userDevice =-111;
+                    NSString *userGigyaId = [json objectForKey:@"gigya_id"];
+                    
+                    SessionManager *sesion = [SessionManager session];
+                    UserProfile *perfil = [sesion getUserProfile];
+                    perfil.email = userEmail;
+                    perfil.name = firstName;
+                    perfil.lastName = lastName;
+                    perfil.profileLevel = userProfileLevel;
+                    perfil.status = userStatus;
+                    perfil.device = userDevice;
+                    perfil.gigyaId = userGigyaId;
+                    sesion.isLogged = true;
+                    sesion.userProfile = perfil;
+                    sesion.isLogged = true;
+                    
+                    NSString *saveEmail= userEmail;
+                    NSString *saveGigyaId= userGigyaId;
+                    [[NSUserDefaults standardUserDefaults] setObject:saveEmail forKey:@"savedEmail"];
+                    [[NSUserDefaults standardUserDefaults] setObject:saveGigyaId forKey:@"savedGigyaId"];
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLogged"];
+                    
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+                    
+                    
+                    for (NSString* key in json) {
+                        id value = [json objectForKey:key];
+                        NSLog(@"Clave %@: %@", key,value);
+                    }
+                    NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
+                    NSLog(@"***************::::----- session  : %@  -----::::**************\r\r",[sesion profileDescription]);
+                }else{
+                    NSLog(@"***::::-----  EMAIL YA REGISTRADO:      -----::::***");
+                    
+                }
+                
+                
+            }
+            //Fin nuevo
             switch (formType) {
                 case REGISTRO:
-                    [self performSegueWithIdentifier:@"GoToSWReveal" sender:self];
+                           [self performSegueWithIdentifier:@"goToNews" sender:self];
+                    //[self performSegueWithIdentifier:@"GoToSWReveal" sender:self];
                     break;
                     
                 case LOGIN:

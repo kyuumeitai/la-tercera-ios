@@ -195,7 +195,7 @@ return YES;
     
     NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
     
-    NSLog(@"Registrar paticipaciónen concurso:%@", responseDict);
+    NSLog(@"Registrar paticipación en concurso:%@", responseDict);
 }
 
 
@@ -208,13 +208,14 @@ return YES;
 }
 
 - (void)accountDidLogout {
-    UIAlertView *alert;
+   /* UIAlertView *alert;
     alert = [[UIAlertView alloc] initWithTitle:@"Salir de Gigya"
                                        message:@"Has salido correctamente de Gigya."
                                       delegate:nil
                              cancelButtonTitle:@"OK"
                              otherButtonTitles:nil];
     [alert show];
+    */
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -506,6 +507,7 @@ forLocalNotification:(UILocalNotification *)notification completionHandler:(void
        NSLog(@"\tBeacon name %@ tuvo un cambio de proximidad",            beacon.name);
 }
 -(void)proximityService:(MOCAProximityService*)service didEnterPlace:(MOCAPlace *)place{
+    /*
     NSString *mensaje = [NSString stringWithFormat:@"\tSe ha ingresado al lugar: %@",            place];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Beacon"
                                                                              message:mensaje
@@ -516,8 +518,11 @@ forLocalNotification:(UILocalNotification *)notification completionHandler:(void
                                                      handler:nil]; //You can use a block here to handle a press on this button
     [alertController addAction:actionOk];
     [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+     */
 }
 -(void)proximityService:(MOCAProximityService*)service didExitPlace:(MOCAPlace *)place{
+    
+    /*
     NSString *mensaje = [NSString stringWithFormat:@"\tH salido del lugar: %@",            place];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Beacon"
                                                                              message:mensaje
@@ -528,6 +533,7 @@ forLocalNotification:(UILocalNotification *)notification completionHandler:(void
                                                      handler:nil]; //You can use a block here to handle a press on this button
     [alertController addAction:actionOk];
     [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+     */
 }
 
 @end

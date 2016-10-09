@@ -113,7 +113,7 @@ int monto = 0;
         }else{
             UIAlertView *alert;
             alert = [[UIAlertView alloc] initWithTitle:@"Error al cargar tarjeta"
-                                               message:@"Has salido correctamente de Gigya."
+                                               message:@"Hubo un error al cargar la tarjeta."
                                               delegate:nil
                                      cancelButtonTitle:@"OK"
                                      otherButtonTitles:nil];
