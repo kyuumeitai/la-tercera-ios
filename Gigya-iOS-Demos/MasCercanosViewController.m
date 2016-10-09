@@ -262,7 +262,6 @@ int cuenta;
     adjustedRegion.span.latitudeDelta  = 0.01;
     [self.mapView setRegion:adjustedRegion animated:NO];
 
-
 }
 
 #pragma mark - Load Categories
@@ -289,7 +288,7 @@ int cuenta;
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
                 [self noBenefitsFound];
-                NSLog(@"Noe xisten veneficios");
+                NSLog(@"No existen beneficios");
 
             } else {
                 [self reloadStoresDataFromService:arrayJson];
@@ -306,7 +305,6 @@ int cuenta;
     storeItemsArray = [[NSMutableArray alloc] init];
     tableData = [[NSMutableArray alloc] init];
 
-    
     NSLog(@"     ");
     NSLog(@" ******* LISTADO DE SUCURSALES ****** ----------------------");
     
@@ -397,7 +395,7 @@ int cuenta;
     if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         //[self loadData ];
         
-        NSLog(@"Estoy acaaa en change status");
+       // NSLog(@"Estoy acaaa en change status");
         locationManager .desiredAccuracy = kCLLocationAccuracyNearestTenMeters;   // 2 kilometers - hope for accuracy within 2 km.
         locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
         [locationManager startUpdatingLocation];
