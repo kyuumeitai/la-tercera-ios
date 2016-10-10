@@ -223,9 +223,9 @@ NSMutableArray *relatedIdsArrayCultura;
         titular.summary = summary;
         titular.imagenThumbString = imageThumb;
         
-        NSLog(@"____ Numero de pagina: %d", currentPageNumberCultura);
+        //NSLog(@"____ Numero de pagina: %d", currentPageNumberCultura);
         if (indice == currentPageNumberCultura*6 ){
-            NSLog(@"____ currentPageNumberCultura*6: %d", currentPageNumberCultura*6);
+          //  NSLog(@"____ currentPageNumberCultura*6: %d", currentPageNumberCultura*6);
             [headlinesArray addObject:@"OBJETO"];
         }
         //[titular logDescription];
@@ -255,7 +255,7 @@ NSMutableArray *relatedIdsArrayCultura;
         [self.collectionView reloadData];
         [self.collectionView layoutIfNeeded];
         [weakSelf.collectionView.infiniteScrollingView stopAnimating];
-        NSLog(@"LA cantidad es: %lu",(unsigned long)headlinesArray.count);
+        //NSLog(@"LA cantidad es: %lu",(unsigned long)headlinesArray.count);
     }
     NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
 }
@@ -385,7 +385,7 @@ NSMutableArray *relatedIdsArrayCultura;
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"ENtonces el indexpath es: %ld",(long)[indexPath row]);
+    //NSLog(@"ENtonces el indexpath es: %ld",(long)[indexPath row]);
         if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
         return ;
         

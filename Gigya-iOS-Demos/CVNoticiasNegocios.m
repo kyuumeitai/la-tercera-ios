@@ -53,6 +53,8 @@ NSString *yearNoticiasNegocios;
 NSString *storyBoardNameNoticiasNegocios;
 //int categoryId;
 
+NSMutableArray *relatedIdsArrayNegocios;
+
 - (void) viewDidLoad{
     categoryIdNoticiasNegocio = 0;
 [super viewDidLoad];
@@ -189,7 +191,7 @@ NSString *storyBoardNameNoticiasNegocios;
     
     NSArray* arrayTitulares = [diccionarioTitulares objectForKey:@"articles"];
     //NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
-    
+    relatedIdsArrayNegocios = [[NSMutableArray alloc]initWithCapacity:9999];
     
     int indice = 0;
     
@@ -199,6 +201,8 @@ NSString *storyBoardNameNoticiasNegocios;
         NSDictionary *dictTitular = (NSDictionary*) titularTemp;
         id idArt =  [dictTitular objectForKey:@"id"];
         //id title = [dictTitular objectForKey:@"title"];
+        NSNumber *artId = [NSNumber numberWithInteger:[idArt intValue] ];
+        [relatedIdsArrayNegocios addObject: artId];
         id summary = [dictTitular objectForKey:@"short_description"];
         
         id imageThumb ;
@@ -387,7 +391,8 @@ NSString *storyBoardNameNoticiasNegocios;
         NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
         detalleNews.idCategoria = self.categoryIdNoticiasNegocio;
-         [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];   //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        detalleNews.relatedIdsArray = relatedIdsArrayNegocios;
+        [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];   //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         [self.navigationController pushViewController:detalleNews animated:YES];
     }
 }

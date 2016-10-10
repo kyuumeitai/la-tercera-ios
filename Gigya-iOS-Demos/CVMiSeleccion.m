@@ -57,6 +57,7 @@ NSString *monthMiSeleccion;
 NSString *yearMiSeleccion;
 NSString *storyBoardNameMiSeleccion;
 
+NSMutableArray *relatedIdsArrayMiSeleccion;
 
 - (void) viewDidLoad{
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSelectionItems) name:@"agregandoCategoriaAMiSeleccion" object:nil];
@@ -201,6 +202,7 @@ NSString *storyBoardNameMiSeleccion;
     NSArray* arrayTitulares = [[NSArray alloc] init];
     arrayTitulares = [diccionarioTitulares objectForKey:@"articles"];
     //NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
+    relatedIdsArrayMiSeleccion = [[NSMutableArray alloc]initWithCapacity:9999];
     
     [headlinesArray removeAllObjects];
     int indice = 0;
@@ -211,6 +213,8 @@ NSString *storyBoardNameMiSeleccion;
         NSDictionary *dictTitular = (NSDictionary*) titularTemp;
         id idArt =  [dictTitular objectForKey:@"id"];
         //id title = [dictTitular objectForKey:@"title"];
+        NSNumber *artId = [NSNumber numberWithInteger:[idArt intValue] ];
+        [relatedIdsArrayMiSeleccion addObject: artId];
         id summary = [dictTitular objectForKey:@"short_description"];
         
         id imageThumb ;
@@ -443,6 +447,7 @@ NSString *storyBoardNameMiSeleccion;
         int idArticulo = titular.idArt;
         NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
+     detalleNews.relatedIdsArray = relatedIdsArrayMiSeleccion;
         [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];
         [self.navigationController pushViewController:detalleNews animated:YES];
     //}

@@ -52,6 +52,8 @@ NSString *monthNoticiasTendencias;
 NSString *yearNoticiasTendencias;
 NSString *storyBoardNameNoticiasTendencias;
 //int categoryId;
+NSMutableArray *relatedIdsArrayTendencias;
+
 
 - (void) viewDidLoad{
     categoryIdNoticiasTendencias = 0;
@@ -191,6 +193,7 @@ NSString *storyBoardNameNoticiasTendencias;
     NSArray* arrayTitulares = [diccionarioTitulares objectForKey:@"articles"];
     //NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
     
+    relatedIdsArrayTendencias = [[NSMutableArray alloc]initWithCapacity:9999];
     
     int indice = 0;
     
@@ -199,7 +202,9 @@ NSString *storyBoardNameNoticiasTendencias;
         NSLog(@"El Indice es: %d ", indice);
         NSDictionary *dictTitular = (NSDictionary*) titularTemp;
         id idArt =  [dictTitular objectForKey:@"id"];
-        //id title = [dictTitular objectForKey:@"title"];
+        //id title = [dictTitular objectForKey:@"title"]
+        NSNumber *artId = [NSNumber numberWithInteger:[idArt intValue] ];
+        [relatedIdsArrayTendencias addObject: artId];
         id summary = [dictTitular objectForKey:@"short_description"];
         
         id imageThumb ;
@@ -388,6 +393,7 @@ NSString *storyBoardNameNoticiasTendencias;
         NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
         detalleNews.idCategoria = self.categoryIdNoticiasTendencias;
+        detalleNews.relatedIdsArray = relatedIdsArrayTendencias;
          [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];   //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         [self.navigationController pushViewController:detalleNews animated:YES];
     }

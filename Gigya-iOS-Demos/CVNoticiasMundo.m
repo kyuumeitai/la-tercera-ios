@@ -52,6 +52,7 @@ NSString *monthMundo;
 NSString *yearMundo;
 NSString *storyBoardNameMundo;
 
+NSMutableArray *relatedIdsArrayMundo;
 
 - (void) viewDidLoad{
 
@@ -190,6 +191,7 @@ NSString *storyBoardNameMundo;
     NSArray* arrayTitulares = [diccionarioTitulares objectForKey:@"articles"];
     //NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
     
+    relatedIdsArrayMundo = [[NSMutableArray alloc]initWithCapacity:9999];
     
     int indice = 0;
     
@@ -199,6 +201,8 @@ NSString *storyBoardNameMundo;
         NSDictionary *dictTitular = (NSDictionary*) titularTemp;
         id idArt =  [dictTitular objectForKey:@"id"];
         //id title = [dictTitular objectForKey:@"title"];
+        NSNumber *artId = [NSNumber numberWithInteger:[idArt intValue] ];
+        [relatedIdsArrayMundo addObject: artId];
         id summary = [dictTitular objectForKey:@"short_description"];
         
         id imageThumb ;
@@ -387,6 +391,7 @@ NSString *storyBoardNameMundo;
         NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
         detalleNews.idCategoria = self.categoryId;
+        detalleNews.relatedIdsArray = relatedIdsArrayMundo;
          [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];
         [self.navigationController pushViewController:detalleNews animated:YES];
     }

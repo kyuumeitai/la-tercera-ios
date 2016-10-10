@@ -52,6 +52,8 @@ NSString *monthNoticiasEntretencion;
 NSString *yearNoticiasEntretencion;
 NSString *storyBoardNameNoticiasEntretencion;
 
+NSMutableArray *relatedIdsArrayEntretencion;
+
 - (void) viewDidLoad{
     self.categoryIdNoticiasEntretencion = 0;
 
@@ -188,7 +190,8 @@ NSString *storyBoardNameNoticiasEntretencion;
     NSArray* arrayTitulares = [diccionarioTitulares objectForKey:@"articles"];
     //NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
     
-    
+    relatedIdsArrayEntretencion = [[NSMutableArray alloc]initWithCapacity:9999];
+
     int indice = 0;
     
     for (id titularTemp in arrayTitulares){
@@ -197,6 +200,9 @@ NSString *storyBoardNameNoticiasEntretencion;
         NSDictionary *dictTitular = (NSDictionary*) titularTemp;
         id idArt =  [dictTitular objectForKey:@"id"];
         //id title = [dictTitular objectForKey:@"title"];
+        NSNumber *artId = [NSNumber numberWithInteger:[idArt intValue] ];
+        [relatedIdsArrayEntretencion addObject: artId];
+
         id summary = [dictTitular objectForKey:@"short_description"];
         
         id imageThumb ;
@@ -376,17 +382,18 @@ NSString *storyBoardNameNoticiasEntretencion;
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"ENtonces el indexpath es: %ld",(long)[indexPath row]);
+    //NSLog(@"ENtonces el indexpath es: %ld",(long)[indexPath row]);
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
         return ;
         
     }else{
         Headline *titular = (Headline*)[headlinesArray objectAtIndex:indexPath.row ];
-        [titular logDescription];
+        //[titular logDescription];
         int idArticulo = titular.idArt;
-        NSLog(@"id Artículo = %d",idArticulo);
+       // NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
         detalleNews.idCategoria = self.categoryIdNoticiasEntretencion;
+        detalleNews.relatedIdsArray = relatedIdsArrayEntretencion;
          [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];   //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         [self.navigationController pushViewController:detalleNews animated:YES];
     }

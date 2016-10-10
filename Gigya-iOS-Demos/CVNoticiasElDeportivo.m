@@ -51,6 +51,8 @@ NSString *monthNoticiasElDeportivo;
 NSString *yearNoticiasElDeportivo;
 NSString *storyBoardNameNoticiasElDeportivo;
 
+NSMutableArray *relatedIdsArrayElDeportivo;
+
 - (void) viewDidLoad{
 
     [super viewDidLoad];
@@ -188,7 +190,7 @@ NSString *storyBoardNameNoticiasElDeportivo;
     NSArray* arrayTitulares = [diccionarioTitulares objectForKey:@"articles"];
     //NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
     
-    
+     relatedIdsArrayElDeportivo = [[NSMutableArray alloc]initWithCapacity:9999];
     int indice = 0;
     
     for (id titularTemp in arrayTitulares){
@@ -197,6 +199,8 @@ NSString *storyBoardNameNoticiasElDeportivo;
         NSDictionary *dictTitular = (NSDictionary*) titularTemp;
         id idArt =  [dictTitular objectForKey:@"id"];
         //id title = [dictTitular objectForKey:@"title"];
+        NSNumber *artId = [NSNumber numberWithInteger:[idArt intValue] ];
+        [relatedIdsArrayElDeportivo addObject: artId];
         id summary = [dictTitular objectForKey:@"short_description"];
         
         id imageThumb ;
@@ -385,6 +389,7 @@ NSString *storyBoardNameNoticiasElDeportivo;
         NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
         detalleNews.idCategoria = self.categoryId;
+        detalleNews.relatedIdsArray = relatedIdsArrayElDeportivo;
          [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];    //detalleNews.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         [self.navigationController pushViewController:detalleNews animated:YES];
     }

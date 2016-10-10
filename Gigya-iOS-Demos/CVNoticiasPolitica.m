@@ -53,7 +53,7 @@ NSString *monthNoticiasPolitica;
 NSString *yearNoticiasPolitica;
 NSString *storyBoardNameNoticiasPolitica;
 //int categoryId;
-
+NSMutableArray *relatedIdsArrayPolitica;
 - (void) viewDidLoad{
 
     [super viewDidLoad];
@@ -191,7 +191,7 @@ NSString *storyBoardNameNoticiasPolitica;
     
     NSArray* arrayTitulares = [diccionarioTitulares objectForKey:@"articles"];
     //NSLog(@" El array de titulares, es: %@ ",arrayTitulares);
-    
+     relatedIdsArrayPolitica = [[NSMutableArray alloc]initWithCapacity:9999];
     
     int indice = 0;
     
@@ -201,6 +201,8 @@ NSString *storyBoardNameNoticiasPolitica;
         NSDictionary *dictTitular = (NSDictionary*) titularTemp;
         id idArt =  [dictTitular objectForKey:@"id"];
         //id title = [dictTitular objectForKey:@"title"];
+        NSNumber *artId = [NSNumber numberWithInteger:[idArt intValue] ];
+        [relatedIdsArrayPolitica addObject: artId];
         id summary = [dictTitular objectForKey:@"short_description"];
         
         id imageThumb ;
@@ -388,8 +390,10 @@ NSString *storyBoardNameNoticiasPolitica;
         int idArticulo = titular.idArt;
         NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
+        detalleNews.relatedIdsArray = relatedIdsArrayPolitica;
         [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];
         detalleNews.idCategoria = self.categoryIdNoticiasPolitica;
+        
 
         [self.navigationController pushViewController:detalleNews animated:YES];
     }
