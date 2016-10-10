@@ -101,70 +101,68 @@
                         <viewControllerLayoutGuide type="top" id="A8M-KA-yVd"/>
                         <viewControllerLayoutGuide type="bottom" id="tWH-gT-5zw"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LNh-Gq-ojR">
+                    <view key="view" contentMode="scaleAspectFit" id="LNh-Gq-ojR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fondoPorque.png" translatesAutoresizingMaskIntoConstraints="NO" id="hRx-ZI-tQB">
-                                <frame key="frameInset" width="320" height="570"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tlz-rW-1rG">
-                                <frame key="frameInset" minX="34" minY="28" width="222" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondoPorque.png" translatesAutoresizingMaskIntoConstraints="NO" id="hRx-ZI-tQB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tlz-rW-1rG">
                                 <string key="text">¿POR QUÉ
 REGISTRARSE?</string>
                                 <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="32"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Kj-kX-bae">
-                                <frame key="frameInset" minX="21" minY="140" width="33" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Kj-kX-bae">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="pAb-5J-8w5"/>
+                                    <constraint firstAttribute="width" constant="33" id="qUo-Xf-31F"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Personaliza tu portada con las noticias que te interesa leer." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePo-zx-pBq">
-                                <frame key="frameInset" minX="62" minY="135" width="235" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personaliza tu portada con las noticias que te interesa leer." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePo-zx-pBq">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CfA-q9-OBs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check.png" translatesAutoresizingMaskIntoConstraints="NO" id="QHc-dA-XHe">
-                                <frame key="frameInset" minX="21" minY="198" width="33" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check.png" translatesAutoresizingMaskIntoConstraints="NO" id="QHc-dA-XHe">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="mfU-RC-y4r"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alerta: Personaliza las alertas que quieres recibir." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fad-5k-I9v">
-                                <frame key="frameInset" minX="62" minY="193" width="235" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alerta: Personaliza las alertas que quieres recibir." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fad-5k-I9v">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2he-sz-8Pu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q05-bP-Txm">
-                                <frame key="frameInset" minX="21" minY="256" width="33" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="check.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q05-bP-Txm">
+                                <frame key="frameInset" minX="21" minY="260" width="33" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="uqL-GO-Pe3"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Guarda tus ártículos y léelos offline." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjq-Ui-tfc">
-                                <frame key="frameInset" minX="62" minY="250" width="230" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guarda tus ártículos y léelos offline." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjq-Ui-tfc">
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check.png" translatesAutoresizingMaskIntoConstraints="NO" id="tCr-F3-Akq">
-                                <frame key="frameInset" minX="20" minY="311" width="33" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check.png" translatesAutoresizingMaskIntoConstraints="NO" id="tCr-F3-Akq">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="OxI-F8-l7z"/>
+                                    <constraint firstAttribute="height" constant="33" id="mgO-eE-2JO"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Accede a beneficios y descuentos especiales para usuarios registrados." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ao0-RH-fcg">
-                                <frame key="frameInset" minX="58" minY="308" width="243" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accede a beneficios y descuentos especiales para usuarios registrados." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ao0-RH-fcg">
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBp-OW-Fdj" customClass="CustomButtonTerceraShadows">
-                                <frame key="frameInset" minX="167" minY="406" width="144" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBp-OW-Fdj" customClass="CustomButtonTerceraShadows">
                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <state key="normal">
@@ -192,9 +190,7 @@ REGISTRARSE?</string>
                                     <segue destination="8a9-1v-lOv" kind="show" id="SSq-Yv-1j3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kN-rl-LKH" customClass="CustomButtonTerceraShadows">
-                                <frame key="frameInset" minX="20" minY="406" width="139" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kN-rl-LKH" customClass="CustomButtonTerceraShadows">
                                 <color key="backgroundColor" red="0.70196078429999997" green="0.15686274510000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="13"/>
                                 <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
@@ -223,15 +219,61 @@ REGISTRARSE?</string>
                                     <action selector="showScreenSet:" destination="xVx-rM-Fhg" eventType="touchUpInside" id="50k-1x-1ij"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CONTINUAR SIN REGISTRO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjs-mk-1ms">
-                                <frame key="frameInset" minX="174" minY="408" width="123" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTINUAR SIN REGISTRO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjs-mk-1ms">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="On1-bD-iaj"/>
+                                    <constraint firstAttribute="width" constant="123" id="w2f-Bp-Son"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="13"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ao0-RH-fcg" firstAttribute="top" secondItem="Fad-5k-I9v" secondAttribute="bottom" constant="62" id="2rs-wd-3VE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ePo-zx-pBq" secondAttribute="trailing" constant="12" id="33B-gR-BgX"/>
+                            <constraint firstItem="Kjq-Ui-tfc" firstAttribute="top" secondItem="Fad-5k-I9v" secondAttribute="bottom" constant="10" id="3Th-y8-R6k"/>
+                            <constraint firstAttribute="bottom" secondItem="ao0-RH-fcg" secondAttribute="bottom" constant="95" id="3Wz-Aw-ise"/>
+                            <constraint firstItem="ePo-zx-pBq" firstAttribute="leading" secondItem="4Kj-kX-bae" secondAttribute="trailing" constant="8" symbolic="YES" id="4zT-Ra-TYB"/>
+                            <constraint firstItem="aBp-OW-Fdj" firstAttribute="leading" secondItem="5kN-rl-LKH" secondAttribute="trailing" constant="8" symbolic="YES" id="5S5-aE-kbD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yjs-mk-1ms" secondAttribute="trailing" constant="7" id="71K-jl-AvR"/>
+                            <constraint firstItem="4Kj-kX-bae" firstAttribute="leading" secondItem="QHc-dA-XHe" secondAttribute="leading" id="7Yv-kw-O9G"/>
+                            <constraint firstItem="Tlz-rW-1rG" firstAttribute="top" secondItem="A8M-KA-yVd" secondAttribute="bottom" constant="8" symbolic="YES" id="9Yf-nI-4w3"/>
+                            <constraint firstItem="ePo-zx-pBq" firstAttribute="leading" secondItem="Fad-5k-I9v" secondAttribute="leading" id="A7T-W8-93l"/>
+                            <constraint firstItem="5kN-rl-LKH" firstAttribute="bottom" secondItem="aBp-OW-Fdj" secondAttribute="bottom" id="ARe-vO-BcQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tlz-rW-1rG" secondAttribute="trailing" constant="48" id="EGO-vG-djL"/>
+                            <constraint firstItem="Kjq-Ui-tfc" firstAttribute="leading" secondItem="Q05-bP-Txm" secondAttribute="trailing" constant="8" symbolic="YES" id="Fna-4F-kt6"/>
+                            <constraint firstItem="5kN-rl-LKH" firstAttribute="top" secondItem="ao0-RH-fcg" secondAttribute="bottom" constant="21" id="HQW-Ux-zhw"/>
+                            <constraint firstItem="ePo-zx-pBq" firstAttribute="top" secondItem="Tlz-rW-1rG" secondAttribute="bottom" constant="19" id="JV0-xN-dF8"/>
+                            <constraint firstItem="4Kj-kX-bae" firstAttribute="top" secondItem="Tlz-rW-1rG" secondAttribute="bottom" constant="31" id="L2L-G8-2n9"/>
+                            <constraint firstItem="hRx-ZI-tQB" firstAttribute="top" secondItem="LNh-Gq-ojR" secondAttribute="top" id="Q2F-tv-2SE"/>
+                            <constraint firstItem="QHc-dA-XHe" firstAttribute="top" secondItem="4Kj-kX-bae" secondAttribute="bottom" constant="25" id="Tja-UO-OMY"/>
+                            <constraint firstItem="QHc-dA-XHe" firstAttribute="leading" secondItem="Q05-bP-Txm" secondAttribute="leading" id="WAE-Zo-SRm"/>
+                            <constraint firstItem="ao0-RH-fcg" firstAttribute="centerX" secondItem="Kjq-Ui-tfc" secondAttribute="centerX" constant="2.5" id="X2o-u0-VKz"/>
+                            <constraint firstItem="4Kj-kX-bae" firstAttribute="leading" secondItem="LNh-Gq-ojR" secondAttribute="leadingMargin" constant="5" id="XID-Fd-xjj"/>
+                            <constraint firstItem="hRx-ZI-tQB" firstAttribute="bottom" secondItem="tWH-gT-5zw" secondAttribute="top" id="YeP-ls-f1B"/>
+                            <constraint firstItem="5kN-rl-LKH" firstAttribute="top" secondItem="tCr-F3-Akq" secondAttribute="bottom" constant="62" id="Zgi-jd-fJc"/>
+                            <constraint firstItem="5kN-rl-LKH" firstAttribute="top" secondItem="aBp-OW-Fdj" secondAttribute="top" id="Zip-Jh-nEo"/>
+                            <constraint firstItem="tCr-F3-Akq" firstAttribute="leading" secondItem="5kN-rl-LKH" secondAttribute="leading" id="b86-Jw-DGx"/>
+                            <constraint firstItem="tCr-F3-Akq" firstAttribute="leading" secondItem="LNh-Gq-ojR" secondAttribute="leadingMargin" constant="4" id="bKD-zY-jm6"/>
+                            <constraint firstItem="Fad-5k-I9v" firstAttribute="leading" secondItem="QHc-dA-XHe" secondAttribute="trailing" constant="8" symbolic="YES" id="cs0-Rr-wNo"/>
+                            <constraint firstItem="Yjs-mk-1ms" firstAttribute="leading" secondItem="5kN-rl-LKH" secondAttribute="trailing" constant="15" id="eDw-tq-zXf"/>
+                            <constraint firstItem="tCr-F3-Akq" firstAttribute="top" secondItem="Q05-bP-Txm" secondAttribute="bottom" constant="17" id="eLa-A6-9nY"/>
+                            <constraint firstItem="aBp-OW-Fdj" firstAttribute="centerY" secondItem="Yjs-mk-1ms" secondAttribute="centerY" id="f3J-mm-vBz"/>
+                            <constraint firstItem="ePo-zx-pBq" firstAttribute="trailing" secondItem="Fad-5k-I9v" secondAttribute="trailing" id="fPR-I2-aXm"/>
+                            <constraint firstItem="Tlz-rW-1rG" firstAttribute="leading" secondItem="LNh-Gq-ojR" secondAttribute="leadingMargin" constant="18" id="fTv-qI-qmn"/>
+                            <constraint firstItem="hRx-ZI-tQB" firstAttribute="leading" secondItem="LNh-Gq-ojR" secondAttribute="leading" id="faK-cS-6HW"/>
+                            <constraint firstItem="Fad-5k-I9v" firstAttribute="top" secondItem="ePo-zx-pBq" secondAttribute="bottom" constant="8" symbolic="YES" id="fqk-wB-pzL"/>
+                            <constraint firstItem="5kN-rl-LKH" firstAttribute="top" secondItem="Kjq-Ui-tfc" secondAttribute="bottom" constant="96" id="g8N-KI-41O"/>
+                            <constraint firstAttribute="trailing" secondItem="hRx-ZI-tQB" secondAttribute="trailing" id="i3a-d5-8qh"/>
+                            <constraint firstItem="tWH-gT-5zw" firstAttribute="top" secondItem="5kN-rl-LKH" secondAttribute="bottom" constant="28" id="rzY-zl-aiH"/>
+                            <constraint firstItem="Fad-5k-I9v" firstAttribute="trailing" secondItem="Kjq-Ui-tfc" secondAttribute="trailing" id="sl1-vL-SQp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aBp-OW-Fdj" secondAttribute="trailing" constant="-7" id="szA-Tt-9x2"/>
+                            <constraint firstItem="Fad-5k-I9v" firstAttribute="leading" secondItem="Kjq-Ui-tfc" secondAttribute="leading" id="tSk-nq-0jt"/>
+                            <constraint firstItem="ao0-RH-fcg" firstAttribute="trailing" secondItem="Yjs-mk-1ms" secondAttribute="trailing" constant="2" id="uAq-p2-jn5"/>
+                            <constraint firstItem="Q05-bP-Txm" firstAttribute="top" secondItem="QHc-dA-XHe" secondAttribute="bottom" constant="23" id="ybP-87-Eti"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IMT-Al-5dW"/>
                     <connections>
@@ -240,7 +282,7 @@ REGISTRARSE?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GO9-Ah-H3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4413.75" y="155.28169014084506"/>
+            <point key="canvasLocation" x="-4413.75" y="155"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="X1h-hJ-v17">
@@ -605,6 +647,8 @@ REGISTRARSE?</string>
                     </view>
                     <navigationItem key="navigationItem" id="Ey4-QP-eEF"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
                     <connections>
                         <segue destination="FRq-Fc-Jtx" kind="show" identifier="goToNews" id="N2U-nl-Vbn"/>
                     </connections>
@@ -979,7 +1023,7 @@ REGISTRARSE?</string>
         <scene sceneID="C4h-Xp-o5n">
             <objects>
                 <collectionViewController id="SYc-4s-vqG" customClass="CVNoticiasInicio" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" id="C3w-uL-EQG">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" id="C3w-uL-EQG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -987,11 +1031,11 @@ REGISTRARSE?</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="8" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="e3j-e5-lYp">
-                                <rect key="frame" x="5" y="30" width="128" height="169"/>
+                                <rect key="frame" x="5" y="8" width="128" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="169"/>
@@ -1001,7 +1045,7 @@ REGISTRARSE?</string>
                                 <size key="customSize" width="128" height="169"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EAD-N9-Kpt">
-                                <rect key="frame" x="135" y="30" width="125" height="169"/>
+                                <rect key="frame" x="135" y="8" width="125" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="125" height="169"/>
@@ -3087,6 +3131,8 @@ de La Tercera</string>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="fn8-4t-toB"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uyh-9l-Fae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4076,7 +4122,7 @@ de La Tercera</string>
         <scene sceneID="Jtf-eI-5B3">
             <objects>
                 <collectionViewController id="wwa-n8-FIc" customClass="CVNoticiasPolitica" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="q3p-lK-1jh">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="q3p-lK-1jh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4084,11 +4130,11 @@ de La Tercera</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="8" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7CW-9D-4Gy">
-                                <rect key="frame" x="75" y="30" width="170" height="267"/>
+                                <rect key="frame" x="75" y="8" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4097,7 +4143,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6YQ-Y2-h2a">
-                                <rect key="frame" x="75" y="299" width="170" height="267"/>
+                                <rect key="frame" x="75" y="277" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4321,13 +4367,13 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRR-gc-fVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2033" y="-3688"/>
+            <point key="canvasLocation" x="-2034" y="-3570"/>
         </scene>
         <!--Noticias Mundo-->
         <scene sceneID="eYM-Sm-asG">
             <objects>
                 <collectionViewController id="Ezh-w4-n1h" customClass="CVNoticiasMundo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Z86-im-lD7">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Z86-im-lD7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4335,11 +4381,11 @@ de La Tercera</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="8" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Lod-0e-Xsb">
-                                <rect key="frame" x="75" y="30" width="170" height="267"/>
+                                <rect key="frame" x="75" y="8" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4348,7 +4394,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XB9-UG-ySG">
-                                <rect key="frame" x="75" y="299" width="170" height="267"/>
+                                <rect key="frame" x="75" y="277" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4369,13 +4415,13 @@ de La Tercera</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWD-rk-8yO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-945" y="-3676.0563380281687"/>
+            <point key="canvasLocation" x="-958" y="-3570"/>
         </scene>
         <!--Noticias Cultura-->
         <scene sceneID="ygu-ro-zFI">
             <objects>
                 <collectionViewController id="94C-rh-BI8" customClass="CVNoticiasCultura" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="7OL-kE-thT">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="7OL-kE-thT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4383,11 +4429,11 @@ de La Tercera</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="8" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eyQ-M6-adO">
-                                <rect key="frame" x="75" y="30" width="170" height="267"/>
+                                <rect key="frame" x="75" y="8" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4396,7 +4442,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sko-mn-LNN">
-                                <rect key="frame" x="75" y="299" width="170" height="267"/>
+                                <rect key="frame" x="75" y="277" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4451,7 +4497,7 @@ de La Tercera</string>
         <scene sceneID="ryL-5l-vNe">
             <objects>
                 <collectionViewController id="hK5-vS-3vn" customClass="CVNoticiasTendencias" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="ZuS-Bv-VK7">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="ZuS-Bv-VK7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4459,11 +4505,11 @@ de La Tercera</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="8" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Im7-Ah-vO7">
-                                <rect key="frame" x="75" y="30" width="170" height="267"/>
+                                <rect key="frame" x="75" y="8" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4472,7 +4518,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zwE-9v-PcG">
-                                <rect key="frame" x="75" y="299" width="170" height="267"/>
+                                <rect key="frame" x="75" y="277" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4521,13 +4567,13 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0GG-ai-bRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2085" y="-5118"/>
+            <point key="canvasLocation" x="-2085" y="-4988"/>
         </scene>
         <!--Noticias Entretencion-->
         <scene sceneID="L5a-rC-VYR">
             <objects>
                 <collectionViewController id="E5J-KX-lxp" customClass="CVNoticiasEntretencion" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="0sP-wY-pkf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="0sP-wY-pkf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4535,11 +4581,11 @@ de La Tercera</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="8" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MMV-UA-GI0">
-                                <rect key="frame" x="75" y="30" width="170" height="267"/>
+                                <rect key="frame" x="75" y="8" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4548,7 +4594,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ghk-et-rBl">
-                                <rect key="frame" x="75" y="299" width="170" height="267"/>
+                                <rect key="frame" x="75" y="277" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4569,7 +4615,7 @@ de La Tercera</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4EH-7K-IbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-971.25" y="-5117.9577464788727"/>
+            <point key="canvasLocation" x="-971" y="-4988"/>
         </scene>
         <!--News Category Nacional View Controller-->
         <scene sceneID="o6E-XN-73h">
@@ -4597,13 +4643,13 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Kw-Ua-rWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2085" y="-5703"/>
+            <point key="canvasLocation" x="-2085" y="-5660"/>
         </scene>
         <!--Noticias Nacional-->
         <scene sceneID="bAy-8D-eL9">
             <objects>
                 <collectionViewController id="gXx-Db-z54" customClass="CVNoticiasNacional" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Sno-S0-VzM">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Sno-S0-VzM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4611,11 +4657,11 @@ de La Tercera</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="8" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yzG-3p-Y5V">
-                                <rect key="frame" x="75" y="30" width="170" height="267"/>
+                                <rect key="frame" x="75" y="8" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4624,7 +4670,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Nh2-o3-fW6">
-                                <rect key="frame" x="75" y="299" width="170" height="267"/>
+                                <rect key="frame" x="75" y="277" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4645,7 +4691,7 @@ de La Tercera</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jyr-m1-zct" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-971.25" y="-5702.1126760563375"/>
+            <point key="canvasLocation" x="-971" y="-5659"/>
         </scene>
         <!--News Category El Deportivo View Controller-->
         <scene sceneID="OuK-n8-fz6">
@@ -4679,7 +4725,7 @@ de La Tercera</string>
         <scene sceneID="LR2-ED-PEe">
             <objects>
                 <collectionViewController id="fwJ-hL-5FX" customClass="CVNoticiasElDeportivo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="kFa-nd-Kzf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="kFa-nd-Kzf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4687,11 +4733,11 @@ de La Tercera</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="8" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Hb7-O3-aYo">
-                                <rect key="frame" x="75" y="30" width="170" height="267"/>
+                                <rect key="frame" x="75" y="8" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4700,7 +4746,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="d4g-i7-Lw3">
-                                <rect key="frame" x="75" y="299" width="170" height="267"/>
+                                <rect key="frame" x="75" y="277" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4755,7 +4801,7 @@ de La Tercera</string>
         <scene sceneID="ysG-tx-Opv">
             <objects>
                 <collectionViewController id="h44-nN-PGU" customClass="CVNoticiasNegocios" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="sfl-od-H75">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="sfl-od-H75">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4763,11 +4809,11 @@ de La Tercera</string>
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="5" minY="30" maxX="5" maxY="15"/>
+                            <inset key="sectionInset" minX="5" minY="8" maxX="5" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nmU-fE-880">
-                                <rect key="frame" x="75" y="30" width="170" height="267"/>
+                                <rect key="frame" x="75" y="8" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4776,7 +4822,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="G0u-w2-cTk">
-                                <rect key="frame" x="75" y="299" width="170" height="267"/>
+                                <rect key="frame" x="75" y="277" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4831,19 +4877,19 @@ de La Tercera</string>
         <scene sceneID="Rqu-yW-HEo">
             <objects>
                 <collectionViewController id="AR6-9U-0nN" customClass="CVMiSeleccion" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="To1-0N-7bo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="To1-0N-7bo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="ISl-ok-qDb">
                             <size key="itemSize" width="170" height="267"/>
                             <size key="headerReferenceSize" width="57" height="40"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="12" minY="15" maxX="12" maxY="80"/>
+                            <inset key="sectionInset" minX="12" minY="8" maxX="12" maxY="80"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LME-dz-gkZ">
-                                <rect key="frame" x="75" y="55" width="170" height="267"/>
+                                <rect key="frame" x="75" y="48" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4852,7 +4898,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GNJ-3p-LT8">
-                                <rect key="frame" x="75" y="327" width="170" height="267"/>
+                                <rect key="frame" x="75" y="320" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -4891,6 +4937,8 @@ de La Tercera</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
                     <connections>
                         <outlet property="collectionView" destination="To1-0N-7bo" id="F6x-ZB-ljv"/>
                     </connections>
@@ -5925,7 +5973,7 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r0F-9a-X22"/>
+        <segue reference="QpD-Og-2iF"/>
         <segue reference="uX9-Ov-tlW"/>
         <segue reference="W7Z-Gb-h3p"/>
         <segue reference="wuf-Nj-3R8"/>
