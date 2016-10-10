@@ -247,6 +247,12 @@
 		1702BE1B1CB1D5B000F26F42 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 1702BE191CB1D2FC00F26F42 /* Category.m */; };
 		1702BE1E1CB20BF500F26F42 /* Benefit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1702BE1D1CB20BF500F26F42 /* Benefit.m */; };
 		1702BE1F1CB2118E00F26F42 /* Benefit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1702BE1D1CB20BF500F26F42 /* Benefit.m */; };
+		17174DA71DAB76BC00B5C320 /* VocesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17174DA61DAB76BC00B5C320 /* VocesViewController.m */; };
+		17174DA81DAB76BC00B5C320 /* VocesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17174DA61DAB76BC00B5C320 /* VocesViewController.m */; };
+		17174DAB1DAB7D0F00B5C320 /* CVVoces.m in Sources */ = {isa = PBXBuildFile; fileRef = 17174DAA1DAB7D0F00B5C320 /* CVVoces.m */; };
+		17174DAC1DAB7D0F00B5C320 /* CVVoces.m in Sources */ = {isa = PBXBuildFile; fileRef = 17174DAA1DAB7D0F00B5C320 /* CVVoces.m */; };
+		17174DAF1DAB83E500B5C320 /* VocesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17174DAE1DAB83E500B5C320 /* VocesDetailViewController.m */; };
+		17174DB01DAB83E500B5C320 /* VocesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17174DAE1DAB83E500B5C320 /* VocesDetailViewController.m */; };
 		171AFA491CCF89F400705817 /* imagenEvento.png in Resources */ = {isa = PBXBuildFile; fileRef = 171AFA401CCF89F400705817 /* imagenEvento.png */; };
 		171AFA4A1CCF89F400705817 /* imagenEvento.png in Resources */ = {isa = PBXBuildFile; fileRef = 171AFA401CCF89F400705817 /* imagenEvento.png */; };
 		171AFA4B1CCF89F400705817 /* imagenEvento@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 171AFA411CCF89F400705817 /* imagenEvento@2x.png */; };
@@ -813,6 +819,12 @@
 		1702BE191CB1D2FC00F26F42 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		1702BE1C1CB20BF500F26F42 /* Benefit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Benefit.h; sourceTree = "<group>"; };
 		1702BE1D1CB20BF500F26F42 /* Benefit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Benefit.m; sourceTree = "<group>"; };
+		17174DA51DAB76BC00B5C320 /* VocesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocesViewController.h; sourceTree = "<group>"; };
+		17174DA61DAB76BC00B5C320 /* VocesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocesViewController.m; sourceTree = "<group>"; };
+		17174DA91DAB7D0F00B5C320 /* CVVoces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVVoces.h; sourceTree = "<group>"; };
+		17174DAA1DAB7D0F00B5C320 /* CVVoces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVVoces.m; sourceTree = "<group>"; };
+		17174DAD1DAB83E500B5C320 /* VocesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocesDetailViewController.h; sourceTree = "<group>"; };
+		17174DAE1DAB83E500B5C320 /* VocesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocesDetailViewController.m; sourceTree = "<group>"; };
 		171AFA401CCF89F400705817 /* imagenEvento.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagenEvento.png; sourceTree = "<group>"; };
 		171AFA411CCF89F400705817 /* imagenEvento@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imagenEvento@2x.png"; sourceTree = "<group>"; };
 		171AFA421CCF89F400705817 /* imagenEvento@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imagenEvento@3x.png"; sourceTree = "<group>"; };
@@ -1544,6 +1556,19 @@
 			name = TableViewControllerCategories;
 			sourceTree = "<group>";
 		};
+		17174DA41DAB74FA00B5C320 /* Voces */ = {
+			isa = PBXGroup;
+			children = (
+				17174DAD1DAB83E500B5C320 /* VocesDetailViewController.h */,
+				17174DAE1DAB83E500B5C320 /* VocesDetailViewController.m */,
+				17174DA51DAB76BC00B5C320 /* VocesViewController.h */,
+				17174DA61DAB76BC00B5C320 /* VocesViewController.m */,
+				17174DA91DAB7D0F00B5C320 /* CVVoces.h */,
+				17174DAA1DAB7D0F00B5C320 /* CVVoces.m */,
+			);
+			name = Voces;
+			sourceTree = "<group>";
+		};
 		171AFA5B1CCF8BBC00705817 /* Eventos */ = {
 			isa = PBXGroup;
 			children = (
@@ -1944,6 +1969,7 @@
 		17F8BCD01CA24FD900B9977B /* News */ = {
 			isa = PBXGroup;
 			children = (
+				17174DA41DAB74FA00B5C320 /* Voces */,
 				D02C5E031D662A1B00CBDC38 /* DetalleNewsViewController.m */,
 				D08697561D10AEFA00919A81 /* DetalleNewsViewController.h */,
 				17F8BCD11CA2501C00B9977B /* Categorias */,
@@ -3569,6 +3595,7 @@
 				D03893131D49526400650F27 /* NewsCategoryNegociosViewController.m in Sources */,
 				1702BD1D1CB093E400F26F42 /* NewsCategoryInicioViewController.m in Sources */,
 				D008B4961D198DD6002DBBA7 /* Tickets.m in Sources */,
+				17174DAC1DAB7D0F00B5C320 /* CVVoces.m in Sources */,
 				D04B93761D35711800EBEA1D /* UIScrollView+SVPullToRefresh.m in Sources */,
 				1702BD1E1CB093E400F26F42 /* AFURLSessionManager.m in Sources */,
 				1702BD1F1CB093E400F26F42 /* AFHTTPSessionManager.m in Sources */,
@@ -3608,6 +3635,7 @@
 				1702BD2C1CB093E400F26F42 /* CategoriasViewController.m in Sources */,
 				D03026591CBBE54600B4149A /* CVLaTercera.m in Sources */,
 				1702BD2D1CB093E400F26F42 /* AFURLResponseSerialization.m in Sources */,
+				17174DA81DAB76BC00B5C320 /* VocesViewController.m in Sources */,
 				17EBCD011D62D36200931B39 /* FavoritosViewController.m in Sources */,
 				D038932B1D4953B900650F27 /* CVNoticiasNegocios.m in Sources */,
 				D0FF557B1CCFC9A900EA71F4 /* TCMastercard.m in Sources */,
@@ -3648,6 +3676,7 @@
 				1702BD3D1CB093E400F26F42 /* ServiciosContainerVC.m in Sources */,
 				1702BE151CB1A3A700F26F42 /* ServiciosTableViewController.m in Sources */,
 				1702BD3E1CB093E400F26F42 /* SessionManager.m in Sources */,
+				17174DB01DAB83E500B5C320 /* VocesDetailViewController.m in Sources */,
 				17D891E11D6D6DF700C66400 /* HeaderMiSeleccionReusableView.m in Sources */,
 				D0D56D3B1CE4B5500064DE64 /* MKPointAnnotation_custom.m in Sources */,
 				D0522D601D09D32100D6E4C6 /* CollectionViewCellBanner.m in Sources */,
@@ -3701,6 +3730,7 @@
 				D085C6671D5CF2A100AD2333 /* LaTerceraTV-HomeTableViewController.m in Sources */,
 				17B6A2311D6577CF005B4E46 /* MiSeleccionViewController.m in Sources */,
 				D03893021D494DA600650F27 /* CVNoticiasNacional.m in Sources */,
+				17174DAB1DAB7D0F00B5C320 /* CVVoces.m in Sources */,
 				D008D7021D00897200502A69 /* CVNoticiasInicio.m in Sources */,
 				D039B9A91D106300002B1B09 /* CVNoticiasPolitica.m in Sources */,
 				D04546D11CEB9A6D004A011D /* InitialViewController.m in Sources */,
@@ -3741,6 +3771,7 @@
 				D008D6FB1D00850D00502A69 /* CollectionViewCellGrande.m in Sources */,
 				D038932A1D4953B900650F27 /* CVNoticiasNegocios.m in Sources */,
 				17EBCCFE1D62D36200931B39 /* FavoritosTableViewController.m in Sources */,
+				17174DAF1DAB83E500B5C320 /* VocesDetailViewController.m in Sources */,
 				D036FA8B1CD01BB90096FE14 /* MostrarBeneficioDescuentoAdicional.m in Sources */,
 				17D891E01D6D6DF700C66400 /* HeaderMiSeleccionReusableView.m in Sources */,
 				D00D40F71D46664D00D0EC7F /* BeneficioGeneralDestacadoTableViewCell.m in Sources */,
@@ -3758,6 +3789,7 @@
 				D01520451D4A8653009CA13E /* MiPerfilTableViewController.m in Sources */,
 				D038931A1D49529600650F27 /* NewsCategoryEntretencionViewController.m in Sources */,
 				D038931E1D4952AF00650F27 /* NewsCategoryCulturaViewController.m in Sources */,
+				17174DA71DAB76BC00B5C320 /* VocesViewController.m in Sources */,
 				1702BE1E1CB20BF500F26F42 /* Benefit.m in Sources */,
 				D014C8981D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m in Sources */,
 				17F321BC1CBEBEDD00005964 /* NewspaperPage.m in Sources */,
