@@ -5217,45 +5217,55 @@ de La Tercera</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1980"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="yCS-ik-1V3">
-                                <frame key="frameInset" width="320" height="93"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6W-A5-NcU">
-                                <frame key="frameInset" minX="2" minY="19" width="48" height="55"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="yCS-ik-1V3"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6W-A5-NcU">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="UNT-fI-DqZ"/>
-                                    <constraint firstAttribute="height" constant="55" id="scK-xw-9RL"/>
+                                    <constraint firstAttribute="height" constant="46" id="7Gb-zB-OWr"/>
+                                    <constraint firstAttribute="width" constant="48" id="oJb-17-HRP"/>
                                 </constraints>
                                 <state key="normal" image="botonVolver.png"/>
                                 <connections>
                                     <action selector="backButtonClicked:" destination="puX-Vm-ZXY" eventType="touchUpInside" id="ujV-Kd-EOn"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wiw-zz-REa">
-                                <frame key="frameInset" minX="66" minY="20" width="254" height="54"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wiw-zz-REa">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LaTercera.png" translatesAutoresizingMaskIntoConstraints="NO" id="28I-wP-Z0M">
-                                        <frame key="frameInset" minX="-9" minY="16" width="146" height="22"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaTercera.png" translatesAutoresizingMaskIntoConstraints="NO" id="28I-wP-Z0M">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="146" id="vcO-l2-9T9"/>
+                                        </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yc1-Rv-gCm">
-                                        <frame key="frameInset" minX="197" minY="8" width="49" height="38"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yc1-Rv-gCm">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="49" id="wXc-ql-IGL"/>
+                                        </constraints>
                                         <state key="normal" image="botonFavorito.png"/>
                                         <connections>
                                             <action selector="addToFavorite:" destination="puX-Vm-ZXY" eventType="touchUpInside" id="FyP-Wj-zZM"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mt5-2y-VTT">
+                                        <state key="normal" image="BotonShare.png"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.70196078429999997" green="0.15686274510000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="28I-wP-Z0M" firstAttribute="leading" secondItem="wiw-zz-REa" secondAttribute="leading" constant="9" id="1Uu-36-EB1"/>
                                     <constraint firstAttribute="height" constant="54" id="3Tr-V7-EmF"/>
-                                    <constraint firstItem="28I-wP-Z0M" firstAttribute="centerY" secondItem="wiw-zz-REa" secondAttribute="centerY" constant="2" id="EZp-Fb-jqe"/>
-                                    <constraint firstAttribute="trailing" secondItem="Yc1-Rv-gCm" secondAttribute="trailing" constant="15" id="S9S-W4-0l5"/>
-                                    <constraint firstItem="28I-wP-Z0M" firstAttribute="top" secondItem="wiw-zz-REa" secondAttribute="top" constant="18" id="UHH-5u-cBm"/>
+                                    <constraint firstItem="28I-wP-Z0M" firstAttribute="centerY" secondItem="wiw-zz-REa" secondAttribute="centerY" constant="3" id="CwK-sw-oud"/>
+                                    <constraint firstItem="Mt5-2y-VTT" firstAttribute="top" secondItem="wiw-zz-REa" secondAttribute="top" constant="10" id="JFi-KD-Lvw"/>
+                                    <constraint firstItem="28I-wP-Z0M" firstAttribute="leading" secondItem="wiw-zz-REa" secondAttribute="leading" constant="-9" id="NMX-uu-Xzo"/>
+                                    <constraint firstItem="Mt5-2y-VTT" firstAttribute="leading" secondItem="28I-wP-Z0M" secondAttribute="trailing" constant="8" symbolic="YES" id="UqF-aU-nZ6"/>
+                                    <constraint firstItem="Yc1-Rv-gCm" firstAttribute="centerY" secondItem="28I-wP-Z0M" secondAttribute="centerY" id="VqA-yi-H6n"/>
+                                    <constraint firstItem="Yc1-Rv-gCm" firstAttribute="baseline" secondItem="Mt5-2y-VTT" secondAttribute="baseline" id="ecS-mg-Y0h"/>
+                                    <constraint firstItem="28I-wP-Z0M" firstAttribute="top" secondItem="wiw-zz-REa" secondAttribute="top" constant="19" id="hGa-nz-s1h"/>
+                                    <constraint firstItem="Yc1-Rv-gCm" firstAttribute="firstBaseline" secondItem="Mt5-2y-VTT" secondAttribute="firstBaseline" id="j6l-3o-y1Y"/>
+                                    <constraint firstItem="Yc1-Rv-gCm" firstAttribute="leading" secondItem="Mt5-2y-VTT" secondAttribute="trailing" constant="7" id="lQR-hM-uRy"/>
+                                    <constraint firstItem="Yc1-Rv-gCm" firstAttribute="trailing" secondItem="wiw-zz-REa" secondAttribute="trailingMargin" id="oEh-RK-YaY"/>
+                                    <constraint firstItem="Yc1-Rv-gCm" firstAttribute="top" secondItem="wiw-zz-REa" secondAttribute="topMargin" constant="3" id="vsr-TI-5LQ"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="4vS-E7-A9a">
-                                <frame key="frameInset" minY="93" width="320" height="1858"/>
+                                <frame key="frameInset" minY="76" width="320" height="1858"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Presidente del Senado propone contrapesar poder de Hacienda en materia presupuestaria" textAlignment="justified" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oKz-0w-7Rq">
                                         <rect key="frame" x="21" y="70" width="279" height="99"/>
@@ -5282,6 +5292,10 @@ de La Tercera</string>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="summer-sunny-lifestyle-fashion-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-yf-rhl">
                                         <rect key="frame" x="21" y="330" width="279" height="206"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="206" id="Cso-sN-y88"/>
+                                            <constraint firstAttribute="width" constant="279" id="gci-GB-r2Q"/>
+                                        </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPk-r8-o2I">
                                         <rect key="frame" x="165" y="17" width="43" height="43"/>
@@ -5368,10 +5382,10 @@ de La Tercera</string>
                                         </variation>
                                     </textView>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AVR-hk-zA0">
-                                        <rect key="frame" x="15" y="1088" width="300" height="756"/>
+                                        <rect key="frame" x="8" y="1088" width="304" height="756"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dfI-CH-dUP" userLabel="BannerView" customClass="DFPBannerView">
-                                                <frame key="frameInset" minX="-7" minY="8" width="300" height="250"/>
+                                                <frame key="frameInset" minX="2" minY="8" width="300" height="250"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BANNER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXd-sg-Epp">
@@ -5385,15 +5399,15 @@ de La Tercera</string>
                                                 <color key="backgroundColor" red="0.15507582110000001" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bcc-Td-GjS" userLabel="RelatedNews1" customClass="CustomBorderView">
-                                                <frame key="frameInset" minX="2" minY="322" width="156" height="195"/>
+                                                <frame key="frameInset" minX="2" minY="322" width="148" height="195"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comoFunciona.png" translatesAutoresizingMaskIntoConstraints="NO" id="tcK-TN-JrE">
-                                                        <frame key="frameInset" width="156" height="101"/>
+                                                        <frame key="frameInset" width="148" height="101"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="La noticia nos indica que lo último en inversión es invertir en la bolsa con o sin riesgo." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OH-7F-m5t">
-                                                        <frame key="frameInset" minX="7" minY="99" width="140" height="91"/>
+                                                        <frame key="frameInset" minX="7" minY="101" width="132" height="91"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="13"/>
                                                         <nil key="textColor"/>
@@ -5427,15 +5441,15 @@ de La Tercera</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3HW-zf-bXG" userLabel="RelatedNews2" customClass="CustomBorderView">
-                                                <frame key="frameInset" minX="173" minY="322" width="156" height="195"/>
+                                                <frame key="frameInset" minX="155" minY="322" width="148" height="195"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comoFunciona.png" translatesAutoresizingMaskIntoConstraints="NO" id="gr7-SK-Mpr">
-                                                        <frame key="frameInset" width="156" height="101"/>
+                                                        <frame key="frameInset" width="148" height="101"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="La noticia nos indica que lo último en inversión es invertir en la bolsa con o sin riesgo, cuando el riesgo es poco o es mucho." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hb-hF-GbE">
-                                                        <frame key="frameInset" minX="8" minY="99" width="140" height="91"/>
+                                                        <frame key="frameInset" minX="8" minY="101" width="132" height="91"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="13"/>
                                                         <nil key="textColor"/>
@@ -5469,15 +5483,15 @@ de La Tercera</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="omr-rK-dC5" userLabel="RelatedNews3" customClass="CustomBorderView">
-                                                <frame key="frameInset" minX="2" minY="530" width="156" height="195"/>
+                                                <frame key="frameInset" minX="2" minY="530" width="148" height="195"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comoFunciona.png" translatesAutoresizingMaskIntoConstraints="NO" id="wB1-cx-vDU">
-                                                        <frame key="frameInset" width="156" height="92"/>
+                                                        <frame key="frameInset" width="148" height="92"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="La noticia nos indica que lo último en inversión es invertir en la bolsa con o sin riesgo." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsa-jA-SWx">
-                                                        <frame key="frameInset" minX="8" minY="99" width="140" height="91"/>
+                                                        <frame key="frameInset" minX="8" minY="96" width="132" height="91"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="13"/>
                                                         <nil key="textColor"/>
@@ -5511,15 +5525,15 @@ de La Tercera</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gcN-e0-oXS" userLabel="RelatedNews4" customClass="CustomBorderView">
-                                                <frame key="frameInset" minX="173" minY="530" width="156" height="195"/>
+                                                <frame key="frameInset" minX="155" minY="530" width="148" height="195"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comoFunciona.png" translatesAutoresizingMaskIntoConstraints="NO" id="4X5-M1-Z2w">
-                                                        <frame key="frameInset" width="156" height="92"/>
+                                                        <frame key="frameInset" width="148" height="92"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="La noticia nos indica que lo último en inversión es invertir en la bolsa con o sin riesgo." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aj8-vY-iUY">
-                                                        <frame key="frameInset" minX="7" minY="99" width="140" height="91"/>
+                                                        <frame key="frameInset" minX="7" minY="95" width="132" height="91"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="13"/>
                                                         <nil key="textColor"/>
@@ -5562,7 +5576,7 @@ de La Tercera</string>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="3GD-lq-pca"/>
+                                            <constraint firstAttribute="width" constant="304" id="3GD-lq-pca"/>
                                             <constraint firstAttribute="height" constant="756" id="srq-Dd-ayL"/>
                                         </constraints>
                                     </view>
@@ -5611,7 +5625,7 @@ de La Tercera</string>
                                     <constraint firstItem="qNg-IJ-1ZP" firstAttribute="top" secondItem="U62-Rt-Q4c" secondAttribute="bottom" constant="9" id="bz2-HP-tbf"/>
                                     <constraint firstItem="U62-Rt-Q4c" firstAttribute="leading" secondItem="g3G-VY-bKo" secondAttribute="trailing" constant="18" id="d2c-UG-8qA"/>
                                     <constraint firstAttribute="bottom" secondItem="AVR-hk-zA0" secondAttribute="bottom" constant="14" id="ewk-8n-aT1"/>
-                                    <constraint firstItem="AVR-hk-zA0" firstAttribute="leading" secondItem="4vS-E7-A9a" secondAttribute="leading" constant="15" id="fAf-7m-45G"/>
+                                    <constraint firstItem="AVR-hk-zA0" firstAttribute="leading" secondItem="4vS-E7-A9a" secondAttribute="leading" constant="8" id="fAf-7m-45G"/>
                                     <constraint firstItem="KQG-Wy-zrV" firstAttribute="leading" secondItem="4vS-E7-A9a" secondAttribute="leading" constant="22" id="fIm-1t-TwI"/>
                                     <constraint firstItem="LVp-A1-BKW" firstAttribute="centerY" secondItem="VrK-k7-kLS" secondAttribute="centerY" constant="0.5" id="gm9-PC-wbs"/>
                                     <constraint firstItem="LVp-A1-BKW" firstAttribute="firstBaseline" secondItem="VrK-k7-kLS" secondAttribute="firstBaseline" constant="0.5" id="iC3-gc-0m6"/>
@@ -5627,7 +5641,7 @@ de La Tercera</string>
                                     <constraint firstAttribute="trailing" secondItem="U62-Rt-Q4c" secondAttribute="trailing" constant="10" id="xs2-CU-QEo"/>
                                     <constraint firstAttribute="bottom" secondItem="JjG-ib-7Q8" secondAttribute="bottom" constant="785" id="yKM-hT-wnx"/>
                                 </constraints>
-                                <inset key="scrollIndicatorInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="12" maxX="0.0" maxY="0.0"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="GfV-LY-Q6I"/>
@@ -5639,52 +5653,33 @@ de La Tercera</string>
                                     </mask>
                                 </variation>
                             </scrollView>
-                            <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mt5-2y-VTT">
-                                <frame key="frameInset" minX="221" minY="26" width="45" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="Lsp-Wa-uGL"/>
-                                </constraints>
-                                <state key="normal" image="BotonShare.png"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="z6W-A5-NcU" firstAttribute="centerY" secondItem="wiw-zz-REa" secondAttribute="centerY" constant="-2.5" id="1tJ-he-fDp"/>
+                            <constraint firstItem="z6W-A5-NcU" firstAttribute="leading" secondItem="YCm-iN-Om2" secondAttribute="leadingMargin" constant="-14" id="1gF-M8-c2R"/>
+                            <constraint firstItem="yCS-ik-1V3" firstAttribute="trailing" secondItem="wiw-zz-REa" secondAttribute="trailing" id="1hJ-Ac-dIW"/>
                             <constraint firstItem="4vS-E7-A9a" firstAttribute="leading" secondItem="YCm-iN-Om2" secondAttribute="leading" id="38R-qL-xir"/>
-                            <constraint firstItem="4vS-E7-A9a" firstAttribute="trailing" secondItem="yCS-ik-1V3" secondAttribute="trailing" id="62C-ML-jDQ"/>
-                            <constraint firstItem="wiw-zz-REa" firstAttribute="leading" secondItem="z6W-A5-NcU" secondAttribute="trailing" constant="16" id="89d-Ra-hll"/>
-                            <constraint firstItem="4vS-E7-A9a" firstAttribute="top" secondItem="yCS-ik-1V3" secondAttribute="bottom" id="F7P-cB-nKp"/>
-                            <constraint firstAttribute="trailing" secondItem="Mt5-2y-VTT" secondAttribute="trailing" constant="109" id="GnB-7g-CRW"/>
+                            <constraint firstItem="wiw-zz-REa" firstAttribute="leading" secondItem="z6W-A5-NcU" secondAttribute="trailing" constant="16" id="7h1-lG-Y1m"/>
+                            <constraint firstItem="z6W-A5-NcU" firstAttribute="top" secondItem="YCm-iN-Om2" secondAttribute="topMargin" constant="17" id="B4r-z1-HsZ"/>
                             <constraint firstItem="AAZ-s3-sRH" firstAttribute="top" secondItem="4vS-E7-A9a" secondAttribute="bottom" constant="29" id="Jlj-vU-Bj9"/>
-                            <constraint firstItem="yCS-ik-1V3" firstAttribute="trailing" secondItem="wiw-zz-REa" secondAttribute="trailing" id="K4O-ud-duw"/>
-                            <constraint firstItem="yCS-ik-1V3" firstAttribute="leading" secondItem="4vS-E7-A9a" secondAttribute="leading" id="LLp-0q-YT2"/>
                             <constraint firstItem="4vS-E7-A9a" firstAttribute="trailing" secondItem="wiw-zz-REa" secondAttribute="trailing" id="MBy-GH-8cV"/>
-                            <constraint firstItem="Mt5-2y-VTT" firstAttribute="leading" secondItem="28I-wP-Z0M" secondAttribute="trailing" constant="38" id="QTA-xS-UqD"/>
-                            <constraint firstItem="z6W-A5-NcU" firstAttribute="leading" secondItem="YCm-iN-Om2" secondAttribute="leadingMargin" constant="-14" id="S5T-et-WB4"/>
-                            <constraint firstItem="yCS-ik-1V3" firstAttribute="top" secondItem="YCm-iN-Om2" secondAttribute="top" id="SBk-10-A17"/>
+                            <constraint firstItem="yCS-ik-1V3" firstAttribute="leading" secondItem="4vS-E7-A9a" secondAttribute="leading" id="Mwh-XS-QzF"/>
+                            <constraint firstItem="yCS-ik-1V3" firstAttribute="top" secondItem="YCm-iN-Om2" secondAttribute="top" id="OVO-Yu-4bv"/>
                             <constraint firstItem="4vS-E7-A9a" firstAttribute="top" secondItem="wiw-zz-REa" secondAttribute="bottom" constant="-1" id="THl-GR-fnW"/>
-                            <constraint firstItem="Mt5-2y-VTT" firstAttribute="centerY" secondItem="wiw-zz-REa" secondAttribute="centerY" id="UQO-7F-Br8"/>
-                            <constraint firstItem="4vS-E7-A9a" firstAttribute="top" secondItem="z6W-A5-NcU" secondAttribute="bottom" constant="2" id="Vdg-8Y-XaT"/>
                             <constraint firstItem="wiw-zz-REa" firstAttribute="trailing" secondItem="4vS-E7-A9a" secondAttribute="trailing" id="Wwe-37-vXl"/>
-                            <constraint firstItem="wiw-zz-REa" firstAttribute="top" secondItem="ouL-tN-MEj" secondAttribute="bottom" constant="-1" id="Yen-uB-Snd"/>
+                            <constraint firstItem="wiw-zz-REa" firstAttribute="top" secondItem="ouL-tN-MEj" secondAttribute="bottom" constant="-10" id="Yen-uB-Snd"/>
                             <constraint firstItem="wiw-zz-REa" firstAttribute="leading" secondItem="4vS-E7-A9a" secondAttribute="trailing" constant="-305" id="abh-Xa-gLX"/>
-                            <constraint firstItem="4vS-E7-A9a" firstAttribute="leading" secondItem="yCS-ik-1V3" secondAttribute="leading" id="bQQ-bK-ixv"/>
-                            <constraint firstItem="yCS-ik-1V3" firstAttribute="top" secondItem="Yc1-Rv-gCm" secondAttribute="bottom" constant="-64" id="bkx-5b-YQe"/>
-                            <constraint firstItem="4vS-E7-A9a" firstAttribute="top" secondItem="z6W-A5-NcU" secondAttribute="bottom" constant="19" id="f1U-Zc-Bvw"/>
-                            <constraint firstAttribute="trailing" secondItem="yCS-ik-1V3" secondAttribute="trailing" id="jD2-ff-haC"/>
-                            <constraint firstItem="Mt5-2y-VTT" firstAttribute="top" secondItem="ouL-tN-MEj" secondAttribute="bottom" constant="6" id="jW8-FQ-Doa"/>
+                            <constraint firstItem="4vS-E7-A9a" firstAttribute="top" secondItem="z6W-A5-NcU" secondAttribute="bottom" constant="13" id="g87-L9-1rk"/>
+                            <constraint firstItem="yCS-ik-1V3" firstAttribute="leading" secondItem="YCm-iN-Om2" secondAttribute="leading" id="lqO-fo-mqN"/>
+                            <constraint firstItem="4vS-E7-A9a" firstAttribute="top" secondItem="yCS-ik-1V3" secondAttribute="bottom" constant="11" id="qB1-xd-n1Y"/>
                             <constraint firstAttribute="trailing" secondItem="4vS-E7-A9a" secondAttribute="trailing" id="qvg-qq-DDO"/>
-                            <constraint firstItem="yCS-ik-1V3" firstAttribute="leading" secondItem="YCm-iN-Om2" secondAttribute="leading" id="zXx-yS-0H7"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="abh-Xa-gLX"/>
                                 <exclude reference="38R-qL-xir"/>
-                                <exclude reference="62C-ML-jDQ"/>
                                 <exclude reference="MBy-GH-8cV"/>
                                 <exclude reference="THl-GR-fnW"/>
-                                <exclude reference="Vdg-8Y-XaT"/>
-                                <exclude reference="bQQ-bK-ixv"/>
                                 <exclude reference="qvg-qq-DDO"/>
                             </mask>
                         </variation>
@@ -5696,13 +5691,22 @@ de La Tercera</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1980"/>
                     <connections>
+                        <outlet property="bannerNewsDetailView" destination="dfI-CH-dUP" id="Mey-eh-plm"/>
                         <outlet property="contentTextView" destination="JjG-ib-7Q8" id="U3D-mF-Zz0"/>
+                        <outlet property="imageViewNews1" destination="tcK-TN-JrE" id="Ild-Bk-pSx"/>
+                        <outlet property="imageViewNews2" destination="gr7-SK-Mpr" id="Mix-Hz-FCw"/>
+                        <outlet property="imageViewNews3" destination="wB1-cx-vDU" id="1pY-Lh-qDD"/>
+                        <outlet property="imageViewNews4" destination="4X5-M1-Z2w" id="YDs-ca-4RO"/>
                         <outlet property="imagenNews" destination="N9L-yf-rhl" id="Cwz-0X-qbb"/>
                         <outlet property="labelAutor" destination="g3G-VY-bKo" id="Kej-Z2-226"/>
                         <outlet property="labelCat" destination="4FE-lo-Lbr" id="EYH-ZD-PFn"/>
                         <outlet property="labelFecha" destination="U62-Rt-Q4c" id="kNh-Ba-5Yq"/>
                         <outlet property="scrollView" destination="4vS-E7-A9a" id="YU8-Hx-1uk"/>
                         <outlet property="summary" destination="KQG-Wy-zrV" id="FvO-eq-EOD"/>
+                        <outlet property="titleNews1" destination="4OH-7F-m5t" id="vI8-dw-d2G"/>
+                        <outlet property="titleNews2" destination="7hb-hF-GbE" id="n2F-Rq-sjl"/>
+                        <outlet property="titleNews3" destination="Zsa-jA-SWx" id="021-8b-kSC"/>
+                        <outlet property="titleNews4" destination="Aj8-vY-iUY" id="2cf-YI-Z4N"/>
                         <outlet property="titulo" destination="oKz-0w-7Rq" id="T6f-gF-RdN"/>
                     </connections>
                 </viewController>
@@ -6596,10 +6600,10 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LjX-Ol-dSP"/>
-        <segue reference="JhD-SO-oge"/>
+        <segue reference="Yn4-yz-IfR"/>
         <segue reference="wuf-Nj-3R8"/>
         <segue reference="vnn-UP-oet"/>
+        <segue reference="JhD-SO-oge"/>
         <segue reference="uX9-Ov-tlW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
