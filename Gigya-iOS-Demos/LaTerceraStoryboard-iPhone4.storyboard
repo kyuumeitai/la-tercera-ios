@@ -888,6 +888,9 @@ REGISTRARSE?</string>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="1QZ-1R-8aX" kind="show" id="PJe-0T-m8W"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria9" rowHeight="35" id="bbF-dq-hl4">
                                 <rect key="frame" x="0.0" y="335" width="320" height="35"/>
@@ -6318,17 +6321,17 @@ de La Tercera</string>
                                     <mask key="constraints">
                                         <exclude reference="UiB-zj-3lM"/>
                                         <exclude reference="E4z-g0-W4V"/>
-                                        <exclude reference="zcC-c3-mpW"/>
                                         <exclude reference="jMr-ID-jtN"/>
+                                        <exclude reference="zcC-c3-mpW"/>
+                                        <exclude reference="4mo-D0-BMp"/>
                                         <exclude reference="Bs0-6i-Euv"/>
                                         <exclude reference="qGL-eO-rDi"/>
-                                        <exclude reference="4mo-D0-BMp"/>
-                                        <exclude reference="YbM-8Z-nLx"/>
                                         <exclude reference="KiX-5h-Fdm"/>
+                                        <exclude reference="YbM-8Z-nLx"/>
                                         <exclude reference="gmc-eS-YBg"/>
                                         <exclude reference="xzZ-mi-lhA"/>
-                                        <exclude reference="aDV-JM-8I1"/>
                                         <exclude reference="R7c-8u-XI0"/>
+                                        <exclude reference="aDV-JM-8I1"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -6400,13 +6403,13 @@ de La Tercera</string>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="h7j-4C-EBx"/>
+                                <exclude reference="ptY-Di-0wx"/>
                                 <exclude reference="2Oe-Gx-kty"/>
                                 <exclude reference="JII-KO-B82"/>
+                                <exclude reference="h7j-4C-EBx"/>
+                                <exclude reference="okn-Q7-skd"/>
                                 <exclude reference="rVJ-NC-alb"/>
                                 <exclude reference="xzj-lI-xfa"/>
-                                <exclude reference="okn-Q7-skd"/>
-                                <exclude reference="ptY-Di-0wx"/>
                             </mask>
                         </variation>
                     </view>
@@ -6433,6 +6436,124 @@ de La Tercera</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4E8-8Q-jM8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6170" y="-2183"/>
+        </scene>
+        <!--Concursos-->
+        <scene sceneID="uar-9R-QRn">
+            <objects>
+                <viewController title="Concursos" id="1QZ-1R-8aX" customClass="ConcursosViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uvM-zm-ry1"/>
+                        <viewControllerLayoutGuide type="bottom" id="jwH-NH-PSg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="drR-pb-jsz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="juH-aI-dKe"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHG-IT-63l">
+                                <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQf-Qt-Sqb">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="OM0-tY-wZk"/>
+                                    <constraint firstAttribute="width" constant="47" id="UIp-pa-3Ow"/>
+                                </constraints>
+                                <state key="normal" image="botonVolver.png"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="1QZ-1R-8aX" eventType="touchUpInside" id="nMg-KQ-JV3"/>
+                                </connections>
+                            </button>
+                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVG-c0-OkH">
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5P-V3-kdJ">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="uHb-W9-aAM" kind="embed" id="bvE-HC-KWe"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="o5P-V3-kdJ" secondAttribute="trailing" id="5fa-sO-Pxs"/>
+                                    <constraint firstAttribute="bottom" secondItem="o5P-V3-kdJ" secondAttribute="bottom" id="CKL-ik-bWm"/>
+                                    <constraint firstItem="o5P-V3-kdJ" firstAttribute="top" secondItem="oVG-c0-OkH" secondAttribute="top" id="fCD-ay-W7e"/>
+                                    <constraint firstItem="o5P-V3-kdJ" firstAttribute="leading" secondItem="oVG-c0-OkH" secondAttribute="leading" id="qN6-NE-SUC"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concursos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIm-7G-Xfr">
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="PIm-7G-Xfr" firstAttribute="leading" secondItem="gQf-Qt-Sqb" secondAttribute="trailing" constant="31" id="5lj-qk-pCo"/>
+                            <constraint firstItem="qHG-IT-63l" firstAttribute="top" secondItem="uvM-zm-ry1" secondAttribute="bottom" constant="13" id="7NP-qn-AU4"/>
+                            <constraint firstItem="oVG-c0-OkH" firstAttribute="bottom" secondItem="jwH-NH-PSg" secondAttribute="top" id="8Lg-bJ-yee"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PIm-7G-Xfr" secondAttribute="trailing" constant="92" id="Bu0-7b-efJ"/>
+                            <constraint firstItem="oVG-c0-OkH" firstAttribute="top" secondItem="juH-aI-dKe" secondAttribute="bottom" constant="1" id="ETc-ig-nBm"/>
+                            <constraint firstItem="gQf-Qt-Sqb" firstAttribute="leading" secondItem="drR-pb-jsz" secondAttribute="leadingMargin" constant="-13" id="M9g-3C-tLl"/>
+                            <constraint firstItem="qHG-IT-63l" firstAttribute="leading" secondItem="drR-pb-jsz" secondAttribute="leading" constant="177" id="NQG-4A-kbm"/>
+                            <constraint firstItem="oVG-c0-OkH" firstAttribute="top" secondItem="gQf-Qt-Sqb" secondAttribute="bottom" constant="8" symbolic="YES" id="V9p-S2-ilI"/>
+                            <constraint firstItem="PIm-7G-Xfr" firstAttribute="top" secondItem="uvM-zm-ry1" secondAttribute="bottom" constant="15" id="XnN-BR-bo4"/>
+                            <constraint firstItem="gQf-Qt-Sqb" firstAttribute="top" secondItem="uvM-zm-ry1" secondAttribute="bottom" constant="2" id="eQJ-Zg-L7w"/>
+                            <constraint firstItem="juH-aI-dKe" firstAttribute="trailing" secondItem="oVG-c0-OkH" secondAttribute="trailing" id="lWx-wE-Dkd"/>
+                            <constraint firstItem="oVG-c0-OkH" firstAttribute="top" secondItem="qHG-IT-63l" secondAttribute="bottom" constant="17" id="pLE-yZ-W4X"/>
+                            <constraint firstItem="PIm-7G-Xfr" firstAttribute="centerY" secondItem="gQf-Qt-Sqb" secondAttribute="centerY" id="pRX-7x-wlI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qHG-IT-63l" secondAttribute="trailing" constant="-9" id="seI-sE-J7z"/>
+                            <constraint firstAttribute="trailing" secondItem="juH-aI-dKe" secondAttribute="trailing" id="teT-1S-h7V"/>
+                            <constraint firstItem="juH-aI-dKe" firstAttribute="top" secondItem="drR-pb-jsz" secondAttribute="top" id="uWJ-xz-8Ry"/>
+                            <constraint firstItem="juH-aI-dKe" firstAttribute="leading" secondItem="oVG-c0-OkH" secondAttribute="leading" id="xQv-MB-jSS"/>
+                            <constraint firstItem="juH-aI-dKe" firstAttribute="leading" secondItem="drR-pb-jsz" secondAttribute="leading" id="zE1-Ue-Bw8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VST-dA-3UO"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f2E-rw-SQC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2848" y="-1618"/>
+        </scene>
+        <!--Concursos Table View-->
+        <scene sceneID="sIc-U1-ASQ">
+            <objects>
+                <tableViewController storyboardIdentifier="concursosTableView" title="Concursos Table View" id="uHb-W9-aAM" customClass="ConcursosTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="xpb-Xm-upE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="403"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="90"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="OgR-kM-ttU">
+                                <rect key="frame" x="0.0" y="28" width="320" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OgR-kM-ttU" id="3s5-a8-mIL">
+                                    <frame key="frameInset" width="320" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="uHb-W9-aAM" id="SCk-bs-sry"/>
+                            <outlet property="delegate" destination="uHb-W9-aAM" id="kNY-rL-iYD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="bzO-zg-O0T"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="xpb-Xm-upE" id="gGn-na-ZEQ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lvf-sn-CcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1988" y="-1619"/>
         </scene>
     </scenes>
     <resources>

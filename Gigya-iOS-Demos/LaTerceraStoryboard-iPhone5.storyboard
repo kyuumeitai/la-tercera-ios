@@ -852,6 +852,9 @@ REGISTRARSE?</string>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="bIB-ff-5Kh" kind="show" id="kVV-Pe-RDG"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria9" rowHeight="44" id="bbF-dq-hl4">
                                 <rect key="frame" x="0.0" y="417" width="320" height="44"/>
@@ -4021,7 +4024,7 @@ de La Tercera</string>
                         <viewControllerLayoutGuide type="bottom" id="wJ5-UD-nue"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c1l-f6-hpV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="576"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="xIW-0V-Abg">
@@ -4081,7 +4084,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="89F-gJ-cCJ" customClass="VentasEspecialesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oCa-f6-dfS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="321" height="492"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
@@ -4782,17 +4785,17 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="4Ze-9p-o1T" customClass="AjustesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" id="Sf2-Ak-BsP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="318" height="494"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection id="yaj-E1-hc0">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="HrJ-j6-Kak">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="318" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HrJ-j6-Kak" id="kr4-Zi-Xt6">
-                                            <frame key="frameInset" width="320" height="48"/>
+                                            <frame key="frameInset" width="318" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sección de Inicio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiY-LT-q4n">
@@ -4820,10 +4823,10 @@ de La Tercera</string>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="TvA-dA-Ftk">
-                                        <rect key="frame" x="0.0" y="49" width="320" height="49"/>
+                                        <rect key="frame" x="0.0" y="49" width="318" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TvA-dA-Ftk" id="U24-eK-Guu">
-                                            <frame key="frameInset" width="320" height="48"/>
+                                            <frame key="frameInset" width="318" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notificaciones de Noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qg-rM-nIM">
@@ -4842,10 +4845,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="B8O-Kw-nke">
-                                        <rect key="frame" x="0.0" y="98" width="320" height="49"/>
+                                        <rect key="frame" x="0.0" y="98" width="318" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B8O-Kw-nke" id="QPa-zz-SzT">
-                                            <frame key="frameInset" width="320" height="48"/>
+                                            <frame key="frameInset" width="318" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notificaciones Club La Tercera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iak-XB-BXY">
@@ -4864,10 +4867,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="vC6-ki-5qx">
-                                        <rect key="frame" x="0.0" y="147" width="320" height="49"/>
+                                        <rect key="frame" x="0.0" y="147" width="318" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vC6-ki-5qx" id="uDJ-9j-8Oc">
-                                            <frame key="frameInset" width="287" height="48"/>
+                                            <frame key="frameInset" width="285" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Horario de Notificaciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lm-VA-27N">
@@ -4881,10 +4884,10 @@ de La Tercera</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Lk6-9E-HTG">
-                                        <rect key="frame" x="0.0" y="196" width="320" height="49"/>
+                                        <rect key="frame" x="0.0" y="196" width="318" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lk6-9E-HTG" id="U3u-iN-1Gd">
-                                            <frame key="frameInset" width="287" height="48"/>
+                                            <frame key="frameInset" width="285" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Términos de Uso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHK-ez-vNc">
@@ -4982,7 +4985,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="4iB-2J-A2b" customClass="MiPerfilTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="13" sectionFooterHeight="28" id="fka-A8-SMu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="596"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="scrollIndicatorInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
@@ -5824,7 +5827,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController id="N6u-oO-zux" customClass="FavoritosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ta8-0o-NBg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="491"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -6644,7 +6647,7 @@ de La Tercera</string>
             <objects>
                 <collectionViewController title="CVVoces" id="vAs-lx-uTx" customClass="CVVoces" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="rc3-kY-nCD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="491"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="idh-w9-94z">
@@ -6799,8 +6802,8 @@ de La Tercera</string>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="X1a-bD-tdL"/>
                                                 <exclude reference="D6W-Yg-FNh"/>
+                                                <exclude reference="X1a-bD-tdL"/>
                                             </mask>
                                         </variation>
                                     </label>
@@ -6852,8 +6855,8 @@ de La Tercera</string>
                                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="s3F-m5-xgQ"/>
                                                 <exclude reference="olN-K4-rA7"/>
+                                                <exclude reference="s3F-m5-xgQ"/>
                                             </mask>
                                         </variation>
                                     </textView>
@@ -6916,15 +6919,15 @@ de La Tercera</string>
                                         <exclude reference="UOq-Fg-O72"/>
                                         <exclude reference="Sua-1D-pe1"/>
                                         <exclude reference="p88-dg-4Gm"/>
+                                        <exclude reference="0Uo-y6-lkt"/>
                                         <exclude reference="7hY-SW-jeM"/>
                                         <exclude reference="ROo-OM-N7w"/>
-                                        <exclude reference="0Uo-y6-lkt"/>
+                                        <exclude reference="3OR-n0-SF3"/>
                                         <exclude reference="Gkv-xN-fiv"/>
                                         <exclude reference="UOK-k1-4jb"/>
-                                        <exclude reference="3OR-n0-SF3"/>
                                         <exclude reference="sfH-XT-uWQ"/>
-                                        <exclude reference="zx9-gC-u2C"/>
                                         <exclude reference="dav-gu-6hW"/>
+                                        <exclude reference="zx9-gC-u2C"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -6996,12 +6999,12 @@ de La Tercera</string>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="lkc-rW-KtO"/>
-                                <exclude reference="equ-IP-np0"/>
-                                <exclude reference="Vhf-Sp-Nqo"/>
-                                <exclude reference="NJo-6v-q5h"/>
-                                <exclude reference="DFd-Nm-HSh"/>
                                 <exclude reference="1zV-Ne-Yhm"/>
+                                <exclude reference="DFd-Nm-HSh"/>
+                                <exclude reference="NJo-6v-q5h"/>
+                                <exclude reference="Vhf-Sp-Nqo"/>
+                                <exclude reference="equ-IP-np0"/>
+                                <exclude reference="lkc-rW-KtO"/>
                                 <exclude reference="sy8-72-yd9"/>
                             </mask>
                         </variation>
@@ -7029,6 +7032,124 @@ de La Tercera</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8w-7R-MWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4836.5625" y="-2305.9859154929577"/>
+        </scene>
+        <!--Concursos-->
+        <scene sceneID="xLh-DF-gxs">
+            <objects>
+                <viewController title="Concursos" id="bIB-ff-5Kh" customClass="ConcursosViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MP5-DV-cn9"/>
+                        <viewControllerLayoutGuide type="bottom" id="cdE-Mj-bAG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ft4-HG-nZ4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="T38-wJ-DHe"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFf-E6-3wK">
+                                <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8B-gN-ZfW">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="OxJ-2r-3Zd"/>
+                                    <constraint firstAttribute="width" constant="47" id="uud-BI-p41"/>
+                                </constraints>
+                                <state key="normal" image="botonVolver.png"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="bIB-ff-5Kh" eventType="touchUpInside" id="3Sx-oF-v9b"/>
+                                </connections>
+                            </button>
+                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DvL-8C-VJj">
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5QR-9a-kZ4">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="oDj-tH-fE0" kind="embed" id="N95-pr-UEm"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5QR-9a-kZ4" firstAttribute="leading" secondItem="DvL-8C-VJj" secondAttribute="leading" id="L7c-V4-mqS"/>
+                                    <constraint firstAttribute="bottom" secondItem="5QR-9a-kZ4" secondAttribute="bottom" id="N4z-u0-g92"/>
+                                    <constraint firstAttribute="trailing" secondItem="5QR-9a-kZ4" secondAttribute="trailing" id="RWm-yf-pQC"/>
+                                    <constraint firstItem="5QR-9a-kZ4" firstAttribute="top" secondItem="DvL-8C-VJj" secondAttribute="top" id="igj-S6-bWU"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concursos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWP-M2-Iwf">
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DvL-8C-VJj" firstAttribute="bottom" secondItem="cdE-Mj-bAG" secondAttribute="top" id="0WE-Sa-8Ng"/>
+                            <constraint firstItem="q8B-gN-ZfW" firstAttribute="leading" secondItem="Ft4-HG-nZ4" secondAttribute="leadingMargin" constant="-13" id="8w9-7j-fMb"/>
+                            <constraint firstItem="ZWP-M2-Iwf" firstAttribute="top" secondItem="MP5-DV-cn9" secondAttribute="bottom" constant="15" id="C8k-8h-Odd"/>
+                            <constraint firstItem="T38-wJ-DHe" firstAttribute="trailing" secondItem="DvL-8C-VJj" secondAttribute="trailing" id="Cwb-NY-Z0G"/>
+                            <constraint firstItem="XFf-E6-3wK" firstAttribute="top" secondItem="MP5-DV-cn9" secondAttribute="bottom" constant="13" id="LZy-6P-5HY"/>
+                            <constraint firstItem="DvL-8C-VJj" firstAttribute="top" secondItem="q8B-gN-ZfW" secondAttribute="bottom" constant="8" symbolic="YES" id="OIm-gN-cTP"/>
+                            <constraint firstItem="T38-wJ-DHe" firstAttribute="leading" secondItem="DvL-8C-VJj" secondAttribute="leading" id="Qp4-jy-9an"/>
+                            <constraint firstItem="DvL-8C-VJj" firstAttribute="top" secondItem="XFf-E6-3wK" secondAttribute="bottom" constant="17" id="RXP-2Y-gs0"/>
+                            <constraint firstItem="DvL-8C-VJj" firstAttribute="top" secondItem="T38-wJ-DHe" secondAttribute="bottom" constant="1" id="Suw-GJ-873"/>
+                            <constraint firstAttribute="trailing" secondItem="T38-wJ-DHe" secondAttribute="trailing" id="aRG-Yc-g2w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZWP-M2-Iwf" secondAttribute="trailing" constant="92" id="aRw-9E-aoH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XFf-E6-3wK" secondAttribute="trailing" constant="-9" id="bnx-NJ-nj2"/>
+                            <constraint firstItem="T38-wJ-DHe" firstAttribute="top" secondItem="Ft4-HG-nZ4" secondAttribute="top" id="fvk-B5-lyl"/>
+                            <constraint firstItem="XFf-E6-3wK" firstAttribute="leading" secondItem="Ft4-HG-nZ4" secondAttribute="leading" constant="177" id="gvC-M2-dhM"/>
+                            <constraint firstItem="ZWP-M2-Iwf" firstAttribute="leading" secondItem="q8B-gN-ZfW" secondAttribute="trailing" constant="31" id="p2F-31-niV"/>
+                            <constraint firstItem="T38-wJ-DHe" firstAttribute="leading" secondItem="Ft4-HG-nZ4" secondAttribute="leading" id="qz3-ZF-Xan"/>
+                            <constraint firstItem="ZWP-M2-Iwf" firstAttribute="centerY" secondItem="q8B-gN-ZfW" secondAttribute="centerY" id="rGj-v6-EX7"/>
+                            <constraint firstItem="q8B-gN-ZfW" firstAttribute="top" secondItem="MP5-DV-cn9" secondAttribute="bottom" constant="2" id="z50-8y-wsb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NzV-Cb-My5"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X6S-Qr-Ckg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1701" y="-1330"/>
+        </scene>
+        <!--Concursos Table View-->
+        <scene sceneID="UuA-qL-Rbr">
+            <objects>
+                <tableViewController storyboardIdentifier="concursosTableView" title="Concursos Table View" id="oDj-tH-fE0" customClass="ConcursosTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="DlW-K0-0rS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="491"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="90"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5Mm-zK-eOB">
+                                <rect key="frame" x="0.0" y="28" width="320" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Mm-zK-eOB" id="IHy-OS-Vbw">
+                                    <frame key="frameInset" width="320" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="oDj-tH-fE0" id="71p-Cr-oN9"/>
+                            <outlet property="delegate" destination="oDj-tH-fE0" id="yvw-jl-Hsy"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="8cU-5c-4hU"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="DlW-K0-0rS" id="xdL-cT-fFw"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S2m-YT-yeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-941" y="-1372"/>
         </scene>
     </scenes>
     <resources>
@@ -7098,11 +7219,11 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JhD-SO-oge"/>
-        <segue reference="3eI-5G-D6D"/>
-        <segue reference="tqi-Nf-HuD"/>
-        <segue reference="wuf-Nj-3R8"/>
+        <segue reference="W7Z-Gb-h3p"/>
         <segue reference="vnn-UP-oet"/>
+        <segue reference="JhD-SO-oge"/>
+        <segue reference="wa8-wA-Ypp"/>
+        <segue reference="tqi-Nf-HuD"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

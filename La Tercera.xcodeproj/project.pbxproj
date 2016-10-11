@@ -284,6 +284,10 @@
 		175E1D7D1D6BA208007D4739 /* FavoritoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 175E1D7B1D6BA208007D4739 /* FavoritoDetailViewController.m */; };
 		175F13651CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 175F13641CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m */; };
 		175F13661CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 175F13641CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m */; };
+		179D3DDF1DACF10400E5B11E /* ConcursosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179D3DDE1DACF10400E5B11E /* ConcursosViewController.m */; };
+		179D3DE01DACF10400E5B11E /* ConcursosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179D3DDE1DACF10400E5B11E /* ConcursosViewController.m */; };
+		179D3DE31DACF29700E5B11E /* ConcursosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179D3DE21DACF29700E5B11E /* ConcursosTableViewController.m */; };
+		179D3DE41DACF29700E5B11E /* ConcursosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179D3DE21DACF29700E5B11E /* ConcursosTableViewController.m */; };
 		179D9D251D7D32A8004C972E /* libMOCALib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D9D241D7D32A8004C972E /* libMOCALib.a */; };
 		179D9D261D7D32A8004C972E /* libMOCALib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D9D241D7D32A8004C972E /* libMOCALib.a */; };
 		179D9D281D7D337C004C972E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D9D271D7D337C004C972E /* libsqlite3.0.tbd */; };
@@ -910,6 +914,10 @@
 		17899FAD1CA8E85F00ADD960 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		17899FAF1CA8E8C400ADD960 /* AFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
 		179D3DDC1DACEF3000E5B11E /* La Tercera App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "La Tercera App.entitlements"; sourceTree = "<group>"; };
+		179D3DDD1DACF10400E5B11E /* ConcursosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcursosViewController.h; sourceTree = "<group>"; };
+		179D3DDE1DACF10400E5B11E /* ConcursosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcursosViewController.m; sourceTree = "<group>"; };
+		179D3DE11DACF29700E5B11E /* ConcursosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcursosTableViewController.h; sourceTree = "<group>"; };
+		179D3DE21DACF29700E5B11E /* ConcursosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcursosTableViewController.m; sourceTree = "<group>"; };
 		179D9D241D7D32A8004C972E /* libMOCALib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMOCALib.a; sourceTree = "<group>"; };
 		179D9D271D7D337C004C972E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		179D9D291D7D33D3004C972E /* Headers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Headers; sourceTree = "<group>"; };
@@ -2301,6 +2309,10 @@
 		D014C8951D243F0200E3D3B5 /* Concursos */ = {
 			isa = PBXGroup;
 			children = (
+				179D3DDD1DACF10400E5B11E /* ConcursosViewController.h */,
+				179D3DDE1DACF10400E5B11E /* ConcursosViewController.m */,
+				179D3DE11DACF29700E5B11E /* ConcursosTableViewController.h */,
+				179D3DE21DACF29700E5B11E /* ConcursosTableViewController.m */,
 			);
 			name = Concursos;
 			sourceTree = "<group>";
@@ -3656,12 +3668,14 @@
 				D03893071D49518C00650F27 /* NewsCategoryNacionalViewController.m in Sources */,
 				D0ACD52C1D2329E4006C27DA /* UserProfile.m in Sources */,
 				1702BD251CB093E400F26F42 /* InfantilContainerVC.m in Sources */,
+				179D3DE41DACF29700E5B11E /* ConcursosTableViewController.m in Sources */,
 				17DAB9B01CCDD414000CD406 /* YMCAudioPlayer.m in Sources */,
 				D0FBFA301CBD32CD00D5465E /* CustomButtonTercera.m in Sources */,
 				17EBCCF31D62BA9300931B39 /* HistoryTableViewController.m in Sources */,
 				17F321BD1CBEBEDD00005964 /* NewspaperPage.m in Sources */,
 				1702BD261CB093E400F26F42 /* MasCercanosViewController.m in Sources */,
 				D04546D21CEB9A6D004A011D /* InitialViewController.m in Sources */,
+				179D3DE01DACF10400E5B11E /* ConcursosViewController.m in Sources */,
 				D085C6681D5CF2A100AD2333 /* LaTerceraTV-HomeTableViewController.m in Sources */,
 				1702BD281CB093E400F26F42 /* UIRefreshControl+AFNetworking.m in Sources */,
 				D03893031D494DA600650F27 /* CVNoticiasNacional.m in Sources */,
@@ -3791,6 +3805,7 @@
 				D01CF10F1CB6B9920050C008 /* LaTerceraTV.m in Sources */,
 				D09473E91D5BC13B00F696BB /* ContentType.m in Sources */,
 				1702BE0A1CB18BB500F26F42 /* ServiciosTableViewController.m in Sources */,
+				179D3DDF1DACF10400E5B11E /* ConcursosViewController.m in Sources */,
 				D0B65CEB1D1B049E00B8968F /* TarjetaVirtual.m in Sources */,
 				17B6A2351D657854005B4E46 /* CVMiSeleccion.m in Sources */,
 				D01520391D4A597D009CA13E /* MenuMiPerfilViewController.m in Sources */,
@@ -3808,6 +3823,7 @@
 				D0FF55701CCFC8F700EA71F4 /* TiendaClub.m in Sources */,
 				D008D6FB1D00850D00502A69 /* CollectionViewCellGrande.m in Sources */,
 				D038932A1D4953B900650F27 /* CVNoticiasNegocios.m in Sources */,
+				179D3DE31DACF29700E5B11E /* ConcursosTableViewController.m in Sources */,
 				17EBCCFE1D62D36200931B39 /* FavoritosTableViewController.m in Sources */,
 				17174DAF1DAB83E500B5C320 /* VocesDetailViewController.m in Sources */,
 				D036FA8B1CD01BB90096FE14 /* MostrarBeneficioDescuentoAdicional.m in Sources */,
