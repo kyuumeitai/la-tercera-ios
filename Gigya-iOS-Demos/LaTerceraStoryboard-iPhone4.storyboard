@@ -289,7 +289,7 @@ REGISTRARSE?</string>
             <objects>
                 <navigationController storyboardIdentifier="initialViewController" navigationBarHidden="YES" id="GVp-39-K6N" customClass="InitialViewController" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hih-em-URh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hih-em-URh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -799,7 +799,7 @@ REGISTRARSE?</string>
                                 <color key="tintColor" red="0.25677083333333328" green="0.25677083333333328" blue="0.25677083333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <segue destination="M1U-F0-Kv9" kind="custom" identifier="lectios" customClass="SWRevealViewControllerSeguePushController" id="XWI-Uw-33z"/>
+                                    <segue destination="Dgk-9x-B7V" kind="show" id="dTA-vx-nZv"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria5" rowHeight="35" id="sMg-PZ-cms">
@@ -1023,7 +1023,7 @@ REGISTRARSE?</string>
         <scene sceneID="C4h-Xp-o5n">
             <objects>
                 <collectionViewController id="SYc-4s-vqG" customClass="CVNoticiasInicio" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" id="C3w-uL-EQG">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" id="C3w-uL-EQG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1103,7 +1103,7 @@ REGISTRARSE?</string>
                 <navigationController navigationBarHidden="YES" id="DtB-eu-V5K" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zRM-je-Mzk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zRM-je-Mzk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2318,7 +2318,7 @@ de tu descuento.</string>
         <scene sceneID="dbQ-zF-WPo">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionLaTercera" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="b2P-Xe-VrB" customClass="CVLaTercera" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="LGB-uj-mbz">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="LGB-uj-mbz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342508798393" green="0.92718349358974361" blue="0.92718349358974361" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2705,7 +2705,7 @@ de tu descuento.</string>
         <scene sceneID="DAU-tE-vSo">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionEdicionEspecial" id="w1T-UP-eOG" customClass="CVEdicionEspecial" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" dataMode="prototypes" id="ByA-8c-pfG">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" misplaced="YES" dataMode="prototypes" id="ByA-8c-pfG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2747,7 +2747,7 @@ de tu descuento.</string>
         <scene sceneID="sUa-Lq-Mqe">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionNegocios" autoresizesArchivedViewToFullSize="NO" id="b5S-Wx-wkN" customClass="CVNegocios" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" dataMode="prototypes" id="uzd-Pj-NL4">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" dataMode="prototypes" id="uzd-Pj-NL4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2905,127 +2905,6 @@ de tu descuento.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0s-oX-1ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2698.125" y="-1103.8732394366195"/>
-        </scene>
-        <!--Lectios-->
-        <scene sceneID="K6C-t8-LOC">
-            <objects>
-                <viewController title="Lectios" id="M1U-F0-Kv9" customClass="LectiosViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uDg-TI-qdB"/>
-                        <viewControllerLayoutGuide type="bottom" id="4Lq-bq-yD7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="V8n-9F-Y2j">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="pKX-IK-6kv">
-                                <frame key="frameInset" width="320" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOh-E4-UrP">
-                                <frame key="frameInset" minX="65" minY="28" width="35" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="clublatercera.png"/>
-                                <connections>
-                                    <segue destination="LKO-m6-Nmk" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="W7Z-Gb-h3p"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USH-BW-ALO">
-                                <frame key="frameInset" minX="7" minY="22" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="boton-menu.png"/>
-                            </button>
-                            <view tag="100" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O0J-ev-kz2">
-                                <frame key="frameInset" minY="76" width="375" height="590"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7bD-aZ-6kA">
-                                        <frame key="frameInset" minY="15" width="375" height="88"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pJk-FW-rPO">
-                                                <frame key="frameInset" width="322" height="85"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escucha el artículo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAf-hK-n8d">
-                                                        <frame key="frameInset" minX="8" minY="5" width="200" height="21"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.86111111110000005" green="0.86111111110000005" blue="0.86111111110000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.80861420159999997" green="0.0" blue="0.074494124440000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pc-ND-uWN" userLabel="audioPlayerBackgroundLayer">
-                                                <frame key="frameInset" minX="8" minY="31" width="359" height="45"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="e5e-HA-SFm" userLabel="audioSlider">
-                                                <frame key="frameInset" minX="121" minY="38" width="175" height="31"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.80861420159999997" green="0.0" blue="0.074494124440000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <connections>
-                                                    <action selector="setCurrentTime:" destination="M1U-F0-Kv9" eventType="touchUpInside" id="yKZ-vw-G2i"/>
-                                                    <action selector="userIsScrubbing:" destination="M1U-F0-Kv9" eventType="touchDragInside" id="JHA-cZ-Q8g"/>
-                                                </connections>
-                                            </slider>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVK-zA-01G" userLabel="timeElapsed">
-                                                <frame key="frameInset" minX="84" minY="44" width="34" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" red="0.86111111110000005" green="0.86111111110000005" blue="0.86111111110000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-0:37" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5Y-b3-Z1R" userLabel="timeDuration">
-                                                <frame key="frameInset" minX="300" minY="44" width="35" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" red="0.86111111110000005" green="0.86111111110000005" blue="0.86111111110000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q41-63-Yee" userLabel="audioPlayButton">
-                                                <frame key="frameInset" minX="27" minY="33" width="40" height="41"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" backgroundImage="audioplayer_play.png">
-                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="playAudioPressed:" destination="M1U-F0-Kv9" eventType="touchUpInside" id="jw0-7Z-ubR"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="8Ru-SO-MbR"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="currentTimeSlider" destination="e5e-HA-SFm" id="rr7-7m-fZf"/>
-                        <outlet property="duration" destination="N5Y-b3-Z1R" id="r7V-3H-cKy"/>
-                        <outlet property="menuButton" destination="USH-BW-ALO" id="DBX-e9-Z91"/>
-                        <outlet property="playButton" destination="q41-63-Yee" id="taK-Xy-oRt"/>
-                        <outlet property="timeElapsed" destination="rVK-zA-01G" id="drd-Hp-r2P"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dak-qH-RqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1576.875" y="-883.75"/>
         </scene>
         <!--Bienvenido-->
         <scene sceneID="K62-ss-WcP">
@@ -3841,7 +3720,7 @@ de La Tercera</string>
         <scene sceneID="kO4-N2-n99">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionElDeportivo" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="6Fm-tF-vXq" customClass="CVElDeportivo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="d7Y-uL-ajO">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="d7Y-uL-ajO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4373,7 +4252,7 @@ de La Tercera</string>
         <scene sceneID="eYM-Sm-asG">
             <objects>
                 <collectionViewController id="Ezh-w4-n1h" customClass="CVNoticiasMundo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Z86-im-lD7">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Z86-im-lD7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4421,7 +4300,7 @@ de La Tercera</string>
         <scene sceneID="ygu-ro-zFI">
             <objects>
                 <collectionViewController id="94C-rh-BI8" customClass="CVNoticiasCultura" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="7OL-kE-thT">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="7OL-kE-thT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4573,7 +4452,7 @@ de La Tercera</string>
         <scene sceneID="L5a-rC-VYR">
             <objects>
                 <collectionViewController id="E5J-KX-lxp" customClass="CVNoticiasEntretencion" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="0sP-wY-pkf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="0sP-wY-pkf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4649,7 +4528,7 @@ de La Tercera</string>
         <scene sceneID="bAy-8D-eL9">
             <objects>
                 <collectionViewController id="gXx-Db-z54" customClass="CVNoticiasNacional" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Sno-S0-VzM">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Sno-S0-VzM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4725,7 +4604,7 @@ de La Tercera</string>
         <scene sceneID="LR2-ED-PEe">
             <objects>
                 <collectionViewController id="fwJ-hL-5FX" customClass="CVNoticiasElDeportivo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="kFa-nd-Kzf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="kFa-nd-Kzf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4801,7 +4680,7 @@ de La Tercera</string>
         <scene sceneID="ysG-tx-Opv">
             <objects>
                 <collectionViewController id="h44-nN-PGU" customClass="CVNoticiasNegocios" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="sfl-od-H75">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="sfl-od-H75">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5661,10 +5540,10 @@ de La Tercera</string>
                                         <state key="normal" backgroundImage="AddToSelection.png"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="xS0-sB-oDX"/>
-                                                <exclude reference="r2Z-gO-P5O"/>
                                                 <exclude reference="ZZq-cr-jeE"/>
                                                 <exclude reference="lHi-9S-iRJ"/>
+                                                <exclude reference="r2Z-gO-P5O"/>
+                                                <exclude reference="xS0-sB-oDX"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -5726,8 +5605,8 @@ de La Tercera</string>
                                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="dHz-7G-5VX"/>
                                                 <exclude reference="WMD-cM-Bcj"/>
+                                                <exclude reference="dHz-7G-5VX"/>
                                             </mask>
                                         </variation>
                                     </textView>
@@ -5995,10 +5874,10 @@ de La Tercera</string>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="zQ4-Iz-ilz"/>
-                                        <exclude reference="bls-l8-fol"/>
                                         <exclude reference="Mb3-Wf-5ax"/>
-                                        <exclude reference="wUE-cT-h6i"/>
+                                        <exclude reference="bls-l8-fol"/>
                                         <exclude reference="c42-AN-eTr"/>
+                                        <exclude reference="wUE-cT-h6i"/>
                                         <exclude reference="SVT-Uu-JUf"/>
                                     </mask>
                                 </variation>
@@ -6026,10 +5905,10 @@ de La Tercera</string>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="RkZ-ge-2a2"/>
-                                <exclude reference="yhn-iD-GM9"/>
                                 <exclude reference="9eT-V2-9Zv"/>
+                                <exclude reference="RkZ-ge-2a2"/>
                                 <exclude reference="mw8-Tv-K5F"/>
+                                <exclude reference="yhn-iD-GM9"/>
                                 <exclude reference="ddv-Hg-a6d"/>
                             </mask>
                         </variation>
@@ -6085,6 +5964,82 @@ de La Tercera</string>
             </objects>
             <point key="canvasLocation" x="-5625" y="1148"/>
         </scene>
+        <!--Voces-->
+        <scene sceneID="XS6-sK-Cy0">
+            <objects>
+                <viewController title="Voces" id="Dgk-9x-B7V" customClass="VocesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8rR-Fx-Cmb"/>
+                        <viewControllerLayoutGuide type="bottom" id="iDS-9k-5h1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TQm-6p-Zay">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-dp-XQ6"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCu-cB-VCj">
+                                <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0W-3j-hkd">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="58l-OF-6el"/>
+                                    <constraint firstAttribute="width" constant="47" id="os7-5X-QqX"/>
+                                </constraints>
+                                <state key="normal" image="botonVolver.png"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="Dgk-9x-B7V" eventType="touchUpInside" id="Eeo-lI-YuF"/>
+                                </connections>
+                            </button>
+                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xz-8W-c7A">
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Tk-e2-bvl">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="9Tk-e2-bvl" firstAttribute="top" secondItem="8xz-8W-c7A" secondAttribute="top" id="6S6-nY-5SK"/>
+                                    <constraint firstItem="9Tk-e2-bvl" firstAttribute="leading" secondItem="8xz-8W-c7A" secondAttribute="leading" id="HPD-hj-pLJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Tk-e2-bvl" secondAttribute="trailing" id="Ror-IK-nQo"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Tk-e2-bvl" secondAttribute="bottom" id="SPm-Ld-Sl1"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escucha las noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIx-ZN-2FA">
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iIx-ZN-2FA" firstAttribute="top" secondItem="8rR-Fx-Cmb" secondAttribute="bottom" constant="15" id="15T-y5-Zfr"/>
+                            <constraint firstItem="k0W-3j-hkd" firstAttribute="leading" secondItem="TQm-6p-Zay" secondAttribute="leadingMargin" constant="-13" id="55c-eH-i6j"/>
+                            <constraint firstItem="cnS-dp-XQ6" firstAttribute="top" secondItem="TQm-6p-Zay" secondAttribute="top" id="5PT-44-8Cw"/>
+                            <constraint firstItem="8xz-8W-c7A" firstAttribute="top" secondItem="eCu-cB-VCj" secondAttribute="bottom" constant="17" id="6vk-tk-viU"/>
+                            <constraint firstItem="iIx-ZN-2FA" firstAttribute="leading" secondItem="k0W-3j-hkd" secondAttribute="trailing" constant="31" id="82D-Zd-55d"/>
+                            <constraint firstItem="iIx-ZN-2FA" firstAttribute="centerY" secondItem="k0W-3j-hkd" secondAttribute="centerY" id="9j4-z2-nWQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eCu-cB-VCj" secondAttribute="trailing" constant="-9" id="CUn-GO-kUO"/>
+                            <constraint firstItem="cnS-dp-XQ6" firstAttribute="trailing" secondItem="8xz-8W-c7A" secondAttribute="trailing" id="Cfc-WG-AeS"/>
+                            <constraint firstItem="eCu-cB-VCj" firstAttribute="leading" secondItem="TQm-6p-Zay" secondAttribute="leading" constant="176" id="Cwl-eP-aL3"/>
+                            <constraint firstItem="8xz-8W-c7A" firstAttribute="bottom" secondItem="iDS-9k-5h1" secondAttribute="top" id="FDn-44-gzU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iIx-ZN-2FA" secondAttribute="trailing" constant="37" id="G39-HN-YSC"/>
+                            <constraint firstItem="8xz-8W-c7A" firstAttribute="top" secondItem="k0W-3j-hkd" secondAttribute="bottom" constant="8" symbolic="YES" id="Puq-Jg-StR"/>
+                            <constraint firstAttribute="trailing" secondItem="cnS-dp-XQ6" secondAttribute="trailing" id="Z13-4h-E96"/>
+                            <constraint firstItem="cnS-dp-XQ6" firstAttribute="leading" secondItem="TQm-6p-Zay" secondAttribute="leading" id="ZVz-kc-g5a"/>
+                            <constraint firstItem="cnS-dp-XQ6" firstAttribute="leading" secondItem="8xz-8W-c7A" secondAttribute="leading" id="eGw-YW-r4t"/>
+                            <constraint firstItem="k0W-3j-hkd" firstAttribute="top" secondItem="8rR-Fx-Cmb" secondAttribute="bottom" constant="2" id="i9D-L7-psa"/>
+                            <constraint firstItem="8xz-8W-c7A" firstAttribute="top" secondItem="cnS-dp-XQ6" secondAttribute="bottom" constant="1" id="nrC-Mb-Vc4"/>
+                            <constraint firstItem="eCu-cB-VCj" firstAttribute="top" secondItem="8rR-Fx-Cmb" secondAttribute="bottom" constant="13" id="vsU-ZT-PwM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fjl-0u-7Qr"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAs-W2-CvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="-885"/>
+        </scene>
     </scenes>
     <resources>
         <image name=" " width="360" height="640"/>
@@ -6101,7 +6056,6 @@ de La Tercera</string>
         <image name="VerBeneficiosCerca.png" width="332" height="43"/>
         <image name="achicarTexto.png" width="34" height="34"/>
         <image name="agrandarTexto.png" width="35" height="34"/>
-        <image name="audioplayer_play.png" width="66" height="65"/>
         <image name="boton-menu.png" width="34" height="34"/>
         <image name="botonConcursos.png" width="332" height="43"/>
         <image name="botonFavorito.png" width="34" height="34"/>
@@ -6151,11 +6105,11 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="tqi-Nf-HuD"/>
         <segue reference="QpD-Og-2iF"/>
-        <segue reference="uX9-Ov-tlW"/>
-        <segue reference="LjX-Ol-dSP"/>
+        <segue reference="3eI-5G-D6D"/>
+        <segue reference="wa8-wA-Ypp"/>
         <segue reference="vnn-UP-oet"/>
-        <segue reference="wuf-Nj-3R8"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

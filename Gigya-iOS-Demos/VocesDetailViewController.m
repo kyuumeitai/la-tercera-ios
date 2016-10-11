@@ -17,13 +17,15 @@
 
 
 
-@interface VocesDetailViewController () <UIGestureRecognizerDelegate>
+@interface VocesDetailViewController () <UIGestureRecognizerDelegate,AVSpeechSynthesizerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *labelFecha;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *labelCat;
 @property (weak, nonatomic) IBOutlet UILabel *labelAutor;
 
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 @property (weak, nonatomic) IBOutlet UIImageView *upperSeparador;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *lowerSeparador;
 @property (strong, nonatomic) AVSpeechSynthesizer *synthesizer;
@@ -36,8 +38,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleNews2;
 @property (weak, nonatomic) IBOutlet UILabel *titleNews3;
 @property (weak, nonatomic) IBOutlet UILabel *titleNews4;
-
-
+@property (nonatomic, strong) AVSpeechSynthesizer *synth;
 @end
 
 @implementation VocesDetailViewController
@@ -48,13 +49,26 @@
 @synthesize relatedIdsArray;
 
 int fontSizeVoces = 16;
+BOOL firstVoice ;
+
+
+int totalUtterances = 0;
+
+int currentUtterance = 0;
+
+int totalTextLength = 0;
+
+int spokenTextLengths = 0;
+
+
+
 
 NSString *slugVoces = @"";
 NSString *newsLinkVoces= @"";
 NSString *textoContenidoTemporalVoces = @"";
 
 - (void)viewDidLoad {
-    
+    firstVoice = YES;
     _upperSeparador.hidden = YES;
     _lowerSeparador.hidden = YES;
     UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(backButtonClicked:)];
@@ -81,13 +95,33 @@ NSString *textoContenidoTemporalVoces = @"";
     
     // Do any additional setup after loading the view.
     
+    self.synth = [[AVSpeechSynthesizer alloc] init];
+    firstVoice = YES;
+    self.synth.delegate = self;
     //[self loadRelatedArticles];
-    self.synthesizer = [[AVSpeechSynthesizer alloc] init];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+ 
+}
+
+-(void) viewWillDisappear:(BOOL)animated{
+    totalUtterances = 0;
+    
+    currentUtterance = 0;
+    
+    totalTextLength = 0;
+    
+    spokenTextLengths = 0;
+    
+
+    [self.synth stopSpeakingAtBoundary:AVSpeechBoundaryWord];
 }
 
 - (void) loadRelatedArticles{
@@ -339,7 +373,7 @@ NSString *textoContenidoTemporalVoces = @"";
         
         id urlImagen;
         
-        if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
+        if (([articleDict objectForKey:@"image_url"] == (id)[NSNull null]) || ([[articleDict objectForKey:@"image_url"] isEqualToString:@""])){
             urlImagen = @"https://placekitten.com/400/400";
         }else{
             urlImagen = [articleDict objectForKey:@"image_url"];
@@ -544,7 +578,8 @@ NSString *textoContenidoTemporalVoces = @"";
                      completion:nil];
     id urlImagen;
     
-    if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
+    if (([articleDict objectForKey:@"image_url"] == (id)[NSNull null]) || ([[articleDict objectForKey:@"image_url"] isEqualToString:@""])){
+
         urlImagen = @"https://placekitten.com/400/400";
     }else{
         urlImagen = [articleDict objectForKey:@"image_url"];
@@ -690,9 +725,99 @@ NSString *textoContenidoTemporalVoces = @"";
     
 }
 
+- (NSUInteger)wordCount: (NSString*)palabra {
+    NSCharacterSet *separators = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSArray *words = [palabra componentsSeparatedByCharactersInSet:separators];
+    
+    NSIndexSet *separatorIndexes = [words indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        return [obj isEqualToString:@""];
+    }];
+    
+    return [words count] - [separatorIndexes count];
+}
+
+
 - (IBAction)playVoicePressed:(id)sender {
+    if (firstVoice){
+           [_playPauseButton setBackgroundImage:[UIImage imageNamed:@"pauseAudio"] forState:UIControlStateNormal];
+         NSLog(@"First Voice");
     AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:_contentTextView.text];
-    [self.synthesizer speakUtterance:utterance];
+    [self.synth speakUtterance:utterance];
+        NSArray * textParagraphs = [_contentTextView.text componentsSeparatedByString:(@"\n")];
+        
+        for (NSString *word in textParagraphs) {
+            totalTextLength = totalTextLength + [self wordCount:word];
+
+        }
+        
+        //totalUtterances = textParagraphs;
+               NSLog(@"totalTextLength: %i",totalTextLength);
+        firstVoice = NO;
+        return;
+    }else{
+        NSLog(@"Second Voice");
+
+    if (self.synth.isPaused) {
+        [self.synth continueSpeaking];
+         [_playPauseButton setBackgroundImage:[UIImage imageNamed:@"pauseAudio"] forState:UIControlStateNormal];
+    }
+    else{
+        [self.synth pauseSpeakingAtBoundary: AVSpeechBoundaryWord];
+        [_playPauseButton setBackgroundImage:[UIImage imageNamed:@"playAudio"] forState:UIControlStateNormal];
+
+    }
+    }
+}
+
+
+
+-(void) speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance{
+    currentUtterance = currentUtterance + 1;
+    NSLog(@"currentUtterance %i",currentUtterance);
+
+}
+
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance{
+    
+
+    spokenTextLengths = spokenTextLengths + [self wordCount:utterance.speechString]+1;
+    float progress = spokenTextLengths * 100 / totalTextLength;
+    NSLog(@"El progreso de lectura  final es de un %f",progress);
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
+    [text removeAttribute:NSForegroundColorAttributeName range:NSMakeRange(0, [text length])];
+    self.contentTextView.attributedText = text;
+   // pvSpeechProgress.progress = progress / 100
+}
+
+
+-(void) speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance{
+    
+        spokenTextLengths = spokenTextLengths + [self wordCount:utterance.speechString];
+    float progress =( (spokenTextLengths + characterRange.location) * 100) / (totalTextLength);
+    
+    NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSizeVoces,textoContenidoTemporalVoces];
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc]
+                                       initWithData: [finalDescription dataUsingEncoding:NSUnicodeStringEncoding]
+                                       options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                                       documentAttributes: nil
+                                       error: nil
+                                       ];
+    
+    [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:characterRange];
+    self.contentTextView.attributedText = text;
+    //NSLog(@"El progreso de lectura es de un %f",progress);
+    float total = (progress/100)/totalTextLength;
+    NSLog(@"El progreso de lectura final es de un %f",total);
+    self.progressBar.progress = total;
+    
+    int valueForLabel = total *100;
+    if (valueForLabel >100)
+        valueForLabel = 100;
+    self.statusLabel.text = [NSString stringWithFormat:@"%i%%",valueForLabel];
+    
+    NSLog(@"Total lenght es %i , y el spokenTextLenghts es: %i",totalTextLength, spokenTextLengths);
+
+    //pvSpeechProgress.progress = progress / 100
 }
 
 

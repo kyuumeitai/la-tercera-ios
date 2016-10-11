@@ -12,7 +12,7 @@
 #import "SessionManager.h"
 #import "UserProfile.h"
 #import "UsarBeneficioNoLogueado.h"
-
+#import "Tools.h"
 
 @interface FavoritoDetailViewController () <UIGestureRecognizerDelegate>
 
@@ -174,8 +174,15 @@ NSString *textoContenidoFavorito = @"";
 
 #pragma mark -->> Data Functions <<---
 
+/*
+- (IBAction)shareArticle:(id)sender {
+    NSString *tituloNoticia = _titulo.text;
+    newsLinkVoces = [NSString stringWithFormat:@"http://aniversario.latercera.com/%@",slugVoces];
+    
+    [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:newsLinkVoces] forSelf:self];
+}
 
-
+*/
 - (IBAction)backButtonClicked:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

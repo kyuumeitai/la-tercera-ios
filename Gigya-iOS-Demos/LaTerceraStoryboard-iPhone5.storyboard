@@ -757,7 +757,7 @@ REGISTRARSE?</string>
                                 <color key="tintColor" red="0.25677083333333328" green="0.25677083333333328" blue="0.25677083333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <segue destination="M1U-F0-Kv9" kind="custom" identifier="lectios" customClass="SWRevealViewControllerSeguePushController" id="XWI-Uw-33z"/>
+                                    <segue destination="cJ8-Gd-LrE" kind="show" id="9rw-FB-kTE"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria5" rowHeight="44" id="sMg-PZ-cms">
@@ -6183,7 +6183,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDb-Jy-ewk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3052.8000000000002" y="-2165.217391304348"/>
+            <point key="canvasLocation" x="3068" y="-2279"/>
         </scene>
         <!--La TerceraTV Home View Controller-->
         <scene sceneID="d4m-Yf-6VL">
@@ -6554,6 +6554,82 @@ de La Tercera</string>
             </objects>
             <point key="canvasLocation" x="1126.875" y="1389.0845070422536"/>
         </scene>
+        <!--Voces-->
+        <scene sceneID="tZ0-tD-kA1">
+            <objects>
+                <viewController title="Voces" id="cJ8-Gd-LrE" customClass="VocesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kt1-pw-QLJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ctj-q8-Yn5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nYC-AY-tKQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="6aN-3K-rTT"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TJK-XL-2YQ">
+                                <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKg-HV-8PY">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47" id="17V-H6-r3f"/>
+                                    <constraint firstAttribute="height" constant="47" id="G8H-jJ-sAd"/>
+                                </constraints>
+                                <state key="normal" image="botonVolver.png"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="cJ8-Gd-LrE" eventType="touchUpInside" id="ujC-AR-QJa"/>
+                                </connections>
+                            </button>
+                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuu-LZ-qIX">
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="irm-4P-djd">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="irm-4P-djd" firstAttribute="leading" secondItem="nuu-LZ-qIX" secondAttribute="leading" id="0IK-90-gPd"/>
+                                    <constraint firstItem="irm-4P-djd" firstAttribute="top" secondItem="nuu-LZ-qIX" secondAttribute="top" id="0L9-c5-kLP"/>
+                                    <constraint firstAttribute="trailing" secondItem="irm-4P-djd" secondAttribute="trailing" id="0QC-IC-KZv"/>
+                                    <constraint firstAttribute="bottom" secondItem="irm-4P-djd" secondAttribute="bottom" id="e8M-wl-PLl"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escucha las noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3E-gx-sdP">
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nuu-LZ-qIX" firstAttribute="bottom" secondItem="Ctj-q8-Yn5" secondAttribute="top" id="DCV-7I-jHX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TJK-XL-2YQ" secondAttribute="trailing" constant="-9" id="DTV-K6-eH3"/>
+                            <constraint firstItem="TJK-XL-2YQ" firstAttribute="leading" secondItem="nYC-AY-tKQ" secondAttribute="leading" constant="176" id="E1t-D5-bCa"/>
+                            <constraint firstItem="6aN-3K-rTT" firstAttribute="trailing" secondItem="nuu-LZ-qIX" secondAttribute="trailing" id="Geb-FI-iLA"/>
+                            <constraint firstItem="h3E-gx-sdP" firstAttribute="leading" secondItem="wKg-HV-8PY" secondAttribute="trailing" constant="31" id="OOz-Af-iLS"/>
+                            <constraint firstItem="6aN-3K-rTT" firstAttribute="leading" secondItem="nYC-AY-tKQ" secondAttribute="leading" id="QZy-dQ-kcB"/>
+                            <constraint firstItem="h3E-gx-sdP" firstAttribute="centerY" secondItem="wKg-HV-8PY" secondAttribute="centerY" id="Wcb-i0-5pm"/>
+                            <constraint firstItem="6aN-3K-rTT" firstAttribute="top" secondItem="nYC-AY-tKQ" secondAttribute="top" id="ZwF-4C-Ajg"/>
+                            <constraint firstItem="wKg-HV-8PY" firstAttribute="leading" secondItem="nYC-AY-tKQ" secondAttribute="leadingMargin" constant="-13" id="aZf-NY-zje"/>
+                            <constraint firstItem="nuu-LZ-qIX" firstAttribute="top" secondItem="TJK-XL-2YQ" secondAttribute="bottom" constant="17" id="dfe-GF-w3D"/>
+                            <constraint firstItem="nuu-LZ-qIX" firstAttribute="top" secondItem="6aN-3K-rTT" secondAttribute="bottom" constant="1" id="esA-lG-rQg"/>
+                            <constraint firstItem="h3E-gx-sdP" firstAttribute="top" secondItem="kt1-pw-QLJ" secondAttribute="bottom" constant="15" id="iBM-xr-pcZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h3E-gx-sdP" secondAttribute="trailing" constant="37" id="mNd-g5-I4T"/>
+                            <constraint firstItem="6aN-3K-rTT" firstAttribute="leading" secondItem="nuu-LZ-qIX" secondAttribute="leading" id="mZq-6d-a0h"/>
+                            <constraint firstAttribute="trailing" secondItem="6aN-3K-rTT" secondAttribute="trailing" id="pF2-86-juW"/>
+                            <constraint firstItem="TJK-XL-2YQ" firstAttribute="top" secondItem="kt1-pw-QLJ" secondAttribute="bottom" constant="13" id="qDF-RN-FNx"/>
+                            <constraint firstItem="nuu-LZ-qIX" firstAttribute="top" secondItem="wKg-HV-8PY" secondAttribute="bottom" constant="8" symbolic="YES" id="rvh-q1-Tts"/>
+                            <constraint firstItem="wKg-HV-8PY" firstAttribute="top" secondItem="kt1-pw-QLJ" secondAttribute="bottom" constant="2" id="s4r-s1-T7Z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="53V-XY-5GR"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ut-So-G7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="272" y="473"/>
+        </scene>
     </scenes>
     <resources>
         <image name=" " width="360" height="640"/>
@@ -6620,11 +6696,11 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yn4-yz-IfR"/>
-        <segue reference="wuf-Nj-3R8"/>
-        <segue reference="vnn-UP-oet"/>
+        <segue reference="wa8-wA-Ypp"/>
         <segue reference="JhD-SO-oge"/>
-        <segue reference="uX9-Ov-tlW"/>
+        <segue reference="3eI-5G-D6D"/>
+        <segue reference="vnn-UP-oet"/>
+        <segue reference="tqi-Nf-HuD"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

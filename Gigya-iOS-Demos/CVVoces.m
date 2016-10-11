@@ -204,7 +204,7 @@ NSMutableArray *relatedIdsArrayVoces;
     
     for (id titularTemp in arrayTitulares){
         indice ++;
-        NSLog(@"El Indice es: %d ", indice);
+        //NSLog(@"El Indice es: %d ", indice);
         NSDictionary *dictTitular = (NSDictionary*) titularTemp;
         id idArt =  [dictTitular objectForKey:@"id"];
         NSNumber *artId = [NSNumber numberWithInteger:[idArt intValue] ];
@@ -214,7 +214,7 @@ NSMutableArray *relatedIdsArrayVoces;
         
         id imageThumb ;
         
-        if ([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]){
+            if (([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]) || ([[dictTitular objectForKey:@"thumb_url"] isEqualToString:@""])){
             imageThumb = @"https://placekitten.com/200/200";
         }else{
             imageThumb = [dictTitular objectForKey:@"thumb_url"];
