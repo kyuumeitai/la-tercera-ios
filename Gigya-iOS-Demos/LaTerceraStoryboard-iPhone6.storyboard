@@ -1730,7 +1730,8 @@ REGISTRARSE?</string>
                                     <action selector="backButtonPressed:" destination="Uc6-It-8ad" eventType="touchUpInside" id="laO-S2-mNl"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
+                                <frame key="frameInset" width="1000" height="1000"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="212" id="JJU-R1-ZLX"/>
                                     <constraint firstAttribute="width" constant="376" id="qSb-8v-0KS"/>
