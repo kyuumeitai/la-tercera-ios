@@ -1,12 +1,12 @@
 //
-//  DetalleConcursosViewController.m
+//  DetalleEventosViewController.m
 //  La Tercera
 //
-//  Created by Mario Alejandro on 15-10-16.
+//  Created by Mario Alejandro on 16-10-16.
 //  Copyright © 2016 Gigya. All rights reserved.
 //
 
-#import "DetalleConcursosViewController.h"
+#import "DetalleEventosViewController.h"
 #import "UsarBeneficioEstandar.h"
 #import "UsarBeneficioNoLogueado.h"
 #import "UsarBeneficioDescuentoAdicional.h"
@@ -15,23 +15,23 @@
 #import "UserProfile.h"
 #import "Tools.h"
 
-@interface DetalleConcursosViewController ()
+@interface DetalleEventosViewController ()
 
 @end
 
-@implementation DetalleConcursosViewController
+@implementation DetalleEventosViewController
 
-@synthesize concursoId;
-CLLocationCoordinate2D storeLocationContest;
+@synthesize eventoId;
+CLLocationCoordinate2D storeLocationEvent;
 
-BOOL forFremiumContest = false;
-BOOL forSuscriptorContest = false;
-BOOL forAnonimoContest = false;
+BOOL forFremiumEvent = false;
+BOOL forSuscriptorEvent = false;
+BOOL forAnonimoEvent = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.concursoImageView.image = _concursoImage;
-    self.concursoAdressLabel.alpha = 0;
+    self.eventoImageView.image = _eventoImage;
+    self.eventoAdressLabel.alpha = 0;
     // self.benefitDescriptionTextView.text = _benefitDescription;
     // [self loadBenefitForBenefitId:self.benefitId];
     // Do any additional setup after loading the view.
@@ -49,13 +49,13 @@ BOOL forAnonimoContest = false;
 #pragma mark -->> Data Functions <<---
 
 /**
- Load contest from web service
-
- @param idContest the id from the specific contest
+ Load Event from web service
+ 
+ @param idEvent the id from the specific Event
  */
--(void)loadContestForContestId:(int)idContest{
+-(void)loadEventForEventId:(int)idEvent{
     
-    NSLog(@"Load contest ");
+    NSLog(@"Load event ");
     
     // IMPORTANT - Only update the UI on the main thread
     // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
@@ -65,7 +65,7 @@ BOOL forAnonimoContest = false;
     
     NSLog(@"Verificando conexión: %d",estaConectado);
     
-    [connectionManager getContestWithContestId:^(BOOL success, NSArray *arrayJson, NSError *error){
+    [connectionManager getEventWithEventId:^(BOOL success, NSArray *arrayJson, NSError *error){
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
@@ -74,25 +74,29 @@ BOOL forAnonimoContest = false;
                 [self reloadBenefitsDataFromService:arrayJson];
             }
         });
-    }:idContest];
+    }:idEvent];
 }
 
 
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
-    NSLog(@"  reload concursos  ");
+    NSLog(@"  reload eventos  ");
     
     NSDictionary *tempDict = (NSDictionary*)arrayJson;
     
     //Loading summary
-    NSString* summary = [tempDict objectForKey:@"description"];
-    self.concursoSubtitleLabel.text = summary;
+    NSString* summary = [tempDict objectForKey:@"descripcion"];
+    self.eventoSubtitleLabel.text = summary;
     //[self.benefitSubtitleLabel setNumberOfLines:0];
     //[self.benefitSubtitleLabel sizeToFit];
-    self.concursoSubtitleLabel.alpha = 0;
+    self.eventoSubtitleLabel.alpha = 0;
+    NSString* precioTemp = [tempDict objectForKey:@"precio"];
+    NSString* precio = [NSString stringWithFormat:@"$%@",precioTemp];
+    
+    self.eventoDiscountLabel.text = precio;
     
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
-                     animations:^{ self.concursoSubtitleLabel.alpha = 1;}
+                     animations:^{ self.eventoSubtitleLabel.alpha = 1;}
                      completion:nil];
     
     //Loading Duration
@@ -114,7 +118,7 @@ BOOL forAnonimoContest = false;
     [displayingFormatter setDateFormat:@"dd' de 'MMMM' del 'YYYY"];
     NSString *displayEnd = [displayingFormatter stringFromDate:dateFromString];
     
-    NSString *caducidad = [NSString stringWithFormat:@"Concurso válido desde el %@ al %@",displayStart,displayEnd];
+    NSString *caducidad = [NSString stringWithFormat:@"Evento válido desde el %@ al %@",displayStart,displayEnd];
     
     self.expiredDateLabel.text=caducidad;
     self.expiredDateLabel.alpha = 0;
@@ -131,17 +135,17 @@ BOOL forAnonimoContest = false;
         int valor= [[profileDictionary objectForKey:@"id"] intValue];
         
         if ( valor == 0 ){
-            forAnonimoContest = true;
+            forAnonimoEvent = true;
             NSLog(@"Es anonimo");
         }
         
         if ( valor == 1 ){
-            forFremiumContest = true;
+            forFremiumEvent = true;
             NSLog(@"Es fremium");
         }
         
         if ( valor == 2 ){
-            forSuscriptorContest = true;
+            forSuscriptorEvent = true;
             NSLog(@"Es suscriptor");
         }
         
@@ -173,35 +177,35 @@ BOOL forAnonimoContest = false;
     
     
     //  self.profileBenefitLabel.text = nameProfile;
-    self.profileConcursoLabel.alpha = 0;
+    self.profileEventoLabel.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
-                     animations:^{ self.profileConcursoLabel.alpha = 1;}
+                     animations:^{ self.profileEventoLabel.alpha = 1;}
                      completion:nil];
     
-    self.concursoTitleLabel.text = _concursoTitle;
-   // self.concursoAdressLabel.text = _benefitAddress;
+    self.eventoTitleLabel.text = _eventoTitle;
+    // self.eventoAdressLabel.text = _benefitAddress;
     
-    self.concursoDiscountLabel.alpha = 0;
+    self.eventoDiscountLabel.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
-                     animations:^{ self.concursoDiscountLabel.alpha = 1;}
+                     animations:^{ self.eventoDiscountLabel.alpha = 1;}
                      completion:nil];
     
-    self.concursoTitleLabel.alpha = 0;
+    self.eventoTitleLabel.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
-                     animations:^{ self.concursoTitleLabel.alpha = 1;}
+                     animations:^{ self.eventoTitleLabel.alpha = 1;}
                      completion:nil];
     
     /*
-    //Loading Store
-    NSArray* storeArray = (NSArray*)[tempDict objectForKey:@"related_store"];
-    storeId = [[storeArray firstObject] intValue];
-    NSLog(@" EL store relacionado es:%d",storeId);
-    
-    [self loadStoreWithId:storeId];
-    
+     //Loading Store
+     NSArray* storeArray = (NSArray*)[tempDict objectForKey:@"related_store"];
+     storeId = [[storeArray firstObject] intValue];
+     NSLog(@" EL store relacionado es:%d",storeId);
+     
+     [self loadStoreWithId:storeId];
+     
      */
     //Loading Description
-    NSString* description = [tempDict objectForKey:@"description"];
+    NSString* description = [tempDict objectForKey:@"descripcion"];
     
     NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: 16\">%@</span>",description];
     
@@ -212,13 +216,13 @@ BOOL forAnonimoContest = false;
                                                    documentAttributes:nil                                            error: nil
                                                    ];
     
-    //self.concursoDescriptionTextView.attributedText = attributedString;
-    self.concursoSubtitle = description;
+    //self.eventoDescriptionTextView.attributedText = attributedString;
+    self.eventoSubtitle = description;
 }
 
 -(IBAction)shareBenefit:(id)sender{
     
-    [Tools shareText:self.concursoSubtitleLabel.text andImage:self.concursoImageView.image  andUrl:[NSURL URLWithString:@"www.google.com"] forSelf:self];
+    [Tools shareText:self.eventoSubtitleLabel.text andImage:self.eventoImageView.image  andUrl:[NSURL URLWithString:@"www.google.com"] forSelf:self];
     
 }
 

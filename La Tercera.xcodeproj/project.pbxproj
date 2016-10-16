@@ -280,6 +280,8 @@
 		172B6A761D5AC2B3005A857B /* LTLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172B6A751D5AC2B3005A857B /* LTLaunchScreen.storyboard */; };
 		173A31271D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173A31261D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard */; };
 		173A31281D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173A31261D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard */; };
+		17416A111DB3C785002D23C4 /* DetalleEventosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17416A101DB3C785002D23C4 /* DetalleEventosViewController.m */; };
+		17416A121DB3C785002D23C4 /* DetalleEventosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17416A101DB3C785002D23C4 /* DetalleEventosViewController.m */; };
 		175E1D7C1D6BA208007D4739 /* FavoritoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 175E1D7B1D6BA208007D4739 /* FavoritoDetailViewController.m */; };
 		175E1D7D1D6BA208007D4739 /* FavoritoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 175E1D7B1D6BA208007D4739 /* FavoritoDetailViewController.m */; };
 		175F13651CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 175F13641CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m */; };
@@ -867,6 +869,9 @@
 		172819041D6956A20092CAC2 /* FavoritosTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritosTableViewCell.m; sourceTree = "<group>"; };
 		172B6A751D5AC2B3005A857B /* LTLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LTLaunchScreen.storyboard; sourceTree = "<group>"; };
 		173A31261D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaTerceraStoryboard-iPhone4.storyboard"; sourceTree = "<group>"; };
+		17416A0E1DB3C154002D23C4 /* La Tercera App.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "La Tercera App.entitlements"; sourceTree = "<group>"; };
+		17416A0F1DB3C785002D23C4 /* DetalleEventosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleEventosViewController.h; sourceTree = "<group>"; };
+		17416A101DB3C785002D23C4 /* DetalleEventosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalleEventosViewController.m; sourceTree = "<group>"; };
 		175E1D7A1D6BA208007D4739 /* FavoritoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritoDetailViewController.h; sourceTree = "<group>"; };
 		175E1D7B1D6BA208007D4739 /* FavoritoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritoDetailViewController.m; sourceTree = "<group>"; };
 		175F13641CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButtonTerceraDemo.m; sourceTree = "<group>"; };
@@ -922,7 +927,6 @@
 		17899FA31CA8E73500ADD960 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		17899FAD1CA8E85F00ADD960 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		17899FAF1CA8E8C400ADD960 /* AFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		179D3DDC1DACEF3000E5B11E /* La Tercera App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "La Tercera App.entitlements"; sourceTree = "<group>"; };
 		179D3DDD1DACF10400E5B11E /* ConcursosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcursosViewController.h; sourceTree = "<group>"; };
 		179D3DDE1DACF10400E5B11E /* ConcursosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcursosViewController.m; sourceTree = "<group>"; };
 		179D3DE11DACF29700E5B11E /* ConcursosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcursosTableViewController.h; sourceTree = "<group>"; };
@@ -1620,6 +1624,8 @@
 				171AFA5D1CCF8BE000705817 /* EventosViewController.m */,
 				17CDFBF81DB3544900427370 /* EventosTableViewController.h */,
 				17CDFBF91DB3544900427370 /* EventosTableViewController.m */,
+				17416A0F1DB3C785002D23C4 /* DetalleEventosViewController.h */,
+				17416A101DB3C785002D23C4 /* DetalleEventosViewController.m */,
 			);
 			name = Eventos;
 			sourceTree = "<group>";
@@ -2064,7 +2070,6 @@
 		52BCE1D31A48A65800924AD8 = {
 			isa = PBXGroup;
 			children = (
-				179D3DDC1DACEF3000E5B11E /* La Tercera App.entitlements */,
 				52BCE1DE1A48A65800924AD8 /* LaTercera */,
 				52BCE1DD1A48A65800924AD8 /* Products */,
 			);
@@ -2082,6 +2087,7 @@
 		52BCE1DE1A48A65800924AD8 /* LaTercera */ = {
 			isa = PBXGroup;
 			children = (
+				17416A0E1DB3C154002D23C4 /* La Tercera App.entitlements */,
 				D06F17CF1D5A6C27005CA711 /* Images.xcassets */,
 				D0FBFA3D1CBD77A600D5465E /* DevNotes */,
 				D01282281C8DC04400A05FF0 /* Connection */,
@@ -3740,6 +3746,7 @@
 				D09473EA1D5BC13B00F696BB /* ContentType.m in Sources */,
 				D039B9A61D104FD5002B1B09 /* Headline.m in Sources */,
 				D008D6FC1D00850D00502A69 /* CollectionViewCellGrande.m in Sources */,
+				17416A121DB3C785002D23C4 /* DetalleEventosViewController.m in Sources */,
 				1702BD371CB093E400F26F42 /* MapAnnotation.m in Sources */,
 				1702BD381CB093E400F26F42 /* CategoriasTableViewCell.m in Sources */,
 				17CDFBEC1DB2EA1500427370 /* DetalleConcursosViewController.m in Sources */,
@@ -3827,6 +3834,7 @@
 				17CDFBEB1DB2EA1500427370 /* DetalleConcursosViewController.m in Sources */,
 				17EBCCF71D62BD6400931B39 /* HistoryViewController.m in Sources */,
 				D03026651CBC190E00B4149A /* CollectionViewCellStandar.m in Sources */,
+				17416A111DB3C785002D23C4 /* DetalleEventosViewController.m in Sources */,
 				D02A7CE21D5E641E00FDF893 /* VideoTableViewCell.m in Sources */,
 				D03F4F3A1CCE76A400B5835D /* PageContentViewController.m in Sources */,
 				D038930E1D49524600650F27 /* NewsCategoryTendenciasViewController.m in Sources */,

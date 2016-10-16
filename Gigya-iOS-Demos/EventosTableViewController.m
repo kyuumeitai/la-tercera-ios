@@ -9,7 +9,7 @@
 #import "EventosTableViewController.h"
 #import "BeneficioGeneralTableViewCell.h"
 #import "BeneficioGeneralDestacadoTableViewCell.h"
-//#import  "DetalleEventosViewController.h"
+#import  "DetalleEventosViewController.h"
 #import "Category.h"
 #import "Evento.h"
 #import "SessionManager.h"
@@ -174,16 +174,16 @@ BOOL firstTimeEventos = false;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     NSLog(@"DETECTED");
-    /*
-    DetalleEventosViewController *detalleConcurso = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleConcursoViewController"];
+
+    DetalleEventosViewController *detalleEvento = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleEventoViewController"];
     
     
-    Concurso *concurso = [self.concursosItemsArray objectAtIndex:indexPath.row];
+    Evento *evento = [self.eventosItemsArray objectAtIndex:indexPath.row];
     
-    [detalleConcurso loadContestForContestId:concurso.idConcurso];
+    [detalleEvento loadEventForEventId:evento.idEvento];
     
     //Get Image
-    NSArray * arr = [concurso.imagenNormalString componentsSeparatedByString:@","];
+    NSArray * arr = [evento.imagenNormalString componentsSeparatedByString:@","];
     UIImage *imagenBeneficio = nil;
     
     //Now data is decoded. You can convert them to UIImage
@@ -191,17 +191,17 @@ BOOL firstTimeEventos = false;
     if(imagenBeneficio == nil)
         imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
     
-    detalleConcurso.concursoImage = imagenBeneficio;
+    detalleEvento.eventoImage = imagenBeneficio;
     
-    detalleConcurso.concursoTitle = concurso.title;
+    detalleEvento.eventoTitle = evento.title;
     // detalleConcurso.benefitAddress = @"";
     // detalleBeneficio.benefitDiscount= concurso.desclabel;
-    detalleConcurso.concursoDescription = concurso.summary;
-    detalleConcurso.concursoId = concurso.idConcurso;
-    [concurso logDescription];
+    detalleEvento.eventoDescription = evento.summary;
+    detalleEvento.eventoId = evento.idEvento;
+    [evento logDescription];
     
-    [self.navigationController pushViewController: detalleConcurso animated:YES];
-       */
+    [self.navigationController pushViewController: detalleEvento animated:YES];
+    
 }
   
 -(void)loadBenefitsForCategoryId:(int)idCategory{
