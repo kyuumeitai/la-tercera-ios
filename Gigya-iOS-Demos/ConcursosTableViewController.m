@@ -9,9 +9,11 @@
 #import "ConcursosTableViewController.h"
 #import "BeneficioGeneralTableViewCell.h"
 #import "BeneficioGeneralDestacadoTableViewCell.h"
-#import  "DetalleBeneficioViewController.h"
+#import  "DetalleConcursosViewController.h"
+
 #import "Category.h"
-#import "Benefit.h"
+//#import "Benefit.h"
+#import "Concurso.h"
 #import "SessionManager.h"
 #import "ConnectionManager.h"
 #import "SVProgressHUD.h"
@@ -96,18 +98,18 @@ BOOL firstTimeConcursos = false;
             }
             //
             cell = [nib objectAtIndex:0];
-            Benefit *beneficio = [self.concursosItemsArray objectAtIndex:0];
+            Concurso *concurso = [self.concursosItemsArray objectAtIndex:0];
             
-            cell.labelTitulo.text = beneficio.title;
-            cell.labelSubtitulo.text = beneficio.summary;
-            cell.labelDescuento.text = beneficio.desclabel;
+            cell.labelTitulo.text = concurso.title;
+            cell.labelSubtitulo.text = concurso.summary;
+            cell.labelDescuento.text = concurso.desclabel;
             
-            if((unsigned long)beneficio.desclabel.length >3)
+            if((unsigned long)concurso.desclabel.length >3)
                 cell.labelDescuento.alpha = 0;
             
             //Get Image
             
-            NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
+            NSArray * arr = [concurso.imagenNormalString componentsSeparatedByString:@","];
             UIImage *imagenBeneficio = nil;
             
             //Now data is decoded. You can convert them to UIImage
@@ -135,16 +137,16 @@ BOOL firstTimeConcursos = false;
             cell = [nib objectAtIndex:0];
         }
         
-        Benefit *beneficio2 = [self.concursosItemsArray objectAtIndex:indexPath.row];
-        //[beneficio2 logDescription];
+        Concurso *concurso2 = [self.concursosItemsArray objectAtIndex:indexPath.row];
+        [concurso2 logDescription];
         
-        cell.labelTitulo.text = beneficio2.title;
-        cell.labelDescuento.text = beneficio2.desclabel;
-        cell.labelSubtitulo.text = beneficio2.summary;
-        if((unsigned long)beneficio2.desclabel.length >3)
+        cell.labelTitulo.text = concurso2.title;
+        cell.labelDescuento.text = concurso2.desclabel;
+        cell.labelSubtitulo.text = concurso2.summary;
+        if((unsigned long)concurso2.desclabel.length >3)
             cell.labelDescuento.alpha = 0;
         //Get Image
-        NSArray * arr2 = [beneficio2.imagenNormalString componentsSeparatedByString:@","];
+        NSArray * arr2 = [concurso2.imagenNormalString componentsSeparatedByString:@","];
         UIImage *imagenBeneficio2 = nil;
         
         //Now data is decoded. You can convert them to UIImage
@@ -169,12 +171,15 @@ BOOL firstTimeConcursos = false;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     NSLog(@"DETECTED");
     
-    DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
-    Benefit *beneficio = [self.concursosItemsArray objectAtIndex:indexPath.row];
-    [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen andStore:@"0"];
+    DetalleConcursosViewController *detalleConcurso = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleConcursoViewController"];
+    
+    
+    Concurso *concurso = [self.concursosItemsArray objectAtIndex:indexPath.row];
+    
+    [detalleConcurso loadContestForContestId:concurso.idConcurso];
     
     //Get Image
-    NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
+    NSArray * arr = [concurso.imagenNormalString componentsSeparatedByString:@","];
     UIImage *imagenBeneficio = nil;
     
     //Now data is decoded. You can convert them to UIImage
@@ -182,16 +187,16 @@ BOOL firstTimeConcursos = false;
     if(imagenBeneficio == nil)
         imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
     
-    detalleBeneficio.benefitImage = imagenBeneficio;
+    detalleConcurso.concursoImage = imagenBeneficio;
     
-    detalleBeneficio.benefitTitle= beneficio.title;
-    detalleBeneficio.benefitAddress = @"";
-    detalleBeneficio.benefitDiscount= beneficio.desclabel;
-    detalleBeneficio.benefitDescription = beneficio.summary;
-    detalleBeneficio.benefitId = beneficio.idBen;
-    [beneficio logDescription];
+    detalleConcurso.concursoTitle = concurso.title;
+   // detalleConcurso.benefitAddress = @"";
+   // detalleBeneficio.benefitDiscount= concurso.desclabel;
+    detalleConcurso.concursoDescription = concurso.summary;
+    detalleConcurso.concursoId = concurso.idConcurso;
+    [concurso logDescription];
     
-    [self.navigationController pushViewController: detalleBeneficio animated:YES];
+    [self.navigationController pushViewController: detalleConcurso animated:YES];
 }
 
 -(void)loadBenefitsForCategoryId:(int)idCategory{
@@ -253,27 +258,27 @@ BOOL firstTimeConcursos = false;
     for (id benefit in benefits){
         
         id titleBen = [benefit objectForKey:@"titulo"];
-        int idBen =[ [benefit objectForKey:@"remote_id"] intValue];;
+        int idBen =[ [benefit objectForKey:@"id"] intValue];;
         //NSLog(@"idBen :%d",idBen);
         id linkBen = [benefit objectForKey:@"url"] ;
         id summaryBen = [benefit objectForKey:@"description"] ;
         id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
         
         
-        Benefit *beneficio = [[Benefit alloc] init];
-        beneficio.idBen = idBen;
-        beneficio.title = titleBen;
-        beneficio.url = linkBen;
-        beneficio.summary= summaryBen;
-        beneficio.desclabel = benefitLabelBen;
+        Concurso *concurso = [[Concurso alloc] init];
+        concurso.idConcurso = idBen;
+        concurso.title = titleBen;
+        concurso.url = linkBen;
+        concurso.summary= summaryBen;
+        concurso.desclabel = benefitLabelBen;
         
         if([benefit objectForKey:@"image"] != [NSNull null]){
             
             NSString *imagenBen = [benefit objectForKey:@"image"] ;
-            beneficio.imagenNormalString = imagenBen;
+            concurso.imagenNormalString = imagenBen;
         }
         
-        [self.concursosItemsArray addObject:beneficio];
+        [self.concursosItemsArray addObject:concurso];
         
     }
     

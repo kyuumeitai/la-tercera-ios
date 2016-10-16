@@ -25,6 +25,7 @@ typedef void (^getDataBlock)(BOOL success, NSArray* arrayJson, NSError *error);
 -(void)getArticleWithId:(getDataBlock)completionBlock :(int)idArticle;
 -(void)getBenefitsForCategoryId:(getDataBlock)completionBlock :(int)idCat;
 -(void)getBenefitWithBenefitId:(getDataBlock)completionBlock :(int)idBenefit;
+-(void)getContestWithContestId:(getDataBlock)completionBlock :(int)idBenefit;
 -(NSDictionary*)getSubCategoriesForCatId:(int)catId;
 -(NSDictionary*)getCategoryForCatId:(int)catId;
 -(void)getStoreWithId:(getDataBlock)completionBlock :(int)idStore;

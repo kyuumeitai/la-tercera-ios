@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *benefitImageView;
 
 -(void)loadBenefitForBenefitId:(int)idBenefit;
+-(void)loadContestForContestId:(int)idContest;
 -(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore andRelatedCommerce:(int)relatedCommerce;
 -(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore;
 @end
