@@ -23,6 +23,7 @@
 @property (nonatomic,strong) NSString *fechaInicioConcursoString;
 @property (nonatomic,strong) NSDate *fechaFinConcursoString;
 @property (nonatomic,strong) NSString *precio;
+@property (nonatomic,strong) NSString *web;
 
 @property BOOL allDay;
 @property BOOL disponibleParaAnonimo;

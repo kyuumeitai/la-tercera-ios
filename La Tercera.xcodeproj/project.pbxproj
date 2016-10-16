@@ -315,6 +315,8 @@
 		17CDFBF31DB2EC0A00427370 /* Concurso.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CDFBF11DB2EC0A00427370 /* Concurso.m */; };
 		17CDFBF61DB2F22100427370 /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CDFBF51DB2F22100427370 /* Evento.m */; };
 		17CDFBF71DB2F22100427370 /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CDFBF51DB2F22100427370 /* Evento.m */; };
+		17CDFBFA1DB3544900427370 /* EventosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CDFBF91DB3544900427370 /* EventosTableViewController.m */; };
+		17CDFBFB1DB3544900427370 /* EventosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CDFBF91DB3544900427370 /* EventosTableViewController.m */; };
 		17CE13971D585ED5009A7F16 /* CategoriasTableViewCell-iPhone4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17CE13961D585ED5009A7F16 /* CategoriasTableViewCell-iPhone4-5.xib */; };
 		17CE13981D585ED5009A7F16 /* CategoriasTableViewCell-iPhone4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17CE13961D585ED5009A7F16 /* CategoriasTableViewCell-iPhone4-5.xib */; };
 		17CE139A1D585EE9009A7F16 /* DestacadoTableViewCell-iPhone4-5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17CE13991D585EE9009A7F16 /* DestacadoTableViewCell-iPhone4-5.xib */; };
@@ -946,6 +948,8 @@
 		17CDFBF11DB2EC0A00427370 /* Concurso.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Concurso.m; sourceTree = "<group>"; };
 		17CDFBF41DB2F22100427370 /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
 		17CDFBF51DB2F22100427370 /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
+		17CDFBF81DB3544900427370 /* EventosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventosTableViewController.h; sourceTree = "<group>"; };
+		17CDFBF91DB3544900427370 /* EventosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventosTableViewController.m; sourceTree = "<group>"; };
 		17CE13961D585ED5009A7F16 /* CategoriasTableViewCell-iPhone4-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "CategoriasTableViewCell-iPhone4-5.xib"; sourceTree = "<group>"; };
 		17CE13991D585EE9009A7F16 /* DestacadoTableViewCell-iPhone4-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "DestacadoTableViewCell-iPhone4-5.xib"; sourceTree = "<group>"; };
 		17CE139C1D585EF6009A7F16 /* BeneficioGeneralTableViewCell-iPhone4-5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "BeneficioGeneralTableViewCell-iPhone4-5.xib"; sourceTree = "<group>"; };
@@ -1614,6 +1618,8 @@
 			children = (
 				171AFA5C1CCF8BE000705817 /* EventosViewController.h */,
 				171AFA5D1CCF8BE000705817 /* EventosViewController.m */,
+				17CDFBF81DB3544900427370 /* EventosTableViewController.h */,
+				17CDFBF91DB3544900427370 /* EventosTableViewController.m */,
 			);
 			name = Eventos;
 			sourceTree = "<group>";
@@ -1999,12 +2005,12 @@
 				D0F6B83E1C90958A0060D256 /* ClubViewController.h */,
 				D0F6B83F1C90958A0060D256 /* ClubViewController.m */,
 				D014C8951D243F0200E3D3B5 /* Concursos */,
+				171AFA5B1CCF8BBC00705817 /* Eventos */,
 				D014C8901D243E6300E3D3B5 /* VentasEspeciales */,
 				D008B4921D197D7D002DBBA7 /* Tickets */,
 				D0FF55771CCFC99300EA71F4 /* TCMastercard */,
 				D0FF55721CCFC92800EA71F4 /* ViajesClub */,
 				D0FF556D1CCFC8A400EA71F4 /* TiendaClub */,
-				171AFA5B1CCF8BBC00705817 /* Eventos */,
 				D0F7F76D1CB2B631008BB49D /* Mapas */,
 				D0FF33C41C985C3B008832F3 /* Categorias */,
 				D03859E71CA0628F00E907FF /* UsarBeneficios */,
@@ -3749,6 +3755,7 @@
 				D008D7031D00897200502A69 /* CVNoticiasInicio.m in Sources */,
 				D038930F1D49524600650F27 /* NewsCategoryTendenciasViewController.m in Sources */,
 				D03893331D4955D400650F27 /* CVNoticiasEntretencion.m in Sources */,
+				17CDFBFB1DB3544900427370 /* EventosTableViewController.m in Sources */,
 				175F13661CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */,
 				1702BD3D1CB093E400F26F42 /* ServiciosContainerVC.m in Sources */,
 				1702BE151CB1A3A700F26F42 /* ServiciosTableViewController.m in Sources */,
@@ -3863,6 +3870,7 @@
 				D03026611CBC0FDF00B4149A /* CollectionViewCellPortada.m in Sources */,
 				D0FBFA2F1CBD32CD00D5465E /* CustomButtonTercera.m in Sources */,
 				D014C8931D243E7900E3D3B5 /* VentasEspecialesViewController.m in Sources */,
+				17CDFBFA1DB3544900427370 /* EventosTableViewController.m in Sources */,
 				17EBCCF21D62BA9300931B39 /* HistoryTableViewController.m in Sources */,
 				D0DD6E3D1CBFD69D00994DDF /* NewsPageViewController.m in Sources */,
 				D04B93731D35711800EBEA1D /* UIScrollView+SVInfiniteScrolling.m in Sources */,

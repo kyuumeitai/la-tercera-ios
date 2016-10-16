@@ -26,6 +26,8 @@ typedef void (^getDataBlock)(BOOL success, NSArray* arrayJson, NSError *error);
 -(void)getBenefitsForCategoryId:(getDataBlock)completionBlock :(int)idCat;
 -(void)getBenefitWithBenefitId:(getDataBlock)completionBlock :(int)idBenefit;
 -(void)getContestWithContestId:(getDataBlock)completionBlock :(int)idBenefit;
+-(void)getEventWithEventId:(getDataBlock)completionBlock :(int)idEvent;
+
 -(NSDictionary*)getSubCategoriesForCatId:(int)catId;
 -(NSDictionary*)getCategoryForCatId:(int)catId;
 -(void)getStoreWithId:(getDataBlock)completionBlock :(int)idStore;
@@ -44,6 +46,8 @@ typedef void (^getDataBlock)(BOOL success, NSArray* arrayJson, NSError *error);
 -(NSString*)getCommerceFromBenefitWithIdBenefit:(int)idBeneficio;
 - (NSString*)getHistoryWithEmail:(NSString *)email;
 -(void)getPagedContests:(getDataBlock)completionBlock forPage:(int)pageNumber;
+-(void)getPagedEvents:(getDataBlock)completionBlock forPage:(int)pageNumber;
+
 @property  BOOL isConnected;
 
 @end

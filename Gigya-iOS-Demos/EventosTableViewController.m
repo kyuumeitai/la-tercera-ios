@@ -1,17 +1,17 @@
 //
-//  ConcursosTableViewController.m
+//  EventosTableViewController.m
 //  La Tercera
 //
-//  Created by Mario Alejandro on 11-10-16.
+//  Created by Mario Alejandro on 16-10-16.
 //  Copyright © 2016 Gigya. All rights reserved.
 //
 
-#import "ConcursosTableViewController.h"
+#import "EventosTableViewController.h"
 #import "BeneficioGeneralTableViewCell.h"
 #import "BeneficioGeneralDestacadoTableViewCell.h"
-#import  "DetalleConcursosViewController.h"
+//#import  "DetalleEventosViewController.h"
 #import "Category.h"
-#import "Concurso.h"
+#import "Evento.h"
 #import "SessionManager.h"
 #import "ConnectionManager.h"
 #import "SVProgressHUD.h"
@@ -19,37 +19,37 @@
 #import "SVPullToRefresh.h"
 #define benefitCategoryId 39
 
+@interface EventosTableViewController ()
 
-
-
-@interface ConcursosTableViewController ()
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end
 
-@implementation ConcursosTableViewController
-@synthesize concursosItemsArray;
-@synthesize tableView;
-NSMutableArray *listaCategoriasConcursos;
-NSMutableArray *listaBeneficiosConcursos;
-NSString *storyBoardNameConcursos;
+@implementation EventosTableViewController
+
+@synthesize eventosItemsArray;
+
+NSMutableArray *listaCategoriasEventos;
+NSMutableArray *listaBeneficiosEventos;
+NSString *storyBoardNameEventos;
 
 //New Pagination code
-int currentPageNumberConcursos ;
-BOOL isPageRefreshingConcursos =  false;
-BOOL firstTimeConcursos = false;
+int currentPageNumberEventos ;
+BOOL isPageRefreshingEventos =  false;
+BOOL firstTimeEventos = false;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    __weak ConcursosTableViewController *weakSelf = self;
+    
+    // Uncomment the following line to preserve selection between presentations.
+    __weak EventosTableViewController *weakSelf = self;
     
     SessionManager *sesion = [SessionManager session];
-    storyBoardNameConcursos = sesion.storyBoardName;
+    storyBoardNameEventos = sesion.storyBoardName;
     //listaCategoriasConcursos = [[NSMutableArray alloc] init];
-    concursosItemsArray = [[NSMutableArray alloc] init];
+    eventosItemsArray = [[NSMutableArray alloc] init];
     //listaCategoriasConcursos = sesion.categoryList;
-    currentPageNumberConcursos = 1;
-    firstTimeConcursos = true;
+    currentPageNumberEventos = 1;
+    firstTimeEventos = true;
     
     [self loadBenefitsForCategoryId:benefitCategoryId];
     
@@ -57,17 +57,20 @@ BOOL firstTimeConcursos = false;
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         [weakSelf loadMoreRows];
     }];
+
 }
 
+
 - (void)viewWillAppear:(BOOL)animated{
-    isPageRefreshingConcursos = NO;
+    isPageRefreshingEventos= NO;
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -75,7 +78,7 @@ BOOL firstTimeConcursos = false;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.concursosItemsArray.count;
+    return self.eventosItemsArray.count;
 }
 
 
@@ -88,7 +91,8 @@ BOOL firstTimeConcursos = false;
         
         if (cell == nil)
         {
-            if([storyBoardNameConcursos isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameConcursos isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+            if([storyBoardNameEventos
+                isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameEventos isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
                 nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralDestacadoTableViewCell-iPhone4-5" owner:self options:nil];
             }else{
                 
@@ -96,26 +100,26 @@ BOOL firstTimeConcursos = false;
             }
             //
             cell = [nib objectAtIndex:0];
-            Concurso *concurso = [self.concursosItemsArray objectAtIndex:0];
+            Evento *evento = [self.eventosItemsArray objectAtIndex:0];
             
-            cell.labelTitulo.text = concurso.title;
-            cell.labelSubtitulo.text = concurso.summary;
-            cell.labelDescuento.text = concurso.desclabel;
+            cell.labelTitulo.text = evento.title;
+            cell.labelSubtitulo.text = evento.summary;
+            cell.labelDescuento.text = evento.desclabel;
             
-            if((unsigned long)concurso.desclabel.length >3)
+            if((unsigned long)evento.desclabel.length >3)
                 cell.labelDescuento.alpha = 0;
             
             //Get Image
             
-            NSArray * arr = [concurso.imagenNormalString componentsSeparatedByString:@","];
-            UIImage *imagenBeneficio = nil;
+            NSArray * arr = [evento.imagenNormalString componentsSeparatedByString:@","];
+            UIImage *imagenEvento = nil;
             
             //Now data is decoded. You can convert them to UIImage
-            imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
-            if(imagenBeneficio == nil)
-                imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+            imagenEvento = [Tools decodeBase64ToImage:[arr lastObject]];
+            if(imagenEvento == nil)
+                imagenEvento = [UIImage imageNamed:@"PlaceholderHeaderClub"];
             
-            cell.imageDestacada.image = imagenBeneficio;
+            cell.imageDestacada.image = imagenEvento;
         }
         
         return cell;
@@ -125,7 +129,9 @@ BOOL firstTimeConcursos = false;
         BeneficioGeneralTableViewCell *cell = (BeneficioGeneralTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
         if (cell == nil)
         {
-            if([storyBoardNameConcursos isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameConcursos isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+            if([storyBoardNameEventos
+                isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameEventos
+                                                                    isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
                 nib = [[NSBundle mainBundle] loadNibNamed:@"BeneficioGeneralTableViewCell-iPhone4-5" owner:self options:nil];
             }else{
                 
@@ -135,16 +141,16 @@ BOOL firstTimeConcursos = false;
             cell = [nib objectAtIndex:0];
         }
         
-        Concurso *concurso2 = [self.concursosItemsArray objectAtIndex:indexPath.row];
-        [concurso2 logDescription];
+        Evento *evento2 = [self.eventosItemsArray objectAtIndex:indexPath.row];
+        [evento2 logDescription];
         
-        cell.labelTitulo.text = concurso2.title;
-        cell.labelDescuento.text = concurso2.desclabel;
-        cell.labelSubtitulo.text = concurso2.summary;
-        if((unsigned long)concurso2.desclabel.length >3)
+        cell.labelTitulo.text = evento2.title;
+        cell.labelDescuento.text = evento2.desclabel;
+        cell.labelSubtitulo.text = evento2.summary;
+        if((unsigned long)evento2.desclabel.length >3)
             cell.labelDescuento.alpha = 0;
         //Get Image
-        NSArray * arr2 = [concurso2.imagenNormalString componentsSeparatedByString:@","];
+        NSArray * arr2 = [evento2.imagenNormalString componentsSeparatedByString:@","];
         UIImage *imagenBeneficio2 = nil;
         
         //Now data is decoded. You can convert them to UIImage
@@ -168,8 +174,8 @@ BOOL firstTimeConcursos = false;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     NSLog(@"DETECTED");
-    
-    DetalleConcursosViewController *detalleConcurso = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleConcursoViewController"];
+    /*
+    DetalleEventosViewController *detalleConcurso = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleConcursoViewController"];
     
     
     Concurso *concurso = [self.concursosItemsArray objectAtIndex:indexPath.row];
@@ -188,21 +194,22 @@ BOOL firstTimeConcursos = false;
     detalleConcurso.concursoImage = imagenBeneficio;
     
     detalleConcurso.concursoTitle = concurso.title;
-   // detalleConcurso.benefitAddress = @"";
-   // detalleBeneficio.benefitDiscount= concurso.desclabel;
+    // detalleConcurso.benefitAddress = @"";
+    // detalleBeneficio.benefitDiscount= concurso.desclabel;
     detalleConcurso.concursoDescription = concurso.summary;
     detalleConcurso.concursoId = concurso.idConcurso;
     [concurso logDescription];
     
     [self.navigationController pushViewController: detalleConcurso animated:YES];
+       */
 }
-
+  
 -(void)loadBenefitsForCategoryId:(int)idCategory{
     
     NSLog(@"Load category benefits Concursos");
-    __weak ConcursosTableViewController *weakSelf = self;
+    __weak EventosTableViewController *weakSelf = self;
     // IMPORTANT - Only update the UI on the main thread
-    if (isPageRefreshingConcursos == false)
+    if (isPageRefreshingEventos == false)
         [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
@@ -211,11 +218,11 @@ BOOL firstTimeConcursos = false;
     
     //for Paging purposes
     
-    [connectionManager getPagedContests:^(BOOL success, NSArray *arrayJson, NSError *error){
+    [connectionManager getPagedEvents:^(BOOL success, NSArray *arrayJson, NSError *error){
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
-                if (isPageRefreshingConcursos == false){
+                if (isPageRefreshingEventos == false){
                     
                     [self errorDetectedWithNSError:error];
                 }else{
@@ -229,23 +236,23 @@ BOOL firstTimeConcursos = false;
                 
                 if(noData){
                     
-                    isPageRefreshingConcursos = YES;
+                    isPageRefreshingEventos = YES;
                     
                 }else{
                     
                     [self reloadBenefitsDataFromService:arrayJson];
-                     NSLog(@"Lista jhson: %@",arrayJson);
+                    NSLog(@"Lista jhson: %@",arrayJson);
                 }
             }
         });
-    }forPage:currentPageNumberConcursos];
-    
+    }forPage:currentPageNumberEventos];
+
 }
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
     
     
-    __weak ConcursosTableViewController *weakSelf = self;
+    __weak EventosTableViewController *weakSelf = self;
     NSLog(@"  reload Concursos");
     //benefitsItemsArray5 = [[NSMutableArray alloc] init];
     
@@ -259,28 +266,28 @@ BOOL firstTimeConcursos = false;
         int idBen =[ [benefit objectForKey:@"id"] intValue];;
         //NSLog(@"idBen :%d",idBen);
         id linkBen = [benefit objectForKey:@"url"] ;
-        id summaryBen = [benefit objectForKey:@"description"] ;
+        id summaryBen = [benefit objectForKey:@"descripcion"] ;
         id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
         
         
-        Concurso *concurso = [[Concurso alloc] init];
-        concurso.idConcurso = idBen;
-        concurso.title = titleBen;
-        concurso.url = linkBen;
-        concurso.summary= summaryBen;
-        concurso.desclabel = benefitLabelBen;
+        Evento *evento = [[Evento alloc] init];
+        evento.idEvento = idBen;
+        evento.title = titleBen;
+        evento.url = linkBen;
+        evento.summary= summaryBen;
+        evento.desclabel = benefitLabelBen;
         
-        if([benefit objectForKey:@"image"] != [NSNull null]){
+        if([benefit objectForKey:@"imagenDestacada"] != [NSNull null]){
             
-            NSString *imagenBen = [benefit objectForKey:@"image"] ;
-            concurso.imagenNormalString = imagenBen;
+            NSString *imagenBen = [benefit objectForKey:@"imagenDestacada"] ;
+            evento.imagenNormalString = imagenBen;
         }
         
-        [self.concursosItemsArray addObject:concurso];
+        [self.eventosItemsArray addObject:evento];
         
     }
     
-    if (firstTimeConcursos ==true){
+    if (firstTimeEventos ==true){
         self.view.alpha = 0.0;
         [self.tableView reloadData];
         [UIView animateWithDuration:0.5
@@ -291,11 +298,11 @@ BOOL firstTimeConcursos = false;
          {
              [SVProgressHUD dismiss];
          }];
-        firstTimeConcursos = false;
+        firstTimeEventos = false;
     }else{
         [self.tableView reloadData];
         [SVProgressHUD dismiss];
-        isPageRefreshingConcursos = NO;
+        isPageRefreshingEventos = NO;
         [weakSelf.tableView endUpdates];
         [weakSelf.tableView.infiniteScrollingView stopAnimating];
     }
@@ -324,12 +331,12 @@ BOOL firstTimeConcursos = false;
 - (void)loadMoreRows {
     
     NSLog(@"***********   Load More Rows   ************");
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberConcursos);
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberEventos);
     
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberConcursos);
-    isPageRefreshingConcursos = YES;
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberEventos);
+    isPageRefreshingEventos = YES;
     //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
-    currentPageNumberConcursos = currentPageNumberConcursos +1;
+    currentPageNumberEventos = currentPageNumberEventos +1;
     [self loadBenefitsForCategoryId:benefitCategoryId];
     
 }

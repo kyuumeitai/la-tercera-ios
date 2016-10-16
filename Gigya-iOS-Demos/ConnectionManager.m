@@ -369,6 +369,26 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     }];
 }
 
+-(void)getPagedEvents:(getDataBlock)completionBlock forPage:(int)pageNumber{
+    
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/events/?format=json&page=%d",BaseURLString,pageNumber]];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        NSArray *jsonArray = (NSArray *) responseObject;
+        
+        completionBlock(YES,jsonArray ,nil);
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+        completionBlock(NO,nil,error);
+        
+    }];
+}
+
+
 
 -(void)getStoresAndBenefitsForCategoryId:(getDataBlock)completionBlock :(int)idCat {
     
@@ -480,6 +500,25 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
 -(void)getContestWithContestId:(getDataBlock)completionBlock :(int)idContest {
     
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/contests/%d/?format=json",BaseURLString,idContest]];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        NSArray *jsonArray = (NSArray *) responseObject;
+        
+        completionBlock(YES,jsonArray ,nil);
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+        completionBlock(NO,nil,error);
+        
+    }];
+}
+
+-(void)getEventWithEventId:(getDataBlock)completionBlock :(int)idEvent {
+    
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/events/%d/?format=json",BaseURLString,idEvent]];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
