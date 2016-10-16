@@ -89,8 +89,7 @@ GigyaFormAction formType;
     perfil.gigyaId = userGigyaId;
     sesion.isLogged = true;
     sesion.userProfile = perfil;
-    sesion.isLogged = true;
-    
+
     for (NSString* key in json) {
         id value = [json objectForKey:key];
         NSLog(@"Clave %@: %@", key,value);
@@ -616,15 +615,13 @@ GigyaFormAction formType;
                     NSLog(@"***::::-----  EMAIL YA REGISTRADO:      -----::::***");
 
                 }
-                
-    
             }
             
-            
+
             //nuevo
             if([operation isEqualToString:@"/accounts.g"]){
                 
-                NSLog(@"---------*** Es un Registro ***---------");
+                NSLog(@"---------*** Es un Registro nuevoo con g ***---------");
                 formType = REGISTRO;
                 
                 email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
@@ -648,6 +645,7 @@ GigyaFormAction formType;
                     NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
                     
                     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+            
                     
                     NSString *respuesta = [connectionManager sendRegisterDataWithEmail:email firstName:firstName lastName:lastName gender:gender birthdate:birthdate uid:deviceId os:os gigyaId:gigyaID];
                     
@@ -684,13 +682,21 @@ GigyaFormAction formType;
                     sesion.userProfile = perfil;
                     sesion.isLogged = true;
                     
-                    NSString *saveEmail= userEmail;
-                    NSString *saveGigyaId= userGigyaId;
-                    [[NSUserDefaults standardUserDefaults] setObject:saveEmail forKey:@"savedEmail"];
-                    [[NSUserDefaults standardUserDefaults] setObject:saveGigyaId forKey:@"savedGigyaId"];
-                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLogged"];
+                    if ([email isEqualToString:@""]){
+                        
+                       sesion.isLogged = false;
+                    }else{
+                        NSString *saveEmail= userEmail;
+                        NSString *saveGigyaId= userGigyaId;
+                        [[NSUserDefaults standardUserDefaults] setObject:saveEmail forKey:@"savedEmail"];
+                        [[NSUserDefaults standardUserDefaults] setObject:saveGigyaId forKey:@"savedGigyaId"];
+                        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLogged"];
+                        
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                        
+                    }
                     
-                    [[NSUserDefaults standardUserDefaults] synchronize];
+       
                     
                     
                     for (NSString* key in json) {
@@ -703,8 +709,7 @@ GigyaFormAction formType;
                     NSLog(@"***::::-----  EMAIL YA REGISTRADO:      -----::::***");
                     
                 }
-                
-                
+
             }
             //Fin nuevo
             switch (formType) {
