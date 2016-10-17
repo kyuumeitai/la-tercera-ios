@@ -27,7 +27,7 @@
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:[NSURL URLWithString:_rudoVideoUrl]];
     
     // Load the request in the UIWebView
-    [self.rudoPlayer loadRequest:requestObj];
+    //[self.rudoPlayer loadRequest:requestObj];
     self.rudoPlayer.scrollView.scrollEnabled = NO;
 }
 

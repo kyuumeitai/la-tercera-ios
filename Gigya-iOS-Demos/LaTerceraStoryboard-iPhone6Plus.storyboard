@@ -758,7 +758,7 @@ REGISTRARSE?</string>
                                 <color key="tintColor" red="0.2567708333" green="0.2567708333" blue="0.2567708333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <segue destination="Y38-2H-lv4" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="aU6-Hk-pTs"/>
+                                    <segue destination="7Tu-yd-DkM" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="HdW-hy-9k9"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria3" id="Nnu-vg-uvT">
@@ -2185,79 +2185,6 @@ de tu descuento.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iwH-yi-puN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4294" y="4370"/>
-        </scene>
-        <!--La TerceraTV-->
-        <scene sceneID="ddT-vI-tsS">
-            <objects>
-                <viewController id="Y38-2H-lv4" customClass="LaTerceraTV" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hCa-Cs-OTm"/>
-                        <viewControllerLayoutGuide type="bottom" id="FbE-Qj-R5G"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NGm-JY-hQ4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="WF6-tE-3eZ">
-                                <frame key="frameInset" width="414" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzs-Mm-PcJ">
-                                <frame key="frameInset" minX="65" minY="28" width="35" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="clublatercera.png"/>
-                            </button>
-                            <view tag="100" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVl-Cb-o0F">
-                                <frame key="frameInset" minY="77" width="375" height="590"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OwG-vg-er3">
-                                        <frame key="frameInset" width="416" height="335"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hX-iL-jRC">
-                                                <frame key="frameInset" minX="27" minY="121" width="321" height="193"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                            </webView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Avión cae desde una gran altura par descender" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8D-2V-9V5">
-                                                <frame key="frameInset" minX="27" minY="23" width="281" height="82"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="21"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view tag="100" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tYZ-iP-vRX">
-                                <frame key="frameInset" minY="414" width="414" height="590"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQ8-8a-mHu">
-                                <frame key="frameInset" minX="7" minY="22" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="boton-menu.png"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="EMc-L7-ahr"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="menuButton" destination="jQ8-8a-mHu" id="ZkE-XD-Efy"/>
-                        <outlet property="webViewLTtv" destination="1hX-iL-jRC" id="b8T-JP-8fO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Myc-Gk-fdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2369.5652173913045" y="32.608695652173914"/>
         </scene>
         <!--Papel Digital-->
         <scene sceneID="meJ-3D-l3r">
@@ -5675,7 +5602,7 @@ de La Tercera</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-6631.884057971015" y="1089.9456521739132"/>
+            <point key="canvasLocation" x="-7371" y="754"/>
         </scene>
         <!--Voces-->
         <scene sceneID="s9o-l2-9xz">
@@ -6806,6 +6733,787 @@ de La Tercera</string>
             </objects>
             <point key="canvasLocation" x="2576.8000000000002" y="1559.3703148425789"/>
         </scene>
+        <!--La TerceraTV Tercera Voz View Controller-->
+        <scene sceneID="LHG-6v-uMj">
+            <objects>
+                <viewController storyboardIdentifier="laTerceraTVTerceraVoz" id="FTp-jh-FcK" customClass="LaTerceraTVTerceraVozViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IyJ-Xd-Dti"/>
+                        <viewControllerLayoutGuide type="bottom" id="W9I-w2-KV1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dSE-bU-cBc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QM7-wR-ONk">
+                                <connections>
+                                    <segue destination="Stk-qn-5c4" kind="embed" id="a77-s0-xdX"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="QM7-wR-ONk" secondAttribute="trailing" id="Fj4-7Q-z9y"/>
+                            <constraint firstItem="QM7-wR-ONk" firstAttribute="leading" secondItem="dSE-bU-cBc" secondAttribute="leading" id="QGC-q8-kkC"/>
+                            <constraint firstItem="QM7-wR-ONk" firstAttribute="bottom" secondItem="W9I-w2-KV1" secondAttribute="top" id="Xra-Ci-HjX"/>
+                            <constraint firstItem="QM7-wR-ONk" firstAttribute="top" secondItem="IyJ-Xd-Dti" secondAttribute="bottom" constant="14" id="iAT-qu-Y0v"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h3M-El-xZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7391" y="1767"/>
+        </scene>
+        <!--La TerceraTV Tercera Voz Table View Controller-->
+        <scene sceneID="3WW-fb-gxE">
+            <objects>
+                <tableViewController id="Stk-qn-5c4" customClass="LaTerceraTV_TerceraVozTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="9he-3K-qGG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="702"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HELLO" rowHeight="68" id="NMr-ba-TD9">
+                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NMr-ba-TD9" id="zql-lr-dIr">
+                                    <frame key="frameInset" width="414" height="67.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Stk-qn-5c4" id="cn9-WA-cvB"/>
+                            <outlet property="delegate" destination="Stk-qn-5c4" id="Gfz-3t-wy2"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="9he-3K-qGG" id="0BT-2i-kvs"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L85-sB-biD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6442" y="1767"/>
+        </scene>
+        <!--La TerceraTV Actualidad View Controller-->
+        <scene sceneID="kfs-Tj-lxr">
+            <objects>
+                <viewController storyboardIdentifier="laTerceraTVActualidad" id="KNg-BO-Vtk" customClass="LaTerceraTVActualidadViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0NO-NQ-zWg"/>
+                        <viewControllerLayoutGuide type="bottom" id="l9J-wz-JfM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="owQ-S6-Ope">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26e-Vt-ezw">
+                                <connections>
+                                    <segue destination="Fug-Sm-4FF" kind="embed" id="RNp-gZ-5Jg"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="26e-Vt-ezw" firstAttribute="top" secondItem="0NO-NQ-zWg" secondAttribute="bottom" constant="14" id="IoQ-6p-auH"/>
+                            <constraint firstItem="26e-Vt-ezw" firstAttribute="leading" secondItem="owQ-S6-Ope" secondAttribute="leading" id="Qls-eV-3sw"/>
+                            <constraint firstAttribute="trailing" secondItem="26e-Vt-ezw" secondAttribute="trailing" id="Vbi-hc-3Kc"/>
+                            <constraint firstItem="26e-Vt-ezw" firstAttribute="bottom" secondItem="l9J-wz-JfM" secondAttribute="top" id="x9e-hS-hS4"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OVn-pd-hAe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7391" y="2437"/>
+        </scene>
+        <!--La TerceraTV Actualidad Table View Controller-->
+        <scene sceneID="H0R-yl-00q">
+            <objects>
+                <tableViewController id="Fug-Sm-4FF" customClass="LaTerceraTV_ActualidadTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="G3x-vb-zh0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="702"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HELLO" rowHeight="68" id="QrY-hl-l3B">
+                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QrY-hl-l3B" id="6hG-gV-1Ec">
+                                    <frame key="frameInset" width="414" height="67.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Fug-Sm-4FF" id="7Gv-CT-P3P"/>
+                            <outlet property="delegate" destination="Fug-Sm-4FF" id="8TG-Tf-bJM"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="G3x-vb-zh0" id="hEx-Dn-uoj"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vH8-Cl-FMB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6442" y="2437"/>
+        </scene>
+        <!--La TerceraTV Debates View Controller-->
+        <scene sceneID="AaH-9Q-qph">
+            <objects>
+                <viewController storyboardIdentifier="laTerceraTVDebates" id="l0n-3S-HAN" customClass="LaTerceraTVDebatesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fB5-Z0-VGW"/>
+                        <viewControllerLayoutGuide type="bottom" id="b6u-xR-Nbl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C1U-Mw-0SW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1o-au-JlL">
+                                <connections>
+                                    <segue destination="pqI-QT-tkP" kind="embed" id="upG-ww-PLx"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="n1o-au-JlL" firstAttribute="top" secondItem="fB5-Z0-VGW" secondAttribute="bottom" constant="14" id="YNY-zQ-X7v"/>
+                            <constraint firstAttribute="trailing" secondItem="n1o-au-JlL" secondAttribute="trailing" id="lXn-Gg-ded"/>
+                            <constraint firstItem="n1o-au-JlL" firstAttribute="leading" secondItem="C1U-Mw-0SW" secondAttribute="leading" id="qDz-Zx-Zu2"/>
+                            <constraint firstItem="n1o-au-JlL" firstAttribute="bottom" secondItem="b6u-xR-Nbl" secondAttribute="top" id="ugD-ag-9ik"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PlE-c0-P4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7391" y="3142"/>
+        </scene>
+        <!--La TerceraTV Debates Table View Controller-->
+        <scene sceneID="2ZM-L1-NVI">
+            <objects>
+                <tableViewController id="pqI-QT-tkP" customClass="LaTerceraTV_DebatesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="rNY-6u-cdS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="702"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HELLO" rowHeight="68" id="L6w-UP-xRE">
+                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L6w-UP-xRE" id="pMQ-xc-9gO">
+                                    <frame key="frameInset" width="414" height="67.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pqI-QT-tkP" id="yE2-qw-0O2"/>
+                            <outlet property="delegate" destination="pqI-QT-tkP" id="gwq-nL-Are"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="rNY-6u-cdS" id="FfL-cR-Xd7"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="skK-sd-gEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6442" y="3142"/>
+        </scene>
+        <!--La TerceraTV Deportes View Controller-->
+        <scene sceneID="oot-KN-U0L">
+            <objects>
+                <viewController storyboardIdentifier="laTerceraTVDeportes" id="hUD-VG-w67" customClass="LaTerceraTVDeportesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bxL-uQ-et2"/>
+                        <viewControllerLayoutGuide type="bottom" id="bTz-3i-EnG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jX7-lX-KE1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgM-cd-EId">
+                                <connections>
+                                    <segue destination="L3Y-xa-AwM" kind="embed" id="Kyx-3n-6hq"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cgM-cd-EId" firstAttribute="leading" secondItem="jX7-lX-KE1" secondAttribute="leading" id="8Ak-Js-Hih"/>
+                            <constraint firstItem="cgM-cd-EId" firstAttribute="top" secondItem="bxL-uQ-et2" secondAttribute="bottom" constant="14" id="OA5-m8-YBb"/>
+                            <constraint firstAttribute="trailing" secondItem="cgM-cd-EId" secondAttribute="trailing" id="Uk8-Xu-ojC"/>
+                            <constraint firstItem="cgM-cd-EId" firstAttribute="bottom" secondItem="bTz-3i-EnG" secondAttribute="top" id="ngC-5y-Daz"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nUQ-gy-Rh1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7407" y="3839"/>
+        </scene>
+        <!--La TerceraTV Deportes Table View Controller-->
+        <scene sceneID="tAp-iH-mWB">
+            <objects>
+                <tableViewController id="L3Y-xa-AwM" customClass="LaTerceraTV_DeportesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="YzQ-tK-UqK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="702"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HELLO" rowHeight="68" id="kRr-oI-5RD">
+                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kRr-oI-5RD" id="ZZg-8A-192">
+                                    <frame key="frameInset" width="414" height="67.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="L3Y-xa-AwM" id="Xx5-Bn-FZN"/>
+                            <outlet property="delegate" destination="L3Y-xa-AwM" id="dbj-QD-iJh"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="YzQ-tK-UqK" id="8Le-5x-aDy"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BH3-jN-Xar" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6458" y="3839"/>
+        </scene>
+        <!--La TerceraTV El Deportivo View Controller-->
+        <scene sceneID="zXV-5e-Cv2">
+            <objects>
+                <viewController storyboardIdentifier="laTerceraTVElDeportivo" id="fVD-Mk-SmC" customClass="LaTerceraTVElDeportivoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1sC-zU-2MS"/>
+                        <viewControllerLayoutGuide type="bottom" id="cfB-gR-S7K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EcB-Bt-O8s">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuH-Md-kQr">
+                                <connections>
+                                    <segue destination="AJP-56-FcP" kind="embed" id="BM7-jE-y3n"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kuH-Md-kQr" secondAttribute="trailing" id="BTJ-4d-xqt"/>
+                            <constraint firstItem="kuH-Md-kQr" firstAttribute="bottom" secondItem="cfB-gR-S7K" secondAttribute="top" id="HhZ-Ts-iNp"/>
+                            <constraint firstItem="kuH-Md-kQr" firstAttribute="leading" secondItem="EcB-Bt-O8s" secondAttribute="leading" id="eQD-1w-8jO"/>
+                            <constraint firstItem="kuH-Md-kQr" firstAttribute="top" secondItem="1sC-zU-2MS" secondAttribute="bottom" constant="14" id="gTt-Ml-i4P"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="52c-6c-Y5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7407" y="4531"/>
+        </scene>
+        <!--La TerceraTV El Deportivo Table View Controller-->
+        <scene sceneID="z2W-W8-ftq">
+            <objects>
+                <tableViewController id="AJP-56-FcP" customClass="LaTerceraTV_ElDeportivoTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="2on-79-ZcV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="702"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HELLO" rowHeight="68" id="JMl-m6-HDj">
+                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JMl-m6-HDj" id="p7g-pO-AGG">
+                                    <frame key="frameInset" width="414" height="67.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AJP-56-FcP" id="rUP-vC-5DG"/>
+                            <outlet property="delegate" destination="AJP-56-FcP" id="2LV-se-xpq"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="2on-79-ZcV" id="3gE-Ym-CjH"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lvJ-oM-KDz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6458" y="4531"/>
+        </scene>
+        <!--La TerceraTV En Directo View Controller-->
+        <scene sceneID="Fdn-u9-KHY">
+            <objects>
+                <viewController storyboardIdentifier="laTerceraTVEnDirecto" id="DnV-nc-qwM" customClass="LaTerceraTVEnDirectoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sHO-cg-RWi"/>
+                        <viewControllerLayoutGuide type="bottom" id="5kW-8y-yh4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zUY-vS-e3J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYR-Lc-HVm">
+                                <connections>
+                                    <segue destination="3Tk-l0-0NB" kind="embed" id="vVd-hI-ANJ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dYR-Lc-HVm" firstAttribute="top" secondItem="sHO-cg-RWi" secondAttribute="bottom" constant="14" id="FaF-MN-pPY"/>
+                            <constraint firstItem="dYR-Lc-HVm" firstAttribute="bottom" secondItem="5kW-8y-yh4" secondAttribute="top" id="IU1-y2-tV5"/>
+                            <constraint firstItem="dYR-Lc-HVm" firstAttribute="leading" secondItem="zUY-vS-e3J" secondAttribute="leading" id="MOW-cf-QrF"/>
+                            <constraint firstAttribute="trailing" secondItem="dYR-Lc-HVm" secondAttribute="trailing" id="rWK-4s-BkM"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQh-n1-2KS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7407" y="5222"/>
+        </scene>
+        <!--La TerceraTV En Directo Table View Controller-->
+        <scene sceneID="EHe-AF-Xga">
+            <objects>
+                <tableViewController id="3Tk-l0-0NB" customClass="LaTerceraTV_EnDirectoTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="yLA-0H-FTV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="702"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HELLO" rowHeight="68" id="1wp-jz-14t">
+                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1wp-jz-14t" id="FVc-Wi-C8K">
+                                    <frame key="frameInset" width="414" height="67.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3Tk-l0-0NB" id="Pcw-D4-pLT"/>
+                            <outlet property="delegate" destination="3Tk-l0-0NB" id="8d4-mA-2XP"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="yLA-0H-FTV" id="FIa-sx-trF"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HyA-Wt-5bI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6458" y="5222"/>
+        </scene>
+        <!--La TerceraTV Entretencion View Controller-->
+        <scene sceneID="mfZ-Z7-GJG">
+            <objects>
+                <viewController storyboardIdentifier="laTerceraTVEntretencion" id="ldd-dr-lbg" customClass="LaTerceraTVEntretencionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PbI-En-3MV"/>
+                        <viewControllerLayoutGuide type="bottom" id="IiH-ck-BeI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OUK-f1-DxB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85e-Ax-rS3">
+                                <connections>
+                                    <segue destination="oeT-En-BgP" kind="embed" id="go2-Sc-qVm"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="85e-Ax-rS3" secondAttribute="trailing" id="5xE-nA-jJC"/>
+                            <constraint firstItem="85e-Ax-rS3" firstAttribute="top" secondItem="PbI-En-3MV" secondAttribute="bottom" constant="14" id="DJH-He-Vs9"/>
+                            <constraint firstItem="85e-Ax-rS3" firstAttribute="leading" secondItem="OUK-f1-DxB" secondAttribute="leading" id="f4f-5y-DG7"/>
+                            <constraint firstItem="85e-Ax-rS3" firstAttribute="bottom" secondItem="IiH-ck-BeI" secondAttribute="top" id="fpx-N2-Emc"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Z4-8I-2Hl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7407" y="5895"/>
+        </scene>
+        <!--La TerceraTV Entretencion Table View Controller-->
+        <scene sceneID="kz8-hS-AgD">
+            <objects>
+                <tableViewController id="oeT-En-BgP" customClass="LaTerceraTV_EntretencionTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="IIV-7f-25i">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="702"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HELLO" rowHeight="68" id="TvB-ef-oFN">
+                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TvB-ef-oFN" id="PHh-9K-Q7d">
+                                    <frame key="frameInset" width="414" height="67.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oeT-En-BgP" id="rrV-GF-NNQ"/>
+                            <outlet property="delegate" destination="oeT-En-BgP" id="l30-6U-h64"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="IIV-7f-25i" id="Goh-Il-zFc"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bH0-bo-0dU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6458" y="5895"/>
+        </scene>
+        <!--La TerceraTV Mouse View Controller-->
+        <scene sceneID="wDq-0m-uNm">
+            <objects>
+                <viewController storyboardIdentifier="laTerceraTVMouse" id="6mA-zp-rLf" customClass="LaTerceraTVMouseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cye-4n-m1v"/>
+                        <viewControllerLayoutGuide type="bottom" id="iOl-pb-GfO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RJh-1H-Lnf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJX-mS-v4w">
+                                <connections>
+                                    <segue destination="2pM-52-GjC" kind="embed" id="95I-w9-s5N"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wJX-mS-v4w" firstAttribute="top" secondItem="cye-4n-m1v" secondAttribute="bottom" constant="14" id="R3Q-3u-L7b"/>
+                            <constraint firstAttribute="trailing" secondItem="wJX-mS-v4w" secondAttribute="trailing" id="Uxy-rS-0xZ"/>
+                            <constraint firstItem="wJX-mS-v4w" firstAttribute="bottom" secondItem="iOl-pb-GfO" secondAttribute="top" id="jGT-Zq-1Iz"/>
+                            <constraint firstItem="wJX-mS-v4w" firstAttribute="leading" secondItem="RJh-1H-Lnf" secondAttribute="leading" id="jLa-Pf-lLb"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zvV-yV-mjg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7407" y="6593"/>
+        </scene>
+        <!--La TerceraTV Mouse Table View Controller-->
+        <scene sceneID="IYw-e4-jUe">
+            <objects>
+                <tableViewController id="2pM-52-GjC" customClass="LaTerceraTV_MouseTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="zGs-Pb-3fV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="702"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HELLO" rowHeight="68" id="sT7-Aa-p2s">
+                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sT7-Aa-p2s" id="p7W-rG-Ap5">
+                                    <frame key="frameInset" width="414" height="67.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2pM-52-GjC" id="pfp-mg-Mro"/>
+                            <outlet property="delegate" destination="2pM-52-GjC" id="BfJ-x1-gY6"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="zGs-Pb-3fV" id="izV-XD-1Cf"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s1H-eK-tD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6458" y="6593"/>
+        </scene>
+        <!--La TerceraTV Reportajes View Controller-->
+        <scene sceneID="DR7-Fm-DR3">
+            <objects>
+                <viewController storyboardIdentifier="laTerceraTVReportajes" id="621-nr-Yl7" customClass="LaTerceraTVReportajesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6hC-F2-NZT"/>
+                        <viewControllerLayoutGuide type="bottom" id="XC9-g6-7gR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BTk-IH-X81">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hkt-3w-dgE">
+                                <connections>
+                                    <segue destination="5Vv-21-MRm" kind="embed" id="eTm-pB-z9U"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hkt-3w-dgE" firstAttribute="top" secondItem="6hC-F2-NZT" secondAttribute="bottom" constant="14" id="5BT-jW-tyB"/>
+                            <constraint firstAttribute="trailing" secondItem="Hkt-3w-dgE" secondAttribute="trailing" id="dFB-29-6Qf"/>
+                            <constraint firstItem="Hkt-3w-dgE" firstAttribute="leading" secondItem="BTk-IH-X81" secondAttribute="leading" id="efm-iX-5VM"/>
+                            <constraint firstItem="Hkt-3w-dgE" firstAttribute="bottom" secondItem="XC9-g6-7gR" secondAttribute="top" id="n0x-q2-4nv"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fb3-8H-aNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7407" y="7272"/>
+        </scene>
+        <!--La TerceraTV Reportajes Table View Controller-->
+        <scene sceneID="RVo-DP-tAs">
+            <objects>
+                <tableViewController id="5Vv-21-MRm" customClass="LaTerceraTV_ReportajesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="6En-Ke-vmA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="702"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HELLO" rowHeight="68" id="jzb-3b-LWD">
+                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jzb-3b-LWD" id="Hrr-E9-mxq">
+                                    <frame key="frameInset" width="414" height="67.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5Vv-21-MRm" id="7dB-57-ekH"/>
+                            <outlet property="delegate" destination="5Vv-21-MRm" id="bjA-Sp-8C5"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="6En-Ke-vmA" id="DFd-VZ-mVs"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HYM-zy-X9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6458" y="7272"/>
+        </scene>
+        <!--La TerceraTV Series View Controller-->
+        <scene sceneID="KGk-KT-pQS">
+            <objects>
+                <viewController storyboardIdentifier="laTerceraTVSeries" id="bHW-sJ-Oa3" customClass="LaTerceraTVSeriesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jjz-BG-2FU"/>
+                        <viewControllerLayoutGuide type="bottom" id="5AG-WY-qPh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vdd-6W-v3H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOB-hc-Hbp">
+                                <connections>
+                                    <segue destination="HYC-4M-Y71" kind="embed" id="lAG-8t-sME"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZOB-hc-Hbp" secondAttribute="trailing" id="Y6G-zu-dzl"/>
+                            <constraint firstItem="ZOB-hc-Hbp" firstAttribute="bottom" secondItem="5AG-WY-qPh" secondAttribute="top" id="pK0-nl-0tb"/>
+                            <constraint firstItem="ZOB-hc-Hbp" firstAttribute="leading" secondItem="Vdd-6W-v3H" secondAttribute="leading" id="qsx-Ml-3Z2"/>
+                            <constraint firstItem="ZOB-hc-Hbp" firstAttribute="top" secondItem="jjz-BG-2FU" secondAttribute="bottom" constant="14" id="tt7-Wm-hjc"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kry-aZ-H0m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7407" y="7954"/>
+        </scene>
+        <!--La TerceraTV Series Table View Controller-->
+        <scene sceneID="tUW-Ab-qSN">
+            <objects>
+                <tableViewController id="HYC-4M-Y71" customClass="LaTerceraTV_SeriesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="CSK-t8-add">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="702"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HELLO" rowHeight="68" id="Efj-ac-dNl">
+                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Efj-ac-dNl" id="5Hi-S1-4w7">
+                                    <frame key="frameInset" width="414" height="67.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HYC-4M-Y71" id="Dla-Gh-81J"/>
+                            <outlet property="delegate" destination="HYC-4M-Y71" id="H8k-Wj-5mQ"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="CSK-t8-add" id="UfP-TE-1lA"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xED-ru-qfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6458" y="7954"/>
+        </scene>
+        <!--La TerceraTV Home View Controller-->
+        <scene sceneID="MZs-2a-7a8">
+            <objects>
+                <viewController storyboardIdentifier="laTerceraTVHome" id="brZ-GI-Vl2" customClass="LaTerceraTVHomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Ea-gT-gs1"/>
+                        <viewControllerLayoutGuide type="bottom" id="cMe-9r-x2a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hnk-lk-RWu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpf-mX-xLo">
+                                <connections>
+                                    <segue destination="f6z-pS-qpo" kind="embed" id="Ash-Si-6QZ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hpf-mX-xLo" secondAttribute="trailing" id="7Ew-FB-1pK"/>
+                            <constraint firstItem="hpf-mX-xLo" firstAttribute="bottom" secondItem="cMe-9r-x2a" secondAttribute="top" id="JeX-Fe-lh7"/>
+                            <constraint firstItem="hpf-mX-xLo" firstAttribute="leading" secondItem="Hnk-lk-RWu" secondAttribute="leading" id="gje-n2-cV7"/>
+                            <constraint firstItem="hpf-mX-xLo" firstAttribute="top" secondItem="8Ea-gT-gs1" secondAttribute="bottom" constant="14" id="iAL-fT-nWl"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RUH-FP-261" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7390" y="1109"/>
+        </scene>
+        <!--La TerceraTV Home Table View Controller-->
+        <scene sceneID="80M-el-7kB">
+            <objects>
+                <tableViewController id="f6z-pS-qpo" customClass="LaTerceraTV_HomeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="y1O-gB-noY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="702"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HELLO" rowHeight="68" id="DsA-zI-eWl">
+                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DsA-zI-eWl" id="byo-Iw-OLZ">
+                                    <frame key="frameInset" width="414" height="67.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="f6z-pS-qpo" id="zP0-TI-xA3"/>
+                            <outlet property="delegate" destination="f6z-pS-qpo" id="Baj-JX-yee"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="y1O-gB-noY" id="z1n-f9-GAf"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kfY-0Q-wOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6441" y="1109"/>
+        </scene>
+        <!--La TerceraTV-->
+        <scene sceneID="cC7-z7-gk8">
+            <objects>
+                <viewController id="7Tu-yd-DkM" customClass="LaTerceraTV" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fqt-JT-Ncz"/>
+                        <viewControllerLayoutGuide type="bottom" id="xUy-0B-1Lt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mr1-CH-ykK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="OUc-WM-yMf"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cm1-Gg-8B7">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="6iZ-5b-pL1"/>
+                                    <constraint firstAttribute="height" constant="40" id="UQG-f3-jc1"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="clublatercera.png"/>
+                            </button>
+                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4m-QL-G5f">
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5YU-dW-nQI">
+                                        <frame key="frameInset" minX="20" width="380" height="659"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5YU-dW-nQI" firstAttribute="leading" secondItem="q4m-QL-G5f" secondAttribute="leading" id="D5B-KT-cVu"/>
+                                    <constraint firstItem="5YU-dW-nQI" firstAttribute="top" secondItem="q4m-QL-G5f" secondAttribute="top" id="YMR-FP-RDL"/>
+                                    <constraint firstAttribute="bottom" secondItem="5YU-dW-nQI" secondAttribute="bottom" id="cZO-pm-31j"/>
+                                    <constraint firstAttribute="trailing" secondItem="5YU-dW-nQI" secondAttribute="trailing" id="sdO-yv-u5G"/>
+                                </constraints>
+                            </view>
+                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wD8-ZH-5Dm">
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9za-f3-BnB">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="ZSe-f4-TXr"/>
+                                </constraints>
+                                <state key="normal" image="boton-menu.png"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="q4m-QL-G5f" firstAttribute="top" secondItem="9za-f3-BnB" secondAttribute="bottom" constant="5" id="0iu-lE-Ibp"/>
+                            <constraint firstItem="q4m-QL-G5f" firstAttribute="top" secondItem="OUc-WM-yMf" secondAttribute="bottom" constant="1" id="App-9q-77D"/>
+                            <constraint firstItem="q4m-QL-G5f" firstAttribute="top" secondItem="Cm1-Gg-8B7" secondAttribute="bottom" constant="9" id="EmJ-x5-70F"/>
+                            <constraint firstItem="OUc-WM-yMf" firstAttribute="leading" secondItem="q4m-QL-G5f" secondAttribute="leading" id="Fbe-ih-qtE"/>
+                            <constraint firstAttribute="trailing" secondItem="OUc-WM-yMf" secondAttribute="trailing" id="Ggg-BC-xGq"/>
+                            <constraint firstItem="Cm1-Gg-8B7" firstAttribute="leading" secondItem="9za-f3-BnB" secondAttribute="trailing" constant="8" symbolic="YES" id="Gne-yB-stZ"/>
+                            <constraint firstItem="wD8-ZH-5Dm" firstAttribute="top" secondItem="xUy-0B-1Lt" secondAttribute="bottom" constant="1" id="Hey-Ut-ttp"/>
+                            <constraint firstItem="OUc-WM-yMf" firstAttribute="trailing" secondItem="q4m-QL-G5f" secondAttribute="trailing" id="MtF-IC-NhQ"/>
+                            <constraint firstAttribute="bottom" secondItem="wD8-ZH-5Dm" secondAttribute="bottom" constant="-337" id="U8e-g0-LTx"/>
+                            <constraint firstItem="Cm1-Gg-8B7" firstAttribute="top" secondItem="Fqt-JT-Ncz" secondAttribute="bottom" constant="8" symbolic="YES" id="VIe-NQ-tWS"/>
+                            <constraint firstItem="9za-f3-BnB" firstAttribute="leading" secondItem="mr1-CH-ykK" secondAttribute="leadingMargin" constant="-9" id="cYJ-q2-ybD"/>
+                            <constraint firstItem="OUc-WM-yMf" firstAttribute="top" secondItem="mr1-CH-ykK" secondAttribute="top" id="ch6-t2-RSL"/>
+                            <constraint firstItem="9za-f3-BnB" firstAttribute="top" secondItem="Fqt-JT-Ncz" secondAttribute="bottom" constant="2" id="k9W-bg-2CV"/>
+                            <constraint firstItem="q4m-QL-G5f" firstAttribute="bottom" secondItem="xUy-0B-1Lt" secondAttribute="top" id="rcg-cR-tMG"/>
+                            <constraint firstItem="OUc-WM-yMf" firstAttribute="leading" secondItem="mr1-CH-ykK" secondAttribute="leading" id="vIo-ha-N2J"/>
+                            <constraint firstItem="q4m-QL-G5f" firstAttribute="leading" secondItem="wD8-ZH-5Dm" secondAttribute="leading" id="zDc-fT-yqg"/>
+                            <constraint firstItem="q4m-QL-G5f" firstAttribute="trailing" secondItem="wD8-ZH-5Dm" secondAttribute="trailing" id="ztr-hx-cJF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="p4K-mL-lyd"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="menuButton" destination="9za-f3-BnB" id="eYS-Ql-HmN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZOr-T4-pxR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1144.9275362318842" y="-1005.9782608695652"/>
+        </scene>
     </scenes>
     <resources>
         <image name=" " width="360" height="640"/>
@@ -6871,12 +7579,12 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tqi-Nf-HuD"/>
         <segue reference="JhD-SO-oge"/>
-        <segue reference="Yn4-yz-IfR"/>
-        <segue reference="wuf-Nj-3R8"/>
+        <segue reference="3eI-5G-D6D"/>
         <segue reference="vnn-UP-oet"/>
-        <segue reference="VHn-pv-49C"/>
+        <segue reference="UKc-gN-ibL"/>
+        <segue reference="tqi-Nf-HuD"/>
+        <segue reference="wa8-wA-Ypp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
