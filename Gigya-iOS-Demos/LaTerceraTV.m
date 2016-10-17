@@ -9,6 +9,16 @@
 #import "LaTerceraTV.h"
 #import "LaTerceraTVHomeViewController.h"
 #import "LaTerceraTVTerceraVozViewController.h"
+#import "LaTerceraTVActualidadViewController.h"
+#import "LaTerceraTVDebatesViewController.h"
+#import "LaTerceraTVDeportesViewController.h"
+#import "LaTerceraTVElDeportivoViewController.h"
+#import "LaTerceraTVEnDirectoViewController.h"
+#import "LaTerceraTVEntretencionViewController.h"
+#import "LaTerceraTVMouseViewController.h"
+#import "LaTerceraTVReportajesViewController.h"
+#import "LaTerceraTVSeriesViewController.h"
+
 #import "SessionManager.h"
 #import "SWRevealViewController.h"
 #import "SVProgressHUD.h"
@@ -72,27 +82,29 @@
     
     LaTerceraTVTerceraVozViewController *ltTVTerceraVozVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVTerceraVoz"];
 
+    LaTerceraTVActualidadViewController *ltTVActualidadVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVActualidad"];
+
+    LaTerceraTVDebatesViewController *ltTVDebatesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVDebates"];
     
-    /*
-    NewsCategoryInicioViewController *newsInicioVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
+    LaTerceraTVDebatesViewController *ltTVElDeportivoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVElDeportivo"];
     
-    NewsCategoryNacionalViewController *newsNacionalVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryNacional"];
     
-    NewsCategoryPoliticaViewController *newsPoliticaVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryPolitica"];
+    LaTerceraTVDeportesViewController *ltTVDeportesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVDeportes"];
     
-    NewsCategoryMundoViewController *newsMundoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryMundo"];
+    LaTerceraTVEnDirectoViewController *ltTVEnDirectoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVEnDirecto"];
     
-    NewsCategoryTendenciasViewController *newsTendenciasVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryTendencias"];
+    LaTerceraTVEntretencionViewController *ltTVEntretencionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVEntretencion"];
     
-    NewsCategoryNegociosViewController *newsNegociosVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryNegocios"];
+    LaTerceraTVMouseViewController *ltTVMouseVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVMouse"];
     
-    NewsCategoryElDeportivoViewController *newsElDeportivoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryElDeportivo"];
+    LaTerceraTVReportajesViewController *ltTVReportajesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVReportajes"];
     
-    NewsCategoryEntretencionViewController *newsEntretencionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryEntretencion"];
+    LaTerceraTVSeriesViewController *ltTVSeriesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVSeries"];
     
-    NewsCategoryCulturaViewController *newsCulturaVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryCultura"];
-    */
+
     
+
+
     SessionManager *sesion = [SessionManager session];
     
     for (NSDictionary *objeto in arrayHeadlinesJson) {
@@ -107,46 +119,52 @@
         
         if([slug isEqualToString:@"terceratv"]){
             ltTVHomeVC.title = contenido.contentTitle;
+             ltTVHomeVC.title = @"Principal";
         }
         
         if([slug isEqualToString:@"3a VOZ"]){
             ltTVTerceraVozVC.title = contenido.contentTitle;
         }
+        if([slug isEqualToString:@"Actualidad"]){
+            ltTVActualidadVC.title = contenido.contentTitle;
+        }
         
+        if([slug isEqualToString:@"Debates"]){
+            ltTVDebatesVC.title = contenido.contentTitle;
+        }
         
-        /*
-        if([slug isEqualToString:@"home"]){
-            newsInicioVC.title = contenido.contentTitle;
+        if([slug isEqualToString:@"Deportes"]){
+            ltTVDeportesVC.title = contenido.contentTitle;
         }
-        if([slug isEqualToString:@"nacional"]){
-            newsNacionalVC.title = contenido.contentTitle;
+        
+        if([slug isEqualToString:@"El Deportivo"]){
+            ltTVElDeportivoVC.title = contenido.contentTitle;
         }
-        if([slug isEqualToString:@"politica"]){
-            newsPoliticaVC.title = contenido.contentTitle;
+        
+        if([slug isEqualToString:@"En directo"]){
+            ltTVEnDirectoVC.title = contenido.contentTitle;
         }
-        if([slug isEqualToString:@"mundo"]){
-            newsMundoVC.title = contenido.contentTitle;
+        
+        if([slug isEqualToString:@"Entretencion"]){
+            ltTVEntretencionVC.title = contenido.contentTitle;
         }
-        if([slug isEqualToString:@"tendencias"]){
-            newsTendenciasVC.title = contenido.contentTitle;
+        
+        if([slug isEqualToString:@"Mouse"]){
+            ltTVMouseVC.title = contenido.contentTitle;
         }
-        if([slug isEqualToString:@"negocios"]){
-            newsNegociosVC.title = contenido.contentTitle;
+        
+        if([slug isEqualToString:@"Reportajes"]){
+            ltTVReportajesVC.title = contenido.contentTitle;
         }
-        if([slug isEqualToString:@"el-deportivo"]){
-            newsElDeportivoVC.title = contenido.contentTitle;
+        
+        if([slug isEqualToString:@"Series"]){
+            ltTVSeriesVC.title = contenido.contentTitle;
         }
-        if([slug isEqualToString:@"entretencion"]){
-            newsEntretencionVC.title = contenido.contentTitle;
-        }
-        if([slug isEqualToString:@"cultura"]){
-            newsCulturaVC.title = contenido.contentTitle;
-        }
-         */
+        
     }
     
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVHomeVC,ltTVTerceraVozVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVHomeVC,ltTVActualidadVC,ltTVDebatesVC,ltTVDeportesVC,ltTVElDeportivoVC,ltTVEnDirectoVC,ltTVEntretencionVC,ltTVMouseVC,ltTVReportajesVC,ltTVSeriesVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
