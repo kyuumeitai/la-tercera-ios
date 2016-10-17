@@ -134,7 +134,7 @@ NSString *storyBoardNameTV;
     NSArray *nib;
     Video *video = (Video*)[laTerceraTVArray objectAtIndex:indexPath.row ];
         //CollectionViewCellBanner *celdaBanner = (CollectionViewCellBanner*)[self.tableView dequeueReusableCellWithIdentifier:reuseIdentifierBanner];
-    
+
     VideoTableViewCell *cell = (VideoTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil)
@@ -150,13 +150,21 @@ NSString *storyBoardNameTV;
         cell.labelTituloVideo.text = video.title;
         cell.labelSummary.text = video.summary;
         cell.rudoVideoUrl = video.link;
-        [cell loadBanner];
+       // [cell loadBanner];
         
         return cell;
         
     }
 
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    VideoTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    cell.rudoPlayer.alpha = 1;
+    cell.rudoPlayer.userInteractionEnabled = YES;
+    [cell loadBanner];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

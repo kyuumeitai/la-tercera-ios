@@ -152,7 +152,7 @@ NSString *storyBoardNameTVElDeportivo;
         cell.labelTituloVideo.text = video.title;
         cell.labelSummary.text = video.summary;
         cell.rudoVideoUrl = video.link;
-        [cell loadBanner];
+       // [cell loadBanner];
         
         return cell;
         
@@ -167,7 +167,13 @@ NSString *storyBoardNameTVElDeportivo;
 }
 
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    VideoTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    cell.rudoPlayer.alpha = 1;
+    cell.rudoPlayer.userInteractionEnabled = YES;
+    [cell loadBanner];
+}
 
 -(void)loadHeadlinesWithCategory:(int)idCategory{
     NSLog(@"Load Headlines");
