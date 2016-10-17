@@ -8,6 +8,7 @@
 
 #import "LaTerceraTV.h"
 #import "LaTerceraTVHomeViewController.h"
+#import "LaTerceraTVTerceraVozViewController.h"
 #import "SessionManager.h"
 #import "SWRevealViewController.h"
 #import "SVProgressHUD.h"
@@ -69,6 +70,9 @@
     // SetUp ViewControllers
     LaTerceraTVHomeViewController *ltTVHomeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVHome"];
     
+    LaTerceraTVTerceraVozViewController *ltTVTerceraVozVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVTerceraVoz"];
+
+    
     /*
     NewsCategoryInicioViewController *newsInicioVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
     
@@ -105,6 +109,11 @@
             ltTVHomeVC.title = contenido.contentTitle;
         }
         
+        if([slug isEqualToString:@"3a VOZ"]){
+            ltTVTerceraVozVC.title = contenido.contentTitle;
+        }
+        
+        
         /*
         if([slug isEqualToString:@"home"]){
             newsInicioVC.title = contenido.contentTitle;
@@ -137,7 +146,7 @@
     }
     
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVHomeVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
+    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVHomeVC,ltTVTerceraVozVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];

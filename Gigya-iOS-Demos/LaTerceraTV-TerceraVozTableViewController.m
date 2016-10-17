@@ -1,12 +1,12 @@
 //
-//  LaTerceraTV-HomeTableViewController.m
+//  LaTerceraTVTerceraVoz-TerceraVozTableViewController.m
 //  La Tercera
 //
-//  Created by diseno on 11-08-16.
+//  Created by Mario Alejandro on 16-10-16.
 //  Copyright © 2016 Gigya. All rights reserved.
 //
 
-#import "LaTerceraTV-HomeTableViewController.h"
+#import "LaTerceraTV-TerceraVozTableViewController.h"
 #import "ConnectionManager.h"
 #import "CollectionViewCellGrande.h"
 #import "CollectionViewCellBanner.h"
@@ -23,14 +23,16 @@
 #import "ContentType.h"
 #import "BeneficioGeneralDestacadoTableViewCell.h"
 
-#define categorySlug @"terceratv"
+#define categorySlug @"3a VOZ"
 
-@interface LaTerceraTV_HomeTableViewController ()
+@interface LaTerceraTV_TerceraVozTableViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
-@implementation LaTerceraTV_HomeTableViewController
-@synthesize laTerceraTVArray;
+@implementation LaTerceraTV_TerceraVozTableViewController
+
+@synthesize laTerceraTVTerceraVozArray;
 @synthesize tableView;
 @synthesize categoryId;
 
@@ -39,40 +41,41 @@ static NSString * const reuseIdentifierBanner = @"collectionViewBanner";
 static NSString * const reuseIdentifierVideo = @"videoTableViewCell";
 
 //New Pagination code
-int currentPageNumberTV ;
-BOOL isPageRefreshingLaTerceraTV =  false;
-BOOL firstTimeLaTerceraTV = false;
+int currentPageNumberTVTerceraVoz ;
+BOOL isPageRefreshingLaTerceraTVTerceraVoz =  false;
+BOOL firstTimeLaTerceraTVTerceraVoz = false;
 
-NSArray *bannersLaTerceraTV= nil;
+NSArray *bannersLaTerceraTVTerceraVoz= nil;
 
-BOOL _isScrollingLaTerceraTV;
-int numeroPaginasTV;
-NSString *dayTV;
-NSString *monthTV;
-NSString *yearTV;
-NSString *storyBoardNameTV;
+BOOL _isScrollingLaTerceraTVTerceraVoz;
+int numeroPaginasTVTerceraVoz;
+NSString *dayTVTerceraVoz;
+NSString *monthTVTerceraVoz;
+NSString *yearTVTerceraVoz;
+NSString *storyBoardNameTVTerceraVoz;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
-    storyBoardNameTV = sesion.storyBoardName;
+    storyBoardNameTVTerceraVoz = sesion.storyBoardName;
     
     for (ContentType *contenido in sesion.categoryList) {
         if([contenido.contentSlug isEqualToString:categorySlug])
             self.categoryId = contenido.contentId;
+        NSLog(@"Category Slug: %@ and categoryId:%d",contenido.contentSlug,contenido.contentId);
     }
     
-    NSLog(@" El nombre del storyboard es: %@", storyBoardNameTV);
+    NSLog(@" El nombre del storyboard es: %@", storyBoardNameTVTerceraVoz);
     NSLog(@"CategoryId: %d", self.categoryId);
-    __weak  LaTerceraTV_HomeTableViewController *weakSelf = self;
-    laTerceraTVArray = [[NSMutableArray alloc] init];
+    __weak  LaTerceraTV_TerceraVozTableViewController *weakSelf = self;
+    laTerceraTVTerceraVozArray = [[NSMutableArray alloc] init];
     
-    bannersLaTerceraTV = [NSArray arrayWithObjects:@"/124506296/La_Tercera_com/La_Tercera_com_APP/LaTerceraTV_300x250-A", @"/124506296/La_Tercera_com/La_Tercera_com_APP/LaTerceraTV_300x250-B", @"/124506296/La_Tercera_com/La_Tercera_com_APP/LaTerceraTV_300x250-C", @"/124506296/La_Tercera_com/La_Tercera_com_APP/LaTerceraTV_300x250-D", @"/124506296/La_Tercera_com/La_Tercera_com_APP/LaTerceraTV_300x250-E", nil];
+    bannersLaTerceraTVTerceraVoz = [NSArray arrayWithObjects:@"/124506296/La_Tercera_com/La_Tercera_com_APP/LaTerceraTVTerceraVoz_300x250-A", @"/124506296/La_Tercera_com/La_Tercera_com_APP/LaTerceraTVTerceraVoz_300x250-B", @"/124506296/La_Tercera_com/La_Tercera_com_APP/LaTerceraTVTerceraVoz_300x250-C", @"/124506296/La_Tercera_com/La_Tercera_com_APP/LaTerceraTVTerceraVoz_300x250-D", @"/124506296/La_Tercera_com/La_Tercera_com_APP/LaTerceraTVTerceraVoz_300x250-E", nil];
     
     //Celda Grande
     UINib *cellNib ;
     
-    if([storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+    if([storyBoardNameTVTerceraVoz isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameTVTerceraVoz isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
         cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande4-5" bundle: nil];
         [self.tableView registerNib:cellNib  forCellReuseIdentifier:@"collectionViewGrande4-5"];
         
@@ -86,8 +89,8 @@ NSString *storyBoardNameTV;
     
     [self.tableView registerNib:cellNib4  forCellReuseIdentifier:reuseIdentifierBanner];
     
-    currentPageNumberTV = 1;
-    firstTimeLaTerceraTV = true;
+    currentPageNumberTVTerceraVoz = 1;
+    firstTimeLaTerceraTVTerceraVoz = true;
     
     //[self.collectionView setAlpha:0.0];
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -108,7 +111,7 @@ NSString *storyBoardNameTV;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    isPageRefreshingLaTerceraTV = NO;
+    isPageRefreshingLaTerceraTVTerceraVoz = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,7 +127,7 @@ NSString *storyBoardNameTV;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.laTerceraTVArray.count;
+    return self.laTerceraTVTerceraVozArray.count;
 }
 
 
@@ -132,14 +135,14 @@ NSString *storyBoardNameTV;
     
     static NSString *simpleTableIdentifier = @"videoTableViewCell";
     NSArray *nib;
-    Video *video = (Video*)[laTerceraTVArray objectAtIndex:indexPath.row ];
-        //CollectionViewCellBanner *celdaBanner = (CollectionViewCellBanner*)[self.tableView dequeueReusableCellWithIdentifier:reuseIdentifierBanner];
+    Video *video = (Video*)[laTerceraTVTerceraVozArray objectAtIndex:indexPath.row ];
+    //CollectionViewCellBanner *celdaBanner = (CollectionViewCellBanner*)[self.tableView dequeueReusableCellWithIdentifier:reuseIdentifierBanner];
     
     VideoTableViewCell *cell = (VideoTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil)
     {
-        if([storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if([storyBoardNameTVTerceraVoz isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameTVTerceraVoz isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             nib = [[NSBundle mainBundle] loadNibNamed:@"VideoTableViewCell4-5" owner:self options:nil];
         }else{
             
@@ -155,7 +158,7 @@ NSString *storyBoardNameTV;
         return cell;
         
     }
-
+    
     return cell;
 }
 
@@ -170,7 +173,7 @@ NSString *storyBoardNameTV;
 -(void)loadHeadlinesWithCategory:(int)idCategory{
     NSLog(@"Load Headlines");
     
-    __weak LaTerceraTV_HomeTableViewController *weakSelf = self;
+    __weak LaTerceraTV_TerceraVozTableViewController *weakSelf = self;
     
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
@@ -180,7 +183,7 @@ NSString *storyBoardNameTV;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!success) {
-                if (isPageRefreshingLaTerceraTV == false){
+                if (isPageRefreshingLaTerceraTVTerceraVoz == false){
                     
                     //[self errorDetectedWithNSError:error];
                 }else{
@@ -197,7 +200,7 @@ NSString *storyBoardNameTV;
                 
                 if(noData){
                     
-                    isPageRefreshingLaTerceraTV = YES;
+                    isPageRefreshingLaTerceraTVTerceraVoz = YES;
                     
                 }else{
                     
@@ -206,13 +209,13 @@ NSString *storyBoardNameTV;
                 }
             }
         });
-    }:idCategory andPage:currentPageNumberTV];
+    }:idCategory andPage:currentPageNumberTVTerceraVoz];
     
 }
 
 
 -(void) reloadHeadlinesDataFromArrayJson:(NSArray*)arrayJson{
-    __weak LaTerceraTV_HomeTableViewController *weakSelf = self;
+    __weak LaTerceraTV_TerceraVozTableViewController *weakSelf = self;
     NSLog(@"  reload headlines");
     NSDictionary *diccionarioTitulares = (NSDictionary*)arrayJson;
     //NSLog(@"  reload headlines array, is: %@ ",diccionarioTitulares);
@@ -252,18 +255,18 @@ NSString *storyBoardNameTV;
         video.imagenThumbString = imageThumb;
         video.link = linkVideo;
         
-        NSLog(@"____ Numero de pagina: %d", currentPageNumberTV);
-        if (indice == currentPageNumberTV*6 ){
-            NSLog(@"____ currentPageNumberTV*6: %d", currentPageNumberTV*6);
-            // [laTerceraTVArray addObject:@"OBJETO"];
+        NSLog(@"____ Numero de pagina: %d", currentPageNumberTVTerceraVoz);
+        if (indice == currentPageNumberTVTerceraVoz*6 ){
+            NSLog(@"____ currentPageNumberTVTerceraVoz*6: %d", currentPageNumberTVTerceraVoz*6);
+            // [laTerceraTVTerceraVozArray addObject:@"OBJETO"];
         }
         [video logDescription];
         
-        [laTerceraTVArray addObject:video];
+        [laTerceraTVTerceraVozArray addObject:video];
     }
     
     //New code
-    if (firstTimeLaTerceraTV ==true){
+    if (firstTimeLaTerceraTVTerceraVoz ==true){
         self.view.alpha = 0.0;
         [self.tableView reloadData];
         [UIView animateWithDuration:0.5
@@ -274,17 +277,17 @@ NSString *storyBoardNameTV;
          {
              //[SVProgressHUD dismiss];
          }];
-        firstTimeLaTerceraTV= false;
+        firstTimeLaTerceraTVTerceraVoz= false;
     }else{
         
         //[SVProgressHUD dismiss];
-        isPageRefreshingLaTerceraTV= NO;
+        isPageRefreshingLaTerceraTVTerceraVoz= NO;
         // [weakSelf.collectionView endUpdates];
         
         [self.tableView reloadData];
         [self.tableView layoutIfNeeded];
         [weakSelf.tableView.infiniteScrollingView stopAnimating];
-        NSLog(@"LA cantidad es: %lu",(unsigned long)laTerceraTVArray.count);
+        NSLog(@"LA cantidad es: %lu",(unsigned long)laTerceraTVTerceraVozArray.count);
     }
     NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
 }

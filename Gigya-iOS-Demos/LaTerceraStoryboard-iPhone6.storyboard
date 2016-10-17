@@ -1722,8 +1722,7 @@ REGISTRARSE?</string>
                                     <action selector="backButtonPressed:" destination="Uc6-It-8ad" eventType="touchUpInside" id="laO-S2-mNl"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
-                                <frame key="frameInset" width="1000" height="1000"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="207" id="JJU-R1-ZLX"/>
                                     <constraint firstAttribute="width" constant="376" id="qSb-8v-0KS"/>
@@ -1934,7 +1933,7 @@ REGISTRARSE?</string>
                             <constraint firstItem="Spn-zu-oet" firstAttribute="top" secondItem="NNW-UA-OuE" secondAttribute="bottom" constant="4" id="pjN-x6-L0S"/>
                             <constraint firstItem="yL5-Z8-hMZ" firstAttribute="trailing" secondItem="1Wf-3B-RVb" secondAttribute="trailing" constant="-1" id="rZ2-kE-NpN"/>
                             <constraint firstItem="Wsm-WF-ByM" firstAttribute="leading" secondItem="6fa-yo-9V4" secondAttribute="leading" id="t0O-tf-9XF"/>
-                            <constraint firstItem="Wsm-WF-ByM" firstAttribute="top" secondItem="ii2-PD-af7" secondAttribute="bottom" constant="1" id="tNG-wD-vJo"/>
+                            <constraint firstItem="Wsm-WF-ByM" firstAttribute="top" secondItem="ii2-PD-af7" secondAttribute="bottom" constant="2" id="tNG-wD-vJo"/>
                             <constraint firstItem="1DB-2m-DGQ" firstAttribute="top" secondItem="1Wf-3B-RVb" secondAttribute="top" id="tQ7-35-Xin"/>
                             <constraint firstItem="bi9-qh-sbZ" firstAttribute="top" secondItem="NNW-UA-OuE" secondAttribute="bottom" constant="2" id="zJj-lH-a3c"/>
                             <constraint firstItem="VfE-t3-j9D" firstAttribute="top" secondItem="1DB-2m-DGQ" secondAttribute="bottom" id="ze3-tg-THf"/>
@@ -2910,7 +2909,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myc-Gk-fdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1863" y="-71"/>
+            <point key="canvasLocation" x="2127" y="-215"/>
         </scene>
         <!--Papel Digital-->
         <scene sceneID="meJ-3D-l3r">
@@ -6353,7 +6352,7 @@ de La Tercera</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1U-Ib-uW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6679" y="1093"/>
+            <point key="canvasLocation" x="-6441" y="1109"/>
         </scene>
         <!--Favoritos Perfil-->
         <scene sceneID="6XW-RE-eFa">
@@ -8321,6 +8320,70 @@ de La Tercera</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCL-16-23W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2576.8000000000002" y="1559.3703148425789"/>
+        </scene>
+        <!--La TerceraTV Tercera Voz View Controller-->
+        <scene sceneID="YoF-cQ-PbY">
+            <objects>
+                <viewController storyboardIdentifier="laTerceraTVTerceraVoz" id="Gbf-L8-CRV" customClass="LaTerceraTVTerceraVozViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tk2-Ui-wuE"/>
+                        <viewControllerLayoutGuide type="bottom" id="xjP-8R-fbv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bTp-Z9-vSX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTt-lk-pq0">
+                                <connections>
+                                    <segue destination="QGe-PI-Fay" kind="embed" id="HPe-zS-Kru"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fTt-lk-pq0" firstAttribute="bottom" secondItem="xjP-8R-fbv" secondAttribute="top" id="6dW-A2-2II"/>
+                            <constraint firstItem="fTt-lk-pq0" firstAttribute="top" secondItem="Tk2-Ui-wuE" secondAttribute="bottom" constant="14" id="BaV-qA-Nbx"/>
+                            <constraint firstAttribute="trailing" secondItem="fTt-lk-pq0" secondAttribute="trailing" id="bVf-MY-CYI"/>
+                            <constraint firstItem="fTt-lk-pq0" firstAttribute="leading" secondItem="bTp-Z9-vSX" secondAttribute="leading" id="vOt-OB-jiU"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JXu-x1-2xi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7391" y="1767"/>
+        </scene>
+        <!--La TerceraTV Tercera Voz Table View Controller-->
+        <scene sceneID="vV1-5S-ZgP">
+            <objects>
+                <tableViewController id="QGe-PI-Fay" customClass="LaTerceraTV_TerceraVozTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="yBR-i4-QRJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="633"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HELLO" rowHeight="68" id="IqE-Kf-690">
+                                <rect key="frame" x="0.0" y="28" width="375" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IqE-Kf-690" id="b0n-5v-H9h">
+                                    <frame key="frameInset" width="375" height="67"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QGe-PI-Fay" id="T3k-8T-y1z"/>
+                            <outlet property="delegate" destination="QGe-PI-Fay" id="62B-YY-lNs"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="yBR-i4-QRJ" id="CLG-8F-1r0"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DLi-yl-9IO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6442" y="1767"/>
         </scene>
     </scenes>
     <resources>
