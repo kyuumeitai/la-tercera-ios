@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="370" height="438"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="370" height="437"/>
+                <frame key="frameInset" width="370" height="437.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RTj-FT-ksr" customClass="CustomBorderView">
@@ -42,7 +42,7 @@
                                 <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="play-video-image.png" translatesAutoresizingMaskIntoConstraints="NO" id="UZ3-e3-agS">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZ3-e3-agS">
                                 <frame key="frameInset" minY="116" width="356" height="191"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -69,6 +69,7 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="imageViewThumb" destination="UZ3-e3-agS" id="Erm-LY-4W6"/>
                 <outlet property="labelSummary" destination="YGI-Cp-Z1O" id="mTd-yV-731"/>
                 <outlet property="labelTituloVideo" destination="z8b-dO-yV6" id="jIV-Aw-zfC"/>
                 <outlet property="rudoPlayer" destination="WVK-dt-ovN" id="tQ8-G4-aVk"/>
@@ -76,7 +77,4 @@
             <point key="canvasLocation" x="343" y="279"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="play-video-image.png" width="200" height="207"/>
-    </resources>
 </document>

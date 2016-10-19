@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LaTerceraTV_HomeTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>{
+@interface LaTerceraTV_HomeTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate>{
     NSMutableArray *laTerceraTVArray;
 }
 @property (nonatomic, retain) NSMutableArray *laTerceraTVArray;

@@ -12,6 +12,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelTituloVideo;
 @property (weak, nonatomic) IBOutlet UILabel *labelSummary;
 @property (weak, nonatomic) IBOutlet UIWebView *rudoPlayer;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewThumb;
+
+
 -(void)loadBanner;
 @property (nonatomic, copy) NSString* rudoVideoUrl;
+@property (nonatomic, copy) NSString* videoImageUrl;
+
 @end

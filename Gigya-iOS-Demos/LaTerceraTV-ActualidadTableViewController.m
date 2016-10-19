@@ -152,8 +152,9 @@ NSString *storyBoardNameTVActualidad;
         cell.labelTituloVideo.text = video.title;
         cell.labelSummary.text = video.summary;
         cell.rudoVideoUrl = video.link;
-       // [cell loadBanner];
-        
+        // NSLog(@"Video URL: %@",video.imagenThumbString);
+        cell.imageViewThumb.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:video.imagenThumbString]]];
+
         return cell;
         
     }
@@ -240,9 +241,9 @@ NSString *storyBoardNameTVActualidad;
         id title = [dictTitular objectForKey:@"title"];
         id summary = [dictTitular objectForKey:@"short_description"];
         
-        id imageThumb ;
+        NSString *imageThumb ;
         
-        if ([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]){
+        if (([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]) || ([[dictTitular objectForKey:@"thumb_url"] isEqualToString:@""])){
             imageThumb = @"https://placekitten.com/200/200";
         }else{
             imageThumb = [dictTitular objectForKey:@"thumb_url"];
@@ -258,8 +259,11 @@ NSString *storyBoardNameTVActualidad;
         video.idVideo = [idArt intValue];
         video.title = title;
         video.summary = summary;
+        //NSLog(@"____ IMAGEN THUMBB: %@", imageThumb);
         video.imagenThumbString = imageThumb;
         video.link = linkVideo;
+        
+       
         
         NSLog(@"____ Numero de pagina: %d", currentPageNumberTVActualidad);
         if (indice == currentPageNumberTVActualidad*6 ){

@@ -150,6 +150,8 @@ NSString *storyBoardNameTV;
         cell.labelTituloVideo.text = video.title;
         cell.labelSummary.text = video.summary;
         cell.rudoVideoUrl = video.link;
+       // NSLog(@"Video URL: %@",video.imagenThumbString);
+        cell.imageViewThumb.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:video.imagenThumbString]]];
        // [cell loadBanner];
         
         return cell;
@@ -162,9 +164,19 @@ NSString *storyBoardNameTV;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     VideoTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    cell.rudoPlayer.alpha = 1;
-    cell.rudoPlayer.userInteractionEnabled = YES;
+   // cell.rudoPlayer.alpha = 1;
+    //cell.rudoPlayer.userInteractionEnabled = YES;
     [cell loadBanner];
+    UIWebView *webView = [[UIWebView alloc]init];
+    webView.delegate = self;
+    NSString *url=cell.rudoVideoUrl;
+    NSURL *nsurl=[NSURL URLWithString:url];
+    NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
+    webView.scalesPageToFit = YES;
+    webView.frame=self.view.bounds;
+    webView.mediaPlaybackRequiresUserAction = NO;
+    [webView loadRequest:nsrequest];
+    [self.view addSubview:webView];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -239,9 +251,9 @@ NSString *storyBoardNameTV;
         id title = [dictTitular objectForKey:@"title"];
         id summary = [dictTitular objectForKey:@"short_description"];
         
-        id imageThumb ;
+        NSString *imageThumb ;
         
-        if ([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]){
+        if (([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]) || ([[dictTitular objectForKey:@"thumb_url"] isEqualToString:@""])){
             imageThumb = @"https://placekitten.com/200/200";
         }else{
             imageThumb = [dictTitular objectForKey:@"thumb_url"];
@@ -257,15 +269,16 @@ NSString *storyBoardNameTV;
         video.idVideo = [idArt intValue];
         video.title = title;
         video.summary = summary;
+         //NSLog(@"____ IMAGEN THUMBB: %@", imageThumb);
         video.imagenThumbString = imageThumb;
         video.link = linkVideo;
         
-        NSLog(@"____ Numero de pagina: %d", currentPageNumberTV);
+        //NSLog(@"____ Numero de pagina: %d", currentPageNumberTV);
         if (indice == currentPageNumberTV*6 ){
-            NSLog(@"____ currentPageNumberTV*6: %d", currentPageNumberTV*6);
+            //NSLog(@"____ currentPageNumberTV*6: %d", currentPageNumberTV*6);
             // [laTerceraTVArray addObject:@"OBJETO"];
         }
-        [video logDescription];
+       // [video logDescription];
         
         [laTerceraTVArray addObject:video];
     }
