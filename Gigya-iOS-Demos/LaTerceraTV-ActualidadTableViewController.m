@@ -22,6 +22,7 @@
 #import "SVPullToRefresh.h"
 #import "ContentType.h"
 #import "BeneficioGeneralDestacadoTableViewCell.h"
+#import "VideoPlayerViewController.h"
 
 #define categorySlug @"Actualidad"
 
@@ -164,9 +165,12 @@ NSString *storyBoardNameTVActualidad;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     VideoTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    cell.rudoPlayer.alpha = 1;
-    cell.rudoPlayer.userInteractionEnabled = YES;
-    [cell loadBanner];
+    NSString *url=cell.rudoVideoUrl;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyBoardNameTVActualidad bundle: nil];
+    VideoPlayerViewController *controller = (VideoPlayerViewController *)[storyboard instantiateViewControllerWithIdentifier: @"videoWebView"];
+    controller.videoURL = url;
+    [[self navigationController] pushViewController:controller animated:YES] ;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -212,7 +216,7 @@ NSString *storyBoardNameTVActualidad;
                 }else{
                     
                     [self reloadHeadlinesDataFromArrayJson:arrayJson];
-                    NSLog(@"********++++ Lista videos json: %@",arrayJson);
+                    //NSLog(@"********++++ Lista videos json: %@",arrayJson);
                 }
             }
         });

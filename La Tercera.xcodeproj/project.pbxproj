@@ -297,6 +297,8 @@
 		179D9D2B1D7D33D3004C972E /* Headers in Resources */ = {isa = PBXBuildFile; fileRef = 179D9D291D7D33D3004C972E /* Headers */; };
 		179D9D2D1D7D3636004C972E /* MOCAConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 179D9D2C1D7D3636004C972E /* MOCAConfig.plist */; };
 		179D9D2E1D7D3636004C972E /* MOCAConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 179D9D2C1D7D3636004C972E /* MOCAConfig.plist */; };
+		17AAA3A51DB862D100C303CA /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AAA3A41DB862D100C303CA /* VideoPlayerViewController.m */; };
+		17AAA3A61DB862D100C303CA /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AAA3A41DB862D100C303CA /* VideoPlayerViewController.m */; };
 		17B42F041D65976E00A028E8 /* LaTerceraModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17B42F021D65976E00A028E8 /* LaTerceraModel.xcdatamodeld */; };
 		17B42F051D65976E00A028E8 /* LaTerceraModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17B42F021D65976E00A028E8 /* LaTerceraModel.xcdatamodeld */; };
 		17B42F071D659A8F00A028E8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B42F061D659A8F00A028E8 /* CoreData.framework */; };
@@ -977,6 +979,8 @@
 		179D9D271D7D337C004C972E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		179D9D291D7D33D3004C972E /* Headers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Headers; sourceTree = "<group>"; };
 		179D9D2C1D7D3636004C972E /* MOCAConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MOCAConfig.plist; sourceTree = "<group>"; };
+		17AAA3A31DB862D100C303CA /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
+		17AAA3A41DB862D100C303CA /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
 		17AACC161CBD889100C2D090 /* Categorías.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Categorías.rtf"; sourceTree = "<group>"; };
 		17B42F031D65976E00A028E8 /* LaTerceraModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LaTerceraModel.xcdatamodel; sourceTree = "<group>"; };
 		17B42F061D659A8F00A028E8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -2718,6 +2722,8 @@
 				17EDEE2B1DB45E0300E3038B /* LaTerceraTVReportajesViewController.m */,
 				17EDEE2E1DB45E1100E3038B /* LaTerceraTVSeriesViewController.h */,
 				17EDEE2F1DB45E1100E3038B /* LaTerceraTVSeriesViewController.m */,
+				17AAA3A31DB862D100C303CA /* VideoPlayerViewController.h */,
+				17AAA3A41DB862D100C303CA /* VideoPlayerViewController.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -3846,6 +3852,7 @@
 				D0FBFA301CBD32CD00D5465E /* CustomButtonTercera.m in Sources */,
 				17EBCCF31D62BA9300931B39 /* HistoryTableViewController.m in Sources */,
 				17F321BD1CBEBEDD00005964 /* NewspaperPage.m in Sources */,
+				17AAA3A61DB862D100C303CA /* VideoPlayerViewController.m in Sources */,
 				1702BD261CB093E400F26F42 /* MasCercanosViewController.m in Sources */,
 				D04546D21CEB9A6D004A011D /* InitialViewController.m in Sources */,
 				17EDEE1D1DB45D7D00E3038B /* LaTerceraTVElDeportivoViewController.m in Sources */,
@@ -4050,6 +4057,7 @@
 				17EDEE1C1DB45D7D00E3038B /* LaTerceraTVElDeportivoViewController.m in Sources */,
 				17EDEE581DB4801C00E3038B /* LaTerceraTV-ElDeportivoTableViewController.m in Sources */,
 				17174DA71DAB76BC00B5C320 /* VocesViewController.m in Sources */,
+				17AAA3A51DB862D100C303CA /* VideoPlayerViewController.m in Sources */,
 				1702BE1E1CB20BF500F26F42 /* Benefit.m in Sources */,
 				D014C8981D243F4D00E3D3B5 /* VentasEspecialesTableViewController.m in Sources */,
 				17F321BC1CBEBEDD00005964 /* NewspaperPage.m in Sources */,

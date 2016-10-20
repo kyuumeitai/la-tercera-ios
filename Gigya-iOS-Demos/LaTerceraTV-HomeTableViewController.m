@@ -22,6 +22,7 @@
 #import "SVPullToRefresh.h"
 #import "ContentType.h"
 #import "BeneficioGeneralDestacadoTableViewCell.h"
+#import "VideoPlayerViewController.h"
 
 #define categorySlug @"terceratv"
 
@@ -164,19 +165,12 @@ NSString *storyBoardNameTV;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     VideoTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-   // cell.rudoPlayer.alpha = 1;
-    //cell.rudoPlayer.userInteractionEnabled = YES;
-    [cell loadBanner];
-    UIWebView *webView = [[UIWebView alloc]init];
-    webView.delegate = self;
     NSString *url=cell.rudoVideoUrl;
-    NSURL *nsurl=[NSURL URLWithString:url];
-    NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
-    webView.scalesPageToFit = YES;
-    webView.frame=self.view.bounds;
-    webView.mediaPlaybackRequiresUserAction = NO;
-    [webView loadRequest:nsrequest];
-    [self.view addSubview:webView];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyBoardNameTV bundle: nil];
+    VideoPlayerViewController *controller = (VideoPlayerViewController *)[storyboard instantiateViewControllerWithIdentifier: @"videoWebView"];
+    controller.videoURL = url;
+    [[self navigationController] pushViewController:controller animated:YES] ;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -222,7 +216,7 @@ NSString *storyBoardNameTV;
                 }else{
                     
                     [self reloadHeadlinesDataFromArrayJson:arrayJson];
-                    NSLog(@"********++++ Lista videos json: %@",arrayJson);
+                    //NSLog(@"********++++ Lista videos json: %@",arrayJson);
                 }
             }
         });

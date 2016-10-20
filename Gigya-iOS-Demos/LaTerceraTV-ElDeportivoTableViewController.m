@@ -22,6 +22,7 @@
 #import "SVPullToRefresh.h"
 #import "ContentType.h"
 #import "BeneficioGeneralDestacadoTableViewCell.h"
+#import "VideoPlayerViewController.h"
 
 #define categorySlug @"El Deportivo"
 
@@ -172,9 +173,12 @@ NSString *storyBoardNameTVElDeportivo;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     VideoTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    cell.rudoPlayer.alpha = 1;
-    cell.rudoPlayer.userInteractionEnabled = YES;
-    [cell loadBanner];
+    NSString *url=cell.rudoVideoUrl;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyBoardNameTVElDeportivo bundle: nil];
+    VideoPlayerViewController *controller = (VideoPlayerViewController *)[storyboard instantiateViewControllerWithIdentifier: @"videoWebView"];
+    controller.videoURL = url;
+    [[self navigationController] pushViewController:controller animated:YES] ;
 }
 
 -(void)loadHeadlinesWithCategory:(int)idCategory{
@@ -212,7 +216,7 @@ NSString *storyBoardNameTVElDeportivo;
                 }else{
                     
                     [self reloadHeadlinesDataFromArrayJson:arrayJson];
-                    NSLog(@"********++++ Lista videos json: %@",arrayJson);
+                    //NSLog(@"********++++ Lista videos json: %@",arrayJson);
                 }
             }
         });

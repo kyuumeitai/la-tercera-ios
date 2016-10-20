@@ -2344,7 +2344,7 @@ REGISTRARSE?</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER8-1c-Zvq">
-                                <frame key="frameInset" width="375" height="1000"/>
+                                <frame key="frameInset" width="375" height="667"/>
                                 <string key="text">Ahora puedes disfrutar
 de tu descuento.</string>
                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
@@ -2380,7 +2380,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUs-eN-dpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4895" y="2438"/>
+            <point key="canvasLocation" x="4414" y="2476"/>
         </scene>
         <!--Noticias Home View Controller-->
         <scene sceneID="lkj-LX-C17">
@@ -3274,7 +3274,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qz9-lx-yC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848.5" y="781.5"/>
+            <point key="canvasLocation" x="1985" y="788"/>
         </scene>
         <!--Mostrar Tarjeta-->
         <scene sceneID="H13-OG-pgI">
@@ -4800,7 +4800,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvz-R7-RXo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="359" y="698"/>
+            <point key="canvasLocation" x="1110" y="782"/>
         </scene>
         <!--Ventas Especiales-->
         <scene sceneID="Zsp-HX-ZHJ">
@@ -8961,6 +8961,50 @@ de La Tercera</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQu-3Q-DpA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-6458" y="7954"/>
+        </scene>
+        <!--Video Player-->
+        <scene sceneID="UUq-PT-Mp8">
+            <objects>
+                <viewController storyboardIdentifier="videoWebView" title="Video Player" wantsFullScreenLayout="YES" id="wAr-bZ-4GC" customClass="VideoPlayerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="94g-Cg-581"/>
+                        <viewControllerLayoutGuide type="bottom" id="3ub-8G-4R2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UGd-bP-Oyv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70s-cf-a6J">
+                                <frame key="frameInset" minY="69" width="375" height="598"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="UGd-bP-Oyv" id="aPE-kO-feR"/>
+                                </connections>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRz-kw-UIY">
+                                <frame key="frameInset" minX="324" minY="24" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="abckButton:" destination="wAr-bZ-4GC" eventType="touchUpInside" id="AhM-VC-06k"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="videoWebView" destination="70s-cf-a6J" id="8y4-pn-w4I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nPE-2A-SnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5644" y="780.35982008995506"/>
         </scene>
     </scenes>
     <resources>
