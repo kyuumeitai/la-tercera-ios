@@ -282,6 +282,8 @@
 		173A31281D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173A31261D2CAB5A0052D9F2 /* LaTerceraStoryboard-iPhone4.storyboard */; };
 		17416A111DB3C785002D23C4 /* DetalleEventosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17416A101DB3C785002D23C4 /* DetalleEventosViewController.m */; };
 		17416A121DB3C785002D23C4 /* DetalleEventosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17416A101DB3C785002D23C4 /* DetalleEventosViewController.m */; };
+		1755C2561DB9E4B900A552E0 /* FPScrollingBanner in Resources */ = {isa = PBXBuildFile; fileRef = 1755C2551DB9E4B900A552E0 /* FPScrollingBanner */; };
+		1755C2571DB9E4B900A552E0 /* FPScrollingBanner in Resources */ = {isa = PBXBuildFile; fileRef = 1755C2551DB9E4B900A552E0 /* FPScrollingBanner */; };
 		175E1D7C1D6BA208007D4739 /* FavoritoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 175E1D7B1D6BA208007D4739 /* FavoritoDetailViewController.m */; };
 		175E1D7D1D6BA208007D4739 /* FavoritoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 175E1D7B1D6BA208007D4739 /* FavoritoDetailViewController.m */; };
 		175F13651CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 175F13641CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m */; };
@@ -916,6 +918,7 @@
 		17416A0E1DB3C154002D23C4 /* La Tercera App.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "La Tercera App.entitlements"; sourceTree = "<group>"; };
 		17416A0F1DB3C785002D23C4 /* DetalleEventosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleEventosViewController.h; sourceTree = "<group>"; };
 		17416A101DB3C785002D23C4 /* DetalleEventosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalleEventosViewController.m; sourceTree = "<group>"; };
+		1755C2551DB9E4B900A552E0 /* FPScrollingBanner */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FPScrollingBanner; sourceTree = "<group>"; };
 		175E1D7A1D6BA208007D4739 /* FavoritoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritoDetailViewController.h; sourceTree = "<group>"; };
 		175E1D7B1D6BA208007D4739 /* FavoritoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritoDetailViewController.m; sourceTree = "<group>"; };
 		175F13641CCEDD4C00DBF7CD /* CustomButtonTerceraDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButtonTerceraDemo.m; sourceTree = "<group>"; };
@@ -2860,6 +2863,7 @@
 		D0E84DCF1C9B089300FDE6D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1755C2551DB9E4B900A552E0 /* FPScrollingBanner */,
 				D04B936D1D35710D00EBEA1D /* PullToUpdate */,
 				D0FB93401CAACB4700928159 /* Tools */,
 				1777237E1C72EF600075DFBE /* Libraries */,
@@ -3555,6 +3559,7 @@
 				D0107A511D2ABAE200C9B4D8 /* Icon-40@2x.png in Resources */,
 				1702BDF61CB093E400F26F42 /* imagenPlaceholderSabores@3x.png in Resources */,
 				1702BDF71CB093E400F26F42 /* botonTodosOn@3x.png in Resources */,
+				1755C2571DB9E4B900A552E0 /* FPScrollingBanner in Resources */,
 				D0107A2D1D2ABAE200C9B4D8 /* Icon-60@3x.png in Resources */,
 				1702BDF81CB093E400F26F42 /* BeneficiosCerca.png in Resources */,
 				1702BDF91CB093E400F26F42 /* imagenDestacada.png in Resources */,
@@ -3663,6 +3668,7 @@
 				D06F17B01D5A3970005CA711 /* comoFunciona7@3x.png in Resources */,
 				D0DB18F41CB3F6E900A0BBC5 /* banner.png in Resources */,
 				172B6A761D5AC2B3005A857B /* LTLaunchScreen.storyboard in Resources */,
+				1755C2561DB9E4B900A552E0 /* FPScrollingBanner in Resources */,
 				D0107A321D2ABAE200C9B4D8 /* Icon-16.png in Resources */,
 				D06F17D31D5A6D56005CA711 /* 320x480.png in Resources */,
 				D00D40F21D46662E00D0EC7F /* BeneficioGeneralTableViewCell.xib in Resources */,
@@ -4194,7 +4200,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
 				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = "@loader_path/Frameworks @executable_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

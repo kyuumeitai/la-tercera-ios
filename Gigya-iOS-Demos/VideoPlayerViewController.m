@@ -7,6 +7,7 @@
 //
 
 #import "VideoPlayerViewController.h"
+#import "AppDelegate.h"
 
 @interface VideoPlayerViewController ()
 
@@ -19,12 +20,12 @@
     NSLog(@"Aca estaa");
     
     NSString *fullURL = self.videoURL;
-    NSURL *url = [NSURL URLWithString:fullURL];
+    
+    NSString *embedHTML =[NSString stringWithFormat:@"%@?autoplay=1",fullURL];
+    NSURL *url = [NSURL URLWithString:embedHTML];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    _videoWebView.scalesPageToFit = YES;
-    _videoWebView.mediaPlaybackRequiresUserAction = NO;
-    _videoWebView.allowsInlineMediaPlayback = NO;
     [_videoWebView loadRequest:requestObj];
+
 
    /*
     NSURL *nsurl=[NSURL URLWithString:@"www.google.cl"];
@@ -36,6 +37,10 @@
     [_videoWebView loadRequest:nsrequest];
     // Do any additional setup after loading the view.
     */
+}
+
+-(void) viewWillDisappear:(BOOL)animated{
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,5 +61,7 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+-(BOOL)shouldAutorotate{
+    return YES;
+}
 @end
