@@ -132,36 +132,70 @@ NSString *storyBoardNameTV;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *simpleTableIdentifier = @"videoTableViewCell";
-    NSArray *nib;
-    Video *video = (Video*)[laTerceraTVArray objectAtIndex:indexPath.row ];
-        //CollectionViewCellBanner *celdaBanner = (CollectionViewCellBanner*)[self.tableView dequeueReusableCellWithIdentifier:reuseIdentifierBanner];
-
-    VideoTableViewCell *cell = (VideoTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    static NSString *simpleTableIdentifier45 = @"videoTableViewCell4-5";
     
-    if (cell == nil)
-    {
-        cell = [self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-
-        if([storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            nib = [[NSBundle mainBundle] loadNibNamed:@"VideoTableViewCell4-5" owner:self options:nil];
-        }else{
-            
-            nib = [[NSBundle mainBundle] loadNibNamed:@"VideoTableViewCell" owner:self options:nil];
-        }
-        cell = [nib objectAtIndex:0];
+    UINib *nib = [UINib nibWithNibName:@"VideoTableViewCell45" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:simpleTableIdentifier45];
+    
+    UINib *nib2 = [UINib nibWithNibName:@"VideoTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib2 forCellReuseIdentifier:simpleTableIdentifier];
+    
+    Video *video = (Video*)[laTerceraTVArray objectAtIndex:indexPath.row ];
+    
+    if([storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        
+        VideoTableViewCell *cell  = (VideoTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier45];
         
         cell.labelTituloVideo.text = video.title;
         cell.labelSummary.text = video.summary;
         cell.rudoVideoUrl = video.link;
-       // NSLog(@"Video URL: %@",video.imagenThumbString);
-        cell.imageViewThumb.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:video.imagenThumbString]]];
-       // [cell loadBanner];
         
-  
+        // Load the image with an GCD block executed in another thread
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:video.imagenThumbString]];
+            
+            if (data) {
+                UIImage *offersImage = [UIImage imageWithData:data];
+                if (offersImage) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        VideoTableViewCell *updateCell = (VideoTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+                        updateCell.imageViewThumb.image  = offersImage;
+                        
+                    });
+                }
+            }
+        });
         
+        return cell;
+        
+    }else{
+        
+        VideoTableViewCell *cell  = (VideoTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        
+        cell.labelTituloVideo.text = video.title;
+        cell.labelSummary.text = video.summary;
+        cell.rudoVideoUrl = video.link;
+        // NSLog(@"Video URL: %@",video.imagenThumbString);
+        // Load the image with an GCD block executed in another thread
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:video.imagenThumbString]];
+            
+            if (data) {
+                UIImage *offersImage = [UIImage imageWithData:data];
+                if (offersImage) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        VideoTableViewCell *updateCell = (VideoTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+                        updateCell.imageViewThumb.image  = offersImage;
+                        
+                    });
+                }
+            }
+        });
+        
+        return cell;
     }
-
-    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

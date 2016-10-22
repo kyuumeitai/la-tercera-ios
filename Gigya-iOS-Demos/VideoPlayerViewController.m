@@ -8,6 +8,7 @@
 
 #import "VideoPlayerViewController.h"
 #import "AppDelegate.h"
+#import "MediaPlayer/MediaPlayer.h"
 
 @interface VideoPlayerViewController ()
 
@@ -19,13 +20,15 @@
     [super viewDidLoad];
     NSLog(@"Aca estaa");
     
+
+    
     NSString *fullURL = self.videoURL;
     
-    NSString *embedHTML =[NSString stringWithFormat:@"%@?autoplay=1",fullURL];
-    NSURL *url = [NSURL URLWithString:embedHTML];
+    
+    NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [_videoWebView loadRequest:requestObj];
-
+    
 
    /*
     NSURL *nsurl=[NSURL URLWithString:@"www.google.cl"];
@@ -37,6 +40,21 @@
     [_videoWebView loadRequest:nsrequest];
     // Do any additional setup after loading the view.
     */
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:NO];
+    [UIView setAnimationsEnabled:NO];
+    
+    // Stackoverflow #26357162 to force orientation
+    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
+    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+}
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [UIViewController attemptRotationToDeviceOrientation];
 }
 
 -(void) viewWillDisappear:(BOOL)animated{
@@ -61,6 +79,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationLandscapeRight;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return (UIInterfaceOrientationPortrait | UIInterfaceOrientationPortrait);
+}
 -(BOOL)shouldAutorotate{
     return YES;
 }
