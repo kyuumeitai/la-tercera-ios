@@ -140,6 +140,8 @@ NSString *storyBoardNameTV;
     
     if (cell == nil)
     {
+        cell = [self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+
         if([storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameTV isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             nib = [[NSBundle mainBundle] loadNibNamed:@"VideoTableViewCell4-5" owner:self options:nil];
         }else{
@@ -155,7 +157,7 @@ NSString *storyBoardNameTV;
         cell.imageViewThumb.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:video.imagenThumbString]]];
        // [cell loadBanner];
         
-        return cell;
+  
         
     }
 
@@ -301,7 +303,7 @@ NSString *storyBoardNameTV;
         [weakSelf.tableView.infiniteScrollingView stopAnimating];
         NSLog(@"LA cantidad es: %lu",(unsigned long)laTerceraTVArray.count);
     }
-    NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
+    NSLog(@" ******* RELOAD DATA TABLEEE Home ****** ----------------------");
 }
 
 

@@ -143,6 +143,8 @@ NSString *storyBoardNameTVDeportes;
     
     if (cell == nil)
     {
+        cell = [self.tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+
         if([storyBoardNameTVDeportes isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameTVDeportes isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             nib = [[NSBundle mainBundle] loadNibNamed:@"VideoTableViewCell4-5" owner:self options:nil];
         }else{
@@ -303,7 +305,7 @@ NSString *storyBoardNameTVDeportes;
         [weakSelf.tableView.infiniteScrollingView stopAnimating];
         NSLog(@"LA cantidad es: %lu",(unsigned long)laTerceraTVDeportesArray.count);
     }
-    NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
+    NSLog(@" ******* RELOAD DATA TABLEEE Deportes ****** ----------------------");
 }
 
 

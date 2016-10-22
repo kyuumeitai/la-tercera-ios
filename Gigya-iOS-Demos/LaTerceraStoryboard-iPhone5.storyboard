@@ -7975,6 +7975,50 @@ de La Tercera</string>
             </objects>
             <point key="canvasLocation" x="-6458" y="7954"/>
         </scene>
+        <!--Video Player-->
+        <scene sceneID="1Rw-vo-VGN">
+            <objects>
+                <viewController storyboardIdentifier="videoWebView" title="Video Player" wantsFullScreenLayout="YES" id="3dY-VS-89d" customClass="VideoPlayerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0oq-nv-8ig"/>
+                        <viewControllerLayoutGuide type="bottom" id="69q-lF-1XJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VAJ-aE-fYQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView opaque="NO" contentMode="top" fixedFrame="YES" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbz-6b-bRC">
+                                <frame key="frameInset" minY="69" width="316" height="499"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="VAJ-aE-fYQ" id="nmt-zu-BNY"/>
+                                </connections>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lS4-4G-noD">
+                                <frame key="frameInset" minX="257" minY="20" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="abckButton:" destination="3dY-VS-89d" eventType="touchUpInside" id="1Yg-R6-Gi9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="videoWebView" destination="Pbz-6b-bRC" id="PsC-i6-Dbe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YKm-Cj-lVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5643.75" y="779.57746478873241"/>
+        </scene>
     </scenes>
     <resources>
         <image name=" " width="360" height="640"/>

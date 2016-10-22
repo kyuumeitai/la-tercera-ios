@@ -80,7 +80,7 @@
     // SetUp ViewControllers
     LaTerceraTVHomeViewController *ltTVHomeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVHome"];
     
-    LaTerceraTVTerceraVozViewController *ltTVTerceraVozVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVTerceraVoz"];
+    //LaTerceraTVTerceraVozViewController *ltTVTerceraVozVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVTerceraVoz"];
 
     LaTerceraTVActualidadViewController *ltTVActualidadVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVActualidad"];
 
@@ -122,9 +122,9 @@
              ltTVHomeVC.title = @"Principal";
         }
         
-        if([slug isEqualToString:@"3a VOZ"]){
-            ltTVTerceraVozVC.title = contenido.contentTitle;
-        }
+        //if([slug isEqualToString:@"3a VOZ"]){
+        //    ltTVTerceraVozVC.title = contenido.contentTitle;
+        //}
         if([slug isEqualToString:@"Actualidad"]){
             ltTVActualidadVC.title = contenido.contentTitle;
         }
@@ -165,9 +165,11 @@
     
     float headerSpace = 5.0;
     
-        YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVHomeVC,ltTVEnDirectoVC,ltTVEntretencionVC,ltTVMouseVC,ltTVReportajesVC,ltTVSeriesVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
+       // YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVHomeVC,ltTVEnDirectoVC,ltTVEntretencionVC,ltTVMouseVC,ltTVReportajesVC,ltTVSeriesVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
   
-    //YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVHomeVC,ltTVActualidadVC,ltTVDebatesVC,ltTVDeportesVC,ltTVElDeportivoVC,ltTVEnDirectoVC,ltTVEntretencionVC,ltTVMouseVC,ltTVReportajesVC,ltTVSeriesVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
+   //YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVHomeVC,ltTVActualidadVC,ltTVDebatesVC,ltTVDeportesVC,ltTVElDeportivoVC,ltTVEnDirectoVC,ltTVEntretencionVC,ltTVMouseVC,ltTVReportajesVC,ltTVSeriesVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
+    
+       YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVHomeVC,ltTVActualidadVC,ltTVDebatesVC,ltTVDeportesVC,ltTVElDeportivoVC,ltTVEnDirectoVC,ltTVEntretencionVC,ltTVMouseVC,ltTVSeriesVC]                                                                                            topBarHeight:headerSpace     parentViewController:self];
   
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
