@@ -114,6 +114,30 @@ BOOL forAnonimo = false;
     
 }
 
+-(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore  andAddress:(NSString*)_address  andLocation:(CLLocation*)_location {
+    
+    NSLog(@"Load category benefits");
+    
+    self.benefitAddress = _address;
+    self.benefitLocation = _location;
+    NSLog(@"La store es%@ y la direccion es: %@",_idStore, _address);
+    // IMPORTANT - Only update the UI on the main thread
+    // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
+    
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    BOOL estaConectado = [connectionManager verifyConnection];
+    NSLog(@"Verificando conexión: %d",estaConectado);
+    [connectionManager getBenefitWithBenefitId:^(BOOL success, NSArray *arrayJson, NSError *error){
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!success) {
+                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+            } else {
+                [self reloadBenefitsDataFromService:arrayJson];
+            }
+        });
+    }:idBenefit];
+}
 -(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore {
 
     NSLog(@"Load category benefits");

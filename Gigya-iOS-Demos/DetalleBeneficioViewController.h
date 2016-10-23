@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface DetalleBeneficioViewController : UIViewController
 
@@ -22,6 +23,7 @@
 @property (strong,nonatomic) UIImage* benefitImage;
  
 @property (weak, nonatomic) IBOutlet UILabel *profileBenefitLabel;
+@property (strong,nonatomic) CLLocation* benefitLocation;
 
 @property (weak, nonatomic) IBOutlet UILabel *expiredDateLabel;
 
@@ -36,5 +38,6 @@
 -(void)loadBenefitForBenefitId:(int)idBenefit;
 -(void)loadContestForContestId:(int)idContest;
 -(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore andRelatedCommerce:(int)relatedCommerce;
+-(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore  andAddress:(NSString*)_address  andLocation:(CLLocation*)_location;
 -(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore;
 @end

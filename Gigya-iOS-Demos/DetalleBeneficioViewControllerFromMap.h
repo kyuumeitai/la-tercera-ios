@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface DetalleBeneficioViewControllerFromMap : UIViewController
 
@@ -15,6 +16,7 @@
 @property (strong,nonatomic) NSString* benefitSubtitle;
 @property (strong,nonatomic) NSString* benefitDiscount;
 @property (strong,nonatomic) NSString* benefitAddress;
+@property (strong,nonatomic) CLLocation* benefitLocation;
 @property (strong,nonatomic) NSString* benefitDescription;
 @property (strong,nonatomic) UIImage* benefitImage;
  
@@ -28,5 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *benefitImageView;
 
 -(void)loadBenefitForBenefitId:(int)idBenefit;
--(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore;
+//-(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore;
+-(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore  andAddress:(NSString*)_address  andLocation:(CLLocation*)_location;
+
 @end

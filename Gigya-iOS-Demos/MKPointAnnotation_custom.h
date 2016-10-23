@@ -15,4 +15,6 @@
 @property (nonatomic,strong) NSString * normalImageString;
 @property (nonatomic,strong) NSString * benefitTitle;
 @property (nonatomic,strong) NSString * DescText;
+@property (nonatomic,strong) NSString * StoreAddress;
+@property (readonly, nonatomic) CLLocation * location;
 @end
