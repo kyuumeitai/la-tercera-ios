@@ -108,7 +108,7 @@ int cuenta;
 -(void) loadStoresPin{
     for (Store *tienda in storeItemsArray) {
         
-        // Add an annotation
+        // Add an annotation ok
         MKPointAnnotation_custom *point = [[MKPointAnnotation_custom alloc] init];
         point.coordinate = tienda.storeLocation;
         point.title = tienda.storeDescription;
