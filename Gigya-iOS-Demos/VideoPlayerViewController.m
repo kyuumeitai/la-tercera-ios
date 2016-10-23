@@ -47,8 +47,8 @@
     [UIView setAnimationsEnabled:NO];
     
     // Stackoverflow #26357162 to force orientation
-    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
-    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+   // NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
+   // [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
 }
 - (void) viewDidAppear:(BOOL)animated
 {
@@ -78,7 +78,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
     return UIInterfaceOrientationLandscapeRight;
 }
@@ -89,4 +88,14 @@
 -(BOOL)shouldAutorotate{
     return YES;
 }
+func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
+    if let topController = UIViewController.topMostViewController() {
+        if topController is XXViewController {
+            return [.Portrait, .LandscapeLeft]
+        }
+    }
+    return [.Portrait]
+}
+ */
+
 @end

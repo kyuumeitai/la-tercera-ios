@@ -15,6 +15,8 @@
 #import "CVEdicionEspecial.h"
 #import "CVElDeportivo.h"
 #import "CVNegocios.h"
+#import "PapelDigitalLaTerceraViewController.h"
+#import "PapelDigitalNegociosViewController.h"
 
 #import "InfantilContainerVC.h"
 #import "InfantilTableViewController.h"
@@ -33,7 +35,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+        [self setupNewsCategory];
     //[SVProgressHUD show];
     //[self loadPaper];
     //[SVProgressHUD setStatus:@"Obteniendo categorías disponibles"];
@@ -49,7 +51,7 @@
     [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 
     
-    [self setupNewsCategory];
+
     //[self loadWeb];
     // NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
     // Do any additional setup after loading the view.
@@ -71,20 +73,25 @@
     
     CVNegocios *newsNegocios = [self.storyboard instantiateViewControllerWithIdentifier:@"newsSectionNegocios"];
     newsNegocios.title = @"Negocios";
+
+    //PapelDigitalLaTerceraViewController *papelLaTercera = [self.storyboard instantiateViewControllerWithIdentifier:@"papelLaTercera"];
+    //papelLaTercera.title = @"La Tercera";
     
+    //PapelDigitalNegociosViewController *papelNegocios = [self.storyboard instantiateViewControllerWithIdentifier:@"papelNegocios"];
+    //papelNegocios.title = @"Negocios";
     
     // ContainerView
-    //float statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
-    //float navigationHeight = self.navigationController.navigationBar.frame.size.height;
+
     float headerSpace = 5.0;
-    YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsLaTercera,newsElDeportivo,newsEdicionEspecial,newsNegocios]    topBarHeight:headerSpace                                                                                parentViewController:self selectedIndex:0];
+   // YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsLaTercera,newsElDeportivo,newsEdicionEspecial,newsNegocios]    topBarHeight:headerSpace                                                                                parentViewController:self selectedIndex:0];
+    YSLContainerViewController *containerPapelVC = [[YSLContainerViewController alloc]initWithControllers:@[newsLaTercera,newsNegocios,newsElDeportivo,newsEdicionEspecial]                                                                                        topBarHeight:headerSpace     parentViewController:self];
     
-    containerVC.delegate = self;
+    containerPapelVC.delegate = self;
     
     
-    containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
-    UIView *getView = (UIView*)[self.view viewWithTag:300];
-    [getView addSubview:containerVC.view];
+    containerPapelVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
+    UIView *getView2 = (UIView*)[self.view viewWithTag:300];
+    [getView2 addSubview:containerPapelVC.view];
     
     
 }

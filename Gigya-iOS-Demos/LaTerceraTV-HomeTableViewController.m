@@ -23,6 +23,7 @@
 #import "ContentType.h"
 #import "BeneficioGeneralDestacadoTableViewCell.h"
 #import "VideoPlayerViewController.h"
+#import "SVProgressHUD.h"
 
 #define categorySlug @"terceratv"
 
@@ -54,7 +55,11 @@ NSString *yearTV;
 NSString *storyBoardNameTV;
 
 - (void)viewDidLoad {
+    
+            [SVProgressHUD showWithStatus:@"Obteniendo listado de videos" maskType:SVProgressHUDMaskTypeClear];
+    
     [super viewDidLoad];
+    self.view.alpha = 0.0;
     SessionManager *sesion = [SessionManager session];
     storyBoardNameTV = sesion.storyBoardName;
     
@@ -226,6 +231,10 @@ NSString *storyBoardNameTV;
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
     NSLog(@"Verificando conexión: %d",estaConectado);
+    
+    if (estaConectado){
+
+
     [connectionManager getHeadlinesForCategoryId:^(BOOL success, NSArray *arrayJson, NSError *error){
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -257,6 +266,16 @@ NSString *storyBoardNameTV;
             }
         });
     }:idCategory andPage:currentPageNumberTV];
+        
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Requiere conexión a Internet"
+                                                        message:@"Conéctese a Internet."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+
+    }
     
 }
 
@@ -323,7 +342,7 @@ NSString *storyBoardNameTV;
                          }
                          completion:^(BOOL finished)
          {
-             //[SVProgressHUD dismiss];
+             [SVProgressHUD dismiss];
          }];
         firstTimeLaTerceraTV= false;
     }else{
