@@ -291,6 +291,7 @@ NSMutableArray *relatedIdsArrayVoces;
         
         CollectionViewCellGrande *cell;
         if([storyBoardNameVoces isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameVoces isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+            NSLog(@"Usaremos collectionView 4-5");
             cell  =  [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewGrande4-5" forIndexPath:indexPath];
             
         }else{
