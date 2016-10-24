@@ -1317,7 +1317,7 @@ REGISTRARSE?</string>
         <scene sceneID="C4h-Xp-o5n">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="SYc-4s-vqG" customClass="CVNoticiasInicio" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="C3w-uL-EQG">
+                    <collectionView key="view" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="C3w-uL-EQG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1325,11 +1325,11 @@ REGISTRARSE?</string>
                             <size key="itemSize" width="170" height="255"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="25"/>
+                            <inset key="sectionInset" minX="5" minY="10" maxX="5" maxY="25"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="e3j-e5-lYp">
-                                <rect key="frame" x="10" y="10" width="170" height="255"/>
+                                <rect key="frame" x="5" y="10" width="170" height="255"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="255"/>
@@ -1338,7 +1338,7 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.93388637506284555" green="0.95256410256410251" blue="0.95256410256410251" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EAD-N9-Kpt">
-                                <rect key="frame" x="195" y="10" width="170" height="255"/>
+                                <rect key="frame" x="200" y="10" width="170" height="255"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="255"/>
@@ -1359,7 +1359,7 @@ REGISTRARSE?</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Yg-W1-QeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3020" y="-2010"/>
+            <point key="canvasLocation" x="-3020" y="-2001"/>
         </scene>
         <!--DetalleNewsFavorito-->
         <scene sceneID="EAI-CS-DBR">
@@ -4398,7 +4398,7 @@ de La Tercera</string>
                             </view>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHN-qF-PEo">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="Mvu-Ws-Nfd"/>
+                                    <constraint firstAttribute="width" constant="58" id="f7h-dV-xnT"/>
                                 </constraints>
                                 <state key="normal" image="botonVolver.png"/>
                                 <connections>
@@ -4633,22 +4633,22 @@ de La Tercera</string>
                         <constraints>
                             <constraint firstItem="iPp-2u-3sT" firstAttribute="top" secondItem="A25-nD-T0v" secondAttribute="bottom" constant="2" id="1Ot-7E-1m4"/>
                             <constraint firstItem="A25-nD-T0v" firstAttribute="top" secondItem="AiX-zn-Vsh" secondAttribute="bottom" constant="6" id="5Zq-pE-h9x"/>
-                            <constraint firstItem="iHN-qF-PEo" firstAttribute="leading" secondItem="rC7-W4-HmS" secondAttribute="leadingMargin" constant="-8" id="5nM-w7-fx4"/>
                             <constraint firstItem="A25-nD-T0v" firstAttribute="leading" secondItem="rC7-W4-HmS" secondAttribute="leading" constant="185" id="9MH-Qk-y7g"/>
-                            <constraint firstItem="iHN-qF-PEo" firstAttribute="top" secondItem="AiX-zn-Vsh" secondAttribute="bottom" constant="4" id="9zs-df-DgO"/>
                             <constraint firstItem="UuJ-sS-xiT" firstAttribute="leading" secondItem="rC7-W4-HmS" secondAttribute="leading" id="B68-as-Svu"/>
                             <constraint firstAttribute="trailing" secondItem="UuJ-sS-xiT" secondAttribute="trailing" id="Dbh-Mx-UOi"/>
+                            <constraint firstItem="iHN-qF-PEo" firstAttribute="leading" secondItem="rC7-W4-HmS" secondAttribute="leadingMargin" constant="-12" id="IYv-hh-gWs"/>
                             <constraint firstItem="Sdi-WA-vxw" firstAttribute="top" secondItem="UuJ-sS-xiT" secondAttribute="bottom" constant="594" id="JR9-PE-f57"/>
                             <constraint firstItem="UuJ-sS-xiT" firstAttribute="leading" secondItem="iPp-2u-3sT" secondAttribute="leading" id="N33-gQ-AS9"/>
                             <constraint firstItem="UuJ-sS-xiT" firstAttribute="top" secondItem="rC7-W4-HmS" secondAttribute="top" id="RaL-W4-DNg"/>
                             <constraint firstItem="UuJ-sS-xiT" firstAttribute="trailing" secondItem="iPp-2u-3sT" secondAttribute="trailing" id="ZlI-17-Iaz"/>
+                            <constraint firstItem="iHN-qF-PEo" firstAttribute="top" secondItem="rC7-W4-HmS" secondAttribute="topMargin" constant="16" id="awh-eN-Nj4"/>
                             <constraint firstItem="A23-Bx-0vg" firstAttribute="leading" secondItem="rC7-W4-HmS" secondAttribute="leading" constant="215" id="e16-Pm-dmk"/>
                             <constraint firstItem="A25-nD-T0v" firstAttribute="centerY" secondItem="A23-Bx-0vg" secondAttribute="centerY" id="f6j-5H-h7g"/>
-                            <constraint firstItem="iPp-2u-3sT" firstAttribute="top" secondItem="iHN-qF-PEo" secondAttribute="bottom" constant="4" id="hK1-vM-603"/>
                             <constraint firstAttribute="trailingMargin" secondItem="A23-Bx-0vg" secondAttribute="trailing" constant="-11" id="jEJ-19-17m"/>
                             <constraint firstItem="A23-Bx-0vg" firstAttribute="top" secondItem="AiX-zn-Vsh" secondAttribute="bottom" constant="3" id="nl2-Ka-gXX"/>
                             <constraint firstAttribute="bottom" secondItem="iPp-2u-3sT" secondAttribute="bottom" constant="-400" id="qZd-a6-oCd"/>
                             <constraint firstItem="Sdi-WA-vxw" firstAttribute="top" secondItem="A23-Bx-0vg" secondAttribute="bottom" constant="599" id="xWa-uV-v4W"/>
+                            <constraint firstItem="iHN-qF-PEo" firstAttribute="bottom" secondItem="A23-Bx-0vg" secondAttribute="bottom" id="xcn-ZU-1uh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="M1R-tQ-Nzy"/>

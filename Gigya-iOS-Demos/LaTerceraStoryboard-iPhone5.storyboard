@@ -1081,26 +1081,26 @@ REGISTRARSE?</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="2" id="8ig-aJ-vrM">
-                            <size key="itemSize" width="170" height="267"/>
+                            <size key="itemSize" width="300" height="267"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="4" minY="10" maxX="4" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="e3j-e5-lYp">
-                                <rect key="frame" x="75" y="10" width="170" height="267"/>
+                                <rect key="frame" x="10" y="10" width="300" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="267"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
                                 <color key="backgroundColor" red="0.93388637506284555" green="0.95256410256410251" blue="0.95256410256410251" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EAD-N9-Kpt">
-                                <rect key="frame" x="75" y="281" width="170" height="267"/>
+                                <rect key="frame" x="10" y="281" width="300" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="267"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1673,7 +1673,7 @@ de tu descuento.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="RPf-QG-taP">
-                                <frame key="frameInset" width="320" height="86"/>
+                                <frame key="frameInset" width="320" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view tag="200" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gSK-Zv-hWo" userLabel="View Cat">
@@ -3150,7 +3150,7 @@ de La Tercera</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="vVb-H4-9pS">
-                                <frame key="frameInset" width="375" height="76"/>
+                                <frame key="frameInset" width="320" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view tag="100" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QBB-9u-i0c">
@@ -3167,9 +3167,18 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1QJ-VE-ros">
-                                <frame key="frameInset" minX="203" minY="33" width="165" height="27"/>
+                                <frame key="frameInset" minX="151" minY="33" width="169" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVl-YS-x1D">
+                                        <frame key="frameInset" minY="3" width="154" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.70226532220840454" green="0.15807917714118958" blue="0.17483633756637573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nq-QU-qSC">
                                 <frame key="frameInset" minX="3" minY="23" width="47" height="47"/>
@@ -3181,13 +3190,6 @@ de La Tercera</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="icon-lt.png"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Club de Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVl-YS-x1D">
-                                <frame key="frameInset" minX="163" minY="35" width="152" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -3200,7 +3202,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CzT-fh-rxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4659.375" y="-224.99999999999997"/>
+            <point key="canvasLocation" x="4659.375" y="-225"/>
         </scene>
         <!--Mostrar Beneficio Descuento Adicional-->
         <scene sceneID="FU3-KR-rcz">
@@ -3327,14 +3329,6 @@ de La Tercera</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHN-qF-PEo">
-                                <frame key="frameInset" minX="8" minY="24" width="45" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="botonVolver.png"/>
-                                <connections>
-                                    <action selector="backPressed:" destination="Q1O-Q2-TSV" eventType="touchUpInside" id="6k9-qA-4OY"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A25-nD-T0v">
                                 <frame key="frameInset" minX="185" minY="26" width="45" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3514,8 +3508,22 @@ de La Tercera</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
+                            <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHN-qF-PEo">
+                                <frame key="frameInset" minX="4" minY="16" width="58" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="Vkx-ul-vAN"/>
+                                </constraints>
+                                <state key="normal" image="botonVolver.png"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="Q1O-Q2-TSV" eventType="touchUpInside" id="6k9-qA-4OY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iHN-qF-PEo" firstAttribute="top" secondItem="rC7-W4-HmS" secondAttribute="topMargin" constant="16" id="OuH-wd-Sih"/>
+                            <constraint firstItem="iHN-qF-PEo" firstAttribute="leading" secondItem="rC7-W4-HmS" secondAttribute="leadingMargin" constant="-12" id="l6J-6e-Gvt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="M1R-tQ-Nzy"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -3533,7 +3541,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPs-va-mbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5687" y="-193"/>
+            <point key="canvasLocation" x="5685.9375" y="-193.30985915492957"/>
         </scene>
         <!--Noticias Politica-->
         <scene sceneID="Jtf-eI-5B3">
@@ -5916,7 +5924,7 @@ de La Tercera</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wsd-B5-5GZ">
-                                <frame key="frameInset" minY="70" width="320" height="1022"/>
+                                <frame key="frameInset" minY="63" width="320" height="1029"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="imagenEvento3.png" translatesAutoresizingMaskIntoConstraints="NO" id="dJj-vd-9bP">
                                         <rect key="frame" x="0.0" y="-7" width="320" height="192"/>
@@ -6143,10 +6151,9 @@ de La Tercera</string>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLTRoja.png" translatesAutoresizingMaskIntoConstraints="NO" id="dzp-LZ-aqw"/>
-                            <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15W-cJ-RXA">
-                                <frame key="frameInset" minX="4" minY="16" width="58" height="55"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15W-cJ-RXA">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="y06-pa-cQu"/>
+                                    <constraint firstAttribute="width" constant="58" id="Ioa-70-sph"/>
                                 </constraints>
                                 <state key="normal" image="botonVolver.png"/>
                                 <connections>
@@ -6154,6 +6161,9 @@ de La Tercera</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRd-fV-pee">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="Yce-wF-nSs"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" image="usar-beneficio.png"/>
                                 <connections>
@@ -6162,7 +6172,7 @@ de La Tercera</string>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yh7-3u-oBE">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="r7M-P6-kZj"/>
+                                    <constraint firstAttribute="width" constant="54" id="rkK-F4-kUd"/>
                                 </constraints>
                                 <state key="normal" image="BotonShare.png"/>
                                 <connections>
@@ -6172,24 +6182,22 @@ de La Tercera</string>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dzp-LZ-aqw" firstAttribute="trailing" secondItem="wsd-B5-5GZ" secondAttribute="trailing" id="5kb-Zz-1p6"/>
-                            <constraint firstItem="yh7-3u-oBE" firstAttribute="top" secondItem="dzp-LZ-aqw" secondAttribute="bottom" constant="-56" id="67Z-0a-AfO"/>
-                            <constraint firstItem="DRd-fV-pee" firstAttribute="top" secondItem="dzp-LZ-aqw" secondAttribute="bottom" constant="-57" id="9Cy-xK-vC1"/>
-                            <constraint firstItem="DRd-fV-pee" firstAttribute="leading" secondItem="yh7-3u-oBE" secondAttribute="trailing" constant="8" id="A2N-Qi-3Nc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DRd-fV-pee" secondAttribute="trailing" constant="-11" id="Hll-3f-cLX"/>
-                            <constraint firstItem="dzp-LZ-aqw" firstAttribute="leading" secondItem="Cal-82-IdQ" secondAttribute="leading" id="L2e-xZ-ijB"/>
-                            <constraint firstItem="yh7-3u-oBE" firstAttribute="leading" secondItem="15W-cJ-RXA" secondAttribute="trailing" constant="55" id="M2R-pX-zuH"/>
+                            <constraint firstItem="dzp-LZ-aqw" firstAttribute="leading" secondItem="Cal-82-IdQ" secondAttribute="leading" id="GTC-CN-eax"/>
+                            <constraint firstItem="dzp-LZ-aqw" firstAttribute="leading" secondItem="wsd-B5-5GZ" secondAttribute="leading" id="J5g-ms-d6S"/>
                             <constraint firstItem="lFi-Zd-9uj" firstAttribute="top" secondItem="wsd-B5-5GZ" secondAttribute="bottom" constant="8" id="Nzh-IT-Uxt"/>
-                            <constraint firstItem="lFi-Zd-9uj" firstAttribute="top" secondItem="DRd-fV-pee" secondAttribute="bottom" constant="496" id="QXr-SZ-YGh"/>
-                            <constraint firstItem="yh7-3u-oBE" firstAttribute="baseline" secondItem="DRd-fV-pee" secondAttribute="baseline" id="UOI-Su-Ryh"/>
-                            <constraint firstItem="15W-cJ-RXA" firstAttribute="leading" secondItem="Cal-82-IdQ" secondAttribute="leadingMargin" constant="-12" id="X6E-CO-ddV"/>
-                            <constraint firstItem="15W-cJ-RXA" firstAttribute="top" secondItem="dzp-LZ-aqw" secondAttribute="bottom" constant="-60" id="Yvg-K9-h5X"/>
-                            <constraint firstAttribute="trailing" secondItem="dzp-LZ-aqw" secondAttribute="trailing" id="ZpN-9p-qVt"/>
-                            <constraint firstItem="15W-cJ-RXA" firstAttribute="top" secondItem="q6I-Le-e3g" secondAttribute="bottom" constant="-4" id="cGQ-U4-4g8"/>
-                            <constraint firstItem="dzp-LZ-aqw" firstAttribute="top" secondItem="Cal-82-IdQ" secondAttribute="top" id="ezk-JF-7Mz"/>
-                            <constraint firstItem="dzp-LZ-aqw" firstAttribute="leading" secondItem="wsd-B5-5GZ" secondAttribute="leading" id="hMY-uF-fID"/>
-                            <constraint firstItem="wsd-B5-5GZ" firstAttribute="top" secondItem="15W-cJ-RXA" secondAttribute="bottom" constant="-1" id="mU5-kP-pQp"/>
-                            <constraint firstItem="lFi-Zd-9uj" firstAttribute="top" secondItem="yh7-3u-oBE" secondAttribute="bottom" constant="498" id="oFx-cC-iLT"/>
+                            <constraint firstItem="dzp-LZ-aqw" firstAttribute="top" secondItem="Cal-82-IdQ" secondAttribute="top" id="RJf-h9-N3j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DRd-fV-pee" secondAttribute="trailing" constant="-11" id="UoT-BF-JhC"/>
+                            <constraint firstItem="DRd-fV-pee" firstAttribute="leading" secondItem="yh7-3u-oBE" secondAttribute="trailing" constant="8" symbolic="YES" id="VlO-c9-c96"/>
+                            <constraint firstItem="wsd-B5-5GZ" firstAttribute="top" secondItem="yh7-3u-oBE" secondAttribute="bottom" constant="5" id="ZUa-oU-Mic"/>
+                            <constraint firstItem="wsd-B5-5GZ" firstAttribute="top" secondItem="DRd-fV-pee" secondAttribute="bottom" constant="3" id="b8o-rU-X2o"/>
+                            <constraint firstItem="yh7-3u-oBE" firstAttribute="leading" secondItem="15W-cJ-RXA" secondAttribute="trailing" constant="77" id="hOg-me-cyp"/>
+                            <constraint firstItem="15W-cJ-RXA" firstAttribute="top" secondItem="Cal-82-IdQ" secondAttribute="topMargin" constant="16" id="oP0-Ge-GTu"/>
+                            <constraint firstItem="lFi-Zd-9uj" firstAttribute="top" secondItem="15W-cJ-RXA" secondAttribute="bottom" constant="497" id="vuS-RP-G2A"/>
+                            <constraint firstItem="yh7-3u-oBE" firstAttribute="centerY" secondItem="DRd-fV-pee" secondAttribute="centerY" id="wua-bL-mB8"/>
+                            <constraint firstItem="DRd-fV-pee" firstAttribute="top" secondItem="q6I-Le-e3g" secondAttribute="bottom" constant="6" id="wzG-5O-bln"/>
+                            <constraint firstItem="dzp-LZ-aqw" firstAttribute="trailing" secondItem="wsd-B5-5GZ" secondAttribute="trailing" id="xac-9w-93C"/>
+                            <constraint firstAttribute="trailing" secondItem="dzp-LZ-aqw" secondAttribute="trailing" id="zfu-MM-9d0"/>
+                            <constraint firstItem="lFi-Zd-9uj" firstAttribute="top" secondItem="dzp-LZ-aqw" secondAttribute="bottom" constant="492" id="zup-zA-7js"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DgW-1J-opk"/>
@@ -7962,7 +7970,7 @@ de La Tercera</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeC-60-WmJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6458" y="7954"/>
+            <point key="canvasLocation" x="-6459" y="7935"/>
         </scene>
         <!--Video Player-->
         <scene sceneID="1Rw-vo-VGN">

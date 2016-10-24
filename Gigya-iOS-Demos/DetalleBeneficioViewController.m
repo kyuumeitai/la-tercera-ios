@@ -82,7 +82,8 @@ BOOL forAnonimo = false;
 
 
       CLLocationCoordinate2D coord2DSource = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude);
-    CLLocationCoordinate2D coord2DDestination = storeLocation;
+    CLLocationCoordinate2D coord2DDestination = CLLocationCoordinate2DMake(self.benefitLocation.coordinate.latitude, self.benefitLocation.coordinate.longitude);
+    
 
     [Tools openMapsAppWithSourceLocation:coord2DSource andDestinationLocation:coord2DDestination];
 }
@@ -116,13 +117,15 @@ BOOL forAnonimo = false;
 
 -(void)loadBenefitForBenefitId:(int)idBenefit andStore:(NSString*)_idStore  andAddress:(NSString*)_address  andLocation:(CLLocation*)_location {
     
-    NSLog(@"Load category benefits");
+    NSLog(@"Load category benefits from normal view");
     
     self.benefitAddress = _address;
     self.benefitLocation = _location;
-    NSLog(@"La store es%@ y la direccion es: %@",_idStore, _address);
+    NSLog(@"La store es: %@ y la direccion es: %@",_idStore, _address);
     // IMPORTANT - Only update the UI on the main thread
-    // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
+    // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles"
+   self.benefitAdressLabel.text = self.benefitAddress;
+//maskType:SVProgressHUDMaskTypeClear];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
@@ -222,7 +225,7 @@ BOOL forAnonimo = false;
 -(void) loadStoreDataFromService:(NSArray*)arrayJson{
     
     NSDictionary *storeDict = (NSDictionary*)arrayJson;
-
+/*
     NSString* address = [storeDict objectForKey:@"address"];
    // NSString* city = [storeDict objectForKey:@"city"];
     NSString* region = [storeDict objectForKey:@"region"];
@@ -232,7 +235,8 @@ BOOL forAnonimo = false;
     storeLocation = CLLocationCoordinate2DMake(latitud, longuitud);
     CLLocation *coordenadas = [[CLLocation alloc] initWithLatitude:latitud longitude:longuitud ];
     NSString * direccion = [NSString stringWithFormat:@"%@, Región %@",address,region];
-    self.benefitAdressLabel.text = direccion;
+ */
+    self.benefitAdressLabel.text = self.benefitAddress;
     self.benefitAdressLabel.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{ self.benefitAdressLabel.alpha = 1;}
@@ -240,7 +244,7 @@ BOOL forAnonimo = false;
     // NSLog(@"Geolocalizacion es: Latitud:%f, Longuitud:%f",coordenadas.latitude,coordenadas.longitude);
     SessionManager *sesion = [SessionManager session];
     CLLocation *userLocation = sesion.userLocation;
-    
+    CLLocation *coordenadas =self.benefitLocation;
     CLLocationDistance distanceMeters = [coordenadas distanceFromLocation:userLocation];
     //int kms = (int) (distanceMeters/1000);
 

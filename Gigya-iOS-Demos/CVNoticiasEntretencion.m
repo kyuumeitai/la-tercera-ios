@@ -425,7 +425,7 @@ NSMutableArray *relatedIdsArrayEntretencion;
     }
     
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
-        return CGSizeMake(350, 290);
+        return CGSizeMake(300, 290);
         
     }
     

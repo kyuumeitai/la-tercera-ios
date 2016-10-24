@@ -66,8 +66,10 @@ CLLocationCoordinate2D storeLocationFromMap;
     
     self.benefitAddress = _address;
     self.benefitLocation = _location;
-    NSLog(@"La store es%@ y la direccion es: %@",_idStore, _address);
+    
+    NSLog(@"La store es: %@ y la direccion es: %@",_idStore, _address);
     // IMPORTANT - Only update the UI on the main thread
+     self.benefitAdressLabel.text = self.benefitAddress;
     // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
@@ -121,6 +123,7 @@ CLLocationCoordinate2D storeLocationFromMap;
     //CLLocation *coordenadas = [[CLLocation alloc] initWithLatitude:latitud longitude:longuitud ];
     //NSString * direccion = [NSString stringWithFormat:@"%@, Región %@",address,region];
     //self.benefitAdressLabel.text = direccion;
+    self.benefitAdressLabel.text = self.benefitAddress;
     self.benefitAdressLabel.alpha = 0;
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{ self.benefitAdressLabel.alpha = 1;}
