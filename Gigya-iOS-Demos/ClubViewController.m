@@ -17,12 +17,14 @@
 #import "UsarBeneficioNoLogueado.h"
 #import "Tools.h"
 #import "Category.h"
-@interface ClubViewController ()
+#import "LCBannerView.h"
+@interface ClubViewController () <LCBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButtonClub;
+@property (nonatomic, weak) LCBannerView *bannerView1;
 @end
 
 @implementation ClubViewController
-@synthesize categoryItemsArray;
+@synthesize categoryItemsArray,starredItemsArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,10 +52,68 @@
     
     
     // Do any additional setup after loading the view.
-    
+  [self loadStarredBenefits];
 }
 
+-(void)bannerSetup{
+    
+    Benefit *beneficio = self.starredItemsArray[0];
+    /******************** internet ********************/
+    NSArray *URLs = @[@"http://www.w3schools.com/html/pic_mountain.jpg"];
+    
+    [_scrollViewBanner addSubview:({
+        
+        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, _scrollViewBanner.bounds.size.width, _scrollViewBanner.bounds.size.height)
+                                                            delegate:self
+                                                           imageName:@"imagenDestacada.png"
+                                                count:1
+                                                        timeInterval:100.0f
+                                       currentPageIndicatorTintColor:[UIColor whiteColor]
+                                              pageIndicatorTintColor:[UIColor grayColor]];
+        bannerView.hidePageControl = YES;
+        self.bannerView1 = bannerView;
+    })];
+    
+    [_bannerView1 addSubview:({
+        
+        UILabel *tituloBeneficio = [[UILabel alloc] initWithFrame:CGRectMake(10,  _scrollViewBanner.bounds.size.height - 90, _scrollViewBanner.bounds.size.width, 70.0f)];
+        tituloBeneficio.text = beneficio.title;
+        tituloBeneficio.textColor = [UIColor whiteColor];
+        tituloBeneficio.textAlignment = NSTextAlignmentLeft;
+        tituloBeneficio.font = [UIFont fontWithName:@"PT-Sans" size:30];
+        tituloBeneficio.numberOfLines = 1;
+        tituloBeneficio.shadowColor = [UIColor blackColor];
+        tituloBeneficio.shadowOffset = CGSizeMake(1,1);
+        tituloBeneficio;
+    })];
+    
+    [_bannerView1 addSubview:({
+        
+        UILabel *detalleBeneficio = [[UILabel alloc] initWithFrame:CGRectMake(10,  _scrollViewBanner.bounds.size.height - 40, _scrollViewBanner.bounds.size.width,80.0f)];
+        detalleBeneficio.text = beneficio.summary;
+        detalleBeneficio.textColor = [UIColor whiteColor];
+        detalleBeneficio.textAlignment = NSTextAlignmentLeft;
+        detalleBeneficio.font = [UIFont fontWithName:@"PT-Sans" size:10];
+        detalleBeneficio.numberOfLines = 4;
+        detalleBeneficio.shadowColor = [UIColor blackColor];
+        detalleBeneficio.shadowOffset = CGSizeMake(1,1);
+        detalleBeneficio;
+    })];
+    
+   
+}
 
+- (void)bannerView:(LCBannerView *)bannerView didClickedImageIndex:(NSInteger)index {
+    
+// TODO: Hacer la logica de abrir beneficio
+    
+    NSLog(@"Aca el lonyi apretó el beneficio %p at index: %d", bannerView, (int)index);
+}
+//
+//- (void)bannerView:(LCBannerView *)bannerView didScrollToIndex:(NSInteger)index {
+//
+//    NSLog(@"Delegate: Scrolled in %p to index: %d", bannerView, (int)index);
+//}
 
 -(void)requestLocation {
     
@@ -596,6 +656,121 @@
 
 }
 
+# pragma Connecction Stuffs
+-(void)loadStarredBenefits{
+    
+    NSLog(@"Load category benefits destacados");
+    // IMPORTANT - Only update the UI on the main thread
+
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    BOOL estaConectado = [connectionManager verifyConnection];
+    NSLog(@"Verificando conexión: %d",estaConectado);
+    
+    //for Paging purposes
+    
+    [connectionManager getStarredBenefits :^(BOOL success, NSArray *arrayJson, NSError *error){
+        
+ 
+        
+                                    [self reloadStarredBenefitsDataFromService:arrayJson];
+                    // NSLog(@"Lista jhson: %@",arrayJson);
+        
+    
+    }];
+    
+}
+
+-(void) reloadStarredBenefitsDataFromService:(NSArray*)arrayJson{
+    
+
+    //benefitsItemsArray5 = [[NSMutableArray alloc] init];
+    self.starredItemsArray = [[NSMutableArray alloc]init];
+    NSDictionary *tempDict = (NSDictionary*)arrayJson;
+    
+   // id benefits = [tempDict objectForKey:@"benefits"];
+    int count = 0;
+    for (id benefit in tempDict){
+        
+        id titleBen = [benefit objectForKey:@"title"];
+        int idBen =[ [benefit objectForKey:@"id"] intValue];;
+        //NSLog(@"idBen :%d",idBen);
+        id linkBen = [benefit objectForKey:@"url"] ;
+        id summaryBen = [benefit objectForKey:@"summary"] ;
+        id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
+        
+        Benefit *beneficio = [[Benefit alloc] init];
+        beneficio.idBen = idBen;
+        beneficio.title = titleBen;
+        beneficio.url = linkBen;
+        beneficio.summary= summaryBen;
+        beneficio.desclabel = benefitLabelBen;
+        
+        if([benefit objectForKey:@"image"] != [NSNull null]){
+            
+            NSString *imagenBen = [benefit objectForKey:@"image"] ;
+            beneficio.imagenNormalString = imagenBen;
+        }
+        
+        //Definitions
+        NSString * documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+
+        //Get Image
+        
+        NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
+        UIImage *imagenBeneficio = nil;
+        
+        //Now data is decoded. You can convert them to UIImage
+        imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
+        if(imagenBeneficio == nil)
+            imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+        //Save Image to Directory
+   
+        
+        [_bannerView1 addSubview:({
+            
+            UIImageView *imagenViewBeneficio = [[UIImageView alloc] initWithFrame:CGRectMake(0,  0, _scrollViewBanner.bounds.size.width, _scrollViewBanner.bounds.size.height)];
+            imagenViewBeneficio.image = imagenBeneficio;
+        imagenViewBeneficio;
+        })];
+        
+        
+        beneficio.imagenNormal = imagenBeneficio;
+        [beneficio logDescription];
+        [self.starredItemsArray addObject:beneficio];
+        [self bannerSetup];
+        }
+    
 
 
+    
+    NSLog(@" ******* RELOAD STARRED DATA TABLE Sabores ****** ----------------------");
+}
+
+//Error handler
+-(void) errorDetectedWithNSError:(NSError*) error{
+    
+    NSLog(@"Error obteniendo datos! El error es:  %@", [error localizedDescription]);
+    
+    //Escondemos el loading
+    [SVProgressHUD dismiss];
+    
+    //Damos explicaciones del caso
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Error obteniendo Datos"
+                          message:@"Ha ocurrido un error al obtener los datos. Reintente más tarde."
+                          delegate:nil //or self
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
+}
+
+-(void) saveImage:(UIImage *)image withFileName:(NSString *)imageName ofType:(NSString *)extension inDirectory:(NSString *)directoryPath {
+    if ([[extension lowercaseString] isEqualToString:@"png"]) {
+        [UIImagePNGRepresentation(image) writeToFile:[directoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", imageName, @"png"]] options:NSAtomicWrite error:nil];
+    } else if ([[extension lowercaseString] isEqualToString:@"jpg"] || [[extension lowercaseString] isEqualToString:@"jpeg"]) {
+        [UIImageJPEGRepresentation(image, 1.0) writeToFile:[directoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", imageName, @"jpg"]] options:NSAtomicWrite error:nil];
+    } else {
+        NSLog(@"Image Save Failed\nExtension: (%@) is not recognized, use (PNG/JPG)", extension);
+    }
+}
 @end
