@@ -32,7 +32,7 @@
     //[self loadCategories];
     // Do any additional setup after loading the view.
     
-    NSLog(@"Club View Controller loaded");
+    NSLog(@"Club View Controller loaded and fonts are: %@",[UIFont familyNames]);
     
     //Creamos el singleton
   
@@ -57,57 +57,25 @@
 
 -(void)bannerSetup{
     
-    Benefit *beneficio = self.starredItemsArray[0];
-    /******************** internet ********************/
-    NSArray *URLs = @[@"http://www.w3schools.com/html/pic_mountain.jpg"];
+
     
     [_scrollViewBanner addSubview:({
         
         LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, _scrollViewBanner.bounds.size.width, _scrollViewBanner.bounds.size.height)
                                                             delegate:self
-                                                           imageName:@"imagenDestacada.png"
-                                                count:1
-                                                        timeInterval:100.0f
-                                       currentPageIndicatorTintColor:[UIColor whiteColor]
-                                              pageIndicatorTintColor:[UIColor grayColor]];
+                                                           benefitsArray:self.starredItemsArray placeholderImageName:@"imagenDestacada" timeInterval:4 currentPageIndicatorTintColor:[UIColor whiteColor] pageIndicatorTintColor:[UIColor grayColor] ];
         bannerView.hidePageControl = YES;
         self.bannerView1 = bannerView;
     })];
     
-    [_bannerView1 addSubview:({
-        
-        UILabel *tituloBeneficio = [[UILabel alloc] initWithFrame:CGRectMake(10,  _scrollViewBanner.bounds.size.height - 90, _scrollViewBanner.bounds.size.width, 70.0f)];
-        tituloBeneficio.text = beneficio.title;
-        tituloBeneficio.textColor = [UIColor whiteColor];
-        tituloBeneficio.textAlignment = NSTextAlignmentLeft;
-        tituloBeneficio.font = [UIFont fontWithName:@"PT-Sans" size:30];
-        tituloBeneficio.numberOfLines = 1;
-        tituloBeneficio.shadowColor = [UIColor blackColor];
-        tituloBeneficio.shadowOffset = CGSizeMake(1,1);
-        tituloBeneficio;
-    })];
-    
-    [_bannerView1 addSubview:({
-        
-        UILabel *detalleBeneficio = [[UILabel alloc] initWithFrame:CGRectMake(10,  _scrollViewBanner.bounds.size.height - 40, _scrollViewBanner.bounds.size.width,80.0f)];
-        detalleBeneficio.text = beneficio.summary;
-        detalleBeneficio.textColor = [UIColor whiteColor];
-        detalleBeneficio.textAlignment = NSTextAlignmentLeft;
-        detalleBeneficio.font = [UIFont fontWithName:@"PT-Sans" size:10];
-        detalleBeneficio.numberOfLines = 4;
-        detalleBeneficio.shadowColor = [UIColor blackColor];
-        detalleBeneficio.shadowOffset = CGSizeMake(1,1);
-        detalleBeneficio;
-    })];
-    
-   
-}
+  }
 
 - (void)bannerView:(LCBannerView *)bannerView didClickedImageIndex:(NSInteger)index {
     
 // TODO: Hacer la logica de abrir beneficio
+    Benefit *beneficio = (Benefit*) bannerView.benefitsArray[(int)index];
+    NSLog(@"Aca el lonyi apretó el beneficio %p at index: %d, de titulo: %@ y de id beneficio: %d", bannerView, (int)index, beneficio.title, beneficio.idBen);
     
-    NSLog(@"Aca el lonyi apretó el beneficio %p at index: %d", bannerView, (int)index);
 }
 //
 //- (void)bannerView:(LCBannerView *)bannerView didScrollToIndex:(NSInteger)index {
@@ -725,21 +693,21 @@
             imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
         //Save Image to Directory
    
-        
+        /*
         [_bannerView1 addSubview:({
             
             UIImageView *imagenViewBeneficio = [[UIImageView alloc] initWithFrame:CGRectMake(0,  0, _scrollViewBanner.bounds.size.width, _scrollViewBanner.bounds.size.height)];
             imagenViewBeneficio.image = imagenBeneficio;
         imagenViewBeneficio;
         })];
-        
+        */
         
         beneficio.imagenNormal = imagenBeneficio;
         [beneficio logDescription];
         [self.starredItemsArray addObject:beneficio];
-        [self bannerSetup];
+        
         }
-    
+    [self bannerSetup];
 
 
     
@@ -772,5 +740,15 @@
     } else {
         NSLog(@"Image Save Failed\nExtension: (%@) is not recognized, use (PNG/JPG)", extension);
     }
+}
+
+
+- (UIImage *) getImageFromURL:(NSString *)fileURL {
+    UIImage * result;
+    
+    NSData * img_data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
+    result = [UIImage imageWithData:img_data];
+    
+    return result;
 }
 @end

@@ -78,6 +78,17 @@ typedef void(^LCBannerViewDidScrollToIndexBlock)(LCBannerView *bannerView, NSInt
  *  Image name.
  */
 @property (nonatomic, copy  ) NSString  *imageName;
+
+/**
+ * My custom arrays.
+ */
+@property (nonatomic, strong) NSArray* idBenefitArray;
+
+@property (nonatomic, strong) NSArray *titleTextArray;
+@property (nonatomic, strong) NSArray  *summaryTextArray;
+@property (nonatomic, strong) NSArray  *benefitTextArray;
+@property (nonatomic, strong) NSArray  *discountTextArray;
+@property (nonatomic, strong) NSArray  *benefitsArray;
 /**
  *  Image URL array.
  */
@@ -154,6 +165,13 @@ typedef void(^LCBannerViewDidScrollToIndexBlock)(LCBannerView *bannerView, NSInt
       currentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor
              pageIndicatorTintColor:(UIColor *)pageIndicatorTintColor;
 
++ (instancetype)bannerViewWithFrame:(CGRect)frame
+                           delegate:(id<LCBannerViewDelegate>)delegate
+                          benefitsArray:(NSArray *)benefitsArray
+               placeholderImageName:(NSString *)placeholderImageName
+                       timeInterval:(NSInteger)timeInterval
+      currentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor
+             pageIndicatorTintColor:(UIColor *)pageIndicatorTintColor;
 
 #pragma mark - Instance methods
 
@@ -198,6 +216,16 @@ currentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor
                  timeInterval:(NSInteger)timeInterval
 currentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor
        pageIndicatorTintColor:(UIColor *)pageIndicatorTintColor;
+
+
+- (instancetype)initCustomWithFrame:(CGRect)frame
+                     delegate:(id<LCBannerViewDelegate>)delegate
+                    benefitsArray:(NSArray *)benefitsArray
+         placeholderImageName:(NSString *)placeholderImageName
+                 timeInterval:(NSInteger)timeInterval
+currentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor
+       pageIndicatorTintColor:(UIColor *)pageIndicatorTintColor;
+
 
 
 @end

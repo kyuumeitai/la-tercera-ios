@@ -468,10 +468,7 @@ REGISTRARSE?</string>
                                                 <frame key="frameInset" minX="213" minY="-60" width="154" height="44"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9W4-tb-m5g">
-                                                <frame key="frameInset" minX="22" minY="40" width="329" height="128"/>
-                                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </scrollView>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9W4-tb-m5g"/>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -481,7 +478,7 @@ REGISTRARSE?</string>
                                             <constraint firstItem="Qlr-5z-yWp" firstAttribute="top" secondItem="Z1j-1i-iao" secondAttribute="bottom" constant="8" symbolic="YES" id="3ts-sz-UQa"/>
                                             <constraint firstItem="TJ6-WS-vBL" firstAttribute="leading" secondItem="6uK-vg-2Zk" secondAttribute="leading" id="4S6-na-tbF"/>
                                             <constraint firstItem="ssX-Nb-jw1" firstAttribute="leading" secondItem="PGC-eN-yzL" secondAttribute="leading" id="4f5-Ex-Rbu"/>
-                                            <constraint firstItem="dch-b5-2b7" firstAttribute="top" secondItem="9W4-tb-m5g" secondAttribute="bottom" constant="15" id="4jw-na-nM3"/>
+                                            <constraint firstItem="dch-b5-2b7" firstAttribute="top" secondItem="9W4-tb-m5g" secondAttribute="bottom" constant="8" id="4jw-na-nM3"/>
                                             <constraint firstItem="6uK-vg-2Zk" firstAttribute="top" secondItem="TJ6-WS-vBL" secondAttribute="bottom" constant="8" symbolic="YES" id="71z-5L-o4b"/>
                                             <constraint firstItem="ho3-eu-Uyk" firstAttribute="top" secondItem="wYU-8X-eIk" secondAttribute="top" constant="11" id="7Jd-zg-vsD"/>
                                             <constraint firstAttribute="trailing" secondItem="Qlr-5z-yWp" secondAttribute="trailing" constant="24" id="7P8-CJ-Qrw"/>
@@ -489,7 +486,7 @@ REGISTRARSE?</string>
                                             <constraint firstItem="4Fp-Xz-86M" firstAttribute="leading" secondItem="4RG-eA-yC0" secondAttribute="trailing" constant="10" id="Dgw-hT-WOO"/>
                                             <constraint firstItem="QrQ-K4-dF3" firstAttribute="top" secondItem="TJ6-WS-vBL" secondAttribute="top" id="Exh-BN-tDd"/>
                                             <constraint firstItem="v7m-Ff-wgN" firstAttribute="top" secondItem="Crv-dZ-YOh" secondAttribute="top" id="J8X-iy-Pec"/>
-                                            <constraint firstItem="EYi-dz-LOn" firstAttribute="top" secondItem="dch-b5-2b7" secondAttribute="bottom" constant="18" id="JJc-RX-aKR"/>
+                                            <constraint firstItem="EYi-dz-LOn" firstAttribute="top" secondItem="dch-b5-2b7" secondAttribute="bottom" constant="8" id="JJc-RX-aKR"/>
                                             <constraint firstItem="ssX-Nb-jw1" firstAttribute="top" secondItem="QrQ-K4-dF3" secondAttribute="bottom" constant="8" symbolic="YES" id="JYy-v2-gm8"/>
                                             <constraint firstAttribute="bottom" secondItem="Xaf-hL-wGC" secondAttribute="bottom" constant="13" id="JfV-Sg-B2j"/>
                                             <constraint firstItem="dch-b5-2b7" firstAttribute="centerX" secondItem="c8d-O3-bKI" secondAttribute="centerX" id="KWE-Yg-6SJ"/>
@@ -503,7 +500,7 @@ REGISTRARSE?</string>
                                             <constraint firstItem="Crv-dZ-YOh" firstAttribute="top" secondItem="6uK-vg-2Zk" secondAttribute="bottom" constant="8" symbolic="YES" id="VBf-F4-tf0"/>
                                             <constraint firstItem="9W4-tb-m5g" firstAttribute="leading" secondItem="ho3-eu-Uyk" secondAttribute="leading" id="WPh-lc-GZ6"/>
                                             <constraint firstItem="v7m-Ff-wgN" firstAttribute="bottom" secondItem="Crv-dZ-YOh" secondAttribute="bottom" id="XN5-Ke-pHY"/>
-                                            <constraint firstItem="7l9-pw-46F" firstAttribute="top" secondItem="dch-b5-2b7" secondAttribute="bottom" constant="24" id="Ztt-ZP-u8z"/>
+                                            <constraint firstItem="7l9-pw-46F" firstAttribute="top" secondItem="dch-b5-2b7" secondAttribute="bottom" constant="14" id="Ztt-ZP-u8z"/>
                                             <constraint firstItem="v7m-Ff-wgN" firstAttribute="top" secondItem="ssX-Nb-jw1" secondAttribute="bottom" constant="8" symbolic="YES" id="aXM-X3-rlk"/>
                                             <constraint firstItem="9W4-tb-m5g" firstAttribute="trailing" secondItem="Qlr-5z-yWp" secondAttribute="trailing" id="bNv-Pt-aMf"/>
                                             <constraint firstItem="QrQ-K4-dF3" firstAttribute="top" secondItem="4RG-eA-yC0" secondAttribute="bottom" constant="8" symbolic="YES" id="cfS-wq-6Dw"/>
@@ -519,7 +516,7 @@ REGISTRARSE?</string>
                                             <constraint firstItem="c8d-O3-bKI" firstAttribute="top" secondItem="Qlr-5z-yWp" secondAttribute="bottom" constant="8" symbolic="YES" id="lIR-Rc-LS2"/>
                                             <constraint firstItem="ho3-eu-Uyk" firstAttribute="leading" secondItem="wYU-8X-eIk" secondAttribute="leading" constant="22" id="m7U-8h-EF8"/>
                                             <constraint firstItem="TJ6-WS-vBL" firstAttribute="leading" secondItem="QrQ-K4-dF3" secondAttribute="trailing" constant="10" id="myT-ZQ-sMb"/>
-                                            <constraint firstItem="9W4-tb-m5g" firstAttribute="top" secondItem="ho3-eu-Uyk" secondAttribute="bottom" constant="8" symbolic="YES" id="nTG-aR-Qjm"/>
+                                            <constraint firstItem="9W4-tb-m5g" firstAttribute="top" secondItem="ho3-eu-Uyk" secondAttribute="bottom" constant="3" id="nTG-aR-Qjm"/>
                                             <constraint firstItem="dch-b5-2b7" firstAttribute="leading" secondItem="EYi-dz-LOn" secondAttribute="leading" id="nnb-7H-dbe"/>
                                             <constraint firstItem="TJ6-WS-vBL" firstAttribute="trailing" secondItem="6uK-vg-2Zk" secondAttribute="trailing" id="oJD-9R-34D"/>
                                             <constraint firstItem="4RG-eA-yC0" firstAttribute="leading" secondItem="v7m-Ff-wgN" secondAttribute="leading" id="oOC-GT-SbT"/>
