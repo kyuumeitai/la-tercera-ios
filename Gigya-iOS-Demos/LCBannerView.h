@@ -1,8 +1,7 @@
 //
 //  LCBannerView.h
 //
-//  Created by Leo on 15/11/30.
-//  Copyright © 2015年 Leo. All rights reserved.
+//  Created by BrUjO
 //
 //  GitHub: http://github.com/iTofu
 //  Mail:   mailto:devtip@163.com

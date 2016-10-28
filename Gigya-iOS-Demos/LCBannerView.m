@@ -1,8 +1,7 @@
 //
 //  LCBannerView.m
 //
-//  Created by Leo on 15/11/30.
-//  Copyright © 2015年 Leo. All rights reserved.
+//  Created by BrUjO 
 //
 //
 
@@ -253,12 +252,13 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
             NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
             
             UIImage *imagencita = [Tools decodeBase64ToImage:[arr lastObject]];
-            
+
+
             // note: replace "ImageUtils" with the class where you pasted the method above
-            UIImage *img = [self drawBenefitTitle:beneficio.title andSunmmary:beneficio.summary andDiscount:beneficio.desclabel inImage:imagencita
-                            ];
+            UIImage *img = [self drawBenefitTitle:beneficio.title andSunmmary:beneficio.summary andDiscount:beneficio.desclabel inImage:imagencita ];
+
             imageView.image = img;
-        
+
         }
         
         imageView.clipsToBounds          = YES;
@@ -329,11 +329,13 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
             
             UIImage *imagencita = [Tools decodeBase64ToImage:[arr lastObject]];
 
+
             // note: replace "ImageUtils" with the class where you pasted the method above
             UIImage *img = [self drawBenefitTitle:beneficio.title andSunmmary:beneficio.summary andDiscount:beneficio.desclabel inImage:imagencita
                                           ];
-            imageView.image = img;
  
+            imageView.image = img;
+
         }
         
 
@@ -522,12 +524,14 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
                 
                 
                 UIImage *imagencita = [Tools decodeBase64ToImage:[arr lastObject]];
-                
+
+
                 // note: replace "ImageUtils" with the class where you pasted the method above
                 UIImage *img = [self drawBenefitTitle:beneficio.title andSunmmary:beneficio.summary andDiscount:beneficio.desclabel inImage:imagencita
                                 ];
+
                 imageView.image = img;
-            }
+                   }
         }
     }
 }
@@ -635,10 +639,13 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
               inImage:(UIImage*)  image
 
 {
+  
     
-    UIImage *myImage = image;
+    UIImage *myImage = image;//[self filledImageFrom:image withColor:[[UIColor blackColor] colorWithAlphaComponent:0.3f]];
+
     UIGraphicsBeginImageContext(myImage.size);
     [myImage drawInRect:CGRectMake(0,0,myImage.size.width,myImage.size.height)];
+    
     
         //// tituloBeneficio Drawing
     UITextView *myText = [[UITextView alloc] init];
@@ -654,7 +661,7 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
     myText.layer.shadowOpacity = 1.0f;
     myText.layer.shadowRadius = 1.0f;
     
-    myText.frame = CGRectMake(10 , 40 ,
+    myText.frame = CGRectMake(10 , 35 ,
                               myImage.size.width-10,
                               myImage.size.height);
     
@@ -663,7 +670,7 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
     shadow.shadowColor = [UIColor blackColor];
     shadow.shadowBlurRadius = 2;
     shadow.shadowOffset = CGSizeMake(2, 2);
-    
+
     NSDictionary * textAttributes =
   @{ NSForegroundColorAttributeName : [UIColor whiteColor],
      NSShadowAttributeName          : shadow,
@@ -674,25 +681,36 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
     
     [myText.text drawInRect:myText.frame withAttributes:textAttributes];
     //Summary
-    
+    UITextView *mySummary = [[UITextView alloc] init];
+    CGSize maximumLabelSize2 = CGSizeMake(myImage.size.width,myImage.size.height);
+    CGSize expectedLabelSize2 = [mySummary.text sizeWithFont:mySummary.font
+                                        constrainedToSize:maximumLabelSize2
+                                            lineBreakMode:UILineBreakModeWordWrap];
+    mySummary.text = summary;
+    mySummary.layer.shadowColor = [[UIColor blackColor] CGColor];
+    mySummary.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
+    mySummary.layer.shadowOpacity = 1.0f;
+    mySummary.layer.shadowRadius = 2.0f;
+    mySummary.frame = CGRectMake(10 , 100 ,
+                                 myImage.size.width-15,
+                                 myImage.size.height);
+    [[UIColor whiteColor] set];
+
+    NSShadow * shadow2 = [[NSShadow alloc] init];
+    shadow2.shadowColor = [UIColor blackColor];
+    shadow2.shadowBlurRadius = 3;
+    shadow2.shadowOffset = CGSizeMake(3, 3);
+
+
+
+ 
+
     NSDictionary * summaryAttributes =
     @{ NSForegroundColorAttributeName : [UIColor whiteColor],
-       NSShadowAttributeName          : shadow,
-       NSFontAttributeName            : [UIFont fontWithName:@"PTSans-Regular" size:22.0f] };
-
-    UITextView *mySummary = [[UITextView alloc] init];
-   
+       NSShadowAttributeName          : shadow2,
+       NSFontAttributeName            : [UIFont fontWithName:@"PTSans-Bold" size:32.0f] };
     
-
-    mySummary.text = summary;
-
-    
-    mySummary.frame = CGRectMake(10 , 100 ,
-                              myImage.size.width-10,
-                              myImage.size.height);
-    
-    [[UIColor whiteColor] set];
-       [mySummary.text drawInRect:mySummary.frame withAttributes:summaryAttributes];
+    [mySummary.text drawInRect:mySummary.frame withAttributes:summaryAttributes];
     
     //Discount
     
@@ -716,10 +734,18 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
     [[UIColor whiteColor] set];
     [myDiscount.text drawInRect:myDiscount.frame withAttributes:discountAttributes];
     
-
     
     UIImage *myNewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return myNewImage;
 }
+
+/*-(UIImage *)filledImageFrom:(UIImage *)source withColor:(UIColor *)color{
+    
+
+    UIImage *newImage = source;
+    so
+    return newImage;
+}
+*/
 @end

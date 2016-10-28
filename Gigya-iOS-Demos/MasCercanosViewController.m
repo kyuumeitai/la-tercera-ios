@@ -671,7 +671,8 @@ int cuenta;
         
         //Party goes on
         DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
-        [detalleBeneficio loadBenefitForBenefitId:benefitId andStore:storeId andAddress:address andLocation:locacion];
+        [detalleBeneficio loadBenefitForBenefitId:benefitId andStore:storeId andAddress:tiendita.storeAddress andLocation:locacion ];
+        
         
         //Get Image
         NSArray * arr = [normalImage componentsSeparatedByString:@","];
@@ -706,12 +707,12 @@ int cuenta;
         NSString *storeId = tiendita.storeId;
 
         
-        // NSLog(@"el Id del beneficio es:%d y el id del Store es:%d",benefitId,storeId);
+        //NSLog(@"el Id del beneficio es:%d y el id del Store es:%d",benefitId,storeId);
         CLLocation *locationShort = [[CLLocation alloc] initWithLatitude:tiendita.storeLocation.latitude longitude:tiendita.storeLocation.longitude];
 
         //Party goes on
         DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
-        [detalleBeneficio loadBenefitForBenefitId:benefitId andStore:storeId andAddress:tiendita.storeAddress andLocation:locationShort ];
+        [detalleBeneficio loadBenefitForBenefitId:benefitId andStore:storeId andAddress:tiendita.storeAddress andLocation:locationShort  ];
         
         //Get Image
         NSArray * arr = [normalImage componentsSeparatedByString:@","];

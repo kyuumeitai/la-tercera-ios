@@ -87,6 +87,31 @@ CLLocationCoordinate2D storeLocationFromMap;
     }:idBenefit];
 }
 
+-(void)loadBenefitForBenefitId:(int)idBenefit  {
+    
+    NSLog(@"Load category benefits");
+    
+    
+    //NSLog(@"La store es: %@ y la direccion es: %@",_idStore, _address);
+    // IMPORTANT - Only update the UI on the main thread
+    //self.benefitAdressLabel.text = self.benefitAddress;
+    // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
+    
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    BOOL estaConectado = [connectionManager verifyConnection];
+    NSLog(@"Verificando conexión: %d",estaConectado);
+    [connectionManager getBenefitWithBenefitId:^(BOOL success, NSArray *arrayJson, NSError *error){
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!success) {
+                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+            } else {
+                [self reloadBenefitsDataFromService:arrayJson];
+            }
+        });
+    }:idBenefit];
+}
+
 -(void)loadStoreWithId:(int)idStore{
     
     NSLog(@"Load Store");
@@ -102,7 +127,7 @@ CLLocationCoordinate2D storeLocationFromMap;
             if (!success) {
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
             } else {
-                [self loadStoreDataFromService:arrayJson];
+                [self loadStoreDataFromServiceNotFromMap:arrayJson];
             }
         });
     }:idStore];
@@ -133,6 +158,38 @@ CLLocationCoordinate2D storeLocationFromMap;
     
     //CLLocationDistance distanceMeters = [coordenadas distanceFromLocation:userLocation];
     //int kms = (int) (distanceMeters/1000);
+    
+    //NSLog(@"A %f kms de distancia",distanceMeters);
+    
+}
+
+-(void) loadStoreDataFromServiceNotFromMap:(NSArray*)arrayJson{
+    
+    NSDictionary *storeDict = (NSDictionary*)arrayJson;
+    
+    
+    NSString* address = [storeDict objectForKey:@"address"];
+     NSString* city = [storeDict objectForKey:@"city"];
+    NSString* region = [storeDict objectForKey:@"region"];
+    NSArray* arrayCoords = (NSArray*)[storeDict objectForKey:@"geocoords"];
+     double latitud = [arrayCoords[0] doubleValue];
+    double longuitud = [arrayCoords[1] doubleValue];
+    storeLocationFromMap = CLLocationCoordinate2DMake(latitud, longuitud);
+    CLLocation *coordenadas = [[CLLocation alloc] initWithLatitude:latitud longitude:longuitud ];
+    NSString * direccion = [NSString stringWithFormat:@"%@, Región %@",address,region];
+    NSLog(@"La direcccion  es:%@",direccion);
+
+    self.benefitAdressLabel.text = direccion;
+    self.benefitAdressLabel.text = self.benefitAddress;
+    self.benefitAdressLabel.alpha = 0;
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{ self.benefitAdressLabel.alpha = 1;}
+                     completion:nil];
+     NSLog(@"Geolocalizacion es: Latitud:%f, Longuitud:%f",coordenadas.coordinate.latitude,coordenadas.coordinate.longitude);
+   // CLLocation *userLocation = singleton.userLocation;
+    
+    //CLLocationDistance distanceMeters = [coordenadas distanceFromLocation:userLocation];
+   // int kms = (int) (distanceMeters/1000);
     
     //NSLog(@"A %f kms de distancia",distanceMeters);
     

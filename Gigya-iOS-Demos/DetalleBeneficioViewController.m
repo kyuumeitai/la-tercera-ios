@@ -225,7 +225,7 @@ BOOL forAnonimo = false;
 -(void) loadStoreDataFromService:(NSArray*)arrayJson{
     
     NSDictionary *storeDict = (NSDictionary*)arrayJson;
-/*
+
     NSString* address = [storeDict objectForKey:@"address"];
    // NSString* city = [storeDict objectForKey:@"city"];
     NSString* region = [storeDict objectForKey:@"region"];
@@ -235,8 +235,8 @@ BOOL forAnonimo = false;
     storeLocation = CLLocationCoordinate2DMake(latitud, longuitud);
     CLLocation *coordenadas = [[CLLocation alloc] initWithLatitude:latitud longitude:longuitud ];
     NSString * direccion = [NSString stringWithFormat:@"%@, Región %@",address,region];
- */
-    self.benefitAdressLabel.text = self.benefitAddress;
+ 
+    self.benefitAdressLabel.text = direccion;
     self.benefitAdressLabel.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{ self.benefitAdressLabel.alpha = 1;}
@@ -244,7 +244,7 @@ BOOL forAnonimo = false;
     // NSLog(@"Geolocalizacion es: Latitud:%f, Longuitud:%f",coordenadas.latitude,coordenadas.longitude);
     SessionManager *sesion = [SessionManager session];
     CLLocation *userLocation = sesion.userLocation;
-    CLLocation *coordenadas =self.benefitLocation;
+   // CLLocation *coordenadas =self.benefitLocation;
     CLLocationDistance distanceMeters = [coordenadas distanceFromLocation:userLocation];
     //int kms = (int) (distanceMeters/1000);
 
