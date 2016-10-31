@@ -296,6 +296,8 @@
 		1768C2FD1DBBED0E00EF2D0C /* PapelDigitalEdicionEspecialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1768C2FB1DBBED0E00EF2D0C /* PapelDigitalEdicionEspecialViewController.m */; };
 		1768C3001DBBED2300EF2D0C /* PapelDigitalLaTerceraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1768C2FF1DBBED2300EF2D0C /* PapelDigitalLaTerceraViewController.m */; };
 		1768C3011DBBED2300EF2D0C /* PapelDigitalLaTerceraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1768C2FF1DBBED2300EF2D0C /* PapelDigitalLaTerceraViewController.m */; };
+		178572031DBEFFA7006F8B2C /* LCBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 178572021DBEFFA7006F8B2C /* LCBannerView.m */; };
+		178572041DBEFFA7006F8B2C /* LCBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 178572021DBEFFA7006F8B2C /* LCBannerView.m */; };
 		179D3DDF1DACF10400E5B11E /* ConcursosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179D3DDE1DACF10400E5B11E /* ConcursosViewController.m */; };
 		179D3DE01DACF10400E5B11E /* ConcursosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179D3DDE1DACF10400E5B11E /* ConcursosViewController.m */; };
 		179D3DE31DACF29700E5B11E /* ConcursosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179D3DE21DACF29700E5B11E /* ConcursosTableViewController.m */; };
@@ -956,6 +958,8 @@
 		177723A61C7306DD0075DFBE /* News.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = News.png; sourceTree = "<group>"; };
 		177723A71C7306DD0075DFBE /* News@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "News@2x.png"; sourceTree = "<group>"; };
 		177723AC1C7386620075DFBE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		178572011DBEFFA7006F8B2C /* LCBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBannerView.h; sourceTree = "<group>"; };
+		178572021DBEFFA7006F8B2C /* LCBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCBannerView.m; sourceTree = "<group>"; };
 		17899F7D1CA8E70300ADD960 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		17899F7E1CA8E70300ADD960 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		17899F7F1CA8E70300ADD960 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
@@ -1979,6 +1983,15 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		178572001DBEFF93006F8B2C /* LCBannerView */ = {
+			isa = PBXGroup;
+			children = (
+				178572011DBEFFA7006F8B2C /* LCBannerView.h */,
+				178572021DBEFFA7006F8B2C /* LCBannerView.m */,
+			);
+			name = LCBannerView;
+			sourceTree = "<group>";
+		};
 		17899F7C1CA8E6F100ADD960 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -2895,6 +2908,7 @@
 		D0E84DCF1C9B089300FDE6D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				178572001DBEFF93006F8B2C /* LCBannerView */,
 				1755C2551DB9E4B900A552E0 /* FPScrollingBanner */,
 				D04B936D1D35710D00EBEA1D /* PullToUpdate */,
 				D0FB93401CAACB4700928159 /* Tools */,
@@ -3969,6 +3983,7 @@
 				17EDEE2D1DB45E0300E3038B /* LaTerceraTVReportajesViewController.m in Sources */,
 				1702BD401CB093E400F26F42 /* AFURLRequestSerialization.m in Sources */,
 				17DAB9A61CCDC57F000CD406 /* LectiosViewController.m in Sources */,
+				178572041DBEFFA7006F8B2C /* LCBannerView.m in Sources */,
 				1768C2F51DBBECDA00EF2D0C /* PapelDigitalElDeportivoViewController.m in Sources */,
 				1702BD411CB093E400F26F42 /* YSLScrollMenuView.m in Sources */,
 				D039B9AA1D106300002B1B09 /* CVNoticiasPolitica.m in Sources */,
@@ -4026,6 +4041,7 @@
 				D039B9A91D106300002B1B09 /* CVNoticiasPolitica.m in Sources */,
 				17EDEE381DB46F7A00E3038B /* LaTerceraTV-ActualidadTableViewController.m in Sources */,
 				17EDEE241DB45DC800E3038B /* LaTerceraTVEntretencionViewController.m in Sources */,
+				178572031DBEFFA7006F8B2C /* LCBannerView.m in Sources */,
 				D04546D11CEB9A6D004A011D /* InitialViewController.m in Sources */,
 				D03F4F3E1CCE782A00B5835D /* ViewControllerRootPage.m in Sources */,
 				D0FA1C2B1CD0FDA900D18188 /* ConfirmationViewController.m in Sources */,

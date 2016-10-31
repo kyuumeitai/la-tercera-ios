@@ -134,6 +134,10 @@ NSMutableArray *relatedIdsArrayInicio;
     [self.collectionView addInfiniteScrollingWithActionHandler:^{
         [weakSelf loadMoreRows];
     }];
+    
+    
+
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{

@@ -326,7 +326,6 @@ REGISTRARSE?</string>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wYU-8X-eIk">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="summer-sunny-lifestyle-fashion-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="dgj-qa-CVn"/>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dch-b5-2b7">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="43" id="r1N-bS-qid"/>
@@ -465,9 +464,13 @@ REGISTRARSE?</string>
                                                     <action selector="identifyUser:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="Vmh-iK-ISS"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ea-xS-7iS">
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ea-xS-7iS">
+                                                <frame key="frameInset" minX="213" minY="-60" width="154" height="44"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9W4-tb-m5g">
+                                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </scrollView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -477,16 +480,15 @@ REGISTRARSE?</string>
                                             <constraint firstItem="Qlr-5z-yWp" firstAttribute="top" secondItem="Z1j-1i-iao" secondAttribute="bottom" constant="8" symbolic="YES" id="3ts-sz-UQa"/>
                                             <constraint firstItem="TJ6-WS-vBL" firstAttribute="leading" secondItem="6uK-vg-2Zk" secondAttribute="leading" id="4S6-na-tbF"/>
                                             <constraint firstItem="ssX-Nb-jw1" firstAttribute="leading" secondItem="PGC-eN-yzL" secondAttribute="leading" id="4f5-Ex-Rbu"/>
-                                            <constraint firstItem="dgj-qa-CVn" firstAttribute="top" secondItem="ho3-eu-Uyk" secondAttribute="bottom" constant="4" id="6kB-Tq-iBO"/>
+                                            <constraint firstItem="dch-b5-2b7" firstAttribute="top" secondItem="9W4-tb-m5g" secondAttribute="bottom" constant="8" id="4jw-na-nM3"/>
                                             <constraint firstItem="6uK-vg-2Zk" firstAttribute="top" secondItem="TJ6-WS-vBL" secondAttribute="bottom" constant="8" symbolic="YES" id="71z-5L-o4b"/>
-                                            <constraint firstItem="ho3-eu-Uyk" firstAttribute="top" secondItem="wYU-8X-eIk" secondAttribute="top" constant="11" id="7Jd-zg-vsD"/>
+                                            <constraint firstItem="ho3-eu-Uyk" firstAttribute="top" secondItem="wYU-8X-eIk" secondAttribute="top" constant="9" id="7Jd-zg-vsD"/>
                                             <constraint firstAttribute="trailing" secondItem="Qlr-5z-yWp" secondAttribute="trailing" constant="24" id="7P8-CJ-Qrw"/>
                                             <constraint firstItem="v7m-Ff-wgN" firstAttribute="leading" secondItem="Qlr-5z-yWp" secondAttribute="leading" id="D1Z-fT-qaA"/>
-                                            <constraint firstItem="dgj-qa-CVn" firstAttribute="leading" secondItem="wYU-8X-eIk" secondAttribute="leading" constant="21" id="DEO-Lf-DGz"/>
                                             <constraint firstItem="4Fp-Xz-86M" firstAttribute="leading" secondItem="4RG-eA-yC0" secondAttribute="trailing" constant="10" id="Dgw-hT-WOO"/>
                                             <constraint firstItem="QrQ-K4-dF3" firstAttribute="top" secondItem="TJ6-WS-vBL" secondAttribute="top" id="Exh-BN-tDd"/>
                                             <constraint firstItem="v7m-Ff-wgN" firstAttribute="top" secondItem="Crv-dZ-YOh" secondAttribute="top" id="J8X-iy-Pec"/>
-                                            <constraint firstItem="EYi-dz-LOn" firstAttribute="top" secondItem="dch-b5-2b7" secondAttribute="bottom" constant="18" id="JJc-RX-aKR"/>
+                                            <constraint firstItem="EYi-dz-LOn" firstAttribute="top" secondItem="dch-b5-2b7" secondAttribute="bottom" constant="8" id="JJc-RX-aKR"/>
                                             <constraint firstItem="ssX-Nb-jw1" firstAttribute="top" secondItem="QrQ-K4-dF3" secondAttribute="bottom" constant="8" symbolic="YES" id="JYy-v2-gm8"/>
                                             <constraint firstAttribute="bottom" secondItem="Xaf-hL-wGC" secondAttribute="bottom" constant="13" id="JfV-Sg-B2j"/>
                                             <constraint firstItem="dch-b5-2b7" firstAttribute="centerX" secondItem="c8d-O3-bKI" secondAttribute="centerX" id="KWE-Yg-6SJ"/>
@@ -496,15 +498,13 @@ REGISTRARSE?</string>
                                             <constraint firstAttribute="trailing" secondItem="TJ6-WS-vBL" secondAttribute="trailing" constant="21" id="OEw-ET-7RX"/>
                                             <constraint firstItem="PGC-eN-yzL" firstAttribute="centerY" secondItem="dQB-Po-lgN" secondAttribute="centerY" id="OHG-bP-PXx"/>
                                             <constraint firstItem="ssX-Nb-jw1" firstAttribute="top" secondItem="6uK-vg-2Zk" secondAttribute="top" id="QWU-UX-Du8"/>
-                                            <constraint firstItem="dgj-qa-CVn" firstAttribute="trailing" secondItem="dch-b5-2b7" secondAttribute="trailing" id="SzO-TA-qeg"/>
                                             <constraint firstItem="Z1j-1i-iao" firstAttribute="top" secondItem="PGC-eN-yzL" secondAttribute="bottom" constant="20" id="Twr-t1-86D"/>
                                             <constraint firstItem="Crv-dZ-YOh" firstAttribute="top" secondItem="6uK-vg-2Zk" secondAttribute="bottom" constant="8" symbolic="YES" id="VBf-F4-tf0"/>
-                                            <constraint firstItem="dgj-qa-CVn" firstAttribute="leading" secondItem="dch-b5-2b7" secondAttribute="leading" id="WGV-yd-dbd"/>
+                                            <constraint firstItem="9W4-tb-m5g" firstAttribute="leading" secondItem="ho3-eu-Uyk" secondAttribute="leading" id="WPh-lc-GZ6"/>
                                             <constraint firstItem="v7m-Ff-wgN" firstAttribute="bottom" secondItem="Crv-dZ-YOh" secondAttribute="bottom" id="XN5-Ke-pHY"/>
-                                            <constraint firstItem="7l9-pw-46F" firstAttribute="top" secondItem="dch-b5-2b7" secondAttribute="bottom" constant="24" id="Ztt-ZP-u8z"/>
+                                            <constraint firstItem="7l9-pw-46F" firstAttribute="top" secondItem="dch-b5-2b7" secondAttribute="bottom" constant="14" id="Ztt-ZP-u8z"/>
                                             <constraint firstItem="v7m-Ff-wgN" firstAttribute="top" secondItem="ssX-Nb-jw1" secondAttribute="bottom" constant="8" symbolic="YES" id="aXM-X3-rlk"/>
-                                            <constraint firstItem="dgj-qa-CVn" firstAttribute="centerX" secondItem="wYU-8X-eIk" secondAttribute="centerX" id="cAX-N1-W5a"/>
-                                            <constraint firstItem="dch-b5-2b7" firstAttribute="top" secondItem="dgj-qa-CVn" secondAttribute="bottom" constant="20" id="cJ7-ng-QvN"/>
+                                            <constraint firstItem="9W4-tb-m5g" firstAttribute="trailing" secondItem="Qlr-5z-yWp" secondAttribute="trailing" id="bNv-Pt-aMf"/>
                                             <constraint firstItem="QrQ-K4-dF3" firstAttribute="top" secondItem="4RG-eA-yC0" secondAttribute="bottom" constant="8" symbolic="YES" id="cfS-wq-6Dw"/>
                                             <constraint firstItem="Xaf-hL-wGC" firstAttribute="top" secondItem="c8d-O3-bKI" secondAttribute="bottom" constant="19" id="cvO-lx-Ubq"/>
                                             <constraint firstItem="9Ea-xS-7iS" firstAttribute="leading" secondItem="wYU-8X-eIk" secondAttribute="leading" constant="213" id="d7C-5h-OH2"/>
@@ -512,13 +512,13 @@ REGISTRARSE?</string>
                                             <constraint firstItem="4Fp-Xz-86M" firstAttribute="leading" secondItem="Crv-dZ-YOh" secondAttribute="leading" id="fc8-TF-M2x"/>
                                             <constraint firstAttribute="height" constant="777" id="foy-FR-UXe"/>
                                             <constraint firstItem="TJ6-WS-vBL" firstAttribute="top" secondItem="4Fp-Xz-86M" secondAttribute="bottom" constant="8" symbolic="YES" id="gMc-IO-K7s"/>
-                                            <constraint firstItem="dgj-qa-CVn" firstAttribute="top" secondItem="9Ea-xS-7iS" secondAttribute="bottom" constant="52" id="gS9-F7-IhI"/>
                                             <constraint firstItem="7l9-pw-46F" firstAttribute="leading" secondItem="EYi-dz-LOn" secondAttribute="trailing" constant="9" id="hBy-1c-dvS"/>
                                             <constraint firstItem="dch-b5-2b7" firstAttribute="trailing" secondItem="4Fp-Xz-86M" secondAttribute="trailing" id="hTR-Vp-CaK"/>
                                             <constraint firstItem="4RG-eA-yC0" firstAttribute="top" secondItem="4Fp-Xz-86M" secondAttribute="top" id="jtB-B0-WNa"/>
                                             <constraint firstItem="c8d-O3-bKI" firstAttribute="top" secondItem="Qlr-5z-yWp" secondAttribute="bottom" constant="8" symbolic="YES" id="lIR-Rc-LS2"/>
                                             <constraint firstItem="ho3-eu-Uyk" firstAttribute="leading" secondItem="wYU-8X-eIk" secondAttribute="leading" constant="22" id="m7U-8h-EF8"/>
                                             <constraint firstItem="TJ6-WS-vBL" firstAttribute="leading" secondItem="QrQ-K4-dF3" secondAttribute="trailing" constant="10" id="myT-ZQ-sMb"/>
+                                            <constraint firstItem="9W4-tb-m5g" firstAttribute="top" secondItem="ho3-eu-Uyk" secondAttribute="bottom" constant="5" id="nTG-aR-Qjm"/>
                                             <constraint firstItem="dch-b5-2b7" firstAttribute="leading" secondItem="EYi-dz-LOn" secondAttribute="leading" id="nnb-7H-dbe"/>
                                             <constraint firstItem="TJ6-WS-vBL" firstAttribute="trailing" secondItem="6uK-vg-2Zk" secondAttribute="trailing" id="oJD-9R-34D"/>
                                             <constraint firstItem="4RG-eA-yC0" firstAttribute="leading" secondItem="v7m-Ff-wgN" secondAttribute="leading" id="oOC-GT-SbT"/>
@@ -605,11 +605,12 @@ REGISTRARSE?</string>
                     <size key="freeformSize" width="375" height="860"/>
                     <connections>
                         <outlet property="menuButtonClub" destination="6qO-rI-OhO" id="ZVr-hu-wR0"/>
+                        <outlet property="scrollViewBanner" destination="9W4-tb-m5g" id="sbz-DJ-DmZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSR-ne-YT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="745" y="-295"/>
+            <point key="canvasLocation" x="744.79999999999995" y="-295.05247376311848"/>
         </scene>
         <!--Infantil Table View-->
         <scene sceneID="r9W-hT-15V">
@@ -7670,7 +7671,7 @@ de La Tercera</string>
                         <viewControllerLayoutGuide type="bottom" id="nSI-53-Xf5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oKM-5S-gS4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="860"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="PhT-L2-F2p"/>
@@ -7760,7 +7761,7 @@ de La Tercera</string>
             <objects>
                 <tableViewController storyboardIdentifier="concursosTableView" title="Concursos Table View" id="aJJ-Mw-xSp" customClass="ConcursosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="dT8-hD-hTk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="525"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="718"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="90"/>
@@ -9089,11 +9090,11 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="MuU-Iz-525"/>
         <segue reference="me0-ej-09l"/>
         <segue reference="QpD-Og-2iF"/>
         <segue reference="tqi-Nf-HuD"/>
-        <segue reference="sQ8-YI-Ye0"/>
-        <segue reference="wa8-wA-Ypp"/>
+        <segue reference="wuf-Nj-3R8"/>
         <segue reference="vnn-UP-oet"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

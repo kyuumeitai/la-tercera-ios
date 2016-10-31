@@ -14,6 +14,11 @@ NSMutableArray * categoryItemsArray;
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
     BOOL firstTime;
+    
 }
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewBanner;
 @property (nonatomic, retain) NSMutableArray * categoryItemsArray;
+@property (nonatomic, retain) NSMutableArray * starredItemsArray;
+
 @end

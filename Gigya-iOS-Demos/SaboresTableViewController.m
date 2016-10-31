@@ -173,7 +173,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     
     DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
     Benefit *beneficio = [self.benefitsItemsArray5 objectAtIndex:indexPath.row];
-    [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen andStore:@"0"];
+    [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen ];
     
     //Get Image
     NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];

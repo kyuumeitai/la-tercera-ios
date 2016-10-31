@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "Reachability.h"
 #import "EHPlainAlert.h"
+#import "SessionManager.h"
 #import <UIKit/UIKit.h>
 
 
@@ -67,4 +68,6 @@
 
 + (void)shareText:(NSString *)text andImage:(UIImage *)image andUrl:(NSURL *)url forSelf:(id)yoMismo;
 
+
++ (BOOL)isIphone6OrMore;
 @end

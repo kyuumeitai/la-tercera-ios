@@ -348,5 +348,19 @@ if ([[UIApplication sharedApplication] canOpenURL:
     [localNotif show];
 }
 
++ (BOOL)isIphone6OrMore{
+    
+    SessionManager *sesion = [SessionManager session];
+    
+     if([sesion.storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [sesion.storyBoardName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        // NSLog(@"Es menor a iphone 6");
+         return false;
+     }else{
+        // NSLog(@"Es igual o mayor a iphone 6");
+
+         return true;
+     }
+}
+
 
 @end
