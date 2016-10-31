@@ -68,6 +68,7 @@
 
 + (void)shareText:(NSString *)text andImage:(UIImage *)image andUrl:(NSURL *)url forSelf:(id)yoMismo;
 
+/**************************** OTHER STUFFS ****************************************/
 
 + (BOOL)isIphone6OrMore;
 @end

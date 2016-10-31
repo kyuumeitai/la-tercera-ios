@@ -35,7 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self setupLocalNotification];
+   [self setupLocalNotification];
     [SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
 
     [self loadContentHeadlines];
@@ -214,14 +214,24 @@
     // Pass the selected object to the new view controller.
 }
 
+/**
+ Will show the subtle lccal notification
+ */
 - (void) setupLocalNotification{
 
     //Creamos el singleton
     SessionManager *sesion = [SessionManager session];
-    
-    NSLog(@"^^^^^^^^^^Descripción perfil: %@         ^^^^^^^^^^^",[sesion profileDescription]);
+    UserProfile *perfil =  [sesion getUserProfile];
+       NSLog(@"^^^^^^^^^^Descripción perfil: %@         ^^^^^^^^^^^",[sesion profileDescription]);
+    if (perfil.status == false){
+        NSString *mensaje = [NSString stringWithFormat:@"Para completar el registro debe confirmar el email, se le ha enviado un mensaje a: %@",sesion.profileEmail];
+        [Tools showLocalInfoNotificationWithTitle:@"Info del perfil" andMessage:mensaje];
 
-    [Tools showLocalInfoNotificationWithTitle:@"Info del perfil" andMessage:[sesion profileDescription]];
+    }
+    
+ 
+
+   // [Tools showLocalInfoNotificationWithTitle:@"Info del perfil" andMessage:[sesion profileDescription]];
     //[Tools showLocalSuccessNotificationWithTitle:@"Erxito" andMessage:[sesion sessionDescription]];
     //[Tools showLocalErrorNotificationWithTitle:@"Cueck!" andMessage:@"Errorr"];
 }

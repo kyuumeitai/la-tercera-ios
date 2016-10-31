@@ -348,6 +348,12 @@ if ([[UIApplication sharedApplication] canOpenURL:
     [localNotif show];
 }
 
+
+/**
+ This function allows to resolve if the device model is newer or older than iphone 6
+
+ @return return a bool if is newer or older than iPhone 6
+ */
 + (BOOL)isIphone6OrMore{
     
     SessionManager *sesion = [SessionManager session];

@@ -69,7 +69,6 @@
  */
 - (void)bannerView:(LCBannerView *)bannerView didClickedImageIndex:(NSInteger)index {
     
-// TODO: Hacer la logica de abrir beneficio
     Benefit *beneficio = (Benefit*) bannerView.benefitsArray[(int)index];
     NSLog(@"Aca el lonyi apretó el beneficio %p at index: %d, de titulo: %@ y de id beneficio: %d", bannerView, (int)index, beneficio.title, beneficio.idBen);
     
@@ -447,7 +446,7 @@
     if ([[segue identifier] isEqualToString:@"segueInfantil"])
     {
         NSLog(@"MI Segue Infantil detected");
-        SessionManager *sesion = [SessionManager session];
+        //SessionManager *sesion = [SessionManager session];
         //sesion.categoryList = categoryItemsArray;
         CategoriaViewController *categoriaViewController= (CategoriaViewController*)segue.destinationViewController;
         categoriaViewController.categoryName = @"infantil";
