@@ -712,7 +712,7 @@ GigyaFormAction formType;
             //Fin nuevo
             switch (formType) {
                 case REGISTRO:{
-                           [self performSegueWithIdentifier:@"goToNews" sender:self];
+                    [self performSegueWithIdentifier:@"goToNews" sender:self];
                     SessionManager *sesion = [SessionManager session];
                     UserProfile *perfil = [sesion getUserProfile];
                     NSString *nombre = [NSString stringWithFormat:@"Bienvenido %@ , su registro ha sido exitoso",perfil.name];
