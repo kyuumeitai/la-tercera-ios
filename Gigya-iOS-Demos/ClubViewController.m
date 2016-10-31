@@ -18,6 +18,9 @@
 #import "Tools.h"
 #import "Category.h"
 #import "LCBannerView.h"
+#import "DetalleBeneficioViewController.h"
+
+
 @interface ClubViewController () <LCBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButtonClub;
 @property (nonatomic, weak) LCBannerView *bannerView1;
@@ -29,6 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self requestLocation];
+    
+    [_scrollViewBanner setAlpha:0.0];
     //[self loadCategories];
     // Do any additional setup after loading the view.
     
@@ -55,28 +60,45 @@
   [self loadStarredBenefits];
 }
 
--(void)bannerSetup{
-    
 
-    
-    [_scrollViewBanner addSubview:({
-        
-        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, _scrollViewBanner.bounds.size.width, _scrollViewBanner.bounds.size.height)
-                                                            delegate:self
-                                                           benefitsArray:self.starredItemsArray placeholderImageName:@"imagenDestacada" timeInterval:4 currentPageIndicatorTintColor:[UIColor whiteColor] pageIndicatorTintColor:[UIColor grayColor] ];
-        bannerView.hidePageControl = YES;
-        self.bannerView1 = bannerView;
-    })];
-    
-  }
+/**
+ This method will manage the click event on the banner
 
+ @param bannerView Will receive the BannerView Object to get elements inside
+ @param index      The index of the banner object taht is presented actually in the view
+ */
 - (void)bannerView:(LCBannerView *)bannerView didClickedImageIndex:(NSInteger)index {
     
 // TODO: Hacer la logica de abrir beneficio
     Benefit *beneficio = (Benefit*) bannerView.benefitsArray[(int)index];
     NSLog(@"Aca el lonyi apretó el beneficio %p at index: %d, de titulo: %@ y de id beneficio: %d", bannerView, (int)index, beneficio.title, beneficio.idBen);
     
+    DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
+
+    [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen];
+ 
+    //Get Image
+    NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
+    UIImage *imagenBeneficio = nil;
+    
+    //Now data is decoded. You can convert them to UIImage
+    imagenBeneficio = [Tools decodeBase64ToImage:[arr lastObject]];
+    if(imagenBeneficio == nil)
+        imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
+    
+    detalleBeneficio.benefitImage = imagenBeneficio;
+    
+    detalleBeneficio.benefitTitle= beneficio.title;
+    detalleBeneficio.benefitAddress = @"";
+    detalleBeneficio.benefitDiscount= beneficio.desclabel;
+    detalleBeneficio.benefitDescription = beneficio.summary;
+    detalleBeneficio.benefitId = beneficio.idBen;
+    [beneficio logDescription];
+
+    [self.navigationController pushViewController: detalleBeneficio animated:YES];
+    
 }
+
 //
 //- (void)bannerView:(LCBannerView *)bannerView didScrollToIndex:(NSInteger)index {
 //
@@ -751,4 +773,29 @@
     
     return result;
 }
+
+/**
+ This stuff will add a LCViewBanner to manage the banner stuffs
+ */
+-(void)bannerSetup{
+    
+    [_scrollViewBanner addSubview:({
+        
+        LCBannerView *bannerView = [LCBannerView bannerViewWithFrame:CGRectMake(0, 0, _scrollViewBanner.bounds.size.width, _scrollViewBanner.bounds.size.height)
+                                                            delegate:self
+                                                       benefitsArray:self.starredItemsArray placeholderImageName:@"imagenDestacada" timeInterval:4 currentPageIndicatorTintColor:[UIColor whiteColor] pageIndicatorTintColor:[UIColor grayColor] ];
+        bannerView.hidePageControl = YES;
+        self.bannerView1 = bannerView;
+        
+        
+    })];
+    //fade in
+    [UIView animateWithDuration:2.0f animations:^{
+        
+        [self.scrollViewBanner setAlpha:1.0f];
+        
+    } completion:nil];
+    
+}
+
 @end

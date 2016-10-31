@@ -207,7 +207,7 @@ currentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor
  *  @param pageIndicatorTintColor        other page indicator tint color
  *
  *  @return a LCBannerView object
- */
+*/
 - (instancetype)initWithFrame:(CGRect)frame
                      delegate:(id<LCBannerViewDelegate>)delegate
                     imageURLs:(NSArray *)imageURLs

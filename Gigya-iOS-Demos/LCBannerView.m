@@ -23,10 +23,10 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
 @property (nonatomic, weak  ) UIPageControl *pageControl;
 
 @property (nonatomic, assign) NSInteger     oldURLCount;
-
 @end
 
 @implementation LCBannerView
+static float alphaForImage = 0.5;
 
 + (instancetype)bannerViewWithFrame:(CGRect)frame delegate:(id<LCBannerViewDelegate>)delegate imageName:(NSString *)imageName count:(NSInteger)count timeInterval:(NSInteger)timeInterval currentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor pageIndicatorTintColor:(UIColor *)pageIndicatorTintColor {
 
@@ -123,6 +123,7 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
 
     CGFloat scrollW = self.frame.size.width;
     CGFloat scrollH = self.frame.size.height;
+    UIColor *black = [UIColor blackColor];
 
     // set up scrollView
     [self addSubview:({
@@ -177,8 +178,9 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.contentOffset                  = CGPointMake(scrollW, 0);
         scrollView.contentSize                    = CGSizeMake((self.count + 2) * scrollW, 0);
-        
+
         self.scrollView = scrollView;
+        
     })];
     
     [self addTimer];
@@ -246,13 +248,12 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
             
             beneficio = (Benefit*)self.benefitsArray[tag - 1];
             
-            NSLog(@"BENEFITS ARRAY %@", _benefitsArray);
-            NSLog(@"ESTOY EN POSICION DOS");
             
             NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
             
             UIImage *imagencita = [Tools decodeBase64ToImage:[arr lastObject]];
 
+            imagencita = [self imageByApplyingAlphaForImage:imagencita andAlpha:alphaForImage];
 
             // note: replace "ImageUtils" with the class where you pasted the method above
             UIImage *img = [self drawBenefitTitle:beneficio.title andSunmmary:beneficio.summary andDiscount:beneficio.desclabel inImage:imagencita ];
@@ -318,9 +319,6 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
             
         } else {    // from internet
            beneficio = (Benefit*)self.benefitsArray[tag - 1];
-            
-            NSLog(@"BENEFITS ARRAY %@", _benefitsArray);
-            NSLog(@"ESTOY ACA LPOOONYIII");
 
             NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
             
@@ -328,12 +326,13 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
     
             
             UIImage *imagencita = [Tools decodeBase64ToImage:[arr lastObject]];
+            imagencita = [self imageByApplyingAlphaForImage:imagencita andAlpha:alphaForImage];
 
 
             // note: replace "ImageUtils" with the class where you pasted the method above
             UIImage *img = [self drawBenefitTitle:beneficio.title andSunmmary:beneficio.summary andDiscount:beneficio.desclabel inImage:imagencita
                                           ];
- 
+            
             imageView.image = img;
 
         }
@@ -514,9 +513,7 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
             } else {    // from internet
                 
                Benefit * beneficio = (Benefit*)self.benefitsArray[tag - 1];
-                
-                NSLog(@"BENEFITS ARRAY %@", _benefitsArray);
-                NSLog(@"ESTOY ACA LPOOONYIII");
+
                 
                 NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
                 
@@ -525,7 +522,7 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
                 
                 UIImage *imagencita = [Tools decodeBase64ToImage:[arr lastObject]];
 
-
+                imagencita = [self imageByApplyingAlphaForImage:imagencita andAlpha:alphaForImage];
                 // note: replace "ImageUtils" with the class where you pasted the method above
                 UIImage *img = [self drawBenefitTitle:beneficio.title andSunmmary:beneficio.summary andDiscount:beneficio.desclabel inImage:imagencita
                                 ];
@@ -636,18 +633,17 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
 }
 
 - (UIImage*) drawBenefitTitle:(NSString*) title andSunmmary:(NSString*)summary andDiscount:(NSString*)discount
-              inImage:(UIImage*)  image
-
-{
-  
+              inImage:(UIImage*)  image{
     
-    UIImage *myImage = image;//[self filledImageFrom:image withColor:[[UIColor blackColor] colorWithAlphaComponent:0.3f]];
-
+    BOOL esiPhone6oMas = [Tools isIphone6OrMore];
+ 
+    UIImage *myImage = image;
+    
     UIGraphicsBeginImageContext(myImage.size);
     [myImage drawInRect:CGRectMake(0,0,myImage.size.width,myImage.size.height)];
     
     
-        //// tituloBeneficio Drawing
+    //// tituloBeneficio Drawing
     UITextView *myText = [[UITextView alloc] init];
     myText.text = title;
 
@@ -661,11 +657,19 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
     myText.layer.shadowOpacity = 1.0f;
     myText.layer.shadowRadius = 1.0f;
     
-    myText.frame = CGRectMake(10 , 35 ,
+    if(esiPhone6oMas){
+    myText.frame = CGRectMake(12 , 22 ,
                               myImage.size.width-10,
                               myImage.size.height);
-    
+    }else{
+            myText.frame = CGRectMake(26, 22 ,
+                                      myImage.size.width-50,
+                                      myImage.size.height);
+        }
+        
+        
     [[UIColor whiteColor] set];
+    
     NSShadow * shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor blackColor];
     shadow.shadowBlurRadius = 2;
@@ -676,10 +680,9 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
      NSShadowAttributeName          : shadow,
      NSFontAttributeName            : [UIFont fontWithName:@"PTSans-Bold" size:32.0f] };
     
-   // myText.attributedText = [[NSAttributedString alloc] initWithString:title
-     //                                                         attributes:textAttributes];
-    
+
     [myText.text drawInRect:myText.frame withAttributes:textAttributes];
+    
     //Summary
     UITextView *mySummary = [[UITextView alloc] init];
     CGSize maximumLabelSize2 = CGSizeMake(myImage.size.width,myImage.size.height);
@@ -691,9 +694,20 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
     mySummary.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
     mySummary.layer.shadowOpacity = 1.0f;
     mySummary.layer.shadowRadius = 2.0f;
-    mySummary.frame = CGRectMake(10 , 100 ,
-                                 myImage.size.width-15,
+    
+        if(esiPhone6oMas){
+            
+        mySummary.frame = CGRectMake(15 , 100 ,
+                                 myImage.size.width-20,
                                  myImage.size.height);
+        }else{
+            
+        mySummary.frame = CGRectMake(26 , 100 ,
+                                         myImage.size.width-34,
+                                         myImage.size.height);
+        }
+            
+            
     [[UIColor whiteColor] set];
 
     NSShadow * shadow2 = [[NSShadow alloc] init];
@@ -701,14 +715,10 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
     shadow2.shadowBlurRadius = 3;
     shadow2.shadowOffset = CGSizeMake(3, 3);
 
-
-
- 
-
     NSDictionary * summaryAttributes =
     @{ NSForegroundColorAttributeName : [UIColor whiteColor],
-       NSShadowAttributeName          : shadow2,
-       NSFontAttributeName            : [UIFont fontWithName:@"PTSans-Bold" size:32.0f] };
+       NSShadowAttributeName          : shadow,
+       NSFontAttributeName            : [UIFont fontWithName:@"PTSans-Regular" size:22.0f] };
     
     [mySummary.text drawInRect:mySummary.frame withAttributes:summaryAttributes];
     
@@ -726,11 +736,16 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
     myDiscount.textColor = [UIColor whiteColor];
     myDiscount.text = discount;
     
-    
+        if(esiPhone6oMas){
     myDiscount.frame = CGRectMake(20 ,  myImage.size.height-65 ,
                                  myImage.size.width-10,
                                  myImage.size.height);
-    
+        }else{
+            myDiscount.frame = CGRectMake(30 ,  myImage.size.height-45 ,
+                                          myImage.size.width-10,
+                                          myImage.size.height);
+            
+        }
     [[UIColor whiteColor] set];
     [myDiscount.text drawInRect:myDiscount.frame withAttributes:discountAttributes];
     
@@ -740,12 +755,25 @@ static CGFloat LCPageDistance = 5.0f;  // distance to bottom of pageControl
     return myNewImage;
 }
 
-/*-(UIImage *)filledImageFrom:(UIImage *)source withColor:(UIColor *)color{
+- (UIImage *)imageByApplyingAlphaForImage:(UIImage*)imagen andAlpha:(CGFloat) alpha {
+    UIGraphicsBeginImageContextWithOptions(imagen.size, NO, 0.0f);
     
-
-    UIImage *newImage = source;
-    so
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGRect area = CGRectMake(0, 0, imagen.size.width, imagen.size.height);
+    
+    CGContextScaleCTM(ctx, 1, -1);
+    CGContextTranslateCTM(ctx, 0, -area.size.height);
+    
+    CGContextSetBlendMode(ctx, kCGBlendModeMultiply);
+    
+    CGContextSetAlpha(ctx, alpha);
+    
+    CGContextDrawImage(ctx, area, imagen.CGImage);
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
     return newImage;
 }
-*/
 @end
