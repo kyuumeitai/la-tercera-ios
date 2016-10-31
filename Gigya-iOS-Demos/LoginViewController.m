@@ -28,7 +28,7 @@ GigyaFormAction formType;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Estoy en el login View controller");
+    //NSLog(@"Estoy en el login View controller");
 
     
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"isLogged"]) {
@@ -40,8 +40,6 @@ GigyaFormAction formType;
             NSLog(@"No hay coneccion");
         }
     }
-
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -713,13 +711,22 @@ GigyaFormAction formType;
             }
             //Fin nuevo
             switch (formType) {
-                case REGISTRO:
+                case REGISTRO:{
                            [self performSegueWithIdentifier:@"goToNews" sender:self];
-                    //[self performSegueWithIdentifier:@"GoToSWReveal" sender:self];
+                    SessionManager *sesion = [SessionManager session];
+                    UserProfile *perfil = [sesion getUserProfile];
+                    NSString *nombre = [NSString stringWithFormat:@"Bienvenido %@ , su registro ha sido exitoso",perfil.name];
+                    [Tools showLocalSuccessNotificationWithTitle:@"Registro exitoso" andMessage:nombre];
+                }
                     break;
                     
-                case LOGIN:
+                case LOGIN:{
                     [self performSegueWithIdentifier:@"goToNews" sender:self];
+                    SessionManager *sesion = [SessionManager session];
+                    UserProfile *perfil = [sesion getUserProfile];
+                    NSString *nombre = [NSString stringWithFormat:@"Bienvenido %@ , su registro ha sido exitoso",perfil.name];
+                    [Tools showLocalSuccessNotificationWithTitle:@"Registro exitoso" andMessage:nombre];
+                }
                     break;
                }
           }
