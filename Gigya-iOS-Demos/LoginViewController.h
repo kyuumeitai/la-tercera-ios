@@ -13,7 +13,8 @@
 
 typedef enum {
     REGISTRO,
-    LOGIN
+    LOGIN,
+    INVALIDO
 } GigyaFormAction;
 
 @end

@@ -9,10 +9,10 @@
 #import "EHPlainAlert.h"
 #import "UIColor+EHColorAdditions.h"
 
-#define EHDEFAULT_TITLE_FONT [UIFont fontWithName:@"HelveticaNeue-Light" size:15]
+#define EHDEFAULT_TITLE_FONT [UIFont fontWithName:@"HelveticaNeue-Bold" size:15]
 #define EHDEFAULT_SUBTITLE_FONT [UIFont fontWithName:@"HelveticaNeue-Light" size:13]
 #define EHDEFAULT_MAX_ALERTS_NUMBER 4
-#define EHDEFAULT_HIDING_DELAY 10
+#define EHDEFAULT_HIDING_DELAY 4
 
 
 float EH_iOS_Version() {

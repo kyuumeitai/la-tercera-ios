@@ -681,7 +681,7 @@ GigyaFormAction formType;
                     sesion.isLogged = true;
                     
                     if ([email isEqualToString:@""]){
-                        
+                         formType = INVALIDO;
                        sesion.isLogged = false;
                     }else{
                         NSString *saveEmail= userEmail;
@@ -724,10 +724,27 @@ GigyaFormAction formType;
                     [self performSegueWithIdentifier:@"goToNews" sender:self];
                     SessionManager *sesion = [SessionManager session];
                     UserProfile *perfil = [sesion getUserProfile];
-                    NSString *nombre = [NSString stringWithFormat:@"Bienvenido %@ , su registro ha sido exitoso",perfil.name];
-                    [Tools showLocalSuccessNotificationWithTitle:@"Registro exitoso" andMessage:nombre];
+                    NSString *nombre = [NSString stringWithFormat:@"Bienvenido %@ , su sesión ha sido iniciada ",perfil.name];
+                    [Tools showLocalSuccessNotificationWithTitle:@"Sesión iniciada" andMessage:nombre];
                 }
                     break;
+                    
+                case INVALIDO:{
+                    //[self performSegueWithIdentifier:@"goToNews" sender:self];
+                    //SessionManager *sesion = [SessionManager session];
+                    //UserProfile *perfil = [sesion getUserProfile];
+                    //NSString *nombre = [NSString stringWithFormat:@"Bienvenido %@ , su registro ha sido exitoso",perfil.name];
+                    //[Tools showLocalSuccessNotificationWithTitle:@"Registro exitoso" andMessage:nombre];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cuenta ya existente"
+                                                                    message:@"Ya posee una cuenta con estos datos, debe iniciar sesión o bien Registrarse con otra cuenta."
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+                    [alert show];
+
+                }
+                    break;
+
                }
           }
              NSLog(@"*** La transacción esta finalizada");

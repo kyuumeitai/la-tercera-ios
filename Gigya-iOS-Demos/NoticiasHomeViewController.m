@@ -223,9 +223,9 @@
     SessionManager *sesion = [SessionManager session];
     UserProfile *perfil =  [sesion getUserProfile];
        NSLog(@"^^^^^^^^^^Descripción perfil: %@         ^^^^^^^^^^^",[sesion profileDescription]);
-    if (perfil.status == false){
+    if (perfil.status == false && sesion.isLogged){
         NSString *mensaje = [NSString stringWithFormat:@"Para completar el registro debe confirmar el email, se le ha enviado un mensaje a: %@",sesion.profileEmail];
-        [Tools showLocalInfoNotificationWithTitle:@"Info del perfil" andMessage:mensaje];
+        [Tools showLocalInfoNotificationWithTitle:@"Verifique su email" andMessage:mensaje];
 
     }
     
