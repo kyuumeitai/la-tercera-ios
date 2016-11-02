@@ -20,7 +20,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //Creamos el singleton
+    //Creamos el singleton
     SessionManager *sesion = [SessionManager session];
+    
+    SWRevealViewController *revealViewController = sesion.leftSlideMenu;
+    revealViewController.delegate = self.revealViewController;
+    if (revealViewController) {
+        [_menuButtonConcursos
+         addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addGestureRecognizer: revealViewController.panGestureRecognizer];
+    }
+    UITapGestureRecognizer *tap = [revealViewController tapGestureRecognizer];
+    tap.delegate = self;
+    
+    [self.view addGestureRecognizer:tap];
+
+
     
 
 }

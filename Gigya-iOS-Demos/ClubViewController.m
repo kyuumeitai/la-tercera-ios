@@ -20,7 +20,6 @@
 #import "LCBannerView.h"
 #import "DetalleBeneficioViewController.h"
 
-
 @interface ClubViewController () <LCBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButtonClub;
 @property (nonatomic, weak) LCBannerView *bannerView1;
@@ -41,7 +40,7 @@
     
     //Creamos el singleton
   
-    
+    /*
     SWRevealViewController *revealViewController2 = self.revealViewController;
     if (revealViewController2) {
         [_menuButtonClub
@@ -54,12 +53,26 @@
         [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 
     }
+     */
+    //Creamos el singleton
+    SessionManager *sesion = [SessionManager session];
+    
+    SWRevealViewController *revealViewController = sesion.leftSlideMenu;
+    revealViewController.delegate = self.revealViewController;
+    if (revealViewController) {
+        [_menuButtonClub
+         addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addGestureRecognizer: revealViewController.panGestureRecognizer];
+    }
+    UITapGestureRecognizer *tap = [revealViewController tapGestureRecognizer];
+    tap.delegate = self;
+    
+    [self.view addGestureRecognizer:tap];
     
     
     // Do any additional setup after loading the view.
   [self loadStarredBenefits];
 }
-
 
 /**
  This method will manage the click event on the banner
@@ -265,8 +278,6 @@
     }];
 }
 
-
-
 -(void) reloadMainCategoriesDataFromService:(NSArray*)arrayJson{
     NSLog(@"  reload Main categories   ");
     categoryItemsArray = [[NSMutableArray alloc] init];
@@ -340,7 +351,6 @@
         }
         
     }
-    
     
     NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
 }
@@ -642,7 +652,6 @@
     [usarBeneficioNoLogueadoViewController cancelButtonText:@"Volver a la noticia"];
     
     [self presentViewController:usarBeneficioNoLogueadoViewController animated:YES completion:nil];
-
 }
 
 # pragma Connecction Stuffs
@@ -656,17 +665,11 @@
     NSLog(@"Verificando conexión: %d",estaConectado);
     
     //for Paging purposes
-    
     [connectionManager getStarredBenefits :^(BOOL success, NSArray *arrayJson, NSError *error){
-        
- 
-        
+
                                     [self reloadStarredBenefitsDataFromService:arrayJson];
                     // NSLog(@"Lista jhson: %@",arrayJson);
-        
-    
     }];
-    
 }
 
 -(void) reloadStarredBenefitsDataFromService:(NSArray*)arrayJson{

@@ -8,15 +8,30 @@
 
 #import "MenuMiPerfilViewController.h"
 #import "SessionManager.h"
-
+#import "SWRevealViewController.h"
 @interface MenuMiPerfilViewController ()
-
+@property (weak, nonatomic) IBOutlet UIButton *menuButton;
 @end
 
 @implementation MenuMiPerfilViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //Creamos el singleton
+    SessionManager *sesion = [SessionManager session];
+    
+    SWRevealViewController *revealViewController = sesion.leftSlideMenu;
+    revealViewController.delegate = self.revealViewController;
+    if (revealViewController) {
+        [_menuButton
+         addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+      [self.view addGestureRecognizer: revealViewController.panGestureRecognizer];
+    }
+    UITapGestureRecognizer *tap = [revealViewController tapGestureRecognizer];
+    tap.delegate = self;
+    
+    [self.view addGestureRecognizer:tap];
+
     
     //Creamos el singleton sesión
     //SessionManager *sesion = [SessionManager session];
@@ -31,8 +46,11 @@
 
 - (IBAction)backButtonClicked:(id)sender {
     NSLog(@"OK closing time BABY");
-    [self.revealViewController revealToggleAnimated:YES];
-       [self.navigationController popViewControllerAnimated:YES];
+    //Creamos el singleton
+    SessionManager *sesion = [SessionManager session];
+     SWRevealViewController *revealViewController = sesion.leftSlideMenu;
+    [revealViewController revealToggleAnimated:YES];
+      // [self.navigationController popViewControllerAnimated:YES];
     
 }
 

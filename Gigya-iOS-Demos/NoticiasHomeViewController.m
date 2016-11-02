@@ -39,14 +39,20 @@
     [SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
 
     [self loadContentHeadlines];
-    
+    SessionManager *sesion = [SessionManager session];
+
     
     SWRevealViewController *revealViewController = self.revealViewController;
+    sesion.leftSlideMenu = revealViewController;
     if (revealViewController) {
         [_menuButton
          addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
          [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     }
+    UITapGestureRecognizer *tap = [revealViewController tapGestureRecognizer];
+    tap.delegate = self;
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 - (IBAction)logoutGigyaButtonAction:(id)sender {

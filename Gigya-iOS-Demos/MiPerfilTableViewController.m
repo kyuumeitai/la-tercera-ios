@@ -17,6 +17,7 @@
 @interface MiPerfilTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *textFieldUserName;
 @property (weak, nonatomic) IBOutlet UILabel *texfieldEmail;
+
 @property GSAccount *user;
 @end
 
@@ -48,6 +49,9 @@ NSString *emailMiPerfil;
 
     //NSString *respuesta = [connectionManager getHistoryWithemailMiPerfil:emailMiPerfil];
     //NSLog(@"***::::-----    %@     -----::::***\r\r\r",respuesta);
+    
+    
+
     
 }
 

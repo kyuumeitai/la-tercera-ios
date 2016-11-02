@@ -14,8 +14,15 @@
     [super viewDidLoad];
     
     SessionManager *sesion = [SessionManager session];
-     [_menuButton addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    SWRevealViewController *revealViewController = self.revealViewController;
+    sesion.leftSlideMenu = revealViewController;
+    [_menuButton addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    UITapGestureRecognizer *tap = [revealViewController tapGestureRecognizer];
+    tap.delegate = self;
+    
+    [self.view addGestureRecognizer:tap];
+
 
 }
 

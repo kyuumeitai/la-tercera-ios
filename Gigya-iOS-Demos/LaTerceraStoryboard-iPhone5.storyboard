@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GVp-39-K6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GVp-39-K6N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -517,7 +517,7 @@ REGISTRARSE?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSR-ne-YT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1113.75" y="-25.35211267605634"/>
+            <point key="canvasLocation" x="1073" y="22"/>
         </scene>
         <!--Infantil Table View-->
         <scene sceneID="r9W-hT-15V">
@@ -861,7 +861,7 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="bIB-ff-5Kh" kind="show" id="kVV-Pe-RDG"/>
+                                    <segue destination="bIB-ff-5Kh" kind="show" customClass="SWRevealViewControllerSeguePushController" id="kVV-Pe-RDG"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria9" rowHeight="44" id="bbF-dq-hl4">
@@ -944,7 +944,7 @@ REGISTRARSE?</string>
                                                 </mask>
                                             </variation>
                                             <connections>
-                                                <segue destination="brH-Ps-jWs" kind="show" identifier="goToAjustes" id="rKs-ZC-2YD"/>
+                                                <segue destination="brH-Ps-jWs" kind="show" identifier="goToAjustes" customClass="SWRevealViewControllerSeguePushController" id="rKs-ZC-2YD"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F63-sR-KrU">
@@ -962,7 +962,7 @@ REGISTRARSE?</string>
                                                 </mask>
                                             </variation>
                                             <connections>
-                                                <segue destination="Ezw-n2-WDe" kind="show" identifier="goToMiPerfil" id="VOz-dw-KWE"/>
+                                                <segue destination="Ezw-n2-WDe" kind="show" identifier="goToMiPerfil" customClass="SWRevealViewControllerSeguePushController" id="VOz-dw-KWE"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -2053,6 +2053,9 @@ de tu descuento.</string>
                                 <frame key="frameInset" minX="64" minY="25" width="35" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="clublatercera.png"/>
+                                <connections>
+                                    <segue destination="LKO-m6-Nmk" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="lnt-qB-pfK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQ8-8a-mHu">
                                 <frame key="frameInset" minX="6" minY="19" width="50" height="50"/>
@@ -4378,10 +4381,7 @@ de La Tercera</string>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGh-qJ-oYx">
                                 <frame key="frameInset" minX="4" minY="16" width="58" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="botonVolver.png"/>
-                                <connections>
-                                    <action selector="backButtonClicked:" destination="brH-Ps-jWs" eventType="touchUpInside" id="qLY-fQ-6za"/>
-                                </connections>
+                                <state key="normal" image="boton-menu.png"/>
                             </button>
                             <view tag="100" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bmt-vB-weI">
                                 <frame key="frameInset" minY="77" width="375" height="590"/>
@@ -4418,10 +4418,13 @@ de La Tercera</string>
                     <navigationItem key="navigationItem" id="lIU-Cp-DjE"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="menuButton" destination="RGh-qJ-oYx" id="D8v-v0-b94"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40u-XO-mSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-161.25" y="-1456.6901408450703"/>
+            <point key="canvasLocation" x="139" y="-1023"/>
         </scene>
         <!--Ajustes Table View Controller-->
         <scene sceneID="xeh-yY-TGb">
@@ -4590,7 +4593,7 @@ de La Tercera</string>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bI0-qd-BOC">
                                 <frame key="frameInset" minX="3" minY="22" width="47" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="botonVolver.png"/>
+                                <state key="normal" image="boton-menu.png"/>
                                 <connections>
                                     <action selector="backButtonClicked:" destination="Ezw-n2-WDe" eventType="touchUpInside" id="cjs-A2-n34"/>
                                 </connections>
@@ -6236,13 +6239,10 @@ de La Tercera</string>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKg-HV-8PY">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="47" id="17V-H6-r3f"/>
-                                    <constraint firstAttribute="height" constant="47" id="G8H-jJ-sAd"/>
+                                    <constraint firstAttribute="width" constant="50" id="17V-H6-r3f"/>
+                                    <constraint firstAttribute="height" constant="50" id="G8H-jJ-sAd"/>
                                 </constraints>
-                                <state key="normal" image="botonVolver.png"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="cJ8-Gd-LrE" eventType="touchUpInside" id="ujC-AR-QJa"/>
-                                </connections>
+                                <state key="normal" image="boton-menu.png"/>
                             </button>
                             <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuu-LZ-qIX">
                                 <subviews>
@@ -6273,11 +6273,11 @@ de La Tercera</string>
                             <constraint firstAttribute="trailingMargin" secondItem="TJK-XL-2YQ" secondAttribute="trailing" constant="-9" id="DTV-K6-eH3"/>
                             <constraint firstItem="TJK-XL-2YQ" firstAttribute="leading" secondItem="nYC-AY-tKQ" secondAttribute="leading" constant="176" id="E1t-D5-bCa"/>
                             <constraint firstItem="6aN-3K-rTT" firstAttribute="trailing" secondItem="nuu-LZ-qIX" secondAttribute="trailing" id="Geb-FI-iLA"/>
-                            <constraint firstItem="h3E-gx-sdP" firstAttribute="leading" secondItem="wKg-HV-8PY" secondAttribute="trailing" constant="31" id="OOz-Af-iLS"/>
+                            <constraint firstItem="h3E-gx-sdP" firstAttribute="leading" secondItem="wKg-HV-8PY" secondAttribute="trailing" constant="23" id="OOz-Af-iLS"/>
                             <constraint firstItem="6aN-3K-rTT" firstAttribute="leading" secondItem="nYC-AY-tKQ" secondAttribute="leading" id="QZy-dQ-kcB"/>
-                            <constraint firstItem="h3E-gx-sdP" firstAttribute="centerY" secondItem="wKg-HV-8PY" secondAttribute="centerY" id="Wcb-i0-5pm"/>
+                            <constraint firstItem="h3E-gx-sdP" firstAttribute="centerY" secondItem="wKg-HV-8PY" secondAttribute="centerY" constant="-1.5" id="Wcb-i0-5pm"/>
                             <constraint firstItem="6aN-3K-rTT" firstAttribute="top" secondItem="nYC-AY-tKQ" secondAttribute="top" id="ZwF-4C-Ajg"/>
-                            <constraint firstItem="wKg-HV-8PY" firstAttribute="leading" secondItem="nYC-AY-tKQ" secondAttribute="leadingMargin" constant="-13" id="aZf-NY-zje"/>
+                            <constraint firstItem="wKg-HV-8PY" firstAttribute="leading" secondItem="nYC-AY-tKQ" secondAttribute="leadingMargin" constant="-8" id="aZf-NY-zje"/>
                             <constraint firstItem="nuu-LZ-qIX" firstAttribute="top" secondItem="TJK-XL-2YQ" secondAttribute="bottom" constant="17" id="dfe-GF-w3D"/>
                             <constraint firstItem="nuu-LZ-qIX" firstAttribute="top" secondItem="6aN-3K-rTT" secondAttribute="bottom" constant="1" id="esA-lG-rQg"/>
                             <constraint firstItem="h3E-gx-sdP" firstAttribute="top" secondItem="kt1-pw-QLJ" secondAttribute="bottom" constant="15" id="iBM-xr-pcZ"/>
@@ -6285,7 +6285,7 @@ de La Tercera</string>
                             <constraint firstItem="6aN-3K-rTT" firstAttribute="leading" secondItem="nuu-LZ-qIX" secondAttribute="leading" id="mZq-6d-a0h"/>
                             <constraint firstAttribute="trailing" secondItem="6aN-3K-rTT" secondAttribute="trailing" id="pF2-86-juW"/>
                             <constraint firstItem="TJK-XL-2YQ" firstAttribute="top" secondItem="kt1-pw-QLJ" secondAttribute="bottom" constant="13" id="qDF-RN-FNx"/>
-                            <constraint firstItem="nuu-LZ-qIX" firstAttribute="top" secondItem="wKg-HV-8PY" secondAttribute="bottom" constant="8" symbolic="YES" id="rvh-q1-Tts"/>
+                            <constraint firstItem="nuu-LZ-qIX" firstAttribute="top" secondItem="wKg-HV-8PY" secondAttribute="bottom" constant="5" id="rvh-q1-Tts"/>
                             <constraint firstItem="wKg-HV-8PY" firstAttribute="top" secondItem="kt1-pw-QLJ" secondAttribute="bottom" constant="2" id="s4r-s1-T7Z"/>
                         </constraints>
                     </view>
@@ -6294,6 +6294,9 @@ de La Tercera</string>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="menuButton" destination="wKg-HV-8PY" id="lto-TO-FA1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ut-So-G7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -6728,9 +6731,6 @@ de La Tercera</string>
                                     <constraint firstAttribute="width" constant="54" id="hmS-xT-Dw4"/>
                                 </constraints>
                                 <state key="normal" image="boton-menu.png"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="bIB-ff-5Kh" eventType="touchUpInside" id="RSh-hg-bYO"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6754,6 +6754,9 @@ de La Tercera</string>
                     <navigationItem key="navigationItem" id="NzV-Cb-My5"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="menuButtonConcursos" destination="OHl-pE-LUE" id="216-is-VFh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6S-Qr-Ckg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -8102,12 +8105,12 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="uTe-dx-gBZ"/>
         <segue reference="JhD-SO-oge"/>
-        <segue reference="LjX-Ol-dSP"/>
-        <segue reference="wuf-Nj-3R8"/>
-        <segue reference="vnn-UP-oet"/>
-        <segue reference="ATI-Qz-wkY"/>
+        <segue reference="wa8-wA-Ypp"/>
+        <segue reference="kVV-Pe-RDG"/>
         <segue reference="tqi-Nf-HuD"/>
+        <segue reference="vnn-UP-oet"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

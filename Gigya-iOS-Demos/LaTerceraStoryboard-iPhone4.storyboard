@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GVp-39-K6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GVp-39-K6N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -801,7 +801,7 @@ REGISTRARSE?</string>
                                 <color key="tintColor" red="0.25677083333333328" green="0.25677083333333328" blue="0.25677083333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <segue destination="Dgk-9x-B7V" kind="show" id="dTA-vx-nZv"/>
+                                    <segue destination="Dgk-9x-B7V" kind="show" customClass="SWRevealViewControllerSeguePushController" id="dTA-vx-nZv"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria5" rowHeight="35" id="sMg-PZ-cms">
@@ -891,7 +891,7 @@ REGISTRARSE?</string>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="1QZ-1R-8aX" kind="show" id="PJe-0T-m8W"/>
+                                    <segue destination="1QZ-1R-8aX" kind="show" customClass="SWRevealViewControllerSeguePushController" id="PJe-0T-m8W"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria9" rowHeight="35" id="bbF-dq-hl4">
@@ -963,7 +963,7 @@ REGISTRARSE?</string>
                                             <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" title="Mi Perfil"/>
                                             <connections>
-                                                <segue destination="J5F-jG-SXU" kind="show" identifier="goToMiPerfil" id="Tax-ZF-fUZ"/>
+                                                <segue destination="J5F-jG-SXU" kind="show" identifier="goToMiPerfil" customClass="SWRevealViewControllerSeguePushController" id="Tax-ZF-fUZ"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Prr-2A-1Wt">
@@ -972,7 +972,7 @@ REGISTRARSE?</string>
                                             <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" title="Ajustes"/>
                                             <connections>
-                                                <segue destination="ezi-tX-dFT" kind="show" identifier="goToAjustes" id="Q9P-TT-8dL"/>
+                                                <segue destination="ezi-tX-dFT" kind="show" identifier="goToAjustes" customClass="SWRevealViewControllerSeguePushController" id="Q9P-TT-8dL"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -2236,6 +2236,9 @@ de tu descuento.</string>
                                 <frame key="frameInset" minX="64" minY="25" width="35" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="clublatercera.png"/>
+                                <connections>
+                                    <segue destination="LKO-m6-Nmk" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="roh-Hp-4bp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQ8-8a-mHu">
                                 <frame key="frameInset" minX="6" minY="19" width="50" height="50"/>
@@ -2278,7 +2281,7 @@ de tu descuento.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="clublatercera.png"/>
                                 <connections>
-                                    <segue destination="LKO-m6-Nmk" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="me0-ej-09l"/>
+                                    <segue destination="LKO-m6-Nmk" kind="custom" customClass="SWRevealViewControllerSegueFlipModalController" id="XMg-An-s3A"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaz-qg-VZg">
@@ -2316,7 +2319,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQ6-2h-4J0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588.125" y="-1663.75"/>
+            <point key="canvasLocation" x="456" y="-950"/>
         </scene>
         <!--La Tercera-->
         <scene sceneID="dbQ-zF-WPo">
@@ -2709,7 +2712,7 @@ de tu descuento.</string>
         <scene sceneID="DAU-tE-vSo">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionEdicionEspecial" id="w1T-UP-eOG" customClass="CVEdicionEspecial" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" misplaced="YES" dataMode="prototypes" id="ByA-8c-pfG">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" dataMode="prototypes" id="ByA-8c-pfG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3882,7 +3885,7 @@ de La Tercera</string>
         <scene sceneID="eYM-Sm-asG">
             <objects>
                 <collectionViewController id="Ezh-w4-n1h" customClass="CVNoticiasMundo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Z86-im-lD7">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Z86-im-lD7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4006,7 +4009,7 @@ de La Tercera</string>
         <scene sceneID="ryL-5l-vNe">
             <objects>
                 <collectionViewController id="hK5-vS-3vn" customClass="CVNoticiasTendencias" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="ZuS-Bv-VK7">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="ZuS-Bv-VK7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4158,7 +4161,7 @@ de La Tercera</string>
         <scene sceneID="bAy-8D-eL9">
             <objects>
                 <collectionViewController id="gXx-Db-z54" customClass="CVNoticiasNacional" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Sno-S0-VzM">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Sno-S0-VzM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4234,7 +4237,7 @@ de La Tercera</string>
         <scene sceneID="LR2-ED-PEe">
             <objects>
                 <collectionViewController id="fwJ-hL-5FX" customClass="CVNoticiasElDeportivo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="kFa-nd-Kzf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="kFa-nd-Kzf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4733,34 +4736,24 @@ de La Tercera</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="REf-Zh-jYW">
-                                <frame key="frameInset" width="375" height="76"/>
+                                <frame key="frameInset" width="320" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CY8-Jf-6Mh">
-                                <frame key="frameInset" minX="203" minY="33" width="165" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Perfil" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="505-U7-BN8">
-                                        <frame key="frameInset" minX="-65" width="152" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CY8-Jf-6Mh">
                                 <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiQ-4Y-2OZ">
-                                <frame key="frameInset" minX="3" minY="22" width="47" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="botonVolver.png"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiQ-4Y-2OZ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="A41-91-iY8"/>
+                                    <constraint firstAttribute="width" constant="50" id="bXC-Dp-U0P"/>
+                                </constraints>
+                                <state key="normal" image="boton-menu.png"/>
                                 <connections>
                                     <action selector="backButtonClicked:" destination="J5F-jG-SXU" eventType="touchUpInside" id="zUw-Ne-332"/>
                                 </connections>
                             </button>
-                            <view tag="100" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oxk-Wl-KxZ">
+                            <view tag="100" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oxk-Wl-KxZ">
                                 <frame key="frameInset" minY="77" width="375" height="590"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q76-hQ-yYD">
                                         <frame key="frameInset" width="320" height="404"/>
@@ -4773,8 +4766,24 @@ de La Tercera</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Perfil" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4x-xT-7EJ">
+                                <frame key="frameInset" minX="234" minY="36" width="60" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DiQ-4Y-2OZ" firstAttribute="centerY" secondItem="CY8-Jf-6Mh" secondAttribute="centerY" id="6qm-Zh-aY6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CY8-Jf-6Mh" secondAttribute="trailing" constant="-9" id="A6h-7j-cdq"/>
+                            <constraint firstItem="CY8-Jf-6Mh" firstAttribute="leading" secondItem="KK5-zh-uY2" secondAttribute="leading" constant="172" id="Dp2-e9-xUA"/>
+                            <constraint firstItem="CY8-Jf-6Mh" firstAttribute="top" secondItem="OWO-jM-CO4" secondAttribute="bottom" constant="13" id="eok-NC-9bc"/>
+                            <constraint firstItem="Oxk-Wl-KxZ" firstAttribute="top" secondItem="DiQ-4Y-2OZ" secondAttribute="bottom" constant="5" id="gw3-SD-lvH"/>
+                            <constraint firstItem="DiQ-4Y-2OZ" firstAttribute="leading" secondItem="KK5-zh-uY2" secondAttribute="leadingMargin" constant="-9" id="pou-3T-Pnn"/>
+                            <constraint firstItem="DiQ-4Y-2OZ" firstAttribute="top" secondItem="OWO-jM-CO4" secondAttribute="bottom" constant="2" id="xNh-1F-O1I"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="04R-YH-A2t"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -4782,7 +4791,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cTp-z9-zgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1020" y="-1266"/>
+            <point key="canvasLocation" x="-1020" y="-1266.25"/>
         </scene>
         <!--Mi Perfil Table View Controller-->
         <scene sceneID="HlA-cc-zI4">
@@ -5612,13 +5621,10 @@ de La Tercera</string>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0W-3j-hkd">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="58l-OF-6el"/>
-                                    <constraint firstAttribute="width" constant="47" id="os7-5X-QqX"/>
+                                    <constraint firstAttribute="height" constant="50" id="58l-OF-6el"/>
+                                    <constraint firstAttribute="width" constant="50" id="os7-5X-QqX"/>
                                 </constraints>
-                                <state key="normal" image="botonVolver.png"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="Dgk-9x-B7V" eventType="touchUpInside" id="Eeo-lI-YuF"/>
-                                </connections>
+                                <state key="normal" image="boton-menu.png"/>
                             </button>
                             <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xz-8W-c7A">
                                 <subviews>
@@ -5646,17 +5652,17 @@ de La Tercera</string>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iIx-ZN-2FA" firstAttribute="top" secondItem="8rR-Fx-Cmb" secondAttribute="bottom" constant="15" id="15T-y5-Zfr"/>
-                            <constraint firstItem="k0W-3j-hkd" firstAttribute="leading" secondItem="TQm-6p-Zay" secondAttribute="leadingMargin" constant="-13" id="55c-eH-i6j"/>
+                            <constraint firstItem="k0W-3j-hkd" firstAttribute="leading" secondItem="TQm-6p-Zay" secondAttribute="leadingMargin" constant="-9" id="55c-eH-i6j"/>
                             <constraint firstItem="cnS-dp-XQ6" firstAttribute="top" secondItem="TQm-6p-Zay" secondAttribute="top" id="5PT-44-8Cw"/>
                             <constraint firstItem="8xz-8W-c7A" firstAttribute="top" secondItem="eCu-cB-VCj" secondAttribute="bottom" constant="17" id="6vk-tk-viU"/>
-                            <constraint firstItem="iIx-ZN-2FA" firstAttribute="leading" secondItem="k0W-3j-hkd" secondAttribute="trailing" constant="31" id="82D-Zd-55d"/>
-                            <constraint firstItem="iIx-ZN-2FA" firstAttribute="centerY" secondItem="k0W-3j-hkd" secondAttribute="centerY" id="9j4-z2-nWQ"/>
+                            <constraint firstItem="iIx-ZN-2FA" firstAttribute="leading" secondItem="k0W-3j-hkd" secondAttribute="trailing" constant="24" id="82D-Zd-55d"/>
+                            <constraint firstItem="iIx-ZN-2FA" firstAttribute="centerY" secondItem="k0W-3j-hkd" secondAttribute="centerY" constant="-1.5" id="9j4-z2-nWQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eCu-cB-VCj" secondAttribute="trailing" constant="-9" id="CUn-GO-kUO"/>
                             <constraint firstItem="cnS-dp-XQ6" firstAttribute="trailing" secondItem="8xz-8W-c7A" secondAttribute="trailing" id="Cfc-WG-AeS"/>
                             <constraint firstItem="eCu-cB-VCj" firstAttribute="leading" secondItem="TQm-6p-Zay" secondAttribute="leading" constant="176" id="Cwl-eP-aL3"/>
                             <constraint firstItem="8xz-8W-c7A" firstAttribute="bottom" secondItem="iDS-9k-5h1" secondAttribute="top" id="FDn-44-gzU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iIx-ZN-2FA" secondAttribute="trailing" constant="37" id="G39-HN-YSC"/>
-                            <constraint firstItem="8xz-8W-c7A" firstAttribute="top" secondItem="k0W-3j-hkd" secondAttribute="bottom" constant="8" symbolic="YES" id="Puq-Jg-StR"/>
+                            <constraint firstItem="8xz-8W-c7A" firstAttribute="top" secondItem="k0W-3j-hkd" secondAttribute="bottom" constant="5" id="Puq-Jg-StR"/>
                             <constraint firstAttribute="trailing" secondItem="cnS-dp-XQ6" secondAttribute="trailing" id="Z13-4h-E96"/>
                             <constraint firstItem="cnS-dp-XQ6" firstAttribute="leading" secondItem="TQm-6p-Zay" secondAttribute="leading" id="ZVz-kc-g5a"/>
                             <constraint firstItem="cnS-dp-XQ6" firstAttribute="leading" secondItem="8xz-8W-c7A" secondAttribute="leading" id="eGw-YW-r4t"/>
@@ -5668,6 +5674,9 @@ de La Tercera</string>
                     <navigationItem key="navigationItem" id="Fjl-0u-7Qr"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="menuButton" destination="k0W-3j-hkd" id="PIh-xz-nMb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAs-W2-CvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -7476,9 +7485,9 @@ de La Tercera</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QpD-Og-2iF"/>
+        <segue reference="wa8-wA-Ypp"/>
         <segue reference="tqi-Nf-HuD"/>
-        <segue reference="EJO-cu-oTk"/>
-        <segue reference="wuf-Nj-3R8"/>
+        <segue reference="XMg-An-s3A"/>
         <segue reference="vnn-UP-oet"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

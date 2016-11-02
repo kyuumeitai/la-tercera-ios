@@ -7,8 +7,11 @@
 //
 
 #import "MenuAjustesViewController.h"
+#import "SWRevealViewController.h"
+#import "SessionManager.h"
 
 @interface MenuAjustesViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *menuButton;
 
 @end
 
@@ -17,6 +20,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //Creamos el singleton
+    SessionManager *sesion = [SessionManager session];
+    
+    SWRevealViewController *revealViewController = sesion.leftSlideMenu;
+    revealViewController.delegate = self.revealViewController;
+    if (revealViewController) {
+        [_menuButton
+         addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addGestureRecognizer: revealViewController.panGestureRecognizer];
+    }
+    UITapGestureRecognizer *tap = [revealViewController tapGestureRecognizer];
+    tap.delegate = self;
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning {
