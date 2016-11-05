@@ -20,6 +20,12 @@
 #import "LCBannerView.h"
 #import "DetalleBeneficioViewController.h"
 
+const int catSabores = 3;
+const int catInfantil = 7;
+const int catTiempoLibre = 5;
+const int catVidaSana = 8;
+const int catServicios = 4;
+
 @interface ClubViewController () <LCBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButtonClub;
 @property (nonatomic, weak) LCBannerView *bannerView1;
@@ -463,14 +469,14 @@
         NSLog(@"MI CategoryName es: %@",categoriaViewController.categoryName);
         //NSLog(@"LOS ITEMS ARRAY SON: %@",categoryItemsArray.description);
         categoriaViewController.categoryItemsArray = categoryItemsArray;
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 8];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", catInfantil];
         NSArray *filteredArray = [categoryItemsArray filteredArrayUsingPredicate:predicate];
         
         Categoria* firstFoundObject = nil;
         firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
         categoriaViewController.category = firstFoundObject;
         NSLog(@"  obejtooo  Infantil cat : %@",firstFoundObject.description);
-        categoriaViewController.categoryId = 8;
+        categoriaViewController.categoryId = catInfantil;
         categoriaViewController.category = firstFoundObject;
         categoriaViewController.categoryItemsArray = firstFoundObject.arrayBenefits;
         
@@ -490,14 +496,14 @@
         NSLog(@"Mi CategoryName es: %@",categoriaViewController.categoryName);
         
         categoriaViewController.categoryItemsArray = categoryItemsArray;
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 3];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", catSabores];
         NSArray *filteredArray = [categoryItemsArray filteredArrayUsingPredicate:predicate];
         
         Categoria* firstFoundObject = nil;
         firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
         categoriaViewController.category = firstFoundObject;
         NSLog(@"  objetooo cat : %@",firstFoundObject);
-        categoriaViewController.categoryId = 3;
+        categoriaViewController.categoryId = catSabores;
         categoriaViewController.category = firstFoundObject;
         
     }
@@ -513,14 +519,14 @@
         NSLog(@"CategoryName es: %@",categoriaViewController.categoryName);
         
         categoriaViewController.categoryItemsArray = categoryItemsArray;
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", 3];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idCat == %d", catTiempoLibre];
         NSArray *filteredArray = [categoryItemsArray filteredArrayUsingPredicate:predicate];
         
         Categoria* firstFoundObject = nil;
         firstFoundObject =  filteredArray.count > 0 ? filteredArray.firstObject : nil;
         categoriaViewController.category = firstFoundObject;
         NSLog(@"  obejtooo cat : %@",firstFoundObject);
-        categoriaViewController.categoryId = 3;
+        categoriaViewController.categoryId = catTiempoLibre;
         categoriaViewController.category = firstFoundObject;
     }
     

@@ -19,7 +19,7 @@
 
 @end
 @implementation DetalleBeneficioViewController
-@synthesize benefitId;
+@synthesize benefitId,benefitRemoteId;
 @synthesize storeId;
 @synthesize commerceId;
 CLLocationCoordinate2D storeLocation;
@@ -55,7 +55,7 @@ BOOL forAnonimo = false;
         
         UsarBeneficioDescuentoAdicional *usarBeneficioController = [self.storyboard instantiateViewControllerWithIdentifier:@"usarBeneficioScreen"];
         
-        NSString * ben = [ NSString stringWithFormat:@"%i",benefitId];
+        NSString * ben = [ NSString stringWithFormat:@"%i",benefitRemoteId];
         NSString * sto = [ NSString stringWithFormat:@"%i",storeId];
         NSString *comm = [ NSString stringWithFormat:@"%i",commerceId];
         NSLog(@"el detalle el parametro comercio sale con valor: %@ y commerce Id: %d",comm,commerceId);
@@ -253,6 +253,8 @@ BOOL forAnonimo = false;
 
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
     NSLog(@"  reload beenfits  ");
+    
+    NSLog(@"Array Json : %@",arrayJson);
     
     NSDictionary *tempDict = (NSDictionary*)arrayJson;
     

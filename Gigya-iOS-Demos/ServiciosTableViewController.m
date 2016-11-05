@@ -19,7 +19,7 @@
 #import "SVProgressHUD.h"
 #import "Tools.h"
 #import "SVPullToRefresh.h"
-#define benefitCategoryId 40
+#define benefitCategoryId 4
 
 @interface ServiciosTableViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

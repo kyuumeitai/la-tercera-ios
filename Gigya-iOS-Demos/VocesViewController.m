@@ -23,7 +23,7 @@
     SessionManager *sesion = [SessionManager session];
     
     SWRevealViewController *revealViewController = sesion.leftSlideMenu;
-    revealViewController.delegate = self.revealViewController;
+    self.revealViewController.delegate = self;
     if (revealViewController) {
         [_menuButton
          addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];

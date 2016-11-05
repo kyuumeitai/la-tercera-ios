@@ -13,6 +13,8 @@
 
 @property (strong,nonatomic) NSString* benefitTitle;
 @property (nonatomic,assign)  int benefitId;
+@property (nonatomic,assign)  int benefitRemoteId;
+@property (nonatomic,assign)  int storeRemoteId;
 @property (strong,nonatomic) NSString* benefitSubtitle;
 @property (strong,nonatomic) NSString* benefitDiscount;
 @property (strong,nonatomic) NSString* benefitAddress;

@@ -19,7 +19,7 @@
 #import "SVProgressHUD.h"
 #import "Tools.h"
 #import "SVPullToRefresh.h"
-#define benefitCategoryId 44
+#define benefitCategoryId 8
 
 @interface VidaSanaTableViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

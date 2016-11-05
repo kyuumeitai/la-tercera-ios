@@ -664,10 +664,12 @@ int cuenta;
         NSString *titleBen = tiendita.titleBenefit;
         NSString *discBen = tiendita.descText;
         NSString *storeId = tiendita.storeId;
+        NSString *remoteStore = [NSString stringWithFormat:@"%d",tiendita.relatedCommerce];
         NSString *address = tiendita.storeAddress;
         CLLocation *locacion =  [[CLLocation alloc] initWithLatitude:tiendita.storeLocation.latitude   longitude:tiendita.storeLocation.longitude];
         
-       NSLog(@"el Id del beneficio es:%d y el id del Store es:%@",benefitId,storeId);
+        
+       NSLog(@"el Id del beneficio es:%d y el id del Store es:%@",benefitId,remoteStore);
         
         //Party goes on
         DetalleBeneficioViewControllerFromMap *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];

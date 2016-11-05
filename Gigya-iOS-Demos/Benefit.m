@@ -21,7 +21,7 @@
 }
 -(void)logDescription{
     
-    NSLog(@" >>>> Beneficio de id: %d, titulo: %@, url:%@, imagen: %@, summary: %@, disponible anonimo: %i, disponible fremium: %i, disponible suscriptor: %i ",_idBen,_title,_url,_imagenNormal,_summary,_disponibleParaAnonimo,_disponibleParaFremium,_disponibleParaSuscriptor );
+    NSLog(@" >>>> Beneficio de id: %d, remote_id: %d, titulo: %@, url:%@, imagen: %@, summary: %@, disponible anonimo: %i, disponible fremium: %i, disponible suscriptor: %i ",_idBen,_idRemoteBen, _title,_url,_imagenNormal,_summary,_disponibleParaAnonimo,_disponibleParaFremium,_disponibleParaSuscriptor );
     
 }
 @end

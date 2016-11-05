@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "Headers/MOCA.h"
+
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate, MOCAProximityEventsDelegate, MOCAProximityActionsDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;

@@ -15,9 +15,11 @@
 #import <CoreData/CoreData.h>
 #import "Headers/MOCA.h"
 
+
 @interface AppDelegate  () <GSAccountsDelegate>
 
 @end
+
 
 @implementation AppDelegate
 @synthesize managedObjectContext = _managedObjectContext;

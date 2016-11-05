@@ -26,15 +26,16 @@
 #import "ContentType.h"
 #import "SVProgressHUD.h"
 
-@interface NoticiasHomeViewController() <YSLContainerViewControllerDelegate>
+@interface NoticiasHomeViewController() <YSLContainerViewControllerDelegate, SWRevealViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
-
 @end
 
 @implementation NoticiasHomeViewController
+BOOL sidebarMenuOpen ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    sidebarMenuOpen = NO;
    [self setupLocalNotification];
     [SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
 
@@ -48,11 +49,15 @@
         [_menuButton
          addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
          [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+        self.revealViewController.delegate = self;
+        
     }
-    UITapGestureRecognizer *tap = [revealViewController tapGestureRecognizer];
+    UITapGestureRecognizer *tap = [self.revealViewController tapGestureRecognizer];
     tap.delegate = self;
     
     [self.view addGestureRecognizer:tap];
+    [self.revealViewController tapGestureRecognizer].enabled = NO;
+
 }
 
 - (IBAction)logoutGigyaButtonAction:(id)sender {
@@ -241,6 +246,36 @@
     //[Tools showLocalSuccessNotificationWithTitle:@"Erxito" andMessage:[sesion sessionDescription]];
     //[Tools showLocalErrorNotificationWithTitle:@"Cueck!" andMessage:@"Errorr"];
 }
+- (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
+{
+    if(position == FrontViewPositionLeft) {
+        NSLog(@"Wastouy en sidebar = no");
+        //self.view.userInteractionEnabled = YES;
+        sidebarMenuOpen = NO;
+        [self.revealViewController tapGestureRecognizer].enabled = NO;
+
+    } else {
+        NSLog(@"Wastouy en sidebar = si");
+
+        //self.view.userInteractionEnabled = NO;
+        sidebarMenuOpen = YES;
+          [self.revealViewController tapGestureRecognizer].enabled = YES;
+
+    }
+}
+
+- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
+{
+    if(position == FrontViewPositionLeft) {
+        //self.view.userInteractionEnabled = YES;
+        sidebarMenuOpen = NO;
+    } else {
+        //self.view.userInteractionEnabled = NO;
+        sidebarMenuOpen = YES;
+    }
+}
+
+
 
 
 @end

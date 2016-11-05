@@ -38,21 +38,24 @@
 #import "ContentType.h"
 
 @implementation LaTerceraTV
+
+BOOL sidebarMenuOpen2;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     //Creamos el singleton
     SessionManager *sesion = [SessionManager session];
-    
+    sidebarMenuOpen2 = NO;
     SWRevealViewController *revealViewController = self.revealViewController;
+    self.revealViewController.delegate = self;
     sesion.leftSlideMenu = revealViewController;
     [_menuButton addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
-    UITapGestureRecognizer *tap = [revealViewController tapGestureRecognizer];
+    UITapGestureRecognizer *tap = [self.revealViewController tapGestureRecognizer];
     tap.delegate = self;
     
     [self.view addGestureRecognizer:tap];
-
+    [self.revealViewController tapGestureRecognizer].enabled = NO;
     [self loadContentHeadlines];
 
 
@@ -210,5 +213,33 @@
     NSLog(@"pressed otro");
 }
 
+- (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
+{
+    if(position == FrontViewPositionLeft) {
+        NSLog(@"Wastouy en sidebar = no");
+        //self.view.userInteractionEnabled = YES;
+        sidebarMenuOpen2 = NO;
+        [self.revealViewController tapGestureRecognizer].enabled = NO;
+        
+    } else {
+        NSLog(@"Wastouy en sidebar = si");
+        
+        //self.view.userInteractionEnabled = NO;
+        sidebarMenuOpen2 = YES;
+        [self.revealViewController tapGestureRecognizer].enabled = YES;
+        
+    }
+}
+
+- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
+{
+    if(position == FrontViewPositionLeft) {
+        //self.view.userInteractionEnabled = YES;
+        sidebarMenuOpen2 = NO;
+    } else {
+        //self.view.userInteractionEnabled = NO;
+        sidebarMenuOpen2 = YES;
+    }
+}
 
 @end

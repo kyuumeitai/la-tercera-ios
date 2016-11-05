@@ -10,7 +10,7 @@
 #import "SWRevealViewController.h"
 #import "YSLContainerViewController.h"
 
-@interface LaTerceraTV : UIViewController <YSLContainerViewControllerDelegate>
+@interface LaTerceraTV : UIViewController <YSLContainerViewControllerDelegate, SWRevealViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
 

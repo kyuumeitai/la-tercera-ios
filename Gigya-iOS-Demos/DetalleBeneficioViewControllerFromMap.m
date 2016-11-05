@@ -16,7 +16,7 @@
 
 @end
 @implementation DetalleBeneficioViewControllerFromMap
-@synthesize benefitId;
+@synthesize benefitId,storeRemoteId,benefitRemoteId;
 CLLocationCoordinate2D storeLocationFromMap;
 
 
@@ -38,7 +38,7 @@ CLLocationCoordinate2D storeLocationFromMap;
 }
 - (IBAction)usarBeneficioPressed:(id)sender {
     
-    NSLog(@"Usar beneficio click DETECTED");
+    NSLog(@"Usar beneficio click DETECTED from map");
     
     UsarBeneficioEstandar *usarBeneficioEstandarViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"usarBeneficioScreen"];
     usarBeneficioEstandarViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
@@ -70,6 +70,7 @@ CLLocationCoordinate2D storeLocationFromMap;
     NSLog(@"La store es: %@ y la direccion es: %@",_idStore, _address);
     // IMPORTANT - Only update the UI on the main thread
      self.benefitAdressLabel.text = self.benefitAddress;
+    
     // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
@@ -92,7 +93,7 @@ CLLocationCoordinate2D storeLocationFromMap;
     NSLog(@"Load category benefits");
     
     
-    //NSLog(@"La store es: %@ y la direccion es: %@",_idStore, _address);
+  //NSLog(@"La store es: %@ y la direccion es: %@",_idStore, _address);
     // IMPORTANT - Only update the UI on the main thread
     //self.benefitAdressLabel.text = self.benefitAddress;
     // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
@@ -174,6 +175,8 @@ CLLocationCoordinate2D storeLocationFromMap;
     NSArray* arrayCoords = (NSArray*)[storeDict objectForKey:@"geocoords"];
      double latitud = [arrayCoords[0] doubleValue];
     double longuitud = [arrayCoords[1] doubleValue];
+    int remoteId = [[storeDict objectForKey:@"remote_id"] integerValue];
+    storeRemoteId = remoteId;
     storeLocationFromMap = CLLocationCoordinate2DMake(latitud, longuitud);
     CLLocation *coordenadas = [[CLLocation alloc] initWithLatitude:latitud longitude:longuitud ];
     NSString * direccion = [NSString stringWithFormat:@"%@, Región %@",address,region];

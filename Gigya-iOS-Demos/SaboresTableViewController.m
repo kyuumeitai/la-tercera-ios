@@ -19,7 +19,7 @@
 #import "SVProgressHUD.h"
 #import "Tools.h"
 #import "SVPullToRefresh.h"
-#define benefitCategoryId 39
+#define benefitCategoryId 3
 
 @interface SaboresTableViewController ()
 
@@ -191,6 +191,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
+    detalleBeneficio.benefitRemoteId = beneficio.idRemoteBen;
     [beneficio logDescription];
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
@@ -256,6 +257,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         
         id titleBen = [benefit objectForKey:@"title"];
         int idBen =[ [benefit objectForKey:@"id"] intValue];;
+         int idRemoteBen =[ [benefit objectForKey:@"id"] intValue];;
         //NSLog(@"idBen :%d",idBen);
         id linkBen = [benefit objectForKey:@"url"] ;
         id summaryBen = [benefit objectForKey:@"summary"] ;
@@ -264,6 +266,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         
         Benefit *beneficio = [[Benefit alloc] init];
         beneficio.idBen = idBen;
+        beneficio.idRemoteBen = idRemoteBen;
         beneficio.title = titleBen;
         beneficio.url = linkBen;
         beneficio.summary= summaryBen;
