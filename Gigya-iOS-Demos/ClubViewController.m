@@ -644,7 +644,7 @@ const int catServicios = 4;
 
 - (IBAction)TCMastercardPressed:(id)sender {
     
-    [Tools openSafariWithURL:@"http://www.clublatercera.com/beneficios/17_2660.html"];
+    [Tools openSafariWithURL:@"http://www.clublatercera.com/categoria/mastercard/"];
 }
 
 - (IBAction)ViajesClubPressed:(id)sender {
