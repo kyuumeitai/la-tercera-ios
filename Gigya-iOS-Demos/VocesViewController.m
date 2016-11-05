@@ -16,12 +16,13 @@
 @end
 
 @implementation VocesViewController
+BOOL sidebarMenuOpen3;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     SessionManager *sesion = [SessionManager session];
-    
+    sidebarMenuOpen3 = NO;
     SWRevealViewController *revealViewController = sesion.leftSlideMenu;
     self.revealViewController.delegate = self;
     if (revealViewController) {
@@ -33,8 +34,6 @@
     tap.delegate = self;
     
     [self.view addGestureRecognizer:tap];
-
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,5 +54,33 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
+{
+    if(position == FrontViewPositionLeft) {
+        NSLog(@"Wastouy en sidebar = no");
+        //self.view.userInteractionEnabled = YES;
+        sidebarMenuOpen3 = NO;
+        [self.revealViewController tapGestureRecognizer].enabled = NO;
+        
+    } else {
+        NSLog(@"Wastouy en sidebar = si");
+        
+        //self.view.userInteractionEnabled = NO;
+        sidebarMenuOpen3 = YES;
+        [self.revealViewController tapGestureRecognizer].enabled = YES;
+        
+    }
+}
+
+- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
+{
+    if(position == FrontViewPositionLeft) {
+        //self.view.userInteractionEnabled = YES;
+        sidebarMenuOpen3 = NO;
+    } else {
+        //self.view.userInteractionEnabled = NO;
+        sidebarMenuOpen3 = YES;
+    }
+}
 
 @end
