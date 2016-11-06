@@ -83,8 +83,7 @@ NSString *textoContenidoTemporalVoces = @"";
     _contentTextView.text= @"";
     
     //  self.managedObjectContext = managedObjectContext;
-    _imagenNews.image = nil;
-    
+    _imagenNews.image =  [UIImage imageNamed:@"placeholder2"];
     _titulo.alpha = 0;
     _summary.alpha = 0;
     _contentTextView.alpha = 0;
@@ -374,7 +373,7 @@ NSString *textoContenidoTemporalVoces = @"";
         id urlImagen;
         
         if (([articleDict objectForKey:@"image_url"] == (id)[NSNull null]) || ([[articleDict objectForKey:@"image_url"] isEqualToString:@""])){
-            urlImagen = @"https://placekitten.com/400/400";
+            urlImagen = @"";
         }else{
             urlImagen = [articleDict objectForKey:@"image_url"];
         }
@@ -415,7 +414,7 @@ NSString *textoContenidoTemporalVoces = @"";
         id urlImagen;
         
         if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"https://placekitten.com/400/400";
+            urlImagen = @"";
         }else{
             urlImagen = [articleDict objectForKey:@"image_url"];
         }
@@ -455,7 +454,7 @@ NSString *textoContenidoTemporalVoces = @"";
         id urlImagen;
         
         if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"https://placekitten.com/400/400";
+            urlImagen = @"";
         }else{
             urlImagen = [articleDict objectForKey:@"image_url"];
         }
@@ -495,7 +494,7 @@ NSString *textoContenidoTemporalVoces = @"";
         id urlImagen;
         
         if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"https://placekitten.com/400/400";
+            urlImagen = @"";
         }else{
             urlImagen = [articleDict objectForKey:@"image_url"];
         }
@@ -580,7 +579,7 @@ NSString *textoContenidoTemporalVoces = @"";
     
     if (([articleDict objectForKey:@"image_url"] == (id)[NSNull null]) || ([[articleDict objectForKey:@"image_url"] isEqualToString:@""])){
 
-        urlImagen = @"https://placekitten.com/400/400";
+        urlImagen = @"";
     }else{
         urlImagen = [articleDict objectForKey:@"image_url"];
     }
@@ -653,8 +652,7 @@ NSString *textoContenidoTemporalVoces = @"";
     _contentTextView.text= @"";
     
     //  self.managedObjectContext = managedObjectContext;
-    _imagenNews.image = nil;
-    
+    _imagenNews.image = [UIImage imageNamed:@"placeholder2"];    
     _titulo.alpha = 0;
     _summary.alpha = 0;
     _contentTextView.alpha = 0;

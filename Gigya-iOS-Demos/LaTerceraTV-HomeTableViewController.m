@@ -168,6 +168,9 @@ NSString *storyBoardNameTV;
                         updateCell.imageViewThumb.image  = offersImage;
                         
                     });
+                }else{
+                    VideoTableViewCell *updateCell = (VideoTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+                    updateCell.imageViewThumb.image  =  [UIImage imageNamed:@"placeholder2"];
                 }
             }
         });
@@ -195,6 +198,9 @@ NSString *storyBoardNameTV;
                         updateCell.imageViewThumb.image  = offersImage;
                         
                     });
+                }else{
+                    VideoTableViewCell *updateCell = (VideoTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+                    updateCell.imageViewThumb.image  =  [UIImage imageNamed:@"placeholder2"];
                 }
             }
         });
@@ -303,7 +309,7 @@ NSString *storyBoardNameTV;
         NSString *imageThumb ;
         
         if (([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]) || ([[dictTitular objectForKey:@"thumb_url"] isEqualToString:@""])){
-            imageThumb = @"https://placekitten.com/200/200";
+            imageThumb = @"";
         }else{
             imageThumb = [dictTitular objectForKey:@"thumb_url"];
         }

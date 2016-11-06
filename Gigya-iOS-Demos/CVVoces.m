@@ -215,8 +215,8 @@ NSMutableArray *relatedIdsArrayVoces;
         id imageThumb ;
         
             if (([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]) || ([[dictTitular objectForKey:@"thumb_url"] isEqualToString:@""])){
-            imageThumb = @"https://placekitten.com/200/200";
-        }else{
+            imageThumb = @"";
+            }else{
             imageThumb = [dictTitular objectForKey:@"thumb_url"];
             NSLog(@" el thumbnail  es: %@ ",imageThumb);
         }
@@ -307,7 +307,7 @@ NSMutableArray *relatedIdsArrayVoces;
         NSString *urlImagen = titular.imagenThumbString;
         NSURL *url = [NSURL URLWithString:urlImagen];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder2"];
         
         //__weak UITableViewCell *weakCell = cell;
         
