@@ -168,10 +168,10 @@ NSString *storyBoardNameTV;
                         updateCell.imageViewThumb.image  = offersImage;
                         
                     });
-                }else{
-                    VideoTableViewCell *updateCell = (VideoTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
-                    updateCell.imageViewThumb.image  =  [UIImage imageNamed:@"placeholder2"];
                 }
+            }else{
+                VideoTableViewCell *updateCell = (VideoTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+                updateCell.imageViewThumb.image  =  [UIImage imageNamed:@"placeholder2"];
             }
         });
         
@@ -198,10 +198,12 @@ NSString *storyBoardNameTV;
                         updateCell.imageViewThumb.image  = offersImage;
                         
                     });
-                }else{
-                    VideoTableViewCell *updateCell = (VideoTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
-                    updateCell.imageViewThumb.image  =  [UIImage imageNamed:@"placeholder2"];
                 }
+                }
+            else{
+                NSLog(@"Of");
+                VideoTableViewCell *updateCell = (VideoTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+                updateCell.imageViewThumb.image  =  [UIImage imageNamed:@"placeholder2"];
             }
         });
         
