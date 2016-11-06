@@ -20,7 +20,7 @@
 
 @implementation UsarBeneficioNoLogueado
 
-
+BOOL respuestaStatus;
 GigyaFormAction formTypeSecond;
 
 - (IBAction)openSuscriptionWeb:(id)sender {
@@ -98,7 +98,15 @@ GigyaFormAction formTypeSecond;
             
             NSString * responseString = [event objectForKey:@"response"];
             NSLog(@"*** La respuesta es positiva: %@",responseString);
+            
             operation = [self getStringValueForResponseString:responseString andLlave:@"operation"];
+            
+            if ([[self getStringValueForResponseString:responseString andLlave:@"status"] isEqualToString:@"FAIL"]){
+                respuestaStatus = false;
+            }else{
+                respuestaStatus= true;
+            }
+            
             NSLog(@"*******++++++ La operacion: %@ ++++++*******",operation);
             
             if([operation isEqualToString:@"/accounts.l"]){
@@ -404,23 +412,61 @@ GigyaFormAction formTypeSecond;
             }
             
             switch (formTypeSecond) {
-                case REGISTRO:
-                    [self dismissViewControllerAnimated:YES
-                                             completion:nil];
-                    break;
+                case REGISTRO:{
+                    NSLog(@"***registro**");
+                    if(respuestaStatus){
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ha ingresado exitosamente"
+                                                                        message:@"Intente canjear el beneficio."
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                        [alert show];
+                        [self dismissViewControllerAnimated:YES
+                                                 completion:nil];
+                    }else{
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Datos de ingreso incorrectos"
+                                                                        message:@"Revise los datos ingresados y reintente."
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                        [alert show];
+                        
+                    }
+                }                    break;
                     
-                case LOGIN:
+                case LOGIN:{
+                    NSLog(@"***login**");
+                    if(respuestaStatus){
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ha ingresado exitosamente"
+                                                                    message:@"Intente canjear el beneficio."
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+                    [alert show];
                     [self dismissViewControllerAnimated:YES
                                              completion:nil];
+                    }else{
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Datos de ingreso incorrectos"
+                                                                        message:@"Revise los datos ingresados y reintente."
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                        [alert show];
+
+                    }
+                }
                     break;
-            }                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Datos de ingreso incorrectos"
-                                                                                 message:@"Revise los datos ingresados y reintente."
-                                                                                delegate:self
-                                                                       cancelButtonTitle:@"OK"
-                                                                       otherButtonTitles:nil];
+                }
+        
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Datos de ingreso incorrectos"
+                                                            message:@"Revise los datos ingresados y reintente."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
             [alert show];
         }
-        NSLog(@"*** La transacción esta finalizada");
+            NSLog(@"*** La transacción esta finalizada");
     }
 }
 
