@@ -735,18 +735,23 @@ GigyaFormAction formType;
                     //UserProfile *perfil = [sesion getUserProfile];
                     //NSString *nombre = [NSString stringWithFormat:@"Bienvenido %@ , su registro ha sido exitoso",perfil.name];
                     //[Tools showLocalSuccessNotificationWithTitle:@"Registro exitoso" andMessage:nombre];
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cuenta ya existente"
-                                                                    message:@"Ya posee una cuenta con estos datos, debe iniciar sesión o bien Registrarse con otra cuenta."
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"OK"
-                                                          otherButtonTitles:nil];
-                    [alert show];
 
                 }
-                    break;
+
 
                }
-          }
+        }else{
+            NSLog(@"***ERROR **");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Datos de ingreso incorrectos"
+                                                            message:@"Revise los datos ingresados y reintente."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+
+        
+        }
+        
              NSLog(@"*** La transacción esta finalizada");
        }
     }

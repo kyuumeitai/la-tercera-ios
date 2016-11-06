@@ -413,7 +413,12 @@ GigyaFormAction formTypeSecond;
                     [self dismissViewControllerAnimated:YES
                                              completion:nil];
                     break;
-            }
+            }                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Datos de ingreso incorrectos"
+                                                                                 message:@"Revise los datos ingresados y reintente."
+                                                                                delegate:self
+                                                                       cancelButtonTitle:@"OK"
+                                                                       otherButtonTitles:nil];
+            [alert show];
         }
         NSLog(@"*** La transacción esta finalizada");
     }
