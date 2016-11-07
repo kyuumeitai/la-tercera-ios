@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "YSLContainerViewController.h"
 
-@interface PapelDigital : UIViewController <YSLContainerViewControllerDelegate>
+@interface PapelDigital : UIViewController <YSLContainerViewControllerDelegate, UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
+@property (weak, nonatomic) IBOutlet UIWebView *webViewLTPapelDigital;
 
 @end

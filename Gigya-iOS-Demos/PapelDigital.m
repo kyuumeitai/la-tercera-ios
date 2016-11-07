@@ -31,7 +31,59 @@
 
 
 @implementation PapelDigital
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [SVProgressHUD show];
+    [SVProgressHUD setStatus:@"Cargando Papel Digital"];
+    
+    // Do any additional setup after loading the view.
+    //Creamos el singleton
+    SessionManager *sesion = [SessionManager session];
+    
+    
+    SWRevealViewController *revealViewController = self.revealViewController;
+    sesion.leftSlideMenu = revealViewController;
+    [_menuButton addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    
+    
+    [self loadWeb];
+    // NSLog(@"Entonces el singleton es: %@",singleton.leftSlideMenu);
+    // Do any additional setup after loading the view.
+    
+    //[self loadCategories];
+    //[self loadBenefits];
+    //[self loadCommerces];
+    //[self loadStores];
+    
+}
 
+-(void)loadWeb{
+    
+    // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://especiales.latercera.com/pruebas/newsite/index4.html"]];
+    
+    
+    NSString *urlString = @"http://latercera.pressreader.com/la-tercera";
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    _webViewLTPapelDigital.delegate = self;
+    [_webViewLTPapelDigital loadRequest:urlRequest];
+    
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSTimer *aTimer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(hideHUD) userInfo:nil repeats:YES];
+
+    NSLog(@"A timer called %@",aTimer);
+}
+
+-(void)hideHUD{
+    [SVProgressHUD dismiss];
+}
+
+@end
+/*
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -108,3 +160,4 @@
 
 
 @end
+ */
