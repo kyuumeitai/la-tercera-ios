@@ -639,7 +639,7 @@ const int catServicios = 4;
 
 - (IBAction)TiendaClubPressed:(id)sender {
     
-    [Tools openSafariWithURL:@"http://tienda.clublatercera.com/"];
+    [Tools openSafariWithURL:@"http://tienda.clublatercera.cl/"];
 }
 
 - (IBAction)TCMastercardPressed:(id)sender {
@@ -651,6 +651,13 @@ const int catServicios = 4;
     
     [Tools openSafariWithURL:@"http://www.viajesclublatercera.cl/"];
 }
+
+- (IBAction)VentasEspecialesPressed:(id)sender {
+    
+    [Tools openSafariWithURL:@"http://suscripcioneslt.latercera.com/"];
+}
+
+
 
 - (IBAction)identifyUser:(id)sender {
 
