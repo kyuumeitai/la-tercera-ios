@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWRevealViewController.h"
 
-@interface ConcursosViewController : UIViewController
+@interface ConcursosViewController : UIViewController <SWRevealViewControllerDelegate>
 
 @end

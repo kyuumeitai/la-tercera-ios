@@ -15,7 +15,7 @@
 @end
 
 @implementation ConcursosViewController
-
+BOOL sidebarMenuOpenConcursos;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -23,20 +23,17 @@
     //Creamos el singleton
     SessionManager *sesion = [SessionManager session];
     
-    SWRevealViewController *revealViewController = sesion.leftSlideMenu;
-    revealViewController.delegate = self.revealViewController;
-    if (revealViewController) {
-        [_menuButtonConcursos
-         addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addGestureRecognizer: revealViewController.panGestureRecognizer];
-    }
-    UITapGestureRecognizer *tap = [revealViewController tapGestureRecognizer];
+    sidebarMenuOpenConcursos = NO;
+    SWRevealViewController *revealViewController = self.revealViewController;
+    self.revealViewController.delegate = self;
+    sesion.leftSlideMenu = revealViewController;
+    [_menuButtonConcursos addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    UITapGestureRecognizer *tap = [self.revealViewController tapGestureRecognizer];
     tap.delegate = self;
     
     [self.view addGestureRecognizer:tap];
-
-
-    
+    [self.revealViewController tapGestureRecognizer].enabled = NO;
 
 }
 
@@ -57,5 +54,35 @@
 - (IBAction)backButtonPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
+{
+    if(position == FrontViewPositionLeft) {
+        NSLog(@"Wastouy en sidebar = no");
+        //self.view.userInteractionEnabled = YES;
+        sidebarMenuOpenConcursos = NO;
+        [self.revealViewController tapGestureRecognizer].enabled = NO;
+        
+    } else {
+        NSLog(@"Wastouy en sidebar = si");
+        
+        //self.view.userInteractionEnabled = NO;
+        sidebarMenuOpenConcursos = YES;
+        [self.revealViewController tapGestureRecognizer].enabled = YES;
+        
+    }
+}
+
+- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
+{
+    if(position == FrontViewPositionLeft) {
+        //self.view.userInteractionEnabled = YES;
+        sidebarMenuOpenConcursos = NO;
+    } else {
+        //self.view.userInteractionEnabled = NO;
+        sidebarMenuOpenConcursos = YES;
+    }
+}
+
 
 @end

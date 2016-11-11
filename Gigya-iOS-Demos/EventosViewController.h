@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "SWRevealViewController.h"
 
-@interface EventosViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIButton *menuButton;
+@interface EventosViewController : UIViewController <SWRevealViewControllerDelegate
+>@property (weak, nonatomic) IBOutlet UIButton *menuButton;
 @end
