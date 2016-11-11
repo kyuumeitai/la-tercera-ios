@@ -203,7 +203,7 @@ BOOL firstTimeConcursos = false;
     __weak ConcursosTableViewController *weakSelf = self;
     // IMPORTANT - Only update the UI on the main thread
     if (isPageRefreshingConcursos == false)
-        [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
+        [SVProgressHUD showWithStatus:@"Obteniendo concursos disponibles" maskType:SVProgressHUDMaskTypeClear];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];

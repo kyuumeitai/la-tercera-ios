@@ -210,7 +210,7 @@ BOOL firstTimeEventos = false;
     __weak EventosTableViewController *weakSelf = self;
     // IMPORTANT - Only update the UI on the main thread
     if (isPageRefreshingEventos == false)
-        [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
+        [SVProgressHUD showWithStatus:@"Obteniendo eventos disponibles" maskType:SVProgressHUDMaskTypeClear];
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
