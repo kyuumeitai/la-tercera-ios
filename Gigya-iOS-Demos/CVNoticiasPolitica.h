@@ -14,4 +14,6 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property int categoryIdNoticiasPolitica;
 
+
+
 @end
