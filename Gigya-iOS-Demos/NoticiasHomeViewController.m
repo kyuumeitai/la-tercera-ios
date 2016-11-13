@@ -170,11 +170,11 @@ BOOL sidebarMenuOpen ;
     UserProfile *profile = [sesion getUserProfile];
     
     int profileLevel = profile.profileLevel;
-    
+    //TODO: Make a selection from preferences
     if(profileLevel == 2){
         MiSeleccionViewController *miSeleccion = [self.storyboard instantiateViewControllerWithIdentifier:@"newsMiSeleccion"];
         miSeleccion.title = @"Mi Selección";
-            YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,miSeleccion,newsNacionalVC,newsPoliticaVC,newsMundoVC,newsTendenciasVC,newsNegociosVC, newsElDeportivoVC ,newsEntretencionVC ,newsCulturaVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
+            YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,miSeleccion,newsNacionalVC,newsPoliticaVC,newsMundoVC,newsTendenciasVC,newsNegociosVC, newsElDeportivoVC ,newsEntretencionVC ,newsCulturaVC ]                                                                                        topBarHeight:headerSpace     parentViewController:self];
         containerVC.delegate = self;
         containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
         UIView *getView = (UIView*)[self.view viewWithTag:100];
@@ -185,6 +185,7 @@ BOOL sidebarMenuOpen ;
         containerVC.delegate = self;
         containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
         UIView *getView = (UIView*)[self.view viewWithTag:100];
+        
         [getView addSubview:containerVC.view];
 
     }

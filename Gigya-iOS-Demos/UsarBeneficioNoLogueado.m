@@ -415,8 +415,8 @@ GigyaFormAction formTypeSecond;
                 case REGISTRO:{
                     NSLog(@"***registro**");
                     if(respuestaStatus){
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ha ingresado exitosamente"
-                                                                        message:@"Intente canjear el beneficio."
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ingreso exitoso"
+                                                                        message:@"Ha ingresado exitosamente."
                                                                        delegate:self
                                                               cancelButtonTitle:@"OK"
                                                               otherButtonTitles:nil];
@@ -437,8 +437,8 @@ GigyaFormAction formTypeSecond;
                 case LOGIN:{
                     NSLog(@"***login**");
                     if(respuestaStatus){
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ha ingresado exitosamente"
-                                                                    message:@"Intente canjear el beneficio."
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ingreso exitoso"
+                                                                    message:@"Ha ingresado exitosamente."
                                                                    delegate:self
                                                           cancelButtonTitle:@"OK"
                                                           otherButtonTitles:nil];
