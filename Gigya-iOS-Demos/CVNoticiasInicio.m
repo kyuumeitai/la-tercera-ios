@@ -206,7 +206,14 @@ NSMutableArray *relatedIdsArrayInicio;
         NSNumber *artId = [NSNumber numberWithInteger:[idArt intValue] ];
         [relatedIdsArrayInicio addObject: artId];
         id summary = [dictTitular objectForKey:@"short_description"];
-        id imageThumb = [dictTitular objectForKey:@"thumb_url"];
+        id imageThumb ;
+        
+        if ([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]){
+            imageThumb = @"http://www.banmedica.cl//images/Beneficios/LogoCupon/LOGO%20LA%20TERCERA.png";
+        }else{
+            imageThumb = [dictTitular objectForKey:@"thumb_url"];
+            NSLog(@" el thumbnail  es: %@ ",imageThumb);
+        }
         
         Headline *titular = [[Headline alloc] init];
         titular.idArt = [idArt intValue];
