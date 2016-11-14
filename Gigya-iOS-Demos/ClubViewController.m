@@ -43,23 +43,7 @@ const int catServicios = 4;
     // Do any additional setup after loading the view.
     
     NSLog(@"Club View Controller loaded and fonts are: %@",[UIFont familyNames]);
-    
-    //Creamos el singleton
-  
-    /*
-    SWRevealViewController *revealViewController2 = self.revealViewController;
-    if (revealViewController2) {
-        [_menuButtonClub
-         addTarget:revealViewController2 action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
-    }else{
-        SWRevealViewController *revealViewController3 = [[SWRevealViewController alloc] init];
-        [_menuButtonClub
-         addTarget:revealViewController3 action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 
-    }
-     */
     //Creamos el singleton
     SessionManager *sesion = [SessionManager session];
     
@@ -111,6 +95,7 @@ const int catServicios = 4;
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
+    detalleBeneficio.benefitRemoteId = beneficio.idRemoteBen;
     [beneficio logDescription];
 
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
@@ -697,7 +682,9 @@ const int catServicios = 4;
     for (id benefit in tempDict){
         
         id titleBen = [benefit objectForKey:@"title"];
-        int idBen =[ [benefit objectForKey:@"id"] intValue];;
+        int idBen =[ [benefit objectForKey:@"id"] intValue];
+        int idRemoteBen =[ [benefit objectForKey:@"id"] intValue];
+
         //NSLog(@"idBen :%d",idBen);
         id linkBen = [benefit objectForKey:@"url"] ;
         id summaryBen = [benefit objectForKey:@"summary"] ;
@@ -706,6 +693,7 @@ const int catServicios = 4;
         Benefit *beneficio = [[Benefit alloc] init];
         beneficio.idBen = idBen;
         beneficio.title = titleBen;
+        beneficio.idRemoteBen = idRemoteBen;
         beneficio.url = linkBen;
         beneficio.summary= summaryBen;
         beneficio.desclabel = benefitLabelBen;
@@ -805,7 +793,7 @@ const int catServicios = 4;
         
     })];
     //fade in
-    [UIView animateWithDuration:2.0f animations:^{
+    [UIView animateWithDuration:1.5f animations:^{
         
         [self.scrollViewBanner setAlpha:1.0f];
         

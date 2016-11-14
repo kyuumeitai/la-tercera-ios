@@ -257,7 +257,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         
         id titleBen = [benefit objectForKey:@"title"];
         int idBen =[ [benefit objectForKey:@"id"] intValue];;
-         int idRemoteBen =[ [benefit objectForKey:@"id"] intValue];;
+        int idRemoteBen =[ [benefit objectForKey:@"id"] intValue];
         //NSLog(@"idBen :%d",idBen);
         id linkBen = [benefit objectForKey:@"url"] ;
         id summaryBen = [benefit objectForKey:@"summary"] ;
