@@ -44,7 +44,7 @@ BOOL firstTimeSabores = false;
 - (void)viewDidLoad {
     [super viewDidLoad];
     __weak SaboresTableViewController *weakSelf = self;
-
+    self.tableView.delegate = self;
     SessionManager *sesion = [SessionManager session];
         storyBoardNameSabores = sesion.storyBoardName;
     //listaCategorias = [[NSMutableArray alloc] init];
@@ -164,7 +164,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
         return 278.0;
     }
     else {
-        return 114.0;
+        return 120.0;
     }
 }
 
@@ -219,6 +219,8 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
                     
                 [self errorDetectedWithNSError:error];
                 }else{
+                    [self.tableView setBounces:NO];
+                    [self.tableView setAlwaysBounceVertical:NO];
                     [weakSelf.tableView endUpdates];
                     [weakSelf.tableView.infiniteScrollingView stopAnimating];
                 }

@@ -166,7 +166,7 @@ BOOL firstTimeVidaSana = false;
         return 278.0;
     }
     else {
-        return 114.0;
+        return 120.0;
     }
 }
 
@@ -220,6 +220,8 @@ BOOL firstTimeVidaSana = false;
                     
                     [self errorDetectedWithNSError:error];
                 }else{
+                    [self.tableView setBounces:NO];
+                    [self.tableView setAlwaysBounceVertical:NO];
                     [weakSelf.tableView endUpdates];
                     [weakSelf.tableView.infiniteScrollingView stopAnimating];
                 }

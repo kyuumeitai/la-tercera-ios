@@ -15,8 +15,6 @@
 #import "Tools.h"
 #import <AVFoundation/AVFoundation.h>
 
-
-
 @interface VocesDetailViewController () <UIGestureRecognizerDelegate,AVSpeechSynthesizerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *labelFecha;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -68,6 +66,9 @@ NSString *newsLinkVoces= @"";
 NSString *textoContenidoTemporalVoces = @"";
 
 - (void)viewDidLoad {
+    for (AVSpeechSynthesisVoice *voice in [AVSpeechSynthesisVoice speechVoices]) {
+        NSLog(@"**** ENtonces ecuteee las voces son: %@", voice.language);
+    }
     firstVoice = YES;
     _upperSeparador.hidden = YES;
     _lowerSeparador.hidden = YES;
@@ -738,9 +739,12 @@ NSString *textoContenidoTemporalVoces = @"";
 - (IBAction)playVoicePressed:(id)sender {
     if (firstVoice){
            [_playPauseButton setBackgroundImage:[UIImage imageNamed:@"pauseAudio"] forState:UIControlStateNormal];
-         NSLog(@"First Voice");
+         //NSLog(@"First Voice");
     AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:_contentTextView.text];
     [self.synth speakUtterance:utterance];
+        
+       AVSpeechSynthesisVoice * voz =  [AVSpeechSynthesisVoice voiceWithLanguage:@"es-MX"];
+        utterance.voice = voz;
         NSArray * textParagraphs = [_contentTextView.text componentsSeparatedByString:(@"\n")];
         
         for (NSString *word in textParagraphs) {
@@ -749,7 +753,7 @@ NSString *textoContenidoTemporalVoces = @"";
         }
         
         //totalUtterances = textParagraphs;
-               NSLog(@"totalTextLength: %i",totalTextLength);
+              // NSLog(@"totalTextLength: %i",totalTextLength);
         firstVoice = NO;
         return;
     }else{
@@ -781,9 +785,9 @@ NSString *textoContenidoTemporalVoces = @"";
     spokenTextLengths = spokenTextLengths + [self wordCount:utterance.speechString]+1;
     float progress = spokenTextLengths * 100 / totalTextLength;
     NSLog(@"El progreso de lectura  final es de un %f",progress);
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
+    /*NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
     [text removeAttribute:NSForegroundColorAttributeName range:NSMakeRange(0, [text length])];
-    self.contentTextView.attributedText = text;
+    self.contentTextView.attributedText = text;*/
    // pvSpeechProgress.progress = progress / 100
 }
 
@@ -793,7 +797,7 @@ NSString *textoContenidoTemporalVoces = @"";
         spokenTextLengths = spokenTextLengths + [self wordCount:utterance.speechString];
     float progress =( (spokenTextLengths + characterRange.location) * 100) / (totalTextLength);
     
-    NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSizeVoces,textoContenidoTemporalVoces];
+  /*  NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSizeVoces,textoContenidoTemporalVoces];
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc]
                                        initWithData: [finalDescription dataUsingEncoding:NSUnicodeStringEncoding]
                                        options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
@@ -803,6 +807,7 @@ NSString *textoContenidoTemporalVoces = @"";
     
     [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:characterRange];
     self.contentTextView.attributedText = text;
+   */
     //NSLog(@"El progreso de lectura es de un %f",progress);
     float total = (progress/100)/totalTextLength;
     NSLog(@"El progreso de lectura final es de un %f",total);

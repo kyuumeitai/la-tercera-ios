@@ -2427,78 +2427,6 @@ REGISTRARSE?</string>
             </objects>
             <point key="canvasLocation" x="1025" y="1696"/>
         </scene>
-        <!--Confirmation View Controller-->
-        <scene sceneID="S5G-7q-afh">
-            <objects>
-                <viewController storyboardIdentifier="confirmationScreen" id="EWf-wl-4YP" customClass="ConfirmationViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yWi-1N-J5z"/>
-                        <viewControllerLayoutGuide type="bottom" id="H1n-Yo-Hwz"/>
-                    </layoutGuides>
-                    <view key="view" alpha="0.94999999999999996" contentMode="scaleToFill" id="tvu-Hn-61s">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngv-En-DLl" customClass="CustomButtonTercera">
-                                <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="ONb-DH-t4s"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Volver">
-                                    <color key="titleColor" red="0.2470588235" green="0.69411764710000001" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButtonClicked:" destination="EWf-wl-4YP" eventType="touchUpInside" id="kpg-Hq-2RT"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_check_black_24px.png" translatesAutoresizingMaskIntoConstraints="NO" id="4vl-ht-Ykd">
-                                <rect key="frame" x="161" y="193" width="53" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="53" id="rDw-Qe-dHk"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER8-1c-Zvq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <string key="text">Ahora puedes disfrutar
-de tu descuento.</string>
-                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Beneficio canjeado!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5S-MK-vZU">
-                                <rect key="frame" x="109.5" y="233" width="156" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="I3o-fK-M3p"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.24705882352941178" green="0.69411764705882351" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="ER8-1c-Zvq" firstAttribute="top" secondItem="4vl-ht-Ykd" secondAttribute="bottom" constant="60" id="DKe-4e-bMU"/>
-                            <constraint firstItem="ER8-1c-Zvq" firstAttribute="trailing" secondItem="Ngv-En-DLl" secondAttribute="trailing" id="E1E-1s-2YR"/>
-                            <constraint firstItem="ER8-1c-Zvq" firstAttribute="top" secondItem="S5S-MK-vZU" secondAttribute="bottom" constant="22" id="Fzc-VM-uxT"/>
-                            <constraint firstItem="ER8-1c-Zvq" firstAttribute="leading" secondItem="tvu-Hn-61s" secondAttribute="leadingMargin" constant="39" id="Gcc-gg-Zc8"/>
-                            <constraint firstItem="4vl-ht-Ykd" firstAttribute="top" secondItem="yWi-1N-J5z" secondAttribute="bottom" constant="173" id="HSv-n8-2eG"/>
-                            <constraint firstItem="4vl-ht-Ykd" firstAttribute="centerX" secondItem="S5S-MK-vZU" secondAttribute="centerX" id="Osh-Le-Keh"/>
-                            <constraint firstItem="S5S-MK-vZU" firstAttribute="centerX" secondItem="ER8-1c-Zvq" secondAttribute="centerX" id="fTx-2B-cm4"/>
-                            <constraint firstItem="S5S-MK-vZU" firstAttribute="top" secondItem="yWi-1N-J5z" secondAttribute="bottom" constant="213" id="ihU-Up-1td"/>
-                            <constraint firstItem="ER8-1c-Zvq" firstAttribute="leading" secondItem="Ngv-En-DLl" secondAttribute="leading" id="muA-Jp-Kxw"/>
-                            <constraint firstItem="H1n-Yo-Hwz" firstAttribute="top" secondItem="Ngv-En-DLl" secondAttribute="bottom" constant="233" id="qhB-5T-AWd"/>
-                            <constraint firstItem="S5S-MK-vZU" firstAttribute="centerX" secondItem="tvu-Hn-61s" secondAttribute="centerX" id="vvZ-9l-xAA"/>
-                            <constraint firstItem="Ngv-En-DLl" firstAttribute="top" secondItem="ER8-1c-Zvq" secondAttribute="bottom" constant="41" id="xgX-Yr-ShA"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="KFy-Ni-mBX"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fUs-eN-dpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4414" y="2476"/>
-        </scene>
         <!--Noticias Home View Controller-->
         <scene sceneID="lkj-LX-C17">
             <objects>
@@ -3251,109 +3179,6 @@ de tu descuento.</string>
             </objects>
             <point key="canvasLocation" x="3226" y="-1650"/>
         </scene>
-        <!--Usar Beneficio Descuento Adicional-->
-        <scene sceneID="GZ0-Dm-nPB">
-            <objects>
-                <viewController storyboardIdentifier="usarBeneficioScreen" id="EBh-QS-O0y" customClass="UsarBeneficioDescuentoAdicional" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fVp-0W-WHO"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ovw-n0-D5O"/>
-                    </layoutGuides>
-                    <view key="view" alpha="0.84999999999999998" contentMode="scaleToFill" id="lpB-b8-aOU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AQf-EX-a0t">
-                                <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="wnc-um-p2W"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I8w-iQ-ol1">
-                                <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="hBI-LS-Xvh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="alphabet"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ingrese Valor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knt-hx-xSF">
-                                <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="VbZ-ip-fPS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="       Beneficio exclusivo para Suscriptores del Club La Tercera" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Rq-7t-EDO">
-                                <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbM-cp-IPd" customClass="CustomButtonTercera">
-                                <rect key="frame" x="55" y="391" width="265" height="45"/>
-                                <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="rad-5c-ICO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Confirmar"/>
-                                <connections>
-                                    <action selector="confirmUseBenefitClicked:" destination="EBh-QS-O0y" eventType="touchUpInside" id="uo0-cF-XgF"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Axt-5d-rcZ">
-                                <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                                <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ingrese Código Local" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4y-2v-Trx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="thc-Wb-2uv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Ovw-n0-D5O" firstAttribute="top" secondItem="tbM-cp-IPd" secondAttribute="bottom" constant="231" id="1MX-le-iS1"/>
-                            <constraint firstItem="7Rq-7t-EDO" firstAttribute="centerX" secondItem="lpB-b8-aOU" secondAttribute="centerX" id="1wU-RO-VPx"/>
-                            <constraint firstItem="knt-hx-xSF" firstAttribute="leading" secondItem="lpB-b8-aOU" secondAttribute="leadingMargin" constant="41" id="49Q-EP-RpW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="I8w-iQ-ol1" secondAttribute="trailing" constant="35" id="7Rb-Fj-H9s"/>
-                            <constraint firstItem="7Rq-7t-EDO" firstAttribute="leading" secondItem="lpB-b8-aOU" secondAttribute="leadingMargin" constant="46" id="9zB-tW-U4l"/>
-                            <constraint firstItem="tbM-cp-IPd" firstAttribute="top" secondItem="Axt-5d-rcZ" secondAttribute="bottom" constant="13" id="AUS-RF-60g"/>
-                            <constraint firstItem="AQf-EX-a0t" firstAttribute="centerX" secondItem="Axt-5d-rcZ" secondAttribute="centerX" id="Bxo-sW-H1X"/>
-                            <constraint firstItem="7Rq-7t-EDO" firstAttribute="centerX" secondItem="AQf-EX-a0t" secondAttribute="centerX" id="QNT-45-f56"/>
-                            <constraint firstItem="f4y-2v-Trx" firstAttribute="leading" secondItem="I8w-iQ-ol1" secondAttribute="leading" id="TQv-iY-VYD"/>
-                            <constraint firstItem="Axt-5d-rcZ" firstAttribute="centerX" secondItem="tbM-cp-IPd" secondAttribute="centerX" id="UWN-bg-5qm"/>
-                            <constraint firstItem="f4y-2v-Trx" firstAttribute="top" secondItem="AQf-EX-a0t" secondAttribute="bottom" constant="14" id="W03-qt-6aV"/>
-                            <constraint firstItem="I8w-iQ-ol1" firstAttribute="top" secondItem="f4y-2v-Trx" secondAttribute="bottom" id="bmm-gu-V0T"/>
-                            <constraint firstItem="AQf-EX-a0t" firstAttribute="leading" secondItem="f4y-2v-Trx" secondAttribute="leading" id="hHs-gc-vLU"/>
-                            <constraint firstItem="Axt-5d-rcZ" firstAttribute="top" secondItem="I8w-iQ-ol1" secondAttribute="bottom" constant="17" id="hX9-6T-zfx"/>
-                            <constraint firstItem="7Rq-7t-EDO" firstAttribute="top" secondItem="fVp-0W-WHO" secondAttribute="bottom" constant="50" id="i1a-nu-Dve"/>
-                            <constraint firstItem="AQf-EX-a0t" firstAttribute="leading" secondItem="lpB-b8-aOU" secondAttribute="leadingMargin" constant="43" id="mRK-Y5-LIo"/>
-                            <constraint firstItem="knt-hx-xSF" firstAttribute="top" secondItem="7Rq-7t-EDO" secondAttribute="bottom" constant="8" symbolic="YES" id="ojo-QF-7p2"/>
-                            <constraint firstItem="tbM-cp-IPd" firstAttribute="leading" secondItem="lpB-b8-aOU" secondAttribute="leadingMargin" constant="39" id="vLc-jp-6Om"/>
-                            <constraint firstItem="AQf-EX-a0t" firstAttribute="top" secondItem="knt-hx-xSF" secondAttribute="bottom" constant="3" id="xPg-t9-PmR"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Xsm-NG-Kaa"/>
-                    <connections>
-                        <outlet property="codigoComercioTextfield" destination="I8w-iQ-ol1" id="xNl-TR-7hK"/>
-                        <outlet property="montoTextField" destination="AQf-EX-a0t" id="FdK-kl-L27"/>
-                        <outlet property="spinner" destination="Axt-5d-rcZ" id="B30-9x-yeR"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ubf-RK-e9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1846" y="2408"/>
-        </scene>
         <!--Usar Beneficio No Logueado-->
         <scene sceneID="BIm-0R-QGl">
             <objects>
@@ -3455,6 +3280,13 @@ de tu descuento.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="MOSTRAR TARJETA VIRTUAL"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Te estás perdiendo el doble de este descuento, suscríbete a  La Tercera" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAp-1n-Fkb">
+                                <rect key="frame" x="41" y="168" width="292" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="19"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -3491,15 +3323,7 @@ de tu descuento.</string>
                             <view tag="200" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zW-UQ-A3d">
                                 <rect key="frame" x="0.0" y="77" width="375" height="590"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="       Para hacer válido el descuento muestra tu tarjeta virtual al vendedor" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Syo-AU-Gc2">
-                                        <rect key="frame" x="51" y="356" width="272" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="b4e-Ml-UTS"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Muestra la tarjeta" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0O-Gk-qa9">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tarjeta Virtual" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0O-Gk-qa9">
                                         <rect key="frame" x="51" y="15" width="272" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="RFD-DT-EEW"/>
@@ -3513,17 +3337,25 @@ de tu descuento.</string>
                                             <constraint firstAttribute="height" constant="225" id="KwL-eM-Ezm"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="       Para hacer válido el descuento muestra tu tarjeta virtual al vendedor" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Syo-AU-Gc2">
+                                        <rect key="frame" x="33" y="357" width="309" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="N2d-Qz-EG2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="r0O-Gk-qa9" firstAttribute="leading" secondItem="Syo-AU-Gc2" secondAttribute="leading" id="6zc-Q2-4nb"/>
                                     <constraint firstItem="RaV-A9-bN8" firstAttribute="trailing" secondItem="6zW-UQ-A3d" secondAttribute="trailingMargin" id="Hbb-7c-8bK"/>
+                                    <constraint firstItem="Syo-AU-Gc2" firstAttribute="top" secondItem="RaV-A9-bN8" secondAttribute="bottom" constant="38" id="Lvq-WT-fUZ"/>
                                     <constraint firstItem="RaV-A9-bN8" firstAttribute="leading" secondItem="6zW-UQ-A3d" secondAttribute="leadingMargin" id="Sy7-sW-xaZ"/>
-                                    <constraint firstItem="r0O-Gk-qa9" firstAttribute="trailing" secondItem="Syo-AU-Gc2" secondAttribute="trailing" id="VR9-jw-k83"/>
                                     <constraint firstItem="r0O-Gk-qa9" firstAttribute="top" secondItem="6zW-UQ-A3d" secondAttribute="top" constant="15" id="W1t-YQ-AmS"/>
-                                    <constraint firstItem="Syo-AU-Gc2" firstAttribute="top" secondItem="RaV-A9-bN8" secondAttribute="bottom" constant="37" id="pTh-Kz-oAC"/>
+                                    <constraint firstItem="Syo-AU-Gc2" firstAttribute="centerX" secondItem="RaV-A9-bN8" secondAttribute="centerX" id="dvL-ks-FYo"/>
                                     <constraint firstItem="r0O-Gk-qa9" firstAttribute="centerX" secondItem="RaV-A9-bN8" secondAttribute="centerX" id="tZ7-wF-DG1"/>
                                     <constraint firstItem="RaV-A9-bN8" firstAttribute="top" secondItem="r0O-Gk-qa9" secondAttribute="bottom" constant="29" id="uKw-83-y4G"/>
+                                    <constraint firstItem="Syo-AU-Gc2" firstAttribute="leading" secondItem="6zW-UQ-A3d" secondAttribute="leading" constant="33" id="url-fL-CFy"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXU-bj-XDY">
@@ -3571,7 +3403,7 @@ de tu descuento.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x55-Z0-lCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4896.5625" y="1679.0492957746478"/>
+            <point key="canvasLocation" x="4895.1999999999998" y="1679.0104947526238"/>
         </scene>
         <!--Usar Beneficio Estandar-->
         <scene sceneID="eyr-yw-mhA">
@@ -3585,8 +3417,8 @@ de tu descuento.</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJI-W5-j9x" customClass="CustomButtonTercera">
-                                <rect key="frame" x="59" y="395.5" width="265" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJI-W5-j9x" customClass="CustomButtonTercera">
+                                <rect key="frame" x="55" y="471" width="265" height="45"/>
                                 <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="yQZ-Hp-5FK"/>
@@ -3594,14 +3426,6 @@ de tu descuento.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Confirmar"/>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqn-UN-L56">
-                                <rect key="frame" x="59" y="318.5" width="265" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="yUj-gx-jSc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWb-01-jm9">
                                 <rect key="frame" x="141" y="124" width="93" height="25"/>
                                 <constraints>
@@ -3613,7 +3437,7 @@ de tu descuento.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$45.700" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jA-8o-ZB3">
-                                <rect key="frame" x="120.5" y="157" width="134" height="29"/>
+                                <rect key="frame" x="121" y="157" width="134" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="Fgd-L6-OT2"/>
                                     <constraint firstAttribute="width" constant="134" id="ijN-C3-gTf"/>
@@ -3646,6 +3470,14 @@ de tu descuento.</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqn-UN-L56">
+                                <rect key="frame" x="52" y="389" width="265" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yUj-gx-jSc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -4538,7 +4370,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Al8-aW-dxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2810" y="2408"/>
+            <point key="canvasLocation" x="3620" y="3070"/>
         </scene>
         <!--El Deportivo-->
         <scene sceneID="kO4-N2-n99">
@@ -5643,7 +5475,7 @@ de La Tercera</string>
                                 <rect key="frame" x="203" y="33" width="165" height="27"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preferencias" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6g-MF-cS5">
-                                        <rect key="frame" x="-12" y="0.0" width="152" height="23.5"/>
+                                        <rect key="frame" x="-12" y="0.0" width="152" height="24"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -6452,7 +6284,7 @@ de La Tercera</string>
                                 <rect key="frame" x="203" y="33" width="165" height="27"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perfil" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fb7-8k-3XH">
-                                        <rect key="frame" x="-12" y="0.0" width="152" height="23.5"/>
+                                        <rect key="frame" x="-12" y="0.0" width="152" height="24"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -6549,7 +6381,7 @@ de La Tercera</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anónimo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQz-eS-q60">
-                                                    <rect key="frame" x="91" y="15" width="256" height="23"/>
+                                                    <rect key="frame" x="91" y="15" width="256" height="22"/>
                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -6846,7 +6678,7 @@ de La Tercera</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cobro beneficio 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aai-FY-ky2">
-                                                    <rect key="frame" x="33" y="13.5" width="140" height="22"/>
+                                                    <rect key="frame" x="33" y="14" width="140" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="140" id="59S-Gl-b4q"/>
                                                     </constraints>
@@ -7665,7 +7497,7 @@ de La Tercera</string>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="La noticia nos indica que lo último en inversión es invertir en la bolsa con o sin riesgo." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbM-dQ-Q3z">
                                                         <rect key="frame" x="7" y="99" width="140" height="91"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="13"/>
+                                                        <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -7710,7 +7542,7 @@ de La Tercera</string>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="La noticia nos indica que lo último en inversión es invertir en la bolsa con o sin riesgo, cuando el riesgo es poco o es mucho." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YZ-w0-W6k">
                                                         <rect key="frame" x="8" y="99" width="140" height="91"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="13"/>
+                                                        <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -7755,7 +7587,7 @@ de La Tercera</string>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="La noticia nos indica que lo último en inversión es invertir en la bolsa con o sin riesgo." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aef-z5-DVV">
                                                         <rect key="frame" x="8" y="99" width="140" height="91"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="13"/>
+                                                        <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -7800,7 +7632,7 @@ de La Tercera</string>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="La noticia nos indica que lo último en inversión es invertir en la bolsa con o sin riesgo." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIG-la-xrU">
                                                         <rect key="frame" x="7" y="99" width="140" height="91"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="13"/>
+                                                        <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -8628,7 +8460,7 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z0d-VF-SSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-601" y="355"/>
+            <point key="canvasLocation" x="-518" y="447"/>
         </scene>
         <!--Concursos Table View-->
         <scene sceneID="H1T-37-CQ2">
@@ -8708,7 +8540,7 @@ de La Tercera</string>
                                         <rect key="frame" x="19" y="191" width="337" height="158"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaw-MF-Ffn">
-                                                <rect key="frame" x="168.5" y="128" width="0.0" height="46"/>
+                                                <rect key="frame" x="169" y="128" width="0.0" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="h5F-iE-flf"/>
                                                 </constraints>
@@ -9012,7 +8844,7 @@ de La Tercera</string>
                                         <rect key="frame" x="19" y="191" width="337" height="158"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBb-K2-4KB">
-                                                <rect key="frame" x="168.5" y="128" width="0.0" height="46"/>
+                                                <rect key="frame" x="169" y="128" width="0.0" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="n7Z-3L-jEV"/>
                                                 </constraints>
@@ -9943,6 +9775,136 @@ de La Tercera</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wd-PJ-jVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="529" y="617"/>
+        </scene>
+        <!--Usar Beneficio Descuento Adicional-->
+        <scene sceneID="aDQ-kS-1FP">
+            <objects>
+                <viewController storyboardIdentifier="usarBeneficioScreen" id="e3G-WV-xOW" customClass="UsarBeneficioDescuentoAdicional" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Ow-eo-pYI"/>
+                        <viewControllerLayoutGuide type="bottom" id="nv3-ci-MN4"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.85000002384185791" contentMode="scaleToFill" id="sMg-st-8QG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0GH-Cd-lgl" customClass="CustomButtonTercera">
+                                <rect key="frame" x="58" y="368" width="257" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.67615950229999999" green="0.097002095159999996" blue="0.14771507480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Confirmar"/>
+                                <connections>
+                                    <action selector="confirmUseBenefitClicked:" destination="e3G-WV-xOW" eventType="touchUpInside" id="A4V-5d-Kq9"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gPb-2b-btK">
+                                <rect key="frame" x="58" y="207" width="257" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-E7-bbx">
+                                <rect key="frame" x="58" y="284" width="257" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingrese valor de la cuenta" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qp-bd-4Pd">
+                                <rect key="frame" x="58" y="166" width="191" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beneficio exclusivo para Suscriptores de La Tercera" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tir-NJ-a4B">
+                                <rect key="frame" x="73" y="54" width="228" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5y-z1-gyH" customClass="CustomButtonTercera">
+                                <rect key="frame" x="58" y="441" width="257" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Cancelar"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="e3G-WV-xOW" eventType="touchUpInside" id="D1U-du-3fb"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingrese código de local" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSh-LW-67I">
+                                <rect key="frame" x="58" y="245" width="257" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6tm-bH-ee5"/>
+                    <connections>
+                        <outlet property="codigoComercioTextfield" destination="SAU-E7-bbx" id="wZm-W7-HFf"/>
+                        <outlet property="montoTextField" destination="gPb-2b-btK" id="chL-fJ-r4H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NXd-gK-if4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1845.5999999999999" y="2239.4302848575712"/>
+        </scene>
+        <!--Confirmation View Controller-->
+        <scene sceneID="qiV-Ts-9WC">
+            <objects>
+                <viewController storyboardIdentifier="confirmationScreen" id="Sty-qW-3UJ" customClass="ConfirmationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q2D-ic-TfC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oii-9v-R4h"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.94999998807907104" contentMode="scaleToFill" id="NQJ-ay-ejq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Puedes acceder al descuento para suscriptores de La Tercera." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csc-23-p1K">
+                                <rect key="frame" x="60" y="242" width="255" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="¡Información correcta!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dK-wm-XCc">
+                                <rect key="frame" x="102" y="180" width="170" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tS5-QA-ozb" customClass="CustomButtonTercera">
+                                <rect key="frame" x="55" y="395" width="265" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Volver">
+                                    <color key="titleColor" red="0.2470588235" green="0.69411764710000001" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="Sty-qW-3UJ" eventType="touchUpInside" id="OHb-qv-jtg"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_check_black_24px.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xvs-UK-0Qd">
+                                <rect key="frame" x="161" y="139" width="53" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2470588235" green="0.69411764710000001" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="r7V-Gd-MoI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZS7-hF-gdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4895" y="2352"/>
         </scene>
     </scenes>
     <resources>
@@ -10011,10 +9973,10 @@ de La Tercera</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="r0F-9a-X22"/>
-        <segue reference="wa8-wA-Ypp"/>
-        <segue reference="tqi-Nf-HuD"/>
         <segue reference="sQ8-YI-Ye0"/>
-        <segue reference="3eI-5G-D6D"/>
+        <segue reference="wa8-wA-Ypp"/>
+        <segue reference="YEG-5l-bEv"/>
+        <segue reference="tqi-Nf-HuD"/>
         <segue reference="vnn-UP-oet"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -1,18 +1,18 @@
 //
-//  ConfirmationViewController.m
+//  UppsViewController.m
 //  La Tercera
 //
-//  Created by diseno on 27-04-16.
-//  Copyright © 2016 Gigya. All rights reserved.
+//  Created by Mario Alejandro on 18-11-16.
+//  Copyright © 2016 Copesa. All rights reserved.
 //
 
-#import "ConfirmationViewController.h"
+#import "UppsViewController.h"
 
-@interface ConfirmationViewController ()
+@interface UppsViewController ()
 
 @end
 
-@implementation ConfirmationViewController
+@implementation UppsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,11 +23,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (IBAction)backButtonClicked:(id)sender {
-    NSLog(@"OK closing time BABY");
-    [[[self presentingViewController] presentingViewController] dismissViewControllerAnimated:YES completion:nil];
-    }
 
 /*
 #pragma mark - Navigation

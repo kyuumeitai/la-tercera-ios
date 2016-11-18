@@ -63,7 +63,7 @@ NSMutableArray *relatedIdsArrayVoces;
 
 
 - (void) viewDidLoad{
-    
+
     
     [super viewDidLoad];
     SessionManager *sesion = [SessionManager session];
@@ -445,8 +445,10 @@ NSMutableArray *relatedIdsArrayVoces;
     }
     
     if([indexPath row]==5 || (([indexPath row]% 6)-5) == 0  ){
-        return CGSizeMake(350, 290);
         
+ 
+        return CGSizeMake(300, 290);
+ 
     }
     
     return CGSizeMake(350, 428);

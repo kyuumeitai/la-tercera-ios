@@ -41,7 +41,7 @@ BOOL firstTimeInfantil = false;
 - (void)viewDidLoad {
     [super viewDidLoad];
     __weak InfantilTableViewController *weakSelf = self;
-    
+    self.tableView.delegate = self;
     SessionManager *sesion = [SessionManager session];
        storyBoardNameInfantil = sesion.storyBoardName;
     //listaCategoriasInfantil = [[NSMutableArray alloc] init];
@@ -165,7 +165,7 @@ BOOL firstTimeInfantil = false;
         return 278.0;
     }
     else {
-        return 114.0;
+        return 120.0;
     }
 }
 
@@ -219,6 +219,9 @@ BOOL firstTimeInfantil = false;
                     
                     [self errorDetectedWithNSError:error];
                 }else{
+                    NSLog(@"No sirve la data");
+                    [self.tableView setBounces:NO];
+                    [self.tableView setAlwaysBounceVertical:NO];
                     [weakSelf.tableView endUpdates];
                     [weakSelf.tableView.infiniteScrollingView stopAnimating];
                 }
@@ -228,8 +231,9 @@ BOOL firstTimeInfantil = false;
                 id noData = [tempDict objectForKey:@"details"];
                 
                 if(noData){
-                    
-                    isPageRefreshingInfantil = YES;
+                    NSLog(@"No sirvee la data");
+     
+                    isPageRefreshingInfantil = NO;
                     
                 }else{
                     

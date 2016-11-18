@@ -124,7 +124,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell3";
         return 278.0;
     }
     else {
-        return 100.0;
+        return 120.0;
     }
 }
 
