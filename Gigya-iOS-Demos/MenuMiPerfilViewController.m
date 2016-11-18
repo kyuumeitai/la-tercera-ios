@@ -11,26 +11,28 @@
 #import "SWRevealViewController.h"
 @interface MenuMiPerfilViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
+
 @end
 
 @implementation MenuMiPerfilViewController
-
+BOOL sidebarMenuOpenPerfil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Creamos el singleton
     SessionManager *sesion = [SessionManager session];
     
-    SWRevealViewController *revealViewController = sesion.leftSlideMenu;
-    revealViewController.delegate = self.revealViewController;
-    if (revealViewController) {
-        [_menuButton
-         addTarget:revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-      [self.view addGestureRecognizer: revealViewController.panGestureRecognizer];
-    }
-    UITapGestureRecognizer *tap = [revealViewController tapGestureRecognizer];
+    sidebarMenuOpenPerfil = NO;
+    SWRevealViewController *revealViewController = self.revealViewController;
+    self.revealViewController.delegate = self;
+    sesion.leftSlideMenu = revealViewController;
+    [_menuButton addTarget:sesion.leftSlideMenu action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    UITapGestureRecognizer *tap = [self.revealViewController tapGestureRecognizer];
     tap.delegate = self;
     
     [self.view addGestureRecognizer:tap];
+    [self.revealViewController tapGestureRecognizer].enabled = NO;
+
 
     
     //Creamos el singleton sesión
@@ -63,6 +65,35 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
+{
+    if(position == FrontViewPositionLeft) {
+        NSLog(@"Wastouy en sidebar = no");
+        //self.view.userInteractionEnabled = YES;
+        sidebarMenuOpenPerfil = NO;
+        [self.revealViewController tapGestureRecognizer].enabled = NO;
+        
+    } else {
+        NSLog(@"Wastouy en sidebar = si");
+        
+        //self.view.userInteractionEnabled = NO;
+        sidebarMenuOpenPerfil = YES;
+        [self.revealViewController tapGestureRecognizer].enabled = YES;
+        
+    }
+}
+
+- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
+{
+    if(position == FrontViewPositionLeft) {
+        //self.view.userInteractionEnabled = YES;
+        sidebarMenuOpenPerfil = NO;
+    } else {
+        //self.view.userInteractionEnabled = NO;
+        sidebarMenuOpenPerfil = YES;
+    }
+}
+
 
 
 

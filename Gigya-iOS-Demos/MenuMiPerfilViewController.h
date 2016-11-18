@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "YSLContainerViewController.h"
+#import "SWRevealViewController.h"
 
-@interface MenuMiPerfilViewController : UIViewController <YSLContainerViewControllerDelegate>
+@interface MenuMiPerfilViewController : UIViewController <YSLContainerViewControllerDelegate,SWRevealViewControllerDelegate>
 
 
 @end
