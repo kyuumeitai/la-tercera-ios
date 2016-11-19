@@ -99,6 +99,8 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     if (error == nil)
     {
         responseString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        //NSLog(@"responseString: %@ ",responseString);
+
     }
     return responseString;
 }

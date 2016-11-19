@@ -7,7 +7,12 @@
 //
 
 #import "HistoryTableViewController.h"
-
+#import "SessionManager.h"
+#import "ConnectionManager.h"
+#import "SVProgressHUD.h"
+#import "Tools.h"
+#import "HistoricoBeneficio.h"
+#import "UserProfile.h"
 
 
 @interface HistoryTableViewController ()
@@ -15,9 +20,15 @@
 @end
 
 @implementation HistoryTableViewController
-
+NSMutableArray *listaHistoryCategorias;
+NSMutableArray * historyItemsBenefits;
+NSMutableArray * historyItemsContests;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self getHistory];
+   
+
        // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -25,7 +36,17 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)getHistory{
+    SessionManager *sesion = [SessionManager session];
+    UserProfile *profile = [sesion getUserProfile];
+    NSString * email = profile.email;
+    self.historyItemsBenefit = [[NSMutableArray alloc] init];
+    self.historyItemsContests = [[NSMutableArray alloc] init];
 
+    [self loadHistoryForEmail:email];
+
+    [self.tableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -35,23 +56,55 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    int secciones = 0;
+    
+    if (self.historyItemsBenefit.count >0)
+        secciones ++;
+    if (self.historyItemsContests.count >0)
+        secciones ++;
+    
+    return secciones;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    
+    if(section == 0){
+        return self.historyItemsBenefit.count;
+    }
+    if(section ==1){
+        return self.historyItemsContests.count;
+    }
+    return 0;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
+    UITableViewCell *celda = [tableView dequeueReusableCellWithIdentifier:@"historyCell" forIndexPath:indexPath];
+    if(indexPath.section == 0){
+        
+        HistoricoBeneficio *histBenef = self.historyItemsBenefit[indexPath.row];
+        celda.textLabel.text = histBenef.titulo;
+        
+        NSString *detalle =  [NSString stringWithFormat:@"%@ - Monto: $%@  - %@",histBenef.fechaSol, histBenef.monto, histBenef.estado];
+        celda.detailTextLabel.text = detalle;
 
+    }else{
+          celda.textLabel.text = self.historyItemsContests[indexPath.row];
+
+    }
+    
+    return celda;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if(section == 0)
+        return @"Historial de Beneficios";
+    if(section == 1)
+        return @"Historial de Concursos";
+    
+    return @"";
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -95,5 +148,43 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+#pragma - SERVICE METHODS
+
+-(void)loadHistoryForEmail:(NSString*)email{
+    
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    BOOL estaConectado = [connectionManager verifyConnection];
+    NSLog(@"Verificando conexión: %d",estaConectado);
+    
+    //for Paging purposes
+    
+   NSString * responseString = [connectionManager getHistoryWithEmail:email];
+    NSLog(@"responseString: %@",responseString);
+
+    NSError *error;
+    NSData *data = [responseString dataUsingEncoding:NSUTF8StringEncoding];
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    NSDictionary *historyDict = [json objectForKey:@"historial"];
+    id benefitDict = [historyDict objectForKey:@"beneficio"];
+    
+    for (id benefit in benefitDict){
+        id fecha = [benefit objectForKey:@"fechaSol"];
+        id titulo = [benefit objectForKey:@"titulo"];
+        id monto = [benefit objectForKey:@"monto"];
+        id estado = [benefit objectForKey:@"estado"];
+        
+        HistoricoBeneficio *histBenef = [[HistoricoBeneficio alloc] init];
+        histBenef.fechaSol = fecha;
+        histBenef.titulo = titulo;
+        histBenef.monto =monto;
+        histBenef.estado = estado;
+        [self.historyItemsBenefit addObject:histBenef];
+    }
+    
+    
+}
 
 @end

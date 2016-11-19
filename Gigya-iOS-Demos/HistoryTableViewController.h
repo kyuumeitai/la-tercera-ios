@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HistoryTableViewController : UITableViewController
+@interface HistoryTableViewController : UITableViewController{
+NSMutableArray * historyItemsBenefits;
+NSMutableArray * historyItemsContests;
 
+}
+@property (nonatomic, retain) NSMutableArray * historyItemsBenefit;
+@property (nonatomic, retain) NSMutableArray * historyItemsContests;
 @end

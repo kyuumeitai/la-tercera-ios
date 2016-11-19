@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -24,27 +27,49 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcw-W8-rBa" customClass="CustomBorderView">
+                        <rect key="frame" x="0.0" y="3" width="350" height="414"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cobre cayó por sexta sesión y Cobre cayó por sexta sesión y Cobre cayó por sexta sesión y " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="Qkm-Aq-aA0">
+                                <rect key="frame" x="13" y="18" width="320" height="69.5"/>
                                 <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="21"/>
                                 <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="gsw-nl-PEE">
+                                <rect key="frame" x="13" y="321.5" width="320" height="84.5"/>
                                 <string key="text">El precio contado del cobre cerró con un leve descenso de 0,1% este jueves en la Bolsa de Metales de Londres, con lo que completó su sexta sesión consecutiva de retrocesos y anotó su menor nivel en cerca tres meses.</string>
                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mineria.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="GNv-qf-bJU">
+                                <rect key="frame" x="13" y="104" width="320" height="206"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="211" id="KFI-3i-p2L"/>
+                                    <constraint firstAttribute="width" constant="290" id="LGA-c1-fmv"/>
+                                    <constraint firstAttribute="height" constant="206" id="uOe-7A-ENW"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="KFI-3i-p2L"/>
+                                        <exclude reference="LGA-c1-fmv"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gsw-nl-PEE" firstAttribute="leading" secondItem="Mcw-W8-rBa" secondAttribute="leading" constant="13" id="56O-Y7-tm1"/>
                             <constraint firstAttribute="bottom" secondItem="gsw-nl-PEE" secondAttribute="bottom" constant="8" id="Ain-3k-1pw"/>
                             <constraint firstAttribute="trailing" secondItem="Qkm-Aq-aA0" secondAttribute="trailing" constant="17" id="EQC-Ft-Zmd"/>
+                            <constraint firstAttribute="trailing" secondItem="GNv-qf-bJU" secondAttribute="trailing" constant="17" id="HPl-eF-M4C"/>
+                            <constraint firstItem="GNv-qf-bJU" firstAttribute="leading" secondItem="Mcw-W8-rBa" secondAttribute="leading" constant="13" id="KZJ-4n-qwI"/>
                             <constraint firstItem="Qkm-Aq-aA0" firstAttribute="top" secondItem="Mcw-W8-rBa" secondAttribute="top" constant="18" id="Lo9-jk-AtS"/>
                             <constraint firstItem="gsw-nl-PEE" firstAttribute="centerX" secondItem="Mcw-W8-rBa" secondAttribute="centerX" constant="-2" id="Rks-VR-vkt"/>
+                            <constraint firstItem="GNv-qf-bJU" firstAttribute="top" secondItem="Qkm-Aq-aA0" secondAttribute="bottom" constant="16.5" id="agI-FS-rCs"/>
                             <constraint firstItem="Qkm-Aq-aA0" firstAttribute="leading" secondItem="Mcw-W8-rBa" secondAttribute="leading" constant="13" id="gmn-Rt-jkS"/>
+                            <constraint firstAttribute="centerY" secondItem="GNv-qf-bJU" secondAttribute="centerY" id="irI-2f-FIJ"/>
+                            <constraint firstItem="gsw-nl-PEE" firstAttribute="top" secondItem="GNv-qf-bJU" secondAttribute="bottom" constant="11.5" id="uWl-mO-weD"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -58,48 +83,16 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mineria.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="GNv-qf-bJU">
-                        <constraints>
-                            <constraint firstAttribute="height" constant="211" id="KFI-3i-p2L"/>
-                            <constraint firstAttribute="width" constant="290" id="LGA-c1-fmv"/>
-                            <constraint firstAttribute="height" constant="211" id="uOe-7A-ENW"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="KFI-3i-p2L"/>
-                                <exclude reference="LGA-c1-fmv"/>
-                            </mask>
-                        </variation>
-                    </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Mcw-W8-rBa" secondAttribute="trailing" id="7WM-hh-f6M"/>
-                <constraint firstItem="GNv-qf-bJU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="8SF-tG-NW7"/>
-                <constraint firstItem="Mcw-W8-rBa" firstAttribute="leading" secondItem="GNv-qf-bJU" secondAttribute="trailing" constant="-311" id="8jK-kJ-o5T"/>
-                <constraint firstItem="gsw-nl-PEE" firstAttribute="top" secondItem="GNv-qf-bJU" secondAttribute="bottom" constant="11" id="GsC-CO-tnh"/>
-                <constraint firstAttribute="trailing" secondItem="GNv-qf-bJU" secondAttribute="trailing" constant="14" id="IEK-BW-Rxg"/>
-                <constraint firstItem="gsw-nl-PEE" firstAttribute="top" secondItem="GNv-qf-bJU" secondAttribute="bottom" constant="9" id="IY6-yi-ibL"/>
                 <constraint firstItem="Mcw-W8-rBa" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="MZN-TQ-sM8"/>
-                <constraint firstItem="Mcw-W8-rBa" firstAttribute="leading" secondItem="GNv-qf-bJU" secondAttribute="trailing" constant="-318" id="TVx-8D-Qoq"/>
                 <constraint firstItem="Mcw-W8-rBa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bDz-ey-TK7"/>
-                <constraint firstItem="GNv-qf-bJU" firstAttribute="top" secondItem="Qkm-Aq-aA0" secondAttribute="bottom" constant="14" id="lGe-tL-QqE"/>
-                <constraint firstItem="Mcw-W8-rBa" firstAttribute="leading" secondItem="GNv-qf-bJU" secondAttribute="trailing" constant="-318" id="lvz-Nr-Ke0"/>
                 <constraint firstAttribute="bottom" secondItem="Mcw-W8-rBa" secondAttribute="bottom" constant="3" id="qpN-0g-wjH"/>
                 <constraint firstItem="Mcw-W8-rBa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="vOK-xe-Aic"/>
-                <constraint firstItem="GNv-qf-bJU" firstAttribute="top" secondItem="Qkm-Aq-aA0" secondAttribute="bottom" constant="14" id="wrW-ej-mTh"/>
-                <constraint firstItem="Mcw-W8-rBa" firstAttribute="centerY" secondItem="GNv-qf-bJU" secondAttribute="centerY" id="x1r-y7-ijH"/>
             </constraints>
             <size key="customSize" width="350" height="428"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="lGe-tL-QqE"/>
-                    <exclude reference="8jK-kJ-o5T"/>
-                    <exclude reference="TVx-8D-Qoq"/>
-                    <exclude reference="lvz-Nr-Ke0"/>
-                    <exclude reference="GsC-CO-tnh"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="imageNews" destination="GNv-qf-bJU" id="yty-6V-WRJ"/>
                 <outlet property="labelSummary" destination="gsw-nl-PEE" id="nIr-4S-4XJ"/>
