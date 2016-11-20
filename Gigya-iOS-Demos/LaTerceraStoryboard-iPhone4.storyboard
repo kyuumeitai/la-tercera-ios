@@ -293,7 +293,7 @@ REGISTRARSE?</string>
                     </view>
                     <navigationItem key="navigationItem" id="IMT-Al-5dW"/>
                     <connections>
-                        <segue destination="FRq-Fc-Jtx" kind="show" identifier="GoToSWReveal" id="QpD-Og-2iF"/>
+                        <segue destination="FRq-Fc-Jtx" kind="show" identifier="goToNews" id="QpD-Og-2iF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GO9-Ah-H3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1344,7 +1344,7 @@ REGISTRARSE?</string>
                                 <rect key="frame" x="165" y="16" width="155" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beneficios cercanos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ks2-rm-p0G">
-                                        <rect key="frame" x="-13" y="12" width="153" height="24"/>
+                                        <rect key="frame" x="-13" y="13.5" width="153" height="21"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2779,7 +2779,7 @@ REGISTRARSE?</string>
         <scene sceneID="DAU-tE-vSo">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionEdicionEspecial" id="w1T-UP-eOG" customClass="CVEdicionEspecial" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" misplaced="YES" dataMode="prototypes" id="ByA-8c-pfG">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" dataMode="prototypes" id="ByA-8c-pfG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -8359,7 +8359,7 @@ de La Tercera</string>
         <image name="usar-beneficio.png" width="114" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N2U-nl-Vbn"/>
+        <segue reference="QpD-Og-2iF"/>
         <segue reference="uX9-Ov-tlW"/>
         <segue reference="3eI-5G-D6D"/>
         <segue reference="wa8-wA-Ypp"/>

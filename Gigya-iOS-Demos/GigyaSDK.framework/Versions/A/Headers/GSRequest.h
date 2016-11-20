@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "GSResponse.h"
-#import "GSSession.h"
+
+@class GSResponse;
+@class GSSession;
 
 /*!
  Response handler
@@ -8,7 +9,7 @@
  @param response Response
  @param error Error
  */
-typedef void(^GSResponseHandler)(GSResponse *response, NSError *error);
+typedef void(^ _Nullable GSResponseHandler)(GSResponse * _Nullable response, NSError * _Nullable error);
 
 /** This class can be used to send requests to the <a target="_blank" href="http://developers.gigya.com/display/GD/REST+API">Gigya REST API</a>.
  
@@ -36,7 +37,7 @@ typedef void(^GSResponseHandler)(GSResponse *response, NSError *error);
  @param method The API method.
  @returns A new `GSRequest` object for the method.
  */
-+ (GSRequest *)requestForMethod:(NSString *)method;
++ (GSRequest *)requestForMethod:(NSString * _Nonnull)method;
 
 /*!
  Creates a `GSRequest` object for a given method and parameters.
@@ -45,17 +46,17 @@ typedef void(^GSResponseHandler)(GSResponse *response, NSError *error);
  @param parameters A dictionary of parameters to pass to the method.
  @returns A new `GSRequest` object for the method and parameters.
  */
-+ (GSRequest *)requestForMethod:(NSString *)method parameters:(NSDictionary*)parameters;
++ (GSRequest *)requestForMethod:(NSString * _Nonnull)method parameters:(NSDictionary * _Nullable)parameters;
 
 /*!
  The API method name.
  */
-@property (nonatomic, copy) NSString *method;
+@property (nonatomic, copy) NSString * _Nonnull method;
 
 /*!
  The paremeters for the API method.
  */
-@property (nonatomic, strong) NSMutableDictionary* parameters;
+@property (nonatomic, strong) NSMutableDictionary * _Nullable parameters;
 
 /*!
  Indicates whether HTTPS should be used. The default is `YES`. Overrides the global setting in [Gigya].
@@ -75,15 +76,6 @@ typedef void(^GSResponseHandler)(GSResponse *response, NSError *error);
  @param handler A response handler that will be invoked when the response arrives. The handler should have the signature `(GSResponse *response, NSError *error)`. If the request was successful, the `error` parameter will be `nil`. Otherwise you can check its value (see `GSErrorCode` enum for error codes) or `response` to learn why it failed.
  */
 - (void)sendWithResponseHandler:(GSResponseHandler)handler;
-
-/*!
- Sends the request synchronously and returns the response. 
- 
- @warning Calling this method on the main queue will block the UI and therefore is not recommended.
- @param error An error that will be set if the request failed, otherwise unchanged.
- @returns The response for the request.
- */
-- (GSResponse *)sendSynchronouslyWithError:(NSError **)error;
 
 /*!
  Cancels the request. The provided handler will not be invoked.

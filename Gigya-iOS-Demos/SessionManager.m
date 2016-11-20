@@ -100,7 +100,8 @@
 -(void) resetUserProfile{
     
     NSLog(@"Reset user profile");
-    
+    SessionManager *sesion = [SessionManager session];
+    sesion.isLogged = NO;
     //Temp vars
     profileGigyaId =  @"noneId ";
     profileEmail = @"    - ";

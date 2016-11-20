@@ -62,6 +62,7 @@ NSString *emailMiPerfil;
 - (IBAction)closeSessionPressed:(id)sender {
     [Gigya logoutWithCompletionHandler:^(GSResponse *response, NSError *error) {
         self.user = nil;
+     
         [sesionMiPerfil resetUserProfile];
         if (error) {
             UIAlertView *alert;

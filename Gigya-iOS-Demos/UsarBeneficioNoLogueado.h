@@ -14,7 +14,8 @@
 
 typedef enum {
     REGISTRO,
-    LOGIN
+    LOGIN,
+    INVALIDO
 } GigyaFormAction;
 - (void)cancelButtonText:(NSString*)texto;
 @end

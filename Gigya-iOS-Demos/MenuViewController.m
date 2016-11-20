@@ -145,8 +145,10 @@ if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone4"] ){
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     
     if ([identifier isEqualToString:@"goToAjustes"] || ([identifier isEqualToString:@"goToMiPerfil"])){
-
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"isLogged"]) {
+       int level = [self getUserType];
+        
+        
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"isLogged"] && level == 2 ) {
         
             return YES;
       
@@ -205,6 +207,16 @@ if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone4"] ){
     
     [Tools openSafariWithURL:@"http://tienda.clublatercera.com/tickets" ];
 
+}
+
+-(int) getUserType{
+    
+    SessionManager *sesion = [SessionManager session];
+    UserProfile *profile = [sesion getUserProfile];
+    
+    int level = profile.profileLevel;
+    
+    return level;
 }
 
 @end

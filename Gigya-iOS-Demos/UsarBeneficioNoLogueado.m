@@ -152,10 +152,9 @@ GigyaFormAction formTypeSecond;
                 int notifClub = [[json objectForKey:@"notificaciones_club"] intValue];
                 int notifNoticias = [[json objectForKey:@"notificaciones_noticias"] intValue];
                 
-                
                 //temporary comment
-                // int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
-                int userProfileLevel = 0 ;
+                int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
+                //int userProfileLevel = 0 ;
                 NSString *valor= userProfileType;
                 
                 if ( [valor isEqualToString:@"anonimo"] ){
@@ -194,6 +193,22 @@ GigyaFormAction formTypeSecond;
                 perfil.status = userStatus;
                 perfil.device = userDevice;
                 
+                if (notifClub == 1){
+                    perfil.notificacionesClub = true;
+                }else{
+                    perfil.notificacionesClub = false;
+                }
+                
+                if (notifNoticias == 1){
+                    perfil.notificacionesNoticias = true;
+                }else{
+                    perfil.notificacionesNoticias = false;
+                }
+                
+                
+                perfil.gigyaId = userGigyaId;
+                sesion.isLogged = true;
+                
                 NSString *saveEmail= userEmail;
                 NSString *saveGigyaId= userGigyaId;
                 [[NSUserDefaults standardUserDefaults] setObject:saveEmail forKey:@"savedEmail"];
@@ -202,30 +217,14 @@ GigyaFormAction formTypeSecond;
                 
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 
-                if (notifClub == 1){
-                    perfil.notificacionesClub = true;
-                }else{
-                    perfil.notificacionesClub = true;
-                }
-                
-                if (notifNoticias == 1){
-                    perfil.notificacionesNoticias = true;
-                }else{
-                    perfil.notificacionesNoticias = true;
-                }
-                
-                
-                
-                perfil.gigyaId = userGigyaId;
-                sesion.isLogged = true;
-                
                 
                 for (NSString* key in json) {
                     id value = [json objectForKey:key];
                     NSLog(@"Clave %@: %@", key,value);
                 }
                 NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
-
+                
+                
                 NSLog(@"***************::::----- session  : %@  -----::::**************\r\r",[sesion profileDescription]);
                 
             }
@@ -259,6 +258,8 @@ GigyaFormAction formTypeSecond;
                 NSString *allDataMessage = [NSString stringWithFormat:@"Los datos son: os: %@, deviceID: %@, email: %@, Nombre: %@, Apellidos: %@, Gender: %@, dateBirth: %@",os,deviceId,email,firstName,lastName, gender, birthdate];
                 NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
                 
+                
+                
                 ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
                 NSString *respuesta = [connectionManager sendLoginDataWithEmail:email gigyaId:gigyaID firstName:firstName lastName:lastName gender:gender birthdate:birthdate uid:deviceId andOs:os];
                 NSLog(@"***::::-----    %@     -----::::***\r\r\r",respuesta);
@@ -282,7 +283,7 @@ GigyaFormAction formTypeSecond;
                     userStatus = [[json objectForKey:@"status"] boolValue];
                 }
                 int userDevice = [[json objectForKey:@"device"] intValue];
-                //userDevice =-111;
+                //int userDevice =-111;
                 NSString *userGigyaId = [json objectForKey:@"gigya_id"];
                 
                 SessionManager *sesion = [SessionManager session];
@@ -307,6 +308,11 @@ GigyaFormAction formTypeSecond;
                     perfil.notificacionesNoticias = true;
                 }
                 
+                
+                
+                perfil.gigyaId = userGigyaId;
+                sesion.isLogged = true;
+                
                 NSString *saveEmail= userEmail;
                 NSString *saveGigyaId= userGigyaId;
                 [[NSUserDefaults standardUserDefaults] setObject:saveEmail forKey:@"savedEmail"];
@@ -314,9 +320,6 @@ GigyaFormAction formTypeSecond;
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLogged"];
                 
                 [[NSUserDefaults standardUserDefaults] synchronize];
-                
-                perfil.gigyaId = userGigyaId;
-                sesion.isLogged = true;
                 
                 for (NSString* key in json) {
                     id value = [json objectForKey:key];
@@ -374,7 +377,7 @@ GigyaFormAction formTypeSecond;
                         userStatus = [[json objectForKey:@"status"] boolValue];
                     }
                     int userDevice = [[json objectForKey:@"device"] intValue];
-                    // userDevice =-111;
+                    //int userDevice =-111;
                     NSString *userGigyaId = [json objectForKey:@"gigya_id"];
                     
                     SessionManager *sesion = [SessionManager session];
@@ -388,7 +391,6 @@ GigyaFormAction formTypeSecond;
                     perfil.gigyaId = userGigyaId;
                     sesion.isLogged = true;
                     sesion.userProfile = perfil;
-                    sesion.isLogged = true;
                     
                     NSString *saveEmail= userEmail;
                     NSString *saveGigyaId= userGigyaId;
@@ -397,6 +399,101 @@ GigyaFormAction formTypeSecond;
                     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLogged"];
                     
                     [[NSUserDefaults standardUserDefaults] synchronize];
+                    
+                    
+                    for (NSString* key in json) {
+                        id value = [json objectForKey:key];
+                        NSLog(@"Clave %@: %@", key,value);
+                    }
+                    NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
+                    NSLog(@"***************::::----- session  : %@  -----::::**************\r\r",[sesion profileDescription]);
+                }else{
+                    NSLog(@"***::::-----  EMAIL YA REGISTRADO:      -----::::***");
+                    
+                }
+            }
+            
+            
+            //nuevo
+            if([operation isEqualToString:@"/accounts.g"]){
+                
+                NSLog(@"---------*** Es un Registro nuevoo con g ***---------");
+                formTypeSecond = REGISTRO;
+                
+                email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
+                if([email isEqualToString:@"errorCode"]== false){
+                    verifyState = [self getStringValueForResponseString:responseString andLlave:@"email"];
+                    firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
+                    lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
+                    gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
+                    gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
+                    NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
+                    NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
+                    NSString *birthYear = [self getStringValueForResponseString:responseString andLlave:@"birthYear"];
+                    
+                    if ([birthDay isEqualToString:@""]){
+                        birthdate = @"";
+                    }else{
+                        birthdate = [NSString stringWithFormat:@"%@/%@/%@",birthYear,birthMonth,birthDay];
+                    }
+                    
+                    NSString *allDataMessage = [NSString stringWithFormat:@"Los datos son: os: %@, deviceID: %@, email: %@, Nombre: %@, Apellidos: %@, Gender: %@, dateBirth: %@",os,deviceId,email,firstName,lastName, gender, birthdate];
+                    NSLog(@"***::::-----    %@     -----::::***",allDataMessage );
+                    
+                    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+                    
+                    
+                    NSString *respuesta = [connectionManager sendRegisterDataWithEmail:email firstName:firstName lastName:lastName gender:gender birthdate:birthdate uid:deviceId os:os gigyaId:gigyaID];
+                    
+                    NSLog(@"***::::-----  La respuesta es:   %@     -----::::***\r\r\r",respuesta);
+                    
+                    //leemos el objeto retornado
+                    NSLog(@"***************::::-----  Procedemos al leer el perfil:        -----::::**************");
+                    
+                    NSData *data = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
+                    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                    
+                    NSString *userEmail = [json objectForKey:@"email"];
+                    int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
+                    BOOL userStatus = false;
+                    if([json objectForKey:@"status"] == NULL){
+                        userStatus = false;
+                    }else{
+                        userStatus = [[json objectForKey:@"status"] boolValue];
+                    }
+                    int userDevice = [[json objectForKey:@"device"] intValue];
+                    //int userDevice =-111;
+                    NSString *userGigyaId = [json objectForKey:@"gigya_id"];
+                    
+                    SessionManager *sesion = [SessionManager session];
+                    UserProfile *perfil = [sesion getUserProfile];
+                    perfil.email = userEmail;
+                    perfil.name = firstName;
+                    perfil.lastName = lastName;
+                    perfil.profileLevel = userProfileLevel;
+                    perfil.status = userStatus;
+                    perfil.device = userDevice;
+                    perfil.gigyaId = userGigyaId;
+                    sesion.isLogged = true;
+                    sesion.userProfile = perfil;
+                    
+                    if ([email isEqualToString:@""]){
+                        formTypeSecond = INVALIDO;
+                        sesion.isLogged = false;
+                        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"isLogged"];
+                    }else{
+                        NSString *saveEmail= userEmail;
+                        NSString *saveGigyaId= userGigyaId;
+                        [[NSUserDefaults standardUserDefaults] setObject:saveEmail forKey:@"savedEmail"];
+                        [[NSUserDefaults standardUserDefaults] setObject:saveGigyaId forKey:@"savedGigyaId"];
+                        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLogged"];
+                        
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                        
+                    }
+                    
+                    
+                    
                     
                     for (NSString* key in json) {
                         id value = [json objectForKey:key];
@@ -410,63 +507,53 @@ GigyaFormAction formTypeSecond;
                 }
                 
             }
-            
+            //Fin nuevo
             switch (formTypeSecond) {
                 case REGISTRO:{
-                    NSLog(@"***registro**");
-                    if(respuestaStatus){
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ingreso exitoso"
-                                                                        message:@"Ha ingresado exitosamente."
-                                                                       delegate:self
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                        [self dismissViewControllerAnimated:YES
-                                                 completion:nil];
-                    }else{
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Datos de ingreso incorrectos"
-                                                                        message:@"Revise los datos ingresados y reintente."
-                                                                       delegate:self
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                        
-                    }
-                }                    break;
-                    
-                case LOGIN:{
-                    NSLog(@"***login**");
-                    if(respuestaStatus){
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ingreso exitoso"
-                                                                    message:@"Ha ingresado exitosamente."
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"OK"
-                                                          otherButtonTitles:nil];
-                    [alert show];
+                    SessionManager *sesion = [SessionManager session];
+                    UserProfile *perfil = [sesion getUserProfile];
+                    NSString *nombre = [NSString stringWithFormat:@"Bienvenido %@ , su sesión ha sido iniciada ",perfil.name];
+                    [Tools showLocalSuccessNotificationWithTitle:@"Sesión iniciada" andMessage:nombre];
                     [self dismissViewControllerAnimated:YES
                                              completion:nil];
-                    }else{
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Datos de ingreso incorrectos"
-                                                                        message:@"Revise los datos ingresados y reintente."
-                                                                       delegate:self
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-
-                    }
                 }
                     break;
+                    
+                case LOGIN:{
+                    
+                    SessionManager *sesion = [SessionManager session];
+                    UserProfile *perfil = [sesion getUserProfile];
+                    NSString *nombre = [NSString stringWithFormat:@"Bienvenido %@ , su sesión ha sido iniciada ",perfil.name];
+                    [Tools showLocalSuccessNotificationWithTitle:@"Sesión iniciada" andMessage:nombre];
+                    [self dismissViewControllerAnimated:YES
+                                             completion:nil];
                 }
-        
+                    break;
+                    
+                case INVALIDO:{
+                    //[self performSegueWithIdentifier:@"goToNews" sender:self];
+                    //SessionManager *sesion = [SessionManager session];
+                    //UserProfile *perfil = [sesion getUserProfile];
+                    //NSString *nombre = [NSString stringWithFormat:@"Bienvenido %@ , su registro ha sido exitoso",perfil.name];
+                    //[Tools showLocalSuccessNotificationWithTitle:@"Registro exitoso" andMessage:nombre];
+                    
+                }
+                    
+                    
+            }
         }else{
+            NSLog(@"***ERROR **");
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Datos de ingreso incorrectos"
                                                             message:@"Revise los datos ingresados y reintente."
                                                            delegate:self
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
             [alert show];
+            
+            
         }
-            NSLog(@"*** La transacción esta finalizada");
+        
+        NSLog(@"*** La transacción esta finalizada");
     }
 }
 

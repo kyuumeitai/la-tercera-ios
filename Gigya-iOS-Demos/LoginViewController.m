@@ -119,7 +119,7 @@ GigyaFormAction formType;
 
 - (IBAction)mobileSessionCheckButtonAction:(id)sender {
     // If there is no Gigya session
-    if (![Gigya session]) {
+    if (![Gigya isSessionValid]) {
         UIAlertView *alert;
         alert = [[UIAlertView alloc] initWithTitle:@"Gigya Session Test"
                                      message:@"You are not logged in"
@@ -149,12 +149,12 @@ GigyaFormAction formType;
 
 
 - (IBAction)showScreenSet:(id)sender {
-
+    [Gigya logout];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:@"Mobile-login" forKey:@"screenSet"];
   //[params setObject:@"gigya-complete-registration-screen" forKey:@"startScreen"];
     
-    [params setObject:@"gigya-register-screen" forKey:@"startScreen"];
+    //[params setObject:@"gigya-register-screen" forKey:@"startScreen"];
     
     [Gigya showPluginDialogOver:self plugin:@"accounts.screenSet" parameters:params completionHandler:^(BOOL closedByUser, NSError *error) {
         if (!error) {
@@ -173,6 +173,7 @@ GigyaFormAction formType;
 
 
 - (IBAction)loginButtonClicked:(id)sender {
+    [Gigya logout];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:@"Mobile-login" forKey:@"screenSet"];
     //[params setObject:@"gigya-complete-registration-screen" forKey:@"startScreen"];
@@ -195,7 +196,7 @@ GigyaFormAction formType;
 
 - (IBAction)nativeLoginButtonAction:(id)sender {
     
-    if (![Gigya session]){
+    if (![Gigya isSessionValid]){
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         [params setObject:[NSNumber numberWithInt:FBSDKLoginBehaviorNative] forKey:@"facebookLoginBehavior"];
         [Gigya showLoginProvidersDialogOver:self
@@ -300,7 +301,7 @@ GigyaFormAction formType;
      NSString *operation;
     NSUUID *identifierForVendor = [[UIDevice currentDevice] identifierForVendor];
     deviceId = [identifierForVendor UUIDString];
-    
+     NSLog(@"***>>>>>>>>> EL EVENTO ES: %@",event);
     if([[event objectForKey:@"eventName"]isEqualToString:@"afterSubmit"]){
         if([event objectForKey:@"errorCode"] == 0){
 
@@ -592,7 +593,6 @@ GigyaFormAction formType;
                     perfil.gigyaId = userGigyaId;
                     sesion.isLogged = true;
                     sesion.userProfile = perfil;
-                    sesion.isLogged = true;
                     
                     NSString *saveEmail= userEmail;
                     NSString *saveGigyaId= userGigyaId;
@@ -678,11 +678,11 @@ GigyaFormAction formType;
                     perfil.gigyaId = userGigyaId;
                     sesion.isLogged = true;
                     sesion.userProfile = perfil;
-                    sesion.isLogged = true;
                     
                     if ([email isEqualToString:@""]){
                          formType = INVALIDO;
                        sesion.isLogged = false;
+                        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"isLogged"];
                     }else{
                         NSString *saveEmail= userEmail;
                         NSString *saveGigyaId= userGigyaId;

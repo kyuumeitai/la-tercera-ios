@@ -26,9 +26,8 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #endif
-#if __has_include(<GooglePlus/GooglePlus.h>)
-#import <GooglePlus/GooglePlus.h>
-#import <GoogleOpenSource/GoogleOpenSource.h>
+#if __has_include(<GoogleSignIn/GoogleSignIn.h>)
+#import <GoogleSignIn/GoogleSignIn.h>
 #endif
 #if __has_include(<Social/Social.h>) && __has_include(<Accounts/Accounts.h>)
 #import <Social/Social.h>
@@ -38,10 +37,10 @@
 #endif
 
 // Consts
-static NSString * const GSGigyaSDKVersion = @"iOS_3.4.3";
-static NSString * const GSDefaultAPIDomain = @"us1.gigya.com";
-static NSString * const GSGigyaSDKDomain = @"com.gigya.GigyaSDK";
-static NSString * const GSInvalidOperationException = @"com.gigya.GigyaSDK:InvalidOperationException";
+static NSString * _Nonnull const GSGigyaSDKVersion = @"iOS_3.5.3";
+static NSString * _Nonnull const GSDefaultAPIDomain = @"us1.gigya.com";
+static NSString * _Nonnull const GSGigyaSDKDomain = @"com.gigya.GigyaSDK";
+static NSString * _Nonnull const GSInvalidOperationException = @"com.gigya.GigyaSDK:InvalidOperationException";
 
 /**
  This enum defines some of the error codes that can be returned from the SDK and REST API. 
@@ -97,7 +96,7 @@ typedef NS_ENUM(NSInteger, GSErrorCode) {
  @param user User
  @param error Error
  */
-typedef void(^GSUserInfoHandler)(GSUser *user, NSError *error);
+typedef void(^_Nullable GSUserInfoHandler)(GSUser * _Nullable user, NSError * _Nullable error);
 
 /*!
  Permission request result handler
@@ -106,7 +105,7 @@ typedef void(^GSUserInfoHandler)(GSUser *user, NSError *error);
  @param error Error
  @param declinedPermissions Declined permissions list
  */
-typedef void(^GSPermissionRequestResultHandler)(BOOL granted, NSError *error, NSArray *declinedPermissions);
+typedef void(^_Nullable GSPermissionRequestResultHandler)(BOOL granted, NSError * _Nullable error, NSArray * _Nullable declinedPermissions);
 
 /*!
  Plugin completion handler
@@ -114,7 +113,14 @@ typedef void(^GSPermissionRequestResultHandler)(BOOL granted, NSError *error, NS
  @param closedByUser Retrieves whether plugin was closed by the user
  @param error Error
  */
-typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
+typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError * _Nullable error);
+
+/*!
+ Session completion handler
+ 
+ @param session The current gigya session
+ */
+typedef void(^GSGetSessionCompletionHandler)(GSSession * _Nullable session);
 
 @protocol GSPluginViewDelegate;
 
@@ -153,7 +159,14 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
 /*!
  Retrieves the current Gigya session, or `nil` if not connected.
  */
-+ (GSSession *)session;
++ (void)getSessionWithCompletionHandler:(GSGetSessionCompletionHandler _Nonnull)handler;
+
+/*!
+ Checks if the currently loaded Gigya session is valid.
+ 
+ If this is used before a session is loaded, it is possible to that this will return false positives
+ */
++ (BOOL)isSessionValid;
 
 /*!
  Sets the active Gigya session.
@@ -164,7 +177,7 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  
  @param session A new Gigya session, with valid session token and session secret.
  */
-+ (void)setSession:(GSSession *)session;
++ (void)setSession:(GSSession * _Nullable)session;
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 + (id<GSSessionDelegate>)sessionDelegate;
@@ -177,7 +190,7 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  Gets the delegate that receives Gigya Socialize events.
  @see GSSocializeDelegate
  */
-+ (id<GSSocializeDelegate>)socializeDelegate;
++ (id<GSSocializeDelegate> _Nullable)socializeDelegate;
 
 /*!
  Sets the delegate that receives Gigya Socialize events. This delegate will be called regardless of the handler blocks passed to the different methods.
@@ -185,13 +198,13 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  @param socializeDelegate Socialize events delegate
  @see GSSocializeDelegate
  */
-+ (void)setSocializeDelegate:(id<GSSocializeDelegate>)socializeDelegate;
++ (void)setSocializeDelegate:(id<GSSocializeDelegate> _Nullable)socializeDelegate;
 
 /*!
  Gets the delegate that receives Gigya Accounts events.
  @see GSAccountsDelegate
  */
-+ (id<GSAccountsDelegate>)accountsDelegate;
++ (id<GSAccountsDelegate> _Nullable)accountsDelegate;
 
 /*!
  Sets the delegate that receives Gigya Accounts events. This delegate will be called regardless of the handler blocks passed to the different methods.
@@ -199,7 +212,7 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  @param accountsDelegate Accounts events delegate
  @see GSAccountsDelegate
  */
-+ (void)setAccountsDelegate:(id<GSAccountsDelegate>)accountsDelegate;
++ (void)setAccountsDelegate:(id<GSAccountsDelegate> _Nullable)accountsDelegate;
 
 /** @name Logging In */
 
@@ -211,7 +224,7 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  
  @param provider The provider's name.
  */
-+ (void)loginToProvider:(NSString *)provider;
++ (void)loginToProvider:(NSString * _Nonnull)provider;
 + (void)showLoginDialogOver:(UIViewController *)viewController
                    provider:(NSString *)provider __attribute((deprecated("Use loginToProvider: instead")));
 
@@ -230,8 +243,8 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  | cid                        | NSString    | A string of maximum 100 characters length. This string will be associated with each transaction and will later appear on reports generated by Gigya, in the "Context ID" combo box. The cid allows you to associate the report information with your own internal data. The "Context ID" combo box lets you filter the report data by application context. |
  | facebookReadPermissions    | NSString    | A comma delimited list of Facebook extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. Please refer to Facebook's <a target="_blank" href="https://developers.facebook.com/docs/reference/login/#permissions">permissions</a> documentation for the complete list of read permissions. Note: you should only include read permissions, otherwise Facebook will fail the login. |
  | facebookLoginBehavior      | NSNumber    | A <a target="_blank" href="https://developers.facebook.com/docs/reference/ios/current/class/FBSDKLoginManager/#FBSDKLoginBehavior enum">FBSDKLoginBehavior</a> value determining the Facebook SDK login behavior. |
- | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions. |
- | googlePlusExtraPermissions | NSString    | A comma delimited list of Google+ extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingGoogle+NativeLogin">native login</a>**. |
+ | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions. **when not using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingGoogle+NativeLogin">native login</a>**. |
+ | googlePlusExtraPermissions | NSString    | A comma delimited list of Google+/Google SignIn extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingGoogle+NativeLogin">native login</a>**. |
  | pendingRegistration        | NSNumber    | A Boolean value indicating whether the account should not be considered final until <a target="_blank" href="http://developers.gigya.com/display/GD/socialize.notifyRegistration+REST">socialize.notifyRegistration</a> is called. Default is `YES`. |
  | sessionExpiration          | NSNumber    | A time interval that defines the time in seconds that Gigya should keep the login session valid for the user. If this parameter is not specified, the session will be valid forever. |
  | forceAuthentication        | NSNumber    | A Boolean value indicating whether the user will be forced to provide his social network credentials during login, even if he is already connected to the social network. Default is `NO` |
@@ -241,9 +254,9 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  
  @param handler A completion handler that will be invoked when the login process is finished. The handler should have the signature `(GSUser *user, NSError *error)`. If the login was successful, the `error` parameter will be `nil`. Otherwise, you can check the `error.code` (see `GSErrorCode`) or `error.userInfo` to learn why it failed.
  */
-+ (void)loginToProvider:(NSString *)provider
-             parameters:(NSDictionary *)parameters
-      completionHandler:(GSUserInfoHandler)handler;
++ (void)loginToProvider:(NSString * _Nonnull)provider
+             parameters:(NSDictionary * _Nullable)parameters
+      completionHandler:(GSUserInfoHandler _Nullable)handler;
 + (void)showLoginDialogOver:(UIViewController *)viewController
                    provider:(NSString *)provider
                  parameters:(NSDictionary *)parameters
@@ -263,7 +276,7 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  | cid                        | NSString    | A string of maximum 100 characters length. This string will be associated with each transaction and will later appear on reports generated by Gigya, in the "Context ID" combo box. The cid allows you to associate the report information with your own internal data. The "Context ID" combo box lets you filter the report data by application context. |
  | facebookReadPermissions    | NSString    | A comma delimited list of Facebook extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. Please refer to Facebook's <a target="_blank" href="https://developers.facebook.com/docs/reference/login/#permissions">permissions</a> documentation for the complete list of read permissions. Note: you should only include read permissions, otherwise Facebook will fail the login. |
  | facebookLoginBehavior      | NSNumber    | A <a target="_blank" href="https://developers.facebook.com/docs/reference/ios/current/class/FBSDKLoginManager/#FBSDKLoginBehavior enum">FBSDKLoginBehavior</a> value determining the Facebook SDK login behavior. |
- | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions. |
+ | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingGoogle+NativeLogin">native login</a>**. |
  | googlePlusExtraPermissions | NSString    | A comma delimited list of Google+ extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingGoogle+NativeLogin">native login</a>**. |
  | pendingRegistration        | NSNumber    | A Boolean value indicating whether the account should not be considered final until <a target="_blank" href="http://developers.gigya.com/display/GD/socialize.notifyRegistration+REST">socialize.notifyRegistration</a> is called. Default is `YES`. |
  | sessionExpiration          | NSNumber    | A time interval that defines the time in seconds that Gigya should keep the login session valid for the user. If this parameter is not specified, the session will be valid forever. |
@@ -275,10 +288,10 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  @param viewController A view controller on which to display the login dialog (used only if the `GigyaLoginDontLeaveApp` setting is enabled).
  @param handler A completion handler that will be invoked when the login process is finished. The handler should have the signature `(GSUser *user, NSError *error)`. If the login was successful, the `error` parameter will be `nil`. Otherwise, you can check the `error.code` (see `GSErrorCode`) or `error.userInfo` to learn why it failed.
  */
-+ (void)loginToProvider:(NSString *)provider
-             parameters:(NSDictionary *)parameters
-                   over:(UIViewController *)viewController
-      completionHandler:(GSUserInfoHandler)handler;
++ (void)loginToProvider:(NSString * _Nonnull)provider
+             parameters:(NSDictionary * _Nullable)parameters
+                   over:(UIViewController * _Nullable)viewController
+      completionHandler:(GSUserInfoHandler _Nullable)handler;
 
 /*!
  Displays a provider selection dialog, allowing the user to login to any of the supported providers.
@@ -319,7 +332,7 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  | cid                        | NSString    | A string of maximum 100 characters length. This string will be associated with each transaction and will later appear on reports generated by Gigya, in the "Context ID" combo box. The cid allows you to associate the report information with your own internal data. The "Context ID" combo box lets you filter the report data by application context. |
  | facebookReadPermissions    | NSString    | A comma delimited list of Facebook extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. Please refer to Facebook's <a target="_blank" href="https://developers.facebook.com/docs/reference/login/#permissions">permissions</a> documentation for the complete list of read permissions. Note: you should only include read permissions, otherwise Facebook will fail the login. |
  | facebookLoginBehavior      | NSNumber    | A <a target="_blank" href="https://developers.facebook.com/docs/reference/ios/current/class/FBSDKLoginManager/#FBSDKLoginBehavior enum">FBSDKLoginBehavior</a> value determining the Facebook SDK login behavior. |
- | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions. |
+ | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingGoogle+NativeLogin">native login</a>**. |
  | googlePlusExtraPermissions | NSString    | A comma delimited list of Google+ extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. |
  | pendingRegistration        | NSNumber    | A Boolean value indicating whether the account should not be considered final until <a target="_blank" href="http://developers.gigya.com/display/GD/socialize.notifyRegistration+REST">socialize.notifyRegistration</a> is called. Default is `YES`. |
  | sessionExpiration          | NSNumber    | A time interval that defines the time in seconds that Gigya should keep the login session valid for the user. If this parameter is not specified, the session will be valid forever. |
@@ -354,7 +367,7 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  | cid                        | NSString    | A string of maximum 100 characters length. This string will be associated with each transaction and will later appear on reports generated by Gigya, in the "Context ID" combo box. The cid allows you to associate the report information with your own internal data. The "Context ID" combo box lets you filter the report data by application context. |
  | facebookReadPermissions    | NSString    | A comma delimited list of Facebook extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. Please refer to Facebook's <a target="_blank" href="https://developers.facebook.com/docs/reference/login/#permissions">permissions</a> documentation for the complete list of read permissions. Note: you should only include read permissions, otherwise Facebook will fail the login. |
  | facebookLoginBehavior      | NSNumber    | A <a target="_blank" href="https://developers.facebook.com/docs/reference/ios/current/class/FBSDKLoginManager/#FBSDKLoginBehavior enum">FBSDKLoginBehavior</a> value determining the Facebook SDK login behavior. |
- | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions. |
+ | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingGoogle+NativeLogin">native login</a>**. |
  | googlePlusExtraPermissions | NSString    | A comma delimited list of Google+ extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. |
  | pendingRegistration        | NSNumber    | A Boolean value indicating whether the account should not be considered final until <a target="_blank" href="http://developers.gigya.com/display/GD/socialize.notifyRegistration+REST">socialize.notifyRegistration</a> is called. Default is `YES`. |
  | sessionExpiration          | NSNumber    | A time interval that defines the time in seconds that Gigya should keep the login session valid for the user. If this parameter is not specified, the session will be valid forever. |
@@ -417,7 +430,7 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  | cid                        | NSString    | A string of maximum 100 characters length. This string will be associated with each transaction and will later appear on reports generated by Gigya, in the "Context ID" combo box. The cid allows you to associate the report information with your own internal data. The "Context ID" combo box lets you filter the report data by application context. |
  | facebookReadPermissions    | NSString    | A comma delimited list of Facebook extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. Please refer to Facebook's <a target="_blank" href="https://developers.facebook.com/docs/reference/login/#permissions">permissions</a> documentation for the complete list of read permissions. Note: you should only include read permissions, otherwise Facebook will fail the login. |
  | facebookLoginBehavior      | NSNumber    | A <a target="_blank" href="https://developers.facebook.com/docs/reference/ios/current/class/FBSDKLoginManager/#FBSDKLoginBehavior enum">FBSDKLoginBehavior</a> value determining the Facebook SDK login behavior. |
- | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions. |
+ | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingGoogle+NativeLogin">native login</a>**. |
  | googlePlusExtraPermissions | NSString    | A comma delimited list of Google+ extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. |
  
  @param handler A completion handler that will be invoked when adding the connection is finished. The handler should have the signature `(GSUser *user, NSError *error)`. If the connection was added successfully, the `error` parameter will be `nil`. Otherwise, you can check the `error.code` (see `GSErrorCode`) or `error.userInfo` to learn why it failed.
@@ -444,7 +457,7 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  | cid                        | NSString    | A string of maximum 100 characters length. This string will be associated with each transaction and will later appear on reports generated by Gigya, in the "Context ID" combo box. The cid allows you to associate the report information with your own internal data. The "Context ID" combo box lets you filter the report data by application context. |
  | facebookReadPermissions    | NSString    | A comma delimited list of Facebook extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. Please refer to Facebook's <a target="_blank" href="https://developers.facebook.com/docs/reference/login/#permissions">permissions</a> documentation for the complete list of read permissions. Note: you should only include read permissions, otherwise Facebook will fail the login. |
  | facebookLoginBehavior      | NSNumber    | A <a target="_blank" href="https://developers.facebook.com/docs/reference/ios/current/class/FBSDKLoginManager/#FBSDKLoginBehavior enum">FBSDKLoginBehavior</a> value determining the Facebook SDK login behavior. |
- | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions. |
+ | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingGoogle+NativeLogin">native login</a>**. |
  | googlePlusExtraPermissions | NSString    | A comma delimited list of Google+ extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. |
  
   @param viewController A view controller on which to display the login dialog (used only if the `GigyaLoginDontLeaveApp` setting is enabled).
@@ -494,7 +507,7 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  | cid                        | NSString    | A string of maximum 100 characters length. This string will be associated with each transaction and will later appear on reports generated by Gigya, in the "Context ID" combo box. The cid allows you to associate the report information with your own internal data. The "Context ID" combo box lets you filter the report data by application context. |
  | facebookReadPermissions    | NSString    | A comma delimited list of Facebook extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. Please refer to Facebook's <a target="_blank" href="https://developers.facebook.com/docs/reference/login/#permissions">permissions</a> documentation for the complete list of read permissions. Note: you should only include read permissions, otherwise Facebook will fail the login. |
  | facebookLoginBehavior      | NSNumber    | A <a target="_blank" href="https://developers.facebook.com/docs/reference/ios/current/class/FBSDKLoginManager/#FBSDKLoginBehavior enum">FBSDKLoginBehavior</a> value determining the Facebook SDK login behavior. |
- | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions. |
+ | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingGoogle+NativeLogin">native login</a>**. |
  | googlePlusExtraPermissions | NSString    | A comma delimited list of Google+ extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. |
  
  @param handler A completion handler that will be invoked when the login process is finished. The handler should have the signature `(GSUser *user, NSError *error)`. If the login was successful, the `error` parameter will be `nil`. Otherwise, you can check the `error.code` (see `GSErrorCode`) or `error.userInfo` to learn why it failed.
@@ -523,7 +536,7 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  | cid                        | NSString    | A string of maximum 100 characters length. This string will be associated with each transaction and will later appear on reports generated by Gigya, in the "Context ID" combo box. The cid allows you to associate the report information with your own internal data. The "Context ID" combo box lets you filter the report data by application context. |
  | facebookReadPermissions    | NSString    | A comma delimited list of Facebook extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. Please refer to Facebook's <a target="_blank" href="https://developers.facebook.com/docs/reference/login/#permissions">permissions</a> documentation for the complete list of read permissions. Note: you should only include read permissions, otherwise Facebook will fail the login. |
  | facebookLoginBehavior      | NSNumber    | A <a target="_blank" href="https://developers.facebook.com/docs/reference/ios/current/class/FBSDKLoginManager/#FBSDKLoginBehavior enum">FBSDKLoginBehavior</a> value determining the Facebook SDK login behavior. |
- | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions. |
+ | googleExtraPermissions     | NSString    | This parameter gives the possibility to request extended permissions in addition to the permissions that Gigya is already requesting. The supported values are: "wallet" - for Google wallet permissions **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingGoogle+NativeLogin">native login</a>**. |
  | googlePlusExtraPermissions | NSString    | A comma delimited list of Google+ extended permissions to request from the user **when using <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">native login</a>**. |
  
  @param handler A completion handler that will be invoked when the login process is finished. The handler should have the signature `(GSUser *user, NSError *error)`. If the login was successful, the `error` parameter will be `nil`. Otherwise, you can check the `error.code` (see `GSErrorCode`) or `error.userInfo` to learn why it failed.
@@ -608,30 +621,47 @@ typedef void(^GSPluginCompletionHandler)(BOOL closedByUser, NSError *error);
  This method works only with <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">Facebook native login</a>, and must be called after the user logged in.
  
  @param permissions A comma delimited list of Facebook publish permissions to request from the user. Please refer to Facebook's <a target="_blank" href="https://developers.facebook.com/docs/reference/login/#permissions">documentation</a> for a complete list of possible values.
+ @param viewController The view controller to present from. If nil, the topmost view controller will be automatically determined as best as possible.
  @param handler A completion handler that will be invoked when the process if finished. The handler should have the signature `(BOOL granted, NSError *error, NSArray *declinedPermissions)`. If the `granted` parameter is `NO`, you can check the `error` parameter to learn why it failed. The `declinedPermissions` array, if exists, holds the permissions the user has declined in the process. These permissions can be requested again later using this method.
  */
 + (void)requestNewFacebookPublishPermissions:(NSString *)permissions
-                             responseHandler:(GSPermissionRequestResultHandler)handler;
+							  viewController:(UIViewController * _Nullable)viewController
+							 responseHandler:(GSPermissionRequestResultHandler)handler;
 
 /*!
  Asks the user for new Facebook read permissions. This method must be used if the user has previously declined the wanted permissions. 
  This method works only with <a target="_blank" href="http://developers.gigya.com/display/GD/iOS#iOS-AddingFacebookNativeLogin">Facebook native login</a>, and must be called after the user logged in.
  
  @param permissions A comma delimited list of Facebook publish permissions to request from the user. Please refer to Facebook's <a target="_blank" href="https://developers.facebook.com/docs/reference/login/#permissions">documentation</a> for a complete list of possible values.
+ @param viewController The view controller to present from. If nil, the topmost view controller will be automatically determined as best as possible.
  @param handler A completion handler that will be invoked when the process if finished. The handler should have the signature `(BOOL granted, NSError *error, NSArray *declinedPermissions)`. If the `granted` parameter is `NO`, you can check the `error` parameter to learn why it failed. The `declinedPermissions` array, if exists, holds the permissions the user has declined in the process. These permissions can be requested again later using this method.
  */
 + (void)requestNewFacebookReadPermissions:(NSString *)permissions
-                          responseHandler:(GSPermissionRequestResultHandler)handler;
+						   viewController:(UIViewController * _Nullable)viewController
+						  responseHandler:(GSPermissionRequestResultHandler)handler;
 
 /** @name Handling Application Events */
+
+/*!
+ Handles URLs being opened by your AppDelegate. This method must be called and returned from your AppDelegate's `application:openURL:options:` method.
+ 
+ @param url The url parameter provided by the AppDelegate method.
+ @param app The app parameter provided by the AppDelegate method.
+ @param options The options parameter provided by the AppDelegate method.
+ 
+ @returns Returns `YES` if URL was handled.
+ */
++ (BOOL)handleOpenURL:(NSURL *)url
+                  app:(UIApplication *)app
+              options:(NSDictionary<NSString *, id> *)options;
 
 /*!
  Handles URLs being opened by your AppDelegate. This method must be called and returned from your AppDelegate's `application:handleOpenURL:` or `application:openURL:sourceApplication:annotation:` method.
  
  @param url The url parameter provided by the AppDelegate method.
- @param application The application parameter provided by the AppDelegate
- @param sourceApplication The sourceApplication parameter provided by the AppDelegate, or `nil` if not present.
- @param annotation The annotation parameter provided by the AppDelegate, or `nil` if not present.
+ @param application The application parameter provided by the AppDelegate method.
+ @param sourceApplication The sourceApplication parameter provided by the AppDelegate method, or `nil` if not present.
+ @param annotation The annotation parameter provided by the AppDelegate method, or `nil` if not present.
  
  @returns Returns `YES` if URL was handled.
  */

@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "GSSessionInfo.h"
 
 /**
  This class represents a Gigya session. It is created in the login process and persists between app launches, until cleared by `[Gigya logout]`.
@@ -8,11 +9,6 @@
 @interface GSSession : NSObject <NSCoding>
 
 /** @name Accessing Session Information */
-
-/*!
- Indicates whether the Gigya session is valid.
- */
-- (BOOL)isValid;
 
 /*!
  The session authentication token.
@@ -25,9 +21,9 @@
 @property (nonatomic, copy) NSString *secret;
 
 /*!
- The session expiration date.
+ The session information.
  */
-@property (nonatomic, copy) NSDate *expiration;
+@property (nonatomic, retain) GSSessionInfo *info;
 
 /*!
  The provider used to login.
@@ -58,5 +54,22 @@
 - (GSSession *)initWithSessionToken:(NSString *)token
                              secret:(NSString *)secret
                          expiration:(NSDate *)expiration;
+
+/*!
+ Initializes a new `GSSession` instance with the given token and secret.
+ 
+ @param token The session authentication token.
+ @param secret The session secret.
+ @param expiresIn The session expiration date as string representation.
+ @returns A new session instance.
+ */
+- (GSSession *)initWithSessionToken:(NSString *)token
+                             secret:(NSString *)secret
+                          expiresIn:(NSString *)expiresIn;
+
+/*!
+ Indicates whether the Gigya session is valid.
+ */
+- (BOOL)isValid;
 
 @end
