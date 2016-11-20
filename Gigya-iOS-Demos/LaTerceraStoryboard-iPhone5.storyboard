@@ -264,7 +264,7 @@ REGISTRARSE?</string>
             <objects>
                 <navigationController storyboardIdentifier="initialViewController" navigationBarHidden="YES" id="GVp-39-K6N" customClass="InitialViewController" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hih-em-URh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hih-em-URh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1086,7 +1086,7 @@ REGISTRARSE?</string>
         <scene sceneID="C4h-Xp-o5n">
             <objects>
                 <collectionViewController id="SYc-4s-vqG" customClass="CVNoticiasInicio" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" id="C3w-uL-EQG">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" id="C3w-uL-EQG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1164,7 +1164,7 @@ REGISTRARSE?</string>
                 <navigationController navigationBarHidden="YES" id="DtB-eu-V5K" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zRM-je-Mzk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zRM-je-Mzk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1199,7 +1199,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Wf-3B-RVb">
-                                <rect key="frame" x="245" y="72" width="75" height="44"/>
+                                <rect key="frame" x="242" y="72" width="78" height="44"/>
                                 <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
                                 <state key="normal" title="Buscar">
@@ -1207,13 +1207,13 @@ REGISTRARSE?</string>
                                 </state>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
-                                <rect key="frame" x="0.0" y="165" width="320" height="173"/>
+                                <rect key="frame" x="-3" y="165" width="323" height="173"/>
                                 <connections>
                                     <outlet property="delegate" destination="YpZ-qM-Zfn" id="qs1-y0-Gw2"/>
                                 </connections>
                             </mapView>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Buscar Descuentos" scopeBarBackgroundImage="CellNormal.png" translatesAutoresizingMaskIntoConstraints="NO" id="1DB-2m-DGQ">
-                                <rect key="frame" x="0.0" y="72" width="245" height="44"/>
+                                <rect key="frame" x="-3" y="72" width="245" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="245" id="860-Zc-cjk"/>
                                 </constraints>
@@ -1223,7 +1223,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </searchBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCz-mG-vNw">
-                                <rect key="frame" x="0.0" y="116" width="320" height="51"/>
+                                <rect key="frame" x="-3" y="116" width="323" height="51"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rR-Sh-fHN">
                                         <rect key="frame" x="0.0" y="0.0" width="620" height="47"/>
@@ -1347,7 +1347,7 @@ REGISTRARSE?</string>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6fa-yo-9V4">
-                                <rect key="frame" x="0.0" y="335" width="320" height="233"/>
+                                <rect key="frame" x="-3" y="335" width="323" height="233"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="233" id="JwT-9C-V63"/>
@@ -1358,10 +1358,10 @@ REGISTRARSE?</string>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-qh-sbZ">
-                                <rect key="frame" x="168" y="19" width="152" height="45"/>
+                                <rect key="frame" x="165" y="19" width="155" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beneficios cercanos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbN-vN-vlV">
-                                        <rect key="frame" x="-16" y="15" width="151" height="24"/>
+                                        <rect key="frame" x="-16" y="15" width="154" height="23.5"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1564,7 +1564,7 @@ REGISTRARSE?</string>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z4a-GB-7Hq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z4a-GB-7Hq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2172,7 +2172,7 @@ REGISTRARSE?</string>
         <scene sceneID="dbQ-zF-WPo">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionLaTercera" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="b2P-Xe-VrB" customClass="CVLaTercera" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="LGB-uj-mbz">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="LGB-uj-mbz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342508798393" green="0.92718349358974361" blue="0.92718349358974361" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2532,7 +2532,7 @@ REGISTRARSE?</string>
         <scene sceneID="DAU-tE-vSo">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionEdicionEspecial" id="w1T-UP-eOG" customClass="CVEdicionEspecial" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" dataMode="prototypes" id="ByA-8c-pfG">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" misplaced="YES" dataMode="prototypes" id="ByA-8c-pfG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2574,7 +2574,7 @@ REGISTRARSE?</string>
         <scene sceneID="sUa-Lq-Mqe">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionNegocios" autoresizesArchivedViewToFullSize="NO" id="b5S-Wx-wkN" customClass="CVNegocios" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" dataMode="prototypes" id="uzd-Pj-NL4">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" dataMode="prototypes" id="uzd-Pj-NL4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3293,7 +3293,7 @@ de La Tercera</string>
         <scene sceneID="kO4-N2-n99">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionElDeportivo" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="6Fm-tF-vXq" customClass="CVElDeportivo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="d7Y-uL-ajO">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="d7Y-uL-ajO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3582,7 +3582,7 @@ de La Tercera</string>
         <scene sceneID="Jtf-eI-5B3">
             <objects>
                 <collectionViewController id="wwa-n8-FIc" customClass="CVNoticiasPolitica" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="q3p-lK-1jh">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="q3p-lK-1jh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3833,7 +3833,7 @@ de La Tercera</string>
         <scene sceneID="ylL-bX-eQt">
             <objects>
                 <collectionViewController id="gSY-nt-9ly" customClass="CVNoticiasMundo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="5nn-ZJ-VaH">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="5nn-ZJ-VaH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4061,7 +4061,7 @@ de La Tercera</string>
         <scene sceneID="4nE-0d-rtT">
             <objects>
                 <collectionViewController id="aHw-jH-yzc" customClass="CVNoticiasEntretencion" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="IXF-ri-u0e">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="IXF-ri-u0e">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4137,7 +4137,7 @@ de La Tercera</string>
         <scene sceneID="HeL-uc-2lg">
             <objects>
                 <collectionViewController id="5os-6T-t4Z" customClass="CVNoticiasNacional" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="nNa-iE-YIv">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="nNa-iE-YIv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4213,7 +4213,7 @@ de La Tercera</string>
         <scene sceneID="3tx-yx-Zd3">
             <objects>
                 <collectionViewController id="PWb-sU-jF6" customClass="CVNoticiasNegocios" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="fSt-K9-cXZ">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="fSt-K9-cXZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4289,7 +4289,7 @@ de La Tercera</string>
         <scene sceneID="XvQ-7s-6Xl">
             <objects>
                 <collectionViewController id="PRe-bj-qLE" customClass="CVNoticiasElDeportivo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="j8w-6t-jOF">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="j8w-6t-jOF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4596,6 +4596,9 @@ de La Tercera</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="d5u-PW-pnX" kind="show" id="Vu1-iz-Jqv"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="yEh-ys-tUf">
                                         <rect key="frame" x="0.0" y="141" width="320" height="47"/>
@@ -4651,7 +4654,7 @@ de La Tercera</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ze6-Ug-dWC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="602" y="-2471"/>
+            <point key="canvasLocation" x="534" y="-2735"/>
         </scene>
         <!--Mi Seleccion View Controller-->
         <scene sceneID="WlQ-I6-jtc">
@@ -4690,7 +4693,7 @@ de La Tercera</string>
         <scene sceneID="ASJ-7V-e8g">
             <objects>
                 <collectionViewController id="N69-1f-XFd" customClass="CVMiSeleccion" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="bAs-tk-b10">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="bAs-tk-b10">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4900,7 +4903,7 @@ de La Tercera</string>
                                             <action selector="decreaseTextSizePressed:" destination="puX-Vm-ZXY" eventType="touchUpInside" id="XvV-OV-mXy"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="29 de diciembre de 1998 / 20:44:45" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U62-Rt-Q4c">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="29 de diciembre de 1998 / 20:44:45" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U62-Rt-Q4c">
                                         <rect key="frame" x="131" y="280" width="179" height="17"/>
                                         <fontDescription key="fontDescription" name="PTSans-Italic" family="PT Sans" pointSize="13"/>
                                         <nil key="highlightedColor"/>
@@ -4919,7 +4922,7 @@ de La Tercera</string>
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Elmer Gruñon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3G-VY-bKo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Elmer Gruñon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3G-VY-bKo">
                                         <rect key="frame" x="21" y="280" width="92" height="17"/>
                                         <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5940,7 +5943,7 @@ de La Tercera</string>
                                         <rect key="frame" x="18" y="439" width="283" height="82"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIL-EE-SpJ">
-                                                <rect key="frame" x="14" y="7" width="169" height="23.5"/>
+                                                <rect key="frame" x="14" y="7" width="169" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="169" id="GsE-0n-r43"/>
                                                 </constraints>
@@ -5949,7 +5952,7 @@ de La Tercera</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEq-ZW-61f">
-                                                <rect key="frame" x="14" y="29" width="256" height="43.5"/>
+                                                <rect key="frame" x="14" y="29" width="256" height="46"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -5978,10 +5981,10 @@ de La Tercera</string>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvr-Xl-APj" customClass="CustomBorderView">
-                                        <rect key="frame" x="18" y="529.5" width="283" height="422"/>
+                                        <rect key="frame" x="18" y="532" width="283" height="422"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKP-ha-cX5">
-                                                <rect key="frame" x="8" y="34.5" width="267" height="379.5"/>
+                                                <rect key="frame" x="8" y="37" width="267" height="377"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -5992,7 +5995,7 @@ de La Tercera</string>
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción del local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c59-5E-l7f">
-                                                <rect key="frame" x="13" y="10" width="186.5" height="23.5"/>
+                                                <rect key="frame" x="13" y="10" width="178.5" height="26"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
                                                 <color key="textColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -6240,7 +6243,7 @@ de La Tercera</string>
         <scene sceneID="W28-uR-Jmx">
             <objects>
                 <collectionViewController title="CVVoces" id="vAs-lx-uTx" customClass="CVVoces" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="rc3-kY-nCD">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="rc3-kY-nCD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6520,7 +6523,7 @@ de La Tercera</string>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="fz8-PW-Sib">
-                                <rect key="frame" x="141" y="1104" width="179" height="3"/>
+                                <rect key="frame" x="141" y="1104" width="179" height="2.5"/>
                                 <color key="progressTintColor" red="0.68003517670000002" green="0.0066766623929999996" blue="0.034616023340000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="trackTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </progressView>
@@ -6805,13 +6808,13 @@ de La Tercera</string>
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ih1-pt-QzD">
-                                                <rect key="frame" x="14" y="7" width="106.5" height="23.5"/>
+                                                <rect key="frame" x="14" y="7" width="100" height="26"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
                                                 <color key="textColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnb-b1-msb">
-                                                <rect key="frame" x="13" y="32.5" width="256" height="115"/>
+                                                <rect key="frame" x="13" y="35" width="256" height="115"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="115" id="r5d-Qf-KEu"/>
                                                 </constraints>
@@ -6871,10 +6874,10 @@ de La Tercera</string>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cv6-zS-o5n" customClass="CustomBorderView">
-                                        <rect key="frame" x="19" y="369" width="284" height="79.5"/>
+                                        <rect key="frame" x="19" y="369" width="284" height="82"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyE-LM-pYh">
-                                                <rect key="frame" x="14" y="6" width="169" height="23.5"/>
+                                                <rect key="frame" x="14" y="6" width="169" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="169" id="dIY-Qc-8Bz"/>
                                                 </constraints>
@@ -6883,7 +6886,7 @@ de La Tercera</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiF-zs-n5E">
-                                                <rect key="frame" x="14" y="29" width="256" height="43.5"/>
+                                                <rect key="frame" x="14" y="29" width="256" height="46"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -7107,13 +7110,13 @@ de La Tercera</string>
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSw-dY-27H">
-                                                <rect key="frame" x="14" y="7" width="106.5" height="23.5"/>
+                                                <rect key="frame" x="14" y="7" width="100" height="26"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
                                                 <color key="textColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOF-xW-JVB">
-                                                <rect key="frame" x="13" y="32.5" width="311" height="115"/>
+                                                <rect key="frame" x="13" y="35" width="311" height="115"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="115" id="Hs1-Hr-oWt"/>
                                                 </constraints>
@@ -7161,10 +7164,10 @@ de La Tercera</string>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUC-Vv-OiE" customClass="CustomBorderView">
-                                        <rect key="frame" x="19" y="369" width="339" height="79.5"/>
+                                        <rect key="frame" x="19" y="369" width="339" height="82"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUI-fC-rbX">
-                                                <rect key="frame" x="14" y="6" width="169" height="23.5"/>
+                                                <rect key="frame" x="14" y="6" width="169" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="169" id="8Mp-CB-ca3"/>
                                                 </constraints>
@@ -7173,7 +7176,7 @@ de La Tercera</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4e-gn-YJm">
-                                                <rect key="frame" x="14" y="29" width="311" height="43.5"/>
+                                                <rect key="frame" x="14" y="29" width="311" height="46"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -8749,6 +8752,145 @@ de La Tercera</string>
             </objects>
             <point key="canvasLocation" x="-1155" y="-1892.9577464788733"/>
         </scene>
+        <!--Historial Perfil-->
+        <scene sceneID="gPJ-T0-VTb">
+            <objects>
+                <viewController title="Historial Perfil" id="d5u-PW-pnX" customClass="HistoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fFT-Lg-71D"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wtp-KZ-dIB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2cP-BN-54G">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="596"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="pzH-N5-0iR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
+                            </imageView>
+                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8X3-wN-kBY">
+                                <rect key="frame" x="0.0" y="77" width="321" height="519"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5l-wf-LDu">
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="519"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="aWP-Cj-XjZ" kind="embed" id="pG6-If-Um4"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Y5l-wf-LDu" secondAttribute="trailing" id="0WF-Tg-b59"/>
+                                    <constraint firstAttribute="bottom" secondItem="Y5l-wf-LDu" secondAttribute="bottom" id="14C-nQ-N0Y"/>
+                                    <constraint firstItem="Y5l-wf-LDu" firstAttribute="leading" secondItem="8X3-wN-kBY" secondAttribute="leading" id="Brq-a3-BdS"/>
+                                    <constraint firstItem="Y5l-wf-LDu" firstAttribute="top" secondItem="8X3-wN-kBY" secondAttribute="top" id="Z8O-TV-NEc"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcd-ZY-iwu">
+                                <rect key="frame" x="7" y="20" width="47" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="VzJ-LO-q9X"/>
+                                    <constraint firstAttribute="width" constant="47" id="niz-yI-hqS"/>
+                                </constraints>
+                                <state key="normal" image="botonVolver.png"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="d5u-PW-pnX" eventType="touchUpInside" id="fKB-oh-1VD"/>
+                                </connections>
+                            </button>
+                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJR-bI-MCp">
+                                <rect key="frame" x="76" y="20" width="237" height="46"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Historial del Club La Tercera" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3T-9J-rWn">
+                                        <rect key="frame" x="3" y="12" width="230" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.69998234510000001" green="0.15574350949999999" blue="0.1781359911" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.69998234510000001" green="0.15574350949999999" blue="0.1781359911" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pJR-bI-MCp" firstAttribute="centerY" secondItem="xcd-ZY-iwu" secondAttribute="centerY" id="5O3-zZ-nFa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pJR-bI-MCp" secondAttribute="trailing" constant="-9" id="Adl-Pl-qco"/>
+                            <constraint firstItem="pzH-N5-0iR" firstAttribute="trailing" secondItem="8X3-wN-kBY" secondAttribute="trailing" constant="-1" id="MS8-QV-Z1D"/>
+                            <constraint firstItem="xcd-ZY-iwu" firstAttribute="top" secondItem="2cP-BN-54G" secondAttribute="topMargin" constant="20" id="RQF-s6-ugV"/>
+                            <constraint firstItem="pzH-N5-0iR" firstAttribute="leading" secondItem="8X3-wN-kBY" secondAttribute="leading" id="Xxd-ee-TPB"/>
+                            <constraint firstItem="pJR-bI-MCp" firstAttribute="leading" secondItem="xcd-ZY-iwu" secondAttribute="trailing" constant="22" id="am7-eT-YjC"/>
+                            <constraint firstItem="8X3-wN-kBY" firstAttribute="top" secondItem="xcd-ZY-iwu" secondAttribute="bottom" constant="10" id="c3S-Uw-PVL"/>
+                            <constraint firstAttribute="trailing" secondItem="pzH-N5-0iR" secondAttribute="trailing" id="fir-zv-2DU"/>
+                            <constraint firstItem="xcd-ZY-iwu" firstAttribute="leading" secondItem="2cP-BN-54G" secondAttribute="leadingMargin" constant="-9" id="mLS-RL-8gV"/>
+                            <constraint firstItem="xcd-ZY-iwu" firstAttribute="centerY" secondItem="pzH-N5-0iR" secondAttribute="centerY" constant="5" id="rJj-Ho-j4Y"/>
+                            <constraint firstItem="pJR-bI-MCp" firstAttribute="top" secondItem="xcd-ZY-iwu" secondAttribute="top" id="rp9-n8-P5i"/>
+                            <constraint firstItem="pzH-N5-0iR" firstAttribute="top" secondItem="2cP-BN-54G" secondAttribute="top" id="tET-Oz-Gci"/>
+                            <constraint firstItem="pzH-N5-0iR" firstAttribute="leading" secondItem="2cP-BN-54G" secondAttribute="leading" id="va4-vI-okp"/>
+                            <constraint firstItem="8X3-wN-kBY" firstAttribute="bottom" secondItem="Wtp-KZ-dIB" secondAttribute="top" id="x1c-X9-zBI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mQX-LH-lSo"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="596"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x4d-4K-n3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="977" y="-3613"/>
+        </scene>
+        <!--History Table View Controller-->
+        <scene sceneID="mbY-oM-m6L">
+            <objects>
+                <tableViewController id="aWP-Cj-XjZ" customClass="HistoryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="nJu-mV-8OA">
+                        <rect key="frame" x="0.0" y="0.0" width="321" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.70226532220000004" green="0.1580791771" blue="0.1748363376" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" textLabel="DlJ-Dj-Q6w" detailTextLabel="HYX-D4-4zT" rowHeight="64" style="IBUITableViewCellStyleSubtitle" id="5XT-8e-nDY">
+                                <rect key="frame" x="0.0" y="28" width="321" height="64"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5XT-8e-nDY" id="OIe-GV-ocw">
+                                    <rect key="frame" x="0.0" y="0.0" width="321" height="63"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DlJ-Dj-Q6w">
+                                            <rect key="frame" x="15" y="13" width="34" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HYX-D4-4zT">
+                                            <rect key="frame" x="15" y="35" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="aWP-Cj-XjZ" id="eFs-hm-eu5"/>
+                            <outlet property="delegate" destination="aWP-Cj-XjZ" id="gba-ey-dA8"/>
+                        </connections>
+                    </tableView>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MtN-nn-Eat" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1934" y="-3613"/>
+        </scene>
     </scenes>
     <resources>
         <image name=" " width="360" height="640"/>
@@ -8817,11 +8959,11 @@ de La Tercera</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QpD-Og-2iF"/>
-        <segue reference="uTe-dx-gBZ"/>
+        <segue reference="kVV-Pe-RDG"/>
         <segue reference="tqi-Nf-HuD"/>
+        <segue reference="uTe-dx-gBZ"/>
+        <segue reference="wa8-wA-Ypp"/>
         <segue reference="vnn-UP-oet"/>
-        <segue reference="u2g-Nt-th6"/>
-        <segue reference="wuf-Nj-3R8"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
