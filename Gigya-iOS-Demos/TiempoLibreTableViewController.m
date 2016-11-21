@@ -220,6 +220,7 @@ BOOL firstTimeTiempoLibre = false;
                 }else{
                     [self.tableView setBounces:NO];
                     [self.tableView setAlwaysBounceVertical:NO];
+                    [SVProgressHUD dismiss];
                     [weakSelf.tableView endUpdates];
                     [weakSelf.tableView.infiniteScrollingView stopAnimating];
                 }
@@ -327,9 +328,8 @@ BOOL firstTimeTiempoLibre = false;
     NSLog(@"***********   Load More Rows   ************");
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberTiempoLibre);
     
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberTiempoLibre);
     isPageRefreshingTiempoLibre = YES;
-    //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+    [SVProgressHUD showWithStatus:@"Obteniendo más beneficios ..." maskType:SVProgressHUDMaskTypeClear];
     currentPageNumberTiempoLibre = currentPageNumberTiempoLibre +1;
     [self loadBenefitsForCategoryId:benefitCategoryId];
     

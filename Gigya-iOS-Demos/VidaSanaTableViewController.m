@@ -223,6 +223,7 @@ BOOL firstTimeVidaSana = false;
                     [self.tableView setBounces:NO];
                     [self.tableView setAlwaysBounceVertical:NO];
                     [weakSelf.tableView endUpdates];
+                    [SVProgressHUD dismiss];
                     [weakSelf.tableView.infiniteScrollingView stopAnimating];
                 }
             } else {
@@ -329,9 +330,8 @@ BOOL firstTimeVidaSana = false;
     NSLog(@"***********   Load More Rows   ************");
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberVidaSana);
     
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberVidaSana);
     isPageRefreshingVidaSana = YES;
-    //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+    [SVProgressHUD showWithStatus:@"Obteniendo más beneficios ..." maskType:SVProgressHUDMaskTypeClear];
     currentPageNumberVidaSana = currentPageNumberVidaSana +1;
     [self loadBenefitsForCategoryId:benefitCategoryId];
     

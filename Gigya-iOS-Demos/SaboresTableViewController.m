@@ -160,6 +160,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     if (indexPath.row == 0) {
         return 278.0;
     }
@@ -223,6 +224,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
                     [self.tableView setAlwaysBounceVertical:NO];
                     [weakSelf.tableView endUpdates];
                     [weakSelf.tableView.infiniteScrollingView stopAnimating];
+                    [SVProgressHUD dismiss];
                 }
             } else {
                 
@@ -332,7 +334,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
 
             NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberSabores);
             isPageRefreshingSabores = YES;
-            //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+            [SVProgressHUD showWithStatus:@"Obteniendo más beneficios ..." maskType:SVProgressHUDMaskTypeClear];
             currentPageNumberSabores = currentPageNumberSabores +1;
             [self loadBenefitsForCategoryId:benefitCategoryId];
 

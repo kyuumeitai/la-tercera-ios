@@ -222,6 +222,7 @@ BOOL firstTimeInfantil = false;
                     NSLog(@"No sirve la data");
                     [self.tableView setBounces:NO];
                     [self.tableView setAlwaysBounceVertical:NO];
+                    [SVProgressHUD dismiss];
                     [weakSelf.tableView endUpdates];
                     [weakSelf.tableView.infiniteScrollingView stopAnimating];
                 }
@@ -330,9 +331,8 @@ BOOL firstTimeInfantil = false;
     NSLog(@"***********   Load More Rows   ************");
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberInfantil);
     
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberInfantil);
     isPageRefreshingInfantil = YES;
-    //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+    [SVProgressHUD showWithStatus:@"Obteniendo más beneficios ..." maskType:SVProgressHUDMaskTypeClear];
     currentPageNumberInfantil = currentPageNumberInfantil +1;
     [self loadBenefitsForCategoryId:benefitCategoryId];
     
