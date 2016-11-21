@@ -28,6 +28,7 @@ BOOL forSuscriptor = false;
 BOOL forAnonimo = false;
 
 - (void)viewDidLoad {
+     NSLog(@"ESTOIY EN DetalleViewController.m");
     [super viewDidLoad];
     self.benefitImageView.image = _benefitImage;
      self.benefitAdressLabel.alpha = 0;
@@ -254,12 +255,13 @@ BOOL forAnonimo = false;
 -(void) reloadBenefitsDataFromService:(NSArray*)arrayJson{
     NSLog(@"  reload beenfits  ");
     
-    NSLog(@"Array Json : %@",arrayJson);
-    
     NSDictionary *tempDict = (NSDictionary*)arrayJson;
     
     //Loading summary
     NSString* summary = [tempDict objectForKey:@"summary"];
+    NSString* content= [tempDict objectForKey:@"content"];
+    NSString* terms = [tempDict objectForKey:@"terms"];
+    
     self.benefitSubtitleLabel.text = summary;
     //[self.benefitSubtitleLabel setNumberOfLines:0];
     //[self.benefitSubtitleLabel sizeToFit];
@@ -287,10 +289,10 @@ BOOL forAnonimo = false;
     [displayingFormatter setDateStyle:NSDateFormatterLongStyle];
     [displayingFormatter setDateFormat:@"dd' de 'MMMM' del 'YYYY"];
     NSString *displayEnd = [displayingFormatter stringFromDate:dateFromString];
-
+    
     NSString *caducidad = [NSString stringWithFormat:@"Beneficio válido desde el %@ al %@",displayStart,displayEnd];
     
-    self.expiredDateLabel.text=caducidad;
+    
     self.expiredDateLabel.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{ self.expiredDateLabel.alpha = 1;}
@@ -299,8 +301,8 @@ BOOL forAnonimo = false;
     NSArray *profilesArray= (NSArray*)[tempDict objectForKey:@"profiles"];
     
     for ( int i = 0; i < profilesArray.count; i++){
-    NSDictionary * profileDictionary = (NSDictionary*)profilesArray[i];
-    NSLog(@"Profile text : %@",profileDictionary );
+        NSDictionary * profileDictionary = (NSDictionary*)profilesArray[i];
+        NSLog(@"Profile text : %@",profileDictionary );
         
         int valor= [[profileDictionary objectForKey:@"id"] intValue];
         
@@ -318,45 +320,22 @@ BOOL forAnonimo = false;
             forSuscriptor = true;
             NSLog(@"Es suscriptor");
         }
-
-    
+        
+        
     }
-    /*
-    //We can read benefit profile
-    for(id key in profileDictionary) {
-        
-        int valor= [[profileDictionary objectForKey:@"id"] intValue];
 
-        if ( valor == 0 ){
-            forAnonimo = true;
-           NSLog(@"Es anonimo");
-        }
-        
-        if ( valor == 1 ){
-            forFremium = true;
-            NSLog(@"Es fremium");
-        }
-        
-        if ( valor == 2 ){
-            forSuscriptor = true;
-            NSLog(@"Es suscriptor");
-        }
-
-     }
-     */
     
-
-      //  self.profileBenefitLabel.text = nameProfile;
+    //  self.profileBenefitLabel.text = nameProfile;
     self.profileBenefitLabel.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{ self.profileBenefitLabel.alpha = 1;}
                      completion:nil];
     
-
+    
     self.benefitDiscountLabel.text = _benefitDiscount;
     self.benefitTitleLabel.text = _benefitTitle;
     self.benefitAdressLabel.text = _benefitAddress;
-
+    
     
     self.benefitDiscountLabel.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
@@ -367,28 +346,40 @@ BOOL forAnonimo = false;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{ self.benefitTitleLabel.alpha = 1;}
                      completion:nil];
-
-
+    
+    
     //Loading Store
     NSArray* storeArray = (NSArray*)[tempDict objectForKey:@"related_store"];
     storeId = [[storeArray firstObject] intValue];
     NSLog(@" EL store relacionado es:%d",storeId);
     
     [self loadStoreWithId:storeId];
-
+    
     //Loading Description
     NSString* description = [tempDict objectForKey:@"description"];
+    
+    
+    NSString *textoCondiciones =[NSString stringWithFormat:@"%@\r%@\r%@", description,terms,caducidad];
+    
+    if(terms.length <1)
+        textoCondiciones =[NSString stringWithFormat:@"%@\r%@", description,caducidad];
+    NSLog(@"Texto confdixiones: %@",textoCondiciones);
+    
+    self.expiredDateLabel.text=textoCondiciones;
+  
+     NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: 16\">%@</span>",content];
+     
+     
+     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]
+     initWithData: [finalDescription dataUsingEncoding:NSUTF16StringEncoding]
+     options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+     documentAttributes:nil                                           error: nil
+     ];
+     
+     
+     self.benefitDescriptionTextView.attributedText = attributedString;
+    
 
-    NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: 16\">%@</span>",description];
-
-
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]
-                                            initWithData: [finalDescription dataUsingEncoding:NSUnicodeStringEncoding]
-                                            options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
-                                            documentAttributes:nil                                            error: nil
-                                            ];
-
-    self.benefitDescriptionTextView.attributedText = attributedString;
 }
 
 -(IBAction)shareBenefit:(id)sender{
