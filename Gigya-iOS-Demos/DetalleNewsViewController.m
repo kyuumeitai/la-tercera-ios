@@ -501,6 +501,7 @@ NSString *textoContenidoTemporal = @"";
     _titulo.text= titulo;
     _summary.text= [articleDict objectForKey:@"short_description"];
     slug = [articleDict objectForKey:@"slug"];
+     newsLink = [articleDict objectForKey:@"article_url"];
 
     _summary.numberOfLines = 0;
     
@@ -591,9 +592,8 @@ NSString *textoContenidoTemporal = @"";
 }
 - (IBAction)shareArticle:(id)sender {
     NSString *tituloNoticia = _titulo.text;
-    newsLink = [NSString stringWithFormat:@"http://aniversario.latercera.com/%@",slug];
-
-        [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:newsLink] forSelf:self];
+   
+    [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:newsLink] forSelf:self];
 }
 
 

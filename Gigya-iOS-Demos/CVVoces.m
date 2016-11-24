@@ -215,7 +215,7 @@ NSMutableArray *relatedIdsArrayVoces;
         id imageThumb ;
         
             if (([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]) || ([[dictTitular objectForKey:@"thumb_url"] isEqualToString:@""])){
-            imageThumb = @"";
+            imageThumb = @"http://ltrest.multinetlabs.com/static/lt-default.png";
             }else{
             imageThumb = [dictTitular objectForKey:@"thumb_url"];
             NSLog(@" el thumbnail  es: %@ ",imageThumb);
