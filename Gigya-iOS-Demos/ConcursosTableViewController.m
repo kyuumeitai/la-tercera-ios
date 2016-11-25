@@ -19,9 +19,6 @@
 #import "SVPullToRefresh.h"
 #define benefitCategoryId 39
 
-
-
-
 @interface ConcursosTableViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end
@@ -99,8 +96,8 @@ BOOL firstTimeConcursos = false;
             Concurso *concurso = [self.concursosItemsArray objectAtIndex:0];
             
             cell.labelTitulo.text = concurso.title;
-            cell.labelSubtitulo.text = concurso.summary;
-            cell.labelDescuento.text = concurso.desclabel;
+            cell.labelSubtitulo.text = concurso.fechaDisponibilidad;
+            cell.labelDescuento.text = @"";
             
             if((unsigned long)concurso.desclabel.length >3)
                 cell.labelDescuento.alpha = 0;
@@ -140,7 +137,7 @@ BOOL firstTimeConcursos = false;
         
         cell.labelTitulo.text = concurso2.title;
         cell.labelDescuento.text = concurso2.desclabel;
-        cell.labelSubtitulo.text = concurso2.summary;
+        cell.labelSubtitulo.text = concurso2.fechaDisponibilidad;
         if((unsigned long)concurso2.desclabel.length >3)
             cell.labelDescuento.alpha = 0;
         //Get Image
@@ -234,7 +231,7 @@ BOOL firstTimeConcursos = false;
                 }else{
                     
                     [self reloadBenefitsDataFromService:arrayJson];
-                     NSLog(@"Lista jhson: %@",arrayJson);
+                     //NSLog(@"Lista jhson: %@",arrayJson);
                 }
             }
         });
@@ -261,7 +258,26 @@ BOOL firstTimeConcursos = false;
         id linkBen = [benefit objectForKey:@"url"] ;
         id summaryBen = [benefit objectForKey:@"description"] ;
         id benefitLabelBen = [benefit objectForKey:@"benefit_label"] ;
+        //Loading Duration
+        NSString* startDate = [benefit objectForKey:@"start_date"];
+        NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc] init];
+        [dateFormatter1 setDateFormat:@"YYYY'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+        NSDate *dateFromString1 = [dateFormatter1 dateFromString:startDate];
+        NSDateFormatter *displayingFormatter1 = [NSDateFormatter new];
+        [displayingFormatter1 setDateStyle:NSDateFormatterLongStyle];
+        [displayingFormatter1 setDateFormat:@"dd' de 'MMMM' del 'YYYY"];
+        NSString *displayStart = [displayingFormatter1 stringFromDate:dateFromString1];
         
+        NSString* endDate = [benefit objectForKey:@"end_date"];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"YYYY'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+        NSDate *dateFromString = [dateFormatter dateFromString:endDate];
+        NSDateFormatter *displayingFormatter = [NSDateFormatter new];
+        [displayingFormatter setDateStyle:NSDateFormatterLongStyle];
+        [displayingFormatter setDateFormat:@"dd' de 'MMMM' del 'YYYY"];
+        NSString *displayEnd = [displayingFormatter stringFromDate:dateFromString];
+        
+        NSString *caducidad = [NSString stringWithFormat:@"Participa desde el %@ hasta el %@",displayStart,displayEnd];
         
         Concurso *concurso = [[Concurso alloc] init];
         concurso.idConcurso = idBen;
@@ -269,6 +285,7 @@ BOOL firstTimeConcursos = false;
         concurso.url = linkBen;
         concurso.summary= summaryBen;
         concurso.desclabel = benefitLabelBen;
+        concurso.fechaDisponibilidad = caducidad;
         
         if([benefit objectForKey:@"image"] != [NSNull null]){
             

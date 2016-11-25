@@ -207,12 +207,15 @@ NSMutableArray *relatedIdsArrayMundo;
         
         id imageThumb ;
         
-        if ([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]){
-            imageThumb = @"http://www.banmedica.cl//images/Beneficios/LogoCupon/LOGO%20LA%20TERCERA.png";
+        //if ([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]){
+        if ([dictTitular objectForKey:@"image_url"] == (id)[NSNull null]){
+            imageThumb = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
-            imageThumb = [dictTitular objectForKey:@"thumb_url"];
+            imageThumb = [dictTitular objectForKey:@"image_url"];
+            //imageThumb = [dictTitular objectForKey:@"thumb_url"];
             NSLog(@" el thumbnail  es: %@ ",imageThumb);
         }
+        
         Headline *titular = [[Headline alloc] init];
         titular.idArt = [idArt intValue];
         NSString *title= [[dictTitular objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
