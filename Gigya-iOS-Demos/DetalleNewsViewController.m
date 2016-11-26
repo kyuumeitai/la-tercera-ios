@@ -44,6 +44,7 @@
 @synthesize idArticulo;
 @synthesize idCategoria;
 @synthesize relatedIdsArray;
+@synthesize relatedArticlesArray;
 
 int fontSize = 16;
 
@@ -78,8 +79,7 @@ NSString *textoContenidoTemporal = @"";
     _labelAutor.alpha = 0;
     
     // Do any additional setup after loading the view.
-    
-    [self loadRelatedArticles];
+    self.relatedArticlesArray = [[NSArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,44 +87,6 @@ NSString *textoContenidoTemporal = @"";
     // Dispose of any resources that can be recreated.
 }
 
-- (void) loadRelatedArticles{
-    
-    NSLog(@"El articulo id es: %d",idArticulo);
-    NSLog(@"Entonces el array de Noticias Relacionadas es: %@.",relatedIdsArray);
-    
-    int contando = 1;
-    
-    for (NSNumber *idArtTemp in relatedIdsArray) {
-    if (contando >4)
-        return;
-    
-        int idArtInt = [idArtTemp intValue];
-        if (idArtInt == idArticulo ){
-            NSLog(@" es el mesmiitoh ");
-        }else{
-                   NSLog(@"Arituiclo temp:%d",idArtInt);
-        ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
-        BOOL estaConectado = [connectionManager verifyConnection];
-        NSLog(@"Verificando conexión: %d",estaConectado);
-        
-        [connectionManager getArticleWithId:^(BOOL success, NSArray *arrayJson, NSError *error){
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (!success) {
-                    NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
-                } else {
-                    
-                    [self loadRelatedArticleDataFromService:arrayJson andIndexNumber:contando ];
-                 
-                }
-            });
-        }:idArtInt];
-        
-        contando++;
-        }
-    }
-    
-}
 
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;
@@ -134,6 +96,7 @@ NSString *textoContenidoTemporal = @"";
     }
     return context;
 }
+
 - (IBAction)addToFavorite:(id)sender {
     
     int level = [self getUserType];
@@ -319,15 +282,17 @@ NSString *textoContenidoTemporal = @"";
 }
 
 
--(void) loadRelatedArticleDataFromService:(NSArray*)arrayJson andIndexNumber:(int)indice{
+-(void) loadRelatedArticles:(NSArray*)arrayJson {
     
-    NSDictionary *articleDict = (NSDictionary*)arrayJson;
+    NSArray *articleDict = arrayJson;
     
-    //NSLog(@"***** Print Related article: %@",arrayJson);
-    
-    if (indice == 1) {
+    //NSLog(@"***** Print Related article: %@",articleDict);
+    for (int indice = 0; indice < articleDict.count; indice++ ){
+    if (indice == 0) {
+        NSDictionary *articulo = (NSDictionary*)articleDict[indice];
+       // NSLog(@"***** Print article 1: %@", articulo);
         
-        NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+        NSString *titulo = [[articulo objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
         titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
         
         
@@ -336,10 +301,10 @@ NSString *textoContenidoTemporal = @"";
         
         id urlImagen;
         
-        if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"https://placekitten.com/400/400";
+        if ([articulo objectForKey:@"image_url"] == (id)[NSNull null]){
+            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
-            urlImagen = [articleDict objectForKey:@"image_url"];
+            urlImagen = [articulo objectForKey:@"image_url"];
         }
         
         
@@ -366,9 +331,10 @@ NSString *textoContenidoTemporal = @"";
     }
     
     
-    if (indice == 2) {
-        
-        NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+    if (indice == 1) {
+        NSDictionary *articulo = (NSDictionary*)articleDict[indice];
+        // NSLog(@"***** Print article 1: %@", articulo);
+        NSString *titulo = [[articulo objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
         titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
         
         
@@ -377,10 +343,10 @@ NSString *textoContenidoTemporal = @"";
         
         id urlImagen;
         
-        if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"https://placekitten.com/400/400";
+        if ([articulo objectForKey:@"image_url"] == (id)[NSNull null]){
+            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
-            urlImagen = [articleDict objectForKey:@"image_url"];
+            urlImagen = [articulo objectForKey:@"image_url"];
         }
         
         
@@ -406,9 +372,10 @@ NSString *textoContenidoTemporal = @"";
         
     }
     
-    if (indice == 3) {
-        
-        NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+    if (indice == 2) {
+        NSDictionary *articulo = (NSDictionary*)articleDict[indice];
+        // NSLog(@"***** Print article 1: %@", articulo);
+        NSString *titulo = [[articulo objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
         titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
         
         
@@ -417,10 +384,10 @@ NSString *textoContenidoTemporal = @"";
         
         id urlImagen;
         
-        if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"https://placekitten.com/400/400";
+        if ([articulo objectForKey:@"image_url"] == (id)[NSNull null]){
+            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
-            urlImagen = [articleDict objectForKey:@"image_url"];
+            urlImagen = [articulo objectForKey:@"image_url"];
         }
         
         
@@ -446,21 +413,22 @@ NSString *textoContenidoTemporal = @"";
         
     }
     
-    if (indice == 4) {
-        
-        NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+    if (indice == 3) {
+        NSDictionary *articulo = (NSDictionary*)articleDict[indice];
+        // NSLog(@"***** Print article 1: %@", articulo);
+        NSString *titulo = [[articulo objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
         titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
         
         
-        _titleNews1.text= titulo;
+        _titleNews4.text= titulo;
         
         
         id urlImagen;
         
-        if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"https://placekitten.com/400/400";
+        if ([articulo objectForKey:@"image_url"] == (id)[NSNull null]){
+            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
-            urlImagen = [articleDict objectForKey:@"image_url"];
+            urlImagen = [articulo objectForKey:@"image_url"];
         }
         
         
@@ -483,7 +451,9 @@ NSString *textoContenidoTemporal = @"";
                                  completion:nil];
             });
         });
-        
+     
+    }
+         
     }
     
 }
@@ -502,7 +472,9 @@ NSString *textoContenidoTemporal = @"";
     _summary.text= [articleDict objectForKey:@"short_description"];
     slug = [articleDict objectForKey:@"slug"];
      newsLink = [articleDict objectForKey:@"article_url"];
-
+    self.relatedArticlesArray= [articleDict objectForKey:@"related_articles"];
+    //NSLog(@" >>>>>>>>>>>>> Related articles: %@",relatedArticlesArray);
+    [self loadRelatedArticles:self.relatedArticlesArray];
     _summary.numberOfLines = 0;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
@@ -543,7 +515,7 @@ NSString *textoContenidoTemporal = @"";
     id urlImagen;
     
     if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-        urlImagen = @"https://placekitten.com/400/400";
+        urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
     }else{
         urlImagen = [articleDict objectForKey:@"image_url"];
     }
@@ -627,7 +599,7 @@ NSString *textoContenidoTemporal = @"";
     
     // Do any additional setup after loading the view.
     
-    [self loadRelatedArticles];
+    //[self loadRelatedArticles];
 
     
 }

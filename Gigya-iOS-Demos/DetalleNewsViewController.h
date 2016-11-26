@@ -20,6 +20,7 @@
 @property int idArticulo;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property(nonatomic,retain)NSMutableArray *relatedIdsArray;
+@property(nonatomic,retain)NSArray *relatedArticlesArray;
 @property (weak, nonatomic) IBOutlet DFPBannerView *bannerNewsDetailView;
 
 -(void)loadBenefitForBenefitId:(int)idArticle andCategory:(NSString*)categoria;
