@@ -276,9 +276,6 @@ NSMutableArray *relatedIdsArrayPolitica;
 //Changes
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CollectionViewCellBanner *celdaBanner;
-    celdaBanner = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
-    
     
     Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     
@@ -297,22 +294,19 @@ NSMutableArray *relatedIdsArrayPolitica;
         
         cell.labelSummary.text = titular.summary;
         
-        
-        NSString *urlImagen = titular.imagenThumbString;
-        NSURL *url = [NSURL URLWithString:urlImagen];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        NSString *nameImagen = titular.imagenThumbString;
+        NSURL *urlImagen = [NSURL URLWithString:nameImagen];
+        NSURLRequest *request = [NSURLRequest requestWithURL:urlImagen];
         UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
-        
-        //__weak UITableViewCell *weakCell = cell;
-        
         __weak CollectionViewCellGrande *weakCell = cell;
         
-        
+        //[cell.imageNews sd_setImageWithURL:urlImagen];
         [cell.imageNews setImageWithURLRequest:request
                               placeholderImage:placeholderImage
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                            weakCell.imageNews.image = image;
-                                           [weakCell setNeedsLayout];
+                                           
+                                           //[weakCell setNeedsLayout];
                                        } failure:nil];
         
         return cell;
@@ -323,7 +317,9 @@ NSMutableArray *relatedIdsArrayPolitica;
     if (indexPath.item == 5 || ((indexPath.item % 6)-5) == 0 )
     {
         
-        
+        CollectionViewCellBanner *celdaBanner;
+        celdaBanner = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
+
         switch (indexPath.item) {
             case 5:
                 celdaBanner.bannerUnitID =  bannersPolitica[0]  ;

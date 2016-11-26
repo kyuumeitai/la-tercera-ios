@@ -357,6 +357,7 @@
 		17BA04F51D66797D00D90B09 /* botonFavorito@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BA04F01D66797D00D90B09 /* botonFavorito@2x.png */; };
 		17BA04F61D66797D00D90B09 /* botonFavorito@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BA04F11D66797D00D90B09 /* botonFavorito@3x.png */; };
 		17BA04F71D66797D00D90B09 /* botonFavorito@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17BA04F11D66797D00D90B09 /* botonFavorito@3x.png */; };
+		17C03FAB1DE9D5AC0041CD62 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C03FAA1DE9D5AC0041CD62 /* ImageIO.framework */; };
 		17CDFBE81DB1DF7A00427370 /* Notas Varias.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 17CDFBE71DB1DF7A00427370 /* Notas Varias.rtf */; };
 		17CDFBEB1DB2EA1500427370 /* DetalleConcursosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CDFBEA1DB2EA1500427370 /* DetalleConcursosViewController.m */; };
 		17CDFBEC1DB2EA1500427370 /* DetalleConcursosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CDFBEA1DB2EA1500427370 /* DetalleConcursosViewController.m */; };
@@ -1045,6 +1046,7 @@
 		17BA04EF1D66797D00D90B09 /* botonFavorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = botonFavorito.png; sourceTree = "<group>"; };
 		17BA04F01D66797D00D90B09 /* botonFavorito@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "botonFavorito@2x.png"; sourceTree = "<group>"; };
 		17BA04F11D66797D00D90B09 /* botonFavorito@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "botonFavorito@3x.png"; sourceTree = "<group>"; };
+		17C03FAA1DE9D5AC0041CD62 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		17CDFBE71DB1DF7A00427370 /* Notas Varias.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Notas Varias.rtf"; sourceTree = "<group>"; };
 		17CDFBE91DB2EA1500427370 /* DetalleConcursosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleConcursosViewController.h; sourceTree = "<group>"; };
 		17CDFBEA1DB2EA1500427370 /* DetalleConcursosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalleConcursosViewController.m; sourceTree = "<group>"; };
@@ -1666,6 +1668,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17C03FAB1DE9D5AC0041CD62 /* ImageIO.framework in Frameworks */,
 				D0522D4E1D09C05D00D6E4C6 /* AudioToolbox.framework in Frameworks */,
 				17A18A6B1DE147E000E40DA6 /* GigyaSDK.framework in Frameworks */,
 				179D9D281D7D337C004C972E /* libsqlite3.0.tbd in Frameworks */,
@@ -2074,6 +2077,14 @@
 			name = Persistence;
 			sourceTree = "<group>";
 		};
+		17C03FA91DE9D5AC0041CD62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17C03FAA1DE9D5AC0041CD62 /* ImageIO.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		17CE13931D585E62009A7F16 /* iPhone4-5 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2233,6 +2244,7 @@
 			children = (
 				52BCE1DE1A48A65800924AD8 /* LaTercera */,
 				52BCE1DD1A48A65800924AD8 /* Products */,
+				17C03FA91DE9D5AC0041CD62 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -4211,7 +4223,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Gigya-iOS-Demos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.multinet.latercera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -4243,7 +4258,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Gigya-iOS-Demos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.multinet.latercera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -4299,7 +4317,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
 				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = "@loader_path/Frameworks @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4347,7 +4365,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

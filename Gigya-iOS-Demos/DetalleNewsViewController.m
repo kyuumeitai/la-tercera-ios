@@ -259,9 +259,9 @@ NSString *textoContenidoTemporal = @"";
 -(void)loadBenefitForBenefitId:(int)idArticle andCategory:(NSString*)categoria{
     self.relatedArticlesArray = [[NSArray alloc] init];
 
-    NSLog(@"Load article for Id:%d",idArticle);
+    //NSLog(@"Load article for Id:%d",idArticle);
     self.idArticulo = idArticle;
-      NSLog(@"Titulo de categoria:%@",categoria);
+      //NSLog(@"Titulo de categoria:%@",categoria);
     self.tituloCategoria = categoria;
     // IMPORTANT - Only update the UI on the main thread
     // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
