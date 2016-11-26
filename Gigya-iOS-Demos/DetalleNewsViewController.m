@@ -257,7 +257,8 @@ NSString *textoContenidoTemporal = @"";
 #pragma mark -->> Data Functions <<---
 
 -(void)loadBenefitForBenefitId:(int)idArticle andCategory:(NSString*)categoria{
-    
+    self.relatedArticlesArray = [[NSArray alloc] init];
+
     NSLog(@"Load article for Id:%d",idArticle);
     self.idArticulo = idArticle;
       NSLog(@"Titulo de categoria:%@",categoria);
@@ -473,7 +474,7 @@ NSString *textoContenidoTemporal = @"";
     slug = [articleDict objectForKey:@"slug"];
      newsLink = [articleDict objectForKey:@"article_url"];
     self.relatedArticlesArray= [articleDict objectForKey:@"related_articles"];
-    //NSLog(@" >>>>>>>>>>>>> Related articles: %@",relatedArticlesArray);
+    NSLog(@" >>>>>>>>>>>>> Related articles: %@",relatedArticlesArray);
     [self loadRelatedArticles:self.relatedArticlesArray];
     _summary.numberOfLines = 0;
     
@@ -608,54 +609,51 @@ NSString *textoContenidoTemporal = @"";
 - (IBAction)tapRelatedNews1:(id)sender {
     NSLog(@"Click en related news 1");
     
-    idArticulo = [relatedIdsArray[1] intValue] ;
-    [self updateArticle];
-    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:YES];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
-    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    NSDictionary *articulo = (NSDictionary*)relatedArticlesArray[0];
+    idArticulo = [[articulo objectForKey:@"id"] intValue];
+    NSLog(@"id Artículo = %d",idArticulo);
+    DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
+    [detalleNews loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    detalleNews.idCategoria = idCategoria;
+    [self.navigationController pushViewController:detalleNews animated:YES];
 
 }
 
 - (IBAction)tapRelatedNews2:(id)sender {
     NSLog(@"Click en related news 2");
-    idArticulo = [relatedIdsArray[2] intValue] ;
-    [self updateArticle];
-    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:YES];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
-    [self.scrollView layoutIfNeeded];
+    NSDictionary *articulo = (NSDictionary*)relatedArticlesArray[1];
+    idArticulo = [[articulo objectForKey:@"id"] intValue];
+    NSLog(@"id Artículo = %d",idArticulo);
+    DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
+    [detalleNews loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    detalleNews.idCategoria = idCategoria;
+    [self.navigationController pushViewController:detalleNews animated:YES];
+
 }
 
 - (IBAction)tapRelatedNews3:(id)sender {
     NSLog(@"Click en related news 3");
-    idArticulo = [relatedIdsArray[3] intValue] ;
-    [self updateArticle];
-    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:YES];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
-    [self.scrollView layoutIfNeeded];
+    NSDictionary *articulo = (NSDictionary*)relatedArticlesArray[2];
+    idArticulo = [[articulo objectForKey:@"id"] intValue];
+    NSLog(@"id Artículo = %d",idArticulo);
+    DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
+    [detalleNews loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    detalleNews.idCategoria = idCategoria;
+    [self.navigationController pushViewController:detalleNews animated:YES];
 
 
 }
 
 - (IBAction)tapRelatedNews4:(id)sender {
     NSLog(@"Click en related news 4");
-    idArticulo = [relatedIdsArray[4] intValue] ;
-    [self updateArticle];
-    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    NSDictionary *articulo = (NSDictionary*)relatedArticlesArray[3];
+    idArticulo = [[articulo objectForKey:@"id"] intValue];
+    NSLog(@"id Artículo = %d",idArticulo);
+    DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
+    [detalleNews loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    detalleNews.idCategoria = idCategoria;
+    [self.navigationController pushViewController:detalleNews animated:YES];
 
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:YES];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
-    [self.scrollView layoutIfNeeded];
 
 }
 
