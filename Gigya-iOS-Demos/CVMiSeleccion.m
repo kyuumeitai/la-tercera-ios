@@ -471,11 +471,53 @@ NSMutableArray *relatedIdsArrayMiSeleccion;
     
     if((indexPath.item == 0 || indexPath.item % 6 == 0 || indexPath.item == 1 || indexPath.item == 2 || ((indexPath.item % 6)-1) == 0 || ((indexPath.item % 6)-2) == 0 || indexPath.item == 3 || indexPath.item == 4 || ((indexPath.item % 6)-3) == 0 || ((indexPath.item % 6)-4) == 0)){
         
-        if([storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            return CGSizeMake(310, 468);
+        if([storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
+            NSString *titulo = titular.title;
+            NSString *resumen = titular.summary;
+            float characterCountTitulo = [titulo length];
+            //NSLog(@"characterCountTitulo: %f",characterCountTitulo);
+            float characterCountResumen = [resumen length]+5;
+            //NSLog(@"characterCountResumne: %f",characterCountResumen);
+            int cantLineasTitulo= ceil(characterCountTitulo/26);
+            //NSLog(@"cantLineasTitulo: %d",cantLineasTitulo);
+            int cantLineasSummary= floor(characterCountResumen/39);
+            //NSLog(@"cantLineasSummary: %d",cantLineasSummary);
+            cantLineasTitulo = (cantLineasTitulo==0) ? 1 : cantLineasTitulo;
+            //NSLog(@"cantLineasTitulo final: %d",cantLineasTitulo);
+            cantLineasSummary = (cantLineasSummary==0) ? 1 : cantLineasSummary;
+            //NSLog(@"cantLineasSummary final: %d",cantLineasTitulo);
+            cantLineasSummary = (cantLineasSummary>8) ? cantLineasSummary+1 : cantLineasSummary;
+            
+            //NSLog(@"Summary: %@ cantidad de lineas resumen:%d ",resumen,cantLineasSummary);
+            float altoLineas = 330+(cantLineasTitulo*26)+(cantLineasSummary*16);
+            //NSLog(@"Titulo: %@ cantidad de lineas:%d  y alto asignado: %f",titulo,cantLineasTitulo,altoLineas);
+            
+            return CGSizeMake(310,altoLineas);
             
         }else{
-            return CGSizeMake(350, 420);
+            Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
+            NSString *titulo = titular.title;
+            NSString *resumen = titular.summary;
+            float characterCountTitulo = [titulo length];
+            //NSLog(@"characterCountTitulo: %f",characterCountTitulo);
+            float characterCountResumen = [resumen length]+5;
+            //NSLog(@"characterCountResumne: %f",characterCountResumen);
+            int cantLineasTitulo= ceil(characterCountTitulo/34);
+            //NSLog(@"cantLineasTitulo: %d",cantLineasTitulo);
+            int cantLineasSummary= floor(characterCountResumen/39);
+            //NSLog(@"cantLineasSummary: %d",cantLineasSummary);
+            cantLineasTitulo = (cantLineasTitulo==0) ? 1 : cantLineasTitulo;
+            //NSLog(@"cantLineasTitulo final: %d",cantLineasTitulo);
+            cantLineasSummary = (cantLineasSummary==0) ? 1 : cantLineasSummary;
+            //NSLog(@"cantLineasSummary final: %d",cantLineasTitulo);
+            cantLineasSummary = (cantLineasSummary>8) ? cantLineasSummary+1 : cantLineasSummary;
+            
+            //NSLog(@"Summary: %@ cantidad de lineas resumen:%d ",resumen,cantLineasSummary);
+            float altoLineas = 320+(cantLineasTitulo*14)+(cantLineasSummary*16);
+            //NSLog(@"Titulo: %@ cantidad de lineas:%d  y alto asignado: %f",titulo,cantLineasTitulo,altoLineas);
+            
+            return CGSizeMake(350,altoLineas);
+            
         }
     }
 /*
