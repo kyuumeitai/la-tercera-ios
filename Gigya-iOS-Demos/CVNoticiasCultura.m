@@ -298,18 +298,17 @@ NSMutableArray *relatedIdsArrayCultura;
         NSString *nameImagen = titular.imagenThumbString;
         NSURL *urlImagen = [NSURL URLWithString:nameImagen];
         NSURLRequest *request = [NSURLRequest requestWithURL:urlImagen];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+        UIImage *placeholderImage = [UIImage imageNamed:@" "];
         __weak CollectionViewCellGrande *weakCell = cell;
-        
-        //[cell.imageNews sd_setImageWithURL:urlImagen];
         [cell.imageNews setImageWithURLRequest:request
                               placeholderImage:placeholderImage
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                           weakCell.imageNews.image = image;
+                                           [weakCell.imageNews setImage:image];
+
                                            
-                                           //[weakCell setNeedsLayout];
                                        } failure:nil];
-        
+       
+
         return cell;    }
     
  

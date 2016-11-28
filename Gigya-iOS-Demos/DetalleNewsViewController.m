@@ -45,11 +45,11 @@
 @synthesize idCategoria;
 @synthesize relatedIdsArray;
 @synthesize relatedArticlesArray;
+@synthesize newsLink;
 
 int fontSize = 16;
 
 NSString *slug = @"";
-NSString *newsLink= @"";
 NSString *textoContenidoTemporal = @"";
 
 - (void)viewDidLoad {
@@ -82,6 +82,11 @@ NSString *textoContenidoTemporal = @"";
     self.relatedArticlesArray = [[NSArray alloc] init];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -472,7 +477,7 @@ NSString *textoContenidoTemporal = @"";
     _titulo.text= titulo;
     _summary.text= [articleDict objectForKey:@"short_description"];
     slug = [articleDict objectForKey:@"slug"];
-     newsLink = [articleDict objectForKey:@"article_url"];
+     self.newsLink = [articleDict objectForKey:@"article_url"];
     self.relatedArticlesArray= [articleDict objectForKey:@"related_articles"];
     NSLog(@" >>>>>>>>>>>>> Related articles: %@",relatedArticlesArray);
     [self loadRelatedArticles:self.relatedArticlesArray];
@@ -566,7 +571,7 @@ NSString *textoContenidoTemporal = @"";
 - (IBAction)shareArticle:(id)sender {
     NSString *tituloNoticia = _titulo.text;
    
-    [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:newsLink] forSelf:self];
+    [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:self.newsLink] forSelf:self];
 }
 
 

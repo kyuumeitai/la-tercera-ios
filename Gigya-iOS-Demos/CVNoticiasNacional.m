@@ -292,7 +292,7 @@ NSMutableArray *relatedIdsArrayNacional;
         NSString *nameImagen = titular.imagenThumbString;
         NSURL *urlImagen = [NSURL URLWithString:nameImagen];
         NSURLRequest *request = [NSURLRequest requestWithURL:urlImagen];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+        UIImage *placeholderImage = [UIImage imageNamed:@" "];
         __weak CollectionViewCellGrande *weakCell = cell;
         
         //[cell.imageNews sd_setImageWithURL:urlImagen];
