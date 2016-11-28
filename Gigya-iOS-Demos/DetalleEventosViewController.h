@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *expiredDateLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *eventoTitleLabel;
+@property (weak, nonatomic) IBOutlet UITextView *eventoSubtitleTextView;
 @property (weak, nonatomic) IBOutlet UILabel *eventoSubtitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventoDiscountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventoAdressLabel;

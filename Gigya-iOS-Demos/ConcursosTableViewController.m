@@ -156,6 +156,8 @@ BOOL firstTimeConcursos = false;
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
+        Concurso *contest = (Concurso*)[self.concursosItemsArray objectAtIndex:indexPath.row];
+        NSString * resumen = contest.summary;
         return 278.0;
     }
     else {
