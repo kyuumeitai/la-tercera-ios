@@ -23,7 +23,7 @@
 #import "SVPullToRefresh.h"
 #import "ContentType.h"
 #import "HeaderMiSeleccionReusableView.h"
-
+#import "SVProgressHUD.h"
 #define categoryIdName @"lt"
 #define categorySlug @"home"
 #define categoryTitle @"Inicio"
@@ -87,7 +87,7 @@ NSMutableArray *relatedIdsArrayMiSeleccion;
         [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifierGrande];
     }
     
-    
+    /*
     //Celda Mediana
     UINib *cellNib2 ;
     
@@ -114,7 +114,8 @@ NSMutableArray *relatedIdsArrayMiSeleccion;
         cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal" bundle: nil];
         [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:reuseIdentifierHorizontal];
     }
-    
+    */
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
     
@@ -125,29 +126,43 @@ NSMutableArray *relatedIdsArrayMiSeleccion;
     
     self.categoryIdsArray  = [sesion getMiSeleccionCategoryIdsArray];
     
-    NSLog(@"CategoryId: %d", self.categoryId);
-    NSLog(@"CategoryNamesArray: count:%lu and array %@",(unsigned long)self.categoryIdsArray.count, self.categoryNamesArray);
+//    NSLog(@"CategoryId: %d", self.categoryId);
+//    NSLog(@"CategoryNamesArray: count:%lu and array %@",(unsigned long)self.categoryIdsArray.count, self.categoryNamesArray);
     
     int count = self.categoryIdsArray.count;
     
     arrayOfArrays  = [[NSMutableArray alloc] init];
     
-    NSLog(@"CategoryNamesArray normal:%i",count);
+    //NSLog(@"CategoryNamesArray normal:%i",count);
     
     dispatch_async(dispatch_get_main_queue(), ^{
         // code here
         for (int indice = 0; indice < count;indice++){
-            NSLog(@"EL Indice de los ids es: %i",indice);
+           // NSLog(@"EL Indice de los ids es: %i",indice);
         self.categoryId = [self.categoryIdsArray[indice] intValue];
-              NSLog(@"self.categoryId es: %i",self.categoryId);
+             // NSLog(@"self.categoryId es: %i",self.categoryId);
         [self loadHeadlinesWithCategory:self.categoryId];
         }
     });
 
+//    UIRefreshControl *refreshControl = [UIRefreshControl new];
+//    [refreshControl addTarget:self action:@selector(startRefresh) forControlEvents:UIControlEventValueChanged];
+//    refreshControl.tintColor = [UIColor colorWithRed:0.686 green:0.153 blue:0.188 alpha:1];
+//    self.collectionView.refreshControl = refreshControl;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingMiSeleccion = NO;
+}
+-(void)startRefresh{
+    
+    [self viewDidLoad];
+    [SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
+}
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    NSLog(@"app will enter foreground");
+   // [self startRefresh];
 }
 
 -(void)loadHeadlinesWithCategory:(int)idCategory{
@@ -263,12 +278,12 @@ NSMutableArray *relatedIdsArrayMiSeleccion;
                          }
                          completion:^(BOOL finished)
          {
-             //[SVProgressHUD dismiss];
+             [SVProgressHUD dismiss];
          }];
         firstTimeMiSeleccion= false;
     }else{
         
-        //[SVProgressHUD dismiss];
+        [SVProgressHUD dismiss];
         isPageRefreshingMiSeleccion= NO;
         // [weakSelf.collectionView endUpdates];
         

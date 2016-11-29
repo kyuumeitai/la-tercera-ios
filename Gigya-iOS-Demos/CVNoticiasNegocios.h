@@ -13,5 +13,6 @@
 @property (nonatomic, retain) NSMutableArray *headlinesArray;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property int categoryIdNoticiasNegocio;
-
+- (void)applicationWillEnterForeground:(UIApplication *)application;
+-(void)startRefresh;
 @end

@@ -8746,7 +8746,7 @@ de La Tercera</string>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="giJ-RV-bm4" customClass="CustomBorderView">
-                                        <rect key="frame" x="20" y="183" width="337" height="409"/>
+                                        <rect key="frame" x="20" y="284" width="337" height="308"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ee-ij-kWe">
                                                 <rect key="frame" x="169" y="128" width="0.0" height="46"/>
@@ -8782,7 +8782,7 @@ de La Tercera</string>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="409" id="IU5-hX-5iy"/>
+                                            <constraint firstAttribute="height" constant="308" id="CYj-ee-mUX"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -8808,24 +8808,68 @@ de La Tercera</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piS-DN-X2W" customClass="CustomBorderView">
+                                        <rect key="frame" x="18" y="189" width="339" height="82"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBZ-Yj-63L">
+                                                <rect key="frame" x="14" y="6" width="169" height="26"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="169" id="1mW-KC-hJC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
+                                                <color key="textColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf1-i7-iUr">
+                                                <rect key="frame" x="14" y="29" width="311" height="46"/>
+                                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="rf1-i7-iUr" firstAttribute="top" secondItem="piS-DN-X2W" secondAttribute="top" constant="29" id="DhZ-zb-GIC"/>
+                                            <constraint firstItem="rf1-i7-iUr" firstAttribute="centerX" secondItem="piS-DN-X2W" secondAttribute="centerX" id="Fly-Ki-QnF"/>
+                                            <constraint firstItem="MBZ-Yj-63L" firstAttribute="top" secondItem="piS-DN-X2W" secondAttribute="top" constant="6" id="P5e-8h-E3L"/>
+                                            <constraint firstAttribute="bottom" secondItem="rf1-i7-iUr" secondAttribute="bottom" constant="7" id="YXq-5G-CUP"/>
+                                            <constraint firstItem="MBZ-Yj-63L" firstAttribute="leading" secondItem="rf1-i7-iUr" secondAttribute="leading" id="gAp-Lv-FGt"/>
+                                            <constraint firstItem="rf1-i7-iUr" firstAttribute="leading" secondItem="piS-DN-X2W" secondAttribute="leading" constant="14" id="wcq-gt-9ji"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.81284054490000002" green="0.81284054490000002" blue="0.81284054490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="wq8-Om-mxC" secondAttribute="trailing" id="34T-Wk-eWF"/>
+                                    <constraint firstItem="piS-DN-X2W" firstAttribute="top" secondItem="xcj-w0-d27" secondAttribute="bottom" constant="14" id="38K-gy-36s"/>
                                     <constraint firstItem="wq8-Om-mxC" firstAttribute="leading" secondItem="p2v-dk-4zk" secondAttribute="leading" id="5Oz-gO-vxK"/>
                                     <constraint firstItem="Hri-Go-rTf" firstAttribute="leading" secondItem="p2v-dk-4zk" secondAttribute="leading" constant="21" id="6im-xI-3ge"/>
                                     <constraint firstItem="wq8-Om-mxC" firstAttribute="trailing" secondItem="xcj-w0-d27" secondAttribute="trailing" id="7bV-mj-0nf"/>
-                                    <constraint firstItem="giJ-RV-bm4" firstAttribute="leading" secondItem="p2v-dk-4zk" secondAttribute="leading" constant="20" id="812-DN-WPy"/>
+                                    <constraint firstItem="giJ-RV-bm4" firstAttribute="bottom" secondItem="p2v-dk-4zk" secondAttribute="bottomMargin" id="9xI-b6-ogn"/>
+                                    <constraint firstItem="giJ-RV-bm4" firstAttribute="top" secondItem="p2v-dk-4zk" secondAttribute="top" constant="284" id="Bxh-Bx-LQC"/>
+                                    <constraint firstItem="giJ-RV-bm4" firstAttribute="leading" secondItem="p2v-dk-4zk" secondAttribute="leading" constant="20" id="Cv8-AO-WTH"/>
                                     <constraint firstItem="xcj-w0-d27" firstAttribute="bottom" secondItem="wq8-Om-mxC" secondAttribute="bottom" id="HDX-DB-Pag"/>
+                                    <constraint firstAttribute="trailing" secondItem="giJ-RV-bm4" secondAttribute="trailing" constant="18" id="Kzt-HN-Jaw"/>
+                                    <constraint firstItem="giJ-RV-bm4" firstAttribute="trailing" secondItem="piS-DN-X2W" secondAttribute="trailing" id="SRs-Bw-yYn"/>
                                     <constraint firstItem="wq8-Om-mxC" firstAttribute="top" secondItem="xcj-w0-d27" secondAttribute="top" id="VPe-hU-koD"/>
-                                    <constraint firstAttribute="trailing" secondItem="giJ-RV-bm4" secondAttribute="trailing" constant="18" id="Zzx-ew-LRs"/>
+                                    <constraint firstItem="piS-DN-X2W" firstAttribute="centerX" secondItem="Hri-Go-rTf" secondAttribute="centerX" id="cqi-Ny-4Da"/>
                                     <constraint firstItem="xcj-w0-d27" firstAttribute="top" secondItem="p2v-dk-4zk" secondAttribute="top" constant="-13" id="ey2-pH-kUV"/>
                                     <constraint firstItem="xcj-w0-d27" firstAttribute="leading" secondItem="wq8-Om-mxC" secondAttribute="leading" id="gUp-Cp-dc7"/>
-                                    <constraint firstItem="giJ-RV-bm4" firstAttribute="bottom" secondItem="p2v-dk-4zk" secondAttribute="bottomMargin" id="ncl-d6-8v3"/>
+                                    <constraint firstItem="giJ-RV-bm4" firstAttribute="top" secondItem="piS-DN-X2W" secondAttribute="bottom" constant="13" id="qpT-WS-qJJ"/>
                                     <constraint firstItem="wq8-Om-mxC" firstAttribute="centerX" secondItem="Hri-Go-rTf" secondAttribute="centerX" id="u5v-Xp-OR3"/>
                                     <constraint firstItem="Hri-Go-rTf" firstAttribute="top" secondItem="p2v-dk-4zk" secondAttribute="top" constant="17" id="ug0-IV-h6d"/>
                                     <constraint firstItem="LWN-3I-TkR" firstAttribute="leading" secondItem="Hri-Go-rTf" secondAttribute="leading" constant="1" id="zFu-Oh-6z4"/>
                                     <constraint firstItem="LWN-3I-TkR" firstAttribute="top" secondItem="Hri-Go-rTf" secondAttribute="bottom" constant="7" id="zQU-fv-WeQ"/>
-                                    <constraint firstItem="giJ-RV-bm4" firstAttribute="top" secondItem="xcj-w0-d27" secondAttribute="bottom" constant="8" symbolic="YES" id="zt1-53-kyY"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
@@ -8897,6 +8941,7 @@ de La Tercera</string>
                         <outlet property="eventoImageView" destination="wq8-Om-mxC" id="ZGy-PV-eKZ"/>
                         <outlet property="eventoSubtitleTextView" destination="gTi-5p-gTL" id="qXQ-cc-zIT"/>
                         <outlet property="eventoTitleLabel" destination="Hri-Go-rTf" id="O5h-Va-ANT"/>
+                        <outlet property="expiredDateLabel" destination="rf1-i7-iUr" id="d4O-qc-kEY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCL-16-23W" userLabel="First Responder" sceneMemberID="firstResponder"/>

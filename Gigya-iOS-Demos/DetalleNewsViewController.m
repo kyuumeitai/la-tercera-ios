@@ -218,6 +218,8 @@ NSString *textoContenidoTemporal = @"";
        
         fontSize--;
         NSLog(@"Nuevo FontSize: %d",fontSize);
+        _titulo.font = [UIFont fontWithName:@"PTSans-Bold" size:fontSize+10];
+        _summary.font = [UIFont fontWithName:@"PTSans-Regular" size:fontSize+4];
         NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSize,textoContenidoTemporal];
         
         
@@ -242,6 +244,10 @@ NSString *textoContenidoTemporal = @"";
         
         fontSize++;
         NSLog(@"Nuevo FontSize: %d",fontSize);
+        
+        _titulo.font = [UIFont fontWithName:@"PTSans-Bold" size:fontSize+10];
+        _summary.font = [UIFont fontWithName:@"PTSans-Regular" size:fontSize+4];
+        
         NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSize,textoContenidoTemporal];
     
     NSAttributedString *attributedString = [[NSAttributedString alloc]
@@ -253,6 +259,8 @@ NSString *textoContenidoTemporal = @"";
     _contentTextView.attributedText = attributedString;
         
  [_contentTextView sizeToFit];
+        [_titulo sizeToFit];
+        [_summary sizeToFit];
         [_labelCat sizeToFit];
         [self.scrollView sizeToFit];
     }

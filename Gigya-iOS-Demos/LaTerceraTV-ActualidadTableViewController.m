@@ -213,7 +213,7 @@ NSString *storyBoardNameTVActualidad;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 438;
+    return 458;
 }
 
 

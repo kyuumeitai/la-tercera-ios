@@ -36,6 +36,7 @@
     
 }
 @property  BOOL isLogged;
+@property  BOOL hasShownMailConfirmation;
 @property (nonatomic, retain) NSString *storyBoardName;
 @property (nonatomic, retain) UserProfile * userProfile;
 @property (nonatomic, retain) NSString *profileType;

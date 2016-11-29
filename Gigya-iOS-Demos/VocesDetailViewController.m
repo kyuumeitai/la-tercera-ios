@@ -706,8 +706,7 @@ NSString *textoContenidoTemporalVoces = @"";
     [self.scrollView setContentOffset:
      CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
     [self.scrollView layoutIfNeeded];
-    
-    
+
 }
 
 - (IBAction)tapRelatedNews4:(id)sender {

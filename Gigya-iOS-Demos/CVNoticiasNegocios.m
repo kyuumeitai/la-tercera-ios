@@ -22,6 +22,7 @@
 #import "SessionManager.h"
 #import "SVPullToRefresh.h"
 #import "ContentType.h"
+#import "SVProgressHUD.h"
 
 
 //#import "SDWebImage/UIImageView+WebCache.h"
@@ -66,8 +67,8 @@ NSMutableArray *relatedIdsArrayNegocios;
             self.categoryIdNoticiasNegocio = contenido.contentId;
     }
     
-    NSLog(@" El nombre del storboard es: %@", storyBoardNameNoticiasNegocios);
-    NSLog(@"CategoryId: %d", self.categoryIdNoticiasNegocio);
+//    NSLog(@" El nombre del storboard es: %@", storyBoardNameNoticiasNegocios);
+//    NSLog(@"CategoryId: %d", self.categoryIdNoticiasNegocio);
 
     __weak CVNoticiasNegocios *weakSelf = self;
     headlinesArray = [[NSMutableArray alloc] init];
@@ -86,8 +87,8 @@ NSMutableArray *relatedIdsArrayNegocios;
         cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande" bundle: nil];
         [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifierGrande];
     }
-    
-    
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+    /*
     //Celda Mediana
     UINib *cellNib2 ;
     
@@ -114,7 +115,7 @@ NSMutableArray *relatedIdsArrayNegocios;
         cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal" bundle: nil];
         [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:reuseIdentifierHorizontal];
     }
-    
+    */
     
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
     
@@ -134,6 +135,21 @@ NSMutableArray *relatedIdsArrayNegocios;
         [weakSelf loadMoreRows];
     }];
     
+//    UIRefreshControl *refreshControl = [UIRefreshControl new];
+//    [refreshControl addTarget:self action:@selector(startRefresh) forControlEvents:UIControlEventValueChanged];
+//    refreshControl.tintColor = [UIColor colorWithRed:0.686 green:0.153 blue:0.188 alpha:1];
+//    self.collectionView.refreshControl = refreshControl;
+}
+
+-(void)startRefresh{
+    
+    [self viewDidLoad];
+    [SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
+}
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    NSLog(@"app will enter foreground");
+    //[self startRefresh];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -244,12 +260,12 @@ NSMutableArray *relatedIdsArrayNegocios;
                          }
                          completion:^(BOOL finished)
          {
-             //[SVProgressHUD dismiss];
+             [SVProgressHUD dismiss];
          }];
         firstTimeNegocios= false;
     }else{
         
-        //[SVProgressHUD dismiss];
+        [SVProgressHUD dismiss];
         isPageRefreshingNegocios= NO;
         // [weakSelf.collectionView endUpdates];
         

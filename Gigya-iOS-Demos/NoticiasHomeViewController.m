@@ -235,9 +235,10 @@ BOOL sidebarMenuOpen ;
     SessionManager *sesion = [SessionManager session];
     UserProfile *perfil =  [sesion getUserProfile];
        NSLog(@"^^^^^^^^^^Descripción perfil: %@         ^^^^^^^^^^^",[sesion profileDescription]);
-    if (perfil.status == false && sesion.isLogged){
-        NSString *mensaje = [NSString stringWithFormat:@"Para completar el registro debe confirmar el email, se le ha enviado un mensaje a: %@",sesion.profileEmail];
+    if (perfil.status == false && sesion.isLogged && sesion.hasShownMailConfirmation == false){
+        NSString *mensaje = [NSString stringWithFormat:@"Para completar el registro debe confirmar el email, se le ha enviado un mensaje a: %@",perfil.email];
         [Tools showLocalInfoNotificationWithTitle:@"Verifique su email" andMessage:mensaje];
+        sesion.hasShownMailConfirmation = true;
 
     }
     

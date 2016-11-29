@@ -21,6 +21,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "SessionManager.h"
 #import "SVPullToRefresh.h"
+#import "SVProgressHUD.h"
 #import "ContentType.h"
 #import "SVProgressHUD.h"
 
@@ -67,8 +68,8 @@ NSMutableArray *relatedIdsArrayPolitica;
     [SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
 
     
-    NSLog(@" El nombre del storboard es: %@", storyBoardNameNoticiasPolitica);
-    NSLog(@"CategoryId: %d", self.categoryIdNoticiasPolitica);
+//    NSLog(@" El nombre del storboard es: %@", storyBoardNameNoticiasPolitica);
+//    NSLog(@"CategoryId: %d", self.categoryIdNoticiasPolitica);
 
     __weak CVNoticiasPolitica *weakSelf = self;
     headlinesArray = [[NSMutableArray alloc] init];
@@ -87,36 +88,7 @@ NSMutableArray *relatedIdsArrayPolitica;
         cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande" bundle: nil];
         [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifierGrande];
     }
-    
-    
-    //Celda Mediana
-    UINib *cellNib2 ;
-    
-    if([storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-        cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana4-5" bundle: nil];
-        [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:@"collectionViewMediana4-5"];
-        
-    }else{
-        
-        cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana" bundle: nil];
-        [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:reuseIdentifierMediana];
-    }
-    
-    
-    //Celda Horizontal
-    UINib *cellNib3 ;
-    
-    if([storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasPolitica isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-        cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal4-5" bundle: nil];
-        [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:@"collectionViewHorizontal4-5"];
-        
-    }else{
-        
-        cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal" bundle: nil];
-        [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:reuseIdentifierHorizontal];
-    }
-    
-    
+
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
     
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
@@ -133,7 +105,22 @@ NSMutableArray *relatedIdsArrayPolitica;
     [self.collectionView addInfiniteScrollingWithActionHandler:^{
         [weakSelf loadMoreRows];
     }];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+//    UIRefreshControl *refreshControl = [UIRefreshControl new];
+//    [refreshControl addTarget:self action:@selector(startRefresh) forControlEvents:UIControlEventValueChanged];
+//    refreshControl.tintColor = [UIColor colorWithRed:0.686 green:0.153 blue:0.188 alpha:1];
+//    self.collectionView.refreshControl = refreshControl;
+}
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    NSLog(@"app will enter foreground");
+    //[self startRefresh];
+}
+
+-(void)startRefresh{
     
+     [self loadHeadlinesWithCategory:self.categoryIdNoticiasPolitica];
+    [SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

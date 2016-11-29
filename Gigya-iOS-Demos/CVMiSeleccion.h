@@ -16,5 +16,7 @@
 @property (nonatomic, copy) NSMutableArray *categoryIdsArray;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property int categoryId;
+-(void)startRefresh;
+- (void)applicationWillEnterForeground:(UIApplication *)application;
 
 @end

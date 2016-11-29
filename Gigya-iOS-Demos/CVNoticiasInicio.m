@@ -21,6 +21,7 @@
 #import "DetalleNewsViewController.h"
 #import "SessionManager.h"
 #import "SVPullToRefresh.h"
+#import "SVProgressHUD.h"
 #import "ContentType.h"
 //#import "UIImageView+WebCache.h"
 
@@ -66,8 +67,9 @@ NSMutableArray *relatedIdsArrayInicio;
             self.categoryIdNoticiasInicio = contenido.contentId;
             NSLog(@"ESTAMOS OKEYYY %d", self.categoryIdNoticiasInicio);
         }
+
     }
-    
+
     NSLog(@" El nombre del storboard es: %@", storyBoardNameInicio);
     NSLog(@"CategoryId: %d", self.categoryIdNoticiasInicio);
     
@@ -92,7 +94,7 @@ NSMutableArray *relatedIdsArrayInicio;
 
     }
     
-    
+    /*
     //Celda Mediana
     UINib *cellNib2 ;
     
@@ -120,13 +122,16 @@ NSMutableArray *relatedIdsArrayInicio;
         [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:reuseIdentifierHorizontal];
     }
     
+    */
+    
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
     
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
     currentPageNumberInicio = 1;
     firstTime = true;
-    
+
     //[self.collectionView setAlpha:0.0];
     dispatch_async(dispatch_get_main_queue(), ^{
         // code here
@@ -139,19 +144,28 @@ NSMutableArray *relatedIdsArrayInicio;
     [self.collectionView addInfiniteScrollingWithActionHandler:^{
         [weakSelf loadMoreRows];
     }];
-
-
+    
+//    UIRefreshControl *refreshControl = [UIRefreshControl new];
+//    [refreshControl addTarget:self action:@selector(startRefresh) forControlEvents:UIControlEventValueChanged];
+//    refreshControl.tintColor = [UIColor colorWithRed:0.686 green:0.153 blue:0.188 alpha:1];
+//    self.collectionView.refreshControl = refreshControl;
+//
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshing = NO;
+
+}
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    NSLog(@"app will enter foreground");
+    //[self startRefresh];
 }
 
 -(void)loadHeadlinesWithCategory:(int)idCategory{
     NSLog(@"Load Headlines");
     
     __weak CVNoticiasInicio *weakSelf = self;
-    
     
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
@@ -188,6 +202,13 @@ NSMutableArray *relatedIdsArrayInicio;
         });
     }:idCategory andPage:currentPageNumberInicio];
     
+}
+
+-(void)startRefresh{
+    if(headlinesArray.count >0){
+    [self loadHeadlinesWithCategory:self.categoryIdNoticiasInicio];
+       [SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
+    }
 }
 
 -(void) reloadHeadlinesDataFromArrayJson:(NSArray*)arrayJson{
@@ -251,12 +272,12 @@ NSMutableArray *relatedIdsArrayInicio;
                          }
                          completion:^(BOOL finished)
          {
-             //[SVProgressHUD dismiss];
+            [SVProgressHUD dismiss];
          }];
         firstTime= false;
     }else{
         
-        //[SVProgressHUD dismiss];
+        [SVProgressHUD dismiss];
         isPageRefreshing= NO;
         // [weakSelf.collectionView endUpdates];
         
@@ -265,6 +286,8 @@ NSMutableArray *relatedIdsArrayInicio;
         [weakSelf.collectionView.infiniteScrollingView stopAnimating];
         NSLog(@"LA cantidad es: %lu",(unsigned long)headlinesArray.count);
     }
+    
+
     NSLog(@" ******* RELOAD DATA TABLEEE ****** ----------------------");
 }
 

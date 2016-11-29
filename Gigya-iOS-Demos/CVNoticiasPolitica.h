@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property int categoryIdNoticiasPolitica;
 
-
+- (void)applicationWillEnterForeground:(UIApplication *)application;
+-(void)startRefresh;
 
 @end

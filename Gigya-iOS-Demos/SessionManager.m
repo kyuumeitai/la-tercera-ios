@@ -21,6 +21,7 @@
 @synthesize categoryList;
 @synthesize userProfile;
 @synthesize isLogged;
+@synthesize hasShownMailConfirmation;
 
 #pragma mark Singleton Methods
 

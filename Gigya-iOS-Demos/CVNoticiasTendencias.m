@@ -22,6 +22,7 @@
 #import "SessionManager.h"
 #import "SVPullToRefresh.h"
 #import "ContentType.h"
+#import "SVProgressHUD.h"
 
 //#import "SDWebImage/UIImageView+WebCache.h"
 
@@ -87,8 +88,8 @@ NSMutableArray *relatedIdsArrayTendencias;
         cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande" bundle: nil];
         [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifierGrande];
     }
-    
-    
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+    /*
     //Celda Mediana
     UINib *cellNib2 ;
     
@@ -116,7 +117,7 @@ NSMutableArray *relatedIdsArrayTendencias;
         [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:reuseIdentifierHorizontal];
     }
     
-    
+    */
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
     
     [self.collectionView registerNib:cellNib4 forCellWithReuseIdentifier:reuseIdentifierBanner];
@@ -135,10 +136,25 @@ NSMutableArray *relatedIdsArrayTendencias;
         [weakSelf loadMoreRows];
     }];
     
+//    UIRefreshControl *refreshControl = [UIRefreshControl new];
+//    [refreshControl addTarget:self action:@selector(startRefresh) forControlEvents:UIControlEventValueChanged];
+//    refreshControl.tintColor = [UIColor colorWithRed:0.686 green:0.153 blue:0.188 alpha:1];
+//    self.collectionView.refreshControl = refreshControl;
+}
+
+-(void)startRefresh{
+    
+    [self viewDidLoad];
+    [SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingTendencias = NO;
+}
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    NSLog(@"app will enter foreground");
+    //[self startRefresh];
 }
 
 -(void)loadHeadlinesWithCategory:(int)idCategory{
@@ -246,12 +262,12 @@ NSMutableArray *relatedIdsArrayTendencias;
                          }
                          completion:^(BOOL finished)
          {
-             //[SVProgressHUD dismiss];
+             [SVProgressHUD dismiss];
          }];
         firstTimeTendencias= false;
     }else{
         
-        //[SVProgressHUD dismiss];
+        [SVProgressHUD dismiss];
         isPageRefreshingTendencias= NO;
         // [weakSelf.collectionView endUpdates];
         
