@@ -22,13 +22,15 @@
 @synthesize benefitId,benefitRemoteId;
 @synthesize storeId;
 @synthesize commerceId;
+@synthesize benefitURL;
+
 CLLocationCoordinate2D storeLocation;
 BOOL forFremium = false;
 BOOL forSuscriptor = false;
 BOOL forAnonimo = false;
 
 - (void)viewDidLoad {
-     NSLog(@"ESTOIY EN DetalleViewController.m");
+     //NSLog(@"ESTOIY EN DetalleViewController.m");
     [super viewDidLoad];
     self.benefitImageView.image = _benefitImage;
      self.benefitAdressLabel.alpha = 0;
@@ -261,7 +263,7 @@ BOOL forAnonimo = false;
     NSString* summary = [tempDict objectForKey:@"summary"];
     NSString* content= [tempDict objectForKey:@"content"];
     NSString* terms = [tempDict objectForKey:@"terms"];
-    
+    self.benefitURL = [tempDict objectForKey:@"benefit_url"];
     self.benefitSubtitleLabel.text = summary;
     //[self.benefitSubtitleLabel setNumberOfLines:0];
     //[self.benefitSubtitleLabel sizeToFit];
@@ -320,11 +322,8 @@ BOOL forAnonimo = false;
             forSuscriptor = true;
             NSLog(@"Es suscriptor");
         }
-        
-        
     }
 
-    
     //  self.profileBenefitLabel.text = nameProfile;
     self.profileBenefitLabel.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
@@ -346,7 +345,6 @@ BOOL forAnonimo = false;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{ self.benefitTitleLabel.alpha = 1;}
                      completion:nil];
-    
     
     //Loading Store
     NSArray* storeArray = (NSArray*)[tempDict objectForKey:@"related_store"];
@@ -375,16 +373,14 @@ BOOL forAnonimo = false;
      options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
      documentAttributes:nil                                           error: nil
      ];
-     
-     
+    
      self.benefitDescriptionTextView.attributedText = attributedString;
     
-
 }
 
 -(IBAction)shareBenefit:(id)sender{
     
-    [Tools shareText:self.benefitSubtitleLabel.text andImage:self.benefitImageView.image  andUrl:[NSURL URLWithString:@"www.google.com"] forSelf:self];
+    [Tools shareText:self.benefitSubtitleLabel.text andImage:self.benefitImageView.image  andUrl:[NSURL URLWithString:self.benefitURL] forSelf:self];
     
 }
 
