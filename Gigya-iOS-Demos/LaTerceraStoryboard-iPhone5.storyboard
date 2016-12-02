@@ -1199,7 +1199,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Wf-3B-RVb">
-                                <rect key="frame" x="245" y="72" width="75" height="44"/>
+                                <rect key="frame" x="242" y="72" width="78" height="44"/>
                                 <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
                                 <state key="normal" title="Buscar">
@@ -1207,13 +1207,13 @@ REGISTRARSE?</string>
                                 </state>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-WF-ByM">
-                                <rect key="frame" x="0.0" y="165" width="320" height="173"/>
+                                <rect key="frame" x="-3" y="165" width="323" height="173"/>
                                 <connections>
                                     <outlet property="delegate" destination="YpZ-qM-Zfn" id="qs1-y0-Gw2"/>
                                 </connections>
                             </mapView>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Buscar Descuentos" scopeBarBackgroundImage="CellNormal.png" translatesAutoresizingMaskIntoConstraints="NO" id="1DB-2m-DGQ">
-                                <rect key="frame" x="0.0" y="72" width="245" height="44"/>
+                                <rect key="frame" x="-3" y="72" width="245" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="245" id="860-Zc-cjk"/>
                                 </constraints>
@@ -1223,7 +1223,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </searchBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCz-mG-vNw">
-                                <rect key="frame" x="0.0" y="116" width="320" height="51"/>
+                                <rect key="frame" x="-3" y="116" width="323" height="51"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rR-Sh-fHN">
                                         <rect key="frame" x="0.0" y="0.0" width="620" height="47"/>
@@ -1347,7 +1347,7 @@ REGISTRARSE?</string>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6fa-yo-9V4">
-                                <rect key="frame" x="0.0" y="335" width="320" height="233"/>
+                                <rect key="frame" x="-3" y="335" width="323" height="233"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="233" id="JwT-9C-V63"/>
@@ -1358,10 +1358,10 @@ REGISTRARSE?</string>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-qh-sbZ">
-                                <rect key="frame" x="168" y="19" width="152" height="45"/>
+                                <rect key="frame" x="165" y="19" width="155" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beneficios cercanos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbN-vN-vlV">
-                                        <rect key="frame" x="-16" y="15" width="151" height="23.5"/>
+                                        <rect key="frame" x="-16" y="15" width="154" height="23.5"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -5268,13 +5268,16 @@ de La Tercera</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1980"/>
                     <connections>
+                        <outlet property="addCategoryButton" destination="XPk-r8-o2I" id="lmv-cQ-iQx"/>
                         <outlet property="bannerNewsDetailView" destination="dfI-CH-dUP" id="Mey-eh-plm"/>
                         <outlet property="contentTextView" destination="JjG-ib-7Q8" id="U3D-mF-Zz0"/>
+                        <outlet property="decreaseFontButton" destination="LVp-A1-BKW" id="BxS-0f-ehJ"/>
                         <outlet property="imageViewNews1" destination="tcK-TN-JrE" id="Ild-Bk-pSx"/>
                         <outlet property="imageViewNews2" destination="gr7-SK-Mpr" id="Mix-Hz-FCw"/>
                         <outlet property="imageViewNews3" destination="wB1-cx-vDU" id="1pY-Lh-qDD"/>
                         <outlet property="imageViewNews4" destination="4X5-M1-Z2w" id="YDs-ca-4RO"/>
                         <outlet property="imagenNews" destination="N9L-yf-rhl" id="Cwz-0X-qbb"/>
+                        <outlet property="increaseFontButton" destination="VrK-k7-kLS" id="IcB-hh-U5a"/>
                         <outlet property="labelAutor" destination="g3G-VY-bKo" id="Kej-Z2-226"/>
                         <outlet property="labelCat" destination="4FE-lo-Lbr" id="EYH-ZD-PFn"/>
                         <outlet property="labelFecha" destination="U62-Rt-Q4c" id="kNh-Ba-5Yq"/>

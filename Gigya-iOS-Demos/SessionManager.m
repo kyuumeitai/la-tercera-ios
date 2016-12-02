@@ -152,8 +152,7 @@
 }
 
 -(BOOL)isRepeatedForSelectedCategory:(int)idCat{
-    
-    
+
     SessionManager *sesion = [SessionManager session];
     
     NSMutableArray *arreglo = (NSMutableArray*)[sesion getMiSeleccionArray];
@@ -174,9 +173,7 @@
 -(BOOL) saveMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName{
     
     BOOL exitoso = false;
-    
 
-    
     if([self isRepeatedForSelectedCategory:idCat]){
             
             return false;
@@ -207,6 +204,26 @@
 
     return exitoso;
 }
+
+-(void) deleteMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName{
+    
+    NSEntityDescription *productEntity=[NSEntityDescription entityForName:@"CategoriasSeleccion" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *fetch=[[NSFetchRequest alloc] init];
+    [fetch setEntity:productEntity];
+    NSPredicate *p=[NSPredicate predicateWithFormat:@"idCat == %d && nombreCat == %@", idCat,categoryName];
+    [fetch setPredicate:p];
+    //... add sorts if you want them
+    NSError *fetchError;
+    NSError *error;
+    NSArray *fetchedProducts=[self.managedObjectContext executeFetchRequest:fetch error:&fetchError];
+    for (NSManagedObject *product in fetchedProducts) {
+        NSLog(@"La categoria es: %@",product);
+        [self.managedObjectContext deleteObject:product];
+    }
+    [self.managedObjectContext save:&error];
+
+}
+
 
 
 -(NSArray*) getMiSeleccionArray{
@@ -249,10 +266,8 @@
         [arraySeleccionTitles addObject:tituloCat];
     }
     
-    
     return arraySeleccionTitles;
 }
-
 
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;

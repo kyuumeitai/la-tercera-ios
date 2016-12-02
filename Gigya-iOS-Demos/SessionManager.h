@@ -60,6 +60,7 @@
 -(NSArray*) getMiSeleccionArray;
 -(NSMutableArray*) getMiSeleccionCategoryIdsArray;
 -(NSMutableArray*) getMiSeleccionCategoryTitlesArray;
-
+-(BOOL)isRepeatedForSelectedCategory:(int)idCat;
+-(void) deleteMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName;
 
 @end

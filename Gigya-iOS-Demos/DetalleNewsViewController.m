@@ -61,17 +61,21 @@ NSString *textoContenidoTemporal = @"";
     [self.navigationController.view addGestureRecognizer:gestureRecognizer];
     [super viewDidLoad];
     _titulo.text= @"";
-    //_labelCategoria.text = @"";
+    _labelCat.text = @"       ";
     _titulo.textAlignment = NSTextAlignmentJustified;
     _summary.text= @"";
     _summary.textAlignment = NSTextAlignmentJustified;
     _contentTextView.text= @"";
-    
+    _addCategoryButton.alpha = 0;
+    _increaseFontButton.alpha = 0;
+    _decreaseFontButton.alpha = 0;
+     //self.view.alpha = 0;
   //  self.managedObjectContext = managedObjectContext;
     _imagenNews.image = nil;
     
     _titulo.alpha = 0;
     _summary.alpha = 0;
+    _labelCat.alpha = 0;
     _contentTextView.alpha = 0;
     _contentTextView.textAlignment = NSTextAlignmentJustified;
     _imagenNews.alpha = 0;
@@ -80,6 +84,7 @@ NSString *textoContenidoTemporal = @"";
     
     // Do any additional setup after loading the view.
     self.relatedArticlesArray = [[NSArray alloc] init];
+    [self showRespectiveAddRemoveSectionImage];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -153,13 +158,30 @@ NSString *textoContenidoTemporal = @"";
      }
 }
 
+- (void) showRespectiveAddRemoveSectionImage{
+    int level = [self getUserType];
+    
+    if(level == 2){
+        
+        //Es premium
+        SessionManager *sesion = [SessionManager session];
+        BOOL repetido = [sesion isRepeatedForSelectedCategory:idCategoria];
+        
+        if(repetido){
+            //NSLog(@"Esta repetido");
+            UIImage *buttonImage = [UIImage imageNamed:@"RemoveToSelection"];
+            [_addCategoryButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        }
+    }
+}
+
 - (IBAction)selectionButtonPressed:(id)sender {
     
     int level = [self getUserType];
     
     if(level == 2){
        
-        NSLog(@"Empezó lo wendy");
+        NSLog(@"Add to selection pressed");
         //Es premium
         SessionManager *sesion = [SessionManager session];
         
@@ -172,18 +194,40 @@ NSString *textoContenidoTemporal = @"";
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
+            UIImage *buttonImage = [UIImage imageNamed:@"RemoveToSelection"];
+            
+            // All instances of MiSeleccionUpdateNotification will be notified
+            dispatch_async(dispatch_get_main_queue(),^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:@"MiSeleccionUpdateNotification"
+                 object:self];
+            });
+     
+
+            [_addCategoryButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
         [alert show];
             
          }else{
-            //ES flaite
+            //ya ha sido guardada
             
             //suscriberNeededScreen
             NSLog(@"Error al guardar");
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría ya agregada"
-                                                             message:@"Ésta categoría ya ha sido añanida."
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría eliminada"
+                                                             message:@"Ésta ha sido eliminada."
                                                             delegate:self
                                                    cancelButtonTitle:@"OK"
                                                    otherButtonTitles:nil];
+             [sesion deleteMiSeleccionCategoryWithId:idCategoria andCategoryName:tituloCategoria];
+            
+             // All instances of MiSeleccionUpdateNotification will be notified
+             dispatch_async(dispatch_get_main_queue(),^{
+                 [[NSNotificationCenter defaultCenter]
+                  postNotificationName:@"MiSeleccionUpdateNotification"
+                  object:self];
+             });
+             
+             UIImage *buttonImage = [UIImage imageNamed:@"AddToSelection"];
+             [_addCategoryButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
              [alert show];
 
         }
@@ -517,10 +561,13 @@ NSString *textoContenidoTemporal = @"";
     
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
+                         _addCategoryButton.alpha = 1;
+                         _increaseFontButton.alpha = 1;
+                         _decreaseFontButton.alpha = 1;
                          _titulo.alpha = 1;
                          _summary.alpha = 1;
                          _contentTextView.alpha = 1;
-                         
+                         _labelCat.alpha = 1;
                          _labelFecha.alpha = 1;
                          _labelAutor.alpha = 1;
                          
@@ -599,7 +646,7 @@ NSString *textoContenidoTemporal = @"";
     _summary.text= @"";
     _summary.textAlignment = NSTextAlignmentJustified;
     _contentTextView.text= @"";
-    
+
     //  self.managedObjectContext = managedObjectContext;
     _imagenNews.image = nil;
     

@@ -87,34 +87,12 @@ NSMutableArray *relatedIdsArrayMiSeleccion;
         [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifierGrande];
     }
     
-    /*
-    //Celda Mediana
-    UINib *cellNib2 ;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(startRefresh)
+                                                 name:@"MiSeleccionUpdateNotification"
+                                               object:nil];
     
-    if([storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-        cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana4-5" bundle: nil];
-        [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:@"collectionViewMediana4-5"];
-        
-    }else{
-        
-        cellNib2 = [UINib nibWithNibName:@"CollectionViewCellMediana" bundle: nil];
-        [self.collectionView registerNib:cellNib2 forCellWithReuseIdentifier:reuseIdentifierMediana];
-    }
-    
-    
-    //Celda Horizontal
-    UINib *cellNib3 ;
-    
-    if([storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-        cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal4-5" bundle: nil];
-        [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:@"collectionViewHorizontal4-5"];
-        
-    }else{
-        
-        cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal" bundle: nil];
-        [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:reuseIdentifierHorizontal];
-    }
-    */
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
@@ -157,7 +135,7 @@ NSMutableArray *relatedIdsArrayMiSeleccion;
 -(void)startRefresh{
     
     [self viewDidLoad];
-    [SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
+    //[SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
 }
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
@@ -338,7 +316,7 @@ NSMutableArray *relatedIdsArrayMiSeleccion;
 
         Headline* headline;
         for (headline in object) {
-            NSLog(@"____ Del Array de indice: %i y Del iondice: %i,Headline titular: %@",indiceArray,indiceHeadline ,headline.title );
+            //NSLog(@"____ Del Array de indice: %i y Del iondice: %i,Headline titular: %@",indiceArray,indiceHeadline ,headline.title );
             indiceHeadline++;
         }
         // NSLog(@"____ cOIbjetoo titular: %@",(Headline*)[object title] );
@@ -489,7 +467,7 @@ NSMutableArray *relatedIdsArrayMiSeleccion;
         if([storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameMiSeleccion isEqualToString:@"LaTerceraStoryboard-iPhone5"]){Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
             NSString *titulo = titular.title;
             NSString *resumen = titular.summary;
-            float characterCountTitulo = [titulo length];
+            float characterCountTitulo = [titulo length]+4;
             //NSLog(@"characterCountTitulo: %f",characterCountTitulo);
             float characterCountResumen = [resumen length]+5;
             //NSLog(@"characterCountResumne: %f",characterCountResumen);
@@ -513,7 +491,7 @@ NSMutableArray *relatedIdsArrayMiSeleccion;
             Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
             NSString *titulo = titular.title;
             NSString *resumen = titular.summary;
-            float characterCountTitulo = [titulo length];
+            float characterCountTitulo = [titulo length]+4;
             //NSLog(@"characterCountTitulo: %f",characterCountTitulo);
             float characterCountResumen = [resumen length]+5;
             //NSLog(@"characterCountResumne: %f",characterCountResumen);

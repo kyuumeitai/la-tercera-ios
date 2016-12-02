@@ -3180,7 +3180,7 @@ de La Tercera</string>
         <scene sceneID="kO4-N2-n99">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionElDeportivo" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="6Fm-tF-vXq" customClass="CVElDeportivo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="d7Y-uL-ajO">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="d7Y-uL-ajO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3836,7 +3836,7 @@ de La Tercera</string>
         <scene sceneID="ryL-5l-vNe">
             <objects>
                 <collectionViewController id="hK5-vS-3vn" customClass="CVNoticiasTendencias" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="ZuS-Bv-VK7">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="ZuS-Bv-VK7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5273,13 +5273,16 @@ de La Tercera</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1980"/>
                     <connections>
+                        <outlet property="addCategoryButton" destination="0GO-Cv-2MF" id="Rzx-nT-Xjk"/>
                         <outlet property="bannerNewsDetailView" destination="s0P-UP-vQ3" id="l6P-Vq-O6P"/>
                         <outlet property="contentTextView" destination="TaA-I2-pHD" id="7oW-8J-4zH"/>
+                        <outlet property="decreaseFontButton" destination="hn1-8S-2pf" id="jau-5u-RCW"/>
                         <outlet property="imageViewNews1" destination="O4k-hn-pqk" id="ZuY-gG-4so"/>
                         <outlet property="imageViewNews2" destination="VL3-Q2-9K3" id="YPx-au-IEL"/>
                         <outlet property="imageViewNews3" destination="WKn-l3-OmD" id="Huc-nA-gLp"/>
                         <outlet property="imageViewNews4" destination="qlD-tO-h6C" id="iv7-jU-9Y4"/>
                         <outlet property="imagenNews" destination="boz-17-Lnr" id="cVG-Wu-bHz"/>
+                        <outlet property="increaseFontButton" destination="3e2-1b-aIE" id="sAw-3E-P1I"/>
                         <outlet property="labelAutor" destination="V59-eF-fsH" id="X7g-ie-fEd"/>
                         <outlet property="labelCat" destination="kpu-rj-7gU" id="SOL-Z1-GHL"/>
                         <outlet property="labelFecha" destination="r7u-d9-fbp" id="LjO-vc-dqm"/>
@@ -5994,7 +5997,7 @@ de La Tercera</string>
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDQ-bs-MGS">
-                                                <rect key="frame" x="14" y="5" width="104" height="26"/>
+                                                <rect key="frame" x="14" y="5" width="103.5" height="26"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
                                                 <color key="textColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -8173,7 +8176,7 @@ de La Tercera</string>
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLH-2i-uNG">
-                                                <rect key="frame" x="14" y="5" width="104" height="26"/>
+                                                <rect key="frame" x="14" y="5" width="103.5" height="26"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
                                                 <color key="textColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
