@@ -62,5 +62,7 @@
 -(NSMutableArray*) getMiSeleccionCategoryTitlesArray;
 -(BOOL)isRepeatedForSelectedCategory:(int)idCat;
 -(void) deleteMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName;
+-(void) deleteNoticiaWithId:(int)idNoticia;
+-(BOOL)isFavoriteNewsWithArticleId:(int)idArticle;
 
 @end

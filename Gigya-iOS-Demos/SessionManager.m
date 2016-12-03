@@ -170,6 +170,25 @@
     return false;
 }
 
+-(BOOL)isFavoriteNewsWithArticleId:(int)idArticle{
+    
+    SessionManager *sesion = [SessionManager session];
+    
+    NSMutableArray *arreglo = (NSMutableArray*)[sesion getMyFavoritNewsArray];
+    for (NSManagedObject *objeto in arreglo) {
+        NSLog(@"Comparamos idCat: %d con: %d ", idArticle, [[objeto valueForKey:@"idArticle"] intValue]);
+        int valor = [[objeto valueForKey:@"idArticle"] intValue];
+        
+        if (idArticle == valor) {
+            
+            return true;
+            
+        }
+        
+    }
+    return false;
+}
+
 -(BOOL) saveMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName{
     
     BOOL exitoso = false;
@@ -224,6 +243,25 @@
 
 }
 
+-(void) deleteNoticiaWithId:(int)idNoticia{
+    
+    NSEntityDescription *productEntity=[NSEntityDescription entityForName:@"Noticia" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *fetch=[[NSFetchRequest alloc] init];
+    [fetch setEntity:productEntity];
+    NSPredicate *p=[NSPredicate predicateWithFormat:@"idArticle == %d", idNoticia];
+    [fetch setPredicate:p];
+    //... add sorts if you want them
+    NSError *fetchError;
+    NSError *error;
+    NSArray *fetchedProducts=[self.managedObjectContext executeFetchRequest:fetch error:&fetchError];
+    for (NSManagedObject *product in fetchedProducts) {
+        NSLog(@"La noticia es: %@",product);
+        [self.managedObjectContext deleteObject:product];
+    }
+    [self.managedObjectContext save:&error];
+    
+}
+
 
 
 -(NSArray*) getMiSeleccionArray{
@@ -234,6 +272,18 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"CategoriasSeleccion"];
     arraySeleccion = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     NSLog(@"El array seleccion es : %@",arraySeleccion);
+    
+    return arraySeleccion;
+}
+
+-(NSArray*) getMyFavoritNewsArray{
+    
+    NSArray *arraySeleccion = [[NSArray alloc] init];
+    // Fetch the devices from persistent data store
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Noticia"];
+    arraySeleccion = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    NSLog(@"El array de news es : %@",arraySeleccion);
     
     return arraySeleccion;
 }

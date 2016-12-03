@@ -24,6 +24,7 @@
 @property(nonatomic,retain)NSArray *relatedArticlesArray;
 @property (weak, nonatomic) IBOutlet DFPBannerView *bannerNewsDetailView;
 @property (weak, nonatomic) IBOutlet UIButton *addCategoryButton;
+@property (weak, nonatomic) IBOutlet UIButton *addToFavoritesButton;
 @property (weak, nonatomic) IBOutlet UIButton *increaseFontButton;
 @property (weak, nonatomic) IBOutlet UIButton *decreaseFontButton;
 

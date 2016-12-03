@@ -51,7 +51,7 @@ int fontSize = 16;
 
 NSString *slug = @"";
 NSString *textoContenidoTemporal = @"";
-
+BOOL esFavorito;
 - (void)viewDidLoad {
     
     _upperSeparador.hidden = YES;
@@ -84,7 +84,7 @@ NSString *textoContenidoTemporal = @"";
     
     // Do any additional setup after loading the view.
     self.relatedArticlesArray = [[NSArray alloc] init];
-    [self showRespectiveAddRemoveSectionImage];
+    [self showRespectiveButtons];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -110,8 +110,24 @@ NSString *textoContenidoTemporal = @"";
 - (IBAction)addToFavorite:(id)sender {
     
     int level = [self getUserType];
-    
+    SessionManager *sesion = [SessionManager session];
      if(level == 2){
+         
+         if(esFavorito){
+             NSLog(@"Error al guardar");
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Noticia eliminada de favoritas"
+                                                             message:@"Ésta noticia ha sido eliminada de sus noticias favoritas."
+                                                            delegate:self
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil];
+             [sesion deleteNoticiaWithId:idArticulo];
+
+             UIImage *buttonImage = [UIImage imageNamed:@"botonFavorito"];
+             [_addToFavoritesButton setImage:buttonImage forState:UIControlStateNormal];
+             [alert show];
+ 
+         }else{
+         
     NSArray *noticias = [[NSArray alloc] init];
     // Fetch the devices from persistent data store
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
@@ -138,14 +154,16 @@ NSString *textoContenidoTemporal = @"";
          if (![managedObjectContext save:&error]) {
              NSLog(@"No se pudo guardar! %@ %@", error, [error localizedDescription]);
          }else{
+             UIImage *buttonImageFav = [UIImage imageNamed:@"botonFavoritoOn"];
+             [_addToFavoritesButton setImage:buttonImageFav forState:UIControlStateNormal];
              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Añadida a favoritos"
                                                              message:@"Ha agregado esta notica a Favoritos."
                                                             delegate:self
                                                    cancelButtonTitle:@"OK"
                                                    otherButtonTitles:nil];
              [alert show];
+            }
          }
-  
       }else{
          //ES flaite
          
@@ -158,7 +176,7 @@ NSString *textoContenidoTemporal = @"";
      }
 }
 
-- (void) showRespectiveAddRemoveSectionImage{
+- (void) showRespectiveButtons{
     int level = [self getUserType];
     
     if(level == 2){
@@ -172,6 +190,15 @@ NSString *textoContenidoTemporal = @"";
             UIImage *buttonImage = [UIImage imageNamed:@"RemoveToSelection"];
             [_addCategoryButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
         }
+        
+        esFavorito = [sesion isFavoriteNewsWithArticleId:idArticulo];
+        
+        if(esFavorito){
+            NSLog(@"Es favorito");
+            UIImage *buttonImageFav = [UIImage imageNamed:@"botonFavoritoOn"];
+            [_addToFavoritesButton setImage:buttonImageFav forState:UIControlStateNormal];
+        }
+        
     }
 }
 
