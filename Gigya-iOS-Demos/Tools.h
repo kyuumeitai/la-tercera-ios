@@ -71,4 +71,6 @@
 /**************************** OTHER STUFFS ****************************************/
 
 + (BOOL)isIphone6OrMore;
+
++ (float)getHeightForNewsListCellWithTitle:(NSString*)title andSummary:(NSString*)summary isIphone5:(BOOL)isIphone5;
 @end

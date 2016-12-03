@@ -224,10 +224,10 @@ NSMutableArray *relatedIdsArrayNegocios;
         id imageThumb ;
         
         //if ([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]){
-        if ([dictTitular objectForKey:@"image_url"] == (id)[NSNull null]){
+        if ([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]){
             imageThumb = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
-            imageThumb = [dictTitular objectForKey:@"image_url"];
+            imageThumb = [dictTitular objectForKey:@"thumb_url"];
             //imageThumb = [dictTitular objectForKey:@"thumb_url"];
             NSLog(@" el thumbnail  es: %@ ",imageThumb);
         }
@@ -429,55 +429,22 @@ NSMutableArray *relatedIdsArrayNegocios;
     
     
     if([indexPath row]==0 || [indexPath row] % 6 == 0 || [indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 || [indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
+        Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
+        NSString *titulo = titular.title;
+        NSString *resumen = titular.summary;
         
-        if([storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
-            NSString *titulo = titular.title;
-            NSString *resumen = titular.summary;
-            float characterCountTitulo = [titulo length]+4;
-            //NSLog(@"characterCountTitulo: %f",characterCountTitulo);
-            float characterCountResumen = [resumen length]+5;
-            //NSLog(@"characterCountResumne: %f",characterCountResumen);
-            int cantLineasTitulo= ceil(characterCountTitulo/26);
-            //NSLog(@"cantLineasTitulo: %d",cantLineasTitulo);
-            int cantLineasSummary= floor(characterCountResumen/39);
-            //NSLog(@"cantLineasSummary: %d",cantLineasSummary);
-            cantLineasTitulo = (cantLineasTitulo==0) ? 1 : cantLineasTitulo;
-            //NSLog(@"cantLineasTitulo final: %d",cantLineasTitulo);
-            cantLineasSummary = (cantLineasSummary==0) ? 1 : cantLineasSummary;
-            //NSLog(@"cantLineasSummary final: %d",cantLineasTitulo);
-            cantLineasSummary = (cantLineasSummary>8) ? cantLineasSummary+1 : cantLineasSummary;
+        if([storyBoardNameNoticiasNegocios isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameNoticiasNegocios
+                                                                                               isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
             
-            //NSLog(@"Summary: %@ cantidad de lineas resumen:%d ",resumen,cantLineasSummary);
-            float altoLineas = 330+(cantLineasTitulo*26)+(cantLineasSummary*16);
-            //NSLog(@"Titulo: %@ cantidad de lineas:%d  y alto asignado: %f",titulo,cantLineasTitulo,altoLineas);
+            float altoLineas = [Tools getHeightForNewsListCellWithTitle:titulo andSummary:resumen isIphone5:YES];
             
             return CGSizeMake(310,altoLineas);
             
         }else{
-            Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
-            NSString *titulo = titular.title;
-            NSString *resumen = titular.summary;
-            float characterCountTitulo = [titulo length]+4;
-            //NSLog(@"characterCountTitulo: %f",characterCountTitulo);
-            float characterCountResumen = [resumen length]+5;
-            //NSLog(@"characterCountResumne: %f",characterCountResumen);
-            int cantLineasTitulo= ceil(characterCountTitulo/34);
-            //NSLog(@"cantLineasTitulo: %d",cantLineasTitulo);
-            int cantLineasSummary= floor(characterCountResumen/39);
-            //NSLog(@"cantLineasSummary: %d",cantLineasSummary);
-            cantLineasTitulo = (cantLineasTitulo==0) ? 1 : cantLineasTitulo;
-            //NSLog(@"cantLineasTitulo final: %d",cantLineasTitulo);
-            cantLineasSummary = (cantLineasSummary==0) ? 1 : cantLineasSummary;
-            //NSLog(@"cantLineasSummary final: %d",cantLineasTitulo);
-            cantLineasSummary = (cantLineasSummary>8) ? cantLineasSummary+1 : cantLineasSummary;
             
-            //NSLog(@"Summary: %@ cantidad de lineas resumen:%d ",resumen,cantLineasSummary);
-            float altoLineas = 320+(cantLineasTitulo*14)+(cantLineasSummary*16);
-            //NSLog(@"Titulo: %@ cantidad de lineas:%d  y alto asignado: %f",titulo,cantLineasTitulo,altoLineas);
+            float altoLineas = [Tools getHeightForNewsListCellWithTitle:titulo andSummary:resumen isIphone5:NO];
             
             return CGSizeMake(350,altoLineas);
-            
         }
     }
     
