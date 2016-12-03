@@ -113,4 +113,26 @@
     
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        NSLog(@"Will delete");
+    NSManagedObject *device = [self.arrayFavoritos objectAtIndex:indexPath.row];
+
+    [self.managedObjectContext deleteObject:device];
+    
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        // handle error
+    }
+        [self.tableView reloadData];
+        [self viewDidLoad];
+    }
+}
+
 @end
