@@ -57,6 +57,10 @@ BOOL sidebarMenuOpen ;
     
     [self.view addGestureRecognizer:tap];
     [self.revealViewController tapGestureRecognizer].enabled = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loadContentHeadlines)
+                                                 name:@"updateNewsCategories"
+                                               object:nil];
 
 }
 
@@ -189,9 +193,6 @@ BOOL sidebarMenuOpen ;
         [getView addSubview:containerVC.view];
 
     }
-    
-
-
 }
 
 - (IBAction)menuPressed:(id)sender {

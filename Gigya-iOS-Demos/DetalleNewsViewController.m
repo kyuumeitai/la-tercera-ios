@@ -229,7 +229,6 @@ BOOL esFavorito;
                  postNotificationName:@"MiSeleccionUpdateNotification"
                  object:self];
             });
-     
 
             [_addCategoryButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
         [alert show];

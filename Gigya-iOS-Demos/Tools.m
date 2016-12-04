@@ -368,6 +368,14 @@ if ([[UIApplication sharedApplication] canOpenURL:
      }
 }
 
+/**
+ Calculate HEight for each news cells Collection view
+
+ @param title string with the title of the article
+ @param summary string with the summary of the article
+ @param isIphone5 boolean true if is iphone 4/5
+ @return height size
+ */
 + (float)getHeightForNewsListCellWithTitle:(NSString*)title andSummary:(NSString*)summary isIphone5:(BOOL)isIphone5{
     
     float altoLineas = 0;
@@ -396,9 +404,8 @@ if ([[UIApplication sharedApplication] canOpenURL:
  
     } else{
         float characterCountTitulo = [titulo length]+4;
-        //NSLog(@"characterCountTitulo: %f",characterCountTitulo);
-        if(characterCountTitulo>70)
-            characterCountTitulo = characterCountTitulo + 5;
+       // NSLog(@"characterCountTitulo: %f",characterCountTitulo);
+
         float characterCountResumen = [resumen length]+5;
         //NSLog(@"characterCountResumne: %f",characterCountResumen);
         int cantLineasTitulo= ceil(characterCountTitulo/35);
@@ -411,7 +418,12 @@ if ([[UIApplication sharedApplication] canOpenURL:
         //NSLog(@"cantLineasSummary final: %d",cantLineasTitulo);
         cantLineasSummary = (cantLineasSummary>8) ? cantLineasSummary+1 : cantLineasSummary;
         //NSLog(@"Summary: %@ cantidad de lineas resumen:%d ",resumen,cantLineasSummary);
-        altoLineas = 320+(cantLineasTitulo*15)+(cantLineasSummary*20);
+              if(characterCountTitulo>80 ){
+        altoLineas = 340+(cantLineasTitulo*15)+(cantLineasSummary*20);
+              }else{
+                  altoLineas = 320+(cantLineasTitulo*12)+(cantLineasSummary*15);
+
+              }
         //NSLog(@"Titulo: %@ cantidad de lineas:%d  y alto asignado: %f",titulo,cantLineasTitulo,altoLineas);
     }
 
