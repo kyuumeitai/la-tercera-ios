@@ -143,11 +143,7 @@ NSMutableArray *relatedIdsArrayCultura;
 //    self.collectionView.refreshControl = refreshControl;
 }
 
--(void)startRefresh{
-    
-    [self viewDidLoad];
-    [SVProgressHUD showWithStatus:@"Actualizando noticias" maskType:SVProgressHUDMaskTypeClear];
-}
+
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     NSLog(@"app will enter foreground");

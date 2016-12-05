@@ -243,18 +243,20 @@ BOOL esFavorito;
                                                             delegate:self
                                                    cancelButtonTitle:@"OK"
                                                    otherButtonTitles:nil];
-             [sesion deleteMiSeleccionCategoryWithId:idCategoria andCategoryName:tituloCategoria];
-            
+             
              // All instances of MiSeleccionUpdateNotification will be notified
-             dispatch_async(dispatch_get_main_queue(),^{
-                 [[NSNotificationCenter defaultCenter]
-                  postNotificationName:@"MiSeleccionUpdateNotification"
-                  object:self];
-             });
+            
+                 [sesion deleteMiSeleccionCategoryWithId:idCategoria andCategoryName:tituloCategoria];
+
+             
+        
              
              UIImage *buttonImage = [UIImage imageNamed:@"AddToSelection"];
              [_addCategoryButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
              [alert show];
+             [[NSNotificationCenter defaultCenter]
+              postNotificationName:@"MiSeleccionUpdateNotification"
+              object:self];
 
         }
 

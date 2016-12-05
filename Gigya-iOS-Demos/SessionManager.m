@@ -297,6 +297,8 @@
     NSMutableArray *arreglo = (NSMutableArray*)[sesion getMiSeleccionArray];
     for (NSManagedObject *objeto in arreglo) {
         int valor = [[objeto valueForKey:@"idCat"] intValue];
+        NSLog(@">>>>>>>***** Mi seleccion:  Id de categoria: %d /n",valor);
+
         [arraySeleccionIds addObject:[NSNumber numberWithInteger:valor]];
     }
 
@@ -313,6 +315,7 @@
     NSMutableArray *arreglo = (NSMutableArray*)[sesion getMiSeleccionArray];
     for (NSManagedObject *objeto in arreglo) {
         NSString * tituloCat = [objeto valueForKey:@"nombreCat"];
+        NSLog(@">>>>>>>***** Mi seleccion:  Título de categoria: %@ /n",tituloCat);
         [arraySeleccionTitles addObject:tituloCat];
     }
     
