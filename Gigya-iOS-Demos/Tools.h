@@ -42,6 +42,8 @@
 +(void)startCallWithPhoneNumber:(NSString *)phoneNumber;
 +(void)openSafariWithURL:(NSString *)url;
 +(void)openMapsAppWithSourceLocation:(CLLocationCoordinate2D)sourceLocation andDestinationLocation:(CLLocationCoordinate2D)destinationLocation;
++(void)openMapsAppWithOneLocation:(CLLocationCoordinate2D)sourceLocation;
++(void)openMapsAppWithOneLocationAndAddress:(CLLocationCoordinate2D)sourceLocation address:(NSString *)address;
 +(void)openGoogleMapsAppWithSourceLocation:(CLLocationCoordinate2D)sourceLocation andDestinationLocation:(CLLocationCoordinate2D)destinationLocation;
 
 /****************************************** ERROR ALERTS ****************************************/

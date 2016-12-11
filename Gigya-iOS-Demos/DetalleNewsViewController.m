@@ -13,7 +13,10 @@
 #import "UserProfile.h"
 #import "UsarBeneficioNoLogueado.h"
 #import "Tools.h"
-
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface DetalleNewsViewController () <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *labelFecha;
@@ -78,6 +81,7 @@ NSString *textoContenidoTemporal = @"";
     _labelAutor.alpha = 0;
     
     // Do any additional setup after loading the view.
+    NSArray *noticias = [[NSArray alloc] init];
     
     [self loadRelatedArticles];
 }
@@ -92,6 +96,12 @@ NSString *textoContenidoTemporal = @"";
     NSLog(@"El articulo id es: %d",idArticulo);
     NSLog(@"Entonces el array de Noticias Relacionadas es: %@.",relatedIdsArray);
     
+    for (int i = 0; i < relatedIdsArray.count; i++) {
+        int randomInt1 = arc4random() % [relatedIdsArray count];
+        int randomInt2 = arc4random() % [relatedIdsArray count];
+        [relatedIdsArray exchangeObjectAtIndex:randomInt1 withObjectAtIndex:randomInt2];
+    }
+    
     int contando = 1;
     
     for (NSNumber *idArtTemp in relatedIdsArray) {
@@ -102,25 +112,25 @@ NSString *textoContenidoTemporal = @"";
         if (idArtInt == idArticulo ){
             NSLog(@" es el mesmiitoh ");
         }else{
-                   NSLog(@"Arituiclo temp:%d",idArtInt);
-        ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
-        BOOL estaConectado = [connectionManager verifyConnection];
-        NSLog(@"Verificando conexión: %d",estaConectado);
+            NSLog(@"Arituiclo temp:%d",idArtInt);
+            ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+            BOOL estaConectado = [connectionManager verifyConnection];
+            NSLog(@"Verificando conexión: %d",estaConectado);
         
-        [connectionManager getArticleWithId:^(BOOL success, NSArray *arrayJson, NSError *error){
+            [connectionManager getArticleWithId:^(BOOL success, NSArray *arrayJson, NSError *error){
             
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (!success) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (!success) {
                     NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
-                } else {
+                    } else {
                     
-                    [self loadRelatedArticleDataFromService:arrayJson andIndexNumber:contando ];
+                        [self loadRelatedArticleDataFromService:arrayJson andIndexNumber:contando ];
                  
-                }
-            });
-        }:idArtInt];
+                    }
+                });
+            }:idArtInt];
         
-        contando++;
+            contando++;
         }
     }
     
@@ -138,42 +148,70 @@ NSString *textoContenidoTemporal = @"";
     
     int level = [self getUserType];
     
-     if(level == 2){
-    NSArray *noticias = [[NSArray alloc] init];
-    // Fetch the devices from persistent data store
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Noticia"];
-    noticias = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    NSLog(@"noticias: %@",noticias);
-    
-    // Create a new fav
-    NSManagedObject *nuevoFavorito = [NSEntityDescription insertNewObjectForEntityForName:@"Noticia" inManagedObjectContext:managedObjectContext];
+    if(level == 2){
+        NSArray *noticias = [[NSArray alloc] init];
+        // Fetch the devices from persistent data store
+        NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Noticia"];
+        noticias = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+        NSLog(@"noticias: %@",noticias);
 
-    [nuevoFavorito  setValue:_titulo.text forKey:@"title"];
-    [nuevoFavorito  setValue:_summary.text forKey:@"summary"];
-    [nuevoFavorito  setValue:[NSNumber numberWithInt:idArticulo] forKey:@"idArticle"];
-    [nuevoFavorito  setValue:_contentTextView.text forKey:@"content"];
-     NSData *imageData = UIImagePNGRepresentation(_imagenNews.image);
-    [nuevoFavorito  setValue:imageData forKey:@"imageLink"];
-    [nuevoFavorito  setValue:_labelFecha.text forKey:@"date"];
-    [nuevoFavorito  setValue:_labelAutor.text forKey:@"author"];
-    [nuevoFavorito  setValue:tituloCategoria forKey:@"category"];
-
-         
-         NSError *error = nil;
-         // Save the object to persistent store
-         if (![managedObjectContext save:&error]) {
-             NSLog(@"No se pudo guardar! %@ %@", error, [error localizedDescription]);
-         }else{
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Añadida a favoritos"
-                                                             message:@"Ha agregado esta notica a Favoritos."
-                                                            delegate:self
-                                                   cancelButtonTitle:@"OK"
-                                                   otherButtonTitles:nil];
-             [alert show];
-         }
-  
-      }else{
+        //check if existe en favoritos
+        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"title == %@", _titulo.text]];
+        
+        NSError *error = nil;
+        NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        
+        if([results count] > 0){
+            //eliminar de favoritos
+            for (NSManagedObject *managedObject in results) {
+                [managedObjectContext deleteObject:managedObject];
+            }
+            
+            if (![managedObjectContext save:&error]) {
+                NSLog(@"No se pudo guardar! %@ %@", error, [error localizedDescription]);
+            }else{
+                [_btnFav setImage:[UIImage imageNamed:@"botonFavorito"] forState:UIControlStateNormal];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Eliminada de favoritos"
+                                                                message:@"Ha eliminado esta notica de Favoritos."
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+        }else{
+            // Create a new fav
+            NSManagedObject *nuevoFavorito = [NSEntityDescription insertNewObjectForEntityForName:@"Noticia" inManagedObjectContext:managedObjectContext];
+            
+            [nuevoFavorito  setValue:_titulo.text forKey:@"title"];
+            [nuevoFavorito  setValue:_summary.text forKey:@"summary"];
+            [nuevoFavorito  setValue:[NSNumber numberWithInt:idArticulo] forKey:@"idArticle"];
+            [nuevoFavorito  setValue:_contentTextView.text forKey:@"content"];
+            NSData *imageData = UIImagePNGRepresentation(_imagenNews.image);
+            [nuevoFavorito  setValue:imageData forKey:@"imageLink"];
+            [nuevoFavorito  setValue:_labelFecha.text forKey:@"date"];
+            [nuevoFavorito  setValue:_labelAutor.text forKey:@"author"];
+            [nuevoFavorito  setValue:tituloCategoria forKey:@"category"];
+            
+            //agregar a favoritos
+            NSError *error = nil;
+            // Save the object to persistent store
+            if (![managedObjectContext save:&error]) {
+                NSLog(@"No se pudo guardar! %@ %@", error, [error localizedDescription]);
+            }else{
+                UIImage *btnImage = [UIImage imageNamed:@"botonFavoritoOn.png"];
+                [_btnFav setImage:btnImage forState:UIControlStateNormal];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Añadida a favoritos"
+                                                                message:@"Ha agregado esta notica a Favoritos."
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+        }
+    }else{
          //ES flaite
          
          //suscriberNeededScreen
@@ -198,25 +236,38 @@ NSString *textoContenidoTemporal = @"";
         BOOL saveNewCat = [sesion saveMiSeleccionCategoryWithId:self.idCategoria andCategoryName:self.tituloCategoria];
 
         if(saveNewCat){
+            [_btnCatFav setImage:[UIImage imageNamed:@"quitSelection"] forState:UIControlStateNormal];
+            
             [[NSNotificationCenter defaultCenter] postNotificationName:@"agregandoCategoriaAMiSeleccion" object:self];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría añadida"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría añadida"
                                                         message:@"Ha agregado exitosamente esta categoría a 'Mi Selección'."
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
-        [alert show];
+            [alert show];
             
-         }else{
-            //ES flaite
+        }else{
+            //delete categoría
             
-            //suscriberNeededScreen
-            NSLog(@"Error al guardar");
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría ya agregada"
-                                                             message:@"Ésta categoría ya ha sido añanida."
-                                                            delegate:self
-                                                   cancelButtonTitle:@"OK"
-                                                   otherButtonTitles:nil];
-             [alert show];
+            BOOL deleted = [sesion deleteMiSeleccionCategoryWithId:self.idCategoria andCategoryName:self.tituloCategoria];
+            
+            if(deleted){
+                [_btnCatFav setImage:[UIImage imageNamed:@"AddToSelection"] forState:UIControlStateNormal];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría eliminada"
+                                                                message:@"Categoría eliminada correctamente."
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría eliminada"
+                                                                message:@"Problemas al eliminar categoría."
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+            
 
         }
 
@@ -516,6 +567,34 @@ NSString *textoContenidoTemporal = @"";
     NSLog(@"Fecha es:%@", dateFinalText);
     _labelFecha.text = dateFinalText;
     
+    // Fetch the devices from persistent data store
+    NSArray *noticias = [[NSArray alloc] init];
+    // Fetch the devices from persistent data store
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Noticia"];
+    noticias = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    NSLog(@"noticias: %@",noticias);
+    
+    //check if existe en favoritos
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"title == %@", _titulo.text]];
+    
+    NSError *error = nil;
+    NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if([results count] > 0){
+        [_btnFav setImage:[UIImage imageNamed:@"botonFavoritoOn"] forState:UIControlStateNormal];
+    }
+    
+    SessionManager *sesion = [SessionManager session];
+    if([sesion existCategory:self.tituloCategoria]){
+        [_btnCatFav setImage:[UIImage imageNamed:@"quitSelection"] forState:UIControlStateNormal];
+    }
+    
+    NSString *value = [NSString stringWithFormat:@"Noticias/%@/%@", tituloCategoria, titulo];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:value];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
    textoContenidoTemporal = [articleDict objectForKey:@"content"];
     NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSize,textoContenidoTemporal];
 
@@ -593,7 +672,11 @@ NSString *textoContenidoTemporal = @"";
     NSString *tituloNoticia = _titulo.text;
     newsLink = [NSString stringWithFormat:@"http://aniversario.latercera.com/%@",slug];
 
-        [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:newsLink] forSelf:self];
+    [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:newsLink] forSelf:self];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Noticias/btn/compartir"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 

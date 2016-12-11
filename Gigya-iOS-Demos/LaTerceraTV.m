@@ -61,7 +61,6 @@ BOOL sidebarMenuOpen2;
 
 }
 
-
 -(void) loadContentHeadlines{
     
     ConnectionManager *conexion = [[ConnectionManager alloc] init];
@@ -69,14 +68,16 @@ BOOL sidebarMenuOpen2;
     BOOL estaConectado = [conexion verifyConnection];
     NSLog(@"Verificando conexión: %d",estaConectado);
     [conexion getAllCategories:^(BOOL success, NSArray *arrayJson, NSError *error) {
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (!success) {
+        if (!success) {
+            dispatch_async(dispatch_get_main_queue(), ^{
                 NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
-            } else {
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
                 [self setupNewsCategories:arrayJson];
-            }
-        });
+            });
+        }
+        
     }];
     
 }
@@ -107,10 +108,6 @@ BOOL sidebarMenuOpen2;
     LaTerceraTVReportajesViewController *ltTVReportajesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVReportajes"];
     
     LaTerceraTVSeriesViewController *ltTVSeriesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"laTerceraTVSeries"];
-    
-
-    
-
 
     SessionManager *sesion = [SessionManager session];
     
@@ -174,7 +171,7 @@ BOOL sidebarMenuOpen2;
     
        // YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVHomeVC,ltTVEnDirectoVC,ltTVEntretencionVC,ltTVMouseVC,ltTVReportajesVC,ltTVSeriesVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
   
-   YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVHomeVC,ltTVActualidadVC,ltTVDebatesVC,ltTVDeportesVC,ltTVElDeportivoVC,ltTVEnDirectoVC,ltTVEntretencionVC,ltTVMouseVC,ltTVReportajesVC,ltTVSeriesVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
+   YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVHomeVC,ltTVActualidadVC,ltTVDebatesVC,ltTVDeportesVC,ltTVElDeportivoVC,ltTVEnDirectoVC,ltTVEntretencionVC,ltTVMouseVC,ltTVReportajesVC,ltTVSeriesVC]                                                                                        topBarHeight:headerSpace parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];

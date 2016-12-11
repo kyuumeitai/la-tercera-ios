@@ -11,6 +11,10 @@
 #import "FavoritoDetailViewController.h"
 #import "CoreData/CoreData.h"
 #import "Headline.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface FavoritosTableViewController ()
 
@@ -40,6 +44,14 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"MiPerfil/favoritos"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 - (NSManagedObjectContext *)managedObjectContext

@@ -7,6 +7,10 @@
 //
 
 #import "AjustesTableViewController.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface AjustesTableViewController ()
 
@@ -24,6 +28,14 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem
     
    [self setupSwitches];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Preferencias"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)setupSwitches{
@@ -297,6 +309,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)showTerminosCondiciones:(id)sender{
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Preferencias/btn/terminosycond"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.latercera.com/terminos-y-condicciones/"]];
 }
 
 #pragma mark - Table view data source

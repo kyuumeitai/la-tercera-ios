@@ -19,6 +19,11 @@
 #import "SVProgressHUD.h"
 #import "Tools.h"
 #import "SVPullToRefresh.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
+
 #define benefitCategoryId 4
 
 @interface ServiciosTableViewController ()
@@ -65,6 +70,12 @@ BOOL firstTimeServicios = false;
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingServicios = NO;
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Beneficios/servicios"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -194,6 +205,7 @@ BOOL firstTimeServicios = false;
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
+    detalleBeneficio.beneficioTipo = @"servicios";
     [beneficio logDescription];
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];

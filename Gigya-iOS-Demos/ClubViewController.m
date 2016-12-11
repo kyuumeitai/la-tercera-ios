@@ -19,6 +19,10 @@
 #import "Category.h"
 #import "LCBannerView.h"
 #import "DetalleBeneficioViewController.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 const int catSabores = 3;
 const int catInfantil = 7;
@@ -59,9 +63,21 @@ const int catServicios = 4;
     
     [self.view addGestureRecognizer:tap];
     
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"isLogged"]){
+        self.btnIdentify.hidden = YES;
+    }
+    
     
     // Do any additional setup after loading the view.
   [self loadStarredBenefits];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Beneficios/home"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 /**
@@ -640,6 +656,10 @@ const int catServicios = 4;
 - (IBAction)VentasEspecialesPressed:(id)sender {
     
     [Tools openSafariWithURL:@"http://suscripcioneslt.latercera.com/"];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Beneficios/ventasEspeciales/btn"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 

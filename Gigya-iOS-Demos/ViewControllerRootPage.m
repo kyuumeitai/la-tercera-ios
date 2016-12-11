@@ -8,6 +8,10 @@
 
 #import "ViewControllerRootPage.h"
 #import "PageContentViewController.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface ViewControllerRootPage ()
 
@@ -61,6 +65,11 @@
         NSLog(@"Estoy aca lonyi");
         pageContentViewController.isFinalPage = true;
     }
+    
+    NSString *value = [NSString stringWithFormat:@"TourVirtual/%d", index];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:value];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
     
     return pageContentViewController;
 }

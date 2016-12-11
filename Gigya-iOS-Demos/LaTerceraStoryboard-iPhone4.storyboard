@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GVp-39-K6N">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GVp-39-K6N">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -412,22 +412,6 @@ REGISTRARSE?</string>
                                                     <segue destination="3Mj-nI-R7W" kind="show" identifier="segueServicios" id="sEH-KV-sx8"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7m-Ff-wgN">
-                                                <rect key="frame" x="14" y="462" width="138" height="35"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" backgroundImage="botonTiendaClub.png"/>
-                                                <connections>
-                                                    <action selector="TiendaClubPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="dwh-Rb-b95"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crv-dZ-YOh">
-                                                <rect key="frame" x="175" y="462" width="138" height="35"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" backgroundImage="botonViajesClub.png"/>
-                                                <connections>
-                                                    <action selector="ViajesClubPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="hFP-8K-qcm"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1j-1i-iao">
                                                 <rect key="frame" x="16" y="563" width="296" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -444,14 +428,6 @@ REGISTRARSE?</string>
                                                     <segue destination="1QZ-1R-8aX" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="3ci-3a-DST"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8d-O3-bKI">
-                                                <rect key="frame" x="16" y="657" width="298" height="36"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" backgroundImage="botonTickets.png"/>
-                                                <connections>
-                                                    <action selector="ticketPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="WDU-hW-Pih"/>
-                                                </connections>
-                                            </button>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ea-xS-7iS">
                                                 <rect key="frame" x="213" y="-60" width="154" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -466,7 +442,7 @@ REGISTRARSE?</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-hL-wGC">
-                                                <rect key="frame" x="16" y="715" width="296" height="42"/>
+                                                <rect key="frame" x="16" y="654" width="296" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.63529411764705879" green="0.090196078431372548" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
@@ -475,6 +451,14 @@ REGISTRARSE?</string>
                                                 </state>
                                                 <connections>
                                                     <action selector="identifyUser:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="Gdw-B1-WIw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crv-dZ-YOh">
+                                                <rect key="frame" x="16" y="456" width="138" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="botonViajesClub.png"/>
+                                                <connections>
+                                                    <action selector="ViajesClubPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="hFP-8K-qcm"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -567,6 +551,7 @@ REGISTRARSE?</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="850"/>
                     <connections>
+                        <outlet property="btnIdentify" destination="Xaf-hL-wGC" id="3NN-wN-mfG"/>
                         <outlet property="menuButtonClub" destination="6qO-rI-OhO" id="ZVr-hu-wR0"/>
                         <outlet property="scrollViewBanner" destination="kh3-2P-IMy" id="R3N-2u-miT"/>
                     </connections>
@@ -808,31 +793,8 @@ REGISTRARSE?</string>
                                     <segue destination="2RY-Wz-jp8" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="tGK-Kw-sO3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria4" rowHeight="35" id="rlV-1Y-PY1">
-                                <rect key="frame" x="0.0" y="160" width="320" height="35"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rlV-1Y-PY1" id="gRy-W9-T1f">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escucha las noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VG-Mm-GqY">
-                                            <rect key="frame" x="55" y="9" width="155" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.25677083333333328" green="0.25677083333333328" blue="0.25677083333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <segue destination="Dgk-9x-B7V" kind="show" customClass="SWRevealViewControllerSeguePushController" id="dTA-vx-nZv"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria5" rowHeight="35" id="sMg-PZ-cms">
-                                <rect key="frame" x="0.0" y="195" width="320" height="35"/>
+                                <rect key="frame" x="0.0" y="160" width="320" height="35"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMg-PZ-cms" id="9wN-V6-fJM">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
@@ -856,7 +818,7 @@ REGISTRARSE?</string>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria6" rowHeight="35" id="Zim-0p-Xmu">
-                                <rect key="frame" x="0.0" y="230" width="320" height="35"/>
+                                <rect key="frame" x="0.0" y="195" width="320" height="35"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zim-0p-Xmu" id="oGA-yx-taL">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
@@ -878,7 +840,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria7" rowHeight="35" id="dgc-Iq-tEl">
-                                <rect key="frame" x="0.0" y="265" width="320" height="35"/>
+                                <rect key="frame" x="0.0" y="230" width="320" height="35"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dgc-Iq-tEl" id="CeZ-zH-PPF">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
@@ -900,7 +862,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria8" rowHeight="35" id="DOf-6s-1vO">
-                                <rect key="frame" x="0.0" y="300" width="320" height="35"/>
+                                <rect key="frame" x="0.0" y="265" width="320" height="35"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DOf-6s-1vO" id="Iqw-7w-0Mc">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
@@ -921,34 +883,8 @@ REGISTRARSE?</string>
                                     <segue destination="1QZ-1R-8aX" kind="show" customClass="SWRevealViewControllerSeguePushController" id="PJe-0T-m8W"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria9" rowHeight="35" id="bbF-dq-hl4">
-                                <rect key="frame" x="0.0" y="335" width="320" height="35"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bbF-dq-hl4" id="jkY-LC-2pE">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9P1-hM-N39">
-                                            <rect key="frame" x="57" y="8" width="96" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
-                                            <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgT-rI-k9Z">
-                                            <rect key="frame" x="22" y="4" width="185" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <connections>
-                                                <action selector="ticketsFromMenuPressed:" destination="uon-o4-wxz" eventType="touchUpInside" id="mUO-eo-QP5"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria10" rowHeight="35" id="Mga-7m-mzS">
-                                <rect key="frame" x="0.0" y="370" width="320" height="35"/>
+                                <rect key="frame" x="0.0" y="300" width="320" height="35"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mga-7m-mzS" id="RH0-cO-Bwl">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
@@ -978,7 +914,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria13" rowHeight="76" id="wIJ-se-IOU">
-                                <rect key="frame" x="0.0" y="405" width="320" height="76"/>
+                                <rect key="frame" x="0.0" y="335" width="320" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wIJ-se-IOU" id="Akj-Fw-uG0">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
@@ -1344,7 +1280,7 @@ REGISTRARSE?</string>
                                 <rect key="frame" x="165" y="16" width="155" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beneficios cercanos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ks2-rm-p0G">
-                                        <rect key="frame" x="-13" y="13.5" width="153" height="21"/>
+                                        <rect key="frame" x="-13" y="12.5" width="153" height="23.5"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2410,7 +2346,7 @@ REGISTRARSE?</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6SE-rb-whr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2838.75" y="-989.78873239436609"/>
+            <point key="canvasLocation" x="2933" y="-1245"/>
         </scene>
         <!--News Page View Controller-->
         <scene sceneID="Ynw-nB-eOQ">
@@ -2779,7 +2715,7 @@ REGISTRARSE?</string>
         <scene sceneID="DAU-tE-vSo">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionEdicionEspecial" id="w1T-UP-eOG" customClass="CVEdicionEspecial" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" dataMode="prototypes" id="ByA-8c-pfG">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" misplaced="YES" dataMode="prototypes" id="ByA-8c-pfG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2978,7 +2914,7 @@ REGISTRARSE?</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0s-oX-1ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2698.125" y="-1103.8732394366195"/>
+            <point key="canvasLocation" x="2134" y="-1264"/>
         </scene>
         <!--Bienvenido-->
         <scene sceneID="K62-ss-WcP">
@@ -5121,7 +5057,7 @@ de La Tercera</string>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0GO-Cv-2MF">
-                                        <rect key="frame" x="165" y="17" width="43" height="43"/>
+                                        <rect key="frame" x="170" y="22" width="34" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="43" id="3Mu-ML-ThH"/>
                                             <constraint firstAttribute="height" constant="45" id="ZZq-cr-jeE"/>
@@ -5130,7 +5066,7 @@ de La Tercera</string>
                                             <constraint firstAttribute="width" constant="41" id="xS0-sB-oDX"/>
                                             <constraint firstAttribute="height" constant="43" id="xjb-EY-Fke"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="AddToSelection.png"/>
+                                        <state key="normal" image="AddToSelection.png"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="ZZq-cr-jeE"/>
@@ -5160,7 +5096,7 @@ de La Tercera</string>
                                             <action selector="decreaseTextSizePressed:" destination="do1-yc-MGh" eventType="touchUpInside" id="cqC-eQ-LO6"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="29 de diciembre de 1998 / 20:44:45" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7u-d9-fbp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="29 de diciembre de 1998 / 20:44:45" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7u-d9-fbp">
                                         <rect key="frame" x="131" y="280" width="179" height="17"/>
                                         <fontDescription key="fontDescription" name="PTSans-Italic" family="PT Sans" pointSize="13"/>
                                         <nil key="highlightedColor"/>
@@ -5179,7 +5115,7 @@ de La Tercera</string>
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Elmer Gruñon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V59-eF-fsH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Elmer Gruñon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V59-eF-fsH">
                                         <rect key="frame" x="21" y="280" width="92" height="17"/>
                                         <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5514,6 +5450,8 @@ de La Tercera</string>
                     <size key="freeformSize" width="320" height="1980"/>
                     <connections>
                         <outlet property="bannerNewsDetailView" destination="s0P-UP-vQ3" id="l6P-Vq-O6P"/>
+                        <outlet property="btnCatFav" destination="0GO-Cv-2MF" id="sLg-8s-djT"/>
+                        <outlet property="btnFav" destination="5q4-el-loU" id="gQg-QC-XYv"/>
                         <outlet property="contentTextView" destination="TaA-I2-pHD" id="7oW-8J-4zH"/>
                         <outlet property="imageViewNews1" destination="O4k-hn-pqk" id="ZuY-gG-4so"/>
                         <outlet property="imageViewNews2" destination="VL3-Q2-9K3" id="YPx-au-IEL"/>
@@ -5953,7 +5891,7 @@ de La Tercera</string>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="GGK-Oi-07S">
-                                <rect key="frame" x="141" y="1105" width="234" height="2.5"/>
+                                <rect key="frame" x="141" y="1104" width="234" height="2.5"/>
                                 <color key="progressTintColor" red="0.68003517670000002" green="0.0066766623929999996" blue="0.034616023340000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="trackTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </progressView>
@@ -6234,13 +6172,13 @@ de La Tercera</string>
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDQ-bs-MGS">
-                                                <rect key="frame" x="14" y="7" width="100" height="26"/>
+                                                <rect key="frame" x="14" y="7" width="106.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
                                                 <color key="textColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="da5-sT-dPw">
-                                                <rect key="frame" x="13" y="35" width="256" height="115"/>
+                                                <rect key="frame" x="13" y="32.5" width="256" height="115"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="115" id="GhP-NX-KhN"/>
                                                 </constraints>
@@ -6300,10 +6238,10 @@ de La Tercera</string>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcO-OZ-ghN" customClass="CustomBorderView">
-                                        <rect key="frame" x="19" y="369" width="284" height="82"/>
+                                        <rect key="frame" x="19" y="369" width="284" height="79.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkZ-KO-tmQ">
-                                                <rect key="frame" x="14" y="6" width="169" height="26"/>
+                                                <rect key="frame" x="14" y="6" width="169" height="23.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="169" id="MBc-jC-gtw"/>
                                                 </constraints>
@@ -6312,7 +6250,7 @@ de La Tercera</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3y-no-jFj">
-                                                <rect key="frame" x="14" y="29" width="256" height="46"/>
+                                                <rect key="frame" x="14" y="29" width="256" height="43.5"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -6535,13 +6473,13 @@ de La Tercera</string>
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fK-Te-nY7">
-                                                <rect key="frame" x="14" y="7" width="100" height="26"/>
+                                                <rect key="frame" x="14" y="7" width="106.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="20"/>
                                                 <color key="textColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkB-wJ-wn2">
-                                                <rect key="frame" x="13" y="35" width="262" height="115"/>
+                                                <rect key="frame" x="13" y="32.5" width="262" height="115"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="115" id="C6h-4p-r18"/>
                                                 </constraints>
@@ -6589,10 +6527,10 @@ de La Tercera</string>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gX-aB-bsm" customClass="CustomBorderView">
-                                        <rect key="frame" x="19" y="369" width="283" height="82"/>
+                                        <rect key="frame" x="19" y="369" width="283" height="79.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIM-4e-b2U">
-                                                <rect key="frame" x="14" y="6" width="169" height="26"/>
+                                                <rect key="frame" x="14" y="6" width="169" height="23.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="169" id="cZs-Wa-Y1J"/>
                                                 </constraints>
@@ -6601,7 +6539,7 @@ de La Tercera</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pY-1s-WiF">
-                                                <rect key="frame" x="14" y="29" width="255" height="46"/>
+                                                <rect key="frame" x="14" y="29" width="255" height="43.5"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -8111,6 +8049,13 @@ de La Tercera</string>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sua-Hk-b54">
+                                                    <rect key="frame" x="8" y="8" width="298" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="showTerminosCondiciones:" destination="mtl-9B-JnJ" eventType="touchUpInside" id="Gwn-bk-nol"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="GR2-5Y-aAD" firstAttribute="leading" secondItem="vMW-Xq-SDB" secondAttribute="leadingMargin" constant="16" id="VhL-KO-eYG"/>
@@ -8324,11 +8269,9 @@ de La Tercera</string>
         <image name="botonServicios.png" width="163" height="43"/>
         <image name="botonServiciosOff.png" width="80" height="42"/>
         <image name="botonServiciosOn.png" width="80" height="42"/>
-        <image name="botonTickets.png" width="332" height="43"/>
         <image name="botonTiempoLibre.png" width="163" height="43"/>
         <image name="botonTiempoLibreOff.png" width="104" height="42"/>
         <image name="botonTiempoLibreOn.png" width="104" height="42"/>
-        <image name="botonTiendaClub.png" width="163" height="43"/>
         <image name="botonTodosOff.png" width="55" height="42"/>
         <image name="botonTodosOn.png" width="55" height="42"/>
         <image name="botonVentasEspeciales.png" width="332" height="43"/>
@@ -8362,8 +8305,8 @@ de La Tercera</string>
         <segue reference="QpD-Og-2iF"/>
         <segue reference="uX9-Ov-tlW"/>
         <segue reference="3eI-5G-D6D"/>
-        <segue reference="wa8-wA-Ypp"/>
-        <segue reference="PJe-0T-m8W"/>
+        <segue reference="3ci-3a-DST"/>
+        <segue reference="wuf-Nj-3R8"/>
         <segue reference="vnn-UP-oet"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

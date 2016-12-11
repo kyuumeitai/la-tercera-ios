@@ -12,7 +12,10 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <GigyaSDK/Gigya.h>
 #import "ConnectionManager.h"
-
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface MiPerfilTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *textFieldUserName;
@@ -73,7 +76,11 @@ NSString *emailMiPerfil;
                                      otherButtonTitles:@"Cancelar", nil];
             [alert show];
         }else{
-             [self.navigationController popViewControllerAnimated:YES];
+            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+            [tracker set:kGAIScreenName value:@"MiPerfil/cerrarSesion/btn"];
+            [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+            
+            [self.navigationController popViewControllerAnimated:YES];
             
         }
     }];

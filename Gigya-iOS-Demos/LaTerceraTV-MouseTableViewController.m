@@ -23,6 +23,10 @@
 #import "ContentType.h"
 #import "BeneficioGeneralDestacadoTableViewCell.h"
 #import "VideoPlayerViewController.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 #define categorySlug @"Mouse"
 
@@ -112,6 +116,10 @@ NSString *storyBoardNameTVMouse;
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingLaTerceraTVMouse = NO;
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"laterceraTV/mouse"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -208,6 +216,9 @@ NSString *storyBoardNameTVMouse;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyBoardNameTVMouse bundle: nil];
     VideoPlayerViewController *controller = (VideoPlayerViewController *)[storyboard instantiateViewControllerWithIdentifier: @"videoWebView"];
     controller.videoURL = url;
+    Video *video = (Video*)[laTerceraTVMouseArray objectAtIndex:indexPath.row ];
+    controller.titulo = video.title;
+    controller.seccion = @"3voz";
     [[self navigationController] pushViewController:controller animated:YES] ;
 }
 
@@ -279,40 +290,42 @@ NSString *storyBoardNameTVMouse;
         indice ++;
         NSLog(@"El Indice es: %d ", indice);
         NSDictionary *dictTitular = (NSDictionary*) titularTemp;
-        id idArt =  [dictTitular objectForKey:@"id"];
-        id title = [dictTitular objectForKey:@"title"];
-        id summary = [dictTitular objectForKey:@"short_description"];
-        
-        NSString *imageThumb ;
-        
-        if (([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]) || ([[dictTitular objectForKey:@"thumb_url"] isEqualToString:@""])){
-            imageThumb = @"https://placekitten.com/200/200";
-        }else{
-            imageThumb = [dictTitular objectForKey:@"thumb_url"];
-        }
         
         NSArray* arrayMedia= [dictTitular objectForKey:@"medias"];
-        NSDictionary *media = (NSDictionary*) arrayMedia[0];
-        id linkVideo = [media objectForKey:@"media_url"];
         
-        
-        
-        Video *video = [[Video alloc] init];
-        video.idVideo = [idArt intValue];
-        video.title = title;
-        video.summary = summary;
-        //NSLog(@"____ IMAGEN THUMBB: %@", imageThumb);
-        video.imagenThumbString = imageThumb;
-        video.link = linkVideo;
-        
-        NSLog(@"____ Numero de pagina: %d", currentPageNumberTVMouse);
-        if (indice == currentPageNumberTVMouse*6 ){
-            NSLog(@"____ currentPageNumberTVMouse*6: %d", currentPageNumberTVMouse*6);
-            // [laTerceraTVMouseArray addObject:@"OBJETO"];
+        if([arrayMedia count] > 0){
+            id idArt =  [dictTitular objectForKey:@"id"];
+            id title = [dictTitular objectForKey:@"title"];
+            id summary = [dictTitular objectForKey:@"short_description"];
+            
+            NSString *imageThumb ;
+            
+            if ([dictTitular objectForKey:@"thumb_url"] || ([[dictTitular objectForKey:@"thumb_url"] isEqualToString:@""])){
+                imageThumb = @"https://placekitten.com/200/200";
+            }else{
+                imageThumb = [dictTitular objectForKey:@"thumb_url"];
+            }
+            
+            NSDictionary *media = (NSDictionary*) arrayMedia[0];
+            id linkVideo = [media objectForKey:@"media_url"];
+            
+            Video *video = [[Video alloc] init];
+            video.idVideo = [idArt intValue];
+            video.title = title;
+            video.summary = summary;
+            //NSLog(@"____ IMAGEN THUMBB: %@", imageThumb);
+            video.imagenThumbString = imageThumb;
+            video.link = linkVideo;
+            
+            NSLog(@"____ Numero de pagina: %d", currentPageNumberTVMouse);
+            if (indice == currentPageNumberTVMouse*6 ){
+                NSLog(@"____ currentPageNumberTVMouse*6: %d", currentPageNumberTVMouse*6);
+                // [laTerceraTVMouseArray addObject:@"OBJETO"];
+            }
+            [video logDescription];
+            
+            [laTerceraTVMouseArray addObject:video];
         }
-        [video logDescription];
-        
-        [laTerceraTVMouseArray addObject:video];
     }
     
     //New code
@@ -320,13 +333,13 @@ NSString *storyBoardNameTVMouse;
         self.view.alpha = 0.0;
         [self.tableView reloadData];
         [UIView animateWithDuration:0.5
-                         animations:^{ self.view.alpha = 1.0; /* Some fake chages */
-                             
+                         animations:^{
+                             self.view.alpha = 1.0; /* Some fake chages */
                          }
-                         completion:^(BOOL finished)
-         {
-             //[SVProgressHUD dismiss];
-         }];
+                         completion:^(BOOL finished){
+                             //[SVProgressHUD dismiss];
+                             
+                         }];
         firstTimeLaTerceraTVMouse= false;
     }else{
         

@@ -14,6 +14,10 @@
 #import "SessionManager.h"
 #import "UserProfile.h"
 #import "Tools.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface DetalleConcursosViewController ()
 
@@ -35,6 +39,16 @@ BOOL forAnonimoContest = false;
     // self.benefitDescriptionTextView.text = _benefitDescription;
     // [self loadBenefitForBenefitId:self.benefitId];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    NSString *value = [NSString stringWithFormat:@"Beneficios/concursos/%@", _concursoTitle];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:value];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

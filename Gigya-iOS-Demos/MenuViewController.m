@@ -32,11 +32,11 @@
     
     
     if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone4"] ){
-    menuItems = @[@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria4", @"categoria5",@"categoria6", @"categoria7", @"categoria8",@"categoria9", @"categoria10",@"categoria13"];
+    menuItems = @[@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria5",@"categoria6", @"categoria7", @"categoria8", @"categoria10",@"categoria13"];
     }else if( [stbName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-        menuItems = @[@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria4", @"categoria5",@"categoria6", @"categoria7", @"categoria8",@"categoria9", @"categoria10", @"categoria13"];
+        menuItems = @[@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria5",@"categoria6", @"categoria7", @"categoria8", @"categoria10", @"categoria13"];
     }else{
-    menuItems = @[@"categoria11",@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria4", @"categoria5",@"categoria6", @"categoria7", @"categoria8",@"categoria9", @"categoria10",  @"categoria12", @"categoria13"];
+    menuItems = @[@"categoria11",@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria5",@"categoria6", @"categoria7", @"categoria8", @"categoria10",  @"categoria12", @"categoria13"];
     }
     //self.automaticallyAdjustsScrollViewInsets = NO;
 

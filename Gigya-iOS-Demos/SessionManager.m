@@ -173,37 +173,95 @@
 -(BOOL) saveMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName{
     
     BOOL exitoso = false;
-    
 
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     
-    if([self isRepeatedForSelectedCategory:idCat]){
-            
-            return false;
-            
+    // Create a new selection category
+    NSArray *noticias = [[NSArray alloc] init];
+    // Fetch the devices from persistent data store
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"CategoriasSeleccion"];
+    noticias = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    //check if existe en favoritos
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"(nombreCat == %@)", categoryName]];
+    
+    NSError *error = nil;
+    NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if([results count] == 0){
+        NSManagedObject *nuevaCategoriaSeleccion = [NSEntityDescription insertNewObjectForEntityForName:@"CategoriasSeleccion" inManagedObjectContext:managedObjectContext];
+        
+        [nuevaCategoriaSeleccion  setValue:categoryName forKey:@"nombreCat"];
+        
+        [nuevaCategoriaSeleccion  setValue:[NSNumber numberWithInt:idCat] forKey:@"idCat"];
+        
+        NSError *error = nil;
+        // Save the object to persistent store
+        if (![managedObjectContext save:&error]) {
+            NSLog(@"No se pudo guardar! %@ %@", error, [error localizedDescription]);
+            exitoso = false;
         }else{
             
-            NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-            
-            // Create a new selection category
-            NSManagedObject *nuevaCategoriaSeleccion = [NSEntityDescription insertNewObjectForEntityForName:@"CategoriasSeleccion" inManagedObjectContext:managedObjectContext];
-            
-            [nuevaCategoriaSeleccion  setValue:categoryName forKey:@"nombreCat"];
-
-            [nuevaCategoriaSeleccion  setValue:[NSNumber numberWithInt:idCat] forKey:@"idCat"];
-            
-            NSError *error = nil;
-            // Save the object to persistent store
-            if (![managedObjectContext save:&error]) {
-                NSLog(@"No se pudo guardar! %@ %@", error, [error localizedDescription]);
-                exitoso = false;
-            }else{
-                
-                exitoso = true;
-            }
-            
+            exitoso = true;
         }
+    }
     
+    return exitoso;
+}
 
+-(BOOL) existCategory:(NSString *)categoryName{
+    
+    BOOL exitoso = false;
+    
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    
+    // Create a new selection category
+    NSArray *noticias = [[NSArray alloc] init];
+    // Fetch the devices from persistent data store
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"CategoriasSeleccion"];
+    noticias = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    //check if existe en favoritos
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"(nombreCat == %@)", categoryName]];
+    
+    NSError *error = nil;
+    NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if([results count] <= 0){
+        exitoso = false;
+    }else{
+        exitoso = true;
+    }
+    
+    return exitoso;
+}
+
+-(BOOL) deleteMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName{
+    
+    BOOL exitoso = false;
+    
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    
+    NSArray *noticias = [[NSArray alloc] init];
+    // Fetch the devices from persistent data store
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"CategoriasSeleccion"];
+    noticias = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    //check if existe en favoritos
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"(nombreCat == %@)", categoryName]];
+    
+    NSError *error = nil;
+    NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if([results count] > 0){
+        //eliminar de favoritos
+        for (NSManagedObject *managedObject in results) {
+            [managedObjectContext deleteObject:managedObject];
+        }
+        
+        exitoso = [managedObjectContext save:&error];
+    }
+    
     return exitoso;
 }
 

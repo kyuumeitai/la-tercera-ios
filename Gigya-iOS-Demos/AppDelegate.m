@@ -14,6 +14,7 @@
 #import <GigyaSDK/Gigya.h>
 #import <CoreData/CoreData.h>
 #import "Headers/MOCA.h"
+#import "GAI.h"
 
 
 @interface AppDelegate  () <GSAccountsDelegate>
@@ -33,6 +34,12 @@
     [Gigya initWithAPIKey:@"3_AG8H3fpJ5N0PHDj7yq7jEA3XNR6fXV0iPnyuxz-sZpYKHmKk9jmjsv_0hlNUFl4q" application:application launchOptions:launchOptions];
     
     [Gigya setAccountsDelegate:self];
+    
+
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
+    [GAI sharedInstance].dispatchInterval = 20;
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-80728886-4"];
     
 [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent]; 
   // [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];

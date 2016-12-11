@@ -9,6 +9,10 @@
 #import "VideoPlayerViewController.h"
 #import "AppDelegate.h"
 #import "MediaPlayer/MediaPlayer.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface VideoPlayerViewController ()
 
@@ -19,8 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"Aca estaa");
-    
-
     
     NSString *fullURL = self.videoURL;
     
@@ -45,6 +47,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:NO];
     [UIView setAnimationsEnabled:NO];
+    
+    NSString *value = [NSString stringWithFormat:@"laterceraTV/%@/%@", _seccion, _titulo];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:value];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
     
     // Stackoverflow #26357162 to force orientation
    // NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];

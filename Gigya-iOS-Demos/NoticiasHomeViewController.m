@@ -25,6 +25,10 @@
 #import "Tools.h"
 #import "ContentType.h"
 #import "SVProgressHUD.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface NoticiasHomeViewController() <YSLContainerViewControllerDelegate, SWRevealViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
@@ -58,6 +62,14 @@ BOOL sidebarMenuOpen ;
     [self.view addGestureRecognizer:tap];
     [self.revealViewController tapGestureRecognizer].enabled = NO;
 
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Noticias/home"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 - (IBAction)logoutGigyaButtonAction:(id)sender {

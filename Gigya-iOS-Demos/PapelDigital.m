@@ -28,7 +28,10 @@
 #import "VidaSanaTableViewController.h"
 #import "ServiciosContainerVC.h"
 #import "ServiciosTableViewController.h"
-
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @implementation PapelDigital
 - (void)viewDidLoad {
@@ -57,6 +60,14 @@
     //[self loadCommerces];
     //[self loadStores];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"botonPapelDigital"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 -(void)loadWeb{

@@ -40,7 +40,9 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
         
         NSMutableArray *titles = [NSMutableArray array];
         for (UIViewController *vc in _childControllers) {
-            [titles addObject:[vc valueForKey:@"title"]];
+            if([vc valueForKey:@"title"]){
+                [titles addObject:[vc valueForKey:@"title"]];
+            }
         }
         _titles = [titles mutableCopy];
     }

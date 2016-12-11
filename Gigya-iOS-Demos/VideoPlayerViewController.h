@@ -11,6 +11,7 @@
 @interface VideoPlayerViewController : UIViewController <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *videoWebView;
 @property (strong,nonatomic) NSString* videoURL;
-
+@property (strong,nonatomic) NSString* seccion;
+@property (strong,nonatomic) NSString* titulo;
 
 @end

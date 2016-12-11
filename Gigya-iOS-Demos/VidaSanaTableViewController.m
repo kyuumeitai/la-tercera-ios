@@ -19,6 +19,10 @@
 #import "SVProgressHUD.h"
 #import "Tools.h"
 #import "SVPullToRefresh.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 #define benefitCategoryId 8
 
 @interface VidaSanaTableViewController ()
@@ -65,6 +69,12 @@ BOOL firstTimeVidaSana = false;
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingVidaSana = NO;
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Beneficios/vidasana"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -193,6 +203,7 @@ BOOL firstTimeVidaSana = false;
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
+    detalleBeneficio.beneficioTipo = @"vidasana";
     [beneficio logDescription];
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
@@ -223,6 +234,7 @@ BOOL firstTimeVidaSana = false;
                     [self.tableView setBounces:NO];
                     [self.tableView setAlwaysBounceVertical:NO];
                     [weakSelf.tableView endUpdates];
+                    [SVProgressHUD dismiss];
                     [weakSelf.tableView.infiniteScrollingView stopAnimating];
                 }
             } else {
@@ -331,7 +343,7 @@ BOOL firstTimeVidaSana = false;
     
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberVidaSana);
     isPageRefreshingVidaSana = YES;
-    //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+    [SVProgressHUD showWithStatus:@"Obteniendo más beneficios ..." maskType:SVProgressHUDMaskTypeClear];
     currentPageNumberVidaSana = currentPageNumberVidaSana +1;
     [self loadBenefitsForCategoryId:benefitCategoryId];
     

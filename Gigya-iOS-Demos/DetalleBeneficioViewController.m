@@ -14,6 +14,10 @@
 #import "SessionManager.h"
 #import "UserProfile.h"
 #import "Tools.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface DetalleBeneficioViewController ()
 
@@ -34,6 +38,16 @@ BOOL forAnonimo = false;
       // self.benefitDescriptionTextView.text = _benefitDescription;
    // [self loadBenefitForBenefitId:self.benefitId];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    NSString *value = [NSString stringWithFormat:@"Beneficios/%@/%@", _beneficioTipo, _benefitTitle];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:value];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,6 +75,7 @@ BOOL forAnonimo = false;
         NSLog(@"el detalle el parametro comercio sale con valor: %@ y commerce Id: %d",comm,commerceId);
         [usarBeneficioController initWithIdBeneficio:ben  andSucursal:sto andCommerce:comm];
     
+        usarBeneficioController.nombreBeneficio = _benefitTitle;
         usarBeneficioController.modalPresentationStyle = UIModalPresentationCurrentContext;
         [self presentViewController:usarBeneficioController animated:YES completion:nil];
     
@@ -81,11 +96,17 @@ BOOL forAnonimo = false;
     CLLocation *userLocation = sesion.userLocation;
 
 
-      CLLocationCoordinate2D coord2DSource = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude);
+    CLLocationCoordinate2D coord2DSource = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude);
     CLLocationCoordinate2D coord2DDestination = CLLocationCoordinate2DMake(self.benefitLocation.coordinate.latitude, self.benefitLocation.coordinate.longitude);
     
-
-    [Tools openMapsAppWithSourceLocation:coord2DSource andDestinationLocation:coord2DDestination];
+    NSLog(@"beneficio: %@", self.benefitLocation);
+    
+    if(self.benefitLocation){
+        [Tools openMapsAppWithSourceLocation:coord2DSource andDestinationLocation:coord2DDestination];
+    }else{
+        NSLog(@"%@", _benefitAdressLabel.text);
+        [Tools openMapsAppWithOneLocationAndAddress:coord2DSource address:_benefitAdressLabel.text];
+    }
 }
 
 
@@ -244,6 +265,7 @@ BOOL forAnonimo = false;
     // NSLog(@"Geolocalizacion es: Latitud:%f, Longuitud:%f",coordenadas.latitude,coordenadas.longitude);
     SessionManager *sesion = [SessionManager session];
     CLLocation *userLocation = sesion.userLocation;
+    self.benefitLocation = coordenadas;
    // CLLocation *coordenadas =self.benefitLocation;
     CLLocationDistance distanceMeters = [coordenadas distanceFromLocation:userLocation];
     //int kms = (int) (distanceMeters/1000);
@@ -395,6 +417,10 @@ BOOL forAnonimo = false;
     
     [Tools shareText:self.benefitSubtitleLabel.text andImage:self.benefitImageView.image  andUrl:[NSURL URLWithString:@"www.google.com"] forSelf:self];
     
+    NSString *value = [NSString stringWithFormat:@"Beneficios/btn/usarbeneficio/compartir/%@", _benefitTitle];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:value];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 

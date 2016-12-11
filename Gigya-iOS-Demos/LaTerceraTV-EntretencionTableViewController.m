@@ -23,6 +23,10 @@
 #import "ContentType.h"
 #import "BeneficioGeneralDestacadoTableViewCell.h"
 #import "VideoPlayerViewController.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 #define categorySlug @"Entretencion"
 
@@ -113,6 +117,10 @@ NSString *storyBoardNameTVEntretencion;
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingLaTerceraTVEntretencion = NO;
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"laterceraTV/entretencion"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -209,6 +217,9 @@ NSString *storyBoardNameTVEntretencion;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyBoardNameTVEntretencion bundle: nil];
     VideoPlayerViewController *controller = (VideoPlayerViewController *)[storyboard instantiateViewControllerWithIdentifier: @"videoWebView"];
     controller.videoURL = url;
+    Video *video = (Video*)[laTerceraTVEntretencionArray objectAtIndex:indexPath.row ];
+    controller.titulo = video.title;
+    controller.seccion = @"3voz";
     [[self navigationController] pushViewController:controller animated:YES] ;
 }
 

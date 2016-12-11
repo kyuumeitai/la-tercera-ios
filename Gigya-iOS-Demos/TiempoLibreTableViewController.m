@@ -17,6 +17,11 @@
 #import "SVProgressHUD.h"
 #import "Tools.h"
 #import "SVPullToRefresh.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
+
 #define benefitCategoryId 5
 
 @interface TiempoLibreTableViewController ()
@@ -64,6 +69,12 @@ BOOL firstTimeTiempoLibre = false;
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingTiempoLibre = NO;
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Beneficios/tiempolibre"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -191,6 +202,7 @@ BOOL firstTimeTiempoLibre = false;
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
+    detalleBeneficio.beneficioTipo = @"tiempolibre";
     [beneficio logDescription];
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
@@ -220,6 +232,7 @@ BOOL firstTimeTiempoLibre = false;
                 }else{
                     [self.tableView setBounces:NO];
                     [self.tableView setAlwaysBounceVertical:NO];
+                    [SVProgressHUD dismiss];
                     [weakSelf.tableView endUpdates];
                     [weakSelf.tableView.infiniteScrollingView stopAnimating];
                 }
@@ -329,7 +342,7 @@ BOOL firstTimeTiempoLibre = false;
     
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberTiempoLibre);
     isPageRefreshingTiempoLibre = YES;
-    //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+    [SVProgressHUD showWithStatus:@"Obteniendo más beneficios ..." maskType:SVProgressHUDMaskTypeClear];
     currentPageNumberTiempoLibre = currentPageNumberTiempoLibre +1;
     [self loadBenefitsForCategoryId:benefitCategoryId];
     

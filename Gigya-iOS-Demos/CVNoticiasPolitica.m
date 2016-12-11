@@ -23,7 +23,10 @@
 #import "SVPullToRefresh.h"
 #import "ContentType.h"
 #import "SVProgressHUD.h"
-
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 //#import "SDWebImage/UIImageView+WebCache.h"
 
@@ -138,6 +141,12 @@ NSMutableArray *relatedIdsArrayPolitica;
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingPolitica = NO;
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Noticias/Politica"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 -(void)loadHeadlinesWithCategory:(int)idCategory{

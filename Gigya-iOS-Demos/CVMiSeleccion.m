@@ -23,6 +23,11 @@
 #import "SVPullToRefresh.h"
 #import "ContentType.h"
 #import "HeaderMiSeleccionReusableView.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
+
 
 #define categoryIdName @"lt"
 #define categorySlug @"home"
@@ -148,6 +153,12 @@ NSMutableArray *relatedIdsArrayMiSeleccion;
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingMiSeleccion = NO;
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Noticias/Miselección"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 -(void)loadHeadlinesWithCategory:(int)idCategory{
@@ -449,7 +460,7 @@ NSMutableArray *relatedIdsArrayMiSeleccion;
         int idArticulo = titular.idArt;
         NSLog(@"id Artículo = %d",idArticulo);
         DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
-     detalleNews.relatedIdsArray = relatedIdsArrayMiSeleccion;
+        detalleNews.relatedIdsArray = relatedIdsArrayMiSeleccion;
         [detalleNews loadBenefitForBenefitId:idArticulo andCategory:categoryTitle];
         [self.navigationController pushViewController:detalleNews animated:YES];
     //}

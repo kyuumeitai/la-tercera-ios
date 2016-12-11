@@ -9,6 +9,11 @@
 #import "MenuMiPerfilViewController.h"
 #import "SessionManager.h"
 #import "SWRevealViewController.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
+
 @interface MenuMiPerfilViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
 
@@ -39,6 +44,14 @@ BOOL sidebarMenuOpenPerfil;
     //SessionManager *sesion = [SessionManager session];
     
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"MiPerfil/inicio"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

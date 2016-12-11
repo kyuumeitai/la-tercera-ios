@@ -24,6 +24,10 @@
 #import "BeneficioGeneralDestacadoTableViewCell.h"
 #import "VideoPlayerViewController.h"
 #import "SVProgressHUD.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 #define categorySlug @"terceratv"
 
@@ -56,7 +60,7 @@ NSString *storyBoardNameTV;
 
 - (void)viewDidLoad {
     
-            [SVProgressHUD showWithStatus:@"Obteniendo listado de videos" maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:@"Obteniendo listado de videos" maskType:SVProgressHUDMaskTypeClear];
     
     [super viewDidLoad];
     self.view.alpha = 0.0;
@@ -115,6 +119,10 @@ NSString *storyBoardNameTV;
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingLaTerceraTV = NO;
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"laterceraTV/home"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -219,6 +227,11 @@ NSString *storyBoardNameTV;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyBoardNameTV bundle: nil];
     VideoPlayerViewController *controller = (VideoPlayerViewController *)[storyboard instantiateViewControllerWithIdentifier: @"videoWebView"];
     controller.videoURL = url;
+    
+    Video *video = (Video*)[laTerceraTVArray objectAtIndex:indexPath.row ];
+    controller.titulo = video.title;
+    controller.seccion = @"Home";
+    
     [[self navigationController] pushViewController:controller animated:YES] ;
 }
 
@@ -242,38 +255,37 @@ NSString *storyBoardNameTV;
     
     if (estaConectado){
 
-
-    [connectionManager getHeadlinesForCategoryId:^(BOOL success, NSArray *arrayJson, NSError *error){
+        [connectionManager getHeadlinesForCategoryId:^(BOOL success, NSArray *arrayJson, NSError *error){
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (!success) {
-                if (isPageRefreshingLaTerceraTV == false){
-                    
-                    //[self errorDetectedWithNSError:error];
-                }else{
-                    //[self.collectionView reloadData];
-                    //[self.collectionView layoutIfNeeded];
-                    [weakSelf.tableView.infiniteScrollingView stopAnimating];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (!success) {
+                    if (isPageRefreshingLaTerceraTV == false){
+                        [SVProgressHUD dismiss];
+                        //[self errorDetectedWithNSError:error];
+                    }else{
+                        //[self.collectionView reloadData];
+                        //[self.collectionView layoutIfNeeded];
+                        [weakSelf.tableView.infiniteScrollingView stopAnimating];
+                    }
+                    NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
                 }
-                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
-            }
-            else {
+                else {
                 
-                NSDictionary *tempDict = (NSDictionary*)arrayJson;
-                id noData = [tempDict objectForKey:@"details"];
+                    NSDictionary *tempDict = (NSDictionary*)arrayJson;
+                    id noData = [tempDict objectForKey:@"details"];
                 
-                if(noData){
+                    if(noData){
                     
-                    isPageRefreshingLaTerceraTV = YES;
+                        isPageRefreshingLaTerceraTV = YES;
                     
-                }else{
+                    }else{
                     
-                    [self reloadHeadlinesDataFromArrayJson:arrayJson];
-                    //NSLog(@"********++++ Lista videos json: %@",arrayJson);
+                        [self reloadHeadlinesDataFromArrayJson:arrayJson];
+                        //NSLog(@"********++++ Lista videos json: %@",arrayJson);
+                    }
                 }
-            }
-        });
-    }:idCategory andPage:currentPageNumberTV];
+            });
+        }:idCategory andPage:currentPageNumberTV];
         
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Requiere conexión a Internet"
@@ -292,6 +304,7 @@ NSString *storyBoardNameTV;
     __weak LaTerceraTV_HomeTableViewController *weakSelf = self;
     NSLog(@"  reload headlines");
     NSDictionary *diccionarioTitulares = (NSDictionary*)arrayJson;
+    NSLog(@"%@", arrayJson);
     //NSLog(@"  reload headlines array, is: %@ ",diccionarioTitulares);
     
     NSArray* arrayTitulares = [diccionarioTitulares objectForKey:@"articles"];

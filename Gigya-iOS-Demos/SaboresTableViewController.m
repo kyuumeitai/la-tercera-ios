@@ -19,6 +19,11 @@
 #import "SVProgressHUD.h"
 #import "Tools.h"
 #import "SVPullToRefresh.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
+
 #define benefitCategoryId 3
 
 @interface SaboresTableViewController ()
@@ -63,6 +68,12 @@ BOOL firstTimeSabores = false;
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingSabores = NO;
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Beneficios/sabores"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -192,6 +203,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
     detalleBeneficio.benefitRemoteId = beneficio.idRemoteBen;
+    detalleBeneficio.beneficioTipo = @"Sabores";
     [beneficio logDescription];
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
@@ -223,6 +235,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
                     [self.tableView setAlwaysBounceVertical:NO];
                     [weakSelf.tableView endUpdates];
                     [weakSelf.tableView.infiniteScrollingView stopAnimating];
+                    [SVProgressHUD dismiss];
                 }
             } else {
                 
@@ -330,11 +343,11 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     NSLog(@"***********   Load More Rows   ************");
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberSabores);
 
-            NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberSabores);
-            isPageRefreshingSabores = YES;
-            //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
-            currentPageNumberSabores = currentPageNumberSabores +1;
-            [self loadBenefitsForCategoryId:benefitCategoryId];
+    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberSabores);
+    isPageRefreshingSabores = YES;
+    [SVProgressHUD showWithStatus:@"Obteniendo más beneficios ..." maskType:SVProgressHUDMaskTypeClear];
+    currentPageNumberSabores = currentPageNumberSabores +1;
+    [self loadBenefitsForCategoryId:benefitCategoryId];
 
 }
 @end

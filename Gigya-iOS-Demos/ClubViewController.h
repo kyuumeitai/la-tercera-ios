@@ -18,6 +18,7 @@ NSMutableArray * categoryItemsArray;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollViewBanner;
+@property (weak, nonatomic) IBOutlet UIButton *btnIdentify;
 @property (nonatomic, retain) NSMutableArray * categoryItemsArray;
 @property (nonatomic, retain) NSMutableArray * starredItemsArray;
 

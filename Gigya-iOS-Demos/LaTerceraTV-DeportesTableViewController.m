@@ -23,6 +23,10 @@
 #import "ContentType.h"
 #import "BeneficioGeneralDestacadoTableViewCell.h"
 #import "VideoPlayerViewController.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 #define categorySlug @"Deportes"
 
@@ -113,6 +117,10 @@ NSString *storyBoardNameTVDeportes;
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingLaTerceraTVDeportes = NO;
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"laterceraTV/deportes"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -210,6 +218,11 @@ NSString *storyBoardNameTVDeportes;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyBoardNameTVDeportes bundle: nil];
     VideoPlayerViewController *controller = (VideoPlayerViewController *)[storyboard instantiateViewControllerWithIdentifier: @"videoWebView"];
     controller.videoURL = url;
+    
+    Video *video = (Video*)[laTerceraTVDeportesArray objectAtIndex:indexPath.row ];
+    controller.titulo = video.title;
+    controller.seccion = @"3voz";
+    
     [[self navigationController] pushViewController:controller animated:YES] ;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

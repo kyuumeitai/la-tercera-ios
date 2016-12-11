@@ -10,6 +10,10 @@
 #import "SessionManager.h"
 #import "SWRevealViewController.h"
 #import "SVProgressHUD.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @implementation TCMastercard
 - (void)viewDidLoad {
@@ -55,6 +59,10 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [SVProgressHUD dismiss];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Beneficios/TCmaster/btn"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 

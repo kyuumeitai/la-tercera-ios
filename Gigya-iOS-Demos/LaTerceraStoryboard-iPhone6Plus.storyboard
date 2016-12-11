@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GVp-39-K6N">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GVp-39-K6N">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -282,26 +282,6 @@ REGISTRARSE?</string>
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="777"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8d-O3-bKI">
-                                                <rect key="frame" x="42" y="656" width="331" height="41"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" backgroundImage="botonTickets.png"/>
-                                                <connections>
-                                                    <action selector="ticketPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="K1X-nE-SEf"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-hL-wGC">
-                                                <rect key="frame" x="43" y="716" width="328" height="48"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.63529411764705879" green="0.090196078431372548" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
-                                                <state key="normal" title="Identifícate como suscriptor">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="identifyUser:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="brJ-eE-ELp"/>
-                                                </connections>
-                                            </button>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ea-xS-7iS">
                                                 <rect key="frame" x="213" y="-60" width="154" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -392,22 +372,6 @@ REGISTRARSE?</string>
                                                     <segue destination="3Mj-nI-R7W" kind="show" identifier="segueServicios" id="sEH-KV-sx8"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7m-Ff-wgN">
-                                                <rect key="frame" x="41" y="461" width="161" height="41"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" backgroundImage="botonTiendaClub.png"/>
-                                                <connections>
-                                                    <action selector="TiendaClubPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="ekV-Uz-L4U"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crv-dZ-YOh">
-                                                <rect key="frame" x="212" y="461" width="161" height="41"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" backgroundImage="botonViajesClub.png"/>
-                                                <connections>
-                                                    <action selector="ViajesClubPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="Z91-n0-w7B"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1j-1i-iao">
                                                 <rect key="frame" x="43" y="558" width="330" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -429,6 +393,26 @@ REGISTRARSE?</string>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </scrollView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-hL-wGC">
+                                                <rect key="frame" x="43" y="656" width="328" height="48"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.63529411764705879" green="0.090196078431372548" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
+                                                <state key="normal" title="Identifícate como suscriptor">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="identifyUser:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="brJ-eE-ELp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crv-dZ-YOh">
+                                                <rect key="frame" x="41" y="461" width="161" height="41"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="botonViajesClub.png"/>
+                                                <connections>
+                                                    <action selector="ViajesClubPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="Z91-n0-w7B"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
@@ -481,6 +465,7 @@ REGISTRARSE?</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="900"/>
                     <connections>
+                        <outlet property="btnIdentify" destination="Xaf-hL-wGC" id="lwI-KT-L4p"/>
                         <outlet property="menuButtonClub" destination="6qO-rI-OhO" id="ZVr-hu-wR0"/>
                         <outlet property="scrollViewBanner" destination="LbF-tv-qo0" id="GGn-1Z-n3N"/>
                     </connections>
@@ -792,31 +777,8 @@ REGISTRARSE?</string>
                                     <segue destination="2RY-Wz-jp8" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="tGK-Kw-sO3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria4" id="rlV-1Y-PY1">
-                                <rect key="frame" x="0.0" y="254" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rlV-1Y-PY1" id="gRy-W9-T1f">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escucha las noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VG-Mm-GqY">
-                                            <rect key="frame" x="55" y="9" width="155" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.25677083333333328" green="0.25677083333333328" blue="0.25677083333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <segue destination="PZL-6c-SOz" kind="show" id="unK-i2-JCl"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria5" id="sMg-PZ-cms">
-                                <rect key="frame" x="0.0" y="298" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="254" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMg-PZ-cms" id="9wN-V6-fJM">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -840,7 +802,7 @@ REGISTRARSE?</string>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria6" id="Zim-0p-Xmu">
-                                <rect key="frame" x="0.0" y="342" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="298" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zim-0p-Xmu" id="oGA-yx-taL">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -862,7 +824,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria7" id="dgc-Iq-tEl">
-                                <rect key="frame" x="0.0" y="386" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="342" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dgc-Iq-tEl" id="CeZ-zH-PPF">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -884,7 +846,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria8" id="DOf-6s-1vO">
-                                <rect key="frame" x="0.0" y="430" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="386" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DOf-6s-1vO" id="Iqw-7w-0Mc">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -905,30 +867,8 @@ REGISTRARSE?</string>
                                     <segue destination="Z9R-79-W4x" kind="show" id="tdK-gX-04o"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria9" id="bbF-dq-hl4">
-                                <rect key="frame" x="0.0" y="474" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bbF-dq-hl4" id="jkY-LC-2pE">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9P1-hM-N39">
-                                            <rect key="frame" x="57" y="8" width="96" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
-                                            <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <segue destination="n9c-AB-wOR" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="UKc-gN-ibL"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria10" id="Mga-7m-mzS">
-                                <rect key="frame" x="0.0" y="518" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="430" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mga-7m-mzS" id="RH0-cO-Bwl">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -954,7 +894,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria12" rowHeight="34" id="iQ2-7t-fbP">
-                                <rect key="frame" x="0.0" y="562" width="320" height="34"/>
+                                <rect key="frame" x="0.0" y="474" width="320" height="34"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iQ2-7t-fbP" id="lmh-aO-T4E">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
@@ -970,7 +910,7 @@ REGISTRARSE?</string>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                             <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoria13" rowHeight="74" id="wIJ-se-IOU">
-                                <rect key="frame" x="0.0" y="596" width="320" height="74"/>
+                                <rect key="frame" x="0.0" y="508" width="320" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wIJ-se-IOU" id="Akj-Fw-uG0">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
@@ -2278,7 +2218,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CZy-ZF-Cgl">
-                                <rect key="frame" x="77.666666666666671" y="12" width="50" height="400"/>
+                                <rect key="frame" x="78" y="12" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -2773,7 +2713,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FBS-Ng-Lh9">
-                                <rect key="frame" x="77.666666666666671" y="14" width="50" height="50"/>
+                                <rect key="frame" x="78" y="14" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -2815,7 +2755,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2lW-IF-Vhf">
-                                <rect key="frame" x="77.666666666666671" y="12" width="50" height="400"/>
+                                <rect key="frame" x="78" y="12" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -2823,7 +2763,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="D6L-7K-EDt">
-                                <rect key="frame" x="147.33333333333334" y="12" width="50" height="400"/>
+                                <rect key="frame" x="147" y="12" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -2831,7 +2771,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wCN-Ly-03V">
-                                <rect key="frame" x="216.66666666666666" y="12" width="50" height="400"/>
+                                <rect key="frame" x="217" y="12" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -2839,7 +2779,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uyy-0Q-k6v">
-                                <rect key="frame" x="286.33333333333331" y="12" width="50" height="400"/>
+                                <rect key="frame" x="286" y="12" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -2863,7 +2803,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oeg-pk-SHh">
-                                <rect key="frame" x="77.666666666666671" y="422" width="50" height="400"/>
+                                <rect key="frame" x="78" y="422" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -2871,7 +2811,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bAD-ch-RiB">
-                                <rect key="frame" x="147.33333333333334" y="422" width="50" height="400"/>
+                                <rect key="frame" x="147" y="422" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -2879,7 +2819,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZPw-Id-ND2">
-                                <rect key="frame" x="216.66666666666666" y="422" width="50" height="400"/>
+                                <rect key="frame" x="217" y="422" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -2887,7 +2827,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="i41-Ov-hT5">
-                                <rect key="frame" x="286.33333333333331" y="422" width="50" height="400"/>
+                                <rect key="frame" x="286" y="422" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -2911,7 +2851,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gNB-cd-DiN">
-                                <rect key="frame" x="77.666666666666671" y="832" width="50" height="400"/>
+                                <rect key="frame" x="78" y="832" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -2919,7 +2859,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="xKs-mC-bkw">
-                                <rect key="frame" x="147.33333333333334" y="832" width="50" height="400"/>
+                                <rect key="frame" x="147" y="832" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -2927,7 +2867,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="RtA-Wm-td7">
-                                <rect key="frame" x="216.66666666666666" y="832" width="50" height="400"/>
+                                <rect key="frame" x="217" y="832" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -2935,7 +2875,7 @@ REGISTRARSE?</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="e9v-rW-wL3">
-                                <rect key="frame" x="286.33333333333331" y="832" width="50" height="400"/>
+                                <rect key="frame" x="286" y="832" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -3424,7 +3364,7 @@ de La Tercera</string>
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="h4w-l8-CB6">
-                                <rect key="frame" x="77.666666666666671" y="12" width="50" height="400"/>
+                                <rect key="frame" x="78" y="12" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="400"/>
@@ -4409,7 +4349,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PFD-Ka-Wy1" id="cdG-zo-Sx5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Slice.png" translatesAutoresizingMaskIntoConstraints="NO" id="KNC-bS-QQI">
@@ -4430,7 +4370,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="47" width="414" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewC-nd-eLv" id="XFx-e6-9mN">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hew-d5-Dal">
@@ -4454,7 +4394,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="94" width="414" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x6e-Yb-35i" id="L29-3t-ACo">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="46.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Historial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D9-dj-ayX">
@@ -4474,7 +4414,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="141" width="414" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BPB-JC-yl5" id="gP5-zT-CeS">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="46.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favoritos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piK-3F-1p6">
@@ -4494,7 +4434,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="188" width="414" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wzw-Rf-dlm" id="PDB-wS-lD4">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdf-M4-SXf">
@@ -4803,10 +4743,10 @@ de La Tercera</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="UAm-Np-51C">
-                                <rect key="frame" x="0.0" y="-4" width="416" height="84.666666666666671"/>
+                                <rect key="frame" x="0.0" y="-4" width="416" height="85"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Se5-7G-3Zo">
-                                <rect key="frame" x="0.0" y="90.666666666666629" width="414" height="1785.3333333333335"/>
+                                <rect key="frame" x="0.0" y="91" width="414" height="1785"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Presidente del Senado propone contrapesar poder de Hacienda en materia presupuestaria" textAlignment="justified" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JbC-2L-MFY">
                                         <rect key="frame" x="21" y="70" width="374" height="99"/>
@@ -4838,13 +4778,13 @@ de La Tercera</string>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M91-GD-hSF">
-                                        <rect key="frame" x="185" y="16" width="43" height="43"/>
+                                        <rect key="frame" x="190" y="21" width="34" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="43" id="mWA-4d-WWP"/>
                                             <constraint firstAttribute="width" constant="41" id="pCt-9J-i4X"/>
                                             <constraint firstAttribute="height" constant="43" id="sMz-ix-5mx"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="AddToSelection.png"/>
+                                        <state key="normal" image="AddToSelection.png"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="pCt-9J-i4X"/>
@@ -5238,7 +5178,7 @@ de La Tercera</string>
                                 </variation>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwt-ji-0t0">
-                                <rect key="frame" x="2" y="24.666666666666671" width="42" height="52"/>
+                                <rect key="frame" x="2" y="25" width="42" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="28J-DD-1eI"/>
                                     <constraint firstAttribute="width" constant="42" id="kTZ-xk-rak"/>
@@ -5246,16 +5186,6 @@ de La Tercera</string>
                                 <state key="normal" image="botonVolver.png"/>
                                 <connections>
                                     <action selector="backButtonClicked:" destination="3Aa-4A-cus" eventType="touchUpInside" id="PYD-Qq-t9R"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txp-2K-X8f">
-                                <rect key="frame" x="349" y="29" width="45" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="SDe-hi-eoF"/>
-                                </constraints>
-                                <state key="normal" image="botonFavorito.png"/>
-                                <connections>
-                                    <action selector="addToFavorite:" destination="3Aa-4A-cus" eventType="touchUpInside" id="vGE-Sb-v2A"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZP-zN-sRX">
@@ -5275,13 +5205,26 @@ de La Tercera</string>
                                             <action selector="shareArticle:" destination="3Aa-4A-cus" eventType="touchUpInside" id="XZi-gf-34r"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txp-2K-X8f">
+                                        <rect key="frame" x="280" y="8" width="45" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="SDe-hi-eoF"/>
+                                        </constraints>
+                                        <state key="normal" image="botonFavorito.png"/>
+                                        <connections>
+                                            <action selector="addToFavorite:" destination="3Aa-4A-cus" eventType="touchUpInside" id="vGE-Sb-v2A"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.70196078429999997" green="0.15686274510000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="g7D-fp-udT" firstAttribute="top" secondItem="sZP-zN-sRX" secondAttribute="top" constant="18" id="4mY-ZM-98i"/>
                                     <constraint firstAttribute="trailing" secondItem="cuN-Nn-1wJ" secondAttribute="trailing" constant="62" id="70N-MD-ye8"/>
+                                    <constraint firstItem="Txp-2K-X8f" firstAttribute="leading" secondItem="cuN-Nn-1wJ" secondAttribute="trailing" constant="9" id="IlT-Gh-ZeC"/>
                                     <constraint firstItem="g7D-fp-udT" firstAttribute="centerY" secondItem="cuN-Nn-1wJ" secondAttribute="centerY" id="SFT-9W-8et"/>
+                                    <constraint firstItem="Txp-2K-X8f" firstAttribute="baseline" secondItem="cuN-Nn-1wJ" secondAttribute="baseline" id="VcQ-7r-ILt"/>
                                     <constraint firstItem="g7D-fp-udT" firstAttribute="leading" secondItem="sZP-zN-sRX" secondAttribute="leading" constant="9" id="blf-km-oNW"/>
+                                    <constraint firstItem="Txp-2K-X8f" firstAttribute="trailing" secondItem="sZP-zN-sRX" secondAttribute="trailingMargin" id="dJF-Mc-zub"/>
                                     <constraint firstAttribute="bottom" secondItem="g7D-fp-udT" secondAttribute="bottom" constant="14" id="gFB-9y-3yB"/>
                                     <constraint firstItem="cuN-Nn-1wJ" firstAttribute="top" secondItem="sZP-zN-sRX" secondAttribute="top" constant="4" id="glu-Ju-g9Y"/>
                                     <constraint firstAttribute="height" constant="54" id="j3a-4Y-zEb"/>
@@ -5305,9 +5248,7 @@ de La Tercera</string>
                             <constraint firstAttribute="trailing" secondItem="UAm-Np-51C" secondAttribute="trailing" constant="-2" id="FDV-PL-tKf"/>
                             <constraint firstItem="Se5-7G-3Zo" firstAttribute="trailing" secondItem="sZP-zN-sRX" secondAttribute="trailing" id="GwR-Y1-n6N"/>
                             <constraint firstItem="sZP-zN-sRX" firstAttribute="leading" secondItem="Gwt-ji-0t0" secondAttribute="trailing" constant="26" id="KPs-0Z-3y3"/>
-                            <constraint firstAttribute="trailing" secondItem="Txp-2K-X8f" secondAttribute="trailing" constant="20" id="L7d-Qg-qRR"/>
                             <constraint firstItem="UAm-Np-51C" firstAttribute="trailing" secondItem="sZP-zN-sRX" secondAttribute="trailing" constant="13" id="LGg-zV-It7"/>
-                            <constraint firstItem="g7D-fp-udT" firstAttribute="centerY" secondItem="Txp-2K-X8f" secondAttribute="centerY" constant="-1" id="UaL-SI-sqf"/>
                             <constraint firstItem="Se5-7G-3Zo" firstAttribute="top" secondItem="UAm-Np-51C" secondAttribute="bottom" constant="10" id="VUS-CO-7lE"/>
                             <constraint firstItem="Se5-7G-3Zo" firstAttribute="trailing" secondItem="UAm-Np-51C" secondAttribute="trailing" id="gmt-ue-WG0"/>
                             <constraint firstItem="UAm-Np-51C" firstAttribute="leading" secondItem="eH3-Pz-nlf" secondAttribute="leading" id="hXO-Cs-Yto"/>
@@ -5341,6 +5282,8 @@ de La Tercera</string>
                     <size key="freeformSize" width="414" height="1890"/>
                     <connections>
                         <outlet property="bannerNewsDetailView" destination="9kT-rP-ZuH" id="Xw2-Bu-J2T"/>
+                        <outlet property="btnCatFav" destination="M91-GD-hSF" id="gCg-rm-u9q"/>
+                        <outlet property="btnFav" destination="Txp-2K-X8f" id="aZ8-mf-37B"/>
                         <outlet property="contentTextView" destination="PTg-Zn-Vsf" id="2Q3-dF-4Rt"/>
                         <outlet property="imageViewNews1" destination="wkw-nt-5Ti" id="rbY-Iw-VSL"/>
                         <outlet property="imageViewNews2" destination="4Ib-I3-8t9" id="tWl-06-bln"/>
@@ -5394,18 +5337,18 @@ de La Tercera</string>
                         <viewControllerLayoutGuide type="bottom" id="MCo-ew-xOS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9p5-sb-nbh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="675"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarraLT.png" translatesAutoresizingMaskIntoConstraints="NO" id="nbp-JF-yvA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                             </imageView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Fd-Ar-DXS">
                                 <rect key="frame" x="180" y="33" width="133" height="27"/>
                                 <color key="backgroundColor" red="0.71938866889999997" green="0.1032037676" blue="0.1571589997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcv-d6-awv">
-                                <rect key="frame" x="3" y="22" width="47" height="47"/>
+                                <rect key="frame" x="7" y="22" width="47" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="47" id="2nW-qo-gfi"/>
                                     <constraint firstAttribute="height" constant="47" id="VDg-eC-S8P"/>
@@ -5416,10 +5359,10 @@ de La Tercera</string>
                                 </connections>
                             </button>
                             <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7H1-t2-alf">
-                                <rect key="frame" x="0.0" y="77" width="320" height="598"/>
+                                <rect key="frame" x="0.0" y="77" width="414" height="659"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnx-io-n7Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="598"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="659"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="CfH-XJ-fg4" kind="embed" id="lad-ED-S07"/>
@@ -5476,7 +5419,7 @@ de La Tercera</string>
             <objects>
                 <collectionViewController title="CVVoces" id="CfH-XJ-fg4" customClass="CVVoces" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="EMu-8d-B1E">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="598"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="659"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="g5h-y7-jNd">
@@ -5487,7 +5430,7 @@ de La Tercera</string>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LvV-tv-z0K">
-                                <rect key="frame" x="75" y="10" width="170" height="267"/>
+                                <rect key="frame" x="12" y="10" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -5496,7 +5439,7 @@ de La Tercera</string>
                                 <color key="backgroundColor" red="0.93388637510000005" green="0.95256410260000002" blue="0.95256410260000002" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Cb4-gr-btH">
-                                <rect key="frame" x="75" y="287" width="170" height="267"/>
+                                <rect key="frame" x="232" y="10" width="170" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
@@ -5777,7 +5720,7 @@ de La Tercera</string>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="dFT-Hn-kXt">
-                                <rect key="frame" x="141" y="1105" width="234" height="2.6666666666667425"/>
+                                <rect key="frame" x="141" y="1104" width="234" height="2.6666666666667425"/>
                                 <color key="progressTintColor" red="0.68003517670000002" green="0.0066766623929999996" blue="0.034616023340000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="trackTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </progressView>
@@ -6621,7 +6564,7 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NMr-ba-TD9" id="zql-lr-dIr">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -6686,7 +6629,7 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QrY-hl-l3B" id="6hG-gV-1Ec">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -6751,7 +6694,7 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L6w-UP-xRE" id="pMQ-xc-9gO">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -6816,7 +6759,7 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kRr-oI-5RD" id="ZZg-8A-192">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -6881,7 +6824,7 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JMl-m6-HDj" id="p7g-pO-AGG">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -6946,7 +6889,7 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1wp-jz-14t" id="FVc-Wi-C8K">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -7011,7 +6954,7 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TvB-ef-oFN" id="PHh-9K-Q7d">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -7076,7 +7019,7 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sT7-Aa-p2s" id="p7W-rG-Ap5">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -7141,7 +7084,7 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jzb-3b-LWD" id="Hrr-E9-mxq">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -7206,7 +7149,7 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Efj-ac-dNl" id="5Hi-S1-4w7">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -7271,7 +7214,7 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="28" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DsA-zI-eWl" id="byo-Iw-OLZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -7462,7 +7405,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ncU-6S-nVM" id="dwT-hK-8c1">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Elige tus categorías de beneficios favoritas:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0n-Xu-tZ4">
@@ -7482,7 +7425,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="49" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZzR-Dl-5dx" id="qQl-v7-IJc">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asistencia en viajes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0p-Er-nrv">
@@ -7513,7 +7456,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="98" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jgE-V4-4cQ" id="q1s-rb-lG9">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bancos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XE6-BD-yCa">
@@ -7544,7 +7487,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="147" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xzr-at-2Qx" id="J5l-62-iGX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Casas de cambio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwT-ML-aZi">
@@ -7575,7 +7518,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="196" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nyy-Sk-ZfZ" id="fCA-0p-7v3">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chocolatería Duty Free" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPu-Q9-irp">
@@ -7606,7 +7549,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="245" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m6W-bo-jw6" id="ZWF-eG-ueU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuidado Personal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPi-Dn-Z5u">
@@ -7637,7 +7580,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="294" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uU4-XB-Hm3" id="SQo-sT-21K">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farmacias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubW-cn-Whj">
@@ -7668,7 +7611,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="343" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Xm-UV-zRt" id="fkw-u4-8Tp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK7-pj-aEb">
@@ -7699,7 +7642,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="392" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5fr-5Q-hOm" id="fCe-SU-R0S">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoteles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4M-RR-JXV">
@@ -7730,7 +7673,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="441" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7dr-Ib-6r9" id="4qt-ei-g9q">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jardines infantiles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jg-G0-8vm">
@@ -7761,7 +7704,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="490" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oem-2w-WH5" id="3qf-O4-CY2">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jugueterías" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMg-8c-GGM">
@@ -7792,7 +7735,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="539" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wHp-09-ZWs" id="b02-b7-oX0">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minimarkets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8q-sz-YZ3">
@@ -7823,7 +7766,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="588" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wdW-Na-w8t" id="vBv-gb-fjg">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Música" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhN-Md-bjy">
@@ -7854,7 +7797,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="637" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lKR-kq-b6l" id="16p-gy-yhk">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurantes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yo0-Di-wFu">
@@ -7885,7 +7828,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="686" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bVU-Gg-wzD" id="nGh-Qe-qSB">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeH-2v-NWn">
@@ -7916,7 +7859,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="735" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GlM-wf-AeN" id="mPI-fN-ySv">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tecnología" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gA-bw-sLe">
@@ -7947,7 +7890,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="784" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yVD-Za-h52" id="7dr-sq-bd8">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefonía" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSj-xC-FyA">
@@ -7978,7 +7921,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="833" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZJe-hV-L6X" id="bwz-fw-fWh">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transporte" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZ2-7q-Nvg">
@@ -8009,7 +7952,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="882" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="maA-ET-fb1" id="CDb-9z-875">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turismo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQ8-Yc-8QP">
@@ -8040,7 +7983,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="931" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OsV-NR-CiJ" id="nS7-aQ-fE8">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vestuario y accesorios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqj-NQ-iVk">
@@ -8071,7 +8014,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="980" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wrl-YN-5aT" id="3m4-i1-cU5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vinos y licores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNv-1c-IfC">
@@ -8102,7 +8045,7 @@ de La Tercera</string>
                                         <rect key="frame" x="0.0" y="1029" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="diS-g5-7p0" id="lsw-oq-oc0">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="48.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Términos de Uso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWf-sc-NL8">
@@ -8114,6 +8057,13 @@ de La Tercera</string>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfY-EC-j19">
+                                                    <rect key="frame" x="24" y="8" width="357" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="showTerminosCondiciones:" destination="GYE-df-k4o" eventType="touchUpInside" id="64Z-ty-w4O"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="yWf-sc-NL8" firstAttribute="leading" secondItem="lsw-oq-oc0" secondAttribute="leadingMargin" constant="16" id="Olx-NO-BmT"/>
@@ -8155,7 +8105,7 @@ de La Tercera</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYE-Ff-MI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-198" y="-2306"/>
+            <point key="canvasLocation" x="-198" y="-2306.5"/>
         </scene>
         <!--Historial Perfil-->
         <scene sceneID="CF8-y7-9wB">
@@ -8261,18 +8211,18 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="28" width="416" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gce-i7-N9y" id="hOt-XJ-phY">
-                                    <rect key="frame" x="0.0" y="0.0" width="416" height="63.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="416" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4b9-Du-FHq">
-                                            <rect key="frame" x="15" y="14" width="34" height="22"/>
+                                            <rect key="frame" x="15" y="13" width="34" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rmJ-Jr-viA">
-                                            <rect key="frame" x="14.999999999999996" y="36" width="43.666666666666664" height="14.333333333333334"/>
+                                            <rect key="frame" x="15" y="35" width="44" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -8385,11 +8335,11 @@ de La Tercera</string>
                                 <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I3q-Ex-WDc" id="a0N-y9-eVV">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="84.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noticia es la notica que te dice noticia Noticia es la notica que te dice noticia Noticia es la notica que te dice noticia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iv6-lu-TgZ">
-                                            <rect key="frame" x="13" y="20" width="351" height="61"/>
+                                            <rect key="frame" x="13" y="20" width="351" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="351" id="ICQ-eU-I9i"/>
                                             </constraints>
@@ -8398,13 +8348,13 @@ de La Tercera</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29 -04 . 2012 / 12:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j04-xr-BCy">
-                                            <rect key="frame" x="120.99999999999999" y="2" width="230" height="23"/>
+                                            <rect key="frame" x="120.99999999999999" y="2" width="230" height="22"/>
                                             <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="13"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="El Deportivo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flt-7C-EL3">
-                                            <rect key="frame" x="13" y="2" width="106" height="23"/>
+                                            <rect key="frame" x="13" y="2" width="106" height="22"/>
                                             <color key="backgroundColor" red="0.68003517670000002" green="0.0066766623929999996" blue="0.034616023340000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="106" id="RAv-pL-v8K"/>
@@ -8479,11 +8429,9 @@ de La Tercera</string>
         <image name="botonServicios.png" width="163" height="43"/>
         <image name="botonServiciosOff.png" width="80" height="42"/>
         <image name="botonServiciosOn.png" width="80" height="42"/>
-        <image name="botonTickets.png" width="332" height="43"/>
         <image name="botonTiempoLibre.png" width="163" height="43"/>
         <image name="botonTiempoLibreOff.png" width="104" height="42"/>
         <image name="botonTiempoLibreOn.png" width="104" height="42"/>
-        <image name="botonTiendaClub.png" width="163" height="43"/>
         <image name="botonTodosOff.png" width="55" height="42"/>
         <image name="botonTodosOn.png" width="55" height="42"/>
         <image name="botonVentasEspeciales.png" width="332" height="43"/>

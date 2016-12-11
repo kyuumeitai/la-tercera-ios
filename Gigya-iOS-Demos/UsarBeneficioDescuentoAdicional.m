@@ -12,6 +12,10 @@
 #import "ConnectionManager.h"
 #import "UserProfile.h"
 #import "SessionManager.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface UsarBeneficioDescuentoAdicional ()
 
@@ -40,6 +44,15 @@ int monto = 0;
     //codComercio = _codigoComercioTextfield.text;
 
     // Do view setup here.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    NSString *value = [NSString stringWithFormat:@"Beneficios/btn/usarbeneficio/%@", _nombreBeneficio];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:value];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)initWithIdBeneficio:(NSString*)_idBeneficio andSucursal:(NSString*)_idSucursal andCommerce:(NSString*)_idComercio{

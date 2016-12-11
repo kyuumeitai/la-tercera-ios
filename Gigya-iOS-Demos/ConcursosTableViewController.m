@@ -17,6 +17,11 @@
 #import "SVProgressHUD.h"
 #import "Tools.h"
 #import "SVPullToRefresh.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
+
 #define benefitCategoryId 39
 
 
@@ -61,6 +66,12 @@ BOOL firstTimeConcursos = false;
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingConcursos = NO;
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Beneficios/concursos"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

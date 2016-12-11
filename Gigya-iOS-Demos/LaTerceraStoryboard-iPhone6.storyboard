@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GVp-39-K6N">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GVp-39-K6N">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -317,7 +317,7 @@ REGISTRARSE?</string>
             <objects>
                 <navigationController storyboardIdentifier="initialViewController" navigationBarHidden="YES" id="GVp-39-K6N" customClass="InitialViewController" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hih-em-URh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hih-em-URh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -347,8 +347,8 @@ REGISTRARSE?</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wYU-8X-eIk">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="777"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dch-b5-2b7">
-                                                <rect key="frame" x="19" y="207" width="338" height="43"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dch-b5-2b7">
+                                                <rect key="frame" x="19" y="208" width="338" height="43"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="43" id="r1N-bS-qid"/>
                                                 </constraints>
@@ -357,8 +357,8 @@ REGISTRARSE?</string>
                                                     <segue destination="Uc6-It-8ad" kind="show" identifier="segueMasCercanos" id="3BC-u9-lZ8"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categorías" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7l9-pw-46F">
-                                                <rect key="frame" x="57" y="269" width="91" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Categorías" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7l9-pw-46F">
+                                                <rect key="frame" x="57" y="270" width="91" height="23.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="91" id="P5s-T5-eeu"/>
                                                 </constraints>
@@ -376,11 +376,11 @@ REGISTRARSE?</string>
                                                 <color key="textColor" red="0.15595541099999999" green="0.15907451919999999" blue="0.15907451919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clublaterceraRojo.png" translatesAutoresizingMaskIntoConstraints="NO" id="EYi-dz-LOn">
-                                                <rect key="frame" x="19" y="263" width="29" height="39"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="clublaterceraRojo.png" translatesAutoresizingMaskIntoConstraints="NO" id="EYi-dz-LOn">
+                                                <rect key="frame" x="19" y="264" width="29" height="38.5"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eventos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQB-Po-lgN">
-                                                <rect key="frame" x="60" y="515" width="91" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Eventos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQB-Po-lgN">
+                                                <rect key="frame" x="60" y="515.5" width="91" height="23.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="91" id="5lZ-LW-Zjh"/>
                                                 </constraints>
@@ -388,11 +388,11 @@ REGISTRARSE?</string>
                                                 <color key="textColor" red="0.3294117647" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clublaterceraRojo.png" translatesAutoresizingMaskIntoConstraints="NO" id="PGC-eN-yzL">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="clublaterceraRojo.png" translatesAutoresizingMaskIntoConstraints="NO" id="PGC-eN-yzL">
                                                 <rect key="frame" x="22" y="511" width="29" height="36"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4RG-eA-yC0">
-                                                <rect key="frame" x="19" y="310" width="161" height="41"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4RG-eA-yC0">
+                                                <rect key="frame" x="19" y="310.5" width="161" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="161" id="STg-t8-aSO"/>
                                                     <constraint firstAttribute="height" constant="41" id="eMx-Nr-imw"/>
@@ -402,15 +402,15 @@ REGISTRARSE?</string>
                                                     <segue destination="3Mj-nI-R7W" kind="show" identifier="segueSabores" id="vnn-UP-oet"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fp-Xz-86M">
-                                                <rect key="frame" x="190" y="310" width="167" height="41"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fp-Xz-86M">
+                                                <rect key="frame" x="190" y="310.5" width="167" height="41"/>
                                                 <state key="normal" backgroundImage="botonInfantil.png"/>
                                                 <connections>
                                                     <segue destination="3Mj-nI-R7W" kind="show" identifier="segueInfantil" id="oO6-al-cZA"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrQ-K4-dF3">
-                                                <rect key="frame" x="22" y="359" width="161" height="41"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrQ-K4-dF3">
+                                                <rect key="frame" x="22" y="359.5" width="161" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="2Ph-WD-Ouf"/>
                                                     <constraint firstAttribute="width" constant="161" id="oVw-nI-uIv"/>
@@ -420,15 +420,15 @@ REGISTRARSE?</string>
                                                     <segue destination="3Mj-nI-R7W" kind="show" identifier="segueTiempoLibre" id="Q6M-hV-hd0"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJ6-WS-vBL">
-                                                <rect key="frame" x="193" y="359" width="161" height="41"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJ6-WS-vBL">
+                                                <rect key="frame" x="193" y="359.5" width="161" height="41"/>
                                                 <state key="normal" backgroundImage="botonVidaSana.png"/>
                                                 <connections>
                                                     <segue destination="3Mj-nI-R7W" kind="show" identifier="segueVidaSana" id="fW6-ge-Pjo"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssX-Nb-jw1">
-                                                <rect key="frame" x="22" y="408" width="161" height="41"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssX-Nb-jw1">
+                                                <rect key="frame" x="22" y="408.5" width="161" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="IhN-YO-kOO"/>
                                                 </constraints>
@@ -437,31 +437,14 @@ REGISTRARSE?</string>
                                                     <action selector="TCMastercardPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="gI2-kE-Mzw"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uK-vg-2Zk">
-                                                <rect key="frame" x="193" y="408" width="161" height="41"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uK-vg-2Zk">
+                                                <rect key="frame" x="193" y="408.5" width="161" height="41"/>
                                                 <state key="normal" backgroundImage="botonServicios.png"/>
                                                 <connections>
                                                     <segue destination="3Mj-nI-R7W" kind="show" identifier="segueServicios" id="sEH-KV-sx8"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7m-Ff-wgN">
-                                                <rect key="frame" x="19" y="457" width="161" height="41"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="41" id="neB-Iw-oln"/>
-                                                </constraints>
-                                                <state key="normal" backgroundImage="botonTiendaClub.png"/>
-                                                <connections>
-                                                    <action selector="TiendaClubPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="7SY-sL-ZM5"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crv-dZ-YOh">
-                                                <rect key="frame" x="190" y="457" width="167" height="41"/>
-                                                <state key="normal" backgroundImage="botonViajesClub.png"/>
-                                                <connections>
-                                                    <action selector="ViajesClubPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="MQA-gM-qdE"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1j-1i-iao">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1j-1i-iao">
                                                 <rect key="frame" x="18" y="558" width="339" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="i49-pW-lZj"/>
@@ -471,7 +454,7 @@ REGISTRARSE?</string>
                                                     <action selector="VentasEspecialesPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="Pxz-Ic-bXA"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlr-5z-yWp">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlr-5z-yWp">
                                                 <rect key="frame" x="19" y="607" width="332" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="cuv-6L-VDQ"/>
@@ -481,18 +464,16 @@ REGISTRARSE?</string>
                                                     <segue destination="7Au-u7-sym" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="2Aj-g3-NBn"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8d-O3-bKI">
-                                                <rect key="frame" x="22" y="656" width="332" height="41"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="41" id="zR3-dw-vms"/>
-                                                </constraints>
-                                                <state key="normal" backgroundImage="botonTickets.png"/>
-                                                <connections>
-                                                    <action selector="ticketPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="l4k-Ou-LcA"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-hL-wGC">
-                                                <rect key="frame" x="19" y="716" width="332" height="48"/>
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ea-xS-7iS">
+                                                <rect key="frame" x="213" y="-60" width="154" height="44"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9W4-tb-m5g">
+                                                <rect key="frame" x="22" y="37" width="329" height="157"/>
+                                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </scrollView>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-hL-wGC">
+                                                <rect key="frame" x="19" y="656" width="332" height="48"/>
                                                 <color key="backgroundColor" red="0.63529411764705879" green="0.090196078431372548" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="CnA-2I-plr"/>
@@ -505,14 +486,13 @@ REGISTRARSE?</string>
                                                     <action selector="identifyUser:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="Vmh-iK-ISS"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ea-xS-7iS">
-                                                <rect key="frame" x="213" y="-60" width="154" height="44"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9W4-tb-m5g">
-                                                <rect key="frame" x="22" y="37" width="329" height="156"/>
-                                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            </scrollView>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crv-dZ-YOh">
+                                                <rect key="frame" x="22" y="457" width="167" height="41"/>
+                                                <state key="normal" backgroundImage="botonViajesClub.png"/>
+                                                <connections>
+                                                    <action selector="ViajesClubPressed:" destination="LKO-m6-Nmk" eventType="touchUpInside" id="MQA-gM-qdE"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -526,14 +506,11 @@ REGISTRARSE?</string>
                                             <constraint firstItem="6uK-vg-2Zk" firstAttribute="top" secondItem="TJ6-WS-vBL" secondAttribute="bottom" constant="8" symbolic="YES" id="71z-5L-o4b"/>
                                             <constraint firstItem="ho3-eu-Uyk" firstAttribute="top" secondItem="wYU-8X-eIk" secondAttribute="top" constant="9" id="7Jd-zg-vsD"/>
                                             <constraint firstAttribute="trailing" secondItem="Qlr-5z-yWp" secondAttribute="trailing" constant="24" id="7P8-CJ-Qrw"/>
-                                            <constraint firstItem="v7m-Ff-wgN" firstAttribute="leading" secondItem="Qlr-5z-yWp" secondAttribute="leading" id="D1Z-fT-qaA"/>
                                             <constraint firstItem="4Fp-Xz-86M" firstAttribute="leading" secondItem="4RG-eA-yC0" secondAttribute="trailing" constant="10" id="Dgw-hT-WOO"/>
                                             <constraint firstItem="QrQ-K4-dF3" firstAttribute="top" secondItem="TJ6-WS-vBL" secondAttribute="top" id="Exh-BN-tDd"/>
-                                            <constraint firstItem="v7m-Ff-wgN" firstAttribute="top" secondItem="Crv-dZ-YOh" secondAttribute="top" id="J8X-iy-Pec"/>
                                             <constraint firstItem="EYi-dz-LOn" firstAttribute="top" secondItem="dch-b5-2b7" secondAttribute="bottom" constant="13" id="JJc-RX-aKR"/>
                                             <constraint firstItem="ssX-Nb-jw1" firstAttribute="top" secondItem="QrQ-K4-dF3" secondAttribute="bottom" constant="8" symbolic="YES" id="JYy-v2-gm8"/>
                                             <constraint firstAttribute="bottom" secondItem="Xaf-hL-wGC" secondAttribute="bottom" constant="13" id="JfV-Sg-B2j"/>
-                                            <constraint firstItem="dch-b5-2b7" firstAttribute="centerX" secondItem="c8d-O3-bKI" secondAttribute="centerX" id="KWE-Yg-6SJ"/>
                                             <constraint firstItem="Qlr-5z-yWp" firstAttribute="leading" secondItem="Xaf-hL-wGC" secondAttribute="leading" id="MtA-Cc-ws9"/>
                                             <constraint firstItem="QrQ-K4-dF3" firstAttribute="trailing" secondItem="ssX-Nb-jw1" secondAttribute="trailing" id="N0e-On-amT"/>
                                             <constraint firstItem="EYi-dz-LOn" firstAttribute="leading" secondItem="4RG-eA-yC0" secondAttribute="leading" id="NZ3-qA-dia"/>
@@ -543,36 +520,28 @@ REGISTRARSE?</string>
                                             <constraint firstItem="Z1j-1i-iao" firstAttribute="top" secondItem="PGC-eN-yzL" secondAttribute="bottom" constant="11" id="Twr-t1-86D"/>
                                             <constraint firstItem="Crv-dZ-YOh" firstAttribute="top" secondItem="6uK-vg-2Zk" secondAttribute="bottom" constant="8" symbolic="YES" id="VBf-F4-tf0"/>
                                             <constraint firstItem="9W4-tb-m5g" firstAttribute="leading" secondItem="ho3-eu-Uyk" secondAttribute="leading" id="WPh-lc-GZ6"/>
-                                            <constraint firstItem="v7m-Ff-wgN" firstAttribute="bottom" secondItem="Crv-dZ-YOh" secondAttribute="bottom" id="XN5-Ke-pHY"/>
                                             <constraint firstItem="7l9-pw-46F" firstAttribute="top" secondItem="dch-b5-2b7" secondAttribute="bottom" constant="19" id="Ztt-ZP-u8z"/>
-                                            <constraint firstItem="v7m-Ff-wgN" firstAttribute="top" secondItem="ssX-Nb-jw1" secondAttribute="bottom" constant="8" symbolic="YES" id="aXM-X3-rlk"/>
                                             <constraint firstItem="9W4-tb-m5g" firstAttribute="trailing" secondItem="Qlr-5z-yWp" secondAttribute="trailing" id="bNv-Pt-aMf"/>
                                             <constraint firstItem="QrQ-K4-dF3" firstAttribute="top" secondItem="4RG-eA-yC0" secondAttribute="bottom" constant="8" symbolic="YES" id="cfS-wq-6Dw"/>
-                                            <constraint firstItem="Xaf-hL-wGC" firstAttribute="top" secondItem="c8d-O3-bKI" secondAttribute="bottom" constant="19" id="cvO-lx-Ubq"/>
                                             <constraint firstItem="9Ea-xS-7iS" firstAttribute="leading" secondItem="wYU-8X-eIk" secondAttribute="leading" constant="213" id="d7C-5h-OH2"/>
-                                            <constraint firstItem="4RG-eA-yC0" firstAttribute="trailing" secondItem="v7m-Ff-wgN" secondAttribute="trailing" id="dxT-9W-afj"/>
                                             <constraint firstItem="4Fp-Xz-86M" firstAttribute="leading" secondItem="Crv-dZ-YOh" secondAttribute="leading" id="fc8-TF-M2x"/>
                                             <constraint firstAttribute="height" constant="777" id="foy-FR-UXe"/>
                                             <constraint firstItem="TJ6-WS-vBL" firstAttribute="top" secondItem="4Fp-Xz-86M" secondAttribute="bottom" constant="8" symbolic="YES" id="gMc-IO-K7s"/>
                                             <constraint firstItem="7l9-pw-46F" firstAttribute="leading" secondItem="EYi-dz-LOn" secondAttribute="trailing" constant="9" id="hBy-1c-dvS"/>
                                             <constraint firstItem="dch-b5-2b7" firstAttribute="trailing" secondItem="4Fp-Xz-86M" secondAttribute="trailing" id="hTR-Vp-CaK"/>
                                             <constraint firstItem="4RG-eA-yC0" firstAttribute="top" secondItem="4Fp-Xz-86M" secondAttribute="top" id="jtB-B0-WNa"/>
-                                            <constraint firstItem="c8d-O3-bKI" firstAttribute="top" secondItem="Qlr-5z-yWp" secondAttribute="bottom" constant="8" symbolic="YES" id="lIR-Rc-LS2"/>
                                             <constraint firstItem="ho3-eu-Uyk" firstAttribute="leading" secondItem="wYU-8X-eIk" secondAttribute="leading" constant="22" id="m7U-8h-EF8"/>
                                             <constraint firstItem="TJ6-WS-vBL" firstAttribute="leading" secondItem="QrQ-K4-dF3" secondAttribute="trailing" constant="10" id="myT-ZQ-sMb"/>
                                             <constraint firstItem="9W4-tb-m5g" firstAttribute="top" secondItem="ho3-eu-Uyk" secondAttribute="bottom" constant="7" id="nTG-aR-Qjm"/>
                                             <constraint firstItem="dch-b5-2b7" firstAttribute="leading" secondItem="EYi-dz-LOn" secondAttribute="leading" id="nnb-7H-dbe"/>
                                             <constraint firstItem="TJ6-WS-vBL" firstAttribute="trailing" secondItem="6uK-vg-2Zk" secondAttribute="trailing" id="oJD-9R-34D"/>
-                                            <constraint firstItem="4RG-eA-yC0" firstAttribute="leading" secondItem="v7m-Ff-wgN" secondAttribute="leading" id="oOC-GT-SbT"/>
                                             <constraint firstItem="QrQ-K4-dF3" firstAttribute="leading" secondItem="ssX-Nb-jw1" secondAttribute="leading" id="qAX-hw-wjM"/>
                                             <constraint firstItem="4RG-eA-yC0" firstAttribute="top" secondItem="EYi-dz-LOn" secondAttribute="bottom" constant="8" id="r4G-Qf-PM4"/>
                                             <constraint firstItem="dQB-Po-lgN" firstAttribute="leading" secondItem="PGC-eN-yzL" secondAttribute="trailing" constant="9" id="rpY-hk-OaH"/>
-                                            <constraint firstItem="dQB-Po-lgN" firstAttribute="top" secondItem="v7m-Ff-wgN" secondAttribute="bottom" constant="17" id="v6w-kZ-cMY"/>
                                             <constraint firstItem="4RG-eA-yC0" firstAttribute="top" secondItem="7l9-pw-46F" secondAttribute="bottom" constant="17" id="vgo-Pc-Xdu"/>
                                             <constraint firstItem="ho3-eu-Uyk" firstAttribute="leading" secondItem="QrQ-K4-dF3" secondAttribute="leading" id="wAT-RJ-fRt"/>
                                             <constraint firstItem="Qlr-5z-yWp" firstAttribute="trailing" secondItem="Xaf-hL-wGC" secondAttribute="trailing" id="xRD-j6-poZ"/>
                                             <constraint firstItem="9Ea-xS-7iS" firstAttribute="top" secondItem="wYU-8X-eIk" secondAttribute="top" constant="-60" id="yhc-On-dlF"/>
-                                            <constraint firstItem="PGC-eN-yzL" firstAttribute="leading" secondItem="c8d-O3-bKI" secondAttribute="leading" id="zKA-hA-c5w"/>
                                             <constraint firstItem="Z1j-1i-iao" firstAttribute="centerX" secondItem="wYU-8X-eIk" secondAttribute="centerX" id="zWr-oU-IlL"/>
                                         </constraints>
                                     </view>
@@ -650,6 +619,7 @@ REGISTRARSE?</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="860"/>
                     <connections>
+                        <outlet property="btnIdentify" destination="Xaf-hL-wGC" id="9Nr-kb-dIJ"/>
                         <outlet property="menuButtonClub" destination="6qO-rI-OhO" id="ZVr-hu-wR0"/>
                         <outlet property="scrollViewBanner" destination="9W4-tb-m5g" id="sbz-DJ-DmZ"/>
                     </connections>
@@ -805,7 +775,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿TIENES CUENTA?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXe-tN-2zj">
-                                <rect key="frame" x="104" y="536" width="170" height="53"/>
+                                <rect key="frame" x="104" y="536" width="169.5" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="gtu-td-zoe"/>
                                 </constraints>
@@ -1036,38 +1006,8 @@ REGISTRARSE?</string>
                                     <segue destination="2RY-Wz-jp8" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="tGK-Kw-sO3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria4" id="rlV-1Y-PY1">
-                                <rect key="frame" x="0.0" y="260" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rlV-1Y-PY1" id="gRy-W9-T1f">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escucha las noticias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VG-Mm-GqY">
-                                            <rect key="frame" x="55" y="9" width="155" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="155" id="iBu-Nb-NlD"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="8VG-Mm-GqY" secondAttribute="bottom" constant="6" id="A2j-tj-s0U"/>
-                                        <constraint firstItem="8VG-Mm-GqY" firstAttribute="leading" secondItem="gRy-W9-T1f" secondAttribute="leadingMargin" constant="47" id="ZoD-K4-HdG"/>
-                                        <constraint firstItem="8VG-Mm-GqY" firstAttribute="top" secondItem="gRy-W9-T1f" secondAttribute="topMargin" constant="1" id="kle-zm-9eQ"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.25677083333333328" green="0.25677083333333328" blue="0.25677083333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <segue destination="BxP-xl-zCk" kind="show" customClass="SWRevealViewControllerSeguePushController" id="ILM-Ii-3nJ"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria5" id="sMg-PZ-cms">
-                                <rect key="frame" x="0.0" y="304" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="260" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMg-PZ-cms" id="9wN-V6-fJM">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1106,7 +1046,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria6" id="Zim-0p-Xmu">
-                                <rect key="frame" x="0.0" y="348" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="304" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zim-0p-Xmu" id="oGA-yx-taL">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1135,7 +1075,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria7" id="dgc-Iq-tEl">
-                                <rect key="frame" x="0.0" y="392" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="348" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dgc-Iq-tEl" id="CeZ-zH-PPF">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1164,7 +1104,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria8" id="DOf-6s-1vO">
-                                <rect key="frame" x="0.0" y="436" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="392" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DOf-6s-1vO" id="Iqw-7w-0Mc">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1192,45 +1132,8 @@ REGISTRARSE?</string>
                                     <segue destination="7Au-u7-sym" kind="show" customClass="SWRevealViewControllerSeguePushController" id="sQ8-YI-Ye0"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria9" id="bbF-dq-hl4">
-                                <rect key="frame" x="0.0" y="480" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bbF-dq-hl4" id="jkY-LC-2pE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4P-mx-Sce">
-                                            <rect key="frame" x="8" y="4" width="232" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                            <state key="normal">
-                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="ticketsFromMenuPressed:" destination="uon-o4-wxz" eventType="touchUpInside" id="epH-gd-cf5"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9P1-hM-N39">
-                                            <rect key="frame" x="57" y="8" width="96" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="96" id="wFV-Sm-A26"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="15"/>
-                                            <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="9P1-hM-N39" firstAttribute="leading" secondItem="jkY-LC-2pE" secondAttribute="leadingMargin" constant="49" id="H1T-Cb-HSs"/>
-                                        <constraint firstItem="9P1-hM-N39" firstAttribute="top" secondItem="jkY-LC-2pE" secondAttribute="topMargin" id="H5c-hV-35V"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="9P1-hM-N39" secondAttribute="bottom" constant="7" id="fxI-EV-GyG"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria10" rowHeight="60" id="Mga-7m-mzS">
-                                <rect key="frame" x="0.0" y="524" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="436" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mga-7m-mzS" id="RH0-cO-Bwl">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -1263,7 +1166,7 @@ REGISTRARSE?</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria12" rowHeight="13" id="iQ2-7t-fbP">
-                                <rect key="frame" x="0.0" y="584" width="375" height="13"/>
+                                <rect key="frame" x="0.0" y="496" width="375" height="13"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iQ2-7t-fbP" id="lmh-aO-T4E">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="13"/>
@@ -1273,7 +1176,7 @@ REGISTRARSE?</string>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                             <tableViewCell autoresizesSubviews="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoria13" rowHeight="73" id="wIJ-se-IOU">
-                                <rect key="frame" x="0.0" y="597" width="375" height="73"/>
+                                <rect key="frame" x="0.0" y="509" width="375" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wIJ-se-IOU" id="Akj-Fw-uG0">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
@@ -1391,7 +1294,7 @@ REGISTRARSE?</string>
         <scene sceneID="C4h-Xp-o5n">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="SYc-4s-vqG" customClass="CVNoticiasInicio" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="C3w-uL-EQG">
+                    <collectionView key="view" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="C3w-uL-EQG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1759,7 +1662,7 @@ REGISTRARSE?</string>
                 <navigationController navigationBarHidden="YES" id="DtB-eu-V5K" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zRM-je-Mzk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zRM-je-Mzk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2074,7 +1977,7 @@ REGISTRARSE?</string>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z4a-GB-7Hq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z4a-GB-7Hq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3077,7 +2980,7 @@ REGISTRARSE?</string>
         <scene sceneID="dbQ-zF-WPo">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionLaTercera" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="b2P-Xe-VrB" customClass="CVLaTercera" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="LGB-uj-mbz">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="LGB-uj-mbz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342508798393" green="0.92718349358974361" blue="0.92718349358974361" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3569,7 +3472,7 @@ REGISTRARSE?</string>
         <scene sceneID="DAU-tE-vSo">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionEdicionEspecial" id="w1T-UP-eOG" customClass="CVEdicionEspecial" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" dataMode="prototypes" id="ByA-8c-pfG">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" misplaced="YES" dataMode="prototypes" id="ByA-8c-pfG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3612,7 +3515,7 @@ REGISTRARSE?</string>
         <scene sceneID="sUa-Lq-Mqe">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionNegocios" autoresizesArchivedViewToFullSize="NO" id="b5S-Wx-wkN" customClass="CVNegocios" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" dataMode="prototypes" id="uzd-Pj-NL4">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" dataMode="prototypes" id="uzd-Pj-NL4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4376,7 +4279,7 @@ de La Tercera</string>
         <scene sceneID="kO4-N2-n99">
             <objects>
                 <collectionViewController storyboardIdentifier="newsSectionElDeportivo" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="6Fm-tF-vXq" customClass="CVElDeportivo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="d7Y-uL-ajO">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="d7Y-uL-ajO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90900342509999998" green="0.92718349359999996" blue="0.92718349359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4748,7 +4651,7 @@ de La Tercera</string>
         <scene sceneID="Jtf-eI-5B3">
             <objects>
                 <collectionViewController id="wwa-n8-FIc" customClass="CVNoticiasPolitica" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="q3p-lK-1jh">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="q3p-lK-1jh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5030,7 +4933,7 @@ de La Tercera</string>
         <scene sceneID="NEb-IA-Cy2">
             <objects>
                 <collectionViewController id="76x-PL-CyU" customClass="CVNoticiasNegocios" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="3hz-1t-Nct">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="3hz-1t-Nct">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5131,7 +5034,7 @@ de La Tercera</string>
         <scene sceneID="bk1-xt-3tx">
             <objects>
                 <collectionViewController id="3FC-Lv-A7W" customClass="CVNoticiasMundo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="s87-br-cHc">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="s87-br-cHc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5212,7 +5115,7 @@ de La Tercera</string>
         <scene sceneID="Lbb-Mb-WZn">
             <objects>
                 <collectionViewController id="mlH-VH-rW4" customClass="CVNoticiasCultura" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="QAL-lD-aX0">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="QAL-lD-aX0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5298,7 +5201,7 @@ de La Tercera</string>
         <scene sceneID="gCn-41-02A">
             <objects>
                 <collectionViewController id="zxM-Ve-hzp" customClass="CVNoticiasTendencias" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="TCE-ZA-c1l">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="TCE-ZA-c1l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5379,7 +5282,7 @@ de La Tercera</string>
         <scene sceneID="mDE-Du-mDF">
             <objects>
                 <collectionViewController id="gBK-K3-p4Y" customClass="CVNoticiasEntretencion" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="63X-hM-gSt">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="63X-hM-gSt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6222,6 +6125,13 @@ de La Tercera</string>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8e-aO-etP">
+                                                    <rect key="frame" x="24" y="11" width="318" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="showTerminosCondiciones:" destination="wOF-aa-wio" eventType="touchUpInside" id="D8T-A9-e2r"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="MID-V4-OIP" firstAttribute="leading" secondItem="vQ7-jz-fuy" secondAttribute="leadingMargin" constant="16" id="0C6-Xp-PW0"/>
@@ -6263,7 +6173,7 @@ de La Tercera</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Jg-8R-sOZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-198" y="-2306"/>
+            <point key="canvasLocation" x="-198.5" y="-2306"/>
         </scene>
         <!--Menu Perfil-->
         <scene sceneID="fUz-GG-e0C">
@@ -6712,7 +6622,7 @@ de La Tercera</string>
         <scene sceneID="RRv-Lw-qhY">
             <objects>
                 <collectionViewController id="Tv8-7y-mat" customClass="CVNoticiasNacional" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Xsl-IL-hkB">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Xsl-IL-hkB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6793,7 +6703,7 @@ de La Tercera</string>
         <scene sceneID="VJf-YW-RFj">
             <objects>
                 <collectionViewController id="TMl-el-B4J" customClass="CVNoticiasElDeportivo" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="TEG-lT-oxb">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="TEG-lT-oxb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -7109,7 +7019,7 @@ de La Tercera</string>
         <scene sceneID="qc9-nM-yca">
             <objects>
                 <collectionViewController id="sua-Iy-dOK" customClass="CVMiSeleccion" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="tgz-3p-dAV">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="tgz-3p-dAV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -7272,13 +7182,13 @@ de La Tercera</string>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uC-oN-aJA">
-                                        <rect key="frame" x="185" y="16" width="43" height="43"/>
+                                        <rect key="frame" x="190" y="21" width="34" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="41" id="ddp-ib-oaJ"/>
                                             <constraint firstAttribute="width" constant="43" id="ib6-zs-Q7z"/>
                                             <constraint firstAttribute="height" constant="43" id="ppt-he-GVP"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="AddToSelection.png"/>
+                                        <state key="normal" image="AddToSelection.png"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="ddp-ib-oaJ"/>
@@ -7728,6 +7638,8 @@ de La Tercera</string>
                     <size key="freeformSize" width="375" height="1890"/>
                     <connections>
                         <outlet property="bannerNewsDetailView" destination="UvC-kT-bGt" id="2Xc-ZV-5vi"/>
+                        <outlet property="btnCatFav" destination="8uC-oN-aJA" id="5bD-qh-FVG"/>
+                        <outlet property="btnFav" destination="zHe-cd-u13" id="aHC-B7-iwc"/>
                         <outlet property="contentTextView" destination="GdF-yH-5Z9" id="6nx-Td-oRL"/>
                         <outlet property="imageViewNews1" destination="tac-Gi-Y2f" id="C16-uf-l27"/>
                         <outlet property="imageViewNews2" destination="GrY-7S-Jqd" id="8yf-06-kU7"/>
@@ -7862,7 +7774,7 @@ de La Tercera</string>
         <scene sceneID="BLc-fM-yTb">
             <objects>
                 <collectionViewController title="CVVoces" id="FXC-RZ-5EF" customClass="CVVoces" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Qd7-SP-g4a">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="Qd7-SP-g4a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -8166,7 +8078,7 @@ de La Tercera</string>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="wcd-d9-9Hw">
-                                <rect key="frame" x="141" y="1104" width="234" height="3"/>
+                                <rect key="frame" x="141" y="1104" width="234" height="2.5"/>
                                 <color key="progressTintColor" red="0.68003517670000002" green="0.0066766623929999996" blue="0.034616023340000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="trackTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </progressView>
@@ -9834,11 +9746,9 @@ de La Tercera</string>
         <image name="botonServicios.png" width="163" height="43"/>
         <image name="botonServiciosOff.png" width="80" height="42"/>
         <image name="botonServiciosOn.png" width="80" height="42"/>
-        <image name="botonTickets.png" width="332" height="43"/>
         <image name="botonTiempoLibre.png" width="163" height="43"/>
         <image name="botonTiempoLibreOff.png" width="104" height="42"/>
         <image name="botonTiempoLibreOn.png" width="104" height="42"/>
-        <image name="botonTiendaClub.png" width="163" height="43"/>
         <image name="botonTodosOff.png" width="55" height="42"/>
         <image name="botonTodosOn.png" width="55" height="42"/>
         <image name="botonVentasEspeciales.png" width="332" height="43"/>
@@ -9870,10 +9780,10 @@ de La Tercera</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QpD-Og-2iF"/>
-        <segue reference="YEG-5l-bEv"/>
         <segue reference="sQ8-YI-Ye0"/>
-        <segue reference="wa8-wA-Ypp"/>
         <segue reference="tqi-Nf-HuD"/>
+        <segue reference="Nh5-Vu-StR"/>
+        <segue reference="Yn4-yz-IfR"/>
         <segue reference="vnn-UP-oet"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63529411759999999" green="0.090196078430000007" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

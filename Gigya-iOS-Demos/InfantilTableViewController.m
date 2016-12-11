@@ -17,6 +17,11 @@
 #import "SVProgressHUD.h"
 #import "Tools.h"
 #import "SVPullToRefresh.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
+
 #define benefitCategoryId 7
 
 @interface InfantilTableViewController ()
@@ -65,6 +70,12 @@ BOOL firstTimeInfantil = false;
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingInfantil = NO;
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Beneficios/infantil"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -192,6 +203,7 @@ BOOL firstTimeInfantil = false;
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
+    detalleBeneficio.beneficioTipo = @"infantil";
     [beneficio logDescription];
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
@@ -222,6 +234,7 @@ BOOL firstTimeInfantil = false;
                     NSLog(@"No sirve la data");
                     [self.tableView setBounces:NO];
                     [self.tableView setAlwaysBounceVertical:NO];
+                    [SVProgressHUD dismiss];
                     [weakSelf.tableView endUpdates];
                     [weakSelf.tableView.infiniteScrollingView stopAnimating];
                 }
@@ -330,9 +343,8 @@ BOOL firstTimeInfantil = false;
     NSLog(@"***********   Load More Rows   ************");
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberInfantil);
     
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberInfantil);
     isPageRefreshingInfantil = YES;
-    //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+    [SVProgressHUD showWithStatus:@"Obteniendo más beneficios ..." maskType:SVProgressHUDMaskTypeClear];
     currentPageNumberInfantil = currentPageNumberInfantil +1;
     [self loadBenefitsForCategoryId:benefitCategoryId];
     

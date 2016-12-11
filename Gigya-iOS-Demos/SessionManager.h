@@ -56,6 +56,8 @@
 -(UserProfile *)getUserProfile;
 -(void) resetUserProfile;
 -(BOOL) saveMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName;
+-(BOOL) deleteMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName;
+-(BOOL) existCategory:(NSString*)categoryName;
 -(NSArray*) getMiSeleccionArray;
 -(NSMutableArray*) getMiSeleccionCategoryIdsArray;
 -(NSMutableArray*) getMiSeleccionCategoryTitlesArray;

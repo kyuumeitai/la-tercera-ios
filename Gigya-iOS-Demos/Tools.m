@@ -166,6 +166,18 @@ if ([[UIApplication sharedApplication] canOpenURL:
     NSString *urlString  =[NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@&saddr=%@",[NSString stringWithFormat:@"%f,%f",destinationLocation.latitude,destinationLocation.longitude],[NSString stringWithFormat:@"%f,%f",sourceLocation.latitude, sourceLocation.longitude]];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 }
+
++(void)openMapsAppWithOneLocation:(CLLocationCoordinate2D)sourceLocation {
+    NSString *urlString  =[NSString stringWithFormat:@"http://maps.apple.com/?spn=%@",[NSString stringWithFormat:@"%f,%f",sourceLocation.latitude, sourceLocation.longitude]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+}
+
++(void)openMapsAppWithOneLocationAndAddress:(CLLocationCoordinate2D)sourceLocation address:(NSString *)address{
+    NSString * formattedAddrees = [address stringByReplacingOccurrencesOfString:@", " withString:@"+"];
+    formattedAddrees = [formattedAddrees stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    NSString *urlString  =[NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@&saddr=%@",[NSString stringWithFormat:@"%f,%f",sourceLocation.latitude,sourceLocation.longitude],[NSString stringWithFormat:@"%@",formattedAddrees]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+}
 /************************************ OPEN NATIVE APPLICATIONS **********************************/
 
 /****************************************** ERROR ALERTS ****************************************/

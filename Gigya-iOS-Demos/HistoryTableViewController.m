@@ -13,6 +13,10 @@
 #import "Tools.h"
 #import "HistoricoBeneficio.h"
 #import "UserProfile.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 
 @interface HistoryTableViewController ()
@@ -34,6 +38,14 @@ NSMutableArray * historyItemsContests;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"MiPerfil/historial"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 -(void)getHistory{

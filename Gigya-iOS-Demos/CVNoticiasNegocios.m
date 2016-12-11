@@ -22,7 +22,10 @@
 #import "SessionManager.h"
 #import "SVPullToRefresh.h"
 #import "ContentType.h"
-
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
 
 //#import "SDWebImage/UIImageView+WebCache.h"
 
@@ -138,6 +141,12 @@ NSMutableArray *relatedIdsArrayNegocios;
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingNegocios = NO;
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Noticias/Negocios"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [super viewWillAppear:animated];
 }
 
 -(void)loadHeadlinesWithCategory:(int)idCategory{

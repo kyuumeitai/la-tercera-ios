@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UsarBeneficioDescuentoAdicional : UIViewController
-
+@property (strong,nonatomic) NSString* nombreBeneficio;
 @property (weak, nonatomic) IBOutlet UITextField *montoTextField;
 @property (weak, nonatomic) IBOutlet UITextField *codigoComercioTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *emailTesting;

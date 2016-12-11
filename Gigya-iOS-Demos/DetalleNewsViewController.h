@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *summary;
 @property (weak, nonatomic) IBOutlet UIImageView *imagenNews;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+@property (weak, nonatomic) IBOutlet UIButton *btnFav;
+@property (weak, nonatomic) IBOutlet UIButton *btnCatFav;
 @property (retain,nonatomic) NSString * tituloCategoria;
 @property int idCategoria;
 @property int idArticulo;
