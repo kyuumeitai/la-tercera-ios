@@ -86,17 +86,17 @@ BOOL forAnonimoEvent = false;
     
     //Loading summary
     NSString* summary = [tempDict objectForKey:@"descripcion"];
-    self.eventoSubtitleLabel.text = summary;
+    self.eventoSubtitleTextView.text = summary;
     //[self.benefitSubtitleLabel setNumberOfLines:0];
     //[self.benefitSubtitleLabel sizeToFit];
-    self.eventoSubtitleLabel.alpha = 0;
+    self.eventoSubtitleTextView.alpha = 0;
     NSString* precioTemp = [tempDict objectForKey:@"precio"];
     NSString* precio = [NSString stringWithFormat:@"$%@",precioTemp];
     
     self.eventoDiscountLabel.text = precio;
     
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
-                     animations:^{ self.eventoSubtitleLabel.alpha = 1;}
+                     animations:^{ self.eventoSubtitleTextView.alpha = 1;}
                      completion:nil];
     
     //Loading Duration
@@ -217,7 +217,7 @@ BOOL forAnonimoEvent = false;
                                                    ];
     
     //self.eventoDescriptionTextView.attributedText = attributedString;
-    self.eventoSubtitle = description;
+    self.eventoSubtitleTextView.text = description;
 }
 
 -(IBAction)shareBenefit:(id)sender{

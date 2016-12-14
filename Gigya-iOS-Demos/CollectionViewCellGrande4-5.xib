@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -17,37 +20,48 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewGrande4-5" id="gTV-IL-0wX" customClass="CollectionViewCellGrande">
-            <rect key="frame" x="0.0" y="0.0" width="310" height="458"/>
+            <rect key="frame" x="0.0" y="0.0" width="305" height="472"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="310" height="458"/>
+                <rect key="frame" x="0.0" y="0.0" width="305" height="472"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mcw-W8-rBa" customClass="CustomBorderView">
-                        <frame key="frameInset" width="310" height="458"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcw-W8-rBa" customClass="CustomBorderView">
+                        <rect key="frame" x="0.0" y="2" width="305" height="468"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cobre cayó por sexta sesión y anotó su menor nivel en cerca de 3 meses su menor nivel en cerca de 3 meses" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qkm-Aq-aA0">
-                                <frame key="frameInset" minX="24" minY="8" width="261" height="126"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="746" misplaced="YES" text="Cobre cayó por sexta sesión y anotó su menor nivel en cerca de 3 meses su menor nivel en cerca de 3 meses" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qkm-Aq-aA0">
+                                <rect key="frame" x="24" y="8" width="261" height="103"/>
+                                <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="23"/>
                                 <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsw-nl-PEE">
-                                <frame key="frameInset" minX="24" minY="331" width="261" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsw-nl-PEE">
+                                <rect key="frame" x="24" y="311" width="261" height="149"/>
                                 <string key="text">El precio contado del cobre cerró con un leve descenso de 0,1% este jueves en la Bolsa de Metales de Londres, con lo que completó su sexta sesión consecutiva de retrocesos y anotó su menor nivel en cerca tres meses.</string>
                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mineria.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="GNv-qf-bJU">
-                                <frame key="frameInset" minX="24" minY="147" width="261" height="184"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="747" misplaced="YES" image="mineria.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="GNv-qf-bJU">
+                                <rect key="frame" x="24" y="119" width="261" height="184"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="184" id="hCG-VF-9Ks"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gsw-nl-PEE" secondAttribute="trailing" constant="25" id="4kO-3F-bxP"/>
+                            <constraint firstItem="gsw-nl-PEE" firstAttribute="leading" secondItem="Mcw-W8-rBa" secondAttribute="leading" constant="24" id="C1x-kr-bUX"/>
+                            <constraint firstItem="GNv-qf-bJU" firstAttribute="top" secondItem="Qkm-Aq-aA0" secondAttribute="bottom" constant="10" id="Fam-Eo-5fj"/>
+                            <constraint firstAttribute="trailing" secondItem="GNv-qf-bJU" secondAttribute="trailing" constant="25" id="GY8-yq-Y4Q"/>
+                            <constraint firstItem="GNv-qf-bJU" firstAttribute="leading" secondItem="Mcw-W8-rBa" secondAttribute="leading" constant="24" id="UkI-gR-tA4"/>
+                            <constraint firstAttribute="trailing" secondItem="Qkm-Aq-aA0" secondAttribute="trailing" constant="20" id="eau-Hb-apQ"/>
+                            <constraint firstItem="gsw-nl-PEE" firstAttribute="top" secondItem="GNv-qf-bJU" secondAttribute="bottom" constant="14" id="iMz-6u-aqY"/>
+                            <constraint firstItem="Qkm-Aq-aA0" firstAttribute="leading" secondItem="Mcw-W8-rBa" secondAttribute="leading" constant="24" id="o47-gQ-zf7"/>
+                            <constraint firstAttribute="bottom" secondItem="gsw-nl-PEE" secondAttribute="bottom" constant="8" id="oio-HN-3Ge"/>
+                            <constraint firstItem="Qkm-Aq-aA0" firstAttribute="top" secondItem="Mcw-W8-rBa" secondAttribute="top" constant="8" id="zOC-TL-nPD"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                 <integer key="value" value="1"/>
@@ -62,13 +76,19 @@
                     </view>
                 </subviews>
             </view>
-            <size key="customSize" width="324" height="466"/>
+            <constraints>
+                <constraint firstItem="Mcw-W8-rBa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="4aT-ke-Woa"/>
+                <constraint firstAttribute="bottom" secondItem="Mcw-W8-rBa" secondAttribute="bottom" constant="2" id="IGV-8l-RLj"/>
+                <constraint firstAttribute="trailing" secondItem="Mcw-W8-rBa" secondAttribute="trailing" id="T2F-tT-1cn"/>
+                <constraint firstItem="Mcw-W8-rBa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bYt-pa-w3V"/>
+            </constraints>
+            <size key="customSize" width="319" height="480"/>
             <connections>
                 <outlet property="imageNews" destination="GNv-qf-bJU" id="yty-6V-WRJ"/>
                 <outlet property="labelSummary" destination="gsw-nl-PEE" id="nIr-4S-4XJ"/>
                 <outlet property="labelTituloNews" destination="Qkm-Aq-aA0" id="eUe-T5-HwG"/>
             </connections>
-            <point key="canvasLocation" x="274" y="77"/>
+            <point key="canvasLocation" x="281.5" y="55"/>
         </collectionViewCell>
     </objects>
     <resources>

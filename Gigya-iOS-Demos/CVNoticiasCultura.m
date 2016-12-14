@@ -26,6 +26,7 @@
 #import "GAIFields.h"
 #import "GAITrackedViewController.h"
 #import "GAIDictionaryBuilder.h"
+#import "SVProgressHUD.h"
 
 //#import "SDWebImage/UIImageView+WebCache.h"
 
@@ -91,8 +92,9 @@ NSMutableArray *relatedIdsArrayCultura;
         cellNib = [UINib nibWithNibName:@"CollectionViewCellGrande" bundle: nil];
         [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:reuseIdentifierGrande];
     }
-    
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+
+    /*
     //Celda Mediana
     UINib *cellNib2 ;
     
@@ -119,7 +121,7 @@ NSMutableArray *relatedIdsArrayCultura;
         cellNib3 = [UINib nibWithNibName:@"CollectionViewCellHorizontal" bundle: nil];
         [self.collectionView registerNib:cellNib3 forCellWithReuseIdentifier:reuseIdentifierHorizontal];
     }
-    
+    */
     
     UINib *cellNib4 = [UINib nibWithNibName:@"CollectionViewCellBanner" bundle: nil];
     
@@ -139,7 +141,19 @@ NSMutableArray *relatedIdsArrayCultura;
         [weakSelf loadMoreRows];
     }];
     
+//    UIRefreshControl *refreshControl = [UIRefreshControl new];
+//    [refreshControl addTarget:self action:@selector(startRefresh) forControlEvents:UIControlEventValueChanged];
+//    refreshControl.tintColor = [UIColor colorWithRed:0.686 green:0.153 blue:0.188 alpha:1];
+//    self.collectionView.refreshControl = refreshControl;
 }
+
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    NSLog(@"app will enter foreground");
+    //[self startRefresh];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated{
     isPageRefreshingCultura = NO;
@@ -217,10 +231,12 @@ NSMutableArray *relatedIdsArrayCultura;
         
         id imageThumb ;
         
+        //if ([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]){
         if ([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]){
-            imageThumb = @"http://www.banmedica.cl//images/Beneficios/LogoCupon/LOGO%20LA%20TERCERA.png";
+            imageThumb = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
-           imageThumb = [dictTitular objectForKey:@"thumb_url"];
+            imageThumb = [dictTitular objectForKey:@"thumb_url"];
+            //imageThumb = [dictTitular objectForKey:@"thumb_url"];
             NSLog(@" el thumbnail  es: %@ ",imageThumb);
         }
         
@@ -252,12 +268,12 @@ NSMutableArray *relatedIdsArrayCultura;
                          }
                          completion:^(BOOL finished)
          {
-             //[SVProgressHUD dismiss];
+        [SVProgressHUD dismiss];
          }];
         firstTimeCultura= false;
     }else{
         
-        //[SVProgressHUD dismiss];
+        [SVProgressHUD dismiss];
         isPageRefreshingCultura= NO;
         // [weakSelf.collectionView endUpdates];
         
@@ -284,9 +300,6 @@ NSMutableArray *relatedIdsArrayCultura;
 //Changes
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CollectionViewCellBanner *celdaBanner;
-    celdaBanner = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
-    
     
     Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
     
@@ -302,36 +315,34 @@ NSMutableArray *relatedIdsArrayCultura;
         }
         // Configure the cell
         cell.labelTituloNews.text = titular.title;
-
+        
         cell.labelSummary.text = titular.summary;
-
-
-        NSString *urlImagen = titular.imagenThumbString;
-        NSURL *url = [NSURL URLWithString:urlImagen];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
         
-        //__weak UITableViewCell *weakCell = cell;
-        
+        NSString *nameImagen = titular.imagenThumbString;
+        NSURL *urlImagen = [NSURL URLWithString:nameImagen];
+        NSURLRequest *request = [NSURLRequest requestWithURL:urlImagen];
+        UIImage *placeholderImage = [UIImage imageNamed:@" "];
         __weak CollectionViewCellGrande *weakCell = cell;
-        
-        
         [cell.imageNews setImageWithURLRequest:request
                               placeholderImage:placeholderImage
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                           weakCell.imageNews.image = image;
-                                           [weakCell setNeedsLayout];
+                                           [weakCell.imageNews setImage:image];
+
+                                           
                                        } failure:nil];
-        
-        return cell;
-    }
+       
+
+        return cell;    }
     
  
     
     if (indexPath.item == 5 || ((indexPath.item % 6)-5) == 0 )
     {
         
+        CollectionViewCellBanner *celdaBanner;
+        celdaBanner = [self.collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierBanner forIndexPath:indexPath];
         
+
         switch (indexPath.item) {
             case 5:
                 celdaBanner.bannerUnitID =  bannersCultura[0]  ;
@@ -429,12 +440,21 @@ NSMutableArray *relatedIdsArrayCultura;
  
 
     if([indexPath row]==0 || [indexPath row] % 6 == 0 || [indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 || [indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
+        Headline *titular = [headlinesArray objectAtIndex:indexPath.row];
+        NSString *titulo = titular.title;
+        NSString *resumen = titular.summary;
         
         if([storyBoardNameCultura isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameCultura isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            return CGSizeMake(310, 468);
+            
+            float altoLineas = [Tools getHeightForNewsListCellWithTitle:titulo andSummary:resumen isIphone5:YES];
+            
+            return CGSizeMake(310,altoLineas);
             
         }else{
-            return CGSizeMake(350, 420);
+            
+            float altoLineas = [Tools getHeightForNewsListCellWithTitle:titulo andSummary:resumen isIphone5:NO];
+            
+            return CGSizeMake(350,altoLineas);
         }
     }
     

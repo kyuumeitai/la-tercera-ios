@@ -97,17 +97,17 @@
     SessionManager *sesion = [SessionManager session];
     NSString *stbName = sesion.storyBoardName;
     
-if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone4"] ){
-    NSLog(@"Estoy aca lonyi en el ipone 4");
-    if (indexPath.row == 11){
-        NSLog(@"fijo en 11 del 4");
+    if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone4"] ){
+        NSLog(@"Estoy aca lonyi en el ipone 4");
+        if (indexPath.row == 11){
+            NSLog(@"fijo en 11 del 4");
         
-        return 76.0;
-    }else{
-        return 35.0;
-    }
+            return 76.0;
+        }else{
+            return 35.0;
+        }
 
-} else if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone5"] ){
+    } else if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone5"] ){
         NSLog(@"Estoy aca lonyi");
         if (indexPath.row == 11){
             NSLog(@"fijo en 13");
@@ -118,11 +118,11 @@ if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone4"] ){
         }
     }else if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone6"] ){
     
-    if (indexPath.row == 13)
-        return 100.0;
-    if (indexPath.row == 11)
-        return 12.0;
-    return 44.0;
+        if (indexPath.row == 13)
+            return 100.0;
+        if (indexPath.row == 11)
+            return 64.0;
+        return 44.0;
         
     }else{
         

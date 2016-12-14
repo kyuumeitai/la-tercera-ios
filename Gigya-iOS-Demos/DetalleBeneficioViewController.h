@@ -22,6 +22,7 @@
 @property (strong,nonatomic) NSString* benefitAddress;
 @property (strong,nonatomic) NSString* benefitDescription;
 @property (strong,nonatomic) NSString* beneficioTipo;
+@property (strong,nonatomic) NSString* benefitURL;
 @property (strong,nonatomic) UIImage* benefitImage;
  
 @property (weak, nonatomic) IBOutlet UILabel *profileBenefitLabel;

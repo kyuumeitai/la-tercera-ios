@@ -18,6 +18,7 @@
 @property (nonatomic,strong) NSString * desclabel;
 @property (nonatomic,strong) UIImage *imagenNormal;
 @property (nonatomic,strong) NSString *imagenNormalString;
+@property (nonatomic,strong) NSString *fechaDisponibilidad;
 @property (nonatomic,strong) NSDate *fechaInicioConcurso;
 @property (nonatomic,strong) NSDate *fechaFinConcurso;
 @property (nonatomic,strong) NSString *fechaInicioConcursoString;

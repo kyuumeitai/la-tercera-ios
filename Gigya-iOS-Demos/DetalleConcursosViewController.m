@@ -100,13 +100,13 @@ BOOL forAnonimoContest = false;
     
     //Loading summary
     NSString* summary = [tempDict objectForKey:@"description"];
-    self.concursoSubtitleLabel.text = summary;
+    self.concursoSubtitleTextview.text = summary;
     //[self.benefitSubtitleLabel setNumberOfLines:0];
     //[self.benefitSubtitleLabel sizeToFit];
-    self.concursoSubtitleLabel.alpha = 0;
+    self.concursoSubtitleTextview.alpha = 0;
     
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
-                     animations:^{ self.concursoSubtitleLabel.alpha = 1;}
+                     animations:^{ self.concursoSubtitleTextview.alpha = 1;}
                      completion:nil];
     
     //Loading Duration
@@ -227,7 +227,7 @@ BOOL forAnonimoContest = false;
                                                    ];
     
     //self.concursoDescriptionTextView.attributedText = attributedString;
-    self.concursoSubtitle = description;
+    self.concursoSubtitleTextview.text = description;
 }
 
 -(IBAction)shareBenefit:(id)sender{

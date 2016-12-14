@@ -47,7 +47,7 @@ const int catServicios = 4;
     // Do any additional setup after loading the view.
     
     NSLog(@"Club View Controller loaded and fonts are: %@",[UIFont familyNames]);
-
+    
     //Creamos el singleton
     SessionManager *sesion = [SessionManager session];
     
@@ -69,7 +69,7 @@ const int catServicios = 4;
     
     
     // Do any additional setup after loading the view.
-  [self loadStarredBenefits];
+    [self loadStarredBenefits];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -82,7 +82,7 @@ const int catServicios = 4;
 
 /**
  This method will manage the click event on the banner
-
+ 
  @param bannerView Will receive the BannerView Object to get elements inside
  @param index      The index of the banner object taht is presented actually in the view
  */
@@ -92,9 +92,9 @@ const int catServicios = 4;
     NSLog(@"Aca el lonyi apretó el beneficio %p at index: %d, de titulo: %@ y de id beneficio: %d", bannerView, (int)index, beneficio.title, beneficio.idBen);
     
     DetalleBeneficioViewController *detalleBeneficio = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleBeneficioViewController"];
-
+    
     [detalleBeneficio loadBenefitForBenefitId:beneficio.idBen];
- 
+    
     //Get Image
     NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
     UIImage *imagenBeneficio = nil;
@@ -113,7 +113,7 @@ const int catServicios = 4;
     detalleBeneficio.benefitId = beneficio.idBen;
     detalleBeneficio.benefitRemoteId = beneficio.idRemoteBen;
     [beneficio logDescription];
-
+    
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
     
 }
@@ -141,7 +141,7 @@ const int catServicios = 4;
     
     CLAuthorizationStatus authorizationStatus= [CLLocationManager authorizationStatus];
     
-   // if (authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
+    // if (authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
     if (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways) {
         NSLog(@"Autorizado");
         
@@ -622,7 +622,7 @@ const int catServicios = 4;
     if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         //[self loadData ];
         
-       // NSLog(@"Estoy acaaa en change status");
+        // NSLog(@"Estoy acaaa en change status");
         locationManager .desiredAccuracy = kCLLocationAccuracyNearestTenMeters;   // 2 kilometers - hope for accuracy within 2 km.
         locationManager .distanceFilter  = 100.0f;   // one kilometer - move this far to get another update
         [locationManager startUpdatingLocation];
@@ -665,7 +665,7 @@ const int catServicios = 4;
 
 
 - (IBAction)identifyUser:(id)sender {
-
+    
     UsarBeneficioNoLogueado *usarBeneficioNoLogueadoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"suscriberNeededScreen"];
     [usarBeneficioNoLogueadoViewController cancelButtonText:@"Volver a la noticia"];
     
@@ -677,34 +677,34 @@ const int catServicios = 4;
     
     NSLog(@"Load category benefits destacados");
     // IMPORTANT - Only update the UI on the main thread
-
+    
     ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     BOOL estaConectado = [connectionManager verifyConnection];
     NSLog(@"Verificando conexión: %d",estaConectado);
     
     //for Paging purposes
     [connectionManager getStarredBenefits :^(BOOL success, NSArray *arrayJson, NSError *error){
-
-                                    [self reloadStarredBenefitsDataFromService:arrayJson];
-                    // NSLog(@"Lista jhson: %@",arrayJson);
+        
+        [self reloadStarredBenefitsDataFromService:arrayJson];
+        // NSLog(@"Lista jhson: %@",arrayJson);
     }];
 }
 
 -(void) reloadStarredBenefitsDataFromService:(NSArray*)arrayJson{
     
-
+    
     //benefitsItemsArray5 = [[NSMutableArray alloc] init];
     self.starredItemsArray = [[NSMutableArray alloc]init];
     NSDictionary *tempDict = (NSDictionary*)arrayJson;
     
-   // id benefits = [tempDict objectForKey:@"benefits"];
+    // id benefits = [tempDict objectForKey:@"benefits"];
     int count = 0;
     for (id benefit in tempDict){
         
         id titleBen = [benefit objectForKey:@"title"];
         int idBen =[ [benefit objectForKey:@"id"] intValue];
         int idRemoteBen =[ [benefit objectForKey:@"id"] intValue];
-
+        
         //NSLog(@"idBen :%d",idBen);
         id linkBen = [benefit objectForKey:@"url"] ;
         id summaryBen = [benefit objectForKey:@"summary"] ;
@@ -726,7 +726,7 @@ const int catServicios = 4;
         
         //Definitions
         NSString * documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-
+        
         //Get Image
         
         NSArray * arr = [beneficio.imagenNormalString componentsSeparatedByString:@","];
@@ -737,24 +737,24 @@ const int catServicios = 4;
         if(imagenBeneficio == nil)
             imagenBeneficio = [UIImage imageNamed:@"PlaceholderHeaderClub"];
         //Save Image to Directory
-   
+        
         /*
-        [_bannerView1 addSubview:({
-            
-            UIImageView *imagenViewBeneficio = [[UIImageView alloc] initWithFrame:CGRectMake(0,  0, _scrollViewBanner.bounds.size.width, _scrollViewBanner.bounds.size.height)];
-            imagenViewBeneficio.image = imagenBeneficio;
-        imagenViewBeneficio;
-        })];
-        */
+         [_bannerView1 addSubview:({
+         
+         UIImageView *imagenViewBeneficio = [[UIImageView alloc] initWithFrame:CGRectMake(0,  0, _scrollViewBanner.bounds.size.width, _scrollViewBanner.bounds.size.height)];
+         imagenViewBeneficio.image = imagenBeneficio;
+         imagenViewBeneficio;
+         })];
+         */
         
         beneficio.imagenNormal = imagenBeneficio;
         [beneficio logDescription];
         [self.starredItemsArray addObject:beneficio];
         
-        }
+    }
     [self bannerSetup];
-
-
+    
+    
     
     NSLog(@" ******* RELOAD STARRED DATA TABLE Sabores ****** ----------------------");
 }

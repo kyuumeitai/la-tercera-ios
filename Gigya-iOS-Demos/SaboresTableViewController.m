@@ -171,6 +171,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     if (indexPath.row == 0) {
         return 278.0;
     }
@@ -343,11 +344,11 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell5";
     NSLog(@"***********   Load More Rows   ************");
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberSabores);
 
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberSabores);
-    isPageRefreshingSabores = YES;
-    [SVProgressHUD showWithStatus:@"Obteniendo más beneficios ..." maskType:SVProgressHUDMaskTypeClear];
-    currentPageNumberSabores = currentPageNumberSabores +1;
-    [self loadBenefitsForCategoryId:benefitCategoryId];
+            NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberSabores);
+            isPageRefreshingSabores = YES;
+            [SVProgressHUD showWithStatus:@"Obteniendo más beneficios ..." maskType:SVProgressHUDMaskTypeClear];
+            currentPageNumberSabores = currentPageNumberSabores +1;
+            [self loadBenefitsForCategoryId:benefitCategoryId];
 
 }
 @end

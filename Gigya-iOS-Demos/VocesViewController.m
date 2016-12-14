@@ -63,7 +63,7 @@ BOOL sidebarMenuOpen3;
         [self.revealViewController tapGestureRecognizer].enabled = NO;
         
     } else {
-        NSLog(@"Wastouy en sidebar = si");
+        //NSLog(@"Wastouy en sidebar = si");
         
         //self.view.userInteractionEnabled = NO;
         sidebarMenuOpen3 = YES;

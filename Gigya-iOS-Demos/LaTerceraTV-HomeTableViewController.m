@@ -237,7 +237,7 @@ NSString *storyBoardNameTV;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 438;
+    return 458;
 }
 
 
@@ -322,12 +322,12 @@ NSString *storyBoardNameTV;
         id summary = [dictTitular objectForKey:@"short_description"];
         
         NSString *imageThumb ;
-        
-        if (([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]) || ([[dictTitular objectForKey:@"thumb_url"] isEqualToString:@""])){
-            imageThumb = @"";
-        }else{
-            imageThumb = [dictTitular objectForKey:@"thumb_url"];
-        }
+        imageThumb = [dictTitular objectForKey:@"thumb_url"];
+        /*if (([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]) || ([[dictTitular objectForKey:@"thumb_url"] isEqualToString:@""])){
+         imageThumb = @"https://placekitten.com/200/200";
+         }else{
+         imageThumb = [dictTitular objectForKey:@"thumb_url"];
+         }*/
         
         NSArray* arrayMedia= [dictTitular objectForKey:@"medias"];
         NSDictionary *media = (NSDictionary*) arrayMedia[0];

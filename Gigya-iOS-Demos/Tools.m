@@ -380,5 +380,67 @@ if ([[UIApplication sharedApplication] canOpenURL:
      }
 }
 
+/**
+ Calculate HEight for each news cells Collection view
+
+ @param title string with the title of the article
+ @param summary string with the summary of the article
+ @param isIphone5 boolean true if is iphone 4/5
+ @return height size
+ */
++ (float)getHeightForNewsListCellWithTitle:(NSString*)title andSummary:(NSString*)summary isIphone5:(BOOL)isIphone5{
+    
+    float altoLineas = 0;
+    NSString *titulo = title;
+    //NSLog(@"Titulo: %@",titulo);
+    NSString *resumen = summary;
+    
+    if(isIphone5){
+        float characterCountTitulo = [titulo length]+4;
+        //NSLog(@"characterCountTitulo: %f",characterCountTitulo);
+        float characterCountResumen = [resumen length]+5;
+        //NSLog(@"characterCountResumne: %f",characterCountResumen);
+        int cantLineasTitulo= ceil(characterCountTitulo/26);
+        //NSLog(@"cantLineasTitulo: %d",cantLineasTitulo);
+        int cantLineasSummary= floor(characterCountResumen/39);
+        //NSLog(@"cantLineasSummary: %d",cantLineasSummary);
+        cantLineasTitulo = (cantLineasTitulo==0) ? 1 : cantLineasTitulo;
+        //NSLog(@"cantLineasTitulo final: %d",cantLineasTitulo);
+        cantLineasSummary = (cantLineasSummary==0) ? 1 : cantLineasSummary;
+        //NSLog(@"cantLineasSummary final: %d",cantLineasTitulo);
+        cantLineasSummary = (cantLineasSummary>8) ? cantLineasSummary+1 : cantLineasSummary;
+        
+        //NSLog(@"Summary: %@ cantidad de lineas resumen:%d ",resumen,cantLineasSummary);
+         altoLineas = 330+(cantLineasTitulo*26)+(cantLineasSummary*16);
+        //NSLog(@"Titulo: %@ cantidad de lineas:%d  y alto asignado: %f",titulo,cantLineasTitulo,altoLineas);
+ 
+    } else{
+        float characterCountTitulo = [titulo length]+4;
+       // NSLog(@"characterCountTitulo: %f",characterCountTitulo);
+
+        float characterCountResumen = [resumen length]+5;
+        //NSLog(@"characterCountResumne: %f",characterCountResumen);
+        int cantLineasTitulo= ceil(characterCountTitulo/35);
+        //NSLog(@"cantLineasTitulo: %d",cantLineasTitulo);
+        int cantLineasSummary= floor(characterCountResumen/39);
+        //NSLog(@"cantLineasSummary: %d",cantLineasSummary);
+        cantLineasTitulo = (cantLineasTitulo==0) ? 1 : cantLineasTitulo;
+        //NSLog(@"cantLineasTitulo final: %d",cantLineasTitulo);
+        cantLineasSummary = (cantLineasSummary==0) ? 1 : cantLineasSummary;
+        //NSLog(@"cantLineasSummary final: %d",cantLineasTitulo);
+        cantLineasSummary = (cantLineasSummary>8) ? cantLineasSummary+1 : cantLineasSummary;
+        //NSLog(@"Summary: %@ cantidad de lineas resumen:%d ",resumen,cantLineasSummary);
+              if(characterCountTitulo>80 ){
+        altoLineas = 340+(cantLineasTitulo*15)+(cantLineasSummary*20);
+              }else{
+                  altoLineas = 320+(cantLineasTitulo*12)+(cantLineasSummary*15);
+
+              }
+        //NSLog(@"Titulo: %@ cantidad de lineas:%d  y alto asignado: %f",titulo,cantLineasTitulo,altoLineas);
+    }
+
+    return altoLineas;
+}
+
 
 @end

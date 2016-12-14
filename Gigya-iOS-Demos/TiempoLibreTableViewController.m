@@ -340,7 +340,6 @@ BOOL firstTimeTiempoLibre = false;
     NSLog(@"***********   Load More Rows   ************");
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberTiempoLibre);
     
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberTiempoLibre);
     isPageRefreshingTiempoLibre = YES;
     [SVProgressHUD showWithStatus:@"Obteniendo más beneficios ..." maskType:SVProgressHUDMaskTypeClear];
     currentPageNumberTiempoLibre = currentPageNumberTiempoLibre +1;

@@ -374,7 +374,7 @@ NSString *textoContenidoTemporalVoces = @"";
         id urlImagen;
         
         if (([articleDict objectForKey:@"image_url"] == (id)[NSNull null]) || ([[articleDict objectForKey:@"image_url"] isEqualToString:@""])){
-            urlImagen = @"";
+            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
             urlImagen = [articleDict objectForKey:@"image_url"];
         }
@@ -415,7 +415,7 @@ NSString *textoContenidoTemporalVoces = @"";
         id urlImagen;
         
         if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"";
+            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
             urlImagen = [articleDict objectForKey:@"image_url"];
         }
@@ -455,7 +455,7 @@ NSString *textoContenidoTemporalVoces = @"";
         id urlImagen;
         
         if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"";
+            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
             urlImagen = [articleDict objectForKey:@"image_url"];
         }
@@ -495,7 +495,7 @@ NSString *textoContenidoTemporalVoces = @"";
         id urlImagen;
         
         if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"";
+            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
             urlImagen = [articleDict objectForKey:@"image_url"];
         }
@@ -580,7 +580,7 @@ NSString *textoContenidoTemporalVoces = @"";
     
     if (([articleDict objectForKey:@"image_url"] == (id)[NSNull null]) || ([[articleDict objectForKey:@"image_url"] isEqualToString:@""])){
 
-        urlImagen = @"";
+        urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
     }else{
         urlImagen = [articleDict objectForKey:@"image_url"];
     }
@@ -629,7 +629,7 @@ NSString *textoContenidoTemporalVoces = @"";
 }
 - (IBAction)shareArticle:(id)sender {
     NSString *tituloNoticia = _titulo.text;
-    newsLinkVoces = [NSString stringWithFormat:@"http://aniversario.latercera.com/%@",slugVoces];
+    newsLinkVoces = [NSString stringWithFormat:@"http://WWW.latercera.com/%@",slugVoces];
     
     [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:newsLinkVoces] forSelf:self];
 }
@@ -706,8 +706,7 @@ NSString *textoContenidoTemporalVoces = @"";
     [self.scrollView setContentOffset:
      CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
     [self.scrollView layoutIfNeeded];
-    
-    
+
 }
 
 - (IBAction)tapRelatedNews4:(id)sender {

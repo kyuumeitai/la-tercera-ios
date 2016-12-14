@@ -47,13 +47,14 @@
 @synthesize idArticulo;
 @synthesize idCategoria;
 @synthesize relatedIdsArray;
+@synthesize relatedArticlesArray;
+@synthesize newsLink;
 
 int fontSize = 16;
 
 NSString *slug = @"";
-NSString *newsLink= @"";
 NSString *textoContenidoTemporal = @"";
-
+BOOL esFavorito;
 - (void)viewDidLoad {
     
     _upperSeparador.hidden = YES;
@@ -63,17 +64,21 @@ NSString *textoContenidoTemporal = @"";
     [self.navigationController.view addGestureRecognizer:gestureRecognizer];
     [super viewDidLoad];
     _titulo.text= @"";
-    //_labelCategoria.text = @"";
+    _labelCat.text = @"       ";
     _titulo.textAlignment = NSTextAlignmentJustified;
     _summary.text= @"";
     _summary.textAlignment = NSTextAlignmentJustified;
     _contentTextView.text= @"";
-    
+    _addCategoryButton.alpha = 0;
+    _increaseFontButton.alpha = 0;
+    _decreaseFontButton.alpha = 0;
+     //self.view.alpha = 0;
   //  self.managedObjectContext = managedObjectContext;
     _imagenNews.image = nil;
     
     _titulo.alpha = 0;
     _summary.alpha = 0;
+    _labelCat.alpha = 0;
     _contentTextView.alpha = 0;
     _contentTextView.textAlignment = NSTextAlignmentJustified;
     _imagenNews.alpha = 0;
@@ -81,60 +86,20 @@ NSString *textoContenidoTemporal = @"";
     _labelAutor.alpha = 0;
     
     // Do any additional setup after loading the view.
-    NSArray *noticias = [[NSArray alloc] init];
-    
-    [self loadRelatedArticles];
+    self.relatedArticlesArray = [[NSArray alloc] init];
+    [self showRespectiveButtons];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void) loadRelatedArticles{
-    
-    NSLog(@"El articulo id es: %d",idArticulo);
-    NSLog(@"Entonces el array de Noticias Relacionadas es: %@.",relatedIdsArray);
-    
-    for (int i = 0; i < relatedIdsArray.count; i++) {
-        int randomInt1 = arc4random() % [relatedIdsArray count];
-        int randomInt2 = arc4random() % [relatedIdsArray count];
-        [relatedIdsArray exchangeObjectAtIndex:randomInt1 withObjectAtIndex:randomInt2];
-    }
-    
-    int contando = 1;
-    
-    for (NSNumber *idArtTemp in relatedIdsArray) {
-    if (contando >4)
-        return;
-    
-        int idArtInt = [idArtTemp intValue];
-        if (idArtInt == idArticulo ){
-            NSLog(@" es el mesmiitoh ");
-        }else{
-            NSLog(@"Arituiclo temp:%d",idArtInt);
-            ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
-            BOOL estaConectado = [connectionManager verifyConnection];
-            NSLog(@"Verificando conexión: %d",estaConectado);
-        
-            [connectionManager getArticleWithId:^(BOOL success, NSArray *arrayJson, NSError *error){
-            
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (!success) {
-                    NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
-                    } else {
-                    
-                        [self loadRelatedArticleDataFromService:arrayJson andIndexNumber:contando ];
-                 
-                    }
-                });
-            }:idArtInt];
-        
-            contando++;
-        }
-    }
-    
-}
 
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;
@@ -144,8 +109,8 @@ NSString *textoContenidoTemporal = @"";
     }
     return context;
 }
+
 - (IBAction)addToFavorite:(id)sender {
-    
     int level = [self getUserType];
     
     if(level == 2){
@@ -155,7 +120,7 @@ NSString *textoContenidoTemporal = @"";
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Noticia"];
         noticias = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
         NSLog(@"noticias: %@",noticias);
-
+        
         //check if existe en favoritos
         [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"title == %@", _titulo.text]];
         
@@ -212,15 +177,41 @@ NSString *textoContenidoTemporal = @"";
             }
         }
     }else{
-         //ES flaite
-         
-         //suscriberNeededScreen
-         NSLog(@"Sin permisos");
-         UsarBeneficioNoLogueado *usarBeneficioNoLogueadoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"suscriberNeededScreen"];
-         [usarBeneficioNoLogueadoViewController cancelButtonText:@"Volver a la noticia"];
-         usarBeneficioNoLogueadoViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-         [self presentViewController:usarBeneficioNoLogueadoViewController animated:YES completion:nil];
-     }
+        //ES flaite
+        
+        //suscriberNeededScreen
+        NSLog(@"Sin permisos");
+        UsarBeneficioNoLogueado *usarBeneficioNoLogueadoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"suscriberNeededScreen"];
+        [usarBeneficioNoLogueadoViewController cancelButtonText:@"Volver a la noticia"];
+        usarBeneficioNoLogueadoViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+        [self presentViewController:usarBeneficioNoLogueadoViewController animated:YES completion:nil];
+    }
+}
+
+- (void) showRespectiveButtons{
+    int level = [self getUserType];
+    
+    if(level == 2){
+        
+        //Es premium
+        SessionManager *sesion = [SessionManager session];
+        BOOL repetido = [sesion isRepeatedForSelectedCategory:idCategoria];
+        
+        if(repetido){
+            //NSLog(@"Esta repetido");
+            UIImage *buttonImage = [UIImage imageNamed:@"RemoveToSelection"];
+            [_addCategoryButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        }
+        
+        esFavorito = [sesion isFavoriteNewsWithArticleId:idArticulo];
+        
+        if(esFavorito){
+            NSLog(@"Es favorito");
+            UIImage *buttonImageFav = [UIImage imageNamed:@"botonFavoritoOn"];
+            [_addToFavoritesButton setImage:buttonImageFav forState:UIControlStateNormal];
+        }
+        
+    }
 }
 
 - (IBAction)selectionButtonPressed:(id)sender {
@@ -229,7 +220,7 @@ NSString *textoContenidoTemporal = @"";
     
     if(level == 2){
        
-        NSLog(@"Empezó lo wendy");
+        NSLog(@"Add to selection pressed");
         //Es premium
         SessionManager *sesion = [SessionManager session];
         
@@ -244,30 +235,43 @@ NSString *textoContenidoTemporal = @"";
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
-            [alert show];
+            UIImage *buttonImage = [UIImage imageNamed:@"RemoveToSelection"];
             
-        }else{
-            //delete categoría
+            // All instances of MiSeleccionUpdateNotification will be notified
+            dispatch_async(dispatch_get_main_queue(),^{
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:@"MiSeleccionUpdateNotification"
+                 object:self];
+            });
+
+            [_addCategoryButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        [alert show];
             
-            BOOL deleted = [sesion deleteMiSeleccionCategoryWithId:self.idCategoria andCategoryName:self.tituloCategoria];
+         }else{
+            //ya ha sido guardada
             
-            if(deleted){
-                [_btnCatFav setImage:[UIImage imageNamed:@"AddToSelection"] forState:UIControlStateNormal];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría eliminada"
-                                                                message:@"Categoría eliminada correctamente."
-                                                               delegate:self
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                [alert show];
-            }else{
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría eliminada"
-                                                                message:@"Problemas al eliminar categoría."
-                                                               delegate:self
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                [alert show];
-            }
+            //suscriberNeededScreen
+            NSLog(@"Error al guardar");
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Categoría eliminada"
+                                                             message:@"Ésta ha sido eliminada."
+                                                            delegate:self
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil];
+             
+             // All instances of MiSeleccionUpdateNotification will be notified
             
+                 [sesion deleteMiSeleccionCategoryWithId:idCategoria andCategoryName:tituloCategoria];
+
+             
+        
+             
+             //UIImage *buttonImage = [UIImage imageNamed:@"AddToSelection"];
+             //[_addCategoryButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+             [_btnCatFav setImage:[UIImage imageNamed:@"AddToSelection"] forState:UIControlStateNormal];
+             [alert show];
+             [[NSNotificationCenter defaultCenter]
+              postNotificationName:@"MiSeleccionUpdateNotification"
+              object:self];
 
         }
 
@@ -301,6 +305,8 @@ NSString *textoContenidoTemporal = @"";
        
         fontSize--;
         NSLog(@"Nuevo FontSize: %d",fontSize);
+        _titulo.font = [UIFont fontWithName:@"PTSans-Bold" size:fontSize+10];
+        _summary.font = [UIFont fontWithName:@"PTSans-Regular" size:fontSize+4];
         NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSize,textoContenidoTemporal];
         
         
@@ -325,6 +331,10 @@ NSString *textoContenidoTemporal = @"";
         
         fontSize++;
         NSLog(@"Nuevo FontSize: %d",fontSize);
+        
+        _titulo.font = [UIFont fontWithName:@"PTSans-Bold" size:fontSize+10];
+        _summary.font = [UIFont fontWithName:@"PTSans-Regular" size:fontSize+4];
+        
         NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: %d\">%@</span>",fontSize,textoContenidoTemporal];
     
     NSAttributedString *attributedString = [[NSAttributedString alloc]
@@ -336,6 +346,8 @@ NSString *textoContenidoTemporal = @"";
     _contentTextView.attributedText = attributedString;
         
  [_contentTextView sizeToFit];
+        [_titulo sizeToFit];
+        [_summary sizeToFit];
         [_labelCat sizeToFit];
         [self.scrollView sizeToFit];
     }
@@ -345,10 +357,11 @@ NSString *textoContenidoTemporal = @"";
 #pragma mark -->> Data Functions <<---
 
 -(void)loadBenefitForBenefitId:(int)idArticle andCategory:(NSString*)categoria{
-    
-    NSLog(@"Load article for Id:%d",idArticle);
+    self.relatedArticlesArray = [[NSArray alloc] init];
+
+    //NSLog(@"Load article for Id:%d",idArticle);
     self.idArticulo = idArticle;
-      NSLog(@"Titulo de categoria:%@",categoria);
+      //NSLog(@"Titulo de categoria:%@",categoria);
     self.tituloCategoria = categoria;
     // IMPORTANT - Only update the UI on the main thread
     // [SVProgressHUD showWithStatus:@"Obteniendo beneficios disponibles" maskType:SVProgressHUDMaskTypeClear];
@@ -370,15 +383,17 @@ NSString *textoContenidoTemporal = @"";
 }
 
 
--(void) loadRelatedArticleDataFromService:(NSArray*)arrayJson andIndexNumber:(int)indice{
+-(void) loadRelatedArticles:(NSArray*)arrayJson {
     
-    NSDictionary *articleDict = (NSDictionary*)arrayJson;
+    NSArray *articleDict = arrayJson;
     
-    //NSLog(@"***** Print Related article: %@",arrayJson);
-    
-    if (indice == 1) {
+    //NSLog(@"***** Print Related article: %@",articleDict);
+    for (int indice = 0; indice < articleDict.count; indice++ ){
+    if (indice == 0) {
+        NSDictionary *articulo = (NSDictionary*)articleDict[indice];
+       // NSLog(@"***** Print article 1: %@", articulo);
         
-        NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+        NSString *titulo = [[articulo objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
         titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
         
         
@@ -387,12 +402,17 @@ NSString *textoContenidoTemporal = @"";
         
         id urlImagen;
         
-        if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"https://placekitten.com/400/400";
-        }else{
-            urlImagen = [articleDict objectForKey:@"image_url"];
-        }
-        
+//        if ([articulo objectForKey:@"image_url"] == (id)[NSNull null]){
+//            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+//        }else{
+//            urlImagen = [articulo objectForKey:@"image_url"];
+//        }
+//        
+                if ([articulo objectForKey:@"thumb_url"] == (id)[NSNull null]){
+                    urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+                }else{
+                    urlImagen = [articulo objectForKey:@"thumb_url"];
+                }
         
         NSURL *url = [NSURL URLWithString:urlImagen];
         
@@ -417,9 +437,10 @@ NSString *textoContenidoTemporal = @"";
     }
     
     
-    if (indice == 2) {
-        
-        NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+    if (indice == 1) {
+        NSDictionary *articulo = (NSDictionary*)articleDict[indice];
+        // NSLog(@"***** Print article 1: %@", articulo);
+        NSString *titulo = [[articulo objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
         titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
         
         
@@ -428,10 +449,10 @@ NSString *textoContenidoTemporal = @"";
         
         id urlImagen;
         
-        if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"https://placekitten.com/400/400";
+        if ([articulo objectForKey:@"image_url"] == (id)[NSNull null]){
+            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
-            urlImagen = [articleDict objectForKey:@"image_url"];
+            urlImagen = [articulo objectForKey:@"image_url"];
         }
         
         
@@ -457,9 +478,10 @@ NSString *textoContenidoTemporal = @"";
         
     }
     
-    if (indice == 3) {
-        
-        NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+    if (indice == 2) {
+        NSDictionary *articulo = (NSDictionary*)articleDict[indice];
+        // NSLog(@"***** Print article 1: %@", articulo);
+        NSString *titulo = [[articulo objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
         titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
         
         
@@ -468,10 +490,10 @@ NSString *textoContenidoTemporal = @"";
         
         id urlImagen;
         
-        if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"https://placekitten.com/400/400";
+        if ([articulo objectForKey:@"image_url"] == (id)[NSNull null]){
+            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
-            urlImagen = [articleDict objectForKey:@"image_url"];
+            urlImagen = [articulo objectForKey:@"image_url"];
         }
         
         
@@ -497,21 +519,22 @@ NSString *textoContenidoTemporal = @"";
         
     }
     
-    if (indice == 4) {
-        
-        NSString *titulo = [[articleDict objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+    if (indice == 3) {
+        NSDictionary *articulo = (NSDictionary*)articleDict[indice];
+        // NSLog(@"***** Print article 1: %@", articulo);
+        NSString *titulo = [[articulo objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
         titulo = [titulo stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
         
         
-        _titleNews1.text= titulo;
+        _titleNews4.text= titulo;
         
         
         id urlImagen;
         
-        if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"https://placekitten.com/400/400";
+        if ([articulo objectForKey:@"image_url"] == (id)[NSNull null]){
+            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
-            urlImagen = [articleDict objectForKey:@"image_url"];
+            urlImagen = [articulo objectForKey:@"image_url"];
         }
         
         
@@ -534,7 +557,9 @@ NSString *textoContenidoTemporal = @"";
                                  completion:nil];
             });
         });
-        
+     
+    }
+         
     }
     
 }
@@ -552,7 +577,10 @@ NSString *textoContenidoTemporal = @"";
     _titulo.text= titulo;
     _summary.text= [articleDict objectForKey:@"short_description"];
     slug = [articleDict objectForKey:@"slug"];
-
+     self.newsLink = [articleDict objectForKey:@"article_url"];
+    self.relatedArticlesArray= [articleDict objectForKey:@"related_articles"];
+    NSLog(@" >>>>>>>>>>>>> Related articles: %@",relatedArticlesArray);
+    [self loadRelatedArticles:self.relatedArticlesArray];
     _summary.numberOfLines = 0;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
@@ -609,10 +637,13 @@ NSString *textoContenidoTemporal = @"";
     
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
+                         _addCategoryButton.alpha = 1;
+                         _increaseFontButton.alpha = 1;
+                         _decreaseFontButton.alpha = 1;
                          _titulo.alpha = 1;
                          _summary.alpha = 1;
                          _contentTextView.alpha = 1;
-                         
+                         _labelCat.alpha = 1;
                          _labelFecha.alpha = 1;
                          _labelAutor.alpha = 1;
                          
@@ -621,7 +652,7 @@ NSString *textoContenidoTemporal = @"";
     id urlImagen;
     
     if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-        urlImagen = @"https://placekitten.com/400/400";
+        urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
     }else{
         urlImagen = [articleDict objectForKey:@"image_url"];
     }
@@ -670,13 +701,8 @@ NSString *textoContenidoTemporal = @"";
 }
 - (IBAction)shareArticle:(id)sender {
     NSString *tituloNoticia = _titulo.text;
-    newsLink = [NSString stringWithFormat:@"http://aniversario.latercera.com/%@",slug];
-
-    [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:newsLink] forSelf:self];
-    
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker set:kGAIScreenName value:@"Noticias/btn/compartir"];
-    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+   
+    [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:self.newsLink] forSelf:self];
 }
 
 
@@ -696,7 +722,7 @@ NSString *textoContenidoTemporal = @"";
     _summary.text= @"";
     _summary.textAlignment = NSTextAlignmentJustified;
     _contentTextView.text= @"";
-    
+
     //  self.managedObjectContext = managedObjectContext;
     _imagenNews.image = nil;
     
@@ -710,7 +736,7 @@ NSString *textoContenidoTemporal = @"";
     
     // Do any additional setup after loading the view.
     
-    [self loadRelatedArticles];
+    //[self loadRelatedArticles];
 
     
 }
@@ -719,54 +745,51 @@ NSString *textoContenidoTemporal = @"";
 - (IBAction)tapRelatedNews1:(id)sender {
     NSLog(@"Click en related news 1");
     
-    idArticulo = [relatedIdsArray[1] intValue] ;
-    [self updateArticle];
-    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:YES];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
-    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    NSDictionary *articulo = (NSDictionary*)relatedArticlesArray[0];
+    idArticulo = [[articulo objectForKey:@"id"] intValue];
+    NSLog(@"id Artículo = %d",idArticulo);
+    DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
+    [detalleNews loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    detalleNews.idCategoria = idCategoria;
+    [self.navigationController pushViewController:detalleNews animated:YES];
 
 }
 
 - (IBAction)tapRelatedNews2:(id)sender {
     NSLog(@"Click en related news 2");
-    idArticulo = [relatedIdsArray[2] intValue] ;
-    [self updateArticle];
-    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:YES];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
-    [self.scrollView layoutIfNeeded];
+    NSDictionary *articulo = (NSDictionary*)relatedArticlesArray[1];
+    idArticulo = [[articulo objectForKey:@"id"] intValue];
+    NSLog(@"id Artículo = %d",idArticulo);
+    DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
+    [detalleNews loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    detalleNews.idCategoria = idCategoria;
+    [self.navigationController pushViewController:detalleNews animated:YES];
+
 }
 
 - (IBAction)tapRelatedNews3:(id)sender {
     NSLog(@"Click en related news 3");
-    idArticulo = [relatedIdsArray[3] intValue] ;
-    [self updateArticle];
-    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:YES];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
-    [self.scrollView layoutIfNeeded];
+    NSDictionary *articulo = (NSDictionary*)relatedArticlesArray[2];
+    idArticulo = [[articulo objectForKey:@"id"] intValue];
+    NSLog(@"id Artículo = %d",idArticulo);
+    DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
+    [detalleNews loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    detalleNews.idCategoria = idCategoria;
+    [self.navigationController pushViewController:detalleNews animated:YES];
 
 
 }
 
 - (IBAction)tapRelatedNews4:(id)sender {
     NSLog(@"Click en related news 4");
-    idArticulo = [relatedIdsArray[4] intValue] ;
-    [self updateArticle];
-    [self loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    NSDictionary *articulo = (NSDictionary*)relatedArticlesArray[3];
+    idArticulo = [[articulo objectForKey:@"id"] intValue];
+    NSLog(@"id Artículo = %d",idArticulo);
+    DetalleNewsViewController *detalleNews =  (DetalleNewsViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DetalleNewsCategory"];
+    [detalleNews loadBenefitForBenefitId:idArticulo andCategory:tituloCategoria];
+    detalleNews.idCategoria = idCategoria;
+    [self.navigationController pushViewController:detalleNews animated:YES];
 
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:YES];
-    [self.scrollView setContentOffset:
-     CGPointMake(0, -self.scrollView.contentInset.top) animated:NO];
-    [self.scrollView layoutIfNeeded];
 
 }
 

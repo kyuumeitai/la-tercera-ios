@@ -36,6 +36,7 @@
     
 }
 @property  BOOL isLogged;
+@property  BOOL hasShownMailConfirmation;
 @property (nonatomic, retain) NSString *storyBoardName;
 @property (nonatomic, retain) UserProfile * userProfile;
 @property (nonatomic, retain) NSString *profileType;
@@ -61,6 +62,8 @@
 -(NSArray*) getMiSeleccionArray;
 -(NSMutableArray*) getMiSeleccionCategoryIdsArray;
 -(NSMutableArray*) getMiSeleccionCategoryTitlesArray;
-
+-(BOOL)isRepeatedForSelectedCategory:(int)idCat;
+-(void) deleteNoticiaWithId:(int)idNoticia;
+-(BOOL)isFavoriteNewsWithArticleId:(int)idArticle;
 
 @end

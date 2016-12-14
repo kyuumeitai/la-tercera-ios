@@ -810,7 +810,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
     //Damos explicaciones del caso
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@"No hay beneficios cercanos"
-                          message:@"No se han enxontrado beneficios cerca de su ubicación."
+                          message:@"No se han encontrado beneficios cerca de su ubicación."
                           delegate:nil //or self
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil];

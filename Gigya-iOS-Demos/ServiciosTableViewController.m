@@ -236,6 +236,7 @@ BOOL firstTimeServicios = false;
                     [self.tableView setBounces:NO];
                     [self.tableView setAlwaysBounceVertical:NO];
                     [weakSelf.tableView endUpdates];
+                    [SVProgressHUD dismiss];
                     [weakSelf.tableView.infiniteScrollingView stopAnimating];
                 }
             } else {
@@ -344,7 +345,7 @@ BOOL firstTimeServicios = false;
     
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumber);
     isPageRefreshingServicios = YES;
-    //[self showMBProgressHUDOnView:self.view withText:@"Please wait..."];
+    [SVProgressHUD showWithStatus:@"Obteniendo más beneficios ..." maskType:SVProgressHUDMaskTypeClear];
     currentPageNumber = currentPageNumber +1;
     [self loadBenefitsForCategoryId:benefitCategoryId];
     

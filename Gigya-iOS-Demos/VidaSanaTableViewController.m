@@ -341,7 +341,6 @@ BOOL firstTimeVidaSana = false;
     NSLog(@"***********   Load More Rows   ************");
     NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberVidaSana);
     
-    NSLog(@" scroll to bottom!, with pageNumber: %d",currentPageNumberVidaSana);
     isPageRefreshingVidaSana = YES;
     [SVProgressHUD showWithStatus:@"Obteniendo más beneficios ..." maskType:SVProgressHUDMaskTypeClear];
     currentPageNumberVidaSana = currentPageNumberVidaSana +1;

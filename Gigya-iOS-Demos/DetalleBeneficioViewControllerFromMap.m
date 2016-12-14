@@ -21,6 +21,8 @@ CLLocationCoordinate2D storeLocationFromMap;
 
 
 - (void)viewDidLoad {
+    
+    NSLog(@"ESTOIY EN DetalleViewController>FROMMAP.m");
     [super viewDidLoad];
     self.benefitImageView.image = _benefitImage;
     self.benefitAdressLabel.alpha = 0;
@@ -206,6 +208,9 @@ CLLocationCoordinate2D storeLocationFromMap;
     
     //Loading summary
     NSString* summary = [tempDict objectForKey:@"summary"];
+    NSString* content= [tempDict objectForKey:@"content"];
+    NSString* terms = [tempDict objectForKey:@"terms"];
+    
     self.benefitSubtitleLabel.text = summary;
     //[self.benefitSubtitleLabel setNumberOfLines:0];
     //[self.benefitSubtitleLabel sizeToFit];
@@ -236,7 +241,7 @@ CLLocationCoordinate2D storeLocationFromMap;
     
     NSString *caducidad = [NSString stringWithFormat:@"Beneficio válido desde el %@ al %@",displayStart,displayEnd];
     
-    self.expiredDateLabel.text=caducidad;
+    
     self.expiredDateLabel.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{ self.expiredDateLabel.alpha = 1;}
@@ -280,6 +285,12 @@ CLLocationCoordinate2D storeLocationFromMap;
     //Loading Description
     NSString* description = [tempDict objectForKey:@"description"];
     
+    
+    NSString *textoCondiciones =[NSString stringWithFormat:@"%@\r%@\r%@", description,terms,caducidad];
+    NSLog(@"Texto confdixiones: %@",textoCondiciones);
+
+    self.expiredDateLabel.text=textoCondiciones;
+    /*
     NSString *finalDescription = [NSString stringWithFormat:@"<span style=\"font-family: PT Sans; font-size: 16\">%@</span>",description];
     
     
@@ -289,7 +300,9 @@ CLLocationCoordinate2D storeLocationFromMap;
                                                    documentAttributes:nil                                            error: nil
                                                    ];
     
+    
     self.benefitDescriptionTextView.attributedText = attributedString;
+      */
 }
 
 

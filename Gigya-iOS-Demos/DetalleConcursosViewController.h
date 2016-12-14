@@ -19,7 +19,7 @@
 @property (strong,nonatomic) UIImage* concursoImage;
 
 @property (weak, nonatomic) IBOutlet UILabel *profileConcursoLabel;
-
+@property (weak, nonatomic) IBOutlet UITextView *concursoSubtitleTextview;
 @property (weak, nonatomic) IBOutlet UILabel *expiredDateLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *concursoTitleLabel;

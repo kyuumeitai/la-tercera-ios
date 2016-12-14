@@ -141,6 +141,8 @@ NSMutableArray *relatedIdsArrayVoces;
         [weakSelf loadMoreRows];
     }];
     
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -215,7 +217,7 @@ NSMutableArray *relatedIdsArrayVoces;
         id imageThumb ;
         
             if (([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]) || ([[dictTitular objectForKey:@"thumb_url"] isEqualToString:@""])){
-            imageThumb = @"";
+            imageThumb = @"http://ltrest.multinetlabs.com/static/lt-default.png";
             }else{
             imageThumb = [dictTitular objectForKey:@"thumb_url"];
             NSLog(@" el thumbnail  es: %@ ",imageThumb);
@@ -300,8 +302,10 @@ NSMutableArray *relatedIdsArrayVoces;
         }
         // Configure the cell
         cell.labelTituloNews.text = titular.title;
+        cell.labelTituloNews.numberOfLines = 3;
         
         cell.labelSummary.text = titular.summary;
+        cell.labelSummary.numberOfLines = 9;
         
         
         NSString *urlImagen = titular.imagenThumbString;
@@ -437,10 +441,10 @@ NSMutableArray *relatedIdsArrayVoces;
     if([indexPath row]==0 || [indexPath row] % 6 == 0 || [indexPath row]==1 || [indexPath row]==2  || (([indexPath row]% 6)-1) == 0 || (([indexPath row] % 6)-2) == 0 || [indexPath row]==3 || [indexPath row]==4 || (([indexPath row]% 6)-3) == 0 || (([indexPath row] % 6)-4) == 0 ){
         
         if([storyBoardNameVoces isEqualToString:@"LaTerceraStoryboard-iPhone4"] || [storyBoardNameVoces isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-            return CGSizeMake(310, 468);
+            return CGSizeMake(310, 500);
             
         }else{
-            return CGSizeMake(350, 420);
+            return CGSizeMake(350, 500);
         }
     }
     

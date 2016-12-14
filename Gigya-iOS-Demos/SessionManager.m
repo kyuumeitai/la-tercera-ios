@@ -21,6 +21,7 @@
 @synthesize categoryList;
 @synthesize userProfile;
 @synthesize isLogged;
+@synthesize hasShownMailConfirmation;
 
 #pragma mark Singleton Methods
 
@@ -151,8 +152,7 @@
 }
 
 -(BOOL)isRepeatedForSelectedCategory:(int)idCat{
-    
-    
+
     SessionManager *sesion = [SessionManager session];
     
     NSMutableArray *arreglo = (NSMutableArray*)[sesion getMiSeleccionArray];
@@ -170,10 +170,29 @@
     return false;
 }
 
+-(BOOL)isFavoriteNewsWithArticleId:(int)idArticle{
+    
+    SessionManager *sesion = [SessionManager session];
+    
+    NSMutableArray *arreglo = (NSMutableArray*)[sesion getMyFavoritNewsArray];
+    for (NSManagedObject *objeto in arreglo) {
+        NSLog(@"Comparamos idCat: %d con: %d ", idArticle, [[objeto valueForKey:@"idArticle"] intValue]);
+        int valor = [[objeto valueForKey:@"idArticle"] intValue];
+        
+        if (idArticle == valor) {
+            
+            return true;
+            
+        }
+        
+    }
+    return false;
+}
+
 -(BOOL) saveMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName{
     
     BOOL exitoso = false;
-
+    
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     
     // Create a new selection category
@@ -236,34 +255,44 @@
     return exitoso;
 }
 
--(BOOL) deleteMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName{
+-(void) deleteMiSeleccionCategoryWithId:(int)idCat andCategoryName:(NSString*)categoryName{
     
-    BOOL exitoso = false;
-    
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    
-    NSArray *noticias = [[NSArray alloc] init];
-    // Fetch the devices from persistent data store
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"CategoriasSeleccion"];
-    noticias = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    
-    //check if existe en favoritos
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"(nombreCat == %@)", categoryName]];
-    
-    NSError *error = nil;
-    NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    
-    if([results count] > 0){
-        //eliminar de favoritos
-        for (NSManagedObject *managedObject in results) {
-            [managedObjectContext deleteObject:managedObject];
-        }
-        
-        exitoso = [managedObjectContext save:&error];
+    NSEntityDescription *productEntity=[NSEntityDescription entityForName:@"CategoriasSeleccion" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *fetch=[[NSFetchRequest alloc] init];
+    [fetch setEntity:productEntity];
+    NSPredicate *p=[NSPredicate predicateWithFormat:@"idCat == %d && nombreCat == %@", idCat,categoryName];
+    [fetch setPredicate:p];
+    //... add sorts if you want them
+    NSError *fetchError;
+    NSError *error;
+    NSArray *fetchedProducts=[self.managedObjectContext executeFetchRequest:fetch error:&fetchError];
+    for (NSManagedObject *product in fetchedProducts) {
+        NSLog(@"La categoria es: %@",product);
+        [self.managedObjectContext deleteObject:product];
     }
-    
-    return exitoso;
+    [self.managedObjectContext save:&error];
+
 }
+
+-(void) deleteNoticiaWithId:(int)idNoticia{
+    
+    NSEntityDescription *productEntity=[NSEntityDescription entityForName:@"Noticia" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *fetch=[[NSFetchRequest alloc] init];
+    [fetch setEntity:productEntity];
+    NSPredicate *p=[NSPredicate predicateWithFormat:@"idArticle == %d", idNoticia];
+    [fetch setPredicate:p];
+    //... add sorts if you want them
+    NSError *fetchError;
+    NSError *error;
+    NSArray *fetchedProducts=[self.managedObjectContext executeFetchRequest:fetch error:&fetchError];
+    for (NSManagedObject *product in fetchedProducts) {
+        NSLog(@"La noticia es: %@",product);
+        [self.managedObjectContext deleteObject:product];
+    }
+    [self.managedObjectContext save:&error];
+    
+}
+
 
 
 -(NSArray*) getMiSeleccionArray{
@@ -278,6 +307,18 @@
     return arraySeleccion;
 }
 
+-(NSArray*) getMyFavoritNewsArray{
+    
+    NSArray *arraySeleccion = [[NSArray alloc] init];
+    // Fetch the devices from persistent data store
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Noticia"];
+    arraySeleccion = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    NSLog(@"El array de news es : %@",arraySeleccion);
+    
+    return arraySeleccion;
+}
+
 -(NSMutableArray*) getMiSeleccionCategoryIdsArray{
     
     NSMutableArray *arraySeleccionIds = [[NSMutableArray alloc] init];
@@ -287,6 +328,8 @@
     NSMutableArray *arreglo = (NSMutableArray*)[sesion getMiSeleccionArray];
     for (NSManagedObject *objeto in arreglo) {
         int valor = [[objeto valueForKey:@"idCat"] intValue];
+        NSLog(@">>>>>>>***** Mi seleccion:  Id de categoria: %d /n",valor);
+
         [arraySeleccionIds addObject:[NSNumber numberWithInteger:valor]];
     }
 
@@ -303,13 +346,12 @@
     NSMutableArray *arreglo = (NSMutableArray*)[sesion getMiSeleccionArray];
     for (NSManagedObject *objeto in arreglo) {
         NSString * tituloCat = [objeto valueForKey:@"nombreCat"];
+        NSLog(@">>>>>>>***** Mi seleccion:  Título de categoria: %@ /n",tituloCat);
         [arraySeleccionTitles addObject:tituloCat];
     }
     
-    
     return arraySeleccionTitles;
 }
-
 
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;

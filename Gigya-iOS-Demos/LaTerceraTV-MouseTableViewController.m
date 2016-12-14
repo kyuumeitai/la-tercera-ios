@@ -224,7 +224,7 @@ NSString *storyBoardNameTVMouse;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 438;
+    return 458;
 }
 
 
@@ -293,39 +293,38 @@ NSString *storyBoardNameTVMouse;
         
         NSArray* arrayMedia= [dictTitular objectForKey:@"medias"];
         
-        if([arrayMedia count] > 0){
-            id idArt =  [dictTitular objectForKey:@"id"];
-            id title = [dictTitular objectForKey:@"title"];
-            id summary = [dictTitular objectForKey:@"short_description"];
-            
-            NSString *imageThumb ;
-            
-            if ([dictTitular objectForKey:@"thumb_url"] || ([[dictTitular objectForKey:@"thumb_url"] isEqualToString:@""])){
-                imageThumb = @"https://placekitten.com/200/200";
-            }else{
-                imageThumb = [dictTitular objectForKey:@"thumb_url"];
-            }
-            
-            NSDictionary *media = (NSDictionary*) arrayMedia[0];
-            id linkVideo = [media objectForKey:@"media_url"];
-            
-            Video *video = [[Video alloc] init];
-            video.idVideo = [idArt intValue];
-            video.title = title;
-            video.summary = summary;
-            //NSLog(@"____ IMAGEN THUMBB: %@", imageThumb);
-            video.imagenThumbString = imageThumb;
-            video.link = linkVideo;
-            
-            NSLog(@"____ Numero de pagina: %d", currentPageNumberTVMouse);
-            if (indice == currentPageNumberTVMouse*6 ){
-                NSLog(@"____ currentPageNumberTVMouse*6: %d", currentPageNumberTVMouse*6);
-                // [laTerceraTVMouseArray addObject:@"OBJETO"];
-            }
-            [video logDescription];
-            
-            [laTerceraTVMouseArray addObject:video];
+        id idArt =  [dictTitular objectForKey:@"id"];
+        NSString *title= [[dictTitular objectForKey:@"title"] stringByReplacingOccurrencesOfString: @"&#8220;" withString:@"“"];
+        title = [title stringByReplacingOccurrencesOfString: @"&#8221;" withString:@"”"];
+        id summary = [dictTitular objectForKey:@"short_description"];
+        
+        NSString *imageThumb ;
+        imageThumb = [dictTitular objectForKey:@"thumb_url"];
+        /*if (([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]) || ([[dictTitular objectForKey:@"thumb_url"] isEqualToString:@""])){
+         imageThumb = @"https://placekitten.com/200/200";
+         }else{
+         imageThumb = [dictTitular objectForKey:@"thumb_url"];
+         }*/
+        
+        NSDictionary *media = (NSDictionary*) arrayMedia[0];
+        id linkVideo = [media objectForKey:@"media_url"];
+        
+        Video *video = [[Video alloc] init];
+        video.idVideo = [idArt intValue];
+        video.title = title;
+        video.summary = summary;
+        //NSLog(@"____ IMAGEN THUMBB: %@", imageThumb);
+        video.imagenThumbString = imageThumb;
+        video.link = linkVideo;
+        
+        NSLog(@"____ Numero de pagina: %d", currentPageNumberTVMouse);
+        if (indice == currentPageNumberTVMouse*6 ){
+            NSLog(@"____ currentPageNumberTVMouse*6: %d", currentPageNumberTVMouse*6);
+            // [laTerceraTVMouseArray addObject:@"OBJETO"];
         }
+        [video logDescription];
+        
+        [laTerceraTVMouseArray addObject:video];
     }
     
     //New code
