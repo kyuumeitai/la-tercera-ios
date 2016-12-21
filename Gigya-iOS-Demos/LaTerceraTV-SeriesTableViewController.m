@@ -268,7 +268,7 @@ NSString *storyBoardNameTVSeries;
                 }
             }
         });
-    }:idCategory andPage:currentPageNumberTVSeries];
+    }:26 andPage:currentPageNumberTVSeries];
     
 }
 

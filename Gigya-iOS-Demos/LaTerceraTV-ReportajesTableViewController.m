@@ -270,7 +270,7 @@ NSString *storyBoardNameTVReportajes;
                 }
             }
         });
-    }:idCategory andPage:currentPageNumberTVReportajes];
+    }:25 andPage:currentPageNumberTVReportajes];
     
 }
 

@@ -119,6 +119,7 @@
         detalleNews.newsDate = [device valueForKey:@"date"];
         detalleNews.newsAuthor = [device valueForKey:@"author"];
         detalleNews.newsImage = imagen;
+        detalleNews.newsUrl = [device valueForKey:@"url"];
  
         [self.navigationController pushViewController:detalleNews animated:YES];
     }

@@ -132,7 +132,7 @@ BOOL sidebarMenuOpen2;
             ltTVActualidadVC.title = contenido.contentTitle;
         }
         
-        if([slug isEqualToString:@"Debates"]){
+        if([slug isEqualToString:@"Debate LT"]){
             ltTVDebatesVC.title = contenido.contentTitle;
         }
         
@@ -152,25 +152,24 @@ BOOL sidebarMenuOpen2;
             ltTVEntretencionVC.title = contenido.contentTitle;
         }
         
-        if([slug isEqualToString:@"Mouse"]){
-            ltTVMouseVC.title = contenido.contentTitle;
-        }
-        
-        if([slug isEqualToString:@"Reportajes"]){
+        if([slug isEqualToString:@"Entrevistas"]){
             ltTVReportajesVC.title = contenido.contentTitle;
         }
         
-        if([slug isEqualToString:@"Series"]){
+        if([slug isEqualToString:@"LT en Vivo"]){
             ltTVSeriesVC.title = contenido.contentTitle;
         }
         
+        if([slug isEqualToString:@"Mouse"]){
+            ltTVMouseVC.title = contenido.contentTitle;
+        }
     }
     
     float headerSpace = 5.0;
     
        // YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVHomeVC,ltTVEnDirectoVC,ltTVEntretencionVC,ltTVMouseVC,ltTVReportajesVC,ltTVSeriesVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
   
-   YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVActualidadVC,ltTVDebatesVC,ltTVDeportesVC,ltTVElDeportivoVC,ltTVEnDirectoVC,ltTVEntretencionVC,ltTVMouseVC,ltTVReportajesVC,ltTVSeriesVC]                                                                                        topBarHeight:headerSpace parentViewController:self];
+   YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[ltTVActualidadVC,ltTVDebatesVC,ltTVDeportesVC,ltTVElDeportivoVC,ltTVEnDirectoVC,ltTVEntretencionVC,ltTVSeriesVC,ltTVReportajesVC,ltTVMouseVC]                                                                                        topBarHeight:headerSpace parentViewController:self];
     
     containerVC.delegate = self;
     containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];

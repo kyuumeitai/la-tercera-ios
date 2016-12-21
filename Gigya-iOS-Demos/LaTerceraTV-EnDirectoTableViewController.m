@@ -272,7 +272,7 @@ NSString *storyBoardNameTVEnDirecto;
                 }
             }
         });
-    }:idCategory andPage:currentPageNumberTVEnDirecto];
+    }:20 andPage:currentPageNumberTVEnDirecto];
     
 }
 

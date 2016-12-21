@@ -655,7 +655,7 @@ const int catServicios = 4;
 
 - (IBAction)VentasEspecialesPressed:(id)sender {
     
-    [Tools openSafariWithURL:@"http://suscripcioneslt.latercera.com/"];
+    [Tools openSafariWithURL:@"http://www.clublatercera.com/categoria/ventas-especiales/"];
     
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:@"Beneficios/ventasEspeciales/btn"];

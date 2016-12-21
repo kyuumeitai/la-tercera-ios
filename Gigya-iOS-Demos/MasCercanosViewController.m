@@ -278,7 +278,7 @@ int cuenta;
     NSLog(@"Load Stores");
     SessionManager *sesion = [SessionManager session];
     _userLocation = sesion.userLocation;
-  ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
+    ConnectionManager *connectionManager = [[ConnectionManager alloc]init];
     double puntoX = _userLocation.coordinate.latitude;
     double puntoY = _userLocation.coordinate.longitude;
 
@@ -356,7 +356,7 @@ int cuenta;
         store.idBenefit = idBenefit;
         store.relatedCommerce = relatedCommerce;
         
-          [tableData addObject:store];
+        [tableData addObject:store];
         
         [storeItemsArray addObject:store];
       
@@ -380,7 +380,7 @@ int cuenta;
     adjustedRegion.span.latitudeDelta  = 0.01;
     [self.mapView setRegion:adjustedRegion animated:NO];
 
-        [mapTableView reloadData];
+    [mapTableView reloadData];
 
 }
 
@@ -424,7 +424,7 @@ int cuenta;
     self.botonViajes.selected = NO;
     self.botonTodos.selected = NO;
     
-    [self loadCategory:43];
+    [self loadCategory:7];
 }
 
 - (IBAction)todosClicked:(id)sender {
@@ -460,7 +460,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:39];
+    [self loadCategory:3];
 }
 
 - (IBAction)vidaSanaClicked:(id)sender {
@@ -478,7 +478,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:44];
+    [self loadCategory:8];
 }
 
 - (IBAction)tiempoLibreClicked:(id)sender {
@@ -496,9 +496,11 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:41];
+    [self loadCategory:5];
     
 }
+
+//esta es ventas especiales!!!
 - (IBAction)serviciosClicked:(id)sender {
     NSLog(@"Servicios clicked");
     [SVProgressHUD show];
@@ -514,9 +516,9 @@ int cuenta;
     self.botonServicios.selected = YES;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:40];
+    [self loadCategory:6];
 }
-
+//esta es servicios!!!
 - (IBAction)viajesClicked:(id)sender {
     NSLog(@"Viajes clicked");
     [SVProgressHUD show];
@@ -532,7 +534,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = YES;
     
-    [self loadCategory:7];
+    [self loadCategory:4];
 }
 
 - (IBAction)mastercardClicked:(id)sender {
@@ -550,7 +552,7 @@ int cuenta;
     self.botonServicios.selected = NO;
     self.botonViajes.selected = NO;
     
-    [self loadCategory:8];
+    [self loadCategory:2];
 }
 #pragma mark - Table view data source
 

@@ -151,11 +151,10 @@ GigyaFormAction formType;
 - (IBAction)showScreenSet:(id)sender {
     [Gigya logout];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:@"facebook,twitter" forKey:@"enabledProviders"];
     [params setObject:@"Mobile-login" forKey:@"screenSet"];
-  //[params setObject:@"gigya-complete-registration-screen" forKey:@"startScreen"];
-    
-    //[params setObject:@"gigya-register-screen" forKey:@"startScreen"];
-    
+    [params setObject:@"gigya-register-screen" forKey:@"startScreen"];
+    [params setObject:[NSString stringWithFormat:@"es-mx"] forKey:@"lang"];
     [Gigya showPluginDialogOver:self plugin:@"accounts.screenSet" parameters:params completionHandler:^(BOOL closedByUser, NSError *error) {
         if (!error) {
             // Login was successful
@@ -176,6 +175,7 @@ GigyaFormAction formType;
     [Gigya logout];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:@"Mobile-login" forKey:@"screenSet"];
+    [params setObject:[NSString stringWithFormat:@"es-mx"] forKey:@"lang"];
     //[params setObject:@"gigya-complete-registration-screen" forKey:@"startScreen"];
     
    // [params setObject:@"gigya-register-screen" forKey:@"startScreen"];
@@ -199,6 +199,7 @@ GigyaFormAction formType;
     if (![Gigya isSessionValid]){
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         [params setObject:[NSNumber numberWithInt:FBSDKLoginBehaviorNative] forKey:@"facebookLoginBehavior"];
+        [params setObject:[NSString stringWithFormat:@"es-mx"] forKey:@"lang"];
         [Gigya showLoginProvidersDialogOver:self
                                   providers:@[@"facebook", @"twitter", @"googleplus", @"linkedin"]
                                  parameters:params

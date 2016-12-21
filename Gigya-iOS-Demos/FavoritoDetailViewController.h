@@ -30,5 +30,6 @@
 @property (retain, nonatomic) NSString *newsDate;
 @property (retain, nonatomic) NSString *newsAuthor;
 @property (retain, nonatomic) NSString *newsContent;
+@property (retain, nonatomic) NSString *newsUrl;
 
 @end

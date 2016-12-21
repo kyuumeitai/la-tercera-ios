@@ -109,71 +109,78 @@ int monto = 0;
     }else{
     
     
-    SessionManager *sesion = [SessionManager session];
+        SessionManager *sesion = [SessionManager session];
     
-    NSLog(@"Singleton description: %@",[sesion profileDescription]);
-    UserProfile *perfil = [sesion getUserProfile];
+        NSLog(@"Singleton description: %@",[sesion profileDescription]);
+        UserProfile *perfil = [sesion getUserProfile];
 
-    ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
+        ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
     
-   email = perfil.email;
-    monto = [_montoTextField.text intValue];
-    
+        email = perfil.email;
+        monto = [_montoTextField.text intValue];
+        NSString * codLocal = _codigoComercioTextfield.text;
+        codLocal = [codLocal uppercaseString];
+        
+        NSString *comercioData = [connectionManager getCommerceById:[codLocal intValue]];
+        
+        NSLog(@"El mensaje del WS es: %@",comercioData);
+        NSData *dataComercio = [comercioData dataUsingEncoding:NSUTF8StringEncoding];
+        id jsonComercio = [NSJSONSerialization JSONObjectWithData:dataComercio options:0 error:nil];
+        NSLog(@"json comercio: %@", jsonComercio);
+        //id jsonStores = [NSJSONSerialization JSONObjectWithData:dataComercio options:0 error:nil];
+        
+        //codComercio = [NSString stringWithFormat:@"C%@S%@",idComercio,sucursal];
+        codComercio = [NSString stringWithFormat:@"C%@S%@",codLocal,sucursal];
+        NSLog(@"Vamos a usar el beneficio y llamar al WS");
+        //NSLog(@"El codigo comercio es: %@",codComercio);
+        
+        //NSString *textoCod = _codigoComercioTextfield.text;
+        NSString *resultMessageUseBenefit = [connectionManager UseBenefitWithIdBenefit:idBeneficio codigoComercio:codLocal email:email monto:monto];
 
-    
-    codComercio = [NSString stringWithFormat:@"C%@S%@",idComercio,sucursal];
-    NSLog(@"Vamos a usar el beneficio y llamar al WS");
-    NSLog(@"El codigo comercio es: %@",codComercio);
-    // ConnectionManager * connectionManager = [[ConnectionManager alloc] init];
-    NSString *textoCod = _codigoComercioTextfield.text;
-    NSString *resultMessageUseBenefit = [connectionManager UseBenefitWithIdBenefit:idBeneficio codigoComercio:textoCod sucursal:sucursal email:email monto:monto];
-
-    NSLog(@"El mensaje del WS es: %@",resultMessageUseBenefit);
-    NSData *data = [resultMessageUseBenefit dataUsingEncoding:NSUTF8StringEncoding];
-    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    int exito = [[json objectForKey:@"exito"] intValue];
+        NSLog(@"El mensaje del WS es: %@",resultMessageUseBenefit);
+        NSData *data = [resultMessageUseBenefit dataUsingEncoding:NSUTF8StringEncoding];
+        id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        int exito = [[json objectForKey:@"exito"] intValue];
     
     
-    if(exito==1){
+        if(exito==1){
         
-        NSLog(@"Erxitoooo! :D");
-        ConfirmationViewController *confirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"confirmationScreen"];
-        //confirmationViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        confirmationViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-       [self presentViewController:confirmationViewController animated:YES completion:nil];
+            NSLog(@"Erxitoooo! :D");
+            ConfirmationViewController *confirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"confirmationScreen"];
+            //confirmationViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            confirmationViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            [self presentViewController:confirmationViewController animated:YES completion:nil];
 
-    }else{
+        }else{
         
-        UIAlertController * alert=   [UIAlertController
-                                      alertControllerWithTitle:@"Algo ha salido mal"
-                                      message:@"Para hacer válido el descuento muestra la Tarjeta Virtual al vendedor"
-                                      preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* volver= [UIAlertAction
-                                actionWithTitle:@"Volver"
-                                style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction * action)
-                                {
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@"Algo ha salido mal"
+                                          message:@"Para hacer válido el descuento muestra la Tarjeta Virtual al vendedor"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* volver= [UIAlertAction
+                                    actionWithTitle:@"Volver"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action)
+                                    {
 
-                                    [alert dismissViewControllerAnimated:YES completion:nil];
-                                }];
-        UIAlertAction* mostrarTarjeta = [UIAlertAction
-                                         actionWithTitle:@"Mostrar Tarjeta Virtual"
-                                         style:UIAlertActionStyleDefault
-                                         handler:^(UIAlertAction * action)
-                                         {
-                                         
-                                        
-                                                 [self showVirtualCard];
-                                           
-                                         }];
-        
-        [alert addAction:mostrarTarjeta];
-        [alert addAction:volver];
-        
-        [self presentViewController:alert animated:YES completion:nil];
-        
-        
+                                        [alert dismissViewControllerAnimated:YES completion:nil];
+                                    }];
+            UIAlertAction* mostrarTarjeta = [UIAlertAction
+                                             actionWithTitle:@"Mostrar Tarjeta Virtual"
+                                             style:UIAlertActionStyleDefault
+                                             handler:^(UIAlertAction * action)
+                                             {
+                                             
+                                            
+                                                     [self showVirtualCard];
+                                               
+                                             }];
+            
+            [alert addAction:mostrarTarjeta];
+            [alert addAction:volver];
+            
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }
     

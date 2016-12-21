@@ -204,6 +204,7 @@ BOOL firstTimeVidaSana = false;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
     detalleBeneficio.beneficioTipo = @"vidasana";
+    detalleBeneficio.benefitRemoteId = beneficio.idRemoteBen;
     [beneficio logDescription];
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];

@@ -181,8 +181,14 @@ NSString *textoContenidoFavorito = @"";
     
     [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:newsLinkVoces] forSelf:self];
 }
-
 */
+
+- (IBAction)shareArticle:(id)sender {
+    NSString *tituloNoticia = _titulo.text;
+    
+    [Tools shareText:tituloNoticia    andImage:nil  andUrl:[NSURL URLWithString:self.newsUrl] forSelf:self];
+}
+
 - (IBAction)backButtonClicked:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -487,7 +487,7 @@ forLocalNotification:(UILocalNotification *)notification completionHandler:(void
     
     NSLog(@"\tBeacon name %@ entró al rango",            beacon.name);
     
-    NSString *mensaje = [NSString stringWithFormat:@"\tEl Beacon name %@ entró al rango",            beacon.name];
+    /*NSString *mensaje = [NSString stringWithFormat:@"\tEl Beacon name %@ entró al rango",            beacon.name];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Beacon"
                                                                              message:mensaje
                                                                       preferredStyle:UIAlertControllerStyleAlert];
@@ -496,11 +496,11 @@ forLocalNotification:(UILocalNotification *)notification completionHandler:(void
                                                        style:UIAlertActionStyleDefault
                                                      handler:nil]; //You can use a block here to handle a press on this button
     [alertController addAction:actionOk];
-    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];*/
     
 }
 -(void)proximityService:(MOCAProximityService*)service didExitRange:(MOCABeacon *)beacon{
-    NSString *mensaje = [NSString stringWithFormat:@"\tEl Beacon name %@ Salió del rango",            beacon.name];
+    /*NSString *mensaje = [NSString stringWithFormat:@"\tEl Beacon name %@ Salió del rango",            beacon.name];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Beacon"
                                                                              message:mensaje
                                                                       preferredStyle:UIAlertControllerStyleAlert];
@@ -509,7 +509,7 @@ forLocalNotification:(UILocalNotification *)notification completionHandler:(void
                                                        style:UIAlertActionStyleDefault
                                                      handler:nil]; //You can use a block here to handle a press on this button
     [alertController addAction:actionOk];
-    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];*/
 }
 -(void)proximityService:(MOCAProximityService*)service didBeaconProximityChange:(MOCABeacon*)beacon
           fromProximity:(CLProximity)prevProximity toProximity:(CLProximity)curProximity{

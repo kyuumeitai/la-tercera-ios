@@ -32,11 +32,11 @@
     
     
     if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone4"] ){
-    menuItems = @[@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria5",@"categoria6", @"categoria7", @"categoria8", @"categoria10",@"categoria13"];
+    menuItems = @[@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria5",@"categoria6", @"categoria9", @"categoria7", @"categoria8", @"categoria10",@"categoria13"];
     }else if( [stbName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
-        menuItems = @[@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria5",@"categoria6", @"categoria7", @"categoria8", @"categoria10", @"categoria13"];
+        menuItems = @[@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria5",@"categoria6", @"categoria9", @"categoria7", @"categoria8", @"categoria10", @"categoria13"];
     }else{
-    menuItems = @[@"categoria11",@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria5",@"categoria6", @"categoria7", @"categoria8", @"categoria10",  @"categoria12", @"categoria13"];
+    menuItems = @[@"categoria11",@"categoria1", @"categoria2", @"categoria15",@"categoria3", @"categoria5",@"categoria6", @"categoria9", @"categoria7", @"categoria8", @"categoria10",  @"categoria12", @"categoria13"];
     }
     //self.automaticallyAdjustsScrollViewInsets = NO;
 
@@ -72,6 +72,39 @@
 
 
 #pragma mark - Table view data source
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SessionManager *sesion = [SessionManager session];
+    NSString *stbName = sesion.storyBoardName;
+    
+    
+    if([stbName isEqualToString:@"LaTerceraStoryboard-iPhone4"] ){
+        if(indexPath.row == 6){
+            //NSString *pURL = @"http://www.clublatercera.com/categoria/ventas-especiales/ ";
+            
+            [Tools openSafariWithURL:@"http://www.clublatercera.com/categoria/ventas-especiales/ "];
+            //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:pURL]];
+        }
+    }else if( [stbName isEqualToString:@"LaTerceraStoryboard-iPhone5"]){
+        if(indexPath.row == 6){
+            //NSString *pURL = @"http://tienda.clublatercera.com/categorias/ventas-especiales ";
+            
+            [Tools openSafariWithURL:@"http://www.clublatercera.com/categoria/ventas-especiales/"];
+            //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:pURL]];
+            
+        }
+    }else{
+        if(indexPath.row == 7){
+            //NSString *pURL = @"http://tienda.clublatercera.com/categorias/ventas-especiales ";
+            
+            [Tools openSafariWithURL:@"http://www.clublatercera.com/categoria/ventas-especiales/"];
+            //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:pURL]];
+            
+        }
+    }
+    
+    
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -129,7 +162,7 @@
         if (indexPath.row == 13)
             return 100.0;
         if (indexPath.row == 11)
-            return 12.0;
+            return 70.0;
         return 44.0;
     }
 }

@@ -203,6 +203,7 @@ BOOL firstTimeTiempoLibre = false;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
     detalleBeneficio.beneficioTipo = @"tiempolibre";
+    detalleBeneficio.benefitRemoteId = beneficio.idRemoteBen;
     [beneficio logDescription];
     
     [self.navigationController pushViewController: detalleBeneficio animated:YES];

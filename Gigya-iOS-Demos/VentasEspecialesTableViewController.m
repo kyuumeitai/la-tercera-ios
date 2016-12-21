@@ -148,6 +148,7 @@ static NSString *simpleTableIdentifier = @"ClubCategoryTableCell3";
     detalleBeneficio.benefitDiscount= beneficio.desclabel;
     detalleBeneficio.benefitDescription = beneficio.summary;
     detalleBeneficio.benefitId = beneficio.idBen;
+    detalleBeneficio.benefitRemoteId = beneficio.idRemoteBen;
 
     [self.navigationController pushViewController: detalleBeneficio animated:YES];
     

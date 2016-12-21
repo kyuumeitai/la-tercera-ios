@@ -11,8 +11,15 @@
 #import "GAIFields.h"
 #import "GAITrackedViewController.h"
 #import "GAIDictionaryBuilder.h"
+#import "Headers/MOCA.h"
+#import "SessionManager.h"
+#import "UserProfile.h"
+#import "ConnectionManager.h"
 
-@interface AjustesTableViewController ()
+@interface AjustesTableViewController (){
+    UIDownPicker *_dp;
+    NSMutableArray *values;
+}
 
 @end
 
@@ -21,6 +28,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] init];
+    values = [[NSMutableArray alloc] init];
+    
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    
+    NSString *currentLevelKey = @"seccion_inicio";
+    
+    if ([preferences objectForKey:currentLevelKey] == nil)
+    {
+        //  Doesn't exist.
+        [_seccionesButton setTitle:@"Seleccione" forState:UIControlStateNormal];
+        
+        [_seccionesButton addTarget:self
+                   action:@selector(seccionesPressed:)
+                   forControlEvents:UIControlEventTouchUpInside];
+    }
+    else
+    {
+        //  Get current level
+        NSString * currentLevel = [preferences stringForKey:currentLevelKey];
+
+        [_seccionesButton setTitle:currentLevel forState:UIControlStateNormal];
+        
+        [_seccionesButton addTarget:self
+                   action:@selector(seccionesPressed:)
+         forControlEvents:UIControlEventTouchUpInside];
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -39,271 +72,57 @@
 }
 
 - (void)setupSwitches{
-
+    // [_asistViajes setOn:YES];
+    SessionManager *sesion = [SessionManager session];
     
-    if(([[NSUserDefaults standardUserDefaults] objectForKey:@"cat_bancos"]) == nil) {
-       //Not setup yet
-        
-      [self configureSwitches];
-  
-    } else {
-        
-        //Will be readed
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_asistViajes"] == YES){
-            [_asistViajes setOn:YES];
-        }else{
-            [_asistViajes setOn:NO];
+    NSLog(@"Singleton description: %@",[sesion profileDescription]);
+    UserProfile *perfil = [sesion getUserProfile];
+    [MOCA initializeSDK];
+    MOCAUser * currentUser = [[MOCA currentInstance] login:perfil.email];
+    if (currentUser)
+    {
+        NSLog(@"news: %@",[[MOCA currentInstance] getTagValue:@"preference_wants_news_notification"]);
+        NSNumber *valueNews = [[MOCA currentInstance] getTagValue:@"preference_wants_news_notification"];
+        if([valueNews isEqualToNumber:[NSNumber numberWithInteger:1]]){
+            [_notificacionesNoticia setOn:(YES)];
         }
         
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_bancos"] == YES){
-            [_bancos setOn:YES];
-        }else{
-            [_bancos setOn:NO];
+        NSLog(@"club: %@",[[MOCA currentInstance] getTagValue:@"preference_wants_club_notification"]);
+        NSNumber *valueClub = [[MOCA currentInstance] getTagValue:@"preference_wants_club_notification"];
+        if([valueClub isEqualToNumber:[NSNumber numberWithInteger:1]]){
+            [_notificacionesClub setOn:(YES)];
         }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_casasCambio"] == YES){
-            [_casasCambio setOn:YES];
-        }else{
-            [_casasCambio setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_chocolate"] == YES){
-            [_chocolate setOn:YES];
-        }else{
-            [_chocolate setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_cuidadoPersonal"] == YES){
-            [_cuidadoPersonal setOn:YES];
-        }else{
-            [_cuidadoPersonal setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_farmacias"] == YES){
-            [_farmacias setOn:YES];
-        }else{
-            [_farmacias setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_general"] == YES){
-            [_general setOn:YES];
-        }else{
-            [_general setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_hoteles"] == YES){
-            [_hoteles setOn:YES];
-        }else{
-            [_hoteles setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_jardinesInfantiles"] == YES){
-            [_jardinesInfantiles setOn:YES];
-        }else{
-            [_jardinesInfantiles setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_jugueterias"] == YES){
-            [_jugueterias setOn:YES];
-        }else{
-            [_jugueterias setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_minimarkets"] == YES){
-            [_minimarkets setOn:YES];
-        }else{
-            [_minimarkets setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_musica"] == YES){
-            [_musica setOn:YES];
-        }else{
-            [_musica setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_restoranes"] == YES){
-            [_restoranes setOn:YES];
-        }else{
-            [_restoranes setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_salud"] == YES){
-            [_salud setOn:YES];
-        }else{
-            [_salud setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_tecnologia"] == YES){
-            [_tecnologia setOn:YES];
-        }else{
-            [_tecnologia setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_telefonia"] == YES){
-            [_telefonia setOn:YES];
-        }else{
-            [_telefonia setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_transporte"] == YES){
-            [_transporte setOn:YES];
-        }else{
-            [_transporte setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_turismo"] == YES){
-            [_turismo setOn:YES];
-        }else{
-            [_turismo setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_vestuarioyAccesorios"] == YES){
-            [_vestuarioyAccesorios setOn:YES];
-        }else{
-            [_vestuarioyAccesorios setOn:NO];
-        }
-        
-        if([[NSUserDefaults standardUserDefaults] boolForKey:@"cat_vinosYLicores"] == YES){
-            [_vinosYLicores setOn:YES];
-        }else{
-            [_vinosYLicores setOn:NO];
-        }
-        
-        
-       
     }
-    
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (IBAction)switchChanged:(id)sender {
     NSLog(@"Switch changed");
     [self configureSwitches];
-
+    
 }
 
 
 -(void)configureSwitches{
+    SessionManager *sesion = [SessionManager session];
     
-    if(_asistViajes.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_asistViajes"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_asistViajes"];
+    NSLog(@"Singleton description: %@",[sesion profileDescription]);
+    UserProfile *perfil = [sesion getUserProfile];
+    [MOCA initializeSDK];
+    MOCAUser * currentUser = [[MOCA currentInstance] login:perfil.email];
+    if (currentUser)
+    {
+        if([_notificacionesNoticia isOn]){
+            [[MOCA currentInstance] addTag:@"preference_wants_news_notification" withValue:@"1"];
+        }else{
+            [[MOCA currentInstance] addTag:@"preference_wants_news_notification" withValue:@"0"];
+        }
+        
+        if([_notificacionesClub isOn]){
+            [[MOCA currentInstance] addTag:@"preference_wants_club_notification" withValue:@"1"];
+        }else{
+            [[MOCA currentInstance] addTag:@"preference_wants_club_notification" withValue:@"0"];
+        }
     }
-    
-    if(_bancos.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_bancos"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_bancos"];
-    }
-    
-    if(_casasCambio.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_casasCambio"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_casasCambio"];
-    }
-    
-    if(_chocolate.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_chocolate"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_chocolate"];
-    }
-    
-    if(_cuidadoPersonal.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_cuidadoPersonal"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_cuidadoPersonal"];
-    }
-    if(_farmacias.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_farmacias"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_farmacias"];
-    }
-    
-    if(_general.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_general"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_general"];
-    }
-    
-    if(_hoteles.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_hoteles"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_hoteles"];
-    }
-    
-    if(_jardinesInfantiles.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_jardinesInfantiles"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_jardinesInfantiles"];
-    }
-    
-    if(_jugueterias.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_jugueterias"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_jugueterias"];
-    }
-    
-    if(_minimarkets.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_minimarkets"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_minimarkets"];
-    }
-    
-    if(_musica.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_musica"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_musica"];
-    }
-    
-    if(_restoranes.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_restoranes"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_restoranes"];
-    }
-    
-    if(_salud.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_salud"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_salud"];
-    }
-    
-    if(_tecnologia.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_tecnologia"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_tecnologia"];
-    }
-    
-    if(_telefonia.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_telefonia"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_telefonia"];
-    }
-    
-    if(_transporte.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_transporte"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_transporte"];
-    }
-    
-    if(_turismo.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_turismo"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_turismo"];
-    }
-    
-    if(_vestuarioyAccesorios.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_vestuarioyAccesorios"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_vestuarioyAccesorios"];
-    }
-    
-    if(_vinosYLicores.on){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"cat_vinosYLicores"];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"cat_vinosYLicores"];
-    }
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -326,7 +145,95 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 22;
+    return 5;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row == 0){
+        ConnectionManager *conexion = [[ConnectionManager alloc] init];
+        
+        BOOL estaConectado = [conexion verifyConnection];
+        NSLog(@"Verificando conexión: %d",estaConectado);
+        [conexion getAllCategories:^(BOOL success, NSArray *arrayJson, NSError *error) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (!success) {
+                    NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+                } else {
+                    [self showSecciones:arrayJson];
+                }
+            });
+        }];
+    }
+}
+
+- (IBAction)seccionesPressed:(id)sender {
+    ConnectionManager *conexion = [[ConnectionManager alloc] init];
+    
+    BOOL estaConectado = [conexion verifyConnection];
+    NSLog(@"Verificando conexión: %d",estaConectado);
+    [conexion getAllCategories:^(BOOL success, NSArray *arrayJson, NSError *error) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!success) {
+                NSLog(@"Error obteniendo datos! %@ %@", error, [error localizedDescription]);
+            } else {
+                [self showSecciones:arrayJson];
+            }
+        });
+    }];
+}
+
+-(void) showSecciones: (NSArray*)arrayHeadlinesJson{
+    [values removeAllObjects];
+    for (NSDictionary *objeto in arrayHeadlinesJson) {
+        NSString *valorAGuardar = [objeto valueForKey:@"title"];
+        if([valorAGuardar containsString:@"Teletón"] ||
+           [valorAGuardar containsString:@"test"] ||
+           [valorAGuardar containsString:@"prueba"] ||
+           [valorAGuardar containsString:@"teléfono"]){
+            
+        }else{
+            [values addObject:valorAGuardar];
+        }
+    }
+    
+    /*_dp = [[UIDownPicker alloc] initWithData:values];
+    //[_seccionesButton inputView:_dp];
+    [self.parentViewController.view addSubview:_dp];*/
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Seleccione"
+                                                             delegate:self
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    
+    // ObjC Fast Enumeration
+    for (NSString *title in values) {
+        [actionSheet addButtonWithTitle:title];
+    }
+    
+    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancelar"];
+    
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    
+    NSString *currentLevelKey = @"seccion_inicio";
+    
+    NSString *valor = [values objectAtIndex:buttonIndex];
+    [preferences setValue:valor forKey:currentLevelKey];
+    
+    //  Save to disk
+    const BOOL didSave = [preferences synchronize];
+    
+    if (!didSave)
+    {
+        //  Couldn't save (I've never seen this happen in real world testing)
+    }else{
+        [_seccionesButton setTitle:valor forState:UIControlStateNormal];
+    }
 }
 
 /*

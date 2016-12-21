@@ -98,7 +98,7 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
                                                       error:&error];
     if (error == nil)
     {
-        responseString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         //NSLog(@"responseString: %@ ",responseString);
 
     }
@@ -594,7 +594,7 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     }];
 }
 
--(NSString*)UseBenefitWithIdBenefit:(NSString *)idBeneficio codigoComercio:(NSString*)codComercio sucursal:(NSString*)sucursal email:(NSString*)email monto:(int)monto {
+-(NSString*)UseBenefitWithIdBenefit:(NSString *)idBeneficio codigoComercio:(NSString*)codComercio email:(NSString*)email monto:(int)monto {
     
     NSString * responseString = @"";
     // Send a synchronous request
@@ -604,7 +604,7 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
                                                        timeoutInterval:5.0];
      //id_beneficio, cod_comercio, sucursal, email, monto
     [request setHTTPMethod:@"POST"];
-    NSString *postString = [NSString stringWithFormat:@"id_beneficio=%@&cod_comercio=%@&sucursal=%@&email=%@&monto=%d",idBeneficio,codComercio,sucursal,email,monto];
+    NSString *postString = [NSString stringWithFormat:@"id_beneficio=%@&cod_comercio=%@&email=%@&monto=%d",idBeneficio,codComercio,email,monto];
     NSLog(@"Postring register: %@ ",postString);
     [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -616,6 +616,34 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
     if (error == nil)
     {
         responseString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    }else{
+        responseString = error.description;
+    }
+    return responseString;
+}
+
+-(NSString*)getCommerceById:(int)idCommerce  {
+    
+    NSString * responseString = @"";
+    // Send a synchronous request
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@club/commerce/%d/?format=json",BaseURLString,idCommerce]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:5.0];
+    //id_beneficio, cod_comercio, sucursal, email, monto
+    [request setHTTPMethod:@"GET"];
+    
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:request
+                                          returningResponse:&response
+                                                      error:&error];
+    if (error == nil)
+    {
+        responseString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        //NSLog(@"LAAA RESPUESTAA NUEVAA ES: %@",responseString);
+        
+        
     }else{
         responseString = error.description;
     }

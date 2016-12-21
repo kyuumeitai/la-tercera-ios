@@ -23,7 +23,8 @@
 @property int idArticulo;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property(nonatomic,retain)NSMutableArray *relatedIdsArray;
-@property(nonatomic,retain)NSArray *relatedArticlesArray;
+@property(nonatomic,retain)NSMutableArray *relatedSorted;
+@property(nonatomic,retain)NSMutableArray *relatedArticlesArray;
 @property (weak, nonatomic) IBOutlet DFPBannerView *bannerNewsDetailView;
 @property (weak, nonatomic) IBOutlet UIButton *addCategoryButton;
 @property (weak, nonatomic) IBOutlet UIButton *addToFavoritesButton;

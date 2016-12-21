@@ -72,7 +72,7 @@ BOOL forAnonimo = false;
         
         UsarBeneficioDescuentoAdicional *usarBeneficioController = [self.storyboard instantiateViewControllerWithIdentifier:@"usarBeneficioScreen"];
         
-        NSString * ben = [ NSString stringWithFormat:@"%i",benefitRemoteId];
+        NSString * ben = [ NSString stringWithFormat:@"%i",benefitId];
         NSString * sto = [ NSString stringWithFormat:@"%i",storeId];
         NSString *comm = [ NSString stringWithFormat:@"%i",commerceId];
         NSLog(@"el detalle el parametro comercio sale con valor: %@ y commerce Id: %d",comm,commerceId);
