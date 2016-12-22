@@ -403,13 +403,13 @@ BOOL esFavorito;
             id urlImagen;
             
             //        if ([articulo objectForKey:@"image_url"] == (id)[NSNull null]){
-            //            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+            //            urlImagen = @"https://ltrest.multinetlabs.com/static/lt-default.png";
             //        }else{
             //            urlImagen = [articulo objectForKey:@"image_url"];
             //        }
             //
             if ([articulo objectForKey:@"thumb_url"] == (id)[NSNull null]){
-                urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+                urlImagen = @"https://ltrest.multinetlabs.com/static/lt-default.png";
             }else{
                 urlImagen = [articulo objectForKey:@"thumb_url"];
             }
@@ -450,7 +450,7 @@ BOOL esFavorito;
             id urlImagen;
             
             if ([articulo objectForKey:@"image_url"] == (id)[NSNull null]){
-                urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+                urlImagen = @"https://ltrest.multinetlabs.com/static/lt-default.png";
             }else{
                 urlImagen = [articulo objectForKey:@"image_url"];
             }
@@ -491,7 +491,7 @@ BOOL esFavorito;
             id urlImagen;
             
             if ([articulo objectForKey:@"image_url"] == (id)[NSNull null]){
-                urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+                urlImagen = @"https://ltrest.multinetlabs.com/static/lt-default.png";
             }else{
                 urlImagen = [articulo objectForKey:@"image_url"];
             }
@@ -532,7 +532,7 @@ BOOL esFavorito;
             id urlImagen;
             
             if ([articulo objectForKey:@"image_url"] == (id)[NSNull null]){
-                urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+                urlImagen = @"https://ltrest.multinetlabs.com/static/lt-default.png";
             }else{
                 urlImagen = [articulo objectForKey:@"image_url"];
             }
@@ -661,7 +661,7 @@ BOOL esFavorito;
     id urlImagen;
     
     if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-        urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+        urlImagen = @"https://ltrest.multinetlabs.com/static/lt-default.png";
     }else{
         urlImagen = [articleDict objectForKey:@"image_url"];
     }

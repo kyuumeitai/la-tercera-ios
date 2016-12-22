@@ -233,7 +233,7 @@ NSMutableArray *relatedIdsArrayElDeportivo;
         
         //if ([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]){
         if ([dictTitular objectForKey:@"thumb_url"] == (id)[NSNull null]){
-            imageThumb = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+            imageThumb = @"https://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
             imageThumb = [dictTitular objectForKey:@"thumb_url"];
             //imageThumb = [dictTitular objectForKey:@"thumb_url"];

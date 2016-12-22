@@ -374,7 +374,7 @@ NSString *textoContenidoTemporalVoces = @"";
         id urlImagen;
         
         if (([articleDict objectForKey:@"image_url"] == (id)[NSNull null]) || ([[articleDict objectForKey:@"image_url"] isEqualToString:@""])){
-            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+            urlImagen = @"https://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
             urlImagen = [articleDict objectForKey:@"image_url"];
         }
@@ -415,7 +415,7 @@ NSString *textoContenidoTemporalVoces = @"";
         id urlImagen;
         
         if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+            urlImagen = @"https://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
             urlImagen = [articleDict objectForKey:@"image_url"];
         }
@@ -455,7 +455,7 @@ NSString *textoContenidoTemporalVoces = @"";
         id urlImagen;
         
         if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+            urlImagen = @"https://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
             urlImagen = [articleDict objectForKey:@"image_url"];
         }
@@ -495,7 +495,7 @@ NSString *textoContenidoTemporalVoces = @"";
         id urlImagen;
         
         if ([articleDict objectForKey:@"image_url"] == (id)[NSNull null]){
-            urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+            urlImagen = @"https://ltrest.multinetlabs.com/static/lt-default.png";
         }else{
             urlImagen = [articleDict objectForKey:@"image_url"];
         }
@@ -580,7 +580,7 @@ NSString *textoContenidoTemporalVoces = @"";
     
     if (([articleDict objectForKey:@"image_url"] == (id)[NSNull null]) || ([[articleDict objectForKey:@"image_url"] isEqualToString:@""])){
 
-        urlImagen = @"http://ltrest.multinetlabs.com/static/lt-default.png";
+        urlImagen = @"https://ltrest.multinetlabs.com/static/lt-default.png";
     }else{
         urlImagen = [articleDict objectForKey:@"image_url"];
     }

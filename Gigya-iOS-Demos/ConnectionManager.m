@@ -11,7 +11,7 @@
 #import "AFNetworking.h"
 #import "Reachability.h"
 
-static NSString * const BaseURLString = @"http://ltrest.multinetlabs.com/";
+static NSString * const BaseURLString = @"https://ltrest.multinetlabs.com/";
 static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
 
 @implementation ConnectionManager
