@@ -73,7 +73,7 @@ GigyaFormAction formType;
         userStatus = [[json objectForKey:@"status"] boolValue];
     }
     int userDevice = 0;
-    if([json objectForKey:@"device"] != NULL){
+    if([json objectForKey:@"device"] != nil){
         userDevice = [[json objectForKey:@"device"] intValue];
     }
     // int userDevice =-111;
@@ -379,7 +379,7 @@ GigyaFormAction formType;
                 
                //id status = [json objectForKey:@"status"];
                 int userDevice = 0;
-                if([json objectForKey:@"device"] != NULL){
+                if([json objectForKey:@"device"] != nil){
                     userDevice = [[json objectForKey:@"device"] intValue];
                 }
                 //int userDevice =-111;
@@ -490,7 +490,7 @@ GigyaFormAction formType;
                     userStatus = [[json objectForKey:@"status"] boolValue];
                 }
                 int userDevice = 0;
-                if([json objectForKey:@"device"] != NULL){
+                if([json objectForKey:@"device"] != nil){
                     userDevice = [[json objectForKey:@"device"] intValue];
                 }
                 //int userDevice =-111;
@@ -587,7 +587,7 @@ GigyaFormAction formType;
                      userStatus = [[json objectForKey:@"status"] boolValue];
                     }
                     int userDevice = 0;
-                    if([json objectForKey:@"device"] != NULL){
+                    if([json objectForKey:@"device"] != nil){
                         userDevice = [[json objectForKey:@"device"] intValue];
                     }
                     //int userDevice =-111;
@@ -675,7 +675,7 @@ GigyaFormAction formType;
                         userStatus = [[json objectForKey:@"status"] boolValue];
                     }
                     int userDevice = 0;
-                    if([json objectForKey:@"device"] != NULL){
+                    if([json objectForKey:@"device"] != nil){
                         userDevice = [[json objectForKey:@"device"] intValue];
                     }
                     //int userDevice =-111;
