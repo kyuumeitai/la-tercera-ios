@@ -72,7 +72,10 @@ GigyaFormAction formType;
     }else{
         userStatus = [[json objectForKey:@"status"] boolValue];
     }
-    int userDevice = [[json objectForKey:@"device"] intValue];
+    int userDevice = 0;
+    if([json objectForKey:@"device"] != nil){
+        userDevice = [[json objectForKey:@"device"] intValue];
+    }
     // int userDevice =-111;
     NSString *userGigyaId = [json objectForKey:@"gigya_id"];
     
@@ -314,14 +317,14 @@ GigyaFormAction formType;
             if([operation isEqualToString:@"/accounts.l"]){
               NSLog(@"---------*** Es un login ***---------");
                 formType = LOGIN;
-                email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
+                email = [self getStringValueForResponseString:responseString andLlave:@"email"];
                 
-                gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
+                gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID"];
                 if([email isEqualToString:@"errorCode"]== false){
                     verifyState = [self getStringValueForResponseString:responseString andLlave:@"email"];
                     firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
                     lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
-                    gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
+                    gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID"];
                     gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
                     NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
                     NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
@@ -344,15 +347,15 @@ GigyaFormAction formType;
                 NSLog(@"***::::-----    %@     -----::::***\r\r\r",respuesta);
                 
                 //leemos el objeto retornado
-                NSLog(@"***************::::-----  Procedemos al leer el perfil:        -----::::**************");
+                NSLog(@"***************::::-----  Procedemos al leer el perfil: accounts.l        -----::::**************");
 
                 NSData *data = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
                 id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                 
                 NSString *userEmail = [json objectForKey:@"email"];
-                 NSString *userProfileType = [json objectForKey:@"profile_type"];
-                int notifClub = [[json objectForKey:@"notificaciones_club"] intValue];
-                int notifNoticias = [[json objectForKey:@"notificaciones_noticias"] intValue];
+                NSString *userProfileType = [json objectForKey:@"profile_type"];
+                BOOL notifClub = [[json objectForKey:@"notificaciones_club"] boolValue];
+                BOOL notifNoticias = [[json objectForKey:@"notificaciones_noticias"] boolValue];
 
                 
                 //temporary comment
@@ -376,8 +379,10 @@ GigyaFormAction formType;
                     }
                 
                //id status = [json objectForKey:@"status"];
-          
-                int userDevice = [[json objectForKey:@"device"] intValue];
+                int userDevice = 0;
+                if([json objectForKey:@"device"] != nil){
+                    userDevice = [[json objectForKey:@"device"] intValue];
+                }
                 //int userDevice =-111;
                 NSString *userGigyaId = [json objectForKey:@"gigya_id"];
                 BOOL userStatus = false;
@@ -396,13 +401,13 @@ GigyaFormAction formType;
                 perfil.status = userStatus;
                 perfil.device = userDevice;
                 
-                if (notifClub == 1){
+                if (notifClub){
                     perfil.notificacionesClub = true;
                 }else{
-                      perfil.notificacionesClub = false;
+                    perfil.notificacionesClub = false;
                 }
                 
-                if (notifNoticias == 1){
+                if (notifNoticias){
                     perfil.notificacionesNoticias = true;
                 }else{
                     perfil.notificacionesNoticias = false;
@@ -435,9 +440,9 @@ GigyaFormAction formType;
             if([operation isEqualToString:@"/accounts.s"]){
                 NSLog(@"---------*** Es un login con red social***---------");
                 formType = LOGIN;
-                email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
+                email = [self getStringValueForResponseString:responseString andLlave:@"email"];
                 
-                gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
+                gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID"];
 
                 formType = LOGIN;
              
@@ -445,7 +450,7 @@ GigyaFormAction formType;
                     verifyState = [self getStringValueForResponseString:responseString andLlave:@"email"];
                     firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
                     lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
-                    gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
+                    gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID"];
                     gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
                     NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
                     NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
@@ -477,15 +482,18 @@ GigyaFormAction formType;
                 NSString *userEmail = [json objectForKey:@"email"];
                 int userProfileLevel = [[json objectForKey:@"profile_level"] intValue];
                 NSString *userProfileType = [json objectForKey:@"profile_type"];
-                int notifClub = [[json objectForKey:@"notificaciones_club"] intValue];
-                int notifNoticias = [[json objectForKey:@"notificaciones_noticias"] intValue];
+                BOOL notifClub = [[json objectForKey:@"notificaciones_club"] boolValue];
+                BOOL notifNoticias = [[json objectForKey:@"notificaciones_noticias"] boolValue];
                 BOOL userStatus = false;
                 if([json objectForKey:@"status"] == NULL){
                     userStatus = false;
                 }else{
                     userStatus = [[json objectForKey:@"status"] boolValue];
                 }
-                int userDevice = [[json objectForKey:@"device"] intValue];
+                int userDevice = 0;
+                if([json objectForKey:@"device"] != nil){
+                    userDevice = [[json objectForKey:@"device"] intValue];
+                }
                 //int userDevice =-111;
                 NSString *userGigyaId = [json objectForKey:@"gigya_id"];
                 
@@ -499,13 +507,13 @@ GigyaFormAction formType;
                 perfil.status = userStatus;
                 perfil.device = userDevice;
                 
-                if (notifClub == 1){
+                if (notifClub){
                     perfil.notificacionesClub = true;
                 }else{
                     perfil.notificacionesClub = true;
                 }
                 
-                if (notifNoticias == 1){
+                if (notifNoticias){
                     perfil.notificacionesNoticias = true;
                 }else{
                     perfil.notificacionesNoticias = true;
@@ -539,12 +547,12 @@ GigyaFormAction formType;
                 NSLog(@"---------*** Es un Registro ***---------");
                 formType = REGISTRO;
 
-                email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
+                email = [self getStringValueForResponseString:responseString andLlave:@"email"];
                 if([email isEqualToString:@"errorCode"]== false){
                 verifyState = [self getStringValueForResponseString:responseString andLlave:@"email"];
                 firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
                 lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
-                gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
+                gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID"];
                 gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
                 NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
                 NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
@@ -579,7 +587,10 @@ GigyaFormAction formType;
                     }else{
                      userStatus = [[json objectForKey:@"status"] boolValue];
                     }
-                    int userDevice = [[json objectForKey:@"device"] intValue];
+                    int userDevice = 0;
+                    if([json objectForKey:@"device"] != nil){
+                        userDevice = [[json objectForKey:@"device"] intValue];
+                    }
                     //int userDevice =-111;
                     NSString *userGigyaId = [json objectForKey:@"gigya_id"];
                     
@@ -623,12 +634,12 @@ GigyaFormAction formType;
                 NSLog(@"---------*** Es un Registro nuevoo con g ***---------");
                 formType = REGISTRO;
                 
-                email = [self getStringValueForResponseString:responseString andLlave:@"email\""];
+                email = [self getStringValueForResponseString:responseString andLlave:@"email"];
                 if([email isEqualToString:@"errorCode"]== false){
                     verifyState = [self getStringValueForResponseString:responseString andLlave:@"email"];
                     firstName = [self getStringValueForResponseString:responseString andLlave:@"firstName"];
                     lastName = [self getStringValueForResponseString:responseString andLlave:@"lastName"];
-                    gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID\""];
+                    gigyaID = [self getStringValueForResponseString:responseString andLlave:@"UID"];
                     gender = [self getStringValueForResponseString:responseString andLlave:@"gender"];
                     NSString *birthDay = [self getStringValueForResponseString:responseString andLlave:@"birthDay"];
                     NSString *birthMonth = [self getStringValueForResponseString:responseString andLlave:@"birthMonth"];
@@ -664,7 +675,10 @@ GigyaFormAction formType;
                     }else{
                         userStatus = [[json objectForKey:@"status"] boolValue];
                     }
-                    int userDevice = [[json objectForKey:@"device"] intValue];
+                    int userDevice = 0;
+                    if([json objectForKey:@"device"] != nil){
+                        userDevice = [[json objectForKey:@"device"] intValue];
+                    }
                     //int userDevice =-111;
                     NSString *userGigyaId = [json objectForKey:@"gigya_id"];
                     
