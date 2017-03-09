@@ -64,7 +64,7 @@ NSMutableArray *relatedIdsArrayInicio;
     storyBoardNameInicio = sesion.storyBoardName;
     NSUInteger *i = 0;
     for (ContentType *contenido in sesion.categoryList) {
-        if([contenido.contentHeadType isEqualToString:@"inicio"] && !contenido.contentIsShow){
+        if(contenido.contentIsTypeInicio && !contenido.contentIsShow){
             self.categoryIdNoticiasInicio = contenido.contentId;
             NSLog(@"ESTAMOS OKEYYY %d", self.categoryIdNoticiasInicio);
             contenido.contentIsShow = TRUE;

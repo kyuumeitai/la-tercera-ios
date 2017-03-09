@@ -151,9 +151,10 @@ BOOL sidebarMenuOpen ;
         contenido.contentId = [[objeto valueForKey:@"id"] intValue] ;
         contenido.contentSlug = [objeto valueForKey:@"slug"] ;
         contenido.contentTitle = [objeto valueForKey:@"title"] ;
-        contenido.contentHeadType = @"";
+        contenido.contentHeadType = [objeto valueForKey:@"head_type"] ;
         contenido.contentVisibility = [[objeto valueForKey:@"visibility"] boolValue];
         contenido.contentIsShow = FALSE;
+        contenido.contentIsTypeInicio = FALSE;
         
         NSString *slug = contenido.contentSlug ;
 
@@ -161,7 +162,7 @@ BOOL sidebarMenuOpen ;
             NewsCategoryInicioViewController *newsInicioVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
             newsInicioVC.title = contenido.contentTitle;
             [arrayVC addObject:newsInicioVC];
-            contenido.contentHeadType = @"inicio";
+            contenido.contentIsTypeInicio = TRUE;
         } else if([slug isEqualToString:@"nacional"]){
             newsNacionalVC.title = contenido.contentTitle;
         } else if([slug isEqualToString:@"politica"]){
@@ -184,7 +185,7 @@ BOOL sidebarMenuOpen ;
                 newsInicioVC.title = contenido.contentTitle;
                 newsInicioVC.categoryIdNoticiasInicio = contenido.contentId;
                 [arrayVC addObject:newsInicioVC];
-                contenido.contentHeadType = @"inicio";
+                contenido.contentIsTypeInicio = TRUE;
             }
         }
         

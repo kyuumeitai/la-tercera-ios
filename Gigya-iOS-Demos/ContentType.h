@@ -16,6 +16,7 @@
 @property (nonatomic,strong) NSString * contentHeadType;
 @property (nonatomic) BOOL * contentVisibility;
 @property (nonatomic) BOOL * contentIsShow;
+@property (nonatomic) BOOL * contentIsTypeInicio;
 
 -(void)logDescription;
 @end
