@@ -221,7 +221,7 @@ static NSString * const PapelBaseURLString = @"http://papeldigital.info/";
 
 -(void)getAllCategories:(getDataBlock)completionBlock{
     
-    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@contenido/headlines/?format=json",BaseURLString]];
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@contenido/headlines/?head_type=portada&format=json",BaseURLString]];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
