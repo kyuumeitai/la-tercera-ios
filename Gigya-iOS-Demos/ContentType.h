@@ -14,6 +14,7 @@
 @property (nonatomic,strong) NSString * contentTitle;
 @property (nonatomic,strong) NSString * contentSlug;
 @property (nonatomic,strong) NSString * contentHeadType;
+@property (nonatomic) BOOL * contentIsShow;
 
 -(void)logDescription;
 @end

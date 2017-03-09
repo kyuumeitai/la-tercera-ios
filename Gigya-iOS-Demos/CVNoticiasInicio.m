@@ -62,12 +62,17 @@ NSMutableArray *relatedIdsArrayInicio;
     self.collectionView.delegate = self;
     SessionManager *sesion = [SessionManager session];
     storyBoardNameInicio = sesion.storyBoardName;
+    NSUInteger *i = 0;
     for (ContentType *contenido in sesion.categoryList) {
-        if([contenido.contentSlug isEqualToString:categorySlug]){
+        if([contenido.contentHeadType isEqualToString:@"inicio"] && !contenido.contentIsShow){
             self.categoryIdNoticiasInicio = contenido.contentId;
             NSLog(@"ESTAMOS OKEYYY %d", self.categoryIdNoticiasInicio);
+            contenido.contentIsShow = TRUE;
+            //[sesion.categoryList replaceObjectAtIndex:i withObject:contenido];
+            break;
         }
-
+        
+        i = i + 1;
     }
 
     NSLog(@" El nombre del storboard es: %@", storyBoardNameInicio);

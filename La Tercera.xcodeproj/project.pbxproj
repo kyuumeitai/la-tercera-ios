@@ -3459,8 +3459,8 @@
 				ORGANIZATIONNAME = Copesa;
 				TargetAttributes = {
 					1702BD0B1CB093E400F26F42 = {
-						DevelopmentTeam = 4VA549C7DB;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = SQXBEDV725;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -3472,7 +3472,7 @@
 					};
 					52BCE1F41A48A65900924AD8 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 4VA549C7DB;
+						DevelopmentTeam = SQXBEDV725;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1702BD0B1CB093E400F26F42;
 					};
@@ -4468,7 +4468,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Cellkomm Chile S.A. (5N9H8P5H62)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4VA549C7DB;
+				DEVELOPMENT_TEAM = SQXBEDV725;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Gigya-iOS-Demos",
@@ -4485,10 +4485,10 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cl.copesa.latercera;
+				PRODUCT_BUNDLE_IDENTIFIER = cl.copesa.latercera.brainglab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e9e01cfb-c960-4e1a-aa33-b97f4106c8a5";
-				PROVISIONING_PROFILE_SPECIFIER = "LaTercera - Dev";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4500,9 +4500,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "La Tercera App.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Cellkomm Chile S.A. (5N9H8P5H62)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4VA549C7DB;
+				DEVELOPMENT_TEAM = SQXBEDV725;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Gigya-iOS-Demos",
@@ -4519,10 +4519,10 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cl.copesa.latercera;
+				PRODUCT_BUNDLE_IDENTIFIER = cl.copesa.latercera.brainglab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "798a176b-f2e4-40e8-a77d-0f49fb032ed6";
-				PROVISIONING_PROFILE_SPECIFIER = "LaTercera - Prod";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -4635,7 +4635,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4VA549C7DB;
+				DEVELOPMENT_TEAM = SQXBEDV725;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -4665,7 +4665,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Copesa (4VA549C7DB)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Copesa (4VA549C7DB)";
-				DEVELOPMENT_TEAM = 4VA549C7DB;
+				DEVELOPMENT_TEAM = SQXBEDV725;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

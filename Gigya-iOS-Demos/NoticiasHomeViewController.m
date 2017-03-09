@@ -32,6 +32,7 @@
 
 @interface NoticiasHomeViewController() <YSLContainerViewControllerDelegate, SWRevealViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
+
 @end
 
 @implementation NoticiasHomeViewController
@@ -119,9 +120,11 @@ BOOL sidebarMenuOpen ;
 
 -(void) setupNewsCategories: (NSArray*)arrayHeadlinesJson{
     
+    NSMutableArray *arrayVC = [[NSMutableArray alloc]init];
+    [arrayVC removeAllObjects];
     
     // SetUp ViewControllers
-    NewsCategoryInicioViewController *newsInicioVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
+    //NewsCategoryInicioViewController *newsInicioVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
     
     NewsCategoryNacionalViewController *newsNacionalVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryNacional"];
     
@@ -141,44 +144,49 @@ BOOL sidebarMenuOpen ;
     
     
     SessionManager *sesion = [SessionManager session];
-
+    [sesion.categoryList removeAllObjects];
+    
     for (NSDictionary *objeto in arrayHeadlinesJson) {
         ContentType *contenido = [[ContentType alloc]init];
         contenido.contentId = [[objeto valueForKey:@"id"] intValue] ;
         contenido.contentSlug = [objeto valueForKey:@"slug"] ;
         contenido.contentTitle = [objeto valueForKey:@"title"] ;
-        [sesion.categoryList addObject:contenido];
-        [contenido logDescription];
+        contenido.contentHeadType = @"";
+        contenido.contentIsShow = FALSE;
         
         NSString *slug = contenido.contentSlug ;
 
         if([slug isEqualToString:@"home"]){
+            NewsCategoryInicioViewController *newsInicioVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
             newsInicioVC.title = contenido.contentTitle;
-        }
-        if([slug isEqualToString:@"nacional"]){
+            [arrayVC addObject:newsInicioVC];
+            contenido.contentHeadType = @"inicio";
+        } else if([slug isEqualToString:@"nacional"]){
             newsNacionalVC.title = contenido.contentTitle;
-        }
-        if([slug isEqualToString:@"politica"]){
+        } else if([slug isEqualToString:@"politica"]){
             newsPoliticaVC.title = contenido.contentTitle;
-        }
-        if([slug isEqualToString:@"mundo"]){
+        } else if([slug isEqualToString:@"mundo"]){
             newsMundoVC.title = contenido.contentTitle;
-        }
-        if([slug isEqualToString:@"tendencias"]){
+        } else if([slug isEqualToString:@"tendencias"]){
             newsTendenciasVC.title = contenido.contentTitle;
-        }
-        if([slug isEqualToString:@"negocios"]){
+        } else if([slug isEqualToString:@"negocios"]){
             newsNegociosVC.title = contenido.contentTitle;
-        }
-        if([slug isEqualToString:@"el-deportivo"]){
+        } else if([slug isEqualToString:@"el-deportivo"]){
             newsElDeportivoVC.title = contenido.contentTitle;
-        }
-        if([slug isEqualToString:@"entretencion"]){
+        } else if([slug isEqualToString:@"entretencion"]){
             newsEntretencionVC.title = contenido.contentTitle;
-        }
-        if([slug isEqualToString:@"cultura"]){
+        } else if([slug isEqualToString:@"cultura"]){
             newsCulturaVC.title = contenido.contentTitle;
+        } else {
+            NewsCategoryInicioViewController *newsInicioVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
+            newsInicioVC.title = contenido.contentTitle;
+            newsInicioVC.categoryIdNoticiasInicio = contenido.contentId;
+            [arrayVC addObject:newsInicioVC];
+            contenido.contentHeadType = @"inicio";
         }
+        
+        [sesion.categoryList addObject:contenido];
+        [contenido logDescription];
     }
     
     float headerSpace = 5.0;
@@ -190,14 +198,34 @@ BOOL sidebarMenuOpen ;
     if(profileLevel == 2){
         MiSeleccionViewController *miSeleccion = [self.storyboard instantiateViewControllerWithIdentifier:@"newsMiSeleccion"];
         miSeleccion.title = @"Mi Selección";
-            YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,miSeleccion,newsNacionalVC,newsPoliticaVC,newsMundoVC,newsTendenciasVC,newsNegociosVC, newsElDeportivoVC ,newsEntretencionVC ,newsCulturaVC ]                                                                                        topBarHeight:headerSpace     parentViewController:self];
+        
+        [arrayVC addObject: miSeleccion];
+        [arrayVC addObject: newsNacionalVC];
+        [arrayVC addObject: newsPoliticaVC];
+        [arrayVC addObject: newsMundoVC];
+        [arrayVC addObject: newsTendenciasVC];
+        [arrayVC addObject: newsNegociosVC];
+        [arrayVC addObject: newsElDeportivoVC];
+        [arrayVC addObject: newsEntretencionVC];
+        [arrayVC addObject: newsCulturaVC];
+        
+        YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:arrayVC topBarHeight:headerSpace parentViewController:self];
         containerVC.delegate = self;
         containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
         UIView *getView = (UIView*)[self.view viewWithTag:100];
         [getView addSubview:containerVC.view];
     }else{
+        
+        [arrayVC addObject: newsNacionalVC];
+        [arrayVC addObject: newsPoliticaVC];
+        [arrayVC addObject: newsMundoVC];
+        [arrayVC addObject: newsTendenciasVC];
+        [arrayVC addObject: newsNegociosVC];
+        [arrayVC addObject: newsElDeportivoVC];
+        [arrayVC addObject: newsEntretencionVC];
+        [arrayVC addObject: newsCulturaVC];
 
-        YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:@[newsInicioVC,newsNacionalVC,newsPoliticaVC,newsMundoVC,newsTendenciasVC,newsNegociosVC, newsElDeportivoVC ,newsEntretencionVC ,newsCulturaVC]                                                                                        topBarHeight:headerSpace     parentViewController:self];
+        YSLContainerViewController *containerVC = [[YSLContainerViewController alloc]initWithControllers:arrayVC topBarHeight:headerSpace parentViewController:self];
         containerVC.delegate = self;
         containerVC.menuItemFont = [UIFont fontWithName:@"PT-Sans" size:16];
         UIView *getView = (UIView*)[self.view viewWithTag:100];

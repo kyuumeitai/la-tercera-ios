@@ -10,7 +10,7 @@
 
 @interface NewsCategoryInicioViewController : UIViewController
 
-
+@property int categoryIdNoticiasInicio;
 
 
 @end
