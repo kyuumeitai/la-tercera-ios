@@ -152,6 +152,7 @@ BOOL sidebarMenuOpen ;
         contenido.contentSlug = [objeto valueForKey:@"slug"] ;
         contenido.contentTitle = [objeto valueForKey:@"title"] ;
         contenido.contentHeadType = @"";
+        contenido.contentVisibility = [[objeto valueForKey:@"visibility"] boolValue];
         contenido.contentIsShow = FALSE;
         
         NSString *slug = contenido.contentSlug ;
@@ -178,11 +179,13 @@ BOOL sidebarMenuOpen ;
         } else if([slug isEqualToString:@"cultura"]){
             newsCulturaVC.title = contenido.contentTitle;
         } else {
-            NewsCategoryInicioViewController *newsInicioVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
-            newsInicioVC.title = contenido.contentTitle;
-            newsInicioVC.categoryIdNoticiasInicio = contenido.contentId;
-            [arrayVC addObject:newsInicioVC];
-            contenido.contentHeadType = @"inicio";
+            if (contenido.contentVisibility) {
+                NewsCategoryInicioViewController *newsInicioVC = [self.storyboard instantiateViewControllerWithIdentifier:@"newsCategoryInicio"];
+                newsInicioVC.title = contenido.contentTitle;
+                newsInicioVC.categoryIdNoticiasInicio = contenido.contentId;
+                [arrayVC addObject:newsInicioVC];
+                contenido.contentHeadType = @"inicio";
+            }
         }
         
         [sesion.categoryList addObject:contenido];
