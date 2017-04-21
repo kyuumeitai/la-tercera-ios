@@ -95,7 +95,7 @@ GigyaFormAction formType;
         id value = [json objectForKey:key];
         NSLog(@"Clave %@: %@", key,value);
     }
-    NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
+    NSLog(@"***************::::-----  FIN DEL PERFIL (1)      -----::::**************\r\r");
     NSLog(@"***************::::----- session  : %@  -----::::**************\r\r",[sesion profileDescription]);
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -430,7 +430,7 @@ GigyaFormAction formType;
                     id value = [json objectForKey:key];
                    NSLog(@"Clave %@: %@", key,value);
                 }
-                NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
+                NSLog(@"***************::::-----  FIN DEL PERFIL (2)     -----::::**************\r\r");
                 
                 
                 NSLog(@"***************::::----- session  : %@  -----::::**************\r\r",[sesion profileDescription]);
@@ -537,7 +537,7 @@ GigyaFormAction formType;
                     NSLog(@"Clave %@: %@", key,value);
                 }
                 
-                NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
+                NSLog(@"***************::::-----  FIN DEL PERFIL (3)     -----::::**************\r\r");
                 NSLog(@"***************::::-----   Session : %@  -----::::**************\r\r",[sesion profileDescription]);
             }
 
@@ -619,7 +619,7 @@ GigyaFormAction formType;
                         id value = [json objectForKey:key];
                         NSLog(@"Clave %@: %@", key,value);
                     }
-                    NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
+                    NSLog(@"***************::::-----  FIN DEL PERFIL (4)     -----::::**************\r\r");
                          NSLog(@"***************::::----- session  : %@  -----::::**************\r\r",[sesion profileDescription]);
                 }else{
                     NSLog(@"***::::-----  EMAIL YA REGISTRADO:      -----::::***");
@@ -716,7 +716,7 @@ GigyaFormAction formType;
                         id value = [json objectForKey:key];
                         NSLog(@"Clave %@: %@", key,value);
                     }
-                    NSLog(@"***************::::-----  FIN DEL PERFIL      -----::::**************\r\r");
+                    NSLog(@"***************::::-----  FIN DEL PERFIL (5)     -----::::**************\r\r");
                     NSLog(@"***************::::----- session  : %@  -----::::**************\r\r",[sesion profileDescription]);
                 }else{
                     NSLog(@"***::::-----  EMAIL YA REGISTRADO:      -----::::***");

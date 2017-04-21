@@ -7,6 +7,9 @@
 //
 
 #import "PageContentViewController.h"
+#import "SessionManager.h"
+#import "Tools.h"
+#import "UserProfile.h"
 
 @interface PageContentViewController ()
 
@@ -23,7 +26,7 @@
     if (_isFinalPage){
         NSLog(@"Es la página final");
         self.finishButton.hidden = false;
-         _finishButton.alpha = 1.0;
+        _finishButton.alpha = 1.0; 
     }
     // Do any additional setup after loading the view.
 }
